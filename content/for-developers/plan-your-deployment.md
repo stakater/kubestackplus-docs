@@ -15,7 +15,7 @@ Application(s) needs to evaluated carefully for whether they need to be run as c
 
 ### Is it stateless or stateful?
 
-Evaluate whether you application is stateless or stateful. Stateless apps are easy to deploy and require less configurations compared to stateful apps. They don't require a persistent data storage or a stable network IP address and leverage other services. If an application doesn't require any stable identifiers or ordered deployment, deletion, or scaling, you should deploy your application using a workload object that provides a set of stateless replicas.
+Evaluate whether your application is stateless or stateful. Stateless apps are easy to deploy and require fewer configurations compared to stateful apps. They don't require a persistent data storage or a stable network IP address and leverage other services. If an application doesn't require any stable identifiers or ordered deployment, deletion, or scaling, you should deploy your application using a workload object that provides a set of stateless replicas.
 
 ### What components make up the application being migrated? Is it a single service or a collection of services that work together?
 
