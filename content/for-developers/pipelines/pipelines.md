@@ -242,4 +242,4 @@ With all these components in place - now it's time to trigger pipeline via webho
 
 🪄 Observe Pipeline running by browsing to `OpenShift UI` > `Pipelines` from left pane > `Pipelines` in your `<TENANT_NAME>-build` project:
 
-![pipeline-running.png](images/pipeline-running.png)
+![pipeline-running.png](./images/pipeline-running.png)
