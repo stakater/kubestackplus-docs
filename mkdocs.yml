@@ -81,7 +81,6 @@ nav:
             - about/cloud-providers/safespring.md
         - about/update-lifecycle.md
         - about/onboarding.md
-        - about/release-notes.md
     - For Administrators:
         - for-administrators/overview.md
         - for-administrators/requirements.md
