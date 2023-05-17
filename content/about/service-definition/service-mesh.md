@@ -1,6 +1,6 @@
 # Service Mesh
 
-SAAP provides an optional one fully managed service mesh control instance, it means that SAAP provides a pre-configured and managed service mesh infrastructure for handling service-to-service communication within a microservices architecture. 
+SAAP provides an optional one fully managed service mesh control instance, it means that SAAP provides a pre-configured and managed service mesh infrastructure for handling service-to-service communication within a microservices architecture.
 
 Here's an explanation of the managed service mesh instance within SAAP:
 
