@@ -48,8 +48,4 @@ Node autoscaling is available on AWS. You can configure the autoscaler option to
 
 ## Network usage
 
-TODO
-
 ## Cloud network configuration
-
-TODO
