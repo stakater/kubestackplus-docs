@@ -216,7 +216,6 @@ nav:
             - managed-addons/monitoring-stack/stack.md
             - managed-addons/monitoring-stack/app-uptime.md
             - managed-addons/monitoring-stack/app-alerts.md
-            - managed-addons/monitoring-stack/goldilocks.md
             - managed-addons/monitoring-stack/grafana-dashboard.md
             - managed-addons/monitoring-stack/downtime-notifications-uptimerobot.md
             - managed-addons/monitoring-stack/log-alerts.md
