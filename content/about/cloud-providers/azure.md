@@ -18,3 +18,22 @@ An azure subscription is needed to create and manage cluster on azure. The follo
   | StandardStorageSnapshots | 10000 (depends on how many disks are used) and backup duration |
   | Machine Specifications | 6 machines of 8x32x120G |
   | Region | Region will be identified by the customer |
+
+## Instance Types
+
+SAAP offers the following worker node types and sizes on Azure:
+
+### General Purpose
+
+- 
+
+### Memory Optimized
+
+- 
+
+### Compute Optimized
+
+- 
+### Autoscaling
+
+Node autoscaling is available on Azure. You can configure the autoscaler option to automatically scale the number of machines in a cluster.

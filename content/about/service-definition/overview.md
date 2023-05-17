@@ -1,12 +1,14 @@
 # Overview
 
-1. Managed Kubernetes (Red Hat OpenShift)
-2. Managed Monitoring Stack (Prometheus, Grafana, Alert Manager)
-3. Managed Logging Stack (Fluentd, Vector, ElasticSearch, Kibana)
+This section outlines the service definition for the SAAP:
+
+1. [Managed Kubernetes (Red Hat OpenShift)](platform.md)
+2. [Managed Monitoring Stack (Prometheus, Grafana, Alert Manager)](monitoring.md)
+3. [Managed Logging Stack (Fluentd, Vector, ElasticSearch, Kibana)](logging.md)
 4. Managed Container Registry (Nexus)
 5. Managed Artifacts Store (Nexus)
-6. Managed Backup Recovery (Velero)
-7. Managed Secrets Management (Vault)
+6. Managed Backup Restore (Velero)
+7. [Managed Secrets Management (Vault)](secrets-management.md)
 8. Managed Multi-tenancy (MTO)
 9. Managed Service Mesh (Istio, Kiali, Jagaer)
 10. Managed Certs
