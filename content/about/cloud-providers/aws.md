@@ -42,6 +42,10 @@ SAAP offers the following worker node types and sizes on AWS:
 - c5.2xlarge (8 vCPU, 16 GiB)
 - c5.4xlarge (16 vCPU, 32 GiB)
 
+### Autoscaling
+
+Node autoscaling is available on AWS. You can configure the autoscaler option to automatically scale the number of machines in a cluster.
+
 ## Network usage
 
 ## Cloud network configuration
