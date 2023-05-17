@@ -29,15 +29,10 @@ SAAP offers the following worker node types and sizes on GCP:
 
 ### General Purpose
 
-- 
-
 ### Memory Optimized
-
-- 
 
 ### Compute Optimized
 
-- 
 ### Autoscaling
 
 Node autoscaling is available on GCP. You can configure the autoscaler option to automatically scale the number of machines in a cluster.

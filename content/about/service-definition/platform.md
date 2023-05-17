@@ -6,7 +6,7 @@ Node autoscaling is available on few clouds; you can find details in the relevan
 
 ## Daemonsets
 
-Customers can create and run daemonsets on SAAP. To restrict daemonsets to only running on worker nodes, use the following nodeSelector:
+Customers can create and run daemonsets on SAAP. To restrict daemonsets to only running on worker nodes, use the following `nodeSelector`:
 
 ```
 ...

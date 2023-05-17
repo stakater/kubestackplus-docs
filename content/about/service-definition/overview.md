@@ -10,7 +10,7 @@ This section outlines the service definition for the SAAP:
 6. Managed Backup Restore (Velero)
 7. [Managed Secrets Management (Vault)](secrets-management.md)
 8. Managed Multi-tenancy (MTO)
-9. Managed Service Mesh (Istio, Kiali, Jagaer)
+9. Managed Service Mesh (`Istio`, `Kiali`, `Jagaer`, `Prometheus`)
 10. Managed Certs
 11. Managed CD (ArgoCD)
 12. Managed CI (Tekton)

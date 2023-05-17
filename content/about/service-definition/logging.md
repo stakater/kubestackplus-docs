@@ -8,7 +8,7 @@ Cluster audit logs are available through log store, if the integration is enable
 
 ## Application logging
 
-Application logs sent to STDOUT are collected by log collector and forwarded to log store through the cluster logging stack, if it is installed.
+Application logs sent to `STDOUT` are collected by log collector and forwarded to log store through the cluster logging stack, if it is installed.
 
 ## Data retention
 
