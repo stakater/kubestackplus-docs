@@ -62,6 +62,7 @@ nav:
             - about/service-definition/secrets-management.md
             - about/service-definition/artifacts-management.md
             - about/service-definition/cicd-pipelines.md
+            - about/service-definition/service-mesh.md
             - about/service-definition/multitenancy.md
         - Responsibility Matrix:
             - about/responsibility-matrix/overview.md
@@ -91,6 +92,7 @@ nav:
             - for-administrators/provision-your-cluster.md
         - Secure your cluster:
             - for-administrators/secure-your-cluster/user-access.md
+            - for-administrators/secure-your-cluster/secure-routes.md
         - Onboarding:
             - Day 1:
                 - for-administrators/onboarding/day1/bootstrap-gitops.md
@@ -102,6 +104,7 @@ nav:
                 - for-administrators/onboarding/day2/add-template.md
         - Manage Network:
             - for-administrators/networking/custom-domains.md
+            - for-administrators/networking/external-dns.md
         - Manage Storage:
             - for-administrators/storage/volume-expansion.md
         - for-administrators/capacity-management.md

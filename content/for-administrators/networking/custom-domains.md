@@ -11,6 +11,8 @@ Consider have a domain `custom.domain.com`; and you want to host your applicatio
 
 In order to host your application on `custom.domain.com`. You need to point your DNS address to the ingress endpoint of the cluster's default router. This can either be a public IP or a private IP depending if the cluster is public or private.
 
+See [External DNS](./external-dns.md) section to automatically configure DNS for your applications
+
 ### Option # 1: Create Manual entries
 
 #### Step # 1: Obtain Public IP Address
