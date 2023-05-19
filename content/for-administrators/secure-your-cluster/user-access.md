@@ -1,4 +1,4 @@
-## User Access (SSO)
+# User Access (SSO)
 
 By default, users logged in (via OAuth external IDPs) do not have any permissions
 
