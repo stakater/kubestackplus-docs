@@ -1,6 +1,6 @@
 # autoscale your application
 
-Autoscaling is a process of scaling up/down where pods are increased/decreased in order to distribute load between them if the load on the pods gets greater/less then the defined threshold. Application Autoscaling can be done using `HorizontalPodAutoscaler` which is defined by Kubernetes API `autoscaling/v1` or `autoscaling/v2beta2`
+Autoscaling is a process of scaling up/down where pods are increased/decreased in order to distribute load between them if the load on the pods gets greater/less than the defined threshold. Application Autoscaling can be done using `HorizontalPodAutoscaler` which is defined by Kubernetes API `autoscaling/v1` or `autoscaling/v2beta2`
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ Containers:
 
 ## HorizontalPodAutoscaler
 
-Stakater [Application Chart](https://github.com/stakater-charts/application) uses `autoscaling/v2beta2` API which provides additional metrics other then CPU only to be used as a metrics for autoscaling. These metrics can be CPU, Memory or custom metrics exposed by the application [See here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#autoscaling-on-multiple-metrics-and-custom-metrics)
+Stakater [Application Chart](https://github.com/stakater-charts/application) uses `autoscaling/v2beta2` API which provides additional metrics other than CPU only to be used as a metrics for autoscaling. These metrics can be CPU, Memory or custom metrics exposed by the application [See here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#autoscaling-on-multiple-metrics-and-custom-metrics)
 
 | Metrics | Description |
 |--- |--- |
@@ -75,13 +75,13 @@ autoscaling:
 If you are using GitOps to manage your applications across clusters, you need to ignore the difference for replica count to make autoscaling work.
 
 **Problem:**
-When your HPA will try to increase the number of pods, at the same time your GitOps tool will also try to maintain the original state of your application and it will terminate the newly created pods after autoscaling.
+When your HPA will try to increase the number of pods, at the same time your GitOps tool will also try to maintain the original state of your application, and it will terminate the newly created pods after autoscaling.
 
 **Solution:**
 Update your GitOps tool to ignore the difference for replica count, so that whenever HPA scales up the number of pods and increases the replica count, the GitOps tool doesn't try to sync the replica count and doesn't terminate the new pods.
 
 **Example (ArgoCD):**
-Argo CD allows [ignoring differences](https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration) at a specific JSON path, using JSON patches. The following sample application is configured to ignore differences in spec.replicas for all deployments
+Argo CD allows [ignoring differences](https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration) at a specific JSON path, using JSON patches. The following sample application is configured to ignore differences in `spec.replicas` for all deployments
 
 ```yaml
 spec:
