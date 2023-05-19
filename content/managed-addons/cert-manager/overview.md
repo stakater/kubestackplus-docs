@@ -103,7 +103,7 @@ sequenceDiagram
     Cert-Manager Routes->> Route: Injects TLS secret values into the Route
 ```
 
-Following optional annotations can be overriden for the `Route` resource:
+Following optional annotations can be overridden for the `Route` resource:
 
 ```yaml
 cert-manager.io/issuer-name: my-issuer # This is the only required annotation
