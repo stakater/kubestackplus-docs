@@ -1,1 +1,1 @@
-# Autoscale your cluster
+# autoscale your cluster

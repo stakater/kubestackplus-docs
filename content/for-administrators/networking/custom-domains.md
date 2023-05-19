@@ -69,7 +69,6 @@ spec:
   wildcardPolicy: None
 ```
 
-
 ## 3. Create for your Application
 
 In you application values add Ingress section as followings:
