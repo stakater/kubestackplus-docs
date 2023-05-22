@@ -5,9 +5,34 @@
 There are 2 types of monitoring:
 
 1. Infrastructure monitoring (comes default with OpenShift installation)
-2. Workload monitoring (deployed by Stakater to monitor application workloads)
+2. User Workload monitoring (it can be enabled)
 
 ![Monitoring Diagram](./images/monitoring-diagram.png)
+
+## Enabling monitoring for user-defined projects
+
+Cluster administrators can enable monitoring for user-defined projects by setting the `enableUserWorkload: true` field in the cluster monitoring ConfigMap object.
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-monitoring-config
+  namespace: openshift-monitoring
+data:
+  config.yaml: |
+    enableUserWorkload: true 
+```
+
+## Excluding a user-defined project from monitoring
+
+Individual user-defined projects can be excluded from user workload monitoring. To do so, simply add the `openshift.io/user-monitoring` label to the project’s namespace with a value of false.
+
+Add the label to the project namespace:
+
+```bash
+oc label namespace my-project 'openshift.io/user-monitoring=false'
+```
 
 ## Infrastructure Monitoring
 
@@ -15,7 +40,7 @@ There are 2 types of monitoring:
 2. Grafana
 3. Alertmanager
 
-## Workload Monitoring
+## User Workload Monitoring
 
 1. Prometheus
 2. Grafana
@@ -55,101 +80,21 @@ spec:
       app: example-svc-label
 ```
 
-### Defining PrometheusRule CustomResource
+### Creating alerting rules for user-defined projects
 
-PrometheusRule CustomResource will define rules to generate an alert if the metrics values go below/up a certain value (depends on the use case).
-
-The Template for the File is as follows:
+Creating alerting rules for user-defined projects
+You can create alerting rules for user-defined projects. Those alerting rules will fire alerts based on the values of chosen metrics.
 
 ```yaml
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  labels:
-    prometheus: stakater-workload-monitoring
-    role: alert-rules
-  name: <NAME_OF_PROMETHEUSRULE>
-  namespace: stakater-workload-monitoring
+  name: example-alert
+  namespace: ns1
 spec:
   groups:
-  - name: <GROUP_NAME> 
+  - name: example
     rules:
-    - alert: <ALERT_NAME>
-      annotations:
-        message: >-
-          <MESSAGE_TO_BE_DISPLAYED>
-      expr: | 
-          <EXPRESSION_TO_BE_EVALUATED_FOR_ALERT>
-      labels:
-        severity: <SEVERITY>
-        namespace: < NAME_OF_NAMESPACE >
+    - alert: VersionAlert
+      expr: version{job="prometheus-example-app"} == 0
 ```
-
-Following Example shows Alerts for PersistentVolumes on the metrics scraped from Kubelets
-
-```yaml
-apiVersion: monitoring.coreos.com/v1
-kind: PrometheusRule
-metadata:
- labels:
-   prometheus: stakater-workload-monitoring
-   role: alert-rules
- name: prometheus-workload-rules
- namespace: stakater-workload-monitoring
-spec:
- groups:
-   - name: kubernetes-storage
-     rules:
-       - alert: KubePersistentVolumeUsageCritical
-         annotations:
-           message: >-
-             The PersistentVolume claimed by {{ $labels.persistentvolumeclaim
-             }} in Namespace {{ $labels.namespace }} is only {{ $value |
-             humanizePercentage }} free.
-         expr: >-
-           kubelet_volume_stats_available_bytes{namespace!~"(openshift-.*|kube-.*|default|logging)",job="kubelet"}
-             /
-           kubelet_volume_stats_capacity_bytes{namespace!~"(openshift-.*|kube-.*|default|logging)",job="kubelet"}
-             < 0.03
-         for: 1m
-         labels:
-           severity: critical
-       - alert: KubePersistentVolumeFullInFourDays
-         annotations:
-           message: >-
-             Based on recent sampling, the PersistentVolume claimed by {{
-             $labels.persistentvolumeclaim }} in Namespace {{ $labels.namespace
-             }} is expected to fill up within four days. Currently {{ $value |
-             humanizePercentage }} is available.
-         expr: >-
-           (
-             kubelet_volume_stats_available_bytes{namespace!~"(openshift-.*|kube-.*|default|logging)",job="kubelet"}
-               /
-             kubelet_volume_stats_capacity_bytes{namespace!~"(openshift-.*|kube-.*|default|logging)",job="kubelet"}
-           ) < 0.15
- 
-           and
- 
-           predict_linear(kubelet_volume_stats_available_bytes{namespace!~"(openshift-.*|kube-.*|default|logging)",job="kubelet"}[6h],
-           4 * 24 * 3600) < 0
-         for: 1h
-         labels:
-           severity: critical
-       - alert: KubePersistentVolumeErrors
-         annotations:
-           message: >-
-             The persistent volume {{ $labels.persistentvolume }} has status {{
-             $labels.phase }}.
-         expr: >-
-          kube_persistentvolume_status_phase{phase=~"Failed|Pending",namespace!~"(openshift-.*|kube-.*|default|logging)",job="kube-state-metrics"}
-           > 0
-         for: 5m
-         labels:
-           severity: critical
-```
-
-## Useful Links
-
-- [Alerting Rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)
-- [Template Examples](https://prometheus.io/docs/prometheus/latest/configuration/template_examples/)
-- [Template Reference](https://prometheus.io/docs/prometheus/latest/configuration/template_reference/)

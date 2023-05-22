@@ -16,7 +16,11 @@ theme:
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - attr_list
@@ -60,6 +64,7 @@ nav:
             - about/service-definition/secrets-management.md
             - about/service-definition/artifacts-management.md
             - about/service-definition/cicd-pipelines.md
+            - about/service-definition/service-mesh.md
             - about/service-definition/multitenancy.md
         - Responsibilities:
             - about/responsibilities/overview.md
@@ -82,22 +87,51 @@ nav:
         - about/update-lifecycle.md
         - about/onboarding.md
     - For Administrators:
-        - for-administrators/overview.md
-        - for-administrators/requirements.md
-        - for-administrators/cluster/provisioning.md
-        - for-administrators/giving-access-to-users.md
-        - for-administrators/cluster/add-node.md
-        - for-administrators/cluster/terminate.md
-        - for-administrators/cluster/upgrade.md
-        - for-administrators/external-dns.md
-        - for-administrators/autoscaling.md
-        - for-administrators/hibernating-your-cluster.md
-        - for-administrators/node-configuration.md
-        - for-administrators/volume-expander.md
-        - for-administrators/hosting-dns.md
-        - for-administrators/routes.md
-        - for-administrators/onboarding/day-1.md
-        - for-administrators/onboarding/day-2.md
+        - Plan your envionment:
+            - for-administrators/plan-your-environment/sizing.md
+        - Provision your cluster:
+            - for-administrators/provision-your-cluster.md
+        - Secure your cluster:
+            - for-administrators/secure-your-cluster/user-access.md
+            - for-administrators/secure-your-cluster/secure-routes.md
+        - Onboarding:
+            - Day 1:
+                - for-administrators/onboarding/day1/bootstrap-gitops.md
+                - for-administrators/onboarding/day1/add-cluster.md
+                - for-administrators/onboarding/day1/add-template.md
+            - Day 2:
+                - for-administrators/onboarding/day2/add-quota.md
+                - for-administrators/onboarding/day2/add-tenant.md
+                - for-administrators/onboarding/day2/add-template.md
+        - Manage Network:
+            - for-administrators/networking/custom-domains.md
+            - for-administrators/networking/external-dns.md
+        - Manage Storage:
+            - for-administrators/storage/volume-expansion.md
+        - for-administrators/capacity-management.md
+        - for-administrators/disaster-recovery.md
+        - for-administrators/registry-cicd.md
+        - for-administrators/use-of-credentials.md
+        - Security Best Practices:
+            - for-administrators/security/overview.md
+            - for-administrators/security/identity-verification-access-control.md
+            - for-administrators/security/pod-security.md
+            - for-administrators/security/runtime-security.md
+            - for-administrators/security/supply-chain-security.md
+            - for-administrators/security/data-encryption-secret-management.md
+            - for-administrators/security/network-security.md
+            - for-administrators/security/logging-auditing.md
+            - for-administrators/security/multi-tenancy-security.md
+            - for-administrators/security/host-security.md
+        - Cluster Lifecycle:
+            - for-administrators/cluster-lifecycle/hibernate-your-cluster.md
+            - for-administrators/cluster-lifecycle/add-node-to-your-cluster.md
+            - for-administrators/cluster-lifecycle/autoscale-your-cluster.md
+            - for-administrators/cluster-lifecycle/upgrade-your-cluster.md
+            - for-administrators/cluster-lifecycle/terminate-your-cluster.md
+        - Help:
+            - for-administrators/help/troubleshooting.md
+            - for-administrators/help/faq.md
     - For Delivery Engineers:
         - for-delivery-engineers/overview.md
         - GitOps:
@@ -217,7 +251,6 @@ nav:
             - managed-addons/monitoring-stack/stack.md
             - managed-addons/monitoring-stack/app-uptime.md
             - managed-addons/monitoring-stack/app-alerts.md
-            - managed-addons/monitoring-stack/goldilocks.md
             - managed-addons/monitoring-stack/grafana-dashboard.md
             - managed-addons/monitoring-stack/downtime-notifications-uptimerobot.md
             - managed-addons/monitoring-stack/log-alerts.md
