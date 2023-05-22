@@ -3,6 +3,7 @@
 After successfully deploying your application on Red Hat OpenShift, you need to expose it to external traffic so that users can access your application over the network. This documentation will guide you through the process of exposing your application and making it accessible from outside the OpenShift cluster.
 
 ## Route
+
 OpenShift provides a routing mechanism called "routes" that allows you to expose applications using hostnames and paths. Routes are created using the Route resource and can provide additional features such as SSL termination and path-based routing. To create a route:
 
 a. In your deployment configuration YAML file, define a route:
@@ -44,8 +45,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 80
-    targetPort: 8080
+    - port: 80
+      targetPort: 8080
   selector:
     app: nordmart
 "```"
@@ -82,8 +83,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
-    targetPort: 8080
+    - port: 80
+      targetPort: 8080
   selector:
     app: nordmart
 "```"
