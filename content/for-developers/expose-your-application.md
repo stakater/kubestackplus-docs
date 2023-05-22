@@ -2,12 +2,12 @@
 
 After successfully deploying your application on Red Hat OpenShift, you need to expose it to external traffic so that users can access your application over the network. This documentation will guide you through the process of exposing your application and making it accessible from outside the OpenShift cluster.
 
-### Route:
+## Route
 OpenShift provides a routing mechanism called "routes" that allows you to expose applications using hostnames and paths. Routes are created using the Route resource and can provide additional features such as SSL termination and path-based routing. To create a route:
 
 a. In your deployment configuration YAML file, define a route:
 
-```
+"```"
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
@@ -17,7 +17,7 @@ spec:
   to:
     kind: Service
     name: nordmart-service
-```
+"```"
 
 In the above example, a route named nordmart-route is defined, pointing to the nordmart-service service.
 
@@ -30,13 +30,13 @@ Note: In order to use a hostname, you must have a DNS record pointing to the Ope
 
 By following the steps outlined above, you can successfully expose your application deployed on Red Hat OpenShift, using the example application "nordmart." Whether using the NodePort, LoadBalancer, or Route approach, you can make your application accessible from outside the OpenShift cluster, allowing users to access and interact with your application over the network.
 
-## Service Type:
+## Service Type
 
 In OpenShift, services are used to expose applications internally within the cluster. To expose your application externally, you need to specify the appropriate service type:
 
 a. In your deployment configuration YAML file, define a service with the type NodePort or LoadBalancer:
 
-```
+"```"
 apiVersion: v1
 kind: Service
 metadata:
@@ -48,10 +48,11 @@ spec:
     targetPort: 8080
   selector:
     app: nordmart
-```
+"```"
+
 In the above example, a service named nordmart-service is defined with the NodePort type, exposing port 80 and forwarding traffic to port 8080 of the application.
 
-### NodePort:
+### NodePort
 
 When using the NodePort service type, OpenShift assigns a random port within a predefined range on each node of the cluster. To access your application externally, you need to determine the assigned port and the IP address of any of the cluster's nodes:
 
@@ -67,13 +68,13 @@ c. Obtain the IP address of any node in the cluster:
 
 d. Combine the node's IP address with the assigned port to access your application. For example: `http://<node-ip>:<assigned-port>`
 
-### LoadBalancer:
+### LoadBalancer
 
 If your OpenShift cluster is running in a cloud environment that supports load balancers, you can use the LoadBalancer service type. This type automatically provisions a load balancer to distribute traffic to your application:
 
 a. In your deployment configuration YAML file, define a service with the type LoadBalancer:
 
-```
+"```"
 apiVersion: v1
 kind: Service
 metadata:
@@ -85,7 +86,7 @@ spec:
     targetPort: 8080
   selector:
     app: nordmart
-```
+"```"
 
 In the above example, a service named nordmart-service is defined with the LoadBalancer type, exposing port 80 and forwarding traffic to port 8080 of the application.
 
