@@ -68,7 +68,6 @@ nav:
             - about/service-definition/multitenancy.md
         - Responsibilities:
             - about/responsibilities/overview.md
-            - about/responsibilities/incident-operations-management.md
             - about/responsibilities/change-management.md
             - about/responsibilities/identity-access-management.md
             - about/responsibilities/security-regulation-compliance.md
