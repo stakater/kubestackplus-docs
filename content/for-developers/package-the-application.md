@@ -146,4 +146,8 @@ We need to decide what Kubernetes resources are required for our application. A 
    curl -u "<helm_user>":"<helm_password>" NEXUS_HELM_REG_URL --upload-file "CHART_NAME-CHART_VERSION.tgz"
    ```
 
-> Visit [Stakater Nordmart Review](https://github.com/stakater-lab/stakater-nordmart-review/tree/main/deploy) and[Stakater Nordmart Review UI](https://github.com/stakater-lab/stakater-nordmart-review/tree/main/deploy)  to see an example.
+> Visit [Stakater Nordmart Review](https://github.com/stakater-lab/stakater-nordmart-review/tree/main/deploy) and [Stakater Nordmart Review UI](https://github.com/stakater-lab/stakater-nordmart-review/tree/main/deploy)  to see an example.
+
+## Package Stakater Nordmart Review
+
+Lets look at the chart of our 

@@ -10,6 +10,13 @@ There are multiple ways to deploy your Application on the Cluster.
 
 We will cover application deployment with Helm and ArgoCD in this section.
 
+## Pre-Requisites
+- Container available
+- Helm Chart available
+- helm
+- oc
+- curl
+
 ## Deploy your Application with Helm
 Let's deploy a simple application using Helm. Helm charts are packaged and stored in repositories. They can be added as dependencies of other charts or used directly. Let's add a chart repository now. The chart repository stores the version history of our charts as well as the packaged tar file.
 
@@ -17,75 +24,80 @@ We created and packaged a Helm chart to the Nexus Helm Repository available in S
 
 1. From your Terminal, add the Nexus Helm Repository using the following command. Consider the
 
-    ```bash#test
+    ```bash
     helm repo add NEXUS_HELM_REPO_NAME NEXUS_HELM_REPO_URL
     ```
 
 2. Install a chart from this repo. Start by searching the repository to see what is available.
 
-    ```bash#test
-    helm search repo APP_NAME
+    ```bash
+    helm search repo stakater-nordmart-review
     ```
 
 
 3. Now install the latest version. Helm likes to give each install its own release..
 
-    ```bash#test
-    helm install RELEASE_NAME NEXUS_HELM_REPO_NAME/APP_NAME --namespace ${TENANT_NAME}-test
+    ```bash
+    helm install RELEASE_NAME NEXUS_HELM_REPO_NAME/takater-nordmart-review --namespace ${TENANT_NAME}-dev
     ```
-    ![IMGE](./images/IMGE.png)  
+
+    ![IMGE](./images/IMGE.png)
 
 
 3. Open the application up in the browser to verify it's up and running. Here's a handy one-liner to get the URL of the app.
 
-    ```bash#test
-    oc project ${TENANT_NAME}-test
-    oc get pods,svc -n ${TENANT_NAME}-test
+    ```bash
+    oc project ${TENANT_NAME}-dev
+    oc get pods,svc -n ${TENANT_NAME}-dev
     ```
-    ![IMGE](./images/IMGE.png)  
+
+    ![IMGE](./images/IMGE.png)
 
 
 4.   RUn the following command to port forward the pod to your local machine and run curl command to verify your application is running and serving requests.
 
      ```sh
-     # get podname with oc get 
+     # get podname with oc get
      oc port-forward <podname> 8080:8080
      curl localhost:8080/api/review/329199
      ```
-     ![IMGE](./images/IMGE.png)  
+
+     ![IMGE](./images/IMGE.png)
 
 5. You can upgrade your chart values with CLI. By default, your application has only 1 replica. You can view this using the following command.
 
      ```bash#test
-     oc get pods -n ${TENANT_NAME}-test
+     oc get pods -n ${TENANT_NAME}-dev
      ```
-    ![IMGE](./images/IMGE.png)  
+
+    ![IMGE](./images/IMGE.png)
 
     By default, there is one replica of your application. Let's use Helm to set this to 5.
 
     ```bash#test
-    helm upgrade RELEASE_NAME NEXUS_HELM_REPO_NAME/APP_NAME --set APP_NAME.deployment.replicas=5 --namespace ${TENANT_NAME}-test
+    helm upgrade RELEASE_NAME NEXUS_HELM_REPO_NAME/APP_NAME --set APP_NAME.deployment.replicas=5 --namespace ${TENANT_NAME}-dev
     ```
-    ![IMGE](./images/IMGE.png)  
+
+    ![IMGE](./images/IMGE.png)
 
     Verify the deployment has scaled up to 5 replicas.
 
     ```bash#test
-    oc get pods -n ${TENANT_NAME}-test
+    oc get pods -n ${TENANT_NAME}-dev
     ```
-    ![helm101-scale](./images/helm101-scale.png)
 
+    ![helm101-scale](./images/helm101-scale.png)
 
 6. If you're done playing with the `Nordmart Review API`. You can tidy up your work by removing the chart. To do this, run `helm uninstall` to remove your release of the chart.
 
     ```bash#test
-    helm uninstall stakater-nord -namespace ${TENANT_NAME}-test
+    helm uninstall stakater-nord -namespace ${TENANT_NAME}-dev
     ```
 
     Verify the clean up
 
     ```bash#test
-    oc get pods -n ${TENANT_NAME}-test
+    oc get pods -n ${TENANT_NAME}-dev
     ```
 
 ## Deploy your Application with ArgoCD
@@ -95,7 +107,7 @@ We created and packaged a Helm chart to the Nexus Helm Repository available in S
     ![IMG](images/IMG.png)
 
 1. Lets deploy a sample application through the UI. In fact, let's get ArgoCD to deploy the `stakater-nordmart-review` app you manually deployed previously using Helm. On ArgoCD - click `+ NEW APP`. You should see an empty form.
-    > Make sure you have deleted previous Helm release deployed in Helm 101.
+    > Make sure you have deleted previous Helm release.
 
     Let's fill it out by setting the following:
 
@@ -133,9 +145,10 @@ We created and packaged a Helm chart to the Nexus Helm Repository available in S
 4.   RUn the following command to port forward the pod to your local machine and run curl command to verify your application is running and serving requests.
 
      ```sh
-     # get podname with oc get 
+     # get podname with oc get
      oc port-forward <podname> 8080:8080
      curl localhost:8080/api/review/329199
      ```
-     ![IMGE](./images/IMGE.png)  
+
+     ![IMGE](./images/IMGE.png)
 
