@@ -11,6 +11,7 @@ There are multiple ways to deploy your Application on the Cluster.
 We will cover application deployment with Helm and ArgoCD in this section.
 
 ## Pre-Requisites
+
 - Container available
 - Helm Chart available
 - helm
@@ -34,7 +35,7 @@ We created and packaged a Helm chart to the Nexus Helm Repository available in S
     helm search repo stakater-nordmart-review
     ```
 
-3. Now install the latest version. Helm likes to give each install its own release..
+3. Now install the latest version. Helm likes to give each install its own release.
 
     ```bash
     helm install RELEASE_NAME NEXUS_HELM_REPO_NAME/takater-nordmart-review --namespace ${TENANT_NAME}-dev
