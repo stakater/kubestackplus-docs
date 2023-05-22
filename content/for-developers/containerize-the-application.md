@@ -1,6 +1,7 @@
 # Containerize the Application
 
 Prerequisites:
+
 - Developed application.
 - docker cli.
 - Application is part of tenant.
@@ -92,13 +93,14 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
         ```
 
 Read the following articles for more information:
+
 - [Containerize an application](https://docs.docker.com/get-started/02_our_app/)
 - [Tutorial: Containerize a .NET app](https://learn.microsoft.com/en-us/dotnet/core/docker/build-container?tabs=linux)
 - [Containerize Your Application With Docker](https://towardsdatascience.com/containerize-your-application-with-docker-b0608557441f)
 - [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp)
 - [Dockerizing a Django app](https://blog.logrocket.com/dockerizing-django-app)
 
-### Login to Image Registry
+## Login to Image Registry
 
 Find the Image registry URL [here](../managed-addons/nexus/routes.md) or Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus url.
 

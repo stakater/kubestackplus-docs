@@ -1,6 +1,6 @@
 # Deploy your Application
 
-There are multiple ways to deploy your Application on the Cluster 
+There are multiple ways to deploy your Application on the Cluster.
 
 - For development with tilt, follow guide for Deploying the Application with Tilt [here](local-development/tilt/step-by-step-guide.md)
     > This the recommended local development workflow
@@ -11,6 +11,5 @@ There are multiple ways to deploy your Application on the Cluster
 We will cover application deployment with Helm and ArgoCD in this section.
 
 ## Deploy your Application with Helm
-
 
 ## Deploy your Application with ArgoCD
