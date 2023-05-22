@@ -28,7 +28,8 @@ spec:
               name: your-secret
               key: database_password
 ```
-In the above example, the DATABASE_PASSWORD environment variable is set using the database_password key from the your-secret secret.
+
+In the above example, the DATABASE_PASSWORD environment variable is set using the `database_password` key from the your-secret secret.
 
 Alternatively, we can use envFrom to get values for environment variable:
 
@@ -65,6 +66,7 @@ spec:
       secret:
         secretName: your-secret
 ```
+
 In the above example, the your-secret secret is mounted as a volume named secret-volume at the path /etc/secrets within the container.
 
 ### Using Secrets in Configuration Files

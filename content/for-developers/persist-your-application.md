@@ -22,7 +22,8 @@ spec:
   storageClassName: your-storage-class
   <storage-specific parameters>
 ```
-In the above example, a PV named nordmart-pv is defined with a storage capacity of 10 gigabytes, read-write access mode, and a storage class specified. Additional storage-specific parameters can be provided based on the underlying storage infrastructure.
+
+In the above example, a PV named Nordmart-pv is defined with a storage capacity of 10 gigabytes, read-write access mode, and a storage class specified. Additional storage-specific parameters can be provided based on the underlying storage infrastructure.
 
 b. Apply the PV configuration to create the persistent volume:
 

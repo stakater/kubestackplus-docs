@@ -61,7 +61,7 @@ a. Retrieve the port assigned to the service by running the following command:
 
 `oc get service nordmart-service`
 
-b. Identify the port assigned to the nodeport field. This port will be used to access your application externally.
+b. Identify the port assigned to the NodePort field. This port will be used to access your application externally.
 
 c. Obtain the IP address of any node in the cluster:
 
