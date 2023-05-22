@@ -1,8 +1,8 @@
 # Package the Application
 
-Helm uses a packaging format called charts. A chart is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on. We need to package the deployments for our application into a Helm Chart.
+Helm uses a packaging format called charts. A chart is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a `memcached` pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on. We need to package the deployments for our application into a Helm Chart.
 
-We need to decide what kubernetes resources are required for our application. A workload resource (deployment, statefulset) coupled with service and service account resource can be a good starting point.
+We need to decide what Kubernetes resources are required for our application. A workload resource (`deployment`, `statefulset`) coupled with service and service account resource can be a good starting point.
 
 ## Create a Helm Chart with Application Chart
 

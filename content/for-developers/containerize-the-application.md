@@ -8,7 +8,7 @@ Prerequisites:
 
 Running workloads in Kubernetes/OpenShift requires the application the be containerized. Typically this includes, taking a relevant base image, installing application dependencies if not available, copying & building the code and command to run your application executed at runtime.
 
-Consider the [stakater-nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review) application we discussed in the previous section.
+Consider the [`stakater-nordmart-review`](https://github.com/stakater-lab/stakater-nordmart-review) application we discussed in the previous section.
 
 ```sh
 git clone https://github.com/stakater-lab/stakater-nordmart-review-ui
@@ -17,7 +17,7 @@ cd stakter-nordmart-review-ui
 
 Lets create a Dockerfile inside the repository folder and delete any existing file.
 
-  1. Decide a base image for your application. Navigate to [RedHat Container Registry](https://catalog.redhat.com/software/containers/search) and Find a suitable image for your application. Since this application is java application. we use maven base image.
+  1. Decide a base image for your application. Navigate to [RedHat Container Registry](https://catalog.redhat.com/software/containers/search) and Find a suitable image for your application. Since this application is java application. We use `maven` base image.
 
         ```Dockerfile
         FROM maven:3.8.6-openjdk-11-slim AS build
@@ -47,7 +47,7 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
           summary="Java Spring boot application"
         ```
 
-  5. Set an environment variable with ENV command and set it as working directory.
+  5. Set an environment variable with `ENV` command and set it as working directory.
 
         ```Dockerfile
         ENV HOME=/opt/app
