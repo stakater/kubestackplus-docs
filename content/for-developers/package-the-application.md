@@ -28,7 +28,7 @@ We need to decide what kubernetes resources are required for our application. A 
    appVersion: "0.0.0"
    ```
 
-    This dependency chart allows you to define resources without getting overwhelmed by the complexities of different resource with a simple interface.
+    This dependency chart allows you to define resources without getting overwhelmed by the complexities of different resource with a simple interface. For a full list of configuration visit the chart repository [here](https://github.com/stakater/application)
 
 1. Next create a values.yaml file for default configuration values for this chart. Lets start by defining values for deployment and service.
 
