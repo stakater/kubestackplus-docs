@@ -6,7 +6,7 @@ Prerequisites:
 - docker cli.
 - Application is part of tenant.
 
-Running workloads in Kubernetes/OpenShift requires the application the be containerized. Typically this includes, taking a relevant base image, installing application dependencies if not available, copying & building the code and command to run your application executed at runtime.
+Running workloads in Kubernetes/OpenShift requires the application to be containerized. Typically, this includes taking a relevant base image, installing application dependencies if not available, copying & building the code and command to run your application executed at runtime.
 
 Consider the [`stakater-nordmart-review`](https://github.com/stakater-lab/stakater-nordmart-review) application we discussed in the previous section.
 
@@ -31,7 +31,7 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
         RUN mvn -f /usr/src/app/pom.xml clean package
         ```
 
-  3. We will use another FROM statement to create a multi stage build for reducing the overall image size. More info [here](https://docs.docker.com/build/building/multi-stage/). With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image.
+  3. We will use another FROM statement to create a multi-stage build for reducing the overall image size. More info [here](https://docs.docker.com/build/building/multi-stage/). With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image.
 
         ```Dockerfile
         FROM registry.access.redhat.com/ubi8/openjdk-11:1.14-10

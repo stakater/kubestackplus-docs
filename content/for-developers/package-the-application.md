@@ -49,7 +49,7 @@ We need to decide what Kubernetes resources are required for our application. A 
           enabled: true
     ```
 
-1. Run `helm dependency build` to rebuild the charts/ directory based on the Chart.lock file.
+1. Run `helm dependency build` to rebuild the charts/ directory based on the `Chart.lock` file.
 
     ```sh
     helm dependency build
