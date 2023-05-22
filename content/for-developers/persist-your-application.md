@@ -12,7 +12,7 @@ a. Define a PV configuration YAML file, specifying the storage type, size, acces
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nordmart-pv
+  name: `nordmart-pv`
 spec:
   capacity:
     storage: 10Gi
@@ -50,7 +50,7 @@ spec:
   storageClassName: your-storage-class
 "```"
 
-In the above example, a PVC named nordmart-pvc is defined with a storage request of 5 gigabytes and a read-write access mode. The storage class specifies the desired type of storage.
+In the above example, a PVC named `nordmart-pvc` is defined with a storage request of 5 gigabytes and a read-write access mode. The storage class specifies the desired type of storage.
 
 b. Apply the PVC configuration to create the persistent volume claim:
 

@@ -26,7 +26,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: your-secret
-              key: database_password
+              key: `database_password`
 "```"
 In the above example, the DATABASE_PASSWORD environment variable is set using the database_password key from the your-secret secret.
 

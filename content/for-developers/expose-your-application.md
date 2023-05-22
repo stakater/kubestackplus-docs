@@ -20,16 +20,16 @@ spec:
     name: nordmart-service
 "```"
 
-In the above example, a route named nordmart-route is defined, pointing to the nordmart-service service.
+In the above example, a route named `nordmart-route` is defined, pointing to the `nordmart-service` service.
 
 b. Apply the configuration to create the route:
 
 `oc apply -f route.yaml`
-c. Once the route is created, it will assign a hostname (nordmart.example.com) that you can use to access your application externally.
+c. Once the route is created, it will assign a hostname (`nordmart.example.com`) that you can use to access your application externally.
 
 Note: In order to use a hostname, you must have a DNS record pointing to the OpenShift cluster's external IP or load balancer.
 
-By following the steps outlined above, you can successfully expose your application deployed on Red Hat OpenShift, using the example application "nordmart." Whether using the NodePort, LoadBalancer, or Route approach, you can make your application accessible from outside the OpenShift cluster, allowing users to access and interact with your application over the network.
+By following the steps outlined above, you can successfully expose your application deployed on Red Hat OpenShift, using the example application "`nordmart`". Whether using the NodePort, LoadBalancer, or Route approach, you can make your application accessible from outside the OpenShift cluster, allowing users to access and interact with your application over the network.
 
 ## Service Type
 
@@ -51,7 +51,7 @@ spec:
     app: nordmart
 "```"
 
-In the above example, a service named nordmart-service is defined with the NodePort type, exposing port 80 and forwarding traffic to port 8080 of the application.
+In the above example, a service named `nordmart-service` is defined with the NodePort type, exposing port 80 and forwarding traffic to port 8080 of the application.
 
 ### NodePort
 
@@ -89,11 +89,11 @@ spec:
     app: nordmart
 "```"
 
-In the above example, a service named nordmart-service is defined with the LoadBalancer type, exposing port 80 and forwarding traffic to port 8080 of the application.
+In the above example, a service named `nordmart-service` is defined with the LoadBalancer type, exposing port 80 and forwarding traffic to port 8080 of the application.
 
 b. After applying the configuration, OpenShift will provision a load balancer in the cloud environment, which will route external traffic to your application.
 
-c. Obtain the load balancer's IP address or domain name provided by your cloud provider to access your application. For example: `http://<load-balancer-ip>:<port>`
+c. Obtain the load balancer IP address or domain name provided by your cloud provider to access your application. For example: `http://<load-balancer-ip>:<port>`
 
 ## Whitelisting application routes
 
