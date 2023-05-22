@@ -72,7 +72,6 @@ nav:
             - about/responsibilities/change-management.md
             - about/responsibilities/identity-access-management.md
             - about/responsibilities/security-regulation-compliance.md
-            - about/responsibilities/disaster-recovery.md
         - Cloud Providers:
             - about/cloud-providers/overview.md
             - about/cloud-providers/aws.md
