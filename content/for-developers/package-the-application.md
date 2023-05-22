@@ -150,4 +150,3 @@ We need to decide what Kubernetes resources are required for our application. A 
 
 ## Package Stakater Nordmart Review
 
-Lets look at the chart of our 
