@@ -35,3 +35,9 @@ The customer is responsible for incident and operations management of customer a
     | Stakater responsibilities | Customer responsibilities |
     | --- | --- |
     | <ul><li>Monitor cloud load balancers and native OpenShift router service, and respond to alerts.</li></ul> | <ul><li>Monitor health of service load balancer endpoints</li><li>Monitor health of application routes, and the endpoints behind them</li><li>Report outages to Stakater</li></ul> |
+
+=== "Virtual networking"
+
+    | Stakater responsibilities | Customer responsibilities |
+    | --- | --- |
+    | <ul><li>Monitor cloud load balancers, subnets, and public cloud components necessary for default platform networking</li><li>respond to alerts</li></ul> | <ul><li>Monitor network traffic that is optionally configured through VPC to VPC connection, VPN connection, or Direct connection for potential issues or security threats</li></ul>
