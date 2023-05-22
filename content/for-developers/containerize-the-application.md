@@ -125,3 +125,7 @@ Lets push the image to nexus docker repo. Make sure to get credentials from Stak
 # Buildah push Info https://manpages.ubuntu.com/manpages/impish/man1/buildah-push.1.html
 buildah push <nexus-docker-reg-url>/<tenant-name>/stakater-nordmart-review:1.0.0 docker://<nexus-docker-reg-url>/<tenant-name>/stakater-nordmart-review:1.0.0
 ```
+
+## Verify Image Available
+
+Login to Nexus and Verify that the image is available on the cluster.
