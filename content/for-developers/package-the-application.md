@@ -140,4 +140,3 @@ We need to decide what kubernetes resources are required for our application. A 
    ```sh
    curl -u "<helm_user>":"<helm_password>" NEXUS_HELM_REG_URL --upload-file "CHART_NAME-CHART_VERSION.tgz"
    ```
-
