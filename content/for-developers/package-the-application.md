@@ -4,6 +4,7 @@ Helm uses a packaging format called charts. A chart is a collection of files tha
 
 We need to decide what kubernetes resources are required for our application. A workload resource (deployment, statefulset) coupled with service and service account resource can be a good starting point.
 
+## Create a Helm Chart with Application Chart
 1. Create a directory named deploy/ that will contain the helm chart that will be deployed for our application.
 
    ```sh
@@ -53,7 +54,7 @@ We need to decide what kubernetes resources are required for our application. A 
     helm dependency build
     ```
 
-1. Run `helm template .` to view the resources generated. This chart will generate deployment, service account and service custom resources. This will highlight any other errors in the chart as well.
+1. Run `helm template .` to view the resources generated. This chart will generate deployment, service account and service custom resources. This will highlight any other errors in the chart as well. 
     ```yaml
     # Source: CHART_NAME/charts/application/templates/serviceaccount.yaml
     apiVersion: v1
@@ -127,6 +128,8 @@ We need to decide what kubernetes resources are required for our application. A 
               runAsNonRoot: true
           serviceAccountName: APP_NAME
     ```
+
+    If you want to add resources that cannot be defined with dependency chart. You can simply add them in the `templates/` folder.
 
 1. Run the following command to package the helm chart into compressed file.
 
