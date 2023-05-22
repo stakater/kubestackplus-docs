@@ -8,7 +8,7 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
 a. In your deployment configuration YAML file, define a route:
 
-"```"
+```yaml
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
@@ -18,7 +18,7 @@ spec:
   to:
     kind: Service
     name: nordmart-service
-"```"
+```
 
 In the above example, a route named `nordmart-route` is defined, pointing to the `nordmart-service` service.
 
@@ -37,7 +37,7 @@ In OpenShift, services are used to expose applications internally within the clu
 
 a. In your deployment configuration YAML file, define a service with the type NodePort or LoadBalancer:
 
-"```"
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -49,7 +49,7 @@ spec:
       targetPort: 8080
   selector:
     app: nordmart
-"```"
+```
 
 In the above example, a service named `nordmart-service` is defined with the NodePort type, exposing port 80 and forwarding traffic to port 8080 of the application.
 
@@ -75,7 +75,7 @@ If your OpenShift cluster is running in a cloud environment that supports load b
 
 a. In your deployment configuration YAML file, define a service with the type LoadBalancer:
 
-"```"
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -87,7 +87,7 @@ spec:
       targetPort: 8080
   selector:
     app: nordmart
-"```"
+```
 
 In the above example, a service named `nordmart-service` is defined with the LoadBalancer type, exposing port 80 and forwarding traffic to port 8080 of the application.
 

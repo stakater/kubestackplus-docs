@@ -10,7 +10,7 @@ Environment variables allow you to pass sensitive information as configuration p
 
 a. Define the secret as an environment variable directly in your deployment configuration YAML file, like this:
 
-"```"
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -26,19 +26,19 @@ spec:
           valueFrom:
             secretKeyRef:
               name: your-secret
-              key: `database_password`
-"```"
+              key: database_password
+```
 In the above example, the DATABASE_PASSWORD environment variable is set using the database_password key from the your-secret secret.
 
 Alternatively, we can use envFrom to get values for environment variable:
 
-"```"
+```yaml
         envFrom:
         - configMapRef:
             name: env-configmap
         - secretRef:
             name: env-secrets
-"```"
+```
 
 ### Volumes and Mounts
 
@@ -46,7 +46,7 @@ You can also mount secrets as files in your application containers, enabling dir
 
 a. Define a volume that references the secret in your deployment configuration YAML file:
 
-"```"
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -64,7 +64,7 @@ spec:
     - name: secret-volume
       secret:
         secretName: your-secret
-"```"
+```
 In the above example, the your-secret secret is mounted as a volume named secret-volume at the path /etc/secrets within the container.
 
 ### Using Secrets in Configuration Files
@@ -77,7 +77,7 @@ a. Create a ConfigMap that includes the secret's data:
 
 Mount the ConfigMap as a volume in your deployment configuration YAML file:
 
-"```"
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -95,6 +95,6 @@ spec:
     - name: config-volume
       configMap:
         name: your-configmap
-"```"
+```
 
 In the above example, the your-configmap ConfigMap is mounted as a volume named config-volume at the path /etc/config within the container.

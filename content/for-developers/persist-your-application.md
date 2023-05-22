@@ -8,7 +8,7 @@ A Persistent Volume represents a physical storage resource in the OpenShift clus
 
 a. Define a PV configuration YAML file, specifying the storage type, size, access modes, and other parameters. For example:
 
-"```"
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -21,7 +21,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: your-storage-class
   <storage-specific parameters>
-"```"
+```
 In the above example, a PV named nordmart-pv is defined with a storage capacity of 10 gigabytes, read-write access mode, and a storage class specified. Additional storage-specific parameters can be provided based on the underlying storage infrastructure.
 
 b. Apply the PV configuration to create the persistent volume:
@@ -36,7 +36,7 @@ A Persistent Volume Claim represents a request for storage by an application. PV
 
 a. Define a PVC configuration YAML file, specifying the storage request, access mode, and other parameters. For example:
 
-"```"
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -48,7 +48,7 @@ spec:
     requests:
       storage: 5Gi
   storageClassName: your-storage-class
-"```"
+```
 
 In the above example, a PVC named `nordmart-pvc` is defined with a storage request of 5 gigabytes and a read-write access mode. The storage class specifies the desired type of storage.
 
@@ -64,7 +64,7 @@ To make use of the PVC in your application deployment, you need to mount it as a
 
 a. Add a volume definition that references the PVC:
 
-"```"
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -81,4 +81,4 @@ spec:
         image: your-image
         volumeMounts:
         - name: nordmart-data
-"```"
+```
