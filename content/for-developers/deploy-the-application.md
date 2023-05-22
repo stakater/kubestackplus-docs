@@ -89,23 +89,25 @@ We created and packaged a Helm chart to the Nexus Helm Repository available in S
 
 1. Log into ArgoCD UI.
 
-1. Lets deploy a sample application through the UI. In fact, let's get ArgoCD to deploy the `stakater-nordmart-review` app you manually deployed previously using Helm. On ArgoCD - click `+ NEW APP`. You should see an empty form.
-    > Make sure you have deleted previous Helm release.
+1. Lets deploy a sample application through the UI. In fact, let's get ArgoCD to deploy the `stakater-nordmart-review` app you manually deployed previously using Helm. On ArgoCD - click `+ NEW APP`. You should see an empty form. Let's fill it out by setting the following:
 
-    Let's fill it out by setting the following:
+      - On the **GENERAL** box
 
-      * On the **GENERAL** box
-         * Application Name: `<TENANT_NAME>-nordmart-review`
-         * Project: `<TENANT_NAME>` (select the project corresponding to your `<TENANT_NAME>` from the `project` dropdown)
-         * Sync Policy: `Automatic`
-      * On the **SOURCE** box
-         * Repository URL: `NEXUS_HELM_REGISTRY_URL`
-         * Select `Helm` from the right drop down menu
-         * Chart: `stakater-nordmart-review`
-         * Version: `1.0.0`
-      * On the **DESTINATION** box
-         * Cluster URL: `https://kubernetes.default.svc`
-         * Namespace: `<TENANT_NAME>-test`
+         - Application Name: `<TENANT_NAME>-nordmart-review`
+         - Project: `<TENANT_NAME>` (select the project corresponding to your `<TENANT_NAME>` from the `project` dropdown)
+         - Sync Policy: `Automatic`
+
+      - On the **SOURCE** box
+
+         - Repository URL: `NEXUS_HELM_REGISTRY_URL`
+         - Select `Helm` from the right drop down menu
+         - Chart: `stakater-nordmart-review`
+         - Version: `1.0.0`
+
+      - On the **DESTINATION** box
+
+         - Cluster URL: `https://kubernetes.default.svc`
+         - Namespace: `<TENANT_NAME>-test`
 
     Your form should look like the follow image, if so click `Create`
 
@@ -117,7 +119,7 @@ We created and packaged a Helm chart to the Nexus Helm Repository available in S
 
       > Select the drop down and switch to `Administrator` view in the OpenShift console if you are not already there
 
-4.   RUn the following command to port forward the pod to your local machine and run curl command to verify your application is running and serving requests.
+4.   Run the following command to port forward the pod to your local machine and run curl command to verify your application is running and serving requests.
 
      ```sh
      # get podname with oc get

@@ -149,4 +149,3 @@ We need to decide what Kubernetes resources are required for our application. A 
 > Visit [Stakater Nordmart Review](https://github.com/stakater-lab/stakater-nordmart-review/tree/main/deploy) and [Stakater Nordmart Review UI](https://github.com/stakater-lab/stakater-nordmart-review/tree/main/deploy)  to see an example.
 
 ## Package Stakater Nordmart Review
-
