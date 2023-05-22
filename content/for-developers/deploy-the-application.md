@@ -89,8 +89,6 @@ We created and packaged a Helm chart to the Nexus Helm Repository available in S
 
 1. Log into ArgoCD UI.
 
-    ![IMG](images/IMG.png)
-
 1. Lets deploy a sample application through the UI. In fact, let's get ArgoCD to deploy the `stakater-nordmart-review` app you manually deployed previously using Helm. On ArgoCD - click `+ NEW APP`. You should see an empty form.
     > Make sure you have deleted previous Helm release.
 
