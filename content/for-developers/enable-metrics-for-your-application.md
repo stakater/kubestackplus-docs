@@ -1,7 +1,9 @@
 # Enable metrics for your Application
 
 We need prometheus metrics to be exposed our application to be able to monitor them. 
-How an application exposes its metrics depends upon how it is built. We will tae the example of a spring boot application and expose it on a url for prometheus to monitor.
+How an application exposes its metrics depends upon how it is built. We will take the example of a spring boot application and expose it on a url for prometheus to monitor.
+
+## Enabling metrics for Nordmart
 
 Let's again look at our Nordmart example to expose some metrics and then get them through Prometheus.
 To expose metrics in a spring boot application we need to add some dependencies:
@@ -35,3 +37,40 @@ Actuator exposes prometheus metrics on /actuator/prometheus
 
 To learn more about exposing metrics in spring boot you can refer to this [guide](https://docs.spring.io/spring-boot/docs/2.1.2.RELEASE/reference/html/production-ready-endpoints.html).
 
+## Adding Custom Metric to application
+
+A lot of the time you’ll be satisfied by the basic metrics you get out of the box with Micrometer. But you might want to add your own custom metrics.
+
+To add a custom metric to our application, we will again be using micrometer.
+Micrometer can publish different types of metrics, called primitives. These include gauge, counter and timer.
+
+We have already added a counter to our nordmart review application. This counter records the number of reviews that have a rating below 3.
+
+Let's take a look at the code from [ReviewServiceImpl.java](hhttps://github.com/stakater-lab/stakater-nordmart-review/blob/9c6f514c9827435a5b0196d0bd185b0778e4cfb8/src/main/java/com/stakater/nordmart/service/ReviewServiceImpl.java)
+
+First we import the counter and meterRegistry from micrometer.
+```java
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
+```
+The ReviewServiceImp class contains a [MeterRegistry and Counter named ratingCounter](https://github.com/stakater-lab/stakater-nordmart-review/blob/9c6f514c9827435a5b0196d0bd185b0778e4cfb8/src/main/java/com/stakater/nordmart/service/ReviewServiceImpl.java#L22).
+
+```java
+private MeterRegistry meterRegistry;
+private Counter ratingCounter;
+```
+The rating counter is initialized through the following lines of code:
+```java
+ratingCounter = Counter.builder("nordmart-review.low.ratings")    // 2 - create a counter using the fluent API
+            .tag("type", "product")
+            .description("Total number of ratings below 3 for all product")
+            .register(meterRegistry);
+```
+
+Every time a rating of below 3 is added, [the rating counter is incremented](https://github.com/stakater-lab/stakater-nordmart-review/blob/9c6f514c9827435a5b0196d0bd185b0778e4cfb8/src/main/java/com/stakater/nordmart/service/ReviewServiceImpl.java#LL94C1-L96C14):
+```java
+            if (Integer.parseInt(rating) <= 3) {
+                ratingCounter.increment();
+            }
+```
+This custom metric we just added can been seen through prometheus. In the following section, we will add an alert usign this metric.
