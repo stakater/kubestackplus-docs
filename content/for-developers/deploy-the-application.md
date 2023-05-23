@@ -19,6 +19,7 @@ We will cover application deployment with Helm and ArgoCD in this section.
 - curl
 
 ## Deploy your Application with Helm
+
 Let's deploy a simple application using Helm. Helm charts are packaged and stored in repositories. They can be added as dependencies of other charts or used directly. Let's add a chart repository now. The chart repository stores the version history of our charts as well as the packaged tar file.
 
 We created and packaged a Helm chart to the Nexus Helm Repository available in Stakater App Agility Platform (SAAP)
@@ -48,7 +49,7 @@ We created and packaged a Helm chart to the Nexus Helm Repository available in S
     oc get pods,svc -n ${TENANT_NAME}-dev
     ```
 
-1.   RUn the following command to port forward the pod to your local machine and run curl command to verify your application is running and serving requests.
+1. Run the following command to port forward the pod to your local machine and run curl command to verify your application is running and serving requests.
 
      ```sh
      # get podname with oc get
