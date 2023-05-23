@@ -61,7 +61,7 @@ private Counter ratingCounter;
 ```
 The rating counter is initialized through the following lines of code:
 ```java
-ratingCounter = Counter.builder("nordmart-review.low.ratings")    // 2 - create a counter using the fluent API
+ratingCounter = Counter.builder("nordmart-review.low.ratings")  
             .tag("type", "product")
             .description("Total number of ratings below 3 for all product")
             .register(meterRegistry);
