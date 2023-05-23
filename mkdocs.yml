@@ -66,11 +66,7 @@ nav:
             - about/service-definition/cicd-pipelines.md
             - about/service-definition/service-mesh.md
             - about/service-definition/multitenancy.md
-        - Responsibilities:
-            - about/responsibilities/overview.md
-            - about/responsibilities/change-management.md
-            - about/responsibilities/identity-access-management.md
-            - about/responsibilities/security-regulation-compliance.md
+        - about/responsibilities.md
         - Cloud Providers:
             - about/cloud-providers/overview.md
             - about/cloud-providers/aws.md
