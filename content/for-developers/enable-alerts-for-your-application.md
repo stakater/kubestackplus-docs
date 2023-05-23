@@ -4,7 +4,7 @@ Now that we have enabled metrics for our application the previous section, let's
 
 Metrics endpoints are scraped via ServiceMonitor by Prometheus
 
-### Metrics endpoints are scraped via ServiceMonitor by Prometheus
+## Metrics endpoints are scraped via ServiceMonitor by Prometheus
 
 The Prometheus Operator includes a Custom Resource Definition that allows the definition of the ServiceMonitor. The ServiceMonitor is used to define an application you wish to scrape metrics from, the controller will action the ServiceMonitors we define and automatically build the required Prometheus configuration.
 

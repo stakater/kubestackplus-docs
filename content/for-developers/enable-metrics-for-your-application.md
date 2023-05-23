@@ -84,7 +84,6 @@ ratingCounter = Counter.builder("nordmart-review.low.ratings")
 
 ```
 
-
 Every time a rating of below 3 is added, [the rating counter is incremented](https://github.com/stakater-lab/stakater-nordmart-review/blob/9c6f514c9827435a5b0196d0bd185b0778e4cfb8/src/main/java/com/stakater/nordmart/service/ReviewServiceImpl.java#LL94C1-L96C14):
 
 ```java
