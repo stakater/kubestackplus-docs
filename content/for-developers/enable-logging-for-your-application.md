@@ -10,7 +10,7 @@ Go to `Management` > `Index-Patterns` and you will see the below screen, enter `
 
 ![Kibana_Page_1](./images/kibana_index_page1.png)
 
-From the drop down `Time filter` field name select `@timestamp` and click `Create index pattern`:
+From the drop-down `Time filter` field name select `@timestamp` and click `Create index pattern`:
 
 ![Kibana_Page_2](./images/kibana_index_page2.png)
 
