@@ -6,7 +6,7 @@ How an application exposes its metrics depends upon how it is built. We will tak
 ## Enabling metrics for Nordmart
 
 Let's again look at our Nordmart example to expose some metrics and then get them through Prometheus.
-To expose metrics in a spring boot application we need to add some dependencies:
+To expose metrics in a spring boot application, we need to add some dependencies:
 The first dependency we need is the Spring Boot Actuator. Add the below lines to pom.xml
 
 ```xml
@@ -46,9 +46,9 @@ Micrometer can publish different types of metrics, called primitives. These incl
 
 We have already added a counter to our nordmart review application. This counter records the number of reviews that have a rating below 3.
 
-Let's take a look at the code from [ReviewServiceImpl.java](hhttps://github.com/stakater-lab/stakater-nordmart-review/blob/9c6f514c9827435a5b0196d0bd185b0778e4cfb8/src/main/java/com/stakater/nordmart/service/ReviewServiceImpl.java)
+Let's take a look at the code from [ReviewServiceImpl.java](https://github.com/stakater-lab/stakater-nordmart-review/blob/9c6f514c9827435a5b0196d0bd185b0778e4cfb8/src/main/java/com/stakater/nordmart/service/ReviewServiceImpl.java)
 
-First we import the counter and meterRegistry from micrometer.
+First we [import the counter and meterRegistry](https://github.com/stakater-lab/stakater-nordmart-review/blob/9c6f514c9827435a5b0196d0bd185b0778e4cfb8/src/main/java/com/stakater/nordmart/service/ReviewServiceImpl.java#L5) from micrometer.
 ```java
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
