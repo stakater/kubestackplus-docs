@@ -1,6 +1,6 @@
 # Enable metrics for your Application
 
-We need Prometheus metrics to be exposed by our application to be able to monitor it. 
+We need Prometheus metrics to be exposed by our application to be able to monitor it.
 How an application exposes its metrics depends upon how it is built. We will take the example of a spring boot application and expose its metrics on a Url for Prometheus to monitor.
 
 ## Enabling metrics for Nordmart

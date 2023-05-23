@@ -15,4 +15,3 @@ From the drop-down `Time filter` field name select `@timestamp` and click `Creat
 ![Kibana_Page_2](./images/kibana_index_page2.png)
 
 Now you can go to `Discover` tab to view the logs.
-
