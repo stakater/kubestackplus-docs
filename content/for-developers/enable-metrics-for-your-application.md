@@ -1,7 +1,7 @@
 # Enable metrics for your Application
 
-We need prometheus metrics to be exposed by our application to be able to monitor it. 
-How an application exposes its metrics depends upon how it is built. We will take the example of a spring boot application and expose its metrice on a url for prometheus to monitor.
+We need Prometheus metrics to be exposed by our application to be able to monitor it. 
+How an application exposes its metrics depends upon how it is built. We will take the example of a spring boot application and expose its metrics on a Url for Prometheus to monitor.
 
 ## Enabling metrics for Nordmart
 
@@ -9,7 +9,7 @@ Let's again look at our Nordmart example to expose some metrics and then get the
 To expose metrics in a spring boot application, we need to add some dependencies:
 The first dependency we need is the Spring Boot Actuator. Add the below lines to pom.xml
 
-```xml
+```XML
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-actuator</artifactId>
@@ -20,7 +20,7 @@ You can find a working example in nordmart's [pom.xml](https://github.com/stakat
 
 Another dependency that you will need to add is Micrometer.
 Micrometer is a set of libraries for Java that allow you to capture metrics and expose them to several different tools – including Prometheus
-```xml
+```XML
 <dependency>
     <groupId>io.micrometer</groupId>
     <artifactId>micrometer-core</artifactId>
