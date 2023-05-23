@@ -73,4 +73,4 @@ Every time a rating of below 3 is added, [the rating counter is incremented](htt
                 ratingCounter.increment();
             }
 ```
-This custom metric we just added can been seen through prometheus. In the following section, we will add an alert usign this metric.
+This custom metric we just added can be seen through prometheus. In the following section, we will add an alert usign this metric.
