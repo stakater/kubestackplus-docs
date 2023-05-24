@@ -1,6 +1,6 @@
 # Enable logging for your Application
 
-Logging is enabled by default for all applications running to the cluster. To see these logs, head over to Kibana through forecastle.
+Logging is enabled by default for all applications running to the cluster. To see these logs, head over to Kibana through Forecastle.
 
 ## How to access logs on Kibana?
 

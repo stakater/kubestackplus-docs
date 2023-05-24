@@ -3,7 +3,7 @@
 We need Prometheus metrics to be exposed by our application to be able to monitor it.
 How an application exposes its metrics depends upon how it is built. We will take the example of a spring boot application and expose its metrics on a Url for Prometheus to monitor.
 
-## Enabling metrics for Nordmart
+## Enabling metrics for a Apring Boot Application
 
 Let's again look at our Nordmart example to expose some metrics and then get them through Prometheus.
 To expose metrics in a spring boot application, we need to add some dependencies:
@@ -19,7 +19,7 @@ The first dependency we need is the Spring Boot Actuator. Add the below lines to
 ```
 
 Actuator is the part of Spring Boot which exposes some APIs, for health-checking and monitoring of your apps.
-You can find a working example in nordmart's [pom.xml](https://github.com/stakater-lab/stakater-nordmart-review/blob/85e6a3549ee18abe63b072c23c88f6e8bbfd96bc/pom.xml#L61).
+You can find a working example in Nordmart's [pom.xml](https://github.com/stakater-lab/stakater-nordmart-review/blob/85e6a3549ee18abe63b072c23c88f6e8bbfd96bc/pom.xml#L61).
 
 Another dependency that you will need to add is Micrometer.
 Micrometer is a set of libraries for Java that allow you to capture metrics and expose them to several different tools – including Prometheus
@@ -40,7 +40,7 @@ Micrometer is a set of libraries for Java that allow you to capture metrics and 
 There is one more thing that you will need to do to get everything working.
 In the application.properties type in [management.endpoints.web.exposure.include=info, health, prometheus, metrics](https://github.com/stakater-lab/stakater-nordmart-review/blob/85e6a3549ee18abe63b072c23c88f6e8bbfd96bc/src/main/resources/application.properties#L12)
 
-Actuator exposes prometheus metrics on /actuator/prometheus
+Actuator exposes Prometheus metrics on /actuator/prometheus
 
 To learn more about exposing metrics in spring boot you can refer to this [guide](https://docs.spring.io/spring-boot/docs/2.1.2.RELEASE/reference/html/production-ready-endpoints.html).
 
@@ -94,4 +94,4 @@ Every time a rating of below 3 is added, [the rating counter is incremented](htt
             
 ```
 
-This custom metric we just added can be seen through prometheus. In the following section, we will add an alert usign this metric.
+This custom metric we just added can be seen through Prometheus. In the following section, we will add an alert using this metric.
