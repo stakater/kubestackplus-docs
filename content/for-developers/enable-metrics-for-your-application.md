@@ -64,7 +64,7 @@ import io.micrometer.core.instrument.MeterRegistry;
 
 ```
 
-The ReviewServiceImp class contains a [MeterRegistry and Counter named ratingCounter](https://github.com/stakater-lab/stakater-nordmart-review/blob/9c6f514c9827435a5b0196d0bd185b0778e4cfb8/src/main/java/com/stakater/nordmart/service/ReviewServiceImpl.java#L22).
+The ReviewServiceImp class contains a [MeterRegistry and Counter named `ratingCounter`](https://github.com/stakater-lab/stakater-nordmart-review/blob/9c6f514c9827435a5b0196d0bd185b0778e4cfb8/src/main/java/com/stakater/nordmart/service/ReviewServiceImpl.java#L22).
 
 ```java
 
