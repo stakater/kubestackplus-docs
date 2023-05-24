@@ -157,6 +157,7 @@ nav:
             - for-developers/requirements-for-next-section.md
             - for-developers/help.md
         - Deploy your App:
+            - for-developers/configure-your-application.md
             - for-developers/develop-your-application.md
             - for-developers/containerize-the-application.md
             - for-developers/package-the-application.md

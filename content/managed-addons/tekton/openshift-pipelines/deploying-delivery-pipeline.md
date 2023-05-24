@@ -1,10 +1,10 @@
 # Deploying Delivery Pipeline
 
+[TOC]
+
 ## Workflow
 
 ![delivery-workflow](./images/delivery-workflow.jpg)
-
-[[toc]]
 
 ### Pre-requisites
 
