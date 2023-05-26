@@ -29,7 +29,6 @@ By properly configuring the permissions and access levels for the PAT, you can e
     - [`Add SSH Public key to your GitHub Account`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) or [`Add Deploy Key to your Repository`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
 *Note: A deploy key is specific to a single repository and cannot be used for multiple repositories whereas, a single SSH key can be used for multiple repositories.*
 
-
 ## Create a Secret with Token or SSH key
 
 Create a Kubernetes Secret in ArgoCD namespace with repository credentials. Each repository secret must have a url field and, depending on whether you connect using HTTPS, SSH, username and password (for HTTPS), sshPrivateKey (for SSH).
