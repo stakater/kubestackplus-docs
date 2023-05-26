@@ -51,21 +51,21 @@ The above chart contains all necessary resources needed to build and run a Tekto
 
 3. Add a Chart.yaml file and a values.yaml file at this location.
 
-4. Populate the Chart.yaml file with the following content: 
+4. Populate the Chart.yaml file with the following content:
 
 ```yaml
-   apiVersion: v2
-   dependencies:
-- name: stakater-tekton-chart
-  repository: https://stakater.github.io/stakater-charts
-  version: 3.6.7
-  description: Helm chart for Tekton Pipelines
-  name: stakater-main-pr-v1
-  version: 3.6.7
+       apiVersion: v2
+       dependencies:
+    - name: stakater-tekton-chart
+      repository: https://stakater.github.io/stakater-charts
+      version: 3.6.7
+      description: Helm chart for Tekton Pipelines
+      name: stakater-main-pr-v1
+      version: 3.6.7
 ```
 
-5. As mentioned earlier, we will use the stakater-tekton-chart to deploy our tekton pipeline resources.
-  Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
+As mentioned earlier, we will use the stakater-tekton-chart to deploy our tekton pipeline resources.
+Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
 
 ```yaml
    pipeline-charts:
@@ -213,17 +213,17 @@ The above chart contains all necessary resources needed to build and run a Tekto
 
 Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml) and trigger bindings. You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) and add them as ref to the triggers.
 
-6. Let's see our pipeline definition in the SAAP console now. Select `<TENANT_NAME>-build` namespace in the console. Now in the `Pipelines` section, click `pipelines`. You should be able to see the pipeline that you just created using the chart.
+Let's see our pipeline definition in the SAAP console now. Select `<TENANT_NAME>-build` namespace in the console. Now in the `Pipelines` section, click `pipelines`. You should be able to see the pipeline that you just created using the chart.
 
 ![pipeline-basic.png](./images/pipeline-basic.png)
 
 With our pipelines definitions synchronized to the cluster, we can now add the webhook to GitHub `nordmart-review-ui` project.
 
-7. Grab the URL we're going to invoke to trigger the pipeline by checking the event listener route in `<TENANT_NAME>-build` project
+Grab the URL we're going to invoke to trigger the pipeline by checking the event listener route in `<TENANT_NAME>-build` project
 
    ![add-route.png](./images/add-route.png)
 
-8. Once you have the URL, over on GitHub go to the application repo > `Settings` > `Webhook` to add the webhook:
+Once you have the URL, over on GitHub go to the application repo > `Settings` > `Webhook` to add the webhook:
 
     * Add the URL we obtained through the last step in the URL box
     * select `Push Events`, leave the branch empty for now
@@ -233,6 +233,6 @@ With our pipelines definitions synchronized to the cluster, we can now add the w
 
 With all these components in place - now it's time to trigger pipeline via webhook by checking in some code for Nordmart review ui.
 
-10. Let's make a simple change to `stakater-nordmart-review-ui`. Edit `ReadMe.md` by adding some new lines in the file. Create a Pull request.
+Let's make a simple change to `stakater-nordmart-review-ui`. Edit `ReadMe.md` by adding some new lines in the file. Create a Pull request.
 
-11. Navigate to the OpenShift Console. Open up 'Pipelines'. Change the project to the namespace in which you have deployed your pipeline. You will see a pipeline running.
+Navigate to the OpenShift Console. Open up 'Pipelines'. Change the project to the namespace in which you have deployed your pipeline. You will see a pipeline running.
