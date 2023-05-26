@@ -32,7 +32,7 @@ The above chart contains all necessary resources needed to build and run a Tekto
 
   > **Note**: We do not need to define interceptor and trigger templates in every trigger while using stakater Tekton pipeline chart.
 
-* `pipeline` -  this is the pipeline definition, it wires together all the items above (workspaces, tasks & secrets etc) into a useful & reusable set of activities.
+* `pipeline` -  this is the pipeline definition, it wires together all the items above (workspaces, tasks & secrets etc.) into a useful & reusable set of activities.
 * `tasks` - these are the building blocks of Tekton. They are the custom resources that take parameters and run steps on the shell of a provided image. They can produce results and share workspaces with other tasks.
 
 ### SAAP pre-configured cluster tasks:
@@ -218,13 +218,13 @@ Here, we are using the [default triggers](https://github.com/stakater/stakater-t
 
 ![pipeline-basic.png](./images/pipeline-basic.png)
 
-With our pipelines definitions synchronized to the cluster, we can now add the webhook to Github `nordmart-review-ui` project.
+With our pipelines definitions synchronized to the cluster, we can now add the webhook to GitHub `nordmart-review-ui` project.
 
 7. Grab the URL we're going to invoke to trigger the pipeline by checking the event listener route in `<TENANT_NAME>-build` project
 
    ![add-route.png](./images/add-route.png)
 
-8. Once you have the URL, over on Github go to the application repo > `Settings` > `Webhook` to add the webhook:
+8. Once you have the URL, over on GitHub go to the application repo > `Settings` > `Webhook` to add the webhook:
 
     * Add the URL we obtained through the last step in the URL box
     * select `Push Events`, leave the branch empty for now
@@ -237,9 +237,6 @@ With all these components in place - now it's time to trigger pipeline via webho
 
 10. Let's make a simple change to `stakater-nordmart-review-ui`. Edit `ReadMe.md` by adding some new lines in the file. Create a Pull request.
 
-11. Navigate to the OpenShift Console ...
+11. Navigate to the OpenShift Console 
 
 
-🪄 Observe Pipeline running by browsing to `OpenShift UI` > `Pipelines` from left pane > `Pipelines` in your `<TENANT_NAME>-build` project:
-
-![pipeline-running.png](./images/pipeline-running.png)
