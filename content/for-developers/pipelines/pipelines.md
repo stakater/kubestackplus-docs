@@ -64,7 +64,6 @@ version: 3.6.7
 ````
 
 As mentioned earlier, we will use the stakater-tekton-chart to deploy our tekton pipeline resources.
-
 5. Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
 
 ```yaml 
@@ -231,12 +230,8 @@ With our pipelines definitions synchronized to the cluster, we can now add the w
     * select `SSL Verification`
     * Click `Add webhook` button.
 
-    
 With all these components in place - now it's time to trigger pipeline via webhook by checking in some code for Nordmart review ui.
 
 10. Let's make a simple change to `stakater-nordmart-review-ui`. Edit `ReadMe.md` by adding some new lines in the file. Create a Pull request.
 
 11. Navigate to the OpenShift Console. Open up 'Pipelines'. Change the project to the namespace in which you have deployed your pipeline. You will see a pipeline running.
-
-
-
