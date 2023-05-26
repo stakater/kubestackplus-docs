@@ -254,3 +254,5 @@ You can also add this through application helm chart:
           api_url: https://hooks.slack.com/services/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
 ```
 Now that we have created everything we need, let's see the alerts firing.
+
+Log in to the SAAP cluster. Change the view to "Developer". You will see the 'Observe' tab in the left Panel.
