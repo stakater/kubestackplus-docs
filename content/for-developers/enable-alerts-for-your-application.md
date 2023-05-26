@@ -6,8 +6,8 @@ Metrics endpoints are scraped via ServiceMonitor by Prometheus.
 Prometheus is already installed on your SAAP cluster.
 
 ## Metrics endpoints are scraped via ServiceMonitor by Prometheus
-To scrape metrics from an endpoint, we use a service monitor. 
 
+To scrape metrics from an endpoint, we use a service monitor.
 Example ServiceMonitor:
 
 ```yaml
