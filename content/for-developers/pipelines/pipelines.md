@@ -22,8 +22,8 @@ We will use stakater's `pipeline-charts` Helm chart to deploy the Tekton resourc
 
 We will fill in the values for these resources and deploy a functioning pipeline with most of the complexity abstracted away using our Tekton pipeline chart.
 
-
 The above chart contains all necessary resources needed to build and run a Tekton pipeline. Some of the key things to note above are:
+
 * `eventlistener` -  listens to incoming events like a push to a branch.
 * `trigger` - the `eventlistener` specifies a trigger which in turn specifies:
     * `interceptor` - it receives data from the event
