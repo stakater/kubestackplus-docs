@@ -58,10 +58,11 @@ spec:
 ```
 
 ## Adding Alerts for a Spring Boot Application
-Let's take our Spring Boot application again and add alerts for it.
 
+Let's take our Spring Boot application again and add alerts for it.
 Add a Service Monitor in the namespace in which your Nordmart application is deployed.
 Replace <namespace> in the below manifest to the namespace in which your application is deployed and <app-name> to the name of your application.
+
 ```yaml
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
