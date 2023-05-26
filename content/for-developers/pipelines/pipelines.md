@@ -51,21 +51,21 @@ The above chart contains all necessary resources needed to build and run a Tekto
 
 3. Add a Chart.yaml file and a values.yaml file at this location.
 
-4. Populate the Chart.yaml file with the following content:
+4. Populate the Chart.yaml file with the following content: 
 
- ````yaml
-apiVersion: v2
-dependencies:
-  - name: stakater-tekton-chart
-    repository: https://stakater.github.io/stakater-charts
-    version: 3.6.7
-description: Helm chart for Tekton Pipelines
-name: stakater-main-pr-v1
-version: 3.6.7
-````
+```yaml
+   apiVersion: v2
+   dependencies:
+- name: stakater-tekton-chart
+  repository: https://stakater.github.io/stakater-charts
+  version: 3.6.7
+  description: Helm chart for Tekton Pipelines
+  name: stakater-main-pr-v1
+  version: 3.6.7
+```
 
-As mentioned earlier, we will use the stakater-tekton-chart to deploy our tekton pipeline resources.
-5. Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
+5. As mentioned earlier, we will use the stakater-tekton-chart to deploy our tekton pipeline resources.
+  Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
 
 ```yaml
    pipeline-charts:
