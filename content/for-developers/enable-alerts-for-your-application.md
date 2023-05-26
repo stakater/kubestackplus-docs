@@ -138,13 +138,77 @@ If you have deployed your application using [Stakater's application chart](https
               message: >-
                 Total ratings below 2 has crossed the threshold 8. Total reviews: {{ $value }}.
             expr: >
-              sum by (namespace) (nordmart_review_ratings_total{rating="2"} or nordmart_review_ratings_total{rating="1"}) > 8
+              sum by (namespace) (nordmart_review_ratings_total{rating="2"} or nordmart_review_ratings_total{rating="1"}) > 2
             labels:
               severity: critical
 ```
 Now we need to tell Alert Manager where to send the alert. For this we will need to add an AlertManagerConfig. If you need to send alert to a slack channel. You will first need to [add a webhook for that channel in Slack](https://docs.stakater.com/saap/managed-addons/monitoring-stack/log-alerts.html)
-Once you have the webhook Url, you can proceed to adding the AlertManagerConfig:
+Once you have the webhook Url, you can proceed to adding the AlertManagerConfig. The alertmanager uses kubernetes secret to pick up details of the endpoint to send the alerts to. Let's crate the secret first:
+Replace <namespace> to the namespace in which your application is deployed and <api_url> to base64 encoded webhook Url
 
+```yaml
+kind: Secret
+apiVersion: v1
+metadata:
+  name: review-slack-webhook
+  namespace: <namespace>
+data:
+  api_url: >-
+    <api_url>
+type: Opaque
+```
+You can also use application helm chart to deploy the secret.
+Let's add the AlertManagerConfig:
+Remember to replace <namespace> and <<channel-name>
+```yaml
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: review
+  namespace: <namespace>
+spec:
+  receivers:
+    - name: nordmart-review-receiver
+      slackConfigs:
+        - apiURL:
+            key: api_url
+            name: review-slack-webhook #name of the secret that contains details of where to send the alert (Url)"
+          channel: '<channel-name>' #Slack channel where alert should be sent
+          httpConfig:
+            tlsConfig:
+              insecureSkipVerify: true
+          sendResolved: true
+          text: >-
+            {{ range .Alerts }}
+
+            *Alert:* `{{ .Labels.severity | toUpper }}` - {{
+            .Annotations.summary }}
+
+            *Description:* {{ .Annotations.description }}
+
+            *Details:*
+              {{ range .Labels.SortedPairs }} *{{ .Name }}:* `{{ .Value }}`
+              {{ end }}
+            {{ end }}
+          title: >-
+            [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{
+            .Alerts.Firing | len }}{{ end }}] SAAP Alertmanager Event
+            Notification
+  route:
+    groupBy:
+      - alertname
+      - severity
+    groupInterval: 3m
+    groupWait: 30s
+    matchers:
+      - name: alertname
+        value: NordmartReviewLowRatingsCritical #Name of the alert that trigger that this config is related to
+    receiver: nordmart-review-receiver #create above in the same manifest
+    repeatInterval: 1h
+
+
+```
+You can also add this through application helm chart:
 ```yaml
   alertmanagerConfig:
     enabled: true
@@ -189,4 +253,4 @@ Once you have the webhook Url, you can proceed to adding the AlertManagerConfig:
         data:
           api_url: https://hooks.slack.com/services/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
 ```
-
+Now that we have created everything we need, let's see the alerts firing.
