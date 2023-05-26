@@ -35,7 +35,7 @@ The above chart contains all necessary resources needed to build and run a Tekto
 * `pipeline` -  this is the pipeline definition, it wires together all the items above (workspaces, tasks & secrets etc.) into a useful & reusable set of activities.
 * `tasks` - these are the building blocks of Tekton. They are the custom resources that take parameters and run steps on the shell of a provided image. They can produce results and share workspaces with other tasks.
 
-### SAAP pre-configured cluster tasks:
+### SAAP pre-configured cluster tasks
 
 > SAAP is shipped with many ready-to-use Tekton cluster tasks. Let's take a look at some of the tasks that we will be using to construct a basic pipeline.
 
