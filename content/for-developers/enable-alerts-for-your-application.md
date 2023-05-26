@@ -82,12 +82,14 @@ spec:
     matchLabels:
       app: <app-name>
 ```
+
 If you have deployed your application using [Stakater's application chart](https://github.com/stakater/application), you need to add the following lines to your helm values file:
 
 ```yaml
   serviceMonitor:
     enabled: true
 ```
+
 By default, we have set the path for the service monitor to `/actuator/prometheus`. In case you want to change the endpoint to monitor, you can use the endpoint key:
 
 ```yaml
@@ -98,6 +100,7 @@ By default, we have set the path for the service monitor to `/actuator/prometheu
       path: /actuator/prometheus # path where your metrics are exposed
       port: http
 ```
+
 2. Now let's add a PrometheusRule for the application. In the previous section we added a custom metric that records the review. We are going to use the custom metric to write a prometheus rule that fires when we get too many low rating.
 Replace the <namespace> to the namespace in which your application is deployed.
 
@@ -121,8 +124,8 @@ spec:
             nordmart_review_ratings_total{rating="1"}) > 8
           labels:
             severity: critical
-
 ```
+
 If you have deployed your application using [Stakater's application chart](https://github.com/stakater/application), you need to add the following lines to your helm values file:
 
 ```yaml
@@ -142,6 +145,7 @@ If you have deployed your application using [Stakater's application chart](https
             labels:
               severity: critical
 ```
+
 Now we need to tell Alert Manager where to send the alert. For this we will need to add an AlertManagerConfig. If you need to send alert to a slack channel. You will first need to [add a webhook for that channel in Slack](https://docs.stakater.com/saap/managed-addons/monitoring-stack/log-alerts.html)
 Once you have the webhook Url, you can proceed to adding the AlertManagerConfig. The alertmanager uses kubernetes secret to pick up details of the endpoint to send the alerts to. Let's crate the secret first:
 Replace <namespace> to the namespace in which your application is deployed and <api_url> to base64 encoded webhook Url
@@ -157,9 +161,11 @@ data:
     <api_url>
 type: Opaque
 ```
+
 You can also use application helm chart to deploy the secret.
 Let's add the AlertManagerConfig:
 Remember to replace <namespace> and <<channel-name>
+
 ```yaml
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
@@ -205,10 +211,10 @@ spec:
         value: NordmartReviewLowRatingsCritical #Name of the alert that trigger that this config is related to
     receiver: nordmart-review-receiver #create above in the same manifest
     repeatInterval: 1h
-
-
 ```
+
 You can also add this through application helm chart:
+
 ```yaml
   alertmanagerConfig:
     enabled: true
@@ -253,6 +259,7 @@ You can also add this through application helm chart:
         data:
           api_url: https://hooks.slack.com/services/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
 ```
+
 Now that we have created everything we need, let's see the alerts firing.
 
 Log in to the SAAP cluster. Change the view to "Developer". You will see the 'Observe' tab in the left Panel.
