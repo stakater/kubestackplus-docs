@@ -147,7 +147,7 @@ If you have deployed your application using [Stakater's application chart](https
 ```
 
 Now we need to tell Alert Manager where to send the alert. For this we will need to add an AlertManagerConfig. If you need to send alert to a slack channel. You will first need to [add a webhook for that channel in Slack](https://docs.stakater.com/saap/managed-addons/monitoring-stack/log-alerts.html)
-Once you have the webhook Url, you can proceed to adding the AlertManagerConfig. The Alertmanager uses kubernetes secret to pick up details of the endpoint to send the alerts to. Let's crate the secret first:
+Once you have the webhook Url, you can proceed to adding the AlertManagerConfig. The Alertmanager uses Kubernetes secret to pick up details of the endpoint to send the alerts to. Let's crate the secret first:
 Replace <namespace> to the namespace in which your application is deployed and <api_url> to base64 encoded webhook Url
 
 ```yaml
