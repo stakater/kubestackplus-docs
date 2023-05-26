@@ -47,9 +47,9 @@ The above chart contains all necessary resources needed to build and run a Tekto
 
 1. Open up your Gitops repository. We will be using [Stakater opinionated Gitops structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
 
-2. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-nordmart-review-ui > 00-build
+2. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-nordmart-review-ui > 00-build.
 
-3. Add a Chart.yaml file and a values.yaml file at this location. 
+3. Add a Chart.yaml file and a values.yaml file at this location.
 
 4. Populate the Chart.yaml file with the following content:
 
@@ -67,7 +67,7 @@ version: 3.6.7
 As mentioned earlier, we will use the stakater-tekton-chart to deploy our tekton pipeline resources.
 5. Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
 
-```yaml 
+```yaml
    pipeline-charts:
       name: stakater-main-pr-v1
       workspaces:
