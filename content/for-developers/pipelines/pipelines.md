@@ -1,10 +1,9 @@
 # Add Pipeline to Your Application
 
 Now that we have added our first application using Stakater Opinionated GitOps Structure, we can continue by adding pipeline to our application.
-
 SAAP is shipped with all the tools that you need to add a Tekton pipeline to your application. 
 
-### Tekton Pipeline
+## Tekton Pipeline
 
 > Tekton (OpenShift Pipelines) is the new kid on the block in the CI/CD space. It's grown rapidly in popularity as it's Kubernetes Native way of running CI/CD.
 
@@ -18,6 +17,7 @@ Tekton is made up of number of YAML files each with a different purpose such as 
 > The Tekton pipeline definitions are not stored with the application codebase because we centralize and share a dynamic Pipeline to avoid duplicated code and effort.
 
 ### Tekton Pipeline Chart
+
 We will use stakater's `pipeline-charts` Helm chart to deploy the Tekton resources. The chart contains templates for all required Tekton resources such as `pipeline`, `task`, `eventlistener`, `triggers`, etc.
 
 We will fill in the values for these resources and deploy a functioning pipeline with most of the complexity abstracted away using our Tekton pipeline chart.
