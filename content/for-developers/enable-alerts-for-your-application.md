@@ -61,7 +61,7 @@ spec:
 
 Let's take our Spring Boot application again and add alerts for it.
 
-1. Add a Service Monitor in the namespace in which your nordmart application is deployed.
+1. Add a Service Monitor in the namespace in which your Nordmart application is deployed.
 Replace <namespace> in the below manifest to the namespace in which your application is deployed and <app-name> to the name of your application.
 
 ```yaml
@@ -101,7 +101,7 @@ By default, we have set the path for the service monitor to `/actuator/prometheu
       port: http
 ```
 
-2. Now let's add a PrometheusRule for the application. In the previous section we added a custom metric that records the review. We are going to use the custom metric to write a prometheus rule that fires when we get too many low rating.
+2. Now let's add a PrometheusRule for the application. In the previous section we added a custom metric that records the review. We are going to use the custom metric to write a `prometheus` rule that fires when we get too many low rating.
 Replace the <namespace> to the namespace in which your application is deployed.
 
 ```yaml
@@ -147,7 +147,7 @@ If you have deployed your application using [Stakater's application chart](https
 ```
 
 Now we need to tell Alert Manager where to send the alert. For this we will need to add an AlertManagerConfig. If you need to send alert to a slack channel. You will first need to [add a webhook for that channel in Slack](https://docs.stakater.com/saap/managed-addons/monitoring-stack/log-alerts.html)
-Once you have the webhook Url, you can proceed to adding the AlertManagerConfig. The alertmanager uses kubernetes secret to pick up details of the endpoint to send the alerts to. Let's crate the secret first:
+Once you have the webhook Url, you can proceed to adding the AlertManagerConfig. The Alertmanager uses kubernetes secret to pick up details of the endpoint to send the alerts to. Let's crate the secret first:
 Replace <namespace> to the namespace in which your application is deployed and <api_url> to base64 encoded webhook Url
 
 ```yaml
