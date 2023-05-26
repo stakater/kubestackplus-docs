@@ -45,7 +45,7 @@ The above chart contains all necessary resources needed to build and run a Tekto
 
 > Let's use the `tekton-pipeline-chart` and the above tasks to create a working pipeline. We will be using [this example gitops repository](https://github.com/stakater/nordmart-apps-gitops-config) and [application](https://github.com/stakater-lab/stakater-nordmart-review) in this section.
 
-1. Open up your Gitops repository. We will be using [Stakater opinionated Gitops structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
+1. Open up your GitOps repository. We will be using [Stakater opinionated Gitops structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
 
 2. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-nordmart-review-ui > 00-build.
 
