@@ -9,7 +9,7 @@ Use the following links:
 
 - For token access
     - PAT (Classic): [`Create a personal access token`](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with the required "repo permissions" for GitOps repositories. *Note: This PAT can be used for all repos, so to segregate your usual repositories from GitOps, you can use "Fine-grained tokens" in GitHub.*
-    - PAT (Fine-grained): Allows you to select repositories from your GitHub organization which can use the token.[`Create a fine-grained token`](https://github.blog/2022-10-18-introducing-fine-grained-personal-access-tokens-for-github/) with the below mentioned permissions for your GitOps repos:
+    - PAT (Fine-grained): Allows you to select repositories from your GitHub organization which can use the token.[`Create a fine-grained token`](https://github.blog/2022-10-18-introducing-fine-grained-personal-access-tokens-for-github/) with the below-mentioned permissions for your GitOps repos:
        * Actions (Read and write)
        * Administration (Read and write)
        * Commit statuses (Read only)
