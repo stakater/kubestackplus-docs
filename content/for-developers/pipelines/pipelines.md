@@ -41,18 +41,17 @@ The above chart contains all necessary resources needed to build and run a Tekto
 
 1. Navigate to the `OpenShift Console` using `Forecastle`. Select `Pipelines` > `Tasks` in sidebar. Select the `ClusterTasks` tab and search `stakater`. Here you will see all the tasks shipped with SAAP.
 
-
 ### Deploying a working pipeline
-
 > Let's use the `tekton-pipeline-chart` and the above tasks to create a working pipeline. We will be using [this example gitops repository](https://github.com/stakater/nordmart-apps-gitops-config) and [application](https://github.com/stakater-lab/stakater-nordmart-review) in this section.
 
-1. Open up your Gitops repository. We will be using [Stakater opinionated Gitops structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it.
-> We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
+1. Open up your Gitops repository. We will be using [Stakater opinionated Gitops structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
 
-2. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-nordmart-review-ui > 00-build 
+2. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-nordmart-review-ui > 00-build
 
 3. Add a Chart.yaml file and a values.yaml file at this location. 
-4. Populate the Chart.yaml file with the following content: 
+
+4. Populate the Chart.yaml file with the following content:
+
  ````yaml
 apiVersion: v2
 dependencies:
@@ -63,12 +62,12 @@ description: Helm chart for Tekton Pipelines
 name: stakater-main-pr-v1
 version: 3.6.7
 ````
+
 As mentioned earlier, we will use the stakater-tekton-chart to deploy our tekton pipeline resources.
 
-2. Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
+5. Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
 
-   ```yaml
-   
+```yaml 
    pipeline-charts:
       name: stakater-main-pr-v1
       workspaces:
@@ -210,9 +209,9 @@ As mentioned earlier, we will use the stakater-tekton-chart to deploy our tekton
       serviceAccount:
         name: stakater-tekton-builder
         create: false
-   ```
-Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml) and trigger bindings. You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) and add them as ref to the triggers.
+```
 
+Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml) and trigger bindings. You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) and add them as ref to the triggers.
 
 6. Let's see our pipeline definition in the SAAP console now. Select `<TENANT_NAME>-build` namespace in the console. Now in the `Pipelines` section, click `pipelines`. You should be able to see the pipeline that you just created using the chart.
 
@@ -237,6 +236,7 @@ With all these components in place - now it's time to trigger pipeline via webho
 
 10. Let's make a simple change to `stakater-nordmart-review-ui`. Edit `ReadMe.md` by adding some new lines in the file. Create a Pull request.
 
-11. Navigate to the OpenShift Console 
+11. Navigate to the OpenShift Console. Open up 'Pipelines'. Change the project to the namespace in which you have deployed your pipeline. You will see a pipeline running.
+
 
 
