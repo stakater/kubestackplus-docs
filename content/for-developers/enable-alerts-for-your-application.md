@@ -58,12 +58,10 @@ spec:
 ```
 
 ## Adding Alerts for a Spring Boot Application
-
 Let's take our Spring Boot application again and add alerts for it.
 
-1. Add a Service Monitor in the namespace in which your Nordmart application is deployed.
+Add a Service Monitor in the namespace in which your Nordmart application is deployed.
 Replace <namespace> in the below manifest to the namespace in which your application is deployed and <app-name> to the name of your application.
-
 ```yaml
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -101,7 +99,7 @@ By default, we have set the path for the service monitor to `/actuator/prometheu
       port: http
 ```
 
-2. Now let's add a PrometheusRule for the application. In the previous section we added a custom metric that records the review. We are going to use the custom metric to write a `prometheus` rule that fires when we get too many low rating.
+Now let's add a PrometheusRule for the application. In the previous section we added a custom metric that records the review. We are going to use the custom metric to write a `prometheus` rule that fires when we get too many low rating.
 Replace the <namespace> to the namespace in which your application is deployed.
 
 ```yaml
