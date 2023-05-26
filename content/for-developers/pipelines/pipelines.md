@@ -43,11 +43,11 @@ The above chart contains all necessary resources needed to build and run a Tekto
 
 ### Deploying a working pipeline
 
-> Let's use the `tekton-pipeline-chart` and the above tasks to create a working pipeline. We will be using [this example gitops repository](https://github.com/stakater/nordmart-apps-gitops-config) and [application](https://github.com/stakater-lab/stakater-nordmart-review) in this section.
+> Let's use the `tekton-pipeline-chart` and the above tasks to create a working pipeline. We will be using [this example GitOps repository](https://github.com/stakater/nordmart-apps-gitops-config) and [application](https://github.com/stakater-lab/stakater-nordmart-review) in this section.
 
-1. Open up your GitOps repository. We will be using [Stakater opinionated Gitops structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
+1. Open up your GitOps repository. We will be using [Stakater opinionated GitOps structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
 
-2. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-nordmart-review-ui > 00-build.
+2. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-ui > 00-build.
 
 3. Add a Chart.yaml file and a values.yaml file at this location.
 
@@ -64,7 +64,7 @@ The above chart contains all necessary resources needed to build and run a Tekto
       version: 3.6.7
 ```
 
-As mentioned earlier, we will use the stakater-tekton-chart to deploy our tekton pipeline resources.
+As mentioned earlier, we will use the `stakater-tekton-chart` to deploy our Tekton pipeline resources.
 Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
 
 ```yaml
@@ -231,7 +231,7 @@ Once you have the URL, over on GitHub go to the application repo > `Settings` > 
     * select `SSL Verification`
     * Click `Add webhook` button.
 
-With all these components in place - now it's time to trigger pipeline via webhook by checking in some code for Nordmart review ui.
+With all these components in place - now it's time to trigger pipeline via webhook by checking in some code for Nordmart review `ui`.
 
 Let's make a simple change to `stakater-nordmart-review-ui`. Edit `ReadMe.md` by adding some new lines in the file. Create a Pull request.
 
