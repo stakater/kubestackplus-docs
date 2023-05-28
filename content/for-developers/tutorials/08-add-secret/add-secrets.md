@@ -25,7 +25,7 @@ Login to Vault to view your tenant path.
 
 Stakater Application Chart contains support for ExternalSecret.
 
-```
+```yaml
 externalSecret:
   enabled: true
 
