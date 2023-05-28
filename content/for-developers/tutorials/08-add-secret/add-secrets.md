@@ -71,7 +71,7 @@ Let's add a sample secret for Stakater Nordmart Review UI application for demo.
 - Open `stakater-nordmart-review-ui` project, and navigate to deploy folder
 - In `values.yaml` file, add the following YAML for external secret:
 
-```
+```yaml
   externalSecret:
     enabled: true
     secretStore:
