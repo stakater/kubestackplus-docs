@@ -149,40 +149,39 @@ nav:
             - ArgoCD:
                 - for-delivery-engineers/cd-pipelines/argocd/intro.md
     - For Developers:
-        - Overview:
-            - for-developers/overview.md
-            - for-developers/access-your-cluster.md
-            - for-developers/explore-argocd-vault-nexus.md
-            - for-developers/plan-your-deployment.md
-            - for-developers/requirements-for-next-section.md
-            - for-developers/help.md
-        - Deploy your App:
-            - for-developers/develop-your-application.md
-            - for-developers/containerize-the-application.md
-            - for-developers/package-the-application.md
-            - for-developers/deploy-the-application.md
-        - Networking:
-            - for-developers/expose-your-application.md
-        - Persistence:
-            - for-developers/persist-your-application.md
-            - for-developers/backup-your-application.md
-        - Scaling:
-            - for-developers/scale-your-application.md
-        - Logging & Monitoring:
-            - for-developers/enable-metrics-for-your-application.md
-            - for-developers/enable-logging-for-your-application.md
-            - for-developers/enable-alerts-for-your-application.md
-            - for-developers/add-grafana-dashboard-for-your-application.md
-        - Onboarding:
-            - for-developers/onboarding/tenant-onboarding.md
-            - for-developers/onboarding/environment-onboarding.md
-            - for-developers/onboarding/developer-training.md
-            - for-developers/onboarding/secrets.md
-        - Local Development:
-            - for-developers/local-development/inner-loop.md
-            - for-developers/local-development/inner-vs-outer-loop.md
-            - for-developers/local-development/local-development-workflow.md
-            - for-developers/local-development/tilt/step-by-step-guide.md
+        - Tutorials:
+            - for-developers/tutorials/00-prepare-environment/prepare-env.md
+            - for-developers/tutorials/00-prepare-environment/step-by-step-guide.md            
+            - for-developers/tutorials/01-access-cluster/access-cluster.md
+            - for-developers/tutorials/02-containerize-app/containerize-app.md
+            - for-developers/tutorials/03-package-app/package-app.md
+            - for-developers/tutorials/04-deploy-app/deploy-app.md
+            - for-developers/tutorials/05-expose-app/expose-app.md
+            - for-developers/tutorials/06-add-storage/persist-app.md
+            - for-developers/tutorials/07-add-configmap/add-configmaps.md
+            - for-developers/tutorials/08-add-secret/add-secrets.md
+            - for-developers/tutorials/09-add-dependency/add-dependency.md
+            - for-developers/tutorials/10-validate-logs/validate-logs.md
+            - for-developers/tutorials/11-expose-metrics/expose-metrics.md 
+            - for-developers/tutorials/12-add-grafana-dashboard/add-grafana-dashboard.md 
+            - for-developers/tutorials/13-add-alerts/add-alerts.md 
+            - for-developers/tutorials/14-scale-app/scale-app.md 
+            - for-developers/tutorials/15-validate-auto-reload/validate-auto-reload.md
+            - for-developers/tutorials/16-validate-down-alert/validate-down-alert.md
+            - for-developers/tutorials/17-add-pdb/add-pdb.md                        
+            - for-developers/tutorials/18-add-network-policy/add-network-policy.md                        
+            - for-developers/tutorials/19-backup-data/backup-data.md                        
+            - for-developers/tutorials/20-restore-data/restore-data.md                        
+            - for-developers/tutorials/21-add-env-variable/add-env-variable.md                        
+            - for-developers/tutorials/22-add-ci-pipeline/add-ci-pipeline.md                                                
+        - How-to guides:
+            - for-developers/how-to-guides/overview.md
+        - Explanation:
+            - for-developers/explanation/developer-training.md
+            - for-developers/explanation/plan-your-deployment.md
+            - for-developers/explanation/inner-vs-outer-loop.md
+            - for-developers/explanation/inner-loop.md
+            - for-developers/explanation/local-development-workflow.md                                    
     - For CISOs:
         - for-cisos/overview.md
         - for-cisos/policies/policies.md
