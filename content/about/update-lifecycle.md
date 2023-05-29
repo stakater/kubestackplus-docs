@@ -35,4 +35,4 @@ If you have questions about a specific action that might cause a cluster to tran
 
 ## Supported Versions Exception Policy
 
-Stakater reserves the right to add or remove new or existing versions, or delay upcoming minor release versions, that have been identified to have one or more critical production impacting bugs or security issues without advance notice. Example of this can be a critical CVE, or other bug.
+Stakater reserves the right to add or remove new or existing versions, or delay upcoming minor release versions, that have been identified to have one or more critical production impacting bugs or security issues without advance notice.
