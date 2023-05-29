@@ -10,11 +10,11 @@ SAAP is a managed instance of Red Hat OpenShift and maintains an independent rel
 
 ## Major Versions
 
-Major versions of SAAP, for example version 1, are supported for one year following the release of a subsequent major version or the retirement of the product. After this time, clusters would need to be upgraded or migrated to the next major version.
+Major versions of SAAP, for example version 1, are supported for one-year following the release of a subsequent major version or the retirement of the product. After this time, clusters would need to be upgraded or migrated to the next major version.
 
 ## Minor Versions
 
-Stakater supports all minor versions for at least a one year period following general availability of the given minor version.
+Stakater supports all minor versions for at least a one-year period following general availability of the given minor version.
 
 Customers are notified 30 days prior to the end of the support period. Clusters must be upgraded to a supported minor version prior to the end of the support period, or the cluster will enter a [Limited Support](#limited-support-status) status.
 
