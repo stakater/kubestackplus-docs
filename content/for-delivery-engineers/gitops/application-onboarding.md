@@ -74,7 +74,7 @@ EXPOSE 4200
 CMD ["node", "server.js"]
 ```
 
-> Create [multi-stage builds](https://docs.docker.com/build/building/multi-stage/), use multiple `FROM` statements. Each `FROM` instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image. The end result is the same tiny production image as before, with a significant reduction in complexity. You don’t need to create any intermediate images, and you don’t need to extract any artifacts to your local system at all.
+> Create [multi-stage builds](https://docs.docker.com/build/building/multi-stage/), use multiple `FROM` statements. Each `FROM` instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don't want in the final image. The end result is the same tiny production image as before, with a significant reduction in complexity. You don't need to create any intermediate images, and you don't need to extract any artifacts to your local system at all.
 
 Look into the following dockerizing guides for a start.
 

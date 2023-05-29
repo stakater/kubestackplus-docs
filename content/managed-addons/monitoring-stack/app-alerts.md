@@ -26,7 +26,7 @@ data:
 
 ## Excluding a user-defined project from monitoring
 
-Individual user-defined projects can be excluded from user workload monitoring. To do so, simply add the `openshift.io/user-monitoring` label to the project’s namespace with a value of false.
+Individual user-defined projects can be excluded from user workload monitoring. To do so, simply add the `openshift.io/user-monitoring` label to the project's namespace with a value of false.
 
 Add the label to the project namespace:
 

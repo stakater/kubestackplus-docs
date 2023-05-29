@@ -56,16 +56,12 @@ nav:
             - about/service-definition/platform.md
             - about/service-definition/monitoring.md
             - about/service-definition/logging.md
-            - about/service-definition/artifacts-management.md
             - about/service-definition/security.md
             - about/service-definition/secrets-management.md
-            - about/service-definition/multitenancy.md
             - about/service-definition/service-mesh.md
             - about/service-definition/account-management.md
-            - about/service-definition/k8s-management.md
             - about/service-definition/networking.md
             - about/service-definition/storage.md
-            - about/service-definition/cicd-pipelines.md
         - about/responsibilities.md
         - Cloud Providers:
             - about/cloud-providers/overview.md
@@ -81,10 +77,10 @@ nav:
         - about/update-lifecycle.md
         - about/onboarding.md
     - For Administrators:
-        - Plan your envionment:
+        - Plan your environment:
             - for-administrators/plan-your-environment/sizing.md
-        - Provision your cluster:
-            - for-administrators/provision-your-cluster.md
+        - Create your cluster:
+            - for-administrators/create-your-cluster.md
         - Secure your cluster:
             - for-administrators/secure-your-cluster/user-access.md
             - for-administrators/secure-your-cluster/secure-routes.md

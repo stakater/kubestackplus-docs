@@ -8,7 +8,7 @@ Metrics collection and storage via Prometheus, an open-source monitoring system 
 
 ## Alert Manager
 
-Alerting/notifications via Prometheus’ Alertmanager, an open-source tool that handles alerts send by Prometheus.
+Alerting/notifications via Prometheus' Alertmanager, an open-source tool that handles alerts send by Prometheus.
 
 ## Grafana
 

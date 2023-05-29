@@ -7,9 +7,9 @@ Namespaces are divided into two sub-categories:
 - **Stakater owned** : created by the Stakater team which consists of projects/namespaces with format `openshift*`, `stakater*`, `kube*`, `redhat*`, `default`
 - **Customer owned** : created by the customer
 
-## 1.SAAP Cluster Admin (SCA)
+## 1.SAAP Cluster Admin (sca)
 
-SAAP Cluster Admin (SCA):
+SAAP Cluster Admin (sca):
 
 ### Operators Permissions
 

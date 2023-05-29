@@ -1,6 +1,6 @@
 # Helm
 
-Interacting directly with Kubernetes involves either manual configuration using the kubectl command line utility, or passing various flavors of YAML data to the API. This can be complex and is open to human error creeping in. In keeping with the DevOps principle of ‘configuration as code’, we leverage Helm to create atomic blocks of configuration for your applications.
+Interacting directly with Kubernetes involves either manual configuration using the kubectl command line utility, or passing various flavors of YAML data to the API. This can be complex and is open to human error creeping in. In keeping with the DevOps principle of ‘configuration as code', we leverage Helm to create atomic blocks of configuration for your applications.
 
 Helm simplifies Kubernetes configuration through the concept of a Chart, which is a set of files that together specify the meta-data necessary to deploy a given application or service into Kubernetes. Rather than maintain a series of boilerplate YAML files based upon the Kubernetes API, Helm uses a templating language to create the required YAML specifications from a single shared set of values. This makes it possible to specify re-usable Kubernetes applications where configuration can be selectively over-ridden at deployment time.
 
@@ -75,11 +75,11 @@ As mentioned before a Helm chart version is completely different than the applic
 
 ### 1. Simple 1-1 versioning
 
-This is the most basic versioning approach and it is the suggested one if you are starting out with Helm. Don’t use the `appVersion` field at all (it is optional anyway) and just keep the chart version in sync with your actual application.
+This is the most basic versioning approach and it is the suggested one if you are starting out with Helm. Don't use the `appVersion` field at all (it is optional anyway) and just keep the chart version in sync with your actual application.
 
 This approach makes version bumping very easy (you bump everything up) and also allows you to quickly track what application version is deployed on your cluster (same as chart version).
 
-The downside of this approach is that you can’t track chart changes separately.
+The downside of this approach is that you can't track chart changes separately.
 
 ![Chart Version Single](./images/chart-version-single.jpeg)
 

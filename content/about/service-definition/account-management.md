@@ -2,14 +2,12 @@
 
 ## Billing
 
+Billing for SAAP is on a monthly or yearly basis.
+
 ## Cloud Providers
 
-SAAP is available as a managed service on the following cloud providers:
+SAAP is available as a managed platform on the cloud providers listed on the [cloud providers overview](../cloud-providers/overview.md).
 
-- Amazon Web Services (AWS)
-- Google Cloud Platform (GCP)
-- Azure
-- Binero
-- UpCloud
+## Cluster Creation
 
-## Cluster Provisioning
+The administrative section contains information about [cluster creation](../../for-administrators/create-your-cluster.md).

@@ -31,7 +31,7 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
         RUN mvn -f /usr/src/app/pom.xml clean package
         ```
 
-  3. We will use another FROM statement to create a multi-stage build for reducing the overall image size. More info [here](https://docs.docker.com/build/building/multi-stage/). With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image.
+  3. We will use another FROM statement to create a multi-stage build for reducing the overall image size. More info [here](https://docs.docker.com/build/building/multi-stage/). With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don't want in the final image.
 
         ```Dockerfile
         FROM registry.access.redhat.com/ubi8/openjdk-11:1.14-10

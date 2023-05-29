@@ -19,6 +19,6 @@ Changes to the inner dev loop process, i.e., containerization, threaten to slow 
 - pushing the container to the registry
 - deploying containers in Kubernetes
 
-Each new step within the container inner dev loop adds to overall development time, and developers are repeating this process frequently. If the build time is incremented to 5 minutes — not atypical with a standard container build, registry upload, and deploy — then the number of possible development iterations per day drops to ~40. At the extreme that’s a 40% decrease in potential new features being released. This new container build step is a hidden tax, which is quite expensive.
+Each new step within the container inner dev loop adds to overall development time, and developers are repeating this process frequently. If the build time is incremented to 5 minutes — not atypical with a standard container build, registry upload, and deploy — then the number of possible development iterations per day drops to ~40. At the extreme that's a 40% decrease in potential new features being released. This new container build step is a hidden tax, which is quite expensive.
 
 ![After Microservices](./images/local-development-4.png)
