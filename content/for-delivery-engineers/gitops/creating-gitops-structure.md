@@ -391,7 +391,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
        - key: <repo-name>
    ```
 
-1. Add an ArgoCD application pointing to this directory `dev/argocd-secrets/` inside `dev/argocd-apps/argocd-secrets.yaml`.
+1. Add an ArgoCD application pointing to this directory `dev/argocd-secrets/` inside `dev/argocd-apps/apps-gitops-config-external-secret.yaml`.
 
    ```yaml
    # Name: argocd-secrets.yaml (FOLDER_NAME.yaml)
