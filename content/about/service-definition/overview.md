@@ -1,6 +1,6 @@
 # Overview
 
-This section outlines the service definition for SAAP:
+This section outlines the service definition for Stakater App Agility Platform (SAAP):
 
 1. [Managed Kubernetes (Red Hat OpenShift)](platform.md)
 1. [Managed Monitoring Stack (Prometheus, Grafana, Alert Manager)](monitoring.md)

@@ -53,19 +53,19 @@ nav:
         - about/saap-key-differentiators.md
         - Service Definition:
             - about/service-definition/overview.md
-            - about/service-definition/account-management.md
-            - about/service-definition/k8s-management.md
-            - about/service-definition/logging.md
-            - about/service-definition/monitoring.md
-            - about/service-definition/networking.md
-            - about/service-definition/storage.md
             - about/service-definition/platform.md
+            - about/service-definition/monitoring.md
+            - about/service-definition/logging.md
+            - about/service-definition/artifacts-management.md
             - about/service-definition/security.md
             - about/service-definition/secrets-management.md
-            - about/service-definition/artifacts-management.md
-            - about/service-definition/cicd-pipelines.md
-            - about/service-definition/service-mesh.md
             - about/service-definition/multitenancy.md
+            - about/service-definition/service-mesh.md
+            - about/service-definition/account-management.md
+            - about/service-definition/k8s-management.md
+            - about/service-definition/networking.md
+            - about/service-definition/storage.md
+            - about/service-definition/cicd-pipelines.md
         - about/responsibilities.md
         - Cloud Providers:
             - about/cloud-providers/overview.md
@@ -151,7 +151,7 @@ nav:
     - For Developers:
         - Tutorials:
             - for-developers/tutorials/00-prepare-environment/prepare-env.md
-            - for-developers/tutorials/00-prepare-environment/step-by-step-guide.md            
+            - for-developers/tutorials/00-prepare-environment/step-by-step-guide.md
             - for-developers/tutorials/01-access-cluster/access-cluster.md
             - for-developers/tutorials/02-containerize-app/containerize-app.md
             - for-developers/tutorials/03-package-app/package-app.md
@@ -168,12 +168,12 @@ nav:
             - for-developers/tutorials/14-scale-app/scale-app.md 
             - for-developers/tutorials/15-validate-auto-reload/validate-auto-reload.md
             - for-developers/tutorials/16-validate-down-alert/validate-down-alert.md
-            - for-developers/tutorials/17-add-pdb/add-pdb.md                        
-            - for-developers/tutorials/18-add-network-policy/add-network-policy.md                        
-            - for-developers/tutorials/19-backup-data/backup-data.md                        
-            - for-developers/tutorials/20-restore-data/restore-data.md                        
-            - for-developers/tutorials/21-add-env-variable/add-env-variable.md                        
-            - for-developers/tutorials/22-add-ci-pipeline/add-ci-pipeline.md                                                
+            - for-developers/tutorials/17-add-pdb/add-pdb.md
+            - for-developers/tutorials/18-add-network-policy/add-network-policy.md
+            - for-developers/tutorials/19-backup-data/backup-data.md
+            - for-developers/tutorials/20-restore-data/restore-data.md
+            - for-developers/tutorials/21-add-env-variable/add-env-variable.md
+            - for-developers/tutorials/22-add-ci-pipeline/add-ci-pipeline.md
         - How-to guides:
             - for-developers/how-to-guides/overview.md
         - Explanation:
@@ -181,7 +181,7 @@ nav:
             - for-developers/explanation/plan-your-deployment.md
             - for-developers/explanation/inner-vs-outer-loop.md
             - for-developers/explanation/inner-loop.md
-            - for-developers/explanation/local-development-workflow.md                                    
+            - for-developers/explanation/local-development-workflow.md
     - For CISOs:
         - for-cisos/overview.md
         - for-cisos/policies/policies.md
