@@ -20,7 +20,7 @@ Network use is not monitored, and is billed directly by the cloud provider.
 
 ## Cluster ingress
 
-Project administrators can add route annotations for ingress control through IP allowlisting.
+Project administrators can add route annotations for ingress control through IP allow-listing.
 
 Ingress policies can also be changed by using `NetworkPolicy` objects.
 
