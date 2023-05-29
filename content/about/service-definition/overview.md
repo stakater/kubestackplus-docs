@@ -6,6 +6,7 @@ This section outlines the service definition for Stakater App Agility Platform (
 1. [Account Management](./account-management.md)
 1. [Storage](./storage.md)
 1. [Security](./security.md)
+1. [Networking](./networking.md)
 1. [Managed Monitoring Stack (Prometheus, Grafana, Alert Manager, UptimeRobot)](./monitoring.md)
 1. [Managed Logging Stack (Fluentd, Vector, ElasticSearch, Kibana)](./logging.md)
 1. [Managed Container Registry and Artifact Store (Nexus)](../../managed-addons/nexus/overview.md)

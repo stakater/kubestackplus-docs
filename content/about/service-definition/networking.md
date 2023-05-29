@@ -14,6 +14,8 @@ SAAP includes TLS security certificates needed for both internal and external se
 
 ## Load-balancers
 
+
+
 ## Network use
 
 Network use is not monitored, and is billed directly by the cloud provider.
