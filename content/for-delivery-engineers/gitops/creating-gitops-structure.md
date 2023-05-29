@@ -122,7 +122,7 @@ More Info on **Tenant** and **Quota** at : [Multi Tenant Operator Custom Resourc
 
 This repository is the single source of truth for declarative workloads to be deployed on cluster. It separates workloads per tenant.
 
-To make things easier, we have created a [template](https://github.com/stakater-lab/apps-gitops-config.git) that you can use to create your infra repository.
+To make things easier, we have created a [template](https://github.com/stakater-lab/apps-gitops-config.git) that you can use to create your apps repository.
 
 ### Hierarchy
 
