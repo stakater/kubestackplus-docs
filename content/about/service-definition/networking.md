@@ -6,7 +6,7 @@ To use a custom hostname for a route, you must update your DNS provider by creat
 
 ## Custom domains for cluster services
 
-Custom domains and subdomains are not available for the platform service routes, for example, the API or web console routes, or for the default application routes.
+Custom domains and subdomains for cluster services are available except for the SAAP service routes, for example, the API or web console routes, or for the default application routes.
 
 ## Domain validated certificates
 
@@ -14,8 +14,20 @@ SAAP includes TLS security certificates needed for both internal and external se
 
 ## Load-balancers
 
-## Network usage
+## Network use
+
+Network use is not monitored, and is billed directly by the cloud provider.
 
 ## Cluster ingress
 
+Project administrators can add route annotations for ingress control through IP allowlisting.
+
+Ingress policies can also be changed by using `NetworkPolicy` objects.
+
+All cluster ingress traffic goes through the defined load balancers. Direct access to all nodes is blocked by cloud configuration.
+
 ## Cluster egress
+
+`EgressNetworkPolicy` objects can control pod egress traffic to prevent or limit outbound traffic in SAAP.
+
+Public outbound traffic from the control plane and infrastructure nodes is required and necessary to maintain cluster image security and cluster monitoring. This requires the `0.0.0.0/0` route to belong only to the internet gateway.

@@ -1,15 +1,15 @@
 # Roles in SAAP
 
-Depending on responsibilities of a role, specific roles can be assigned to user groups, which enable them to achieve there daily tasks. Below is a list of roles provided by SAAP for different user groups
+Depending on responsibilities of a role, specific roles can be assigned to user groups, which enable them to achieve there daily tasks. Below is a list of roles provided by SAAP for different user groups.
 
 Namespaces are divided into two sub-categories:
 
 - **Stakater owned** : created by the Stakater team which consists of projects/namespaces with format `openshift*`, `stakater*`, `kube*`, `redhat*`, `default`
 - **Customer owned** : created by the customer
 
-## 1.SAAP Cluster Admin (sca)
+## SAAP Cluster Admin (sca) role
 
-SAAP Cluster Admin (sca):
+The permissions for the SAAP Cluster Admin (sca) role includes:
 
 ### Operators Permissions
 
@@ -22,26 +22,26 @@ SAAP Cluster Admin (sca):
 - can install operators in customer owned namespace
 - can manage subscriptions in customer owned namespace
 - can not install privileged and custom operators cluster-wide
-- can view sealedsecrets custom resource in all namespaces
+- can view `sealedsecrets` custom resource in all namespaces
 
 ### Projects Permissions
 
 - can create/update/patch customer owned namespaces
 - can create/view/edit/delete all resources in customer owned namespaces
 - can only view resources in Stakater owned namespaces
-- can not view secrets, configmaps ,jobs and cronjobs in Stakater owned namespaces
+- can not view `secrets`, `configmaps` , `jobs` and `cronjobs` in Stakater owned namespaces
 
 ### Storage
 
-- can create/view/edit persistentvolumeclaims,storageclasses and volumesnapshots in the cluster
-- can not delete persistentvolumeclaims,storageclasses and volumesnapshots in the cluster
+- can create/view/edit `persistentvolumeclaims`, `storageclasses`, and `volumesnapshots` in the cluster
+- can not delete `persistentvolumeclaims`, `storageclasses` and `volumesnapshots` in the cluster
 
 ### Networking
 
-- can create/view/delete NetworkPolicy objects in customer owned namespaces
+- can create/view/delete `NetworkPolicy` objects in customer owned namespaces
 - can view services in all namespaces
 - can view routes and ingresses in all namespaces
-- can view/update DNS resources for DNS Forwarder apigroups in customer owned namespaces
+- can view/update DNS resources for DNS Forwarder `apigroups` in customer owned namespaces
 
 ### Monitoring
 
@@ -59,7 +59,7 @@ SAAP Cluster Admin (sca):
 
 - can view users/groups
 - can view service accounts/roles/role bindings in customer owned namespaces
-- can create/view on UserIdentityMappings
+- can create/view on `UserIdentityMappings`
 - can create/verify tokens and access
 - can not delete members from cluster-admin
 - can create `admin` rolebinding on customer owned namespaces
@@ -75,11 +75,11 @@ SAAP Cluster Admin (sca):
 ### Administration
 
 - can create/edit/delete resource quotas and limits on the cluster
-- can access the reserved `saap-cluster-admin` project on the cluster, which allows for the creation of ServiceAccounts with elevated privileges and gives the ability to update default limits and quotas for projects on the cluster
+- can access the reserved `saap-cluster-admin` project on the cluster, which allows for the creation of `ServiceAccounts` with elevated privileges and gives the ability to update default limits and quotas for projects on the cluster
 - `saap-cluster-admin` service account can create project
 - `saap-cluster-admin` service account can delete project
 - `saap-cluster-admin` service account cannot edit/create rolebinding
-- can not create/edit/delete clusterresourcequotas
+- can not create/edit/delete `clusterresourcequotas`
 
 Only the mentioned permissions above are present for the role, for any other permission required the user need to raise a case with Stakater Support team.
 
