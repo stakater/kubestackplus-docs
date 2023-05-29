@@ -207,7 +207,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
         namespace: openshift-gitops
       spec:
         destination:
-          namespace: TARGET_NAMESPACE
+          namespace: TARGET_NAMESPACE_FOR_DEV
           server: 'https://kubernetes.default.svc'
         project: gabbar
         source:
@@ -232,7 +232,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
         namespace: openshift-gitops
       spec:
         destination:
-          namespace: gabbar-stage
+          namespace: TARGET_NAMESPACE_FOR_STAGE
           server: 'https://kubernetes.default.svc'
         project: gabbar
         source:
