@@ -207,7 +207,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
         namespace: openshift-gitops
       spec:
         destination:
-          namespace: TARGET_NAMESPACE
+          namespace: TARGET_NAMESPACE_FOR_DEV
           server: 'https://kubernetes.default.svc'
         project: gabbar
         source:
@@ -232,7 +232,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
         namespace: openshift-gitops
       spec:
         destination:
-          namespace: gabbar-stage
+          namespace: TARGET_NAMESPACE_FOR_STAGE
           server: 'https://kubernetes.default.svc'
         project: gabbar
         source:
@@ -276,6 +276,27 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
     Next, create the following ArgoCD applications:
 
       ```yaml
+      # Name: gabbar-dev.yaml (TENANT_NAME-ENV_NAME.yaml)
+      # Path: argocd-apps/dev
+      apiVersion: argoproj.io/v1alpha1
+      kind: Application
+      metadata:
+        name: 
+        namespace: openshift-gitops
+      spec:
+        destination:
+          namespace: TARGET_NAMESPACE_FOR_DEV
+          server: 'https://kubernetes.default.svc'
+        project: gabbar
+        source:
+          path: gabbar/argocd-apps/dev
+          repoURL: 'APPS_GITOPS_REPO_URL'
+          targetRevision: HEAD
+        syncPolicy:
+          automated:
+            prune: true
+            selfHeal: true
+      ---
       # Name: gabbar-stage.yaml (TENANT_NAME-ENV_NAME.yaml)
       # Path: argocd-apps/stage
       apiVersion: argoproj.io/v1alpha1
@@ -285,32 +306,11 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
         namespace: openshift-gitops
       spec:
         destination:
-          namespace: gabbar-stage
+          namespace: TARGET_NAMESPACE_FOR_STAGE
           server: 'https://kubernetes.default.svc'
         project: gabbar
         source:
           path: gabbar/argocd-apps/stage
-          repoURL: 'APPS_GITOPS_REPO_URL'
-          targetRevision: HEAD
-        syncPolicy:
-          automated:
-            prune: true
-            selfHeal: true
-      ---
-      # Name: gabbar-dev.yaml (TENANT_NAME-ENV_NAME.yaml)
-      # Path: argocd-apps/dev
-      apiVersion: argoproj.io/v1alpha1
-      kind: Application
-      metadata:
-        name: gabbar-dev
-        namespace: openshift-gitops
-      spec:
-        destination:
-          namespace: gabbar-dev
-          server: 'https://kubernetes.default.svc'
-        project: gabbar
-        source:
-          path: gabbar/argocd-apps/dev
           repoURL: 'APPS_GITOPS_REPO_URL'
           targetRevision: HEAD
         syncPolicy:
@@ -391,7 +391,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
        - key: <repo-name>
    ```
 
-1. Add an ArgoCD application pointing to this directory `dev/argocd-secrets/` inside `dev/argocd-apps/argocd-secrets.yaml`.
+1. Add an ArgoCD application pointing to this directory `dev/argocd-secrets/` inside `dev/argocd-apps/apps-gitops-config-external-secret.yaml`.
 
    ```yaml
    # Name: argocd-secrets.yaml (FOLDER_NAME.yaml)
