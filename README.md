@@ -47,3 +47,21 @@ or
 ```
 $ python3 -m mkdocs serve 
 ```
+
+## Run QA checks locally
+
+QA checks can be run locally for faster development feedback.
+
+### Markdown linting:
+
+```bash
+$ brew install markdownlint-cli
+$ markdownlint -c .markdownlint.yaml content
+```
+
+### Spell checking
+
+```bash
+$ brew install vale
+$ vale content
+```
