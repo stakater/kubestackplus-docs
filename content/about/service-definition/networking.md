@@ -14,7 +14,15 @@ SAAP includes TLS security certificates needed for both internal and external se
 
 ## Load-balancers
 
+SAAP is normally created via the installer provisioned infrastructure (IPI) installation method which installs operators that manage load-balancers in the customer cloud, and API load-balancers to the master nodes. Application load-balancers are created as part of creating routers and ingresses. The operators use cloud identities to interact with the cloud providers API to create the load-balancers.
 
+User-provisioned installation (UPI) method is also possible if extra security is needed and then you must create the API and application ingress load balancing infrastructure separately and before SAAP is installed.
+
+SAAP has a default router/ingress load-balancer that is the default application load-balancer, denoted by `apps` in the URL. The default load-balancer can be configured in SAAP to be either publicly accessible over the internet, or only privately accessible over a pre-existing private connection. All application routes on the cluster are exposed on this default router load-balancer, including cluster services such as the logging UI, metrics API, and registry.
+
+SAAP has an optional router/ingress load-balancer that is a secondary application load-balancer, denoted by `apps2` in the URL. The secondary load-balancer can be configured in SAAP to be either publicly accessible over the internet, or only privately accessible over a pre-existing private connection. If a 'Label match' is configured for this router load-balancer, then only application routes matching this label will be exposed on this router load-balancer, otherwise all application routes are also exposed on this router load-balancer.
+
+SAAP has optional load-balancers for services that can be mapped to a service running on SAAP to enable advanced ingress features, such as non-HTTP/SNI traffic or the use of non-standard ports. Cloud providers may have a quota that limits the number of load-balancers that can be used within each cluster.
 
 ## Network use
 
@@ -26,7 +34,7 @@ Project administrators can add route annotations for ingress control through IP 
 
 Ingress policies can also be changed by using `NetworkPolicy` objects.
 
-All cluster ingress traffic goes through the defined load balancers. Direct access to all nodes is blocked by cloud configuration.
+All cluster ingress traffic goes through the defined load-balancers. Direct access to all nodes is blocked by cloud configuration.
 
 ## Cluster egress
 
