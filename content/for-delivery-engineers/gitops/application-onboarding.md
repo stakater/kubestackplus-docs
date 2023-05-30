@@ -47,7 +47,7 @@ Specify admin provided username and password to login.
 
 ## 1. Add **Dockerfile** to application repository
 
-We need a **Dockerfile** for our application present inside our code repo to build a container image.  Navigate to [`RedHat image registry`](https://catalog.redhat.com/software/containers/search) and find a suitable base image for the application.
+We need a **Dockerfile** for our application present at the root of our code repo to build a container image.  Navigate to [`RedHat image registry`](https://catalog.redhat.com/software/containers/search) and find a suitable base image for the application.
 
 Below is a Dockerfile for a ReactJS application for product reviews. Visit for more info: <https://github.com/stakater-lab/stakater-nordmart-review-ui>
 
