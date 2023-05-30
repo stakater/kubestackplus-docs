@@ -16,7 +16,7 @@ SAAP Cluster is an administrator level role for a user (with restrictive access)
 - Administrate non-managed Projects/Namespaces
 - Install/Modify/Delete operators in non-managed Projects/Namespaces
 
-To grant this permission to a user please open a support case with Username/Email of the desired user.
+To grant this permission to a user please open a [support ticket](https://support.stakater.com/index.html) with Username/Email of the desired user.
 
 ## Tenant level Permissions
 

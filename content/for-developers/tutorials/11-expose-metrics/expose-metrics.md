@@ -46,7 +46,7 @@ To learn more about exposing metrics in spring boot you can refer to this [guide
 
 ## Adding Custom Metric to application
 
-A lot of the time you’ll be satisfied by the basic metrics you get out of the box with Micrometer. But you might want to add your own custom metrics.
+A lot of the time you'll be satisfied by the basic metrics you get out of the box with Micrometer. But you might want to add your own custom metrics.
 
 To add a custom metric to our application, we will again be using micrometer.
 Micrometer can publish different types of metrics, called primitives. These include gauge, counter and timer.

@@ -1,6 +1,6 @@
 # ArgoCD
 
-We use GitOps to continuously deliver application changes
+SAAP uses GitOps to continuously deliver application changes.
 
 [Argo CD](https://argoproj.github.io/argo-cd/) is a declarative, GitOps continuous delivery tool for Kubernetes. The deployment environment is a namespace in a container platform.
 

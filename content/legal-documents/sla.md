@@ -6,7 +6,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 ## 1. Term
 
-- 1.1 This SLA is effective from the time the Customer uses the Service and will automatically renew every Service Period, unless a Party gives an at least thirty (30) days’ notice of termination in writing to the other Party.
+- 1.1 This SLA is effective from the time the Customer uses the Service and will automatically renew every Service Period, unless a Party gives an at least thirty (30) days' notice of termination in writing to the other Party.
 
 ## 2. The Services
 
@@ -32,7 +32,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 5.1 "**Downtime Period**" means a period of at least ten (10) consecutive minutes of Downtime. Intermittent Downtime for a period of less than ten (10) minutes or less will not be counted towards any Downtime Periods.
 
-- 5.2 Subject to the Exclusions detailed in [Section 13](#13-sla-exclusions), the Service will be considered unavailable (and an "**SLA Event**" will be deemed as having taken place) if Stakater’s monitoring detects that the Service or its component has failed for ten (10) consecutive minutes.
+- 5.2 Subject to the Exclusions detailed in [Section 13](#13-sla-exclusions), the Service will be considered unavailable (and an "**SLA Event**" will be deemed as having taken place) if Stakater's monitoring detects that the Service or its component has failed for ten (10) consecutive minutes.
 
 - 5.3 Downtime is calculated from the time that Stakater confirms the SLA event has occurred, until the time that Stakater resolves the issue and the Service becomes available to the Customer. If two or more SLA events occur simultaneously, the SLA event with the longest duration will be used to determine the total number of minutes for which the service was unavailable.
 
@@ -58,13 +58,13 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
     - 6.1.9 A denial of service or port attack;
 
-    - 6.1.10 Customer’s intentional acts, errors, or omissions;
+    - 6.1.10 Customer's intentional acts, errors, or omissions;
 
-    - 6.1.11 Customer’s use of the Service after Stakater has advised Customer to modify Customer’s use of the Service, if Customer did not modify Customer’s use as advised;
+    - 6.1.11 Customer's use of the Service after Stakater has advised Customer to modify Customer's use of the Service, if Customer did not modify Customer's use as advised;
 
     - 6.1.12 Faulty input, instructions, or arguments (for example, requests to access files that do not exist);
 
-    - 6.1.13 Customer’s attempts to perform operations that exceed prescribed quotas or that resulted from Stakater’s throttling of suspected abusive behaviour;
+    - 6.1.13 Customer's attempts to perform operations that exceed prescribed quotas or that resulted from Stakater's throttling of suspected abusive behaviour;
 
     - 6.1.14 Issues that affect only the Customer and related to external apps or third-parties;
 
@@ -76,7 +76,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
     - 6.1.18 Any fault period during which Service is suspended under provision in this SLA.
 
-- 6.2 Customer is solely responsible for obtaining appropriate hardware and internet access to use the Service. The Service shall not be deemed unavailable due to Customer’s inadequate or incompatible hardware and internet access.
+- 6.2 Customer is solely responsible for obtaining appropriate hardware and internet access to use the Service. The Service shall not be deemed unavailable due to Customer's inadequate or incompatible hardware and internet access.
 
 ## 7. Monthly Uptime Percentage
 
@@ -94,7 +94,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 8.4 A Financial Credit will be applicable and issued only if the Financial Credit amount for the applicable monthly billing cycle is greater than One US Dollar ($1).
 
-- 8.5 If Stakater determines that a Financial Credit is owed to Customer, Stakater will apply the Financial Credit to Customer’s next invoice. At Stakater’s discretion, Stakater may issue the Financial Credit to the credit card Customer used to pay for the billing cycle in which the Service did not meet the SLO.
+- 8.5 If Stakater determines that a Financial Credit is owed to Customer, Stakater will apply the Financial Credit to Customer's next invoice. At Stakater's discretion, Stakater may issue the Financial Credit to the credit card Customer used to pay for the billing cycle in which the Service did not meet the SLO.
 
 ## 9. Maximum Financial Credits
 
@@ -112,7 +112,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
     - 10.3.2 Have materially breached this SLA; or
 
-    - 10.3.3 Have invoices totalling more than One Hundred US Dollar ($100) that are more than thirty (30) days past due at either the time of Customer’s request or the time the Financial Credit is to be applied.
+    - 10.3.3 Have invoices totalling more than One Hundred US Dollar ($100) that are more than thirty (30) days past due at either the time of Customer's request or the time the Financial Credit is to be applied.
 
 - 10.4 Financial Credits will not entitle Customer to any refund or other payment from Stakater.
 
@@ -120,7 +120,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 10.6 Customer may not unilaterally offset the fees due from Customer for any performance or availability issues.
 
-- 10.7 Stakater’s failure to meet the SLO or any failure by Stakater to provide uninterrupted service does not constitute a breach of contract. Unless otherwise provided in the SLA, Customer’s sole and exclusive remedy for any unavailability, non-performance, or other failure by Stakater to provide the Service is the receipt of a Financial Credit (if eligible) in accordance with this SLA.
+- 10.7 Stakater's failure to meet the SLO or any failure by Stakater to provide uninterrupted service does not constitute a breach of contract. Unless otherwise provided in the SLA, Customer's sole and exclusive remedy for any unavailability, non-performance, or other failure by Stakater to provide the Service is the receipt of a Financial Credit (if eligible) in accordance with this SLA.
 
 - 10.8 Under no circumstances will any tests performed by Customer, its vendors or partners be recognized by Stakater as a valid measurable criterion of violation length, quality or type for the purposes of establishing a Financial Credit.
 
@@ -130,13 +130,13 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 11.2 Stakater must be able to reproduce errors in Issues to resolve them. The Customer will cooperate and work closely with Stakater to reproduce errors, including conducting diagnostic or troubleshooting activities as requested and appropriate. Customer will make its resources available and reasonably cooperate with Stakater to help resolve the Issue.
 
-- 11.3 Stakater is not responsible for comprehensive monitoring of Customer’s data or use of the Service; this responsibility lies with the Customer. Stakater will review the data or circumstances related to the Issue as reported by the Customer.
+- 11.3 Stakater is not responsible for comprehensive monitoring of Customer's data or use of the Service; this responsibility lies with the Customer. Stakater will review the data or circumstances related to the Issue as reported by the Customer.
 
 ## 12. Service Improvements
 
 - 12.1 Stakater will make available to customers new versions, releases, and updates to the Service to solve defects or errors, keep the Service up-to-date with market developments, or otherwise improve the Service. Stakater will only support the most recent version of the Service.
 
-- 12.2 New versions, releases, or updates will contain at least the level of functionality as set out in this SLA and as contained in the version or release of the Service previously used by Customer, and will not otherwise negatively impact Customer’s use of the Service. Stakater shall make reasonable efforts to ensure that when performing such actions, the impact on Customer and its customer(s) is limited.
+- 12.2 New versions, releases, or updates will contain at least the level of functionality as set out in this SLA and as contained in the version or release of the Service previously used by Customer, and will not otherwise negatively impact Customer's use of the Service. Stakater shall make reasonable efforts to ensure that when performing such actions, the impact on Customer and its customer(s) is limited.
 
 ## 13. SLA Exclusions
 
@@ -162,11 +162,11 @@ The SLA does not apply to any:
 
     - 13.5.5 that resulted from cluster nodes running out of capacity;
 
-    - 13.5.6 that resulted from Customer unauthorised action or lack of action when required, or from Customer employees, agents, contractors, or vendors, or anyone gaining access to Stakater’s solution by means of Customer passwords or equipment, or otherwise resulting from Customer failure to follow appropriate security practices;
+    - 13.5.6 that resulted from Customer unauthorised action or lack of action when required, or from Customer employees, agents, contractors, or vendors, or anyone gaining access to Stakater's solution by means of Customer passwords or equipment, or otherwise resulting from Customer failure to follow appropriate security practices;
 
     - 13.5.7 that resulted from faulty input, instructions, or arguments (for example, requests to access files that do not exist);
 
-    - 13.5.8 that resulted from Customer attempts to perform operations that exceed prescribed quotas or allowed permissions or that resulted from Stakater’s throttling of suspected abusive behaviour;
+    - 13.5.8 that resulted from Customer attempts to perform operations that exceed prescribed quotas or allowed permissions or that resulted from Stakater's throttling of suspected abusive behaviour;
 
     - 13.5.9 that resulted from Customer attempts to perform operations on the account or subscription being managed by Stakater, even though Customer has permissions they should treat them as read only;
 

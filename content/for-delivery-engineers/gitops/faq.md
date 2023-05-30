@@ -10,7 +10,7 @@ _GitOps builds on top of Infrastructure as Code, providing application level con
 
 ## 3. Can I use a CI server to orchestrate convergence in the cluster?
 
-_You could apply updates to the cluster from the CI server, but it won’t continuously deploy the changes to the cluster, which means that drift won’t be detected and corrected._
+_You could apply updates to the cluster from the CI server, but it won't continuously deploy the changes to the cluster, which means that drift won't be detected and corrected._
 
 ## 4. Should I abandon my CI tool?
 

@@ -6,7 +6,7 @@ To enable login with Google you first have to create a project and a client in t
 
     ![Developer console](./images/google-developer-console.png)
 
-1. Click the `Create Project` button. Use any value for `Project name` and `Project ID` you want, then click the `Create` button. Wait for the project to be created (this may take a while). Once created you will be brought to the project’s dashboard.
+1. Click the `Create Project` button. Use any value for `Project name` and `Project ID` you want, then click the `Create` button. Wait for the project to be created (this may take a while). Once created you will be brought to the project's dashboard.
 
     ![Project Dashboard](./images/google-dashboard.png)
 
