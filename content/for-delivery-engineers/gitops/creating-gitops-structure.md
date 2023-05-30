@@ -341,7 +341,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
        server: 'https://kubernetes.default.svc'
      project: root-tenant
      source:
-       path: argocd-apps/dev
+       path: gabbar/argocd-apps/dev
        repoURL: 'APPS_GITOPS_REPO_URL'
        targetRevision: HEAD
      syncPolicy:
