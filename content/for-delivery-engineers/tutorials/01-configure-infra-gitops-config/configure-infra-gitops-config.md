@@ -13,7 +13,7 @@ Objective:
 Create your first tenant
 
 Key Results:
-- Create gitops repository
+- Create GitOps repository
 - Tenant operator resources configured
 - ArgoCD configured
 

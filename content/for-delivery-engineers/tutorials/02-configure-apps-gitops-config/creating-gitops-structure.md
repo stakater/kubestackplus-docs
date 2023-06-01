@@ -8,10 +8,10 @@ For the purpose of this tutorial, we will be using the name `infra-gitops-config
 You can name these two repositories anything you want but make sure the names are descriptive.
 
 Objective:
-Define argocd apps structure
+Define ArgoCD apps structure
 
 Key Results:
-- Apps gitops repo created
+- Apps GitOps repo created
 - AppOfApps structure defined and configured
 
 ## Apps GitOps Config

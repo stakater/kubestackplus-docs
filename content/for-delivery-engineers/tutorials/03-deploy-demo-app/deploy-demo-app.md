@@ -1,7 +1,7 @@
 # Deploy demo app
 
 Objective
-Deploy your first using gitops
+Deploy your first using GitOps
 
 Key Results:
 - Artifacts pushed to nexus
