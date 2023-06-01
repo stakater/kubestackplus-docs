@@ -64,7 +64,7 @@ Inside `argocd-apps` folder, there are multiple clusters defined. Each cluster h
 └── README.md
 ```
 
-![`Apps-gitops-structure`](images/apps-gitops-config-structure.png)
+![`Apps-GitOps-structure`](images/apps-gitops-config-structure.png)
 
 ## Structure of Infra GitOps Config
 
