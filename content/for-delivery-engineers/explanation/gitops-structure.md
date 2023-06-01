@@ -1,4 +1,4 @@
-# GitOps structure
+# Stakater opinionated GitOps structure
 
 We manage GitOps with two different kinds of repository with different purpose enlisted below:
 

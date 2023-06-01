@@ -1,4 +1,11 @@
-# Add new application
+# Deploy demo app
+
+Objective
+Deploy your first using gitops
+
+Key Results:
+- Artifacts pushed to nexus
+- App deployed using helm charts via ArgoCD
 
 This guide covers the step-by-step guide to onboard a new project/application/microservice on SAAP.
 

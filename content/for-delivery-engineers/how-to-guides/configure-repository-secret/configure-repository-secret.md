@@ -1,10 +1,9 @@
 # Configure Repository Secret for ArgoCD
 
-We need to add secret in ArgoCD namespace that will allow read access over the `apps-gitops-config` repository created in previous section.
+## GitHub
 
-## Configure token or SSH keys
+### Configure token or SSH keys
 
-You need to configure token or SSH based access over the `apps-gitops-config` repository.
 Use the following links:
 
 - For token access
@@ -29,7 +28,9 @@ By properly configuring the permissions and access levels for the PAT, you can e
     - [`Add SSH Public key to your GitHub Account`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) or [`Add Deploy Key to your Repository`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
 *Note: A deploy key is specific to a single repository and cannot be used for multiple repositories whereas, a single SSH key can be used for multiple repositories.*
 
-## Create a Secret with Token or SSH key
+## Kubernetes
+
+### Create a Kubernetes Secret with Token or SSH key
 
 Create a Kubernetes Secret in ArgoCD namespace with repository credentials. Each repository secret must have a url field and, depending on whether you connect using HTTPS, SSH, username and password (for HTTPS), sshPrivateKey (for SSH).
 
@@ -76,6 +77,8 @@ Login to the ArgoCD UI. Click `Setting` from left sidebar, then `Repositories` t
 > Make sure connection status is successful
 
   ![`ArgoCD-repositories`](images/ArgoCD-repositories.png)
+
+### Create an External Secret
 
 > Ask stakater-admin or user belonging to `customer-root-tent` to add this secret via Vault and External Secrets to ArgoCD namespace.
 
