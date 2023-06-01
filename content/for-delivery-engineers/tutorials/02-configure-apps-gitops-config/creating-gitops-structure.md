@@ -11,6 +11,7 @@ Objective:
 Define ArgoCD apps structure
 
 Key Results:
+
 - Apps GitOps repo created
 - AppOfApps structure defined and configured
 

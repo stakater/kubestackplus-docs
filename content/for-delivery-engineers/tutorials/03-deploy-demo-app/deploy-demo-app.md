@@ -4,6 +4,7 @@ Objective
 Deploy your first using GitOps
 
 Key Results:
+
 - Artifacts pushed to nexus
 - App deployed using helm charts via ArgoCD
 

@@ -13,6 +13,7 @@ Objective:
 Create your first tenant
 
 Key Results:
+
 - Create GitOps repository
 - Tenant operator resources configured
 - ArgoCD configured
@@ -125,4 +126,3 @@ Open up the `argocd-apps` folder and add the following file to it:
 We have set up the basic structure for our infra repository. Let's move on to the apps repository.
 
 More Info on **Tenant** and **Quota** at : [Multi Tenant Operator Custom Resources](https://docs.stakater.com/mto/main/customresources.html)
-
