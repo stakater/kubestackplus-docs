@@ -64,6 +64,8 @@ Inside `argocd-apps` folder, there are multiple clusters defined. Each cluster h
 └── README.md
 ```
 
+![`Apps-gitops-structure`](images/apps-gitops-config-structure.png)
+
 ## Structure of Infra GitOps Config
 
 In each cluster folder there are folders containing resource for particular cluster. These include resources that are cluster scoped or don't belong to application tenant. It is further divided into 2 kinds of folders:
