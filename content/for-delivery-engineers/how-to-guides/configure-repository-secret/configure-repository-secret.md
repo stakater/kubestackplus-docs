@@ -76,7 +76,7 @@ stringData:
 Login to the ArgoCD UI. Click `Setting` from left sidebar, then `Repositories` to view connected repositories.
 > Make sure connection status is successful
 
-  ![`ArgoCD-repositories`](images/ArgoCD-repositories.png)
+  ![`ArgoCD-repositories`](../images/ArgoCD-repositories.png)
 
 ### Create an External Secret
 
@@ -91,7 +91,7 @@ If connection status is failed, hover over the ❌ adjacent to `Failed` to view 
 > Related GitHub Issue: [here](https://github.com/argoproj/argo-cd/issues/7723)
 
 If you see the following error. Check `argocd-ssh-known-hosts-cm` config map in ArgoCD namespace to verify that public key for repository server is added as `ssh_known_hosts`.
-![`ArgoCD-repo-connection-ssh-issue`](images/ArgoCD-repo-connection-ssh-issue.png)
+![`ArgoCD-repo-connection-ssh-issue`](../images/ArgoCD-repo-connection-ssh-issue.png)
 
 Some known hosts public keys might be missing in `argocd-ssh-known-hosts-cm` for older ArgoCD versions, Find full list of public keys against repository server [here](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#ssh-known-host-public-keys).
 > Note: If the error persists, contact **Stakater Support** to review it.

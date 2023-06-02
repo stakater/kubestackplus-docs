@@ -41,7 +41,7 @@ Alternatively, Navigate to the cluster Forecastle, search `nexus` using the sear
 
 - `nexus-helm-reg-url` : Remove `https://` from the start, add `-helm` in URL after `nexus` and append `/repository/helm-charts/`. This URL points to Helm Registry referred as `nexus-helm-reg-url` in this tutorial for example `nexus-helm-stakater-nexus.apps.clustername.random123string.kubeapp.cloud/repository/helm-charts/`
 
-  ![nexus-Forecastle](./images/nexus-forecastle.png)
+  ![nexus-Forecastle](../images/nexus-forecastle.png)
 
 ### Login to Docker Registry
 
@@ -177,7 +177,7 @@ If your application contains dependency charts run the following command in depl
     helm dependency build
     ```
 
-    ![helm-dependency-build](./images/helm-dependency-build.png)
+    ![helm-dependency-build](../images/helm-dependency-build.png)
 
 4. Run the following command to see the Kubernetes manifests are being generated successfully and validate whether they match your required configuration. This simple helm chart generates deployment, service and route resources.
 
@@ -223,7 +223,7 @@ curl -u "helm-user":"password123" https://nexus-helm-stakater-nexus.{CLUSTER_DOM
 
 Navigate to `apps-gitops-config` repository and add a helm chart in path `gabbar/stakater-nordmart-review/dev` i.e. `<tenant-name>/<app-name>/dev`.
 
-![app-in-dev-env](./images/app-in-dev-env.png)
+![app-in-dev-env](../images/app-in-dev-env.png)
 
 ```yaml
 # <tenant-name>/<app-name>/dev/Chart.yaml
@@ -254,14 +254,14 @@ version: 1.0.0
 
 Login into ArgoCD UI using Forecastle console. Visit the application against dev environment inside your tenant. Usual naming convention is **tenantName-envName-appName**. Make sure that there aren't any error while deploying during ArgoCD.
 
-![dev-ArgoCD-app](./images/dev-argocd-app.png)
+![dev-ArgoCD-app](../images/dev-argocd-app.png)
 
 Visit the OpenShift console to verify the application deployment.
 
-![review-web-pod](./images/review-web-pod.png)
+![review-web-pod](../images/review-web-pod.png)
 
-![review-web-route](./images/review-web-route.png)
+![review-web-route](../images/review-web-route.png)
 
 Visit the application url using routes to check if application is working as expected.
 
-![review-web-ui](./images/review-web-ui.png)
+![review-web-ui](../images/review-web-ui.png)
