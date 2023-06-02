@@ -42,8 +42,7 @@ This GitOps structure supports:
 
 > Follow along GitHub/GitLab documentation for configuring other organization specific requirements set for source code repositories.
 
-1. Create a secret with read permissions over this repository. Navigate to following section for more info [Configure Repository Secret for ArgoCD](gitops-argocd-secrets.md). We'll use this secret later in [Linking Apps GitOps with Infra GitOps
-](#linking-apps-gitops-with-infra-gitops).
+1. Create a secret with read permissions over this repository. Navigate to following section for more info [Configure Repository Secret for ArgoCD](../../how-to-guides/configure-repository-secret/configure-repository-secret.md). We'll use this secret later in [Linking Apps GitOps with Infra GitOps](#linking-apps-gitops-with-infra-gitops).
 
 ### Add a tenant
 

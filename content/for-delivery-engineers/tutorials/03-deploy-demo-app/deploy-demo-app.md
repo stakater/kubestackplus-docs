@@ -21,8 +21,8 @@ In this section, we will use [`stakater-nordmart-review-ui`](https://github.com/
 
 ## Prerequisites
 
-- [`tenant` for application must be defined via `infra-gitops-config`](creating-gitops-structure.md#infra-gitops-config).
-- [`tenant` for application should be onboarded onto `apps-gitops-config`](creating-gitops-structure.md#add-a-tenant).
+- [`tenant` for application must be defined via `infra-gitops-config`](../01-configure-infra-gitops-config/configure-infra-gitops-config.md).
+- [`tenant` for application should be onboarded onto `apps-gitops-config`](../02-configure-apps-gitops-config/creating-gitops-structure.md).
 - Docker Image and Helm Chart Repository hosted by Nexus must be available.
 - [helm](https://helm.sh/docs/intro/install/)
 - [git](https://git-scm.com/downloads)
@@ -33,7 +33,7 @@ In this section, we will use [`stakater-nordmart-review-ui`](https://github.com/
 
 > Ask admin for Docker and Helm Registry Credentials for pushing container images and helm chart respectively.
 
-Find Nexus Docker registry URL and Helm Registry URL [here](../../managed-addons/nexus/routes.md).
+Find Nexus Docker registry URL and Helm Registry URL [here](../../../managed-addons/nexus/routes.md).
 
 Alternatively, Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus url.
 

@@ -162,7 +162,6 @@ nav:
             - for-developers/tutorials/inner-loop/19-backup-data/backup-data.md
             - for-developers/tutorials/inner-loop/20-restore-data/restore-data.md
             - for-developers/tutorials/inner-loop/21-add-env-variable/add-env-variable.md
-            - for-developers/tutorials/inner-loop/22-add-ci-pipeline/add-ci-pipeline.md
             - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
             - for-developers/tutorials/outer-loop/add-ci-pipeline/add-ci-pipeline.md
             - for-developers/tutorials/outer-loop/promote-application/promote-app.md

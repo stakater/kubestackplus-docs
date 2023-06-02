@@ -31,7 +31,7 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
 
 > Follow along GitHub/GitLab documentation for configuring other organization specific requirements set for source code repositories.
 
-1. Create a secret with read permissions over this repository. Navigate to following section for more info [Configure Repository Secret for ArgoCD](gitops-argocd-secrets.md). Provide this secret to stakater-admin for it to be deployed with your ArgoCD instance.
+1. Create a secret with read permissions over this repository. Navigate to following section for more info [Configure Repository Secret for ArgoCD](../../how-to-guides/configure-repository-secret/configure-repository-secret.md). Provide this secret to stakater-admin for it to be deployed with your ArgoCD instance.
 1. Now let's copy the structure that we saw in the [template](https://github.com/stakater/infra-gitops-config.git). Add a folder bearing your cluster's name say `dev` at the root of the repository that you just created.
     > If you plan on using this repository for multiple clusters, add a folder for each cluster.
 1. Inside the folder created in step 2, add two folders; one named `argocd-apps`, and another one named `tenant-operator-config`

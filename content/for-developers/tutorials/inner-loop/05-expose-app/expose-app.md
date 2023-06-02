@@ -97,4 +97,4 @@ c. Obtain the load balancer IP address or domain name provided by your cloud pro
 
 ## Whitelisting application routes
 
-See [Additional route configurations](../../../for-administrators/secure-your-cluster/secure-routes.md#additional-route-configuration) section on how to allow only whitelisted IPs for your application routes
+See [Additional route configurations](../../../../for-administrators/secure-your-cluster/secure-routes.md#additional-route-configuration) section on how to allow only whitelisted IPs for your application routes
