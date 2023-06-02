@@ -124,54 +124,51 @@ nav:
             - for-administrators/help/faq.md
     - For Delivery Engineers:
         - for-delivery-engineers/overview.md
-        - GitOps:
-            - for-delivery-engineers/gitops/introduction.md
-            - for-delivery-engineers/gitops/structure.md
-            - for-delivery-engineers/gitops/creating-gitops-structure.md
-            - for-delivery-engineers/gitops/gitops-argocd-secrets.md
-            - for-delivery-engineers/gitops/application-onboarding.md
-            - for-delivery-engineers/gitops/environments.md
-            - for-delivery-engineers/gitops/github.md
-            - for-delivery-engineers/gitops/gitlab.md
-            - for-delivery-engineers/gitops/faq.md
-        - Continous Integration:
-            - for-delivery-engineers/ci-pipelines/secrets.md
-            - Tekton:
-                - for-delivery-engineers/ci-pipelines/tekton/intro.md
-                - for-delivery-engineers/ci-pipelines/tekton/bot-account.md
-            - GitHub Actions:
-                - for-delivery-engineers/ci-pipelines/github-actions/intro.md
-        - Continous Delivery:
-            - ArgoCD:
-                - for-delivery-engineers/cd-pipelines/argocd/intro.md
+        - Explanation:
+            - for-delivery-engineers/explanation/gitops-intro.md
+            - for-delivery-engineers/explanation/gitops-structure.md
+            - for-delivery-engineers/explanation/secrets.md
+            - for-delivery-engineers/explanation/types-of-environments.md
+            - for-delivery-engineers/explanation/faq.md
+        - How To guides:
+            - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
+        - Tutorials:
+            - for-delivery-engineers/tutorials/01-configure-infra-gitops-config/configure-infra-gitops-config.md
+            - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/creating-gitops-structure.md
+            - for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
+
     - For Developers:
         - Tutorials:
-            - for-developers/tutorials/00-prepare-environment/prepare-env.md
-            - for-developers/tutorials/00-prepare-environment/step-by-step-guide.md
-            - for-developers/tutorials/01-access-cluster/access-cluster.md
-            - for-developers/tutorials/02-containerize-app/containerize-app.md
-            - for-developers/tutorials/03-package-app/package-app.md
-            - for-developers/tutorials/04-deploy-app/deploy-app.md
-            - for-developers/tutorials/05-expose-app/expose-app.md
-            - for-developers/tutorials/06-add-storage/persist-app.md
-            - for-developers/tutorials/07-add-configmap/add-configmaps.md
-            - for-developers/tutorials/08-add-secret/add-secrets.md
-            - for-developers/tutorials/09-add-dependency/add-dependency.md
-            - for-developers/tutorials/10-validate-logs/validate-logs.md
-            - for-developers/tutorials/11-expose-metrics/expose-metrics.md 
-            - for-developers/tutorials/12-add-grafana-dashboard/add-grafana-dashboard.md 
-            - for-developers/tutorials/13-add-alerts/add-alerts.md 
-            - for-developers/tutorials/14-scale-app/scale-app.md 
-            - for-developers/tutorials/15-validate-auto-reload/validate-auto-reload.md
-            - for-developers/tutorials/16-validate-down-alert/validate-down-alert.md
-            - for-developers/tutorials/17-add-pdb/add-pdb.md
-            - for-developers/tutorials/18-add-network-policy/add-network-policy.md
-            - for-developers/tutorials/19-backup-data/backup-data.md
-            - for-developers/tutorials/20-restore-data/restore-data.md
-            - for-developers/tutorials/21-add-env-variable/add-env-variable.md
-            - for-developers/tutorials/22-add-ci-pipeline/add-ci-pipeline.md
+            - for-developers/tutorials/inner-loop/00-prepare-environment/prepare-env.md
+            - for-developers/tutorials/inner-loop/00-prepare-environment/step-by-step-guide.md
+            - for-developers/tutorials/inner-loop/01-access-cluster/access-cluster.md
+            - for-developers/tutorials/inner-loop/02-containerize-app/containerize-app.md
+            - for-developers/tutorials/inner-loop/03-package-app/package-app.md
+            - for-developers/tutorials/inner-loop/04-deploy-app/deploy-app.md
+            - for-developers/tutorials/inner-loop/05-expose-app/expose-app.md
+            - for-developers/tutorials/inner-loop/06-add-storage/persist-app.md
+            - for-developers/tutorials/inner-loop/07-add-configmap/add-configmaps.md
+            - for-developers/tutorials/inner-loop/08-add-secret/add-secrets.md
+            - for-developers/tutorials/inner-loop/09-add-dependency/add-dependency.md
+            - for-developers/tutorials/inner-loop/10-validate-logs/validate-logs.md
+            - for-developers/tutorials/inner-loop/11-expose-metrics/expose-metrics.md 
+            - for-developers/tutorials/inner-loop/12-add-grafana-dashboard/add-grafana-dashboard.md 
+            - for-developers/tutorials/inner-loop/13-add-alerts/add-alerts.md 
+            - for-developers/tutorials/inner-loop/14-scale-app/scale-app.md 
+            - for-developers/tutorials/inner-loop/15-validate-auto-reload/validate-auto-reload.md
+            - for-developers/tutorials/inner-loop/16-validate-down-alert/validate-down-alert.md
+            - for-developers/tutorials/inner-loop/17-add-pdb/add-pdb.md
+            - for-developers/tutorials/inner-loop/18-add-network-policy/add-network-policy.md
+            - for-developers/tutorials/inner-loop/19-backup-data/backup-data.md
+            - for-developers/tutorials/inner-loop/20-restore-data/restore-data.md
+            - for-developers/tutorials/inner-loop/21-add-env-variable/add-env-variable.md
+            - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
+            - for-developers/tutorials/outer-loop/add-ci-pipeline/add-ci-pipeline.md
+            - for-developers/tutorials/outer-loop/promote-application/promote-app.md
         - How-to guides:
             - for-developers/how-to-guides/overview.md
+            - for-developers/how-to-guides/add-a-new-environment-to-apps-gitops/add-a-new-environment-to-application.md
+            - for-developers/how-to-guides/promote-your-application/promote-your-application.md
         - Explanation:
             - for-developers/explanation/developer-training.md
             - for-developers/explanation/plan-your-deployment.md
