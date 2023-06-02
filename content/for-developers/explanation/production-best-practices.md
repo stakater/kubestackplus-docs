@@ -47,7 +47,7 @@ Configure appropriate values for your Kubernetes resources while keeping the fol
 - Set an appropriate Quality of Service (QoS) for Pods.
 - Use LimitRange to limit resource usage at namespace level.
 
-### Relica Count
+### Replica Count
 
 - Determine the appropriate number of replicas for your application based on factors such as expected traffic, scalability requirements, and resource availability.
 - Consider horizontal pod autoscaling (HPA) based on resource utilization to automatically adjust the replica count.
@@ -83,7 +83,7 @@ Configure appropriate values for your Kubernetes resources while keeping the fol
 
 ### Scaling Policies
 
-- Define scaling policies to automatically adjust the replicacount based on predefined thresholds or metrics (e.g., CPUusage, request queue length).
+- Define scaling policies to automatically adjust the replica count based on predefined thresholds or metrics (e.g., CPUusage, request queue length).
 - Set up horizontal pod autoscaling (HPA) or custom scaling controllers to dynamically scale replicas based on workload demands.
 
 ### Load Balancing
@@ -107,7 +107,7 @@ Implement logging, tracing, and monitoring mechanisms to gain visibility into th
 
 ### Define Key Performance Indicators (KPIs)
 
-- Identify the essential metrics and KPIs that you want to monitor for your application's performance.
+- Identify the essential metrics and key performance indicators (`KPIs`) that you want to monitor for your application's performance.
 - Examples of common KPIs include response time, throughput, error rates, CPU and memory usage, and database query latency.
 
 ### Monitoring and Alerting
@@ -118,7 +118,7 @@ Implement logging, tracing, and monitoring mechanisms to gain visibility into th
 ### Enable Application Performance Monitoring
 
 - Integrate your application with a performance monitoring tool (e.g., Prometheus, Datadog, New Relic) that provides monitoring capabilities to collect metrics and monitor application performance.
-- Define and track key performance indicators (KPIs) specific to your application.
+- Define and track key performance indicators (`KPIs`) specific to your application.
 - Instrument the application code to capture relevant metrics, such as method-level response times, database query performance, and external service dependencies.
 
 ### Capacity Planning
@@ -154,7 +154,7 @@ Implement logging, tracing, and monitoring mechanisms to gain visibility into th
 - Define meaningful error messages and ensure they are logged appropriately for troubleshooting purposes.
 - Integrate with Kubernetes-native logging and monitoring solutions to capture application logs and metrics.
 
-### Test High Availability and Failover
+### Test High Availability and Failover Scenarios
 
 - Simulate failure scenarios (e.g., node failures, network disruptions) to validate the resilience and failover mechanisms of your application.
 - Monitor how the application handles these scenarios and ensure it recovers as expected.
@@ -186,7 +186,7 @@ Implement logging, tracing, and monitoring mechanisms to gain visibility into th
 - Determine the deployment strategy best suited for your application (e.g., blue-green, canary, rolling updates).
 - Decide on the appropriate strategy for your application's availability, risk tolerance, and user impact during the deployment process.
 
-## Continous Integration and Continous Deployment
+## Continuous Integration and Continuous Deployment
 
 - Set up a continuous integration/continuous deployment (CI/CD) pipeline to automate the build, test, and deployment process.
 - Configure the pipeline to trigger deployments to Kubernetes based on code changes or version updates.
