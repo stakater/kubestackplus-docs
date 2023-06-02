@@ -1,4 +1,4 @@
-# Add tekton pipeline
+# Add Tekton pipeline
 
 Objective
 Configure basic CI&CD pipeline
@@ -6,5 +6,5 @@ Configure basic CI&CD pipeline
 Key Result
 
 - Push artifacts to nexus
-- Update the gitops repository via pipeline
+- Update the GitOps repository via pipeline
 - Release new version

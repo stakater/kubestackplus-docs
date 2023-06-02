@@ -1,4 +1,4 @@
-# Configure apps gitops repository
+# Configure apps GitOps repository
 
 Let us set up Stakater Opinionated GitOps Structure.
 

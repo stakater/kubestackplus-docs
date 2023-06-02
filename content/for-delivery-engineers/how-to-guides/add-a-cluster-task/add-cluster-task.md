@@ -1,9 +1,9 @@
 # Add cluster task
 
 Objective
-Add cluster task via infra gitops
+Add cluster task via infra GitOps
 
 Key Results
 
-- Deploy cluster task via infra gitops repository
+- Deploy cluster task via infra GitOps repository
 - Validate via argocd UI

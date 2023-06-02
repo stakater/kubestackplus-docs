@@ -1,4 +1,4 @@
-# Configure infra gitops repository
+# Configure infra GitOps repository
 
 Let us set up Stakater Opinionated GitOps Structure.
 
