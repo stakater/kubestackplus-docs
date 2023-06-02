@@ -176,6 +176,7 @@ nav:
             - for-developers/explanation/inner-vs-outer-loop.md
             - for-developers/explanation/inner-loop.md
             - for-developers/explanation/local-development-workflow.md
+            - for-developers/explanation/production-best-practices.md
     - For CISOs:
         - for-cisos/overview.md
         - for-cisos/policies/policies.md
