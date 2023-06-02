@@ -133,9 +133,10 @@ nav:
         - How To guides:
             - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
         - Tutorials:
-            - for-delivery-engineers/tutorials/01-configure-infra-gitops-config/configure-infra-gitops-config.md
-            - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/creating-gitops-structure.md
+            - for-delivery-engineers/tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md
+            - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md
             - for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
+            - for-delivery-engineers/tutorials/04-add-tekton-pipeline-to-demo-app/add-pipeline.md            
 
     - For Developers:
         - Tutorials:

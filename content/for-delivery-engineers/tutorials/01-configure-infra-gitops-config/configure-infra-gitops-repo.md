@@ -1,4 +1,4 @@
-# GitOps Onboarding
+# Configure infra GitOps repository
 
 Let us set up Stakater Opinionated GitOps Structure.
 
@@ -10,13 +10,14 @@ You can name these two repositories anything you want but make sure the names ar
 Let's set these two repositories up!!
 
 Objective:
+
 Create your first tenant
 
 Key Results:
 
 - Create GitOps repository
-- Tenant operator resources configured
-- ArgoCD configured
+- Configure Tenant operator resources
+- Configure ArgoCD
 
 ## Infra GitOps Config
 
