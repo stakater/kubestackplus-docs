@@ -12,7 +12,7 @@ Key Results:
 
 This guide assumes that application is already [on-boarded](application-onboarding.md) to different environments.
 
-### 1. Promote chart
+## 1. Promote chart
 
 To promote application from one environment to another, you can check the chart version from `Chart.yaml` file from one environment and update version in `Chart.yaml` of next environment:
 
@@ -29,7 +29,7 @@ version: 1.0.51
 
 pick version `1.0.51` from above `Chart.yaml` and copy it in `Chart.yaml` of next environment
 
-### 2. Promote image
+## 2. Promote image
 
 To promote application from one environment to another, you can check the image tag version from `values.yaml` file from one environment and update version in `values.yaml` of next environment:
 
