@@ -21,8 +21,8 @@ In this section, we will use [`stakater-nordmart-review-ui`](https://github.com/
 
 ## Prerequisites
 
-- [`tenant` for application must be defined via `infra-gitops-config`](../01-configure-infra-gitops-config/configure-infra-gitops-config.md).
-- [`tenant` for application should be onboarded onto `apps-gitops-config`](../02-configure-apps-gitops-config/creating-gitops-structure.md).
+- [`tenant` for application must be defined via `infra-gitops-config`](../01-configure-infra-gitops-config/configure-infra-gitops-repo.md).
+- [`tenant` for application should be onboarded onto `apps-gitops-config`](../02-configure-apps-gitops-config/configure-apps-gitops-repo.md).
 - Docker Image and Helm Chart Repository hosted by Nexus must be available.
 - [helm](https://helm.sh/docs/intro/install/)
 - [git](https://git-scm.com/downloads)
