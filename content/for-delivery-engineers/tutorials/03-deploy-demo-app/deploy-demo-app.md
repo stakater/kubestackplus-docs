@@ -105,17 +105,19 @@ Replace the placeholders and Run the following command inside application folder
 
 ```sh
 # Buldah Bud Info : https://manpages.ubuntu.com/manpages/impish/man1/buildah-bud.1.html
-# buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-docker-reg-url>/<tenant-name>/<app-name>:1.0.0 .
-buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t nexus-docker-stakater-nexus.{CLUSTER_DOMAIN}/gabbar/stakater-nordmart-review-ui:1.0.0 .
+# buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-docker-reg-url>/<app-name>:<tag> .
+buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-docker-reg-url>/stakater-nordmart-review-ui:1.0.0 .
 ```
 
 Lets push the image to nexus docker repo. Make sure to get credentials from Stakater Admin.
 
 ```sh
 # Buildah push Info https://manpages.ubuntu.com/manpages/impish/man1/buildah-push.1.html
-# buildah push <nexus-docker-reg-url>/<tenant-name>/<app-name>:1.0.0 docker://<nexus-docker-reg-url>/<tenant-name>/<app-name>:1.0.0
-buildah push nexus-docker-stakater-nexus.{CLUSTER_DOMAIN}/gabbar/stakater-nordmart-review-ui:1.0.0 docker://nexus-docker-stakater-nexus.{CLUSTER_DOMAIN}/gabbar/stakater-nordmart-review-ui:1.0.0
+# buildah push <nexus-docker-reg-url>/<app-name>:<tag> docker://<nexus-docker-reg-url>/<app-name>:<tag>
+buildah push <nexus-docker-reg-url>/stakater-nordmart-review-ui:1.0.0 docker://<nexus-docker-reg-url>/stakater-nordmart-review-ui:1.0.0
 ```
+
+> **Note: Nexus docker registry URL is the one we extract in the above section. Make sure you are logged in to the Nexus docker registry before building and pushing the application image.**
 
 ## 3. Add Helm Chart to application repository
 
