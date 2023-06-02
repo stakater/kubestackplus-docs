@@ -193,6 +193,7 @@ Implement logging, tracing, and monitoring mechanisms to gain visibility into th
 - Automate the deployment of new replicas or updates to existing replicas through the CI/CD pipeline to ensure consistency and efficiency.
 
 ## Security
+
 ### Define Network Policies
 
 - Implement network policies to control ingress and egress traffic to and from your application.
