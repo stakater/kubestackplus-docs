@@ -120,7 +120,7 @@ Open up the `argocd-apps` folder and add the following file to it:
           selfHeal: true
     ```
 
-    Make sure you replace the `repoURL` depending on the Secret type you generated, e.g. for instance, for SSH secret, repoURL should be SSH.  You may also need to change all the instances of `CLUSTER_NAME` with your cluster's name.
+    Make sure you replace the `repoURL` depending on the Secret type you generated, e.g., for SSH secret, repoURL should be SSH.  You may also need to change all the instances of `CLUSTER_NAME` with your cluster's name.
     If you notice the path, you will realize that this application is pointing to 'tenant-operator-config' folder housing your tenant and quotas.
 
 1. To deploy the ArgoCD application on the cluster pointing to `<cluster-name>/argocd-apps` directory, you will need to ask Stakater Admin to create it as part of ArgoCD Instance.
