@@ -16,15 +16,15 @@ There are three CI/CD environments per tenant
 
 The CI/CD Environments are special Environments that are part of CI/CD workflow. There are 3 kinds of CI/CD environments:
 
-1. Build - Build environment contains all Tekton pipeline configurations/resources like *pipeline,eventlistener,pipelinrun etc*. These pipelines respond to changes in Application/Service source repositories. This environment is used for running pipelines of tenant applications.
+1. Build - Build environment contains all Tekton pipeline configurations/resources like *pipeline,eventlistener,pipelinrun* etc. These pipelines respond to changes in Application/Service source repositories. This environment is used for running pipelines of tenant applications.
 
 1. Preview - Preview environment contains all preview application deployments. As soon as there is a new PR in application, pipeline creates new environment to test this PR. Each PR is deployed in separate namespace.
 
-1. Development - Once the PR is merged; the dynamic test environment is automatically deleted and the Helm manifests are pushed to first permanent application environment i.e. `dev` by the CI pipeline.
+1. Development - The dynamic test environment is automatically deleted and the Helm manifests are pushed to first permanent application environment i.e. `dev` by the CI pipeline when the pull request is merged.
 
 ## 3. Other Environments
 
-Other than CI/CD environment there are applications environments like *qa,staging,pre-prod,prod etc*. Application promotion in other environments is done manually by creating a PR to the GitOps repo which includes the:
+There are applications environments like *qa,staging,pre-prod,prod* etc other than CI/CD environment. Application promotion in other environments is done manually by creating a PR to the GitOps repo which includes the:
 
 - bumping of the helm chart version in `Chart.yaml` and
 - bumping image tag version in helm values in `values.yaml`

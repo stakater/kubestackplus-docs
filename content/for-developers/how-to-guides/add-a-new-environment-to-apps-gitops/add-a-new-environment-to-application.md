@@ -30,7 +30,7 @@ Key Results:
                └── templates/
    ```
 
-1. Add an folder `prod` inside `<tenant-name>/argocd-apps`. Add an ArgoCD Application in this folder which points to `<tenant-name>/<app-name>/prod`.
+1. Add a folder `prod` inside `<tenant-name>/argocd-apps`. Add an ArgoCD Application in this folder which points to `<tenant-name>/<app-name>/prod`.
 
    ```yaml
    # Name: stakater-nordmart-review.yaml(APP_NAME.yaml)
