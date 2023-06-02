@@ -32,7 +32,7 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
 
 > Follow along GitHub/GitLab documentation for configuring other organization specific requirements set for source code repositories.
 
-1. Create a secret with read permissions over this repository. Navigate to following section for more info [Configure Repository Secret for ArgoCD](../../how-to-guides/configure-repository-secret/configure-repository-secret.md). 
+1. Create a secret with read permissions over this repository. Navigate to following section for more info [Configure Repository Secret for ArgoCD](../../how-to-guides/configure-repository-secret/configure-repository-secret.md).
 
 > **Note: Provide this secret (PAT/SSH private key) and the infra repo URL to stakater-admin for it to be deployed with your ArgoCD instance.**
 
