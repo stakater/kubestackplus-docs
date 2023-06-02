@@ -1,6 +1,6 @@
 # Production Best Practices
 
-In this section, we are going to discuss best practices for deploying secure, scalable and fault tolerant applications to Kubernetes. Developers should take the following factors into account as part of their go-live checklist:
+In this section, we are going to discuss best practices for deploying secure, scalable and fault-tolerant applications to Kubernetes. Developers should take the following factors into account as part of their go-live checklist:
 
 ## Containerization
 
@@ -40,7 +40,7 @@ Configure appropriate values for your Kubernetes resources while keeping the fol
 - Implement readiness and liveness probes to ensure the application's availability and responsiveness.
 - Define appropriate conditions for readiness and liveness checks based on the application's startup time and required dependencies.
 
-### Resources utilisation
+### Resources utilization
 
 - Set resource limits (CPU and memory) for your application containers to ensure they operate within expected bounds.
 - Consider resource requests to ensure Kubernetes can appropriately schedule and allocate resources for your application.
@@ -89,11 +89,11 @@ Configure appropriate values for your Kubernetes resources while keeping the fol
 ### Load Balancing
 
 - Ensure that your application is accessible through a load balancer or ingress controller to evenly distribute traffic among the replicas.
-- Configure the load balancing mechanism to use appropriate algorithms (e.g., round-robin, least connections) based on your application's requirements.
+- Configure the load balancing mechanism to use appropriate algorithms (e.g., round-robin, the least connections) based on your application's requirements.
 
 ### Configuring Pod Affinity and AntiAffinity
 
-- The inter-pod affinity and anti-affinity documentation describe how you can you could change your Pod to be located (or not) in the same node.
+- The inter-pod affinity and anti-affinity documentation describe how you can change your Pod to be located (or not) in the same node.
 - You should apply anti-affinity rules to your Deployments so that Pods are spread in all the nodes of your cluster.
 
 ## Observability
