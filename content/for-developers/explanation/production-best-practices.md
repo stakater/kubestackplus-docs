@@ -105,7 +105,7 @@ Implement logging, tracing, and monitoring mechanisms to gain visibility into th
 - Establish SLOs that define the expected reliability, availability, and performance of your application.
 - Monitor and track these SLOs to ensure your application meets the defined service levels.
 
-### Define Key Performance Indicators (KPIs)
+### Define Key Performance Indicators (`KPIs`)
 
 - Identify the essential metrics and key performance indicators (`KPIs`) that you want to monitor for your application's performance.
 - Examples of common KPIs include response time, throughput, error rates, CPU and memory usage, and database query latency.
