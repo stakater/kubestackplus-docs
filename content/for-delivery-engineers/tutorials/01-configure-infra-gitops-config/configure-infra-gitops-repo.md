@@ -32,7 +32,10 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
 
 > Follow along GitHub/GitLab documentation for configuring other organization specific requirements set for source code repositories.
 
-1. Create a secret with read permissions over this repository. Navigate to following section for more info [Configure Repository Secret for ArgoCD](../../how-to-guides/configure-repository-secret/configure-repository-secret.md). Provide this secret to stakater-admin for it to be deployed with your ArgoCD instance.
+1. Create a secret with read permissions over this repository. Navigate to following section for more info [Configure Repository Secret for ArgoCD](../../how-to-guides/configure-repository-secret/configure-repository-secret.md). 
+
+> **Note: Provide this secret (PAT/SSH private key) and the infra repo URL to stakater-admin for it to be deployed with your ArgoCD instance.**
+
 1. Now let's copy the structure that we saw in the [template](https://github.com/stakater/infra-gitops-config.git). Add a folder bearing your cluster's name say `dev` at the root of the repository that you just created.
     > If you plan on using this repository for multiple clusters, add a folder for each cluster.
 1. Inside the folder created in step 2, add two folders; one named `argocd-apps`, and another one named `tenant-operator-config`
@@ -117,10 +120,10 @@ Open up the `argocd-apps` folder and add the following file to it:
           selfHeal: true
     ```
 
-    Make sure you replace the `repoUrl` and all instances of `CLUSTER_NAME` with your cluster's name.
+    Make sure you replace the `repoURL` depending on the Secret type you generated, e.g. for instance, for SSH secret, repoURL should be SSH.  You may also need to change all the instances of `CLUSTER_NAME` with your cluster's name.
     If you notice the path, you will realize that this application is pointing to 'tenant-operator-config' folder housing your tenant and quotas.
 
-1. Deploy an ArgoCD application on the cluster pointing to `<cluster-name>/argocd-apps` directory. You will need to ask Stakater Admin to create it as part of ArgoCD Instance.
+1. To deploy the ArgoCD application on the cluster pointing to `<cluster-name>/argocd-apps` directory, you will need to ask Stakater Admin to create it as part of ArgoCD Instance.
 
 1. Login to ArgoCD and check if `infra-gitops-config` application is present. Validate the child application `tenant-operator-config`.
 
