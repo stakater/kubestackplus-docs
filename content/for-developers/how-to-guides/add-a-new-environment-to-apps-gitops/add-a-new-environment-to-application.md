@@ -1,11 +1,13 @@
-## Add Environment to Apps GitOps Repository
+# Add Environment to Apps GitOps Repository
 
 Lets see how can we add an environment to an application in a tenant. Lets say, we have added a production cluster and want to add a new environment in application for it to be deployed on production.
 
 Objectives:
+
 - Deploy your application to a new environment
 
 Key Results:
+
 - ArgoCD apps pointing to application environment created
 - Helm chart with production configuration deployed
 

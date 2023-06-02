@@ -1,13 +1,14 @@
-## Application promotion
+# Application promotion
 
 To promote application from one environment to another; as mentioned above you will need to bump chart version and image tag version in that environment. You can do so by picking these versions from previous environment.
 
 Objectives:
+
 - Promote your Application to another environment
 
 Key Results:
-- Image or Chart version updated
 
+- Image or Chart version updated
 
 This guide assumes that application is already [on-boarded](application-onboarding.md) to different environments.
 
