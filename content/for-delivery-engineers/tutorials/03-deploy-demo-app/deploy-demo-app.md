@@ -1,12 +1,12 @@
 # Deploy demo app
 
 Objective
-Deploy your first using GitOps
+Deploy your first app using GitOps
 
 Key Results:
 
-- Artifacts pushed to nexus
-- App deployed using helm charts via ArgoCD
+- Push artifacts to nexus
+- Deploy app using helm charts via ArgoCD
 
 This guide covers the step-by-step guide to onboard a new project/application/microservice on SAAP.
 

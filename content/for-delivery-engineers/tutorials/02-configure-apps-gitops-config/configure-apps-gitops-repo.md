@@ -1,4 +1,4 @@
-# GitOps Onboarding
+# Configure apps gitops repository
 
 Let us set up Stakater Opinionated GitOps Structure.
 
@@ -12,8 +12,8 @@ Define ArgoCD apps structure
 
 Key Results:
 
-- Apps GitOps repo created
-- AppOfApps structure defined and configured
+- Create Apps GitOps repository
+- Define and configure the AppOfApps structure
 
 ## Apps GitOps Config
 
