@@ -17,7 +17,7 @@ Changes required in application repository:
 1. Add Helm Chart to application repository.
 1. Push Helm Chart to Nexus Helm Repository.
 
-In this section, we will use [`stakater-nordmart-review-ui`](https://github.com/stakater-lab/stakater-nordmart-review-ui) application as an example and add it to our GitOps structure we made in the previous section.
+In this section, we will use [`stakater-nordmart-review-web`](https://github.com/stakater-lab/stakater-nordmart-review-web) application as an example and add it to our GitOps structure we made in the previous section.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ Specify admin provided username and password to login.
 
 We need a **Dockerfile** for our application present at the root of our code repo to build a container image.  Navigate to [`RedHat image registry`](https://catalog.redhat.com/software/containers/search) and find a suitable base image for the application.
 
-Below is a Dockerfile for a ReactJS application for product reviews. Visit for more info: <https://github.com/stakater-lab/stakater-nordmart-review-ui>
+Below is a Dockerfile for a ReactJS application for product reviews. Visit for more info: <https://github.com/stakater-lab/stakater-nordmart-review-web>
 
 ```Dockerfile
 FROM node:14 as builder
@@ -94,11 +94,11 @@ Look into the following dockerizing guides for a start.
 
 ## 2. Push Docker Image to Nexus
 
-Lets clone the [`stakater-nordmart-review-ui`](https://github.com/stakater-lab/stakater-nordmart-review-ui) application.
+Lets clone the [`stakater-nordmart-review-web`](https://github.com/stakater-lab/stakater-nordmart-review-web) application.
 
 ```bash
-git clone https://github.com/stakater-lab/stakater-nordmart-review-ui
-cd stakater-nordmart-review-ui
+git clone https://github.com/stakater-lab/stakater-nordmart-review-web
+cd stakater-nordmart-review-web
 ```
 
 Replace the placeholders and Run the following command inside application folder.
@@ -106,7 +106,7 @@ Replace the placeholders and Run the following command inside application folder
 ```sh
 # Buldah Bud Info : https://manpages.ubuntu.com/manpages/impish/man1/buildah-bud.1.html
 # buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-docker-reg-url>/<app-name>:<tag> .
-buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-docker-reg-url>/stakater-nordmart-review-ui:1.0.0 .
+buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-docker-reg-url>/stakater-nordmart-review-web:1.0.0 .
 ```
 
 Lets push the image to nexus docker repo. Make sure to get credentials from Stakater Admin.
@@ -114,7 +114,7 @@ Lets push the image to nexus docker repo. Make sure to get credentials from Stak
 ```sh
 # Buildah push Info https://manpages.ubuntu.com/manpages/impish/man1/buildah-push.1.html
 # buildah push <nexus-docker-reg-url>/<app-name>:<tag> docker://<nexus-docker-reg-url>/<app-name>:<tag>
-buildah push <nexus-docker-reg-url>/stakater-nordmart-review-ui:1.0.0 docker://<nexus-docker-reg-url>/stakater-nordmart-review-ui:1.0.0
+buildah push <nexus-docker-reg-url>/stakater-nordmart-review-web:1.0.0 docker://<nexus-docker-reg-url>/stakater-nordmart-review-web:1.0.0
 ```
 
 > **Note: Nexus docker registry URL is the one we extract in the above section. Make sure you are logged in to the Nexus docker registry before building and pushing the application image.**
@@ -131,7 +131,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
       apiVersion: v2
       # Replace Chart Name with AppName.
       # name: <app-name>
-      name: stakater-nordmart-review-ui
+      name: stakater-nordmart-review-web
       description: A Helm chart for Kubernetes
       dependencies:
       - name: application
@@ -141,7 +141,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
       version: 1.0.0
     ```
 
-2. The values.yaml contains all the application specific **kubenetes resources** (deployments, configmaps, namespaces, secrets, services, route, podautoscalers, RBAC) for the particular environment. Configure Helm values as per application needs.
+2. The values.yaml contains all the application specific **Kubernetes resources** (deployments, configmaps, namespaces, secrets, services, route, podautoscalers, RBAC) for the particular environment. Configure Helm values as per application needs.
 
     Here is a minimal values file defined for an application with deployment,route,service.
 
@@ -153,7 +153,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
       # Config Maps have <application> prefixed
 
       # Replace applicationName with <app-name>
-      applicationName: stakater-nordmart-review-ui
+      applicationName: stakater-nordmart-review-web
 
       deployment:
         # nexus-docker-config-forked is deployed in all tenant namespaces for pulling images
@@ -161,7 +161,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
         image:
           # <app-name>
           # you can leave repository and tag emtpy as they are overrided in gitops
-          repository: stakater-nordmart-review-ui
+          repository: stakater-nordmart-review-web
           tag: 1.0.0
       route:
         enabled: true
@@ -197,7 +197,7 @@ If your application contains dependency charts run the following command in depl
 References to Explore:
 
 - [`stakater-nordmart-review`](https://github.com/stakater-lab/stakater-nordmart-review/deploy)
-- [`stakater-nordmart-review-ui`](https://github.com/stakater-lab/stakater-nordmart-review-ui/deploy)
+- [`stakater-nordmart-review-web`](https://github.com/stakater-lab/stakater-nordmart-review-web/deploy)
 - [All configurations available via Application Chart Values](https://github.com/stakater/application/blob/master/application/values.yaml)
 
 ## 4. Push Helm Chart to Nexus
@@ -210,15 +210,15 @@ Run the following command to package the helm chart into compressed file.
 ```sh
 # helm package [CHART_PATH]
 helm package .
-# output : successfully packaged chart and saved it to: /Desktop/stakater-nordmart-review-ui/deploy/stakater-nordmart-review-ui-1.0.0.tgz
+# output : successfully packaged chart and saved it to: /Desktop/stakater-nordmart-review-web/deploy/stakater-nordmart-review-web-1.0.0.tgz
 ```
 
 This command packages a chart into a versioned chart archive file.
 
 ```sh
-# heml
+# helm
 # curl -u "<helm_user>":"<helm_password>" <nexus-helm-reg-url>/<tenant-name> --upload-file "<app-name>-1.0.0.tgz"
-curl -u "helm-user":"password123" https://nexus-helm-stakater-nexus.{CLUSTER_DOMAIN}/repository/helm-charts/gabbar --upload-file "stakater-nordmart-review-ui-1.0.0.tgz"
+curl -u "helm-user":"password123" https://nexus-helm-stakater-nexus.{CLUSTER_DOMAIN}/repository/helm-charts/gabbar --upload-file "stakater-nordmart-review-web-1.0.0.tgz"
 ```
 
 ## 5. Add application chart to `apps-gitops-config`
@@ -231,11 +231,11 @@ Navigate to `apps-gitops-config` repository and add a helm chart in path `gabbar
 # <tenant-name>/<app-name>/dev/Chart.yaml
 apiVersion: v2
 # name: <app-name>
-name: stakater-nordmart-review-ui
+name: stakater-nordmart-review-web
 description: A Helm chart for Kubernetes
 dependencies:
   # name: <chart-name-in-deploy-folder>
-  - name: stakater-nordmart-review-ui
+  - name: stakater-nordmart-review-web
     version: "1.0.0"
     # repository: <nexus-helm-reg-url>/repository/helm-charts/
     repository: https://nexus-helm-stakater-nexus.{CLUSTER_DOMAIN}/repository/helm-charts/gabbar/
@@ -248,7 +248,7 @@ version: 1.0.0
     deployment:
       image:
         # repository: <nexus-docker-reg-url>/<tenant-name>/<app-name>
-        repository: nexus-docker-stakater-nexus.{CLUSTER_DOMAIN}/gabbar/stakater-nordmart-review-ui
+        repository: nexus-docker-stakater-nexus.{CLUSTER_DOMAIN}/gabbar/stakater-nordmart-review-web
         tag: 1.0.0
 ```
 
