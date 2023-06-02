@@ -166,6 +166,11 @@ Implement logging, tracing, and monitoring mechanisms to gain visibility into th
 
 ## Update Strategies
 
+### Image Tagging
+
+- Images are generally identified by two components: their name and their tag. Tagging the image lets users identify a specific version of your software in order to download it. For this reason, tightly link the tagging system on container images to the release policy of your software.
+- When you build an image, it's up to you to tag it properly. Follow a coherent and consistent tagging policy. Document your tagging policy so that image users can easily understand it.
+
 ### Version Control and Git Tags
 
 - Ensure the application's source code is properly version controlled using a version control system (e.g., Git).
