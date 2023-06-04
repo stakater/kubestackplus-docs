@@ -175,8 +175,7 @@ nav:
         - Explanation:
             - for-developers/explanation/developer-training.md
             - for-developers/explanation/plan-your-deployment.md
-            - for-developers/explanation/inner-vs-outer-loop.md
-            - for-developers/explanation/inner-loop.md
+            - for-developers/explanation/inner-outer-loop.md
             - for-developers/explanation/local-development-workflow.md
             - for-developers/explanation/production-best-practices.md
     - For CISOs:
