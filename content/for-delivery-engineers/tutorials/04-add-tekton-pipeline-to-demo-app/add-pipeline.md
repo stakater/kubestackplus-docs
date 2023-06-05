@@ -9,7 +9,7 @@ Key Result
 - Update the GitOps repository via pipeline
 - Release new version
 
-# Add Pipeline to Your Application
+## Add Pipeline to Your Application
 
 Now that we have added our first application using Stakater Opinionated GitOps Structure, we can continue by adding pipeline to our application.
 SAAP is shipped with all the tools that you need to add a Tekton pipeline to your application.
