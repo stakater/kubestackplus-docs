@@ -157,19 +157,21 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
               └── stage
       ```
 
-1. Add ArgoCD applications for these environments (dev & stage) defined in `gabbar/argocd-apps`. These environment belong to specific cluster.
-
-    Create dev and stage folders at `argocd-apps/` to represent dev and stage cluster.
+1. Create `argocd-apps` folder at the root of your Apps GitOps repo. Create clusters folder containing the environments folder each cluster have. Add ArgoCD applications for these environments (dev & stage).
 
       ```bash
       ├── argocd-apps
-          ├── dev
-          └── stage
+          ├── cluster-1
+              ├── dev
+              └── stage
+          ├── cluster-2
+              ├── dev
+              └── stage
       ```
 
-    > Folders in `argocd-apps` corresponds to clusters, these folder contain ArgoCD applications pointing to 1 or more environments inside multiple tenant folders per cluster, Folders in `gabbar/argocd-apps` correspond to environments.
+    > Folders in `argocd-apps` corresponds to clusters, these folders contain ArgoCD applications pointing to 1 or more environments inside multiple tenant folders per cluster. Folders in `gabbar/argocd-apps` correspond to environments.
 
-    Next, create the following ArgoCD applications:
+    Next, create the following ArgoCD applications in each environment, dev and stage:
 
       ```yaml
       # Name: gabbar-dev.yaml (TENANT_NAME-ENV_NAME.yaml)
@@ -177,7 +179,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
       apiVersion: argoproj.io/v1alpha1
       kind: Application
       metadata:
-        name: 
+        name:
         namespace: openshift-gitops
       spec:
         destination:
@@ -185,7 +187,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
           server: 'https://kubernetes.default.svc'
         project: gabbar
         source:
-          path: gabbar/argocd-apps/dev
+          path: argocd-apps/dev
           repoURL: 'APPS_GITOPS_REPO_URL'
           targetRevision: HEAD
         syncPolicy:
@@ -206,7 +208,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
           server: 'https://kubernetes.default.svc'
         project: gabbar
         source:
-          path: gabbar/argocd-apps/stage
+          path: argocd-apps/stage
           repoURL: 'APPS_GITOPS_REPO_URL'
           targetRevision: HEAD
         syncPolicy:
@@ -237,7 +239,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
        server: 'https://kubernetes.default.svc'
      project: root-tenant
      source:
-       path: gabbar/argocd-apps/dev
+       path: argocd-apps/dev
        repoURL: 'APPS_GITOPS_REPO_URL'
        targetRevision: HEAD
      syncPolicy:
