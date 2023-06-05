@@ -330,4 +330,3 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
 The below image represents the complete look of the ArgoCD application when the Infra and Apps repos are linked successfully with all the pre-requisites accomplished.
 
   ![`ArgoCD-Infra-repo-App`](../images/ArgoCD-Infra-repo-App.png)
-
