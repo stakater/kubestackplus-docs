@@ -326,3 +326,8 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
 ## View Apps-of-Apps structure on ArgoCD
 
 1. Login to ArgoCD and view `apps-gitops-config` application and explore the `apps-of-apps` structure.
+
+The below image represents the complete look of the ArgoCD application when the Infra and Apps repos are linked successfully with all the pre-requisites accomplished.
+
+  ![`ArgoCD-Infra-repo-App`](../images/ArgoCD-Infra-repo-App.png)
+
