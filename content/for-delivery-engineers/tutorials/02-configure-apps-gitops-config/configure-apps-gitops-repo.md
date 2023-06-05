@@ -1,4 +1,4 @@
-# GitOps Onboarding
+# Configure apps GitOps repository
 
 Let us set up Stakater Opinionated GitOps Structure.
 
@@ -12,8 +12,8 @@ Define ArgoCD apps structure
 
 Key Results:
 
-- Apps GitOps repo created
-- AppOfApps structure defined and configured
+- Create Apps GitOps repository
+- Define and configure the AppOfApps structure
 
 ## Apps GitOps Config
 
@@ -326,3 +326,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
 ## View Apps-of-Apps structure on ArgoCD
 
 1. Login to ArgoCD and view `apps-gitops-config` application and explore the `apps-of-apps` structure.
+
+The below image represents the complete look of the ArgoCD application when the Infra and Apps repos are linked successfully with all the pre-requisites accomplished.
+
+  ![`ArgoCD-Infra-repo-App`](../images/ArgoCD-Infra-repo-App.png)
