@@ -181,13 +181,13 @@ Here, we are using the [default triggers](https://github.com/stakater/stakater-t
 
 Let's see our pipeline definition in the SAAP console now. Select `<TENANT_NAME>-build` namespace in the console. Now in the `Pipelines` section, click `pipelines`. You should be able to see the pipeline that you just created using the chart.
 
-![pipeline-basic.png](./images/pipeline-basic.png)
+![pipeline-basic.png](../images/pipeline-basic.png)
 
 With our pipelines definitions synchronized to the cluster, we can now add the webhook to GitHub `nordmart-review-ui` project.
 
 Grab the URL we're going to invoke to trigger the pipeline by checking the event listener route in `<TENANT_NAME>-build` project
 
-![add-route.png](./images/add-route.png)
+![add-route.png](../images/add-route.png)
 
 Once you have the URL, over on GitHub go to the application repo > `Settings` > `Webhook` to add the webhook:
 
