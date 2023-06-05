@@ -141,7 +141,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
       version: 1.0.0
     ```
 
-2. The values.yaml contains all the application specific **Kubernetes resources** (deployments, configmaps, namespaces, secrets, services, route, podautoscalers, RBAC) for the particular environment. Configure Helm values as per application needs.
+1. The values.yaml contains all the application specific **Kubernetes resources** (deployments, configmaps, namespaces, secrets, services, route, podautoscalers, RBAC) for the particular environment. Configure Helm values as per application needs.
 
     Here is a minimal values file defined for an application with deployment,route,service.
 
@@ -169,7 +169,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
           targetPort: http
     ```
 
-3. Make sure to validate the helm chart before doing a commit to the repository.
+1. Make sure to validate the helm chart before doing a commit to the repository.
 If your application contains dependency charts run the following command in deploy/ folder to download helm dependencies using **helm dependency build**.
 
     ```sh
@@ -181,7 +181,7 @@ If your application contains dependency charts run the following command in depl
 
     ![helm-dependency-build](../images/helm-dependency-build.png)
 
-4. Run the following command to see the Kubernetes manifests are being generated successfully and validate whether they match your required configuration. This simple helm chart generates deployment, service and route resources.
+1. Run the following command to see the Kubernetes manifests are being generated successfully and validate whether they match your required configuration. This simple helm chart generates deployment, service and route resources.
 
     > View Application Chart Usage [here](https://github.com/stakater/application)
 

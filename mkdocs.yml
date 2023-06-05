@@ -132,6 +132,7 @@ nav:
             - for-delivery-engineers/explanation/faq.md
         - How To guides:
             - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
+            - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
         - Tutorials:
             - for-delivery-engineers/tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md
             - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md
