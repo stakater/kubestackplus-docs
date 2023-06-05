@@ -55,7 +55,7 @@ Add a clusterTask to enhance Tekton pipeline.
               value: $(params.PARAM2)
             - name: PARAM3
               value: $(tasks.TASK_NAME.results.RESULT_NAME)
-          ↓↓↓↓↓↓↓↓↓↓↓↓↓
+          ↑↑↑↑↑↑↑↑↑↑↑↑↑↑
           - defaultTaskName: stakater-create-git-tag-0-0-3
     ```
 
@@ -71,7 +71,7 @@ Add a clusterTask to enhance Tekton pipeline.
         - name: WORKSPACE_NAME
           secret:
             secretName: MY_SECRET_NAME
-        ↓↓↓↓↓↓↓↓↓↓↓↓↓
+        ↑↑↑↑↑↑↑↑↑↑↑↑↑
     ```
 
     Then, Add the workspace in pipeline.tasks:
@@ -99,7 +99,7 @@ Add a clusterTask to enhance Tekton pipeline.
             workspaces:
             - name: WORKSPACE_NAME_IN_VALUES # co responds to workspaces[].name
               value: WORKSPACE_NAME_IN_TASK
-          ↓↓↓↓↓↓↓↓↓↓↓↓↓
+          ↑↑↑↑↑↑↑↑↑↑↑↑↑
           - defaultTaskName: stakater-create-git-tag-0-0-3
     ```
 
