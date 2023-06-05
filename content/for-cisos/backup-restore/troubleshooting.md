@@ -15,13 +15,13 @@ Following commands are very handy when troubleshooting backup and restore operat
     velero restore logs <restore-name> -n <velero-namespace>
     ```
 
-2. Download Completed Backups:
+1. Download Completed Backups:
 
    ```bash
     velero backup download <backup-name> -n <velero-namespace>
    ```
 
-3. Describe backups or restores:
+1. Describe backups or restores:
     The `--details` flag in the command gives the list of all the resources backedup/restored.
    - Describe backup
 

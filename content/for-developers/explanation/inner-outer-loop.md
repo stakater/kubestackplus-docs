@@ -32,16 +32,16 @@ You might think that your job stops at local testing and a Git pull request (or 
 Here's a list of steps you might typically follow to deploy from the inner loop:
 
 1. Create a dedicated namespace in the cluster for the developer.
-2. Grant developer access to the namespace.
-3. Describe how to configure the OS for your container: Write a Dockerfile to set up Linux.
-4. Describe how to package your app into a container image: Update the Dockerfile.
-5. Create a container image: Issue the commands `docker build` and `docker tag`.
-6. Upload the container image to a registry: Issue a `docker push`.
-7. Write one or more Kubernetes or OpenShift resource files: Write lots of YAML.
-8. Deploy your app to the cluster: Issue the command: `kubectl apply -f my_app.yaml`.
-9. Deploy other services to the cluster: Issue the command: `kubectl apply -f svc*.yaml`.
-10. Write the config (or set `ENV`) to allow apps to work together: Issue a `kubectl create configmap`.
-11. Configure apps to work together correctly: Issue a `kubectl apply -f my_configmap.yaml`.
+1. Grant developer access to the namespace.
+1. Describe how to configure the OS for your container: Write a Dockerfile to set up Linux.
+1. Describe how to package your app into a container image: Update the Dockerfile.
+1. Create a container image: Issue the commands `docker build` and `docker tag`.
+1. Upload the container image to a registry: Issue a `docker push`.
+1. Write one or more Kubernetes or OpenShift resource files: Write lots of YAML.
+1. Deploy your app to the cluster: Issue the command: `kubectl apply -f my_app.yaml`.
+1. Deploy other services to the cluster: Issue the command: `kubectl apply -f svc*.yaml`.
+1. Write the config (or set `ENV`) to allow apps to work together: Issue a `kubectl create configmap`.
+1. Configure apps to work together correctly: Issue a `kubectl apply -f my_configmap.yaml`.
 
 That's a lot of steps!
 

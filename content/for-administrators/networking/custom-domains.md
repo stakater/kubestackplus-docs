@@ -32,7 +32,7 @@ Add `A` entry in your DNS provider to point `custom.domain.com` to the IP obtain
 There are two ways to configure TLS Certificate secret:
 
 1. Certmanager Operator
-2. Bring Your Own Certificates (BYOC)
+1. Bring Your Own Certificates (BYOC)
 
 ### Option # 1: Certmanager Operator
 

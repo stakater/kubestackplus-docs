@@ -5,7 +5,7 @@
 We divide the nexus users into 2 groups according to the interaction method:
 
 1. human users and
-2. machines users
+1. machines users
 
 ### 1. Human Users
 
