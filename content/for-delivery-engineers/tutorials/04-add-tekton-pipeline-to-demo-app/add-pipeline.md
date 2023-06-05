@@ -35,17 +35,6 @@ We will fill in the values for these resources and deploy a functioning pipeline
 
 The above chart contains all necessary resources needed to build and run a Tekton pipeline. Some of the key things to note above are:
 
-* `eventlistener` -  listens to incoming events like a push to a branch.
-* `trigger` - the `eventlistener` specifies a trigger which in turn specifies:
-    * `interceptor` - it receives data from the event
-    * `triggerbinding` - extracts values from the event interceptor
-    * `triggertemplate` - defines `pipeline` run resource template in its definition which in turn references the pipeline
-
-  > **Note**: We do not need to define interceptor and trigger templates in every trigger while using stakater Tekton pipeline chart.
-
-* `pipeline` -  this is the pipeline definition, it wires together all the items above (workspaces, tasks & secrets etc.) into a useful & reusable set of activities.
-* `tasks` - these are the building blocks of Tekton. They are the custom resources that take parameters and run steps on the shell of a provided image. They can produce results and share workspaces with other tasks.
-
 ### SAAP pre-configured cluster tasks
 
 > SAAP is shipped with many ready-to-use Tekton cluster tasks. Let's take a look at some of the tasks that we will be using to construct a basic pipeline.
@@ -120,18 +109,6 @@ Now we will be populating the values file for the Tekton pipeline Chart to creat
             - name: ssh-directory
               workspace: ssh-directory
           - defaultTaskName: stakater-create-git-tag-0-0-3
-          - defaultTaskName: stakater-create-environment-0-0-2
-            params:
-            - name: IMAGE_TAG
-              value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-          - defaultTaskName: stakater-code-linting-0-0-1
-          - defaultTaskName: stakater-kube-linting-0-0-1
-            runAfter:
-            - stakater-create-environment-0-0-2
-          - defaultTaskName: stakater-sonarqube-scan-0-0-2
-            runAfter:
-            - stakater-kube-linting-0-0-1
-            - stakater-code-linting-0-0-1
           - defaultTaskName: stakater-build-image-flag-0-0-2
           - defaultTaskName: stakater-buildah-0-0-2
             name: build-and-push
@@ -142,28 +119,6 @@ Now we will be populating the values file for the Tekton pipeline Chart to creat
               value: $(tasks.stakater-create-git-tag-0-0-3.results.CURRENT_GIT_TAG)
             - name: BUILD_IMAGE
               value: $(tasks.stakater-build-image-flag-0-0-2.results.BUILD_IMAGE)
-          - defaultTaskName: stakater-trivy-scan-0-0-1
-            params:
-            - name: IMAGE
-              value: $(params.image_registry_url):$(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-            - name: BUILD_IMAGE
-              value: $(tasks.stakater-build-image-flag-0-0-2.results.BUILD_IMAGE)
-            runAfter:
-            - build-and-push
-          - defaultTaskName: stakater-checkov-scan-0-0-2
-            params:
-            - name: BUILD_IMAGE
-              value: $(tasks.stakater-build-image-flag-0-0-2.results.BUILD_IMAGE)
-            runAfter:
-              - build-and-push
-          - defaultTaskName: stakater-comment-on-pr-0-0-2
-            params:
-            - name: image
-              value: >-
-                  $(params.image_registry_url):$(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-            runAfter:
-              - stakater-trivy-scan-0-0-1
-              - stakater-checkov-scan-0-0-2
           - defaultTaskName: stakater-helm-push-0-0-2
             params:
             - name: semVer
