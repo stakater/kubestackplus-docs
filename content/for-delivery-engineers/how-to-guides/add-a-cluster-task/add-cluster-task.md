@@ -13,7 +13,7 @@
 
 1. Go to the [Nordmart Infra GitOps repository](https://github.com/stakater/nordmart-infra-gitops-config/tree/main).
 2. Navigate to the cluster directory corresponding to your desired environment, e.g. "dev-test".
-3. Within the directory, locate the "clustertasks" directory.
+3. Within the directory, locate the "clustertasks" directory. Note: You will have to create "clustertasks" directory the first time.
 4. Create a Clustertask custom resource (CR) file in the "clustertasks" directory. Name the file using the following format: <clustertask-name>-<chart-version>.yaml.
     - Replace <clustertask-name> with the name of the clustertask, separated by dashes.
     - Replace <chart-version> with the specific version of the clustertask.
