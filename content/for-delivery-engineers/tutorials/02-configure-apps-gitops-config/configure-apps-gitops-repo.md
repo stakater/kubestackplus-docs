@@ -157,7 +157,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
               └── stage
       ```
 
-1. Create **argocd-apps** folder at the root of your Apps GitOps repo. Create clusters folder containing the environments folder each cluster have. Add ArgoCD applications for these environments (dev & stage).
+1. Create `argocd-apps` folder at the root of your Apps GitOps repo. Create clusters folder containing the environments folder each cluster have. Add ArgoCD applications for these environments (dev & stage).
 
       ```bash
       ├── argocd-apps
