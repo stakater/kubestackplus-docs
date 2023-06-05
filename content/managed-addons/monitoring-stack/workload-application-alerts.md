@@ -5,8 +5,8 @@ Stakater App Agility Platform also provides fully managed dedicated workload mon
 To configure alerting for your application do following:
 
 1. Create `ServiceMonitor` for the application
-2. Create `AlertmanagerConfig` for the application
-3. [Optional] Create `PrometheusRule` for defining the alerting rule
+1. Create `AlertmanagerConfig` for the application
+1. [Optional] Create `PrometheusRule` for defining the alerting rule
 
 **Note:** OpenShift Cluster needs to be on version greater than or equal to 4.7
 

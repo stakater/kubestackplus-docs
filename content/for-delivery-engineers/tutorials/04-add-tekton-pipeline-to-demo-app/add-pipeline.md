@@ -47,11 +47,11 @@ The above chart contains all necessary resources needed to build and run a Tekto
 
 1. Open up your GitOps repository. We will be using [Stakater opinionated GitOps structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
 
-2. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-ui > 00-build.
+1. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-ui > 00-build.
 
-3. Add a Chart.yaml file and a values.yaml file at this location.
+1. Add a Chart.yaml file and a values.yaml file at this location.
 
-4. Populate the Chart.yaml file with the following content:
+1. Populate the Chart.yaml file with the following content:
 
 ```yaml
        apiVersion: v2
