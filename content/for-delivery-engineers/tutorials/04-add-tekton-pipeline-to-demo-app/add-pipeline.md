@@ -190,4 +190,3 @@ With all these components in place - now it's time to trigger pipeline via webho
 Let's make a simple change to `stakater-nordmart-review-ui`. Edit `ReadMe.md` by adding some new lines in the file. Create a Pull request.
 
 Navigate to the OpenShift Console. Open up 'Pipelines'. Change the project to the namespace in which you have deployed your pipeline. You will see a pipeline running.
-
