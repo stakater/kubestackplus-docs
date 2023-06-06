@@ -242,7 +242,7 @@ dependencies:
   - name: stakater-nordmart-review-web
     version: "1.0.0"
     # repository: <nexus-helm-reg-url>/repository/helm-charts/
-    repository: https://nexus-helm-stakater-nexus.{CLUSTER_DOMAIN}/repository/helm-charts/gabbar/
+    repository: https://nexus-helm-stakater-nexus/repository/helm-charts/
 version: 1.0.0
 ```
 
