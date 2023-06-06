@@ -242,7 +242,7 @@ dependencies:
   - name: stakater-nordmart-review-web
     version: "1.0.0"
     # repository: <nexus-helm-reg-url>/repository/helm-charts/
-    repository: https://nexus-helm-stakater-nexus/repository/helm-charts/
+    repository: https://<nexus-helm-reg-url>/repository/helm-charts/
 version: 1.0.0
 ```
 
@@ -256,7 +256,7 @@ For values.yaml:
     deployment:
       image:
         # repository: <nexus-docker-reg-url>/<tenant-name>/<app-name>
-        repository: nexus-docker-stakater-nexus.{CLUSTER_DOMAIN}/gabbar/stakater-nordmart-review-web
+        repository: <nexus-docker-reg-url>/stakater-nordmart-review-web
         tag: 1.0.0
 ```
 
