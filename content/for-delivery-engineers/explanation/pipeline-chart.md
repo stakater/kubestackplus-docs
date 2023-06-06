@@ -17,9 +17,9 @@ Some key things to note above are:
 
 * `eventlistener` -  listens to incoming events like a push to a branch.
 * `trigger` - the `eventlistener` specifies a trigger which in turn specifies:
-  * `interceptor` - it receives data from the event
-  * `triggerbinding` - extracts values from the event interceptor
-  * `triggertemplate` - defines `pipeline` run resource template in its definition which in turn references the pipeline
+    * `interceptor` - it receives data from the event
+    * `triggerbinding` - extracts values from the event interceptor
+    * `triggertemplate` - defines `pipeline` run resource template in its definition which in turn references the pipeline
 
   > **Note**: We do not need to define interceptor and trigger templates in every trigger while using stakater Tekton pipeline chart.
 

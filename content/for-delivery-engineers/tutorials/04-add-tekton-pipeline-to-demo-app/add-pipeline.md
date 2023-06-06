@@ -19,7 +19,7 @@ An application deployed through GitOps structure
 
 ## Tekton Pipeline
 
-> Tekton (OpenShift Pipelines) is the new kid on the block in the CI/CD space. It's grown rapidly in popularity as it's Kubernetes Native way of running CI/CD. To learn more about Tekton visit (tekton.dev)[https://tekton.dev/]
+> Tekton (OpenShift Pipelines) is the new kid on the block in the CI/CD space. It's grown rapidly in popularity as it's Kubernetes Native way of running CI/CD. To learn more about Tekton visit [tekton.dev](https://tekton.dev/)
 
 Tekton is deployed as an operator in our cluster and allows users to define in YAML Pipeline and Task definitions. <span style="color:blue;">[Tekton Hub](https://hub.tekton.dev/)</span> is a repository for sharing these YAML resources among the community, giving great reusability to standard workflows.
 Similar to Tekton Hub, we at stakater have created our own reusable tasks at [Tekton Catalog](https://github.com/stakater/tekton-catalog/)
@@ -45,11 +45,8 @@ We will fill in the values for these resources and deploy a functioning pipeline
 > Let's use the `tekton-pipeline-chart` and the above tasks to create a working pipeline. We will be using [this example GitOps repository](https://github.com/stakater/nordmart-apps-gitops-config) and [application](https://github.com/stakater-lab/stakater-nordmart-review) in this section.
 
 1. Open up your GitOps repository. We will be using [Stakater opinionated GitOps structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
-
 2. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-web > 00-build.
-
 3. Add a Chart.yaml file and a values.yaml file at this location.
-
 4. Populate the Chart.yaml file with the following content:
 
 ```yaml
