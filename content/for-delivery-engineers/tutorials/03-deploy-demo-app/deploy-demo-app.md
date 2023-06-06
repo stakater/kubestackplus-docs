@@ -39,7 +39,7 @@ Alternatively, Navigate to the cluster Forecastle, search `nexus` using the sear
 
 - `nexus-docker-reg-url`: Remove `https://` from the start and add `-docker` in URL after `nexus`. This URL points to Docker Registry referred as `nexus-docker-reg-url` in this tutorial for example `nexus-docker-stakater-nexus.apps.clustername.random123string.kubeapp.cloud` (Note: Remove '/' at the end of the URL to avoid errors while login).
 
-- `nexus-helm-reg-url` : Remove `https://` from the start, add `-helm` in URL after `nexus` and append `/repository/helm-charts/`. This URL points to Helm Registry referred as `nexus-helm-reg-url` in this tutorial for example `nexus-helm-stakater-nexus.apps.clustername.random123string.kubeapp.cloud/repository/helm-charts/`
+- `nexus-helm-reg-url` : Add `-helm` in URL after `nexus` and append `/repository/helm-charts/`. This URL points to Helm Registry referred as `nexus-helm-reg-url` in this tutorial for example `https://nexus-helm-stakater-nexus.apps.clustername.random123string.kubeapp.cloud/repository/helm-charts/`
 
   ![nexus-Forecastle](../images/nexus-forecastle.png)
 
@@ -123,7 +123,7 @@ buildah push <nexus-docker-reg-url>/stakater-nordmart-review-web:1.0.0 docker://
 
 In application repo add Helm Chart in ***deploy*** folder at the root of your repository. To configure Helm chart add following 2 files in ***deploy*** folder.
 
-1. A Chart.yaml is YAML file containing information about the chart. We will be using an external helm dependency chart called [Stakater Application Chart](https://github.com/stakater/application). The Helm chart is present in a remote Helm Chart repository
+1. A Chart.yaml is YAML file containing information about the chart. We will be using an external helm dependency chart called **Stakater Application Chart**. The Helm chart is present in a remote Helm Chart repository
 
     > More Info : Stakater Application Chart <https://github.com/stakater/application>
 
@@ -217,8 +217,8 @@ This command packages a chart into a versioned chart archive file.
 
 ```sh
 # helm
-# curl -u "<helm_user>":"<helm_password>" <nexus-helm-reg-url>/<tenant-name> --upload-file "<app-name>-1.0.0.tgz"
-curl -u "helm-user":"password123" https://nexus-helm-stakater-nexus.{CLUSTER_DOMAIN}/repository/helm-charts/gabbar --upload-file "stakater-nordmart-review-web-1.0.0.tgz"
+# curl -u "<helm_user>":"<helm_password>" <nexus-helm-reg-url>/ --upload-file "<app-name>-1.0.0.tgz"
+curl -u "helm-user":"password123" https://nexus-helm-stakater-nexus/repository/helm-charts/ --upload-file "stakater-nordmart-review-web-1.0.0.tgz"
 ```
 
 ## 5. Add application chart to `apps-gitops-config`
@@ -226,6 +226,10 @@ curl -u "helm-user":"password123" https://nexus-helm-stakater-nexus.{CLUSTER_DOM
 Navigate to `apps-gitops-config` repository and add a helm chart in path `gabbar/stakater-nordmart-review/dev` i.e. `<tenant-name>/<app-name>/dev`.
 
 ![app-in-dev-env](../images/app-in-dev-env.png)
+
+For Chart.yaml:
+
+> Note: In **Chart.yaml** 'C' is capitalized.
 
 ```yaml
 # <tenant-name>/<app-name>/dev/Chart.yaml
@@ -240,7 +244,11 @@ dependencies:
     # repository: <nexus-helm-reg-url>/repository/helm-charts/
     repository: https://nexus-helm-stakater-nexus.{CLUSTER_DOMAIN}/repository/helm-charts/gabbar/
 version: 1.0.0
------------------------------------------
+```
+
+For values.yaml:
+
+```yaml
 # <tenant-name>/<app-name>/dev/values.yaml
 # Name of dependency in Chart.yaml
 <dependency-name>:
