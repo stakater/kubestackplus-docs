@@ -11,7 +11,7 @@ The chart contains templates for all required Tekton resources such as pipeline,
 Most of the complexity abstracted away using our Tekton pipeline chart.
 
 ![chart-structure.png](./images/pipeline-charts-structure.png)
-Some of the key things to note above are:
+Some key things to note above are:
 
 * `eventlistener` -  listens to incoming events like a push to a branch.
 * `trigger` - the `eventlistener` specifies a trigger which in turn specifies:
