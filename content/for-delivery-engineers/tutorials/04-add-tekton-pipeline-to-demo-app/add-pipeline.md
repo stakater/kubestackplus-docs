@@ -178,7 +178,7 @@ Grab the URL we're going to invoke to trigger the pipeline by checking the event
 Once you have the URL, over on GitHub go to the application repo > `Settings` > `Webhook` to add the webhook:
 
     * Add the URL we obtained through the last step in the URL box
-    * select `Push Events`, leave the branch empty for now
+    * select `Push Events`, leave the branch empty for now.
     * Select `Merge request events`
     * select `SSL Verification`
     * Click `Add webhook` button.
