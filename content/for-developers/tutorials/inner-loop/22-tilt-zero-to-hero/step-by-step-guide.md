@@ -1,5 +1,6 @@
 # Step by Step Guide
 
+Pre
 In this guide we will deploy an application with tilt and namespace in remote OpenShift cluster
 
 1. Clone this sample repo [Nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review)
@@ -14,7 +15,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
     * `oc` binaries
 
     Required by this application:
-
+//remove
     * `Java` 11
     * `Maven` 3
 
@@ -24,15 +25,15 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
     Login into OpenShift and then copy login command
 
-    ![Copy login command](./images/copy-login-command.png)
+    ![Copy login command](../00-prepare-environment/images/copy-login-command.png)
 
     Then click `Display Token`
 
-    ![Display Token](./images/display-token.png)
+    ![Display Token](../00-prepare-environment/images/display-token.png)
 
     Then copy the login token
 
-    ![Copy login token](./images/copy-login-token.png)
+    ![Copy login token](../00-prepare-environment/images/copy-login-token.png)
 
     And then run this command in the terminal
 
@@ -101,7 +102,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
     Remove `.template` from the file named `tilt_options.json.template`
 
-    ![Create tilt_options.json](./images/tilt-options-json.png)
+    ![Create tilt_options.json](../00-prepare-environment/images/tilt-options-json.png)
 
     And then fill up all three things
 
@@ -156,47 +157,47 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
 1. Validate this application is not running already
 
-    ![sandbox namespace](./images/sandbox-env-b4-tilt-up.png)
+    ![sandbox namespace](../00-prepare-environment/images/sandbox-env-b4-tilt-up.png)
 
 1. Run `tilt up` at base directory
 
-    ![tilt up](./images/tilt-up.png)
+    ![tilt up](../00-prepare-environment/images/tilt-up.png)
 
     Open the tilt browser; just hit the space
 
-    ![tilt browser](./images/tilt-browser.png)
+    ![tilt browser](../00-prepare-environment/images/tilt-browser.png)
 
     If everything is green then the application will be deployed in the cluster
 
-    ![sandbox namespace](./images/sandbox-env-after-tilt-up.png)
+    ![sandbox namespace](../00-prepare-environment/images/sandbox-env-after-tilt-up.png)
 
     Press space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
 
 1. Lets browse through some reviews; go to routes
 
-    ![find route](./images/find-route.png)
+    ![find route](../00-prepare-environment/images/find-route.png)
 
     Click on the review route
 
-    ![review-route](./images/review-route.png)
+    ![review-route](../00-prepare-environment/images/review-route.png)
 
     In the end of the route add `/api/review/329199`
 
     Review the json output
 
-    ![product review](./images/product-review-json-b4-change.png)
+    ![product review](../00-prepare-environment/images/product-review-json-b4-change.png)
 
 1. Lets make one change; we will update the first review text to "Tilt Demo"
 
-    ![update review service](./images/review-service-to-update.png)
+    ![update review service](../00-prepare-environment/images/review-service-to-update.png)
 
     Switch back to tilt browser and you will see it has started picking up changes
 
-    ![tilt pick up change](./images/tilt-picking-up-change.png)
+    ![tilt pick up change](../00-prepare-environment/images/tilt-picking-up-change.png)
 
     Within few seconds the change will be deployed; and you can refresh the route to see the change
 
-    ![updated review](./images/product-review-json-after-change.png)
+    ![updated review](../00-prepare-environment/images/product-review-json-after-change.png)
 
     Awesome! you made it
 

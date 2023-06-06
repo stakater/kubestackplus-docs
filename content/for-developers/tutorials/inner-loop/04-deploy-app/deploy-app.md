@@ -1,5 +1,6 @@
 # Deploy your Application
-
+//move to outerloop
+// inner loop should only have helm chart update/deployment
 There are multiple ways to deploy your Application on the Cluster.
 
 - For development with tilt, follow guide for Deploying the Application with Tilt
