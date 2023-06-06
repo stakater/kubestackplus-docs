@@ -20,7 +20,7 @@ Before you start creating Certificates, you will have to first define a `Issuer`
 Two types of acme solvers are supported, The Pros and Cons of both strategies can be seen on the link:
 
 1. [HTTP01 Challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge)
-2. [DNS01 Challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge)
+1. [DNS01 Challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge)
 
 #### HTTP01 Challenge
 

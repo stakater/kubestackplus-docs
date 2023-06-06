@@ -26,36 +26,7 @@ At a high level, there are multiple abstraction levels in a cloud-native applica
 
 This document describes the following facets of Kubernetes-native applications:
 
-1. One codebase, one application
-2. Dependency management
-3. Contract first, API first
-4. Design, build, release, and run
-5. Configuration, credentials, and code
-6. Liveness and readiness probes
-7. Logging
-8. Backing services
-9. Telemetry / Metric instrumentation
-10. Graceful Shutdown
-11. Port binding
-12. Stateless processes
-13. Concurrency
-14. Environment parity
-15. Authentication and authorization
-16. Dependencies initialization
-17. Disposability
-18. Declarative Syntax to Manage Kubernetes State
-19. Secrets handling
-20. Tracing instrumentation
-21. Administrative processes
-22. Requests & limits
-23. Alerts
-24. Backup & restore (optional)
-25. Certificates (optional)
-26. Forecastle (optional)
-27. Grafana Dashboard (optional)
-28. Multiple replicas
-29. Important state does not persist in container filesystem
-30. Testing
+[TOC]
 
 ## 1. One codebase, one application
 

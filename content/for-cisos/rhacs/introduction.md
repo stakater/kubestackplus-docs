@@ -5,4 +5,4 @@ Red Hat® Advanced Cluster Security for Kubernetes is an enterprise-ready, Kuber
 Here you can find more details
 
 1. [Accessing RHACS](./accessing-rhacs.md)
-2. [Permissions](./permissions.md)
+1. [Permissions](./permissions.md)

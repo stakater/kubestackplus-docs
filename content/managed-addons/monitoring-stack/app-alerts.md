@@ -5,7 +5,7 @@
 There are 2 types of monitoring:
 
 1. Infrastructure monitoring (comes default with OpenShift installation)
-2. User Workload monitoring (it can be enabled)
+1. User Workload monitoring (it can be enabled)
 
 ![Monitoring Diagram](./images/monitoring-diagram.png)
 
@@ -37,22 +37,22 @@ oc label namespace my-project 'openshift.io/user-monitoring=false'
 ## Infrastructure Monitoring
 
 1. Prometheus
-2. Grafana
-3. Alertmanager
+1. Grafana
+1. Alertmanager
 
 ## User Workload Monitoring
 
 1. Prometheus
-2. Grafana
-3. Alertmanager
+1. Grafana
+1. Alertmanager
 
 ## Creating Application Alerts to Monitor Application workloads
 
 In order to define Prometheus rules to monitor applications on the basis of exposed metrics. You need 3 things:
 
 1. Metrics Exposed by Application endpoints
-2. Metrics endpoints are scraped via ServiceMonitor by Prometheus
-3. Defining PrometheusRule CustomResource
+1. Metrics endpoints are scraped via ServiceMonitor by Prometheus
+1. Defining PrometheusRule CustomResource
 
 ### Metrics Exposed by the Application
 
