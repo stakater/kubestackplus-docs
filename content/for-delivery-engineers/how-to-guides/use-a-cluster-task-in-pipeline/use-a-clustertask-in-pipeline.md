@@ -114,11 +114,13 @@ Add a clusterTask to enhance Tekton pipeline.
 If you want to add this clustertask as defaultTask in [stakater-tekton-chart](https://github.com/stakater/stakater-tekton-chart), you will need to fork and version control the chart. Push a new version of chart for every new default task.
 
 #### Fork the Tekton Chart
+
 1. Fork this repository [stakater-tekton-chart](https://github.com/stakater/stakater-tekton-chart) in your organization and setup CI for pushing helm chart.
 
     > This should only be performed once.
 
 #### Add the Task
+
 1. Navigate to stakater-tekton-chart/default-config/tasks directory & make a new yaml file named same as clustertask name.
 1. Inside the file, Specify name (will be matched with `defaultTaskName` in pipeline.tasks),  taskRef or taskSpec , params & workspaces as specifed below:
 
@@ -185,6 +187,7 @@ If you want to add this clustertask as defaultTask in [stakater-tekton-chart](ht
 1. Create a pull request and get these changes merged.
 
 ### Verify the updated pipeline
+
 1. Log in to ArgoCD and open the application corresponding to this environment. You can find the application name in `tenant/argocd-apps/env/app-name-env.yaml` or `tenant/argocd-apps/env/tekton-pipeline-env.yaml`.
 
     ```
@@ -202,3 +205,5 @@ If you want to add this clustertask as defaultTask in [stakater-tekton-chart](ht
     ```
     Image
     ```
+
+### Possible Issues
