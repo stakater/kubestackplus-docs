@@ -25,6 +25,7 @@ Add a clusterTask to enhance Tekton pipeline.
 
 ### Add clustertask in pipeline in place
 
+> To specify this task as default task, follow the [next section](#add-clustertask-in-pipeline-as-default-task)
 1. Open your Apps Gitops Repository and Navigate to the folder of your pipelines either `tenant/app-name/build` or `tenant/tekton-pipelines/build` folder.
 
     ```
@@ -97,28 +98,18 @@ Add a clusterTask to enhance Tekton pipeline.
             - name: PARAM3
               value: $(tasks.TASK_NAME.results.RESULT_NAME)
             workspaces:
-            - name: WORKSPACE_NAME_IN_VALUES # co responds to workspaces[].name
-              value: WORKSPACE_NAME_IN_TASK
+            - name: WORKSPACE_NAME_IN_TASK
+              value: WORKSPACE_NAME_IN_VALUES # co responds to workspaces[].name
           ↑↑↑↑↑↑↑↑↑↑↑↑↑
           - defaultTaskName: stakater-create-git-tag-0-0-3
     ```
     You can override params in ClusterTask simply by specifying it inside the params field.
 
-1. Create a pull request and get this change merged. Log in to ArgoCD and open the application corresponding to this environment. You can find the application name in `tenant/argocd-apps/env/app-name-env.yaml`.
-
-    ```
-    Image
-    ```
-
-1. Check if your pipeline resource is updated by clicking on the pipeline resource.
-
-    ```
-    Image
-    ```
-
-1. Trigger the pipeline by making a change in your code repository and see if your task works as expected for pull request opened, updated and merged scenarios.
+1. Create a pull request and get these changes merged.
 
 ### Add clustertask in pipeline as default task
+
+> Dont follow this section if you ve completed the above section.
 
 If you want to add this clustertask as defaultTask in [stakater-tekton-chart](https://github.com/stakater/stakater-tekton-chart), you will need to fork and version control the chart. Push a new version of chart for every new default task.
 
@@ -191,7 +182,10 @@ If you want to add this clustertask as defaultTask in [stakater-tekton-chart](ht
           workspace: WORKSPACE1_IN_VALUES
     ```
 
-1. Create a pull request and get these changes merged. Log in to ArgoCD and open the application corresponding to this environment. You can find the application name in `tenant/argocd-apps/env/app-name-env.yaml`.
+1. Create a pull request and get these changes merged.
+
+### Verify the updated pipeline
+1. Log in to ArgoCD and open the application corresponding to this environment. You can find the application name in `tenant/argocd-apps/env/app-name-env.yaml` or `tenant/argocd-apps/env/tekton-pipeline-env.yaml`.
 
     ```
     Image
