@@ -14,14 +14,15 @@ Key Result
 Now that we have added our first application using Stakater Opinionated GitOps Structure, we can continue by adding pipeline to our application.
 SAAP is shipped with all the tools that you need to add a Tekton pipeline to your application.
 
+**Prerequisites:**
+An application deployed through GitOps structure
+
 ## Tekton Pipeline
 
-> Tekton (OpenShift Pipelines) is the new kid on the block in the CI/CD space. It's grown rapidly in popularity as it's Kubernetes Native way of running CI/CD.
+> Tekton (OpenShift Pipelines) is the new kid on the block in the CI/CD space. It's grown rapidly in popularity as it's Kubernetes Native way of running CI/CD. To learn more about Tekton visit [`tekton.dev`](https://tekton.dev/)
 
 Tekton is deployed as an operator in our cluster and allows users to define in YAML Pipeline and Task definitions. <span style="color:blue;">[Tekton Hub](https://hub.tekton.dev/)</span> is a repository for sharing these YAML resources among the community, giving great reusability to standard workflows.
 Similar to Tekton Hub, we at stakater have created our own reusable tasks at [Tekton Catalog](https://github.com/stakater/tekton-catalog/)
-
-Tekton is made up of number of YAML files each with a different purpose such as `Task` and `Pipeline`. These are then wrapped together in another YAML file called a `PipelineRun` which represents an instance of a `Pipeline` and a `Workspace` to create an instance of a `Pipeline`.
 
 ## Deploying the Tekton Objects
 
@@ -33,8 +34,6 @@ We will use stakater's `pipeline-charts` Helm chart to deploy the Tekton resourc
 
 We will fill in the values for these resources and deploy a functioning pipeline with most of the complexity abstracted away using our Tekton pipeline chart.
 
-The above chart contains all necessary resources needed to build and run a Tekton pipeline. Some of the key things to note above are:
-
 ### SAAP pre-configured cluster tasks
 
 > SAAP is shipped with many ready-to-use Tekton cluster tasks. Let's take a look at some of the tasks that we will be using to construct a basic pipeline.
@@ -45,13 +44,11 @@ The above chart contains all necessary resources needed to build and run a Tekto
 
 > Let's use the `tekton-pipeline-chart` and the above tasks to create a working pipeline. We will be using [this example GitOps repository](https://github.com/stakater/nordmart-apps-gitops-config) and [application](https://github.com/stakater-lab/stakater-nordmart-review) in this section.
 
-1. Open up your GitOps repository. We will be using [Stakater opinionated GitOps structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
-
-1. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-ui > 00-build.
-
-1. Add a Chart.yaml file and a values.yaml file at this location.
-
-1. Populate the Chart.yaml file with the following content:
+- Open up your GitOps repository.
+   > We will be using [Stakater opinionated GitOps structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
+- Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-web > 00-build.
+- Add a Chart.yaml file and a values.yaml file at this location.
+- Populate the Chart.yaml file with the following content:
 
 ```yaml
        apiVersion: v2
@@ -81,61 +78,50 @@ Now we will be populating the values file for the Tekton pipeline Chart to creat
       - name: repo-token
         secret:
           secretName: stakater-ab-token
-
       pipelines:
-        finally:
-          - defaultTaskName: stakater-set-commit-status-0-0-3
-            name: stakater-set-commit-status
-            params:
-            - name: GIT_SECRET_NAME
-              value: stakater-ab-token
-          - defaultTaskName: stakater-remove-environment-0-0-1
-            when:
-            - input: $(tasks.stakater-github-update-cd-repo-0-0-2.status)
-              operator: notin
-              values: ["Succeeded"]
         tasks:
-          - defaultTaskName: stakater-set-commit-status-0-0-3
-            params:
-            - name: STATE
-              value: pending
-          - name: GIT_SECRET_NAME
-            value: stakater-ab-token
-          - defaultTaskName: git-clone
-            params:
+        - defaultTaskName: git-clone
+          params:
             - name: url
-              value: "" (Give repo url)
-            workspaces:
+              value: "https://github.com/stakater-lab/stakater-nordmart-review-web.git"
+          workspaces:
             - name: ssh-directory
               workspace: ssh-directory
-          - defaultTaskName: stakater-create-git-tag-0-0-3
-          - defaultTaskName: stakater-build-image-flag-0-0-2
-          - defaultTaskName: stakater-buildah-0-0-2
-            name: build-and-push
-            params:
+        - defaultTaskName: stakater-create-git-tag-0-0-3
+        - defaultTaskName: stakater-build-image-flag-0-0-2
+          runAfter:
+            - stakater-create-git-tag-0-0-3
+        - defaultTaskName: stakater-buildah-0-0-2
+          name: build-and-push
+          params:
             - name: IMAGE
               value: $(params.image_registry_url):$(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
             - name: CURRENT_GIT_TAG
               value: $(tasks.stakater-create-git-tag-0-0-3.results.CURRENT_GIT_TAG)
             - name: BUILD_IMAGE
               value: $(tasks.stakater-build-image-flag-0-0-2.results.BUILD_IMAGE)
-          - defaultTaskName: stakater-helm-push-0-0-2
-            params:
+        - defaultTaskName: stakater-comment-on-pr-0-0-2
+          params:
+            - name: image
+              value: >-
+                $(params.image_registry_url):$(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
+          runAfter:
+            - build-and-push
+        - defaultTaskName: stakater-helm-push-0-0-2
+          params:
             - name: semVer
               value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-          - defaultTaskName: stakater-github-update-cd-repo-0-0-2
-            params:
-              - name: CD_REPO_URL
-                value: 'git@github.com:stakater-ab/stakater-apps-gitops-prod.git'
-              - name: IMAGE_TAG
-                value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-          - defaultTaskName: stakater-push-main-tag-0-0-2
-            params:
-              - name: IMAGE_TAG
-                value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-              - name: GITHUB_TOKEN_SECRET
-                value: "repo-ssh-creds"
-
+        - defaultTaskName: stakater-github-update-cd-repo-0-0-2
+          params:
+            - name: CD_REPO_URL
+              value: 'git@github.com:stakater-ab/stakater-apps-gitops-prod.git'
+            - name: IMAGE_TAG
+              value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
+        - defaultTaskName: stakater-push-main-tag-0-0-2
+          params:
+            - name: IMAGE_TAG
+              value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
+            - name: GITHUB_TOKEN_SECRET
       triggertemplate:
         serviceAccountName: stakater-tekton-builder
         pipelineRunNamePrefix: $(tt.params.repoName)-$(tt.params.prnumberBranch)
@@ -192,7 +178,7 @@ Grab the URL we're going to invoke to trigger the pipeline by checking the event
 Once you have the URL, over on GitHub go to the application repo > `Settings` > `Webhook` to add the webhook:
 
     * Add the URL we obtained through the last step in the URL box
-    * select `Push Events`, leave the branch empty for now
+    * select `Push Events`, leave the branch empty for now.
     * Select `Merge request events`
     * select `SSL Verification`
     * Click `Add webhook` button.
