@@ -154,7 +154,9 @@ If you want to add this clustertask as defaultTask in [stakater-tekton-chart](ht
         - defaultTaskName: DEFAULT_CLUSTER_TASK_NAME
           # name: PIPELINE_READABLE_CLUSTER_TASK_NAME
       ```
-    Specify name to make step name readable or avoid conflicting task names
+    > Specify name to make step name readable or avoid conflicting task names
+
+    > If your task uses a workspace, make sure you ve defined it inside workspaces[] in values.yaml as well.
 
 1. Resulting pipeline manifest
 
