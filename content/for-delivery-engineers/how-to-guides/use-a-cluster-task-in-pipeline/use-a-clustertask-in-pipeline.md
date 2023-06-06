@@ -10,15 +10,14 @@ Add a clusterTask to enhance Tekton pipeline.
 
 ## Key Results
 
-- Update Tekton chart values in GitOps
+- Update Tekton chart values in GitOps.
+- Pipeline Update and Tasks runs successfully.
 
 ## Guide
 
 1. Login to the OpenShift console, Select `Pipelines > Tasks` from the left bar and then select `ClusterTasks` tab in right pane.
 
-    ```
-    Image
-    ```
+  ![`clustertasks-in-openshift-console`](clustasks-in-openshift-console.png)
 
 1. Verify that your Task exists on the cluster.
 
@@ -102,6 +101,7 @@ Add a clusterTask to enhance Tekton pipeline.
           ↑↑↑↑↑↑↑↑↑↑↑↑↑
           - defaultTaskName: stakater-create-git-tag-0-0-3
     ```
+    You can override params in ClusterTask simply by specifying it inside the params field.
 
 1. Create a pull request and get this change merged. Log in to ArgoCD and open the application corresponding to this environment. You can find the application name in `tenant/argocd-apps/env/app-name-env.yaml`.
 
@@ -115,3 +115,4 @@ Add a clusterTask to enhance Tekton pipeline.
     Image
     ```
 
+1. Trigger the pipeline by making a change in your code repository and see if your task works as expected for pull request opened, updated and merged scenarios.
