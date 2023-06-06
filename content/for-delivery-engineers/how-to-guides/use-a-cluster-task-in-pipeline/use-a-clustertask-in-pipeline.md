@@ -15,16 +15,15 @@ Add a clusterTask to enhance Tekton pipeline.
 
 ## Guide
 
+### Verify that Task Exists
+
 1. Login to the OpenShift console, Select `Pipelines > Tasks` from the left bar and then select `ClusterTasks` tab in right pane.
 
-  ![`clustertasks-in-openshift-console`](clustasks-in-openshift-console.png)
+    ![`clustertasks-in-openshift-console`](../images/clustasks-in-openshift-console.png)
 
-1. Verify that your Task exists on the cluster.
+1. Verify that your Task exists on the cluster by searching its name.
 
-    ```
-    Image
-    ```
-
+### Add clustertask in pipeline in place
 
 1. Open your Apps Gitops Repository and Navigate to the folder of your pipelines either `tenant/app-name/build` or `tenant/tekton-pipelines/build` folder.
 
@@ -57,6 +56,8 @@ Add a clusterTask to enhance Tekton pipeline.
           ↑↑↑↑↑↑↑↑↑↑↑↑↑↑
           - defaultTaskName: stakater-create-git-tag-0-0-3
     ```
+    
+    If you want to override a parameter, you could simply define it with its new value as shown above.
 
     If the task requires a workspace, Add the workspace in `stakater-tekton-chart.workspaces`. See [values.yaml](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/values.yaml) for other configurations.
 
@@ -116,3 +117,94 @@ Add a clusterTask to enhance Tekton pipeline.
     ```
 
 1. Trigger the pipeline by making a change in your code repository and see if your task works as expected for pull request opened, updated and merged scenarios.
+
+### Add clustertask in pipeline as default task
+
+If you want to add this clustertask as defaultTask in [stakater-tekton-chart](https://github.com/stakater/stakater-tekton-chart), you will need to fork and version control the chart. Push a new version of chart for every new default task.
+
+#### Fork the Tekton Chart
+1. Fork this repository [stakater-tekton-chart](https://github.com/stakater/stakater-tekton-chart) in your organization and setup CI for pushing helm chart.
+
+    > This should only be performed once.
+
+#### Add the Task
+1. Navigate to stakater-tekton-chart/default-config/tasks directory & make a new yaml file named same as clustertask name.
+1. Inside the file, Specify name (will be matched with `defaultTaskName` in pipeline.tasks),  taskRef or taskSpec , params & workspaces as specifed below:
+
+    ```
+    # name field can be different from CLUSTER_TASK_NAME, this field is matched with defaultTaskName in pipeline.tasks to get the params,workspaces, when, taskRef fields.
+    name: DEFAULT_CLUSTER_TASK_NAME
+    taskRef:
+      task: CLUSTER_TASK_NAME
+      kind: ClusterTask
+      # kind: Task
+    params:
+    - name: PARAM1
+      value: $(params.VALUE1)
+    workspaces:
+    # workspace with .name should be defined in values file in workspaces[].
+    - name: WORKSPACE1_IN_CLUSTERTASK
+      workspace: WORKSPACE1_IN_VALUES
+    ```
+
+1. Save this file. Merge the changes into main branch and push the corresponding helm chart.
+
+1. Open your Apps Gitops Repository and Navigate to the folder of your pipelines either `tenant/app-name/build` or `tenant/tekton-pipelines/build` folder.
+
+1. Open the Chart.yaml file and update the repository and version in dependencies[].repository and dependencies[].version.
+
+1. Now you can add this task in pipeline under .Values.pipeline.tasks[] in values.yaml as following:
+
+      ```
+      pipelines:
+        tasks:
+        - defaultTaskName: DEFAULT_CLUSTER_TASK_NAME
+          # name: PIPELINE_READABLE_CLUSTER_TASK_NAME
+      ```
+    Specify name to make step name readable or avoid conflicting task names
+
+1. Resulting pipeline manifest
+
+    ```
+    # Source: stakater-tekton-chart/templates/pipeline.yaml
+    apiVersion: tekton.dev/v1beta1
+    kind: Pipeline
+    metadata:
+      name: pipeline_name
+    spec:
+      params:
+      - name: PARAM1
+        type: string
+      workspaces:
+      - name: WORKSPACE1_IN_VALUES
+        ...
+      tasks:
+      - name: PIPELINE_READABLE_CLUSTER_TASK_NAME
+        taskRef:
+          name: CLUSTER_TASK_NAME
+          kind: ClusterTask
+        params:
+        - name: PARAM1
+          value: $(params.VALUE1)
+        workspaces:
+        - name: WORKSPACE1_IN_CLUSTERTASK
+          workspace: WORKSPACE1_IN_VALUES
+    ```
+
+1. Create a pull request and get these changes merged. Log in to ArgoCD and open the application corresponding to this environment. You can find the application name in `tenant/argocd-apps/env/app-name-env.yaml`.
+
+    ```
+    Image
+    ```
+
+1. Check if your pipeline resource is updated by clicking on the pipeline resource.
+
+    ```
+    Image
+    ```
+
+1. Trigger the pipeline by making a change in your code repository and see if your task works as expected for pull request opened, updated and merged scenarios.
+
+    ```
+    Image
+    ```
