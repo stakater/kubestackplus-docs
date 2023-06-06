@@ -8,7 +8,7 @@ Stakater Tekton Chart is a Helm chart that wraps all components needed by a Tekt
 
 ## Tekton Chart Components
 
-The chart contains templates for all required Tekton resources such as pipeline, task, eventlistener, triggers, etc.
+The chart contains templates for all required Tekton resources such as pipeline, task, `eventlistener`, triggers, etc.
 
 Most of the complexity abstracted away using our Tekton pipeline chart.
 
