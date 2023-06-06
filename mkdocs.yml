@@ -141,7 +141,7 @@ nav:
             - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
 
     - For Developers:
-        - for-developers-engineers/overview.md
+        - for-developers/overview.md
         - Explanation:
               - for-developers/explanation/developer-training.md
               - for-developers/explanation/plan-your-deployment.md
