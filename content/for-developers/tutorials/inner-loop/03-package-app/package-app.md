@@ -3,8 +3,16 @@
 Helm uses a packaging format called charts. A chart is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a `memcached` pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on. We need to package the deployments for our application into a Helm Chart.
 
 We need to decide what Kubernetes resources are required for our application. A workload resource (`deployment`, `statefulset`) coupled with service and service account resource can be a good starting point.
+## Objectives
 
-## Create a Helm Chart with Application Chart
+- Package your application for deployment on Stakater App Agility Platform (SAAP) into Helm Chart.
+
+## Key Results
+
+- Create helm chart in deploy/ folder.
+
+## Tutorial
+### Create a Helm Chart with Application Chart
 
 1. Create a directory named deploy/ that will contain the helm chart that will be deployed for our application.
 
@@ -133,19 +141,6 @@ We need to decide what Kubernetes resources are required for our application. A 
 
     If you want to add resources that cannot be defined with dependency chart. You can simply add them in the `templates/` folder.
 
-1. Run the following command to package the helm chart into compressed file.
+> Visit [Stakater Nordmart Review](https://github.com/stakater-lab/stakater-nordmart-review-api/tree/main/deploy) and [Stakater Nordmart Review UI](https://github.com/stakater-lab/stakater-nordmart-review-api/tree/main/deploy)  to see an example.
 
-   ```sh
-   # helm package [CHART_PATH]
-   helm package .
-   ```
-
-   This command packages a chart into a versioned chart archive file.
-
-   ```sh
-   curl -u "<helm_user>":"<helm_password>" NEXUS_HELM_REG_URL --upload-file "CHART_NAME-CHART_VERSION.tgz"
-   ```
-
-> Visit [Stakater Nordmart Review](https://github.com/stakater-lab/stakater-nordmart-review/tree/main/deploy) and [Stakater Nordmart Review UI](https://github.com/stakater-lab/stakater-nordmart-review/tree/main/deploy)  to see an example.
-
-## Package Stakater Nordmart Review
+### Package Stakater Nordmart Review

@@ -1,18 +1,23 @@
 # Containerize the Application
 
-Prerequisites:
-
-- Developed application.
-- docker cli.
-- Application is part of tenant.
-
 Running workloads in Kubernetes/OpenShift requires the application to be containerized. Typically, this includes taking a relevant base image, installing application dependencies if not available, copying & building the code and command to run your application executed at runtime.
 
-Consider the [`stakater-nordmart-review`](https://github.com/stakater-lab/stakater-nordmart-review) application we discussed in the previous section.
+## Objectives
+
+- Containerise your application for deployment on Stakater App Agility Platform (SAAP).
+
+## Key Results
+
+- Dockerfile created.
+- Image built and pushed to image repository
+
+## Tutorials
+
+Consider the [`stakater-nordmart-review-api`](https://github.com/stakater-lab/stakater-nordmart-review-api) application.
 
 ```sh
-git clone https://github.com/stakater-lab/stakater-nordmart-review-ui
-cd stakter-nordmart-review-ui
+git clone https://github.com/stakater-lab/stakater-nordmart-review-api
+cd stakter-nordmart-review-api
 ```
 
 Lets create a Dockerfile inside the repository folder and delete any existing file.
@@ -75,7 +80,7 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
   1. Run the following command to build the image.
 
         ```sh
-        buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-docker-reg-url>/<tenant-name>/<app-name>:1.0.0 .
+        buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <app-name>:1.0.0 .
 
         ```
 
@@ -83,7 +88,7 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
 
         ```sh
         # -p flag exposes container port 8080 on your local port 8080
-        buildah run <nexus-docker-reg-url>/<tenant-name>/<app-name>:1.0.0 .
+        buildah run <app-name>:1.0.0 .
         ```
 
   1. Run a curl command to verify that image is running.
@@ -99,35 +104,3 @@ Read the following articles for more information:
 - [Containerize Your Application With Docker](https://towardsdatascience.com/containerize-your-application-with-docker-b0608557441f)
 - [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp)
 - [Dockerizing a Django app](https://blog.logrocket.com/dockerizing-django-app)
-
-## Login to Image Registry
-
-Find the Image registry URL [here](../../../../managed-addons/nexus/routes.md) or Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus url.
-
-- `nexus-docker-reg-url`: Remove `https://` from the start and add `-docker` in URL after `nexus`. This URL points to Docker Registry referred as `nexus-docker-reg-url` in this tutorial for example `nexus-docker-stakater-nexus.apps.clustername.random123string.kubeapp.cloud`.
-
-Run following command to log into the registry. Specify admin provided username and password to login.
-
-```sh
-buildah login <nexus-docker-reg-url>
-```
-
-## Push Docker Image to Nexus
-
-Replace the placeholders and Run the following command inside application folder.
-
-```sh
-# Buldah Bud Info : https://manpages.ubuntu.com/manpages/impish/man1/buildah-bud.1.html
-buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-docker-reg-url>/<tenant-name>/<app-name>:1.0.0 .
-```
-
-Lets push the image to nexus docker repo. Make sure to get credentials from Stakater Admin.
-
-```sh
-# Buildah push Info https://manpages.ubuntu.com/manpages/impish/man1/buildah-push.1.html
-buildah push <nexus-docker-reg-url>/<tenant-name>/stakater-nordmart-review:1.0.0 docker://<nexus-docker-reg-url>/<tenant-name>/stakater-nordmart-review:1.0.0
-```
-
-## Verify Image Available
-
-Login to Nexus and Verify that the image is available on the cluster.

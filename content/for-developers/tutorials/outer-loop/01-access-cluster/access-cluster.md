@@ -1,5 +1,21 @@
 # Access Your Cluster
 
+## Objectives
+
+Access the Openshfit cluster on UI and CLI.
+
+## Key Results
+
+- Access Stakater App Agility Platform (SAAP) Console
+- View Forecastle Page and view different tools/services.
+
+## PreRequisites
+
+- Working laptop or desktop computer.
+
+## Guide
+
+### Access OpenShift UI
 Lets see how will you access your cluster.
 
 1. Access your cluster by going to [Stakater App Agility Platform](https://cloud.stakater.com/). Enter your enterprise domain provide by Stakater Cloud administrator.
@@ -26,12 +42,22 @@ Lets see how will you access your cluster.
 
         ![Stakater App Agility Platform Home](images/forecastle-homepage.png)
 
-## Setting up CLI
+### Login with CLI
 
-Following CLI tools are required for working with Stakater App Agility Platform.
+1. From your `OpenShift Console` at the top right corner, click on your username and select `Copy login command`
 
-- [OpenShift CLI (oc)](https://docs.openshift.com/container-platform/4.12/cli_reference/openshift_cli/getting-started-cli.html#installing-openshift-cli) With the OpenShift command-line interface (CLI), the oc command, you can create applications and manage OpenShift Container Platform projects from a terminal.
+    ![Copy login command](images/copy-login-command.png)
 
-- [kubectl](https://kubernetes.io/docs/tasks/tools/) The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs.
+2. Click on `Display token` to view your token and login command.
 
-- [Helm](https://helm.sh/docs/intro/install/) Helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
+    ![Display Token](images/display-token.png)
+
+3. Copy your Log in command.
+
+    ![Copy login token](images/copy-login-token.png)
+
+4. From your workspaces command line, paste your login command and hit the `Enter` button. Your Workspaces Devlopement environment will now be able to interact safely with the SAAP cluster.
+
+    ```bash
+    oc login --token=<TOKEN> --server=<SERVER>
+    ```
