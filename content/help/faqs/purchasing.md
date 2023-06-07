@@ -22,4 +22,4 @@ Customers will be directly billed by Stakater only.
 
 ## Do I need to sign a separate contract with Red Hat to use the service?
 
-No, you don’t need to sign a contract with Red Hat. Customers will be billed by Stakater only.
+No, you don't need to sign a contract with Red Hat. Customers will be billed by Stakater only.

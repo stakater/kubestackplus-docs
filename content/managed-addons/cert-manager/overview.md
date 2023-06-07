@@ -20,7 +20,7 @@ Before you start creating Certificates, you will have to first define a `Issuer`
 Two types of acme solvers are supported, The Pros and Cons of both strategies can be seen on the link:
 
 1. [HTTP01 Challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge)
-2. [DNS01 Challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge)
+1. [DNS01 Challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge)
 
 #### HTTP01 Challenge
 
@@ -45,7 +45,7 @@ spec:
 
 #### DNS01 Challenge
 
-For DNS01 Challenge you need to first create a secret in `stakater-cert-manager-operator` namespace that should contain the values to alter entries in your DNS provider. Following is an example for configuring AWS's Route53. Check configuration for your provider [here](https://cert-manager.io/v1.7-docs/configuration/acme/dns01/#supported-dns01-providers)
+For DNS01 Challenge you need to first create a secret in `stakater-cert-manager-operator` namespace that should contain the values to alter entries in your DNS provider. Following is an example for configuring AWS's Route53. Check configuration for your provider [here](https://cert-manager.io/docs/configuration/acme/dns01/)
 
 !!! tip
     Use Limited access to the account being used for DNS01 Challenge automation
@@ -78,30 +78,41 @@ spec:
     2. You can only issue 50 certificates per Registered Domain. [See Details here](https://letsencrypt.org/docs/rate-limits/)
     3. If you think you need more certificates for your staging/CI environment consider using a [Staging server](https://letsencrypt.org/docs/staging-environment/). The only downside for this strategy is that browser will not trust the CI/staging environment certificate.
 
-### Generating Certificate
+### Generating Certificates directly for Routes
 
-Now that we have a working ClusterIssuer we can issue certificates like below. TLS certificates will be stored in a secret called `certman-generated-tls` in the namespace `myapp-ns`:
+Instead of maintaining lifecycle of Certificate,you can generate and rotate them automatically whenever a Route is created with the following annotation:
 
 ```yaml
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: openshift-cluster-certificate
-  namespace: myapp-ns                # Namespace where generated TLS will be created
-spec:
-  commonName: 'myapp.example.com'
-  dnsNames:                          # DNS names which this certificate will verify
-  - 'myapp.example.com'
-  - '*.myapp.example.com'
-  duration: 2160h
-  renewBefore: 720h                  # Renew time before expiration of the current certificate
-  issuerRef:
-    kind: ClusterIssuer
-    name: letsencrypt
-  secretName: certman-generated-tls  # Name of the TLS secret to be created 
-  subject:
-    countries:
-    - "Sweden"
-    organizations:
-    - "Stakater Inc."
+cert-manager.io/issuer-name: < Issuer's or ClusterIssuer's name>
+```
+
+The workflow will look as below:
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+
+    User->>Route: Creates a route with cert-manager annotations
+    Cert-Manager Routes Controller->>Route: Picks up annotations
+    Cert-Manager Routes Controller->>Cert-Manager: Creates a Certfificate CR
+    Cert-Manager->>Let's encrypt: Requests a valid TLS certificate
+    Let's encrypt->>Cert-Manager: Issues a TLS certificate
+    Cert-Manager->>TLS Secret: Creates a secret in the same namespace as Route 
+    Cert-Manager Routes->> TLS Secret: Picks up the generated Values
+    Cert-Manager Routes->> Route: Injects TLS secret values into the Route
+```
+
+Following optional annotations can be overridden for the `Route` resource:
+
+```yaml
+cert-manager.io/issuer-name: my-issuer # This is the only required annotation
+cert-manager.io/issuer-group: cert-manager.io # Optional, defaults to cert-manager.io
+cert-manager.io/issuer-kind: Issuer # Optional, defaults to Issuer, could be ClusterIssuer or an External Issuer
+cert-manager.io/duration: 1h # Optional, defaults to 90 days
+cert-manager.io/renew-before: 30m # Optional, defaults to 1/3 of total certificate duration.
+cert-manager.io/common-name: "My Certificate" # Optional, no default.
+cert-manager.io/alt-names: "custom.domain.com,*.custom.domain.com" # Optional, no default
+cert-manager.io/ip-sans: "10.20.30.40,192.168.192.168" # Optional, no default
+cert-manager.io/uri-sans: "spiffe://trustdomain/workload" # Optional, no default
 ```

@@ -1,3 +1,0 @@
-# Kubernetes Management
-
-Private clusters
