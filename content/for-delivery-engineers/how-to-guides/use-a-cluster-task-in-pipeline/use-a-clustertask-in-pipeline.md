@@ -28,9 +28,7 @@ Add a clusterTask to enhance Tekton pipeline.
 > To specify this task as default task, follow the [next section](#add-clustertask-in-pipeline-as-default-task)
 1. Open your Apps GitOps Repository and Navigate to the folder of your pipelines either `tenant/app-name/build` or `tenant/tekton-pipelines/build` folder.
 
-    ```
-    Image
-    ```
+    `Image`
 
 1. Open values.yaml file and add the following yaml in pipeline.tasks:
 
@@ -57,7 +55,7 @@ Add a clusterTask to enhance Tekton pipeline.
           ↑↑↑↑↑↑↑↑↑↑↑↑↑↑
           - defaultTaskName: stakater-create-git-tag-0-0-3
     ```
-    
+
     If you want to override a parameter, you could simply define it with its new value as shown above.
 
     If the task requires a workspace, Add the workspace in `stakater-tekton-chart.workspaces`. See [values.yaml](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/values.yaml) for other configurations.
@@ -124,7 +122,7 @@ If you want to add this clustertask as `defaultTask` in [stakater-tekton-chart](
 1. Navigate to `stakater-tekton-chart/default-config/tasks` directory & make a new yaml file named same as clustertask name.
 1. Inside the file, Specify name that will be matched with `defaultTaskName` in pipeline.tasks[].defaultTaskName to get  taskRef or taskSpec, params & workspaces.
 
-    ```
+    ```yaml
     # name field can be different from CLUSTER_TASK_NAME, this field is matched with defaultTaskName in pipeline.tasks[].defaultTaskName to get the params,workspaces, when, taskRef fields.
     name: DEFAULT_CLUSTER_TASK_NAME
     taskRef:
@@ -148,7 +146,7 @@ If you want to add this clustertask as `defaultTask` in [stakater-tekton-chart](
 
 1. Now you can add this task in pipeline under .Values.pipeline.tasks[] in values.yaml as following:
 
-      ```
+      ```yaml
       pipelines:
         tasks:
         - defaultTaskName: DEFAULT_CLUSTER_TASK_NAME
@@ -160,7 +158,7 @@ If you want to add this clustertask as `defaultTask` in [stakater-tekton-chart](
 
 1. Resulting pipeline manifest
 
-    ```
+    ```yaml
     # Source: stakater-tekton-chart/templates/pipeline.yaml
     apiVersion: tekton.dev/v1beta1
     kind: Pipeline
@@ -192,20 +190,14 @@ If you want to add this clustertask as `defaultTask` in [stakater-tekton-chart](
 
 1. Log in to ArgoCD and open the application corresponding to this environment. You can find the application name in `tenant/argocd-apps/env/app-name-env.yaml` or `tenant/argocd-apps/env/tekton-pipeline-env.yaml`.
 
-    ```
-    Image
-    ```
+    `Image`
 
 1. Check if your pipeline resource is updated by clicking on the pipeline resource.
 
-    ```
-    Image
-    ```
+    `Image`
 
 1. Trigger the pipeline by making a change in your code repository and see if your task works as expected for pull request opened, updated and merged scenarios.
 
-    ```
-    Image
-    ```
+    `Image`
 
 ### Possible Issues
