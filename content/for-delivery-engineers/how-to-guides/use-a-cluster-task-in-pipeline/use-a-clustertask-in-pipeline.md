@@ -1,6 +1,6 @@
 # Use a ClusterTask in Pipeline
 
-## Pre Requisites
+## PreRequisites
 
 - [ClusterTask is deployed via Infra GitOps Repository](../add-a-cluster-task/add-cluster-task.md).
 
@@ -26,7 +26,7 @@ Add a clusterTask to enhance Tekton pipeline.
 ### Add clustertask in pipeline in place
 
 > To specify this task as default task, follow the [next section](#add-clustertask-in-pipeline-as-default-task)
-1. Open your Apps Gitops Repository and Navigate to the folder of your pipelines either `tenant/app-name/build` or `tenant/tekton-pipelines/build` folder.
+1. Open your Apps GitOps Repository and Navigate to the folder of your pipelines either `tenant/app-name/build` or `tenant/tekton-pipelines/build` folder.
 
     ```
     Image
@@ -103,29 +103,29 @@ Add a clusterTask to enhance Tekton pipeline.
           ↑↑↑↑↑↑↑↑↑↑↑↑↑
           - defaultTaskName: stakater-create-git-tag-0-0-3
     ```
-    You can override params in ClusterTask simply by specifying it inside the params field.
+    You can override `params` in ClusterTask simply by specifying it inside the `params` field.
 
 1. Create a pull request and get these changes merged.
 
 ### Add clustertask in pipeline as default task
 
-> Dont follow this section if you ve completed the above section.
+> Don't follow this section if you have completed the above section.
 
-If you want to add this clustertask as defaultTask in [stakater-tekton-chart](https://github.com/stakater/stakater-tekton-chart), you will need to fork and version control the chart. Push a new version of chart for every new default task.
+If you want to add this clustertask as `defaultTask` in [stakater-tekton-chart](https://github.com/stakater/stakater-tekton-chart), you will need to fork and version control the chart. Push a new version of chart for every new default task.
 
 #### Fork the Tekton Chart
 
-1. Fork this repository [stakater-tekton-chart](https://github.com/stakater/stakater-tekton-chart) in your organization and setup CI for pushing helm chart.
+1. Fork this repository [`stakater-tekton-chart`](https://github.com/stakater/stakater-tekton-chart) in your organization and setup CI for pushing helm chart.
 
     > This should only be performed once.
 
 #### Add the Task
 
-1. Navigate to stakater-tekton-chart/default-config/tasks directory & make a new yaml file named same as clustertask name.
-1. Inside the file, Specify name (will be matched with `defaultTaskName` in pipeline.tasks),  taskRef or taskSpec , params & workspaces as specifed below:
+1. Navigate to `stakater-tekton-chart/default-config/tasks` directory & make a new yaml file named same as clustertask name.
+1. Inside the file, Specify name that will be matched with `defaultTaskName` in pipeline.tasks[].defaultTaskName to get  taskRef or taskSpec, params & workspaces.
 
     ```
-    # name field can be different from CLUSTER_TASK_NAME, this field is matched with defaultTaskName in pipeline.tasks to get the params,workspaces, when, taskRef fields.
+    # name field can be different from CLUSTER_TASK_NAME, this field is matched with defaultTaskName in pipeline.tasks[].defaultTaskName to get the params,workspaces, when, taskRef fields.
     name: DEFAULT_CLUSTER_TASK_NAME
     taskRef:
       task: CLUSTER_TASK_NAME
@@ -142,7 +142,7 @@ If you want to add this clustertask as defaultTask in [stakater-tekton-chart](ht
 
 1. Save this file. Merge the changes into main branch and push the corresponding helm chart.
 
-1. Open your Apps Gitops Repository and Navigate to the folder of your pipelines either `tenant/app-name/build` or `tenant/tekton-pipelines/build` folder.
+1. Open your Apps GitOps Repository and Navigate to the folder of your pipelines either `tenant/app-name/build` or `tenant/tekton-pipelines/build` folder.
 
 1. Open the Chart.yaml file and update the repository and version in dependencies[].repository and dependencies[].version.
 
@@ -156,7 +156,7 @@ If you want to add this clustertask as defaultTask in [stakater-tekton-chart](ht
       ```
     > Specify name to make step name readable or avoid conflicting task names
 
-    > If your task uses a workspace, make sure you ve defined it inside workspaces[] in values.yaml as well.
+    > If your task uses a workspace, make sure you have defined it inside workspaces[] in values.yaml as well.
 
 1. Resulting pipeline manifest
 
