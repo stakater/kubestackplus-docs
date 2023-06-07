@@ -19,7 +19,7 @@ Add a clusterTask to enhance Tekton pipeline.
 
 1. Login to the OpenShift console, Select `Pipelines > Tasks` from the left bar and then select `ClusterTasks` tab in right pane.
 
-    ![`clustertasks-in-openshift-console`](../images/clustasks-in-openshift-console.png)
+    ![`clustertasks-in-openshift-console`](../images/clustasks-in-OpenShift-console.png)
 
 1. Verify that your Task exists on the cluster by searching its name.
 
