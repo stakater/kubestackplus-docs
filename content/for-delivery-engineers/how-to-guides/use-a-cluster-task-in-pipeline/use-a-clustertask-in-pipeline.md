@@ -121,8 +121,8 @@ If you want to add this clustertask as `defaultTask` in [`stakater-tekton-chart`
 
 #### Add the Task
 
-1. Navigate to `stakater-tekton-chart/default-config/tasks` directory & make a new yaml file named same as clustertask name.
-1. Inside the file, Specify name that will be matched with `defaultTaskName` in `pipeline.tasks[].defaultTaskName` to get `taskRef` or `taskSpec`, `params` & `workspaces`.
+1. Navigate to `stakater-tekton-chart/default-config/tasks` directory. Make a new yaml file named same as clustertask name.
+1. Inside the file, name field will be matched with `defaultTaskName` in `pipeline.tasks[].defaultTaskName` to get `taskRef` or `taskSpec`, `params` & `workspaces`.
 
     ```yaml
     # name field can be different from CLUSTER_TASK_NAME, this field is matched with defaultTaskName in pipeline.tasks[].defaultTaskName to get the params,workspaces, when, taskRef fields.
