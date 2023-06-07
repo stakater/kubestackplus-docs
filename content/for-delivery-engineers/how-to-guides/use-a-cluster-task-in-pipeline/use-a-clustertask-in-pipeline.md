@@ -17,7 +17,7 @@ Add a clusterTask to enhance Tekton pipeline.
 
 ### Verify that Task Exists
 
-1. Login to the OpenShift console, Select `Pipelines > Tasks` from the left bar and then select `ClusterTasks` tab in right pane.
+1. Login to the openshift console, Select `Pipelines > Tasks` from the left bar and then select `ClusterTasks` tab in right pane.
 
     ![`clustertasks-in-openshift-console`](../images/clustasks-in-openshift-console.png)
 
@@ -26,6 +26,7 @@ Add a clusterTask to enhance Tekton pipeline.
 ### Add clustertask in pipeline in place
 
 > To specify this task as default task, follow the [next section](#add-clustertask-in-pipeline-as-default-task)
+
 1. Open your Apps GitOps Repository and Navigate to the folder of your pipelines either `tenant/app-name/build` or `tenant/tekton-pipelines/build` folder.
 
     `Image`
@@ -101,6 +102,7 @@ Add a clusterTask to enhance Tekton pipeline.
           ↑↑↑↑↑↑↑↑↑↑↑↑↑
           - defaultTaskName: stakater-create-git-tag-0-0-3
     ```
+
     You can override `params` in ClusterTask simply by specifying it inside the `params` field.
 
 1. Create a pull request and get these changes merged.
@@ -109,7 +111,7 @@ Add a clusterTask to enhance Tekton pipeline.
 
 > Don't follow this section if you have completed the above section.
 
-If you want to add this clustertask as `defaultTask` in [stakater-tekton-chart](https://github.com/stakater/stakater-tekton-chart), you will need to fork and version control the chart. Push a new version of chart for every new default task.
+If you want to add this clustertask as `defaultTask` in [`stakater-tekton-chart`](https://github.com/stakater/stakater-tekton-chart), you will need to fork and version control the chart. Push a new version of chart for every new default task.
 
 #### Fork the Tekton Chart
 
@@ -120,7 +122,7 @@ If you want to add this clustertask as `defaultTask` in [stakater-tekton-chart](
 #### Add the Task
 
 1. Navigate to `stakater-tekton-chart/default-config/tasks` directory & make a new yaml file named same as clustertask name.
-1. Inside the file, Specify name that will be matched with `defaultTaskName` in pipeline.tasks[].defaultTaskName to get  taskRef or taskSpec, params & workspaces.
+1. Inside the file, Specify name that will be matched with `defaultTaskName` in `pipeline.tasks[].defaultTaskName` to get `taskRef` or `taskSpec`, `params` & `workspaces`.
 
     ```yaml
     # name field can be different from CLUSTER_TASK_NAME, this field is matched with defaultTaskName in pipeline.tasks[].defaultTaskName to get the params,workspaces, when, taskRef fields.
@@ -152,6 +154,7 @@ If you want to add this clustertask as `defaultTask` in [stakater-tekton-chart](
         - defaultTaskName: DEFAULT_CLUSTER_TASK_NAME
           # name: PIPELINE_READABLE_CLUSTER_TASK_NAME
       ```
+
     > Specify name to make step name readable or avoid conflicting task names
 
     > If your task uses a workspace, make sure you have defined it inside workspaces[] in values.yaml as well.
