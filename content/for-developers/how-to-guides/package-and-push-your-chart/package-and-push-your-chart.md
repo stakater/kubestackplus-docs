@@ -6,9 +6,11 @@
 
 ## Key Results
 
-- Dockerfile created.
-- Image built and pushed to image repository
+- Helm chart package and pushed to Nexus.
 
+## Guide
+
+### Package and Upload the chart 
 
 1. Run the following command to package the helm chart into compressed file.
 
@@ -24,4 +26,6 @@
    ```sh
    curl -u "<helm_user>":"<helm_password>" NEXUS_HELM_REG_URL --upload-file "CHART_NAME-CHART_VERSION.tgz"
    ```
+
+   > Make sure to get credentials from Stakater Admin.
 
