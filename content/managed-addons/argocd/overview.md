@@ -33,7 +33,7 @@ ArgoCD offers a wide range of powerful features that help streamline your contin
 
 1. **Multi-Cluster and Multi-Tenancy:** ArgoCD supports managing multiple Kubernetes clusters and enables you to define different sets of applications and configurations for each cluster. It also provides support for multi-tenancy, allowing you to securely manage applications across different teams or organizations.
 
-1. **Rollbacks and Rollouts:** With ArgoCD, you can easily roll back to previous application versions or progressively roll out new versions using strategies like blue-green or canary deployments. This gives you the flexibility to test changes and ensure a smooth transition without affecting the stability of your applications.
+1. **Rollbacks and Roll outs:** With ArgoCD, you can easily roll back to previous application versions or progressively roll out new versions using strategies like blue-green or canary deployments. This gives you the flexibility to test changes and ensure a smooth transition without affecting the stability of your applications.
 
 1. **Application Synchronization and Health Monitoring:** ArgoCD continuously monitors the state of your applications and performs synchronization to ensure that the desired state matches the actual state. It provides detailed insights into the health of your applications, helping you identify and resolve issues quickly.
 
@@ -48,7 +48,7 @@ We understand the importance of high availability for continuous deployment. We 
 Efficient performance is crucial for a smooth continuous deployment experience. Our product, powered by ArgoCD, is committed to delivering optimal performance. We guarantee an average response time of 500 milliseconds or less for typical deployment operations. This ensures that your deployment processes remain fast and responsive, facilitating efficient application delivery.
 
 **Deployment:**
-We strive to ensure successful and timely application deployments using ArgoCD. While specific deployment times can vary depending on factors such as application complexity and cluster resources, we commit to providing a reasonable deployment timeframe. Rest assured, we work diligently to minimize any delays and facilitate timely application updates.
+We strive to ensure successful and timely application deployments using ArgoCD. While specific deployment times can vary depending on factors such as application complexity and cluster resources, we commit to providing a reasonable deployment time frame. Rest assured, we work diligently to minimize any delays and facilitate timely application updates.
 
 **Support:**
 We are dedicated to providing exceptional support to our customers throughout their continuous deployment journey. Our support team is available to assist you with any issues or questions related to using ArgoCD in our product. For non-emergency requests, we commit to responding within one business day. In the case of critical issues that impact the deployment process or availability, we prioritize rapid response times to minimize any potential disruptions.
