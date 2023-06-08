@@ -51,14 +51,14 @@ We will fill in the values for these resources and deploy a functioning pipeline
 - Populate the Chart.yaml file with the following content:
 
 ```yaml
-       apiVersion: v2
-       dependencies:
+  apiVersion: v2
+  dependencies:
     - name: stakater-tekton-chart
       repository: https://stakater.github.io/stakater-charts
       version: 3.6.7
-      description: Helm chart for Tekton Pipelines
-      name: stakater-main-pr-v1
-      version: 3.6.7
+  description: Helm chart for Tekton Pipelines
+  name: stakater-main-pr-v1
+  version: 3.6.7
 ```
 
 As mentioned earlier, we will use the `stakater-tekton-chart` to deploy our Tekton pipeline resources.
