@@ -9,6 +9,7 @@
 - Image built and pushed to image repository
 
 ## Guide
+
 ### Build the Image
 
 1. Run the following command to build the image.
