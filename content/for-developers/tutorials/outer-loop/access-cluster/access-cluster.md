@@ -2,7 +2,7 @@
 
 ## Objectives
 
-Access the Openshfit cluster on UI and CLI.
+Access the Stakater App Agility Platform (SAAP) cluster on UI and CLI.
 
 ## Key Results
 

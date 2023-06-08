@@ -10,6 +10,7 @@ We need to decide what Kubernetes resources are required for our application. A 
 ## Key Results
 
 - Create helm chart in deploy/ folder.
+- Explore generic Application helm chart.
 
 ## Tutorial
 ### Create a Helm Chart with Application Chart
@@ -141,6 +142,6 @@ We need to decide what Kubernetes resources are required for our application. A 
 
     If you want to add resources that cannot be defined with dependency chart. You can simply add them in the `templates/` folder.
 
-> Visit [Stakater Nordmart Review](https://github.com/stakater-lab/stakater-nordmart-review-api/tree/main/deploy) and [Stakater Nordmart Review UI](https://github.com/stakater-lab/stakater-nordmart-review-api/tree/main/deploy)  to see an example.
+> Visit [Stakater Nordmart Review Web](https://github.com/stakater-lab/stakater-nordmart-review-web/tree/main/deploy) and [Stakater Nordmart Review API](https://github.com/stakater-lab/stakater-nordmart-review-api/tree/main/deploy)  to see an example.
 
 ### Package Stakater Nordmart Review
