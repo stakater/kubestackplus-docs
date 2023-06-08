@@ -10,6 +10,20 @@
 
 ## Guide
 
+### Get Nexus Helm Registry URL
+
+## Docker Image and Helm Chart Repository hosted by Nexus
+
+> Ask admin Helm Registry Credentials for helm chart repository.
+
+Find Nexus Helm Registry URL [here](../../../managed-addons/nexus/routes.md).
+
+Alternatively, Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus url.
+
+- `nexus-helm-reg-url` : Add `-helm` in URL after `nexus` and append `/repository/helm-charts/`. This URL points to Helm Registry referred as `nexus-helm-reg-url` in this tutorial for example `https://nexus-helm-stakater-nexus.apps.clustername.random123string.kubeapp.cloud/repository/helm-charts/`
+
+  ![nexus-Forecastle](../images/nexus-forecastle.png)
+
 ### Package and Upload the chart to Nexus
 
 1. Run the following command to package the helm chart into compressed file.
@@ -24,7 +38,7 @@
 1. Upload packaged chart to Nexus Helm Registry.
 
    ```sh
-   curl -u "<helm_user>":"<helm_password>" NEXUS_HELM_REG_URL --upload-file "CHART_NAME-CHART_VERSION.tgz"
+   curl -u "<helm_user>":"<helm_password>" `nexus-helm-reg-url` --upload-file "CHART_NAME-CHART_VERSION.tgz"
    ```
 
    > Make sure to get credentials from Stakater Admin.
