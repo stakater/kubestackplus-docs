@@ -51,14 +51,14 @@ We will fill in the values for these resources and deploy a functioning pipeline
 - Populate the Chart.yaml file with the following content:
 
 ```yaml
-       apiVersion: v2
-       dependencies:
+  apiVersion: v2
+  dependencies:
     - name: stakater-tekton-chart
       repository: https://stakater.github.io/stakater-charts
       version: 3.6.7
-      description: Helm chart for Tekton Pipelines
-      name: stakater-main-pr-v1
-      version: 3.6.7
+  description: Helm chart for Tekton Pipelines
+  name: stakater-main-pr-v1
+  version: 3.6.7
 ```
 
 As mentioned earlier, we will use the `stakater-tekton-chart` to deploy our Tekton pipeline resources.
@@ -163,7 +163,7 @@ Now we will be populating the values file for the Tekton pipeline Chart to creat
         create: false
 ```
 
-Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml) and trigger bindings. You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) and add them as ref to the triggers.
+Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml) and trigger bindings. You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) and add them as ref to the triggers in the above **values.yaml** file. So, the reference to the trigger binding will need to be added in; (pipeline-charts.eventListener.trigger.bindings.ref).
 
 Let's see our pipeline definition in the SAAP console now. Select `<TENANT_NAME>-build` namespace in the console. Now in the `Pipelines` section, click `pipelines`. You should be able to see the pipeline that you just created using the chart.
 
