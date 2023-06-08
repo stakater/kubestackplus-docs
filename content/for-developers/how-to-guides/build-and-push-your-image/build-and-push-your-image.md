@@ -27,7 +27,7 @@
 
 ### Login to Image Registry
 
-1. Find the Image registry URL [here](../../../managed-addons/nexus/routes.md)) or Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus url.
+1. Find the Image registry URL [here](../../../managed-addons/nexus/routes.md) or Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus url.
 
     - `nexus-docker-reg-url`: Remove `https://` from the start and add `-docker` in URL after `nexus`. This URL points to Docker Registry referred as `nexus-docker-reg-url` in this tutorial for example `nexus-docker-stakater-nexus.apps.clustername.random123string.kubeapp.cloud`.
 
