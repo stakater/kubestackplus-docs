@@ -1,4 +1,4 @@
-## Observability
+# Observability
 
 Enabling observability in the ArgoCD Custom Resource involves configuring and enabling Prometheus and Grafana, two popular monitoring and visualization tools, within your ArgoCD deployment. By enabling `prometheus` and `grafana` to "true" in the ArgoCD Custom Resource, you can activate and leverage the capabilities of Prometheus and Grafana for comprehensive observability.
 

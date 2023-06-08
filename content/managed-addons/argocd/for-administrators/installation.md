@@ -1,14 +1,12 @@
-## Updates
+# Installation
 
-## Installation 
-
-ArgoCD is installed as part of Gitops Operator Dominator chart from saap-addons repository, along with other  managed-addons owned by Team Dominator. 
+ArgoCD is installed as part of Gitops Operator Dominator chart from saap-addons repository, along with other  managed-addons owned by Team Dominator.
 
 ### Installing Openshift Gitops Operator Chart
 
-ArgoCD can be installed seamlessly in your Red Hat OpenShift environment through the Red Hat OpenShift GitOps Operator. This operator simplifies the installation process by providing a standardized way to manage GitOps tooling, including ArgoCD. 
+ArgoCD can be installed seamlessly in your Red Hat OpenShift environment through the Red Hat OpenShift GitOps Operator. This operator simplifies the installation process by providing a standardized way to manage GitOps tooling, including ArgoCD.
 
-Redhat Openshift Gitops Operator chart is available in [saap-addons repository](https://github.com/stakater-ab/saap-addons/tree/main/rh-openshift-gitops-operator). By installing the Helm chart, you can quickly set up ArgoCD with default configurations and settings. 
+Redhat Openshift Gitops Operator chart is available in [saap-addons repository](https://github.com/stakater-ab/saap-addons/tree/main/rh-openshift-gitops-operator). By installing the Helm chart, you can quickly set up ArgoCD with default configurations and settings.
 
 During the installation process, a subscription is created to install the GitOps Operator. This subscription ensures that you have access to the latest version of the operator and can receive updates and bug fixes seamlessly. The operator is responsible for managing the ArgoCD deployment and keeping it up to date.
 
@@ -20,7 +18,7 @@ By leveraging the Red Hat OpenShift GitOps Operator, installing ArgoCD becomes a
 
 A second GitOps Operator Instance Helm chart, also available in [saap-addons repository](https://github.com/stakater-ab/saap-addons/tree/main/rh-openshift-gitops-instance), installs the instance for Gitops Operator. This Helm chart enables you to customize the behavior of the operator according to your specific requirements.
 
-By installing the GitOps Operator Instance Helm chart, you create two essential Custom Resources: App Project and ArgoCD. 
+By installing the GitOps Operator Instance Helm chart, you create two essential Custom Resources: App Project and ArgoCD.
 
 The ArgoCD Custom Resource is particularly significant as it allows you to define various configurations for your ArgoCD instance. These configurations include the `argocd-server`, which is responsible for the core functionality of ArgoCD. Additionally, you can define configurations for `Grafana` and `Prometheus`, enabling you to monitor the health and performance of your ArgoCD deployment.
 

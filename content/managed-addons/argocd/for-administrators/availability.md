@@ -1,5 +1,4 @@
-## High Availability
-
+# High Availability
 
 When configuring the ArgoCD Custom Resource within the GitOps Operator Instance Helm chart, you have the option to enable high availability for your ArgoCD instance. High availability in ArgoCD is a feature that provides redundancy and fault tolerance, ensuring continuous operation of the ArgoCD server even in the event of failures or disruptions.
 
@@ -13,7 +12,7 @@ Moreover, high availability in ArgoCD also enhances the recovery process in case
 
 The following section of YAML enables high availability in ArgoCD Custom Resource.
 
-"```"
+```yaml
     ha:
     enabled: false
     resources:
@@ -23,4 +22,4 @@ The following section of YAML enables high availability in ArgoCD Custom Resourc
       requests:
         cpu: 250m
         memory: 128M
-"```"
+```

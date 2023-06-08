@@ -24,19 +24,20 @@ Argo CD supports defining Kubernetes manifests in a number of ways:
 ArgoCD compares the actual state of the application in the cluster with the desired state defined in Git and determines if they are out of sync. When it detects the environment is out of sync, ArgoCD can be configured to either send out a notification to kick off a separate reconciliation process or ArgoCD can automatically synchronize the environments to ensure they match.
 
 ### Benefits
+
 ArgoCD offers a wide range of powerful features that help streamline your continuous delivery workflow:
 
 1. **Declarative GitOps:** ArgoCD operates based on the GitOps principles, allowing you to define and version your application configurations in Git repositories. This declarative approach ensures consistency and reproducibility across different environments.
 
-2. **Automated Deployments:** ArgoCD automates the deployment process, continuously monitoring your Git repositories for changes and automatically applying the updates to your Kubernetes clusters. This eliminates the need for manual intervention and reduces the risk of human error.
+1. **Automated Deployments:** ArgoCD automates the deployment process, continuously monitoring your Git repositories for changes and automatically applying the updates to your Kubernetes clusters. This eliminates the need for manual intervention and reduces the risk of human error.
 
-3. **Multi-Cluster and Multi-Tenancy:** ArgoCD supports managing multiple Kubernetes clusters and enables you to define different sets of applications and configurations for each cluster. It also provides support for multi-tenancy, allowing you to securely manage applications across different teams or organizations.
+1. **Multi-Cluster and Multi-Tenancy:** ArgoCD supports managing multiple Kubernetes clusters and enables you to define different sets of applications and configurations for each cluster. It also provides support for multi-tenancy, allowing you to securely manage applications across different teams or organizations.
 
-4. **Rollbacks and Rollouts:** With ArgoCD, you can easily roll back to previous application versions or progressively roll out new versions using strategies like blue-green or canary deployments. This gives you the flexibility to test changes and ensure a smooth transition without affecting the stability of your applications.
+1. **Rollbacks and Rollouts:** With ArgoCD, you can easily roll back to previous application versions or progressively roll out new versions using strategies like blue-green or canary deployments. This gives you the flexibility to test changes and ensure a smooth transition without affecting the stability of your applications.
 
-5. **Application Synchronization and Health Monitoring:** ArgoCD continuously monitors the state of your applications and performs synchronization to ensure that the desired state matches the actual state. It provides detailed insights into the health of your applications, helping you identify and resolve issues quickly.
+1. **Application Synchronization and Health Monitoring:** ArgoCD continuously monitors the state of your applications and performs synchronization to ensure that the desired state matches the actual state. It provides detailed insights into the health of your applications, helping you identify and resolve issues quickly.
 
-6. **RBAC and Access Controls:** ArgoCD offers robust Role-Based Access Control (RBAC) mechanisms, allowing you to define granular permissions for different users or teams. This ensures that only authorized individuals can modify or deploy applications, maintaining the security and integrity of your deployments.
+1. **RBAC and Access Controls:** ArgoCD offers robust Role-Based Access Control (RBAC) mechanisms, allowing you to define granular permissions for different users or teams. This ensures that only authorized individuals can modify or deploy applications, maintaining the security and integrity of your deployments.
 
 ### SLAs
 
