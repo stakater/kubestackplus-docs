@@ -151,8 +151,9 @@ nav:
         - Tutorials:
             - Inner Loop:
                 - for-developers/tutorials/inner-loop/00-prepare-environment/prepare-env.md
-                - for-developers/tutorials/inner-loop/02-containerize-app/containerize-app.md
-                - for-developers/tutorials/inner-loop/03-package-app/package-app.md
+                - for-developers/tutorials/inner-loop/01-containerize-app/containerize-app.md
+                - for-developers/tutorials/inner-loop/02-package-app/package-app.md
+                - for-developers/tutorials/inner-loop/03-login-with-cli/login-with-cli.md
                 - for-developers/tutorials/inner-loop/04-deploy-app/deploy-app.md
                 - for-developers/tutorials/inner-loop/05-expose-app/expose-app.md
                 - for-developers/tutorials/inner-loop/06-add-storage/persist-app.md
