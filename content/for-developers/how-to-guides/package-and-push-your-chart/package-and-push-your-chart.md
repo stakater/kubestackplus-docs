@@ -10,7 +10,7 @@
 
 ## Guide
 
-### Package and Upload the chart 
+### Package and Upload the chart to Nexus
 
 1. Run the following command to package the helm chart into compressed file.
 

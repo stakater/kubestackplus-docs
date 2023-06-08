@@ -6,7 +6,6 @@
 
 ## Key Results
 
-- Dockerfile created.
 - Image built and pushed to image repository
 
 ## Guide
