@@ -1,4 +1,5 @@
 
+# Deploy Application with ArgoCD and Helm
 
 We will cover application deployment with Helm and ArgoCD in this section.
 

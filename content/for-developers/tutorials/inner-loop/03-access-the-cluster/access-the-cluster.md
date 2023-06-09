@@ -16,6 +16,7 @@ Access the Stakater App Agility Platform (SAAP) cluster on UI and CLI.
 ## Guide
 
 ### Access OpenShift UI
+
 Lets see how will you access your cluster.
 
 1. Access your cluster by going to [Stakater App Agility Platform](https://cloud.stakater.com/). Enter your enterprise domain provide by Stakater Cloud administrator.
@@ -48,15 +49,15 @@ Lets see how will you access your cluster.
 
     ![Copy login command](images/copy-login-command.png)
 
-2. Click on `Display token` to view your token and login command.
+1. Click on `Display token` to view your token and login command.
 
     ![Display Token](images/display-token.png)
 
-3. Copy your Log in command.
+1. Copy your Log in command.
 
     ![Copy login token](images/copy-login-token.png)
 
-4. From your workspaces command line, paste your login command and hit the `Enter` button. Your Workspaces Devlopement environment will now be able to interact safely with the SAAP cluster.
+1. Run the following command from your CLI.
 
     ```bash
     oc login --token=<TOKEN> --server=<SERVER>

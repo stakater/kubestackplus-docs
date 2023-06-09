@@ -20,8 +20,6 @@ Learn local development for testing and developing applications on local/lab clu
 
 ## Tutorial
 
-# Step by Step Guide
-
 In this guide we will deploy an application with tilt and namespace in remote OpenShift cluster
 
 1. Clone this sample repo [Nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review)

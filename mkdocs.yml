@@ -153,7 +153,7 @@ nav:
                 - for-developers/tutorials/inner-loop/00-prepare-environment/prepare-env.md
                 - for-developers/tutorials/inner-loop/01-containerize-app/containerize-app.md
                 - for-developers/tutorials/inner-loop/02-package-app/package-app.md
-                - for-developers/tutorials/inner-loop/03-login-with-cli/login-with-cli.md
+                - for-developers/tutorials/inner-loop/03-access-the-cluster/access-the-cluster.md
                 - for-developers/tutorials/inner-loop/04-deploy-app/deploy-app.md
                 - for-developers/tutorials/inner-loop/05-expose-app/expose-app.md
                 - for-developers/tutorials/inner-loop/06-add-storage/persist-app.md
@@ -161,10 +161,10 @@ nav:
                 - for-developers/tutorials/inner-loop/08-add-secret/add-secrets.md
                 - for-developers/tutorials/inner-loop/09-add-dependency/add-dependency.md
                 - for-developers/tutorials/inner-loop/10-validate-logs/validate-logs.md
-                - for-developers/tutorials/inner-loop/11-expose-metrics/expose-metrics.md 
-                - for-developers/tutorials/inner-loop/12-add-grafana-dashboard/add-grafana-dashboard.md 
-                - for-developers/tutorials/inner-loop/13-add-alerts/add-alerts.md 
-                - for-developers/tutorials/inner-loop/14-scale-app/scale-app.md 
+                - for-developers/tutorials/inner-loop/11-expose-metrics/expose-metrics.md
+                - for-developers/tutorials/inner-loop/12-add-grafana-dashboard/add-grafana-dashboard.md
+                - for-developers/tutorials/inner-loop/13-add-alerts/add-alerts.md
+                - for-developers/tutorials/inner-loop/14-scale-app/scale-app.md
                 - for-developers/tutorials/inner-loop/15-validate-auto-reload/validate-auto-reload.md
                 - for-developers/tutorials/inner-loop/16-validate-down-alert/validate-down-alert.md
                 - for-developers/tutorials/inner-loop/17-add-pdb/add-pdb.md
@@ -174,7 +174,7 @@ nav:
                 - for-developers/tutorials/inner-loop/21-add-env-variable/add-env-variable.md
                 - for-developers/tutorials/inner-loop/22-tilt-zero-to-hero/step-by-step-guide.md
             - Outer Loop:
-                - for-developers/tutorials/outer-loop/access-cluster/access-cluster.md
+                - for-developers/tutorials/outer-loop/access-cluster/access-the-cluster.md
                 - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
                 - for-developers/tutorials/outer-loop/add-ci-pipeline/add-ci-pipeline.md
                 - for-developers/tutorials/outer-loop/promote-application/promote-app.md
