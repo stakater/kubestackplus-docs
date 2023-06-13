@@ -1,5 +1,22 @@
 # Access Your Cluster
 
+## Objectives
+
+Access the Stakater App Agility Platform (SAAP) cluster on UI and CLI.
+
+## Key Results
+
+- Access Stakater App Agility Platform (SAAP) Console
+- View Forecastle Page and view different tools/services.
+
+## PreRequisites
+
+- Working laptop or desktop computer.
+
+## Guide
+
+### Access OpenShift UI
+
 Lets see how will you access your cluster.
 
 1. Access your cluster by going to [Stakater App Agility Platform](https://cloud.stakater.com/). Enter your enterprise domain provide by Stakater Cloud administrator.
@@ -26,12 +43,21 @@ Lets see how will you access your cluster.
 
         ![Stakater App Agility Platform Home](images/forecastle-homepage.png)
 
-## Setting up CLI
+### Login with CLI
 
-Following CLI tools are required for working with Stakater App Agility Platform.
+1. In your `OpenShift Console`, click your username in the top right corner and select `Copy login command`.
+    ![Copy login command](images/copy-login-command.png)
 
-- [OpenShift CLI (oc)](https://docs.openshift.com/container-platform/4.12/cli_reference/openshift_cli/getting-started-cli.html#installing-openshift-cli) With the OpenShift command-line interface (CLI), the oc command, you can create applications and manage OpenShift Container Platform projects from a terminal.
+1. Click on `Display token` to view your token and login command.
 
-- [kubectl](https://kubernetes.io/docs/tasks/tools/) The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs.
+    ![Display Token](images/display-token.png)
 
-- [Helm](https://helm.sh/docs/intro/install/) Helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
+1. Copy your Log in command.
+
+    ![Copy login token](images/copy-login-token.png)
+
+1. Run the following command from your CLI.
+
+    ```bash
+    oc login --token=<TOKEN> --server=<SERVER>
+    ```
