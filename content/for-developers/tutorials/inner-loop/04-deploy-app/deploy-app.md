@@ -14,7 +14,7 @@ Learn local development for testing and developing applications on local/lab clu
 
 ## Key Results
 
-- Create a tiltfile for your application.
+- Create a Tiltfile for your application.
 
 - Deploy the application with tilt.
 

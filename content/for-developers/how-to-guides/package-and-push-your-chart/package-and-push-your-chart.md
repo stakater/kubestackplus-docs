@@ -45,7 +45,7 @@ Alternatively, Navigate to the cluster Forecastle, search `nexus` using the sear
 
 1. Open Nexus UI from Forecastle. Upon opening the link, you'll be redirected to Nexus home page.
 
-   ![`nexus-forecastle`](../images/nexus-forecastle.png)
+   ![`nexus-Forecastle`](../images/nexus-forecastle.png)
    ![`nexus-homepage`](../images/nexus-homepage.png)
 
 1. Select `Browse` from the left sidebar, Click on `Helm Charts` to view your Helm Registry Charts.
