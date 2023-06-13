@@ -62,7 +62,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
     If you reference Helm charts from private registry then you first need to add it
 
-    ```bash
+    ```sh
     cd deploy
 
     # Helm credentials can be found in Vault or in a secret in build namespace
@@ -71,9 +71,9 @@ In this guide we will deploy an application with tilt and namespace in remote Op
     cd ..
     ```
 
-1. Update Helm dependencies
+1. Update Helm dependencies.
 
-    ```bash
+    ```sh
     cd deploy
 
     helm dependency update
@@ -110,15 +110,15 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 1. Go through the `.gitigore` and check tilt and Helm specific ignores
 
     ```sh
-    # Tilt
+    # ignore tilt files
     tilt_options.json
     tilt_modules/
 
-    # Helm
+    # ignores helm files
     /deploy/charts
     ```
 
-1. Go through `.tiltignore`
+1. Go through `.tiltignore`.
 
     ```sh
     **/charts
@@ -178,7 +178,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
     ![update review service](images/review-service-to-update.png)
 
-    Switch back to tilt browser and you will see it has started picking up changes
+    Switch back to tilt browser, you will see it has started picking up changes
 
     ![tilt pick up change](images/tilt-picking-up-change.png)
 

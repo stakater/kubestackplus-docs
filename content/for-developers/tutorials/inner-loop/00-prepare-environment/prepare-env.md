@@ -24,7 +24,7 @@ Following CLI tools are required for working with Stakater App Agility Platform.
 
 - [helm](https://helm.sh/docs/intro/install/) helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
 
-- [docker](https://docs.docker.com/get-docker/) Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications.
+- [docker](https://docs.docker.com/get-docker/) Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure, so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications.
 
 - [buildah](https://github.com/containers/buildah/blob/main/install.md) buildah is an open source, Linux-based tool that can build Docker- and Kubernetes-compatible images, and is easy to incorporate into scripts and build pipelines. It runs without a container runtime or daemon compared to docker.
 
