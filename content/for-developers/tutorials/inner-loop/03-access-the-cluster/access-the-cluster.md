@@ -45,7 +45,7 @@ Lets see how will you access your cluster.
 
 ### Login with CLI
 
-1. In your `OpenShift Console`, click your username at the top right corner and select `Copy login command`.
+1. In your `OpenShift Console`, click your username in the top right corner and select `Copy login command`.
 
     ![Copy login command](images/copy-login-command.png)
 
