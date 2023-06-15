@@ -267,6 +267,7 @@ stakater-tekton-chart:
 Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml). You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) via values.yaml file, or you can use MTO templates. Then add the deployed trigger bindings as ref to the triggers in the above **values.yaml** file.
 
 > Note: The reference to the trigger binding will need to be added in; (pipeline-charts.eventListener.trigger.bindings.ref).
+
 Let's see our pipeline definition in the SAAP console now.
 
 #### 1. Pipeline creation on the console
