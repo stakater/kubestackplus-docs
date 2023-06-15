@@ -20,9 +20,9 @@ SAAP Pipelines requires secrets for CI/CD workflow. Following are the secrets us
 
 **Stored in:** Keeper
 
-## nexus-docker-auth
+## nexus-docker-config
 
-**Purpose:** nexus-docker-auth secret is used in CI pipeline to push and pull docker images from private nexus registry hosted on the cluster. This secret contains credentials for a machine-user to login into the registry.
+**Purpose:** nexus-docker-config secret is used in CI pipeline to push and pull container images from private nexus registry hosted on the cluster. This secret contains credentials for a machine-user to login into the registry.
 
 **Owner:** Stakater
 
@@ -37,6 +37,37 @@ SAAP Pipelines requires secrets for CI/CD workflow. Following are the secrets us
 **Rotation:** This secret needs to be added to Vault, which is then reconciled by External Secrets Operator, and a Kubernetes secret is created in cluster against it.
 
 **Stored in:** Keeper
+
+**Sample Secret**:
+
+```yaml
+kind: Secret
+apiVersion: v1
+metadata:
+  name: nexus-docker-config
+  namespace: <namespace>
+immutable: false
+data:
+  .dockerconfigjson: >-
+    <Base64 encoded value>
+  config: >-
+    <Base64 encoded value>
+type: kubernetes.io/dockerconfigjson
+```
+
+Sample .dockerconfigjson:
+```json
+{
+    "auths": {
+      "https://nexus-docker-stakater-nexus.jlvwjls8.kubeapp.cloud": {
+        "auth": <base64 value of [user:password]>
+      },
+      "https://nexus-docker-proxy-stakater-nexus.apps.jlvwjls8.kubeapp.cloud": {
+        "auth": <base64 value of [user:password]>
+      }
+    }
+  }
+```
 
 ## git-auth
 
