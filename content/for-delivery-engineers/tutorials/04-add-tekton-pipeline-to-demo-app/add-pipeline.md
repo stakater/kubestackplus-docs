@@ -38,7 +38,9 @@ We will fill in the values for these resources and deploy a functioning pipeline
 
 > SAAP is shipped with many ready-to-use Tekton cluster tasks. Let's take a look at some of the tasks that we will be using to construct a basic pipeline.
 
-1. Navigate to the `OpenShift Console` using `Forecastle`. Select `Pipelines` > `Tasks` in sidebar. Select the `ClusterTasks` tab and search `stakater`. Here you will see all the tasks shipped with SAAP.
+#### 1. Navigate to the OpenShift Console
+
+  Navigate to the `OpenShift Console` using `Forecastle`. Select `Pipelines` > `Tasks` in sidebar. Select the `ClusterTasks` tab and search `stakater`. Here you will see all the tasks shipped with SAAP.
 
 ### Deploying a working pipeline
 
@@ -47,10 +49,12 @@ We will fill in the values for these resources and deploy a functioning pipeline
 Open your Apps GitOps repository.
   > We will be using [Stakater opinionated GitOps structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
 
-  1. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-web > 00-build.
+#### 1. Create Chart.yaml
 
-    - Add a Chart.yaml file and a values.yaml file at this location.
-    - Populate the Chart.yaml file with the following content:
+  Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-web > 00-build.
+
+- Add a Chart.yaml file and a values.yaml file at this location.
+- Populate the Chart.yaml file with the following content:
 
 ```yaml
 # <tenant-folder>/<app-folder>/<build-folder>/Chart.yaml
@@ -66,106 +70,198 @@ Open your Apps GitOps repository.
 
 As mentioned earlier, we will use the `stakater-tekton-chart` to deploy our Tekton pipeline resources.
 
-  1. Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
+#### 1. Create values.yaml
+
+  Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
 
 ```yaml
 # <tenant-folder>/<app-folder>/<build-folder>/values.yaml
-   pipeline-charts:
-      name: stakater-main-pr-v1  # Chart name
-      workspaces:
-      - name: source
-        volumeClaimTemplate:
-          accessModes: ReadWriteOnce
-          resourcesRequestsStorage: 1Gi
-      - name: ssh-directory
-        secret:
-          secretName: repo-ssh-creds #(Give your own unique name)
-      - name: repo-token
-        secret:
-          secretName: stakater-ab-token
-      pipelines:
-        tasks:
-        - defaultTaskName: git-clone
-          params:
-            - name: url
-              value: "https://github.com/stakater-lab/stakater-nordmart-review-web.git"
-          workspaces:
-            - name: ssh-directory
-              workspace: ssh-directory
-        - defaultTaskName: stakater-create-git-tag-0-0-3
-        - defaultTaskName: stakater-build-image-flag-0-0-2
-          runAfter:
-            - stakater-create-git-tag-0-0-3
-        - defaultTaskName: stakater-buildah-0-0-2
-          name: build-and-push
-          params:
-            - name: IMAGE
-              value: $(params.image_registry_url):$(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-            - name: CURRENT_GIT_TAG
-              value: $(tasks.stakater-create-git-tag-0-0-3.results.CURRENT_GIT_TAG)
-            - name: BUILD_IMAGE
-              value: $(tasks.stakater-build-image-flag-0-0-2.results.BUILD_IMAGE)
-        - defaultTaskName: stakater-comment-on-pr-0-0-2
-          params:
-            - name: image
-              value: >-
-                $(params.image_registry_url):$(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-          runAfter:
-            - build-and-push
-        - defaultTaskName: stakater-helm-push-0-0-2
-          params:
-            - name: semVer
-              value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-        - defaultTaskName: stakater-github-update-cd-repo-0-0-2
-          params:
-            - name: CD_REPO_URL
-              value: 'git@github.com:stakater-ab/stakater-apps-gitops-prod.git'
-            - name: IMAGE_TAG
-              value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-        - defaultTaskName: stakater-push-main-tag-0-0-2
-          params:
-            - name: IMAGE_TAG
-              value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-            - name: GITHUB_TOKEN_SECRET
-      triggertemplate:
-        serviceAccountName: stakater-tekton-builder
-        pipelineRunNamePrefix: $(tt.params.repoName)-$(tt.params.prnumberBranch)
-        pipelineRunPodTemplate:
-          tolerations:
-            - key: "pipeline"
-              operator: "Exists"
-              effect: "NoExecute"
-      eventlistener:
-        serviceAccountName: stakater-tekton-builder
-        triggers:
-        - name: stakater-pr-cleaner-v2-pullrequest-merge
-          create: false
-        - name: github-pullrequest-create
-          bindings:
+stakater-tekton-chart:
+  name: <pipeline-name>
+  workspaces:
+    - name: source
+      volumeClaimTemplate:
+        accessModes: ReadWriteOnce
+        resourcesRequestsStorage: 1Gi
+    - name: ssh-directory
+      secret:
+        secretName: <ssh-secret-name>
+    - name: repo-token
+      secret:
+        secretName: <token-secret-name>
+  pipelines:
+    tasks:
+      - defaultTaskName: <set-commit-status-task>
+        params:
+          - name: STATE
+            value: pending
+          - name: GIT_SECRET_NAME
+            value: <token-secret-name>
+      - defaultTaskName: git-clone
+        params:
+          - name: url
+            value: "git@github.com:<repository-url>"
+        workspaces:
+          - name: ssh-directory
+            workspace: ssh-directory
+      - defaultTaskName: <create-git-tag-task>
+      - defaultTaskName: <build-image-flag-task>
+      - defaultTaskName: <buildah-task>
+        name: build-and-push
+        params:
+          - name: IMAGE
+            value: $(params.image_registry_url):$(tasks.<create-git-tag-task>.results.GIT_TAG)
+          - name: CURRENT_GIT_TAG
+            value: $(tasks.<create-git-tag-task>.results.CURRENT_GIT_TAG)
+          - name: BUILD_IMAGE
+            value: $(tasks.<build-image-flag-task>.results.BUILD_IMAGE)
+      - defaultTaskName: <comment-on-pr-task>
+        params:
+          - name: image
+            value: >-
+              $(params.image_registry_url):$(tasks.<create-git-tag-task>.results.GIT_TAG)
+        runAfter:
+          - build-and-push
+      - defaultTaskName: <helm-push-task>
+        params:
+          - name: semVer
+            value: $(tasks.<create-git-tag-task>.results.GIT_TAG)
+      - defaultTaskName: <push-main-tag-task>
+        params:
+          - name: IMAGE_TAG
+            value: $(tasks.<create-git-tag-task>.results.GIT_TAG)
+          - name: GITHUB_TOKEN_SECRET
+            value: <ssh-secret-name>
+  triggerbinding:
+    enabled: create
+    bindings:
+      - name: stakater-main-v1
+        bodyParams:
+          - name: gitrevision
+            value: $(body.repository.master_branch)
+          - name: gitorganization
+            value: NA
+          - name: gitcdrepo
+            value: NA
+          - name: team
+            value: NA
+          - name: clusterName
+            value: NA
+          - name: environment
+            value: NA
+          - name: repoName
+            value: $(body.repository.name)
+          - name: repoPath
+            value: $(body.repository.full_name)
+          - name: namespace
+            value: '${namespace}'
+          - name: prnumberBranch
+            value: main
+          - name: prnumber
+            value: NA
+          - name: gitrepositoryurl
+            value: 'https://github.com/$(body.repository.full_name)'
+          - name: image_registry_url
+            value: >-
+              <nexus-docker-reg-url>$(body.repository.name) # remove https:// from the docker registry URL
+          - name: author
+            value: $(body.head_commit.author.name)
+          - name: helm_registry
+            value: >-
+              https://<nexus-helm-reg-url>/repository/helm-charts/
+          - name: nexus_url
+            value: NA
+          - name: tekton-base-url
+            value: NA
+          - name: webhook-payload
+            value: $(extensions.marshalled-body)
+          - name: action
+            value: NA
+      - name: stakater-pr-v1
+        bodyParams:
+          - name: gitrevision
+            value: $(body.pull_request.head.sha)
+          - name: gitbranch
+            value: $(body.pull_request.head.ref)
+          - name: namespace
+            value: '${namespace}'
+          - name: gitorganization
+            value: NA
+          - name: gitcdrepo
+            value: NA
+          - name: team
+            value: NA
+          - name: clusterName
+            value: NA
+          - name: environment
+            value: NA
+          - name: repoName
+            value: $(body.repository.name)
+          - name: repoPath
+            value: $(body.repository.full_name)
+          - name: prnumberBranch
+            value: pr-$(body.pull_request.number)
+          - name: prnumber
+            value: $(body.pull_request.number)
+          - name: gitrepositoryurl
+            value: 'https://github.com/$(body.repository.full_name)'
+          - name: image_registry_url
+            value: >-
+              <nexus-docker-reg-url>$(body.repository.name) # remove https:// from the docker registry URL
+          - name: author
+            value: $(body.pull_request.user.login)
+          - name: helm_registry
+            value: >-
+              https://<nexus-helm-reg-url>/repository/helm-charts/
+          - name: nexus_url
+            value: NA
+          - name: tekton-base-url
+            value: NA
+          - name: webhook-payload
+            value: $(extensions.marshalled-body)
+          - name: action
+            value: $(body.action)
+          - name: pull_request_commits_api
+            value: $(body.pull_request._links.commits.href)
+  triggertemplate:
+    serviceAccountName: <service-account-name>
+    pipelineRunNamePrefix: <pipeline-run-prefix>
+    pipelineRunPodTemplate:
+      tolerations:
+        - key: "pipeline"
+          operator: "Exists"
+          effect: "NoExecute"
+  eventlistener:
+    serviceAccountName: <service-account-name>
+    triggers:
+      - name: stakater-pr-cleaner-v2-pullrequest-merge
+        create: false
+      - name: github-pullrequest-create
+        bindings:
           - ref: stakater-pr-v1
           - name: oldcommit
             value: $(body.pull_request.base.sha)
           - name: newcommit
             value: $(body.pull_request.head.sha)
-        - name: github-pullrequest-synchronize
-          bindings:
+      - name: github-pullrequest-synchronize
+        bindings:
           - ref: stakater-pr-v1
           - name: oldcommit
             value: $(body.before)
           - name: newcommit
             value: $(body.after)
-        - name: github-push
-          bindings:
+      - name: github-push
+        bindings:
           - ref: stakater-main-v1
           - name: oldcommit
             value: $(body.before)
           - name: newcommit
             value: $(body.after)
-      rbac:
-        enabled: false
-      serviceAccount:
-        name: stakater-tekton-builder
-        create: false
+  rbac:
+    enabled: true
+  serviceAccount:
+    name: <service-account-name>
+    create: true
 ```
 
 Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml). You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) via values.yaml file, or you can use MTO templates. Then add the deployed trigger bindings as ref to the triggers in the above **values.yaml** file.
@@ -174,13 +270,17 @@ Here, we are using the [default triggers](https://github.com/stakater/stakater-t
 
 Let's see our pipeline definition in the SAAP console now.
 
-  1. Select `<TENANT_NAME>-build` namespace in the console. Now in the `Pipelines` section, click `pipelines`. You should be able to see the pipeline that you just created using the chart.
+#### 1. Pipeline creation on the console
+
+  Select `<TENANT_NAME>-build` namespace in the console. Now in the `Pipelines` section, click `pipelines`. You should be able to see the pipeline that you just created using the chart.
 
 ![pipeline-basic.png](../images/pipeline-basic.png)
 
 With our pipelines definitions synchronized to the cluster, we can now add the webhook to GitHub `nordmart-review-ui` project.
 
-  1. Grab the URL we're going to invoke to trigger the pipeline by checking the event listener route in `<TENANT_NAME>-build` project
+#### 1. Extract the URL for the webhook
+
+  Grab the URL we're going to invoke to trigger the pipeline by checking the event listener route in `<TENANT_NAME>-build` project
 
 ![add-route.png](../images/add-route.png)
 
@@ -193,6 +293,8 @@ With our pipelines definitions synchronized to the cluster, we can now add the w
     * Click `Add webhook` button.
 
 With all these components in place - now it's time to trigger pipeline via webhook by checking in some code for Nordmart review `ui`.
+
+#### 1. Run the pipeline
 
 Let's make a simple change to `stakater-nordmart-review-ui`.
 
