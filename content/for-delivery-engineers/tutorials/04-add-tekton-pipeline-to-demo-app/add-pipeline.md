@@ -168,7 +168,7 @@ As mentioned earlier, we will use the `stakater-tekton-chart` to deploy our Tekt
         create: false
 ```
 
-Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml) and trigger bindings. You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) via values.yaml file, or you can use MTO templates. Then add the deployed trigger bindings as ref to the triggers in the above **values.yaml** file.
+Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml). You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) via values.yaml file, or you can use MTO templates. Then add the deployed trigger bindings as ref to the triggers in the above **values.yaml** file.
 
 > Note: The reference to the trigger binding will need to be added in; (pipeline-charts.eventListener.trigger.bindings.ref).
 
