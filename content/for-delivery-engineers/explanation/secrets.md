@@ -56,6 +56,7 @@ type: kubernetes.io/dockerconfigjson
 ```
 
 Sample .dockerconfigjson:
+
 ```json
 {
     "auths": {
