@@ -38,7 +38,7 @@ We will fill in the values for these resources and deploy a functioning pipeline
 
 > SAAP is shipped with many ready-to-use Tekton cluster tasks. Let's take a look at some of the tasks that we will be using to construct a basic pipeline.
 
-1. Navigate to the OpenShift Console
+#### 1. Navigate to the OpenShift Console
 
   Navigate to the `OpenShift Console` using `Forecastle`. Select `Pipelines` > `Tasks` in sidebar. Select the `ClusterTasks` tab and search `stakater`. Here you will see all the tasks shipped with SAAP.
 
@@ -53,8 +53,8 @@ Open your Apps GitOps repository.
 
   Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-web > 00-build.
 
-  - Add a Chart.yaml file and a values.yaml file at this location.
-  - Populate the Chart.yaml file with the following content:
+- Add a Chart.yaml file and a values.yaml file at this location.
+- Populate the Chart.yaml file with the following content:
 
 ```yaml
 # <tenant-folder>/<app-folder>/<build-folder>/Chart.yaml
