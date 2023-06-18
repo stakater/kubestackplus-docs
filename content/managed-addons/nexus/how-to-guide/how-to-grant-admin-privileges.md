@@ -1,4 +1,4 @@
-# Granting Admin privilege to user for nexus on Keycloak
+# How to grant admin privileges to user?
 
 - Go to routes in `stakater-auth` namespace , open keycloak route , following screen will show up
 
