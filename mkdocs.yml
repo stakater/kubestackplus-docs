@@ -216,12 +216,13 @@ nav:
         - managed-addons/overview.md
         - Nexus:
             - managed-addons/nexus/overview.md
-            - managed-addons/nexus/accessing-repository.md
-            - managed-addons/nexus/permissions.md
-            - managed-addons/nexus/routes.md
-            - managed-addons/nexus/maven-setup.md
-            - managed-addons/nexus/grant-nexus-admin-keycloak.md
-            - managed-addons/nexus/faq.md
+            - managed-addons/nexus/tutorial/login-browse.md
+            - managed-addons/nexus/how-to-guide/how-to-configure-maven-with-nexus.md
+            - managed-addons/nexus/how-to-guide/how-to-upload-from-ui.md
+            - managed-addons/nexus/how-to-guide/how-to-upload-local-machine.md
+            - managed-addons/nexus/how-to-guide/how-to-grant-admin-privileges.md           
+            - managed-addons/nexus/explanation/routes.md
+            - managed-addons/nexus/explanation/permissions.md
         - Vault:
             - managed-addons/vault/overview.md
         - ArgoCD:
