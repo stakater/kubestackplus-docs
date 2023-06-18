@@ -1,4 +1,4 @@
-# How to configure maven project with nexus repository?
+# How to configure Maven project with nexus repository?
 
 ## Define Environment Variables
 

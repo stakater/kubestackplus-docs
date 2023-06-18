@@ -8,12 +8,12 @@
 
 ## How-to guides
 
-- [How to configure maven project with nexus repository?](./how-to-guide/how-to-configure-maven-with-nexus.md)
+- [How to configure Maven project with nexus repository?](./how-to-guide/how-to-configure-maven-with-nexus.md)
 - [How to manually upload dependencies from Nexus UI?](./how-to-guide/how-to-upload-from-ui.md)
 - [How to upload library from local machine?](./how-to-guide/how-to-upload-local-machine.md)
 - [How to grant admin privileges to user?](./how-to-guide/how-to-grant-admin-privileges.md)
 
-## Explanationn
+## Explanation
 
 - [Nexus Routes in SAAP](./explanation/routes.md)
 - [Nexus Users & Permissions](./explanation/permissions.md)
