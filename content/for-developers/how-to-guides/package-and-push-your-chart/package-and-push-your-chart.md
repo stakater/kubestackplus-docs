@@ -16,7 +16,7 @@
 
 > Ask admin Helm Registry Credentials for helm chart repository.
 
-Find Nexus Helm Registry URL [here](../../../managed-addons/nexus/routes.md).
+Find Nexus Helm Registry URL [here](../../../managed-addons/nexus/explanation/routes.md).
 
 Alternatively, Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus url.
 

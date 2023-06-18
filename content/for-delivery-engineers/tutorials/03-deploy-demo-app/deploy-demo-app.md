@@ -33,7 +33,7 @@ In this section, we will use [`stakater-nordmart-review-web`](https://github.com
 
 > Ask admin for Docker and Helm Registry Credentials for pushing container images and helm chart respectively.
 
-Find Nexus Docker registry URL and Helm Registry URL [here](../../../managed-addons/nexus/routes.md).
+Find Nexus Docker registry URL and Helm Registry URL [here](../../../managed-addons/nexus/explanation/routes.md).
 
 Alternatively, Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus url.
 
