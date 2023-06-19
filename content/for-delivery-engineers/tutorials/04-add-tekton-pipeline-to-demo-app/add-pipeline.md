@@ -44,7 +44,7 @@ We will fill in the values for these resources and deploy a functioning pipeline
 
   ![`Login-page-oc`](../images/Login-page-oc.png)
 
-- Login the console as **Tenant User**, e.g.; "pele".
+- Login the console as **Tenant User**, e.g.; `pele`.
 
   ![`tenant-login-oc`](../images/tenant-login-oc.png)
 
