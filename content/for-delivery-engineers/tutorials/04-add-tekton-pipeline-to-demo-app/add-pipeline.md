@@ -38,7 +38,7 @@ We will fill in the values for these resources and deploy a functioning pipeline
 
 > SAAP is shipped with many ready-to-use Tekton cluster tasks. Let's take a look at some of the tasks that we will be using to construct a basic pipeline.
 
-#### 1. Navigate to the OpenShift Console
+## 1. Navigate to the OpenShift Console
 
   Navigate to the `OpenShift Console` using `Forecastle`. Select `Pipelines` > `Tasks` in sidebar. Select the `ClusterTasks` tab and search `stakater`. Here you will see all the tasks shipped with SAAP.
 
@@ -49,7 +49,7 @@ We will fill in the values for these resources and deploy a functioning pipeline
 Open your Apps GitOps repository.
   > We will be using [Stakater opinionated GitOps structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
 
-#### 1. Create Chart.yaml
+## 2. Create Chart.yaml
 
   Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-web > 00-build.
 
@@ -70,7 +70,7 @@ Open your Apps GitOps repository.
 
 As mentioned earlier, we will use the `stakater-tekton-chart` to deploy our Tekton pipeline resources.
 
-#### 1. Create values.yaml
+## 3. Create values.yaml
 
   Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
 
@@ -264,13 +264,17 @@ stakater-tekton-chart:
     create: true
 ```
 
-Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml). You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) via values.yaml file, or you can use MTO templates. Then add the deployed trigger bindings as ref to the triggers in the above **values.yaml** file.
+- There are different workspaces used by the pipeline according to one's needs, such as the source code workspace (source), SSH credentials workspace (ssh-directory), and the repository PAT token workspace (repo-token).
+
+- The ssh-directory workspace refers to SSH secret (private-key) for connection of the repository. Or if you setup a PAT (Fine-grained) token for your source code repo, the repo-token workspace would be referring to a token secret.
+
+- Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml). You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) via values.yaml file, or you can use MTO templates. Then add the deployed trigger bindings as ref to the triggers in the above **values.yaml** file.
 
 > Note: The reference to the trigger binding will need to be added in; (pipeline-charts.eventListener.trigger.bindings.ref).
 
 Let's see our pipeline definition in the SAAP console now.
 
-#### 1. Pipeline creation on the console
+## 4. Pipeline creation on the console
 
   Select `<TENANT_NAME>-build` namespace in the console. Now in the `Pipelines` section, click `pipelines`. You should be able to see the pipeline that you just created using the chart.
 
@@ -278,7 +282,7 @@ Let's see our pipeline definition in the SAAP console now.
 
 With our pipelines definitions synchronized to the cluster, we can now add the webhook to GitHub `nordmart-review-ui` project.
 
-#### 1. Extract the URL for the webhook
+## 5. Extract the URL for the webhook
 
   Grab the URL we're going to invoke to trigger the pipeline by checking the event listener route in `<TENANT_NAME>-build` project
 
@@ -294,10 +298,10 @@ With our pipelines definitions synchronized to the cluster, we can now add the w
 
 With all these components in place - now it's time to trigger pipeline via webhook by checking in some code for Nordmart review `ui`.
 
-#### 1. Run the pipeline
+## 6. Run the pipeline
 
 Let's make a simple change to `stakater-nordmart-review-ui`.
 
-  1. Edit `ReadMe.md` by adding some new lines in the file. Create a Pull request.
+- Edit `ReadMe.md` by adding some new lines in the file. Create a Pull request.
 
-  1. Navigate to the OpenShift Console. Open up 'Pipelines'. Change the project to the namespace in which you have deployed your pipeline. You will see a pipeline running.
+- Navigate to the OpenShift Console. Open up 'Pipelines'. Change the project to the namespace in which you have deployed your pipeline. You will see a pipeline running.
