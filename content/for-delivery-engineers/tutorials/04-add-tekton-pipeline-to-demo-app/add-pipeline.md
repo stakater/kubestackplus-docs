@@ -40,7 +40,19 @@ We will fill in the values for these resources and deploy a functioning pipeline
 
 ## 1. Navigate to the OpenShift Console
 
-  Navigate to the `OpenShift Console` using `Forecastle`. Select `Pipelines` > `Tasks` in sidebar. Select the `ClusterTasks` tab and search `stakater`. Here you will see all the tasks shipped with SAAP.
+- Navigate to the `OpenShift Console` using `Forecastle`.
+
+  ![`Login-page-oc`](../images/Login-page-oc.png)
+
+- Login the console as **Tenant User**, e.g.; "pele".
+
+  ![`tenant-login-oc`](../images/tenant-login-oc.png)
+
+- Change the namespace to the **TenantName-build** such as "gabbar-build".
+- Select `Pipelines` > `Tasks` in left sidebar.
+- Select the `ClusterTasks` tab and search `stakater`. Here you will see all the tasks shipped with SAAP.
+
+  ![`cluster-tasks`](../images/cluster-tasks.png)
 
 ### Deploying a working pipeline
 
