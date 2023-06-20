@@ -1,4 +1,4 @@
-# Add Tekton pipeline
+lo# Add Tekton pipeline
 
 Objective
 Configure basic CI&CD pipeline
@@ -42,7 +42,7 @@ We will fill in the values for these resources and deploy a functioning pipeline
 
 - Navigate to the `OpenShift Console` using `Forecastle`.
 
-  ![`Login-page-oc`](../images/Login-page-oc.png)
+  ![`login-page-oc`](../images/login-page-oc.png)
 
 - Login the console as **Tenant User**, e.g.; `pele`.
 
