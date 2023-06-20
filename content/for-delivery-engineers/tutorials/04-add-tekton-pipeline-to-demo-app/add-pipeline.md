@@ -1,4 +1,4 @@
-lo# Add Tekton pipeline
+# Add Tekton pipeline
 
 Objective
 Configure basic CI&CD pipeline
