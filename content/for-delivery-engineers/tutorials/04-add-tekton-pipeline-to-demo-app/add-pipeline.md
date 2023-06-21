@@ -288,7 +288,7 @@ stakater-tekton-chart:
 
 Login to ArgoCD to see your pipeline and all the resources related to it.
 
-![argocd-pipeline-app.png](../images/argocd-pipeline-app.png)
+![ArgoCD-pipeline-app.png](../images/ArgoCD-pipeline-app.png)
 
 Let's see our pipeline definition in the SAAP console now.
 
