@@ -284,7 +284,7 @@ stakater-tekton-chart:
 
 > Note: The reference to the trigger binding will need to be added in; (pipeline-charts.eventListener.trigger.bindings.ref).
 
-## 4. ArgoCD Application for Pipeline and the its resources
+## 4. ArgoCD Application for Pipeline and its Resources
 
 Login to ArgoCD to see your pipeline and all the resources related to it.
 
