@@ -65,11 +65,6 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
       - build
       - dev
       - stage
-      specificMetadata:
-      - namespaces:
-          - gabbar-build
-        annotations:
-          openshift.io/node-selector: node-role.kubernetes.io/pipeline=
     ```
 
 1. We also need to add a quota for our `gabbar` tenant in our `quotas` folder created in step 4. So let's do it using the file below. The name of this quota need to match the name you specified in tenant CR.
