@@ -288,7 +288,7 @@ stakater-tekton-chart:
 
 Login to ArgoCD to see your pipeline and all the resources related to it.
 
-![ArgoCD-pipeline-app.png](../images/ArgoCD-pipeline-app.png)
+![`ArgoCD-pipeline-app`](../images/ArgoCD-pipeline-app.png)
 
 Let's see our pipeline definition in the SAAP console now.
 
@@ -296,7 +296,7 @@ Let's see our pipeline definition in the SAAP console now.
 
 Select the `<TENANT_NAME>-build` namespace in the console. Now in the `Pipelines` section, click `pipelines`. You should be able to see the pipeline that you just created using the chart.
 
-![pipeline-basic.png](../images/pipeline-basic.png)
+![`pipeline-basic`](../images/pipeline-basic.png)
 
 With our pipeline definitions synchronized to the cluster, we can now add the webhook to the GitHub `nordmart-review-ui` project.
 
@@ -304,7 +304,7 @@ With our pipeline definitions synchronized to the cluster, we can now add the we
 
 Grab the URL we're going to invoke to trigger the pipeline by checking the event listener route in the `<TENANT_NAME>-build` project
 
-![add-route.png](../images/add-route.png)
+![`add-route`](../images/add-route.png)
 
   1. Once you have the URL, over on GitHub go to the application repo > `Settings` > `Webhook` to add the webhook:
 
