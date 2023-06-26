@@ -1,4 +1,4 @@
-# Artifact Management
+# Overview
 
 [Nexus](https://www.sonatype.com/products/repository-pro) is a repository manager that can store and manage components, build artifacts, and release candidates in one central location. It can host multiple type of repositories like docker, Helm, Maven and more.
 

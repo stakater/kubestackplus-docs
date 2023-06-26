@@ -136,7 +136,7 @@ nav:
               - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md
               - for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
               - for-delivery-engineers/tutorials/04-add-tekton-pipeline-to-demo-app/add-pipeline.md
-        - How To guides:
+        - How-to guides:
             - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
             - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
 
@@ -216,13 +216,16 @@ nav:
         - managed-addons/overview.md
         - Nexus:
             - managed-addons/nexus/overview.md
-            - managed-addons/nexus/tutorial/login-browse.md
-            - managed-addons/nexus/how-to-guide/how-to-configure-maven-with-nexus.md
-            - managed-addons/nexus/how-to-guide/how-to-upload-from-ui.md
-            - managed-addons/nexus/how-to-guide/how-to-upload-local-machine.md
-            - managed-addons/nexus/how-to-guide/how-to-grant-admin-privileges.md           
-            - managed-addons/nexus/explanation/routes.md
-            - managed-addons/nexus/explanation/permissions.md
+            - Tutorials:
+                - managed-addons/nexus/tutorial/login-browse.md
+            - How-to guides:
+                - managed-addons/nexus/how-to-guide/how-to-configure-maven-with-nexus.md
+                - managed-addons/nexus/how-to-guide/how-to-upload-from-ui.md
+                - managed-addons/nexus/how-to-guide/how-to-upload-local-machine.md
+                - managed-addons/nexus/how-to-guide/how-to-grant-admin-privileges.md           
+            - Explanation:            
+                - managed-addons/nexus/explanation/routes.md
+                - managed-addons/nexus/explanation/permissions.md
         - Vault:
             - managed-addons/vault/overview.md
         - ArgoCD:
