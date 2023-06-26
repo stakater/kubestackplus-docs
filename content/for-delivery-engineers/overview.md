@@ -27,7 +27,7 @@ The How-to Guides section offers practical guides that provide detailed instruct
 
 - [Configure Repository Secret for ArgoCD](./how-to-guides/configure-repository-secret/configure-repository-secret.md): This guide focuses on configuring repository secrets specifically for Infra and Apps GitOps repositories.
 
-- [Use A Cluster Task in Pipeline](./how-to-guides/use-a-cluster-task-in-pipeline/use-a-cluster-task-in-pipeline.md): As the name suggests, this chapter will walk you through all the information and necessary steps to add a cluster task into your pipeline.
+- [Use A Cluster Task in Pipeline](./how-to-guides/use-a-cluster-task-in-pipeline/use-a-clustertask-in-pipeline.md): As the name suggests, this chapter will walk you through all the information and necessary steps to add a cluster task into your pipeline.
 
 ## Tutorials
 
