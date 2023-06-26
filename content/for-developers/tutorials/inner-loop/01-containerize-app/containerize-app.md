@@ -68,7 +68,7 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
   1. JAR files were generated as a result of `mvn package`. Copy the artifact generated from build stage.
 
         ```Dockerfile
-        EXPOSE 8080
+        COPY --from=build /usr/src/app/target/*.jar $HOME/artifacts/app.jar
         ```
 
   1. Finally, specify the command to be executed when container is created with this image, typically the command to run the application.
