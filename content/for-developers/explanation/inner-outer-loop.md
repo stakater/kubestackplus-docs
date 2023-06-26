@@ -38,10 +38,10 @@ Here's a list of steps you might typically follow to deploy from the inner loop:
 1. Create a container image: Issue the commands `docker build` and `docker tag`.
 1. Upload the container image to a registry: Issue a `docker push`.
 1. Write one or more Kubernetes or OpenShift resource files: Write lots of YAML.
-1. Deploy your app to the cluster: Issue the command: `kubectl apply -f my_app.yaml`.
-1. Deploy other services to the cluster: Issue the command: `kubectl apply -f svc*.yaml`.
+1. Deploy your app to the cluster: Issue the command: `kubectl apply -f my_app.yaml -n <deleloper-namespace>`.
+1. Deploy other services to the cluster: Issue the command: `kubectl apply -f svc*.yaml -n <deleloper-namespace>`.
 1. Write the config (or set `ENV`) to allow apps to work together: Issue a `kubectl create configmap`.
-1. Configure apps to work together correctly: Issue a `kubectl apply -f my_configmap.yaml`.
+1. Configure apps to work together correctly: Issue a `kubectl apply -f my_configmap.yaml -n <deleloper-namespace>`.
 
 That's a lot of steps!
 
