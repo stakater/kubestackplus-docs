@@ -2,129 +2,190 @@
 
 There are multiple ways to deploy your Application on the Cluster.
 
-- For development with tilt, follow guide for Deploying the Application with Tilt
+- For development with tilt, use tilt for deploying the application on test clusters
     > This the recommended local development workflow
 
 - For Deployment via GitOps, follow guide for Deploying the Application with GitOps
     > This is the recommended production workflow
 
-We will cover application deployment with Helm and ArgoCD in this section.
+## Objective
 
-## Pre-Requisites
+Learn local development for testing and developing applications on local/lab clusters.
 
-- Container available
-- Helm Chart available
-- helm
-- oc
-- curl
+## Key Results
 
-## Deploy your Application with Helm
+- Create a Tiltfile for your application.
 
-Let's deploy a simple application using Helm. Helm charts are packaged and stored in repositories. They can be added as dependencies of other charts or used directly. Let's add a chart repository now. The chart repository stores the version history of our charts as well as the packaged tar file.
+- Deploy the application with tilt.
 
-We created and packaged a Helm chart to the Nexus Helm Repository available in Stakater App Agility Platform (SAAP)
+## Tutorial
 
-1. From your Terminal, add the Nexus Helm Repository using the following command. Consider the
+In this guide we will deploy an application with tilt and namespace in remote OpenShift cluster
 
-    ```bash
-    helm repo add NEXUS_HELM_REPO_NAME NEXUS_HELM_REPO_URL
-    ```
+1. Clone this sample repo [Nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review)
 
-1. Install a chart from this repo. Start by searching the repository to see what is available.
+1. You should have a namespace in remote/local cluster; If you are in SAAP then enable sandbox namespace/project/environment for your tenant; you can read more [here](https://docs.stakater.com/mto/main/customresources.html)
+
+1. Login to cluster as discussed in the previous tutorial.
+
+1. Switch project to sandbox namespace/project/environment
 
     ```bash
-    helm search repo stakater-nordmart-review
+    oc project <MY-SANDBOX>
     ```
 
-1. Now install the latest version. Helm likes to give each install its own release.
+1. Login to OpenShift internal docker registry
+
+    First get the OpenShift internal docker registry URL and set in HOST variable name
 
     ```bash
-    helm install RELEASE_NAME NEXUS_HELM_REPO_NAME/takater-nordmart-review --namespace ${TENANT_NAME}-dev
+    HOST=image-registry-openshift-image-registry.apps.[CLUSTER-NAME].[CLUSTER-ID].kubeapp.cloud
     ```
 
-1. Open the application up in the browser to verify it's up and running. Here's a handy one-liner to get the URL of the app.
+    NOTE: Ask `sca` (SAAP Cluster Admin) or `cluster-admin` to provide you the OpenShift internal registry route
+
+    Then login into docker registry with following command:
 
     ```bash
-    oc project ${TENANT_NAME}-dev
-    oc get pods,svc -n ${TENANT_NAME}-dev
+    docker login -u $(oc whoami) -p $(oc whoami -t) $HOST
     ```
 
-1. Run the following command to port forward the pod to your local machine and run curl command to verify your application is running and serving requests.
+    If you get this error `x509: certificate signed by unknown authority` then you need to update your `/etc/docker/daemon.json` file and add the insecure registry
 
-     ```sh
-     # get podname with oc get
-     oc port-forward <podname> 8080:8080
-     curl localhost:8080/api/review/329199
-     ```
-
-1. You can upgrade your chart values with CLI. By default, your application has only 1 replica. You can view this using the following command.
-
-     ```bash#test
-     oc get pods -n ${TENANT_NAME}-dev
-     ```
-
-    By default, there is one replica of your application. Let's use Helm to set this to 5.
-
-    ```bash#test
-    helm upgrade RELEASE_NAME NEXUS_HELM_REPO_NAME/APP_NAME --set APP_NAME.deployment.replicas=5 --namespace ${TENANT_NAME}-dev
+    ```bash
+    {
+        "insecure-registries" : [ "HOST" ]
+    }
     ```
 
-    Verify the deployment has scaled up to 5 replicas.
+1. (Optional) Add Helm chart repos
 
-    ```bash#test
-    oc get pods -n ${TENANT_NAME}-dev
+    If you reference Helm charts from private registry then you first need to add it
+
+    ```sh
+    cd deploy
+
+    # Helm credentials can be found in Vault or in a secret in build namespace
+    helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********; 
+
+    cd ..
     ```
 
-1. If you're done playing with the `Nordmart Review API`. You can tidy up your work by removing the chart. To do this, run `helm uninstall` to remove your release of the chart.
+1. Update Helm dependencies.
 
-    ```bash#test
-    helm uninstall stakater-nord -namespace ${TENANT_NAME}-dev
+    ```sh
+    cd deploy
+
+    helm dependency update
+
+    cd ..
     ```
 
-    Verify the cleanup.
+1. Go through the [Tiltfile](https://github.com/stakater-lab/stakater-nordmart-review/blob/main/Tiltfile) of the application
 
-    ```bash#test
-    oc get pods -n ${TENANT_NAME}-dev
+1. Check the `local_resource` section in the Tiltfile
+
+1. Create `tilt_options.json` file
+
+    Remove `.template` from the file named `tilt_options.json.template`
+
+    ![Create tilt_options.json](images/tilt-options-json.png)
+
+    And then fill up all three things
+
+      1. `namespace`: your sandbox environment name
+      1. `default_registry`: the OpenShift internal registry route (you have set in step # 6 in HOST above) and then add your namespace name after `/`
+      1. `allow_k8s_contexts`: given you are logged in the cluster; then run `oc config current-context` to get the value for `allow_k8s_contexts`
+
+          e.g.
+
+          ```json
+          {
+              "namespace": "tilt-username-sandbox",
+              "default_registry": "image-registry-openshift-image-registry.apps.[CLUSTER-NAME].[CLUSTER-ID].kubeapp.cloud/tilt-username-sandbox",
+              "allow_k8s_contexts": "tilt-username-sandbox/api-[CLUSTER-NAME]-[CLUSTER-ID]-kubeapp-cloud:6443/user@email.com"
+          }
+          ```
+
+1. Go through the `.gitigore` and check tilt and Helm specific ignores
+
+    ```sh
+    # ignore tilt files
+    tilt_options.json
+    tilt_modules/
+
+    # ignores helm files
+    /deploy/charts
     ```
 
-## Deploy your Application with ArgoCD
+1. Go through `.tiltignore`.
 
-1. Log into ArgoCD UI.
+    ```sh
+    **/charts
+    **/tmpcharts
+    ```
 
-1. Lets deploy a sample application through the UI. In fact, let's get ArgoCD to deploy the `stakater-nordmart-review` app you manually deployed previously using Helm. On ArgoCD - click `+ NEW APP`. You should see an empty form. Let's fill it out by setting the following:
+1. Go through `values-local.yaml` in a `tilt` folder in base application directory.
 
-      - On the **GENERAL** box
+    `values-local.yaml` should contain the following content. Make sure that replica count should always be 1.
 
-         - Application Name: `<TENANT_NAME>-nordmart-review`
-         - Project: `<TENANT_NAME>` (select the project corresponding to your `<TENANT_NAME>` from the `project` dropdown)
-         - Sync Policy: `Automatic`
+    ```yaml
+    application:
+        
+      deployment:
+        imagePullSecrets: null
 
-      - On the **SOURCE** box
+        # Tilt live update only supports one replica
+        replicas: 1
 
-         - Repository URL: `NEXUS_HELM_REGISTRY_URL`
-         - Select `Helm` from the right dropdown menu
-         - Chart: `stakater-nordmart-review`
-         - Version: `1.0.0`
+        image:
+          tag: null
+    ```
 
-      - On the **DESTINATION** box
+1. Validate this application is not running already
 
-         - Cluster URL: `https://kubernetes.default.svc`
-         - Namespace: `<TENANT_NAME>-test`
+    ![sandbox namespace](images/sandbox-env-b4-tilt-up.png)
 
-    Your form should look like the follow image, if so click `Create`
+1. Run `tilt up` at base directory
 
-1. After you hit `Create`, you'll see `<TENANT_NAME>-nordmart-review` application is created and should start deploying in your `<TENANT_NAME>-test` namespace.
+    ![tilt up](images/tilt-up.png)
 
-1. If you drill down into the application you will get ArgoCD's amazing view of all k8s resources that were generated by the chart
+    Open the tilt browser; just hit the space
 
-1. You can verify the application is running and behaving as expected by navigating to `Workloads` > `Pods` section in the `<TENANT_NAME-test` namespace in your `OpenShift Console`.
+    ![tilt browser](images/tilt-browser.png)
 
-      > Select the dropdown menu and switch to `Administrator` view in the OpenShift console if you are not already there
+    If everything is green then the application will be deployed in the cluster
 
-1. Run the following command to port forward the pod to your local machine and run curl command to verify your application is running and serving requests.
+    ![sandbox namespace](images/sandbox-env-after-tilt-up.png)
 
-     ```sh
-     # get podname with oc get
-     oc port-forward <podname> 8080:8080
-     curl localhost:8080/api/review/329199
-     ```
+    Press space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
+
+1. Lets browse through some reviews; go to routes
+
+    ![find route](images/find-route.png)
+
+    Click on the review route
+
+    ![review-route](images/review-route.png)
+
+    In the end of the route add `/api/review/329199`
+
+    Review the json output
+
+    ![product review](images/product-review-json-b4-change.png)
+
+1. Lets make one change; we will update the first review text to "Tilt Demo"
+
+    ![update review service](images/review-service-to-update.png)
+
+    Switch back to tilt browser, you will see it has started picking up changes
+
+    ![tilt pick up change](images/tilt-picking-up-change.png)
+
+    Within few seconds the change will be deployed; and you can refresh the route to see the change
+
+    ![updated review](images/product-review-json-after-change.png)
+
+    Awesome! you made it
+
+1. Run `tilt down` to delete the application and related configuration from the namespace

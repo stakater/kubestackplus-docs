@@ -2,7 +2,7 @@
 
 ![Local Development Workflow](./images/local-development-1.png)
 
-The diagram below depicts a development workflow orchestrated by Tilt. After you execute the tilt up command on your development machine, Tilt will keep running while performing the following actions:
+The diagram above depicts a development workflow orchestrated by Tilt. After you execute the tilt up command on your development machine, Tilt will keep running while performing the following actions:
 
 1. Tilt watches for changes in the source code made by the developer on the local machine.
 1. After a change has been detected, Tilt executes docker/buildah to update the container image. After the build completes, the updated container image is pushed to the internal docker registry.

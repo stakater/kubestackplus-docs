@@ -2,14 +2,16 @@
 
 Lets see how can we add an environment to an application in a tenant. Lets say, we have added a production cluster and want to add a new environment in application for it to be deployed on production.
 
-Objectives:
+## Objectives
 
 - Deploy your application to a new environment
 
-Key Results:
+## Key Results
 
 - ArgoCD apps pointing to application environment created
 - Helm chart with production configuration deployed
+
+## Guide
 
 1. Create a folder named `production` at `<tenant-name>/<app-name>` which corresponds to the production environment. Suppose `gabbar` as tenant name, `stakater-nordmart-review` as application name, `production` as cluster name, `prod` as environment name.
 
