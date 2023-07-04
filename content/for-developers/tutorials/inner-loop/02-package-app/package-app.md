@@ -17,14 +17,18 @@ We need to decide what Kubernetes resources are required for our application. A 
 
 ### Create a Helm Chart with Application Chart
 
-1. Create a directory named deploy/ that will contain the helm chart that will be deployed for our application.
+#### 1. Create "deploy" directory
+
+Create a directory named deploy/ in your repository that will contain the helm chart which will be deployed for our application.
 
    ```sh
    git clone https://github.com/ORG/repo && cd repo
    mkdir deploy
    ```
 
-1. Create A YAML file containing information about the chart called Chart.yaml.
+#### 2. Create Chart.yaml
+
+Create A YAML file containing information about the chart called Chart.yaml.
 
    ```sh
    touch Chart.yaml
@@ -41,15 +45,17 @@ We need to decide what Kubernetes resources are required for our application. A 
    appVersion: "0.0.0"
    ```
 
-    This dependency chart allows you to define resources without getting overwhelmed by the complexities of different resource with a simple interface. For a full list of configuration visit the chart repository [here](https://github.com/stakater/application)
+> This dependency chart allows you to define resources without getting overwhelmed by the complexities of different resource with a simple interface. For a full list of configuration visit the chart repository [here](https://github.com/stakater/application)
 
-1. Next create a values.yaml file for default configuration values for this chart. Lets start by defining values for deployment and service.
+#### 3. Create values.yaml
+
+Next create a values.yaml file for default configuration values for this chart. Lets start by defining values for deployment and service.
 
    ```sh
    touch values.yaml
    ```
 
-    ```yaml
+  ```yaml
     application:
       applicationName: APP_NAME
       deployment:
@@ -58,17 +64,27 @@ We need to decide what Kubernetes resources are required for our application. A 
       rbac:
         serviceAccount:
           enabled: true
-    ```
+  ```
 
-1. Run `helm dependency build` to rebuild the charts/ directory based on the `Chart.lock` file.
+#### 4. Rebuild the charts
 
-    ```sh
-    helm dependency build
-    ```
+Run `helm dependency build` to rebuild or update the charts/ directory based on the `Chart.lock` file.
 
-1. Run `helm template .` to view the resources generated. This chart will generate deployment, service account and service custom resources. This will highlight any other errors in the chart as well.
+  ```sh
+  helm dependency build
+  ```
 
-    ```yaml
+#### 5. View the generated resources
+
+Run `helm template .` to view the resources generated.
+
+  ```sh
+  helm template .
+  ```
+
+This chart will generate deployment, service account and service custom resources. This will highlight any other errors in the chart as well.
+
+  ```yaml
     # Source: CHART_NAME/charts/application/templates/serviceaccount.yaml
     apiVersion: v1
     kind: ServiceAccount
@@ -79,7 +95,6 @@ We need to decide what Kubernetes resources are required for our application. A 
         helm.sh/chart: application-2.1.13
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: APP_NAME
-    
       annotations:
     ---
     # Source: CHART_NAME/charts/application/templates/service.yaml
@@ -140,10 +155,49 @@ We need to decide what Kubernetes resources are required for our application. A 
               readOnlyRootFilesystem: true
               runAsNonRoot: true
           serviceAccountName: APP_NAME
-    ```
+  ```
 
-    If you want to add resources that cannot be defined with dependency chart. You can simply add them in the `templates/` folder.
+  If you want to add resources that cannot be defined with dependency chart. You can simply add them in the `templates/` folder.
 
 > Visit [Stakater Nordmart Review Web](https://github.com/stakater-lab/stakater-nordmart-review-web/tree/main/deploy) and [Stakater Nordmart Review API](https://github.com/stakater-lab/stakater-nordmart-review-api/tree/main/deploy)  to see an example.
 
 ### Package Stakater Nordmart Review
+
+Consider the [`stakater-nordmart-review-api`](https://github.com/stakater-lab/stakater-nordmart-review-api) application that we containerized earlier.
+
+#### 1. Clone the repository
+
+  ```sh
+  git clone https://github.com/stakater-lab/stakater-nordmart-review-api
+  cd stakter-nordmart-review-api
+  ```
+
+#### 2. go to deploy/ directory
+
+  ```sh
+  cd deploy
+  ```
+
+In deploy/ directory you will see the `Chart.yaml`, `values.yaml` file and a `templates` directory.
+
+#### 3. Rebuild/update the charts
+
+In deploy/ directory run `helm dependency build`.
+
+  ```sh
+  helm dependency build
+  ```
+
+You will see the `charts` directory and a `Chart.lock` file has created.
+
+#### 4. View the generated resources
+
+Run `helm template .` to view the resources generated.
+
+  ```sh
+  helm template .
+  ```
+
+As you run the above command, the generated resources will be shown on the console.
+
+You just packaged `Stakater Nordmart Review Api` application.

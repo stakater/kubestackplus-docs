@@ -101,7 +101,7 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
         ```sh
         # -p flag exposes container port 8080 on your local port 8080
         # --env flag allows Mongo_DB necessary environment variables; e.g. MONGO_HOST, MONGO_DB_PASS
-        podman run -dt -p [<localhost-port>:<container-port>] --env <variable1>=<value> -env <variable2>=<value> <image-name>:1.0.0
+        podman run -dt -p [<localhost-port>:<container-port>] --env <variable1>=<value> --env <variable2>=<value> <image-name>:1.0.0
         ```
 
   1. Run a curl command to verify that image is running.
