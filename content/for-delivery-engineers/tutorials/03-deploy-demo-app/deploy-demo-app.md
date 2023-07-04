@@ -169,13 +169,29 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
           targetPort: http
     ```
 
+1. Add Helm chart repos
+
+    If you reference Helm charts from private registry then you first need to add it
+
+    ```sh
+    cd deploy
+
+    # Add Stakater Charts repo defined in the Chart.yaml
+    helm repo add stakater-charts https://stakater.github.io/stakater-charts
+
+    # Add nexus helm repo
+    # Helm credentials can be found in Vault or in a secret in build namespace
+    helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********;
+    ```
+
 1. Make sure to validate the helm chart before doing a commit to the repository.
 If your application contains dependency charts run the following command in deploy/ folder to download helm dependencies using **helm dependency build**.
 
     ```sh
-    # Download helm dependencies in Chart.yaml
+    # Make sure you are working in deploy directory
     cd deploy/
-    # command info : helm dependency --help 
+    # Download helm dependencies in Chart.yaml
+    # command info : helm dependency --help
     helm dependency build
     ```
 

@@ -2,10 +2,12 @@
 
 There are multiple ways to deploy your Application on the Cluster.
 
-- For development with tilt, use tilt for deploying the application on test clusters
+- For development with tilt follow below tutorial. Use tilt for deploying the application on test clusters.
+
     > This the recommended local development workflow
 
-- For Deployment via GitOps, follow guide for Deploying the Application with GitOps
+- For Deployment via GitOps, follow [this](../../../../for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md) guide for Deploying the Application with GitOps
+
     > This is the recommended production workflow
 
 ## Objective
