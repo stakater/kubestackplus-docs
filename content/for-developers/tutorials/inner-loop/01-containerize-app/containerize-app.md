@@ -71,10 +71,22 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
         COPY --from=build /usr/src/app/target/*.jar $HOME/artifacts/app.jar
         ```
 
+  1. Define user.
+
+        ```Dockerfile
+        USER 1001
+        ```
+
+  1. Set the Entrypoint
+
+        ```Dockerfile
+        ENTRYPOINT exec java $JAVA_OPTS -jar artifacts/app.jar
+        ```
+
   1. Finally, specify the command to be executed when container is created with this image, typically the command to run the application.
 
         ```Dockerfile
-        CMD ["node", "server.js"]
+        CMD ["java", "-jar", "artifacts/app.jar"]
         ```
 
   1. Run the following command to build the image.
@@ -88,7 +100,8 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
 
         ```sh
         # -p flag exposes container port 8080 on your local port 8080
-        buildah run <app-name>:1.0.0 .
+        # --env flag allows Mongo_DB necessary environment variables; e.g. MONGO_HOST, MONGO_DB_PASS
+        podman run -dt -p [<localhost-port>:<container-port>] --env <variable1>=<value> -env <variable2>=<value> <image-name>:1.0.0
         ```
 
   1. Run a curl command to verify that image is running.
