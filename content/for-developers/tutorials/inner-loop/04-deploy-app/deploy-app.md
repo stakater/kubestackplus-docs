@@ -28,7 +28,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
 1. You should have a namespace in remote/local cluster; If you are in SAAP then enable sandbox namespace/project/environment for your tenant; you can read more [here](https://docs.stakater.com/mto/main/customresources.html)
 
-1. Login to cluster as discussed in the previous tutorial.
+1. Login to cluster via `OpenShift CLI`, copy the login command from your `username` tab as discussed in the previous tutorial.
 
 1. Switch project to sandbox namespace/project/environment
 
@@ -68,7 +68,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
     cd deploy
 
     # Helm credentials can be found in Vault or in a secret in build namespace
-    helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********; 
+    helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********
 
     cd ..
     ```
