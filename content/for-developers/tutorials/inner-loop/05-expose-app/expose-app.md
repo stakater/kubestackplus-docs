@@ -30,13 +30,13 @@ In the above example, a route named `nordmart-route` is defined, pointing to the
 oc apply -f route.yaml
 ```
 
-### 3. Create Application's Route Hostname DNS record
+### 3. Create the DNS record
 
 Once the route is created, it will assign a hostname (`nordmart.example.com`) that you can use to access your application externally.
 
 > **Note:** In order to use a hostname, you must have a DNS record pointing to the OpenShift cluster's external IP or load balancer. Identify the responsible team to create a DNS record for your application's route hostname such as; `nordmart.example.com`.
 
-By following the steps outlined above, you can successfully expose your application deployed on Red Hat OpenShift, using the example application "`nordmart`". Whether using the NodePort, LoadBalancer, or Route approach, you can make your application accessible from outside the OpenShift cluster, allowing users to access and interact with your application over the network.
+By following the steps outlined above, you can successfully expose your application deployed on Red Hat OpenShift, using the example application "`nordmart`". Using the NodePort, LoadBalancer, or Route approach, you can make your application accessible from outside the OpenShift cluster, allowing users to access and interact with your application over the network.
 
 ## Service Type
 
@@ -44,7 +44,7 @@ In OpenShift, services are used to expose applications internally within the clu
 
 ### a. NodePort
 
-When using the NodePort service type, OpenShift assigns a random port within a predefined range on each node of the cluster.
+When using the NodePort service type, OpenShift assigns a random port within a predefined range on each cluster node.
 
 #### 1. Create Service NodePort
 
@@ -66,7 +66,7 @@ spec:
 
 In the above example, a service named `nordmart-service` is defined with the NodePort type, exposing port 80 and forwarding traffic to port 8080 of the application.
 
-#### 2. Retrive the Port
+#### 2. Retrieve the Port
 
 To access your application externally, you need to determine the assigned port and the IP address of any of the cluster's nodes.
 
