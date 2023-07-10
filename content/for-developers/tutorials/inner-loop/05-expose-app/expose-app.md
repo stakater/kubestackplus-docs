@@ -1,12 +1,14 @@
-# Expose your Application
+# Expose Your Application
 
-After successfully deploying your application on Red Hat OpenShift, you need to expose it to external traffic so that users can access your application over the network. This documentation will guide you through the process of exposing your application and making it accessible from outside the OpenShift cluster.
+After successfully deploying your application on Red Hat OpenShift, you need to expose it to external traffic so that users can access your application over the network. This tutorial will guide you through the process of exposing your application and making it accessible from outside the OpenShift cluster.
 
 ## Route
 
-OpenShift provides a routing mechanism called "routes" that allows you to expose applications using hostnames and paths. Routes are created using the Route resource and can provide additional features such as SSL termination and path-based routing. To create a route:
+OpenShift provides a routing mechanism called "routes" that allows you to expose applications using hostnames and paths. Routes are created using the Route resource and can provide additional features such as SSL termination and path-based routing.
 
-a. In your deployment configuration YAML file, define a route:
+### 1. Create a Route
+
+a. Create a separate yaml file (e.g., route.yaml) or define it in your deployment configuration YAML file, and define a route using the following yaml:
 
 ```yaml
 apiVersion: route.openshift.io/v1
@@ -22,12 +24,17 @@ spec:
 
 In the above example, a route named `nordmart-route` is defined, pointing to the `nordmart-service` service.
 
-b. Apply the configuration to create the route:
+### 2. Apply the Configuration
 
-`oc apply -f route.yaml`
-c. Once the route is created, it will assign a hostname (`nordmart.example.com`) that you can use to access your application externally.
+```sh
+oc apply -f route.yaml
+```
 
-Note: In order to use a hostname, you must have a DNS record pointing to the OpenShift cluster's external IP or load balancer.
+### 3. Create Application's Route Hostname DNS record
+
+Once the route is created, it will assign a hostname (`nordmart.example.com`) that you can use to access your application externally.
+
+> **Note:** In order to use a hostname, you must have a DNS record pointing to the OpenShift cluster's external IP or load balancer. Identify the responsible team to create a DNS record for your application's route hostname such as; `nordmart.example.com`.
 
 By following the steps outlined above, you can successfully expose your application deployed on Red Hat OpenShift, using the example application "`nordmart`". Whether using the NodePort, LoadBalancer, or Route approach, you can make your application accessible from outside the OpenShift cluster, allowing users to access and interact with your application over the network.
 
@@ -35,7 +42,13 @@ By following the steps outlined above, you can successfully expose your applicat
 
 In OpenShift, services are used to expose applications internally within the cluster. To expose your application externally, you need to specify the appropriate service type:
 
-a. In your deployment configuration YAML file, define a service with the type NodePort or LoadBalancer:
+### a. NodePort
+
+When using the NodePort service type, OpenShift assigns a random port within a predefined range on each node of the cluster.
+
+#### 1. Create Service NodePort
+
+Create a separate yaml file (e.g., svc-nodeport.yaml) or define it in your deployment configuration YAML file, and define a service using the following yaml:
 
 ```yaml
 apiVersion: v1
@@ -53,27 +66,39 @@ spec:
 
 In the above example, a service named `nordmart-service` is defined with the NodePort type, exposing port 80 and forwarding traffic to port 8080 of the application.
 
-### NodePort
+#### 2. Retrive the Port
 
-When using the NodePort service type, OpenShift assigns a random port within a predefined range on each node of the cluster. To access your application externally, you need to determine the assigned port and the IP address of any of the cluster's nodes:
+To access your application externally, you need to determine the assigned port and the IP address of any of the cluster's nodes.
 
-a. Retrieve the port assigned to the service by running the following command:
+Retrieve the port assigned to the service by running the following command:
 
-`oc get service nordmart-service`
+```sh
+oc get service nordmart-service
+```
 
-b. Identify the port assigned to the NodePort field. This port will be used to access your application externally.
+#### 3. Identify the Port
 
-c. Obtain the IP address of any node in the cluster:
+Identify the port assigned to the NodePort field. This port will be used to access your application externally. The range of the port will be 30000-32767.
 
-`oc get nodes -o wide`
+#### 4. Obtain the Node IP
 
-d. Combine the node's IP address with the assigned port to access your application. For example: `http://<node-ip>:<assigned-port>`
+Obtain the IP address of any node in the cluster:
 
-### LoadBalancer
+```sh
+oc get nodes -o wide
+```
+
+#### 5. Access the Application
+
+Combine the node's IP address with the assigned port to access your application. For example: `http://<node-ip>:<assigned-port>`
+
+### b. LoadBalancer
 
 If your OpenShift cluster is running in a cloud environment that supports load balancers, you can use the LoadBalancer service type. This type automatically provisions a load balancer to distribute traffic to your application:
 
-a. In your deployment configuration YAML file, define a service with the type LoadBalancer:
+#### 1. Create Service LoadBalancer
+
+Create a separate yaml file (e.g., svc-loadbalancer.yaml) or define it in your deployment configuration YAML file, and define a service using the following yaml:
 
 ```yaml
 apiVersion: v1
@@ -91,9 +116,11 @@ spec:
 
 In the above example, a service named `nordmart-service` is defined with the LoadBalancer type, exposing port 80 and forwarding traffic to port 8080 of the application.
 
-b. After applying the configuration, OpenShift will provision a load balancer in the cloud environment, which will route external traffic to your application.
+> **Note:** After applying the configuration, OpenShift will provision a load balancer in the cloud environment, which will route external traffic to your application.
 
-c. Obtain the load balancer IP address or domain name provided by your cloud provider to access your application. For example: `http://<load-balancer-ip>:<port>`
+#### 2. Obtain the LoadBalancer IP
+
+Obtain the load balancer IP address or domain name provided by your cloud provider to access your application. For example: `http://<load-balancer-ip>:<port>`
 
 ## Whitelisting application routes
 
