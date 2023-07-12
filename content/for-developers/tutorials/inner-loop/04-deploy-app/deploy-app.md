@@ -162,15 +162,11 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
     Press space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
 
-1. Lets browse through some reviews; go to routes
+1. In your Tiltfile, there is a port forwarding command written, this command will forward the port of the application to your local machine. To see the output of the deployment:
 
-    ![find route](images/find-route.png)
-
-    Click on the review route
-
-    ![review-route](images/review-route.png)
-
-    In the end of the route add `/api/review/329199`
+    ```sh
+    curl localhost:8080/api/review/329199
+    ```
 
     Review the json output
 
