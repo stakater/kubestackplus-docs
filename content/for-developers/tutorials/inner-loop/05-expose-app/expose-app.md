@@ -28,11 +28,11 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
         targetPort: http
     ```
 
-    a) Route is enabled true, that means the route resource will be created when you tilt up.
+    a) Route is `enabled: true`, which means the route resource will be created when you tilt up.
 
-    b) port: This section defines the port configuration for the Route resource.
+    b) `port:` This section defines the port configuration for the Route resource.
 
-    c) targetPort: http: This specifies the target port for the Route. In this case, the value is set to http, which is a named port defined in the associated Service configuration. It represents the port on which the backend service is listening to handle incoming traffic.
+    c) `targetPort: http`: This specifies the target port for the Route. In this case, the value is set to `http`, which is a named port defined in the associated Service configuration. It represents the port on which the backend service is listening to handle incoming traffic.
 
     Route is responsible for routing the external traffic based on rules while a Service is responsible for load balancing and forwarding the traffic to the appropriate pods. To create a service:
 
@@ -48,15 +48,15 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
           targetPort: 8080
     ```
 
-    a) Service is enabled true, that means the service reource will be created on the OpenShift cluster when you tilt up your application.
+    a) Service is `enabled: true`, which means the service resource will be created on the OpenShift cluster when you tilt up your application.
 
-    b) port: This section defines the port configuration for the service resource.
+    b) `port:` This section defines the port configuration for the service resource.
 
-    c) name: http: We have seen in the route `targetPort: http` was given which was pointing to this service port named `http`. `port: 8080` is the port of the service itself. `targetPort: 8080` is the pod/container port of the application.
+    c) `name: http`: We have seen in the route `targetPort: http` was given which was pointing to this service port named `http`. `port: 8080` is the port of the service itself. `targetPort: 8080` is the pod/container port of the application.
 
 1. Run `tilt up` in your directory containing updated `tilt/values-local`.
 
-1. Lets go to routes reource in your namespace
+1. Let's go to the routes resource in your namespace
 
     ![find route](./../04-deploy-app/images/find-route.png)
 
@@ -64,13 +64,13 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
     ![review-route](./../04-deploy-app/images/review-route.png)
 
-1. In the end of the route add `/api/review/329199`
+1. At the end of the route add `/api/review/329199`
 
     Now you can access the application externally with this route.
 
     ![updated review](./../04-deploy-app/images/product-review-json-after-change.png)
 
-By following the steps outlined above, you can successfully expose your application deployed on Red Hat OpenShift, using the example application "`stakater-nordmart-review-api`". Whether using the NodePort, LoadBalancer, or Route approach, you can make your application accessible from outside the OpenShift cluster, allowing users to access and interact with your application over the network.
+By following the steps outlined above, you can successfully expose your application deployed on Red Hat OpenShift, using the example application "`stakater-nordmart-review-api`". Using the NodePort, LoadBalancer, or Route approach, you can make your application accessible from outside the OpenShift cluster, allowing users to access and interact with your application over the network.
 
 ## Whitelisting application routes
 
