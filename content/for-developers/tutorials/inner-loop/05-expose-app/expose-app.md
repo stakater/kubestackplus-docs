@@ -33,8 +33,7 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
     b) `port:` This section defines the port configuration for the Route resource.
 
     c) `targetPort: http`: This specifies the target port for the Route. In this case, the value is set to `http`, which is a named port defined in the associated Service configuration. It represents the port on which the backend service is listening to handle incoming traffic.
-
-    Route is responsible for routing the external traffic based on rules while a Service is responsible for load balancing and forwarding the traffic to the appropriate pods. To create a service:
+To create a service:
 
 1. In your `tilt/values-local` file, define a service:
 
