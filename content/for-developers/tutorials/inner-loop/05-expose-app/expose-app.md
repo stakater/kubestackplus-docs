@@ -4,22 +4,18 @@ After successfully deploying your application on Red Hat OpenShift, you need to 
 
 ## Objective
 
-- Expose your application internally within the cluster.
-- Expose your application to external traffic via route.
-- Expose your application to external traffic via ingress.
+- Expose your application internally using service
+- Expose your application externally using route or ingress
 
 ## Key Results
 
-- Create route
-- Create service based on the application requirements
+- Application is exposed for traffic in/out of cluster
 
 ## Tutorial
 
 ### Expose Application Within the Cluster
 
-To expose an application internally within the cluster via a Service.
-
-To create a service:
+Create a service:
 
 1. In your `tilt/values-local` file, define a service:
 
@@ -43,7 +39,7 @@ To create a service:
 
     c) `name: http`: We have seen in the route `targetPort: http` was given which was pointing to this service port named `http`. `port: 8080` is the port of the service itself. `targetPort: 8080` is the pod/container port of the application.
 
-    > You can change or add any configuration for the service. To see more configurations [click](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html#services)
+      > You can change or add any configuration for the service. To see more configurations [click](https://github.com/stakater/application.git)
 
 1. Run `tilt up` in your directory containing updated `tilt/values-local`.
 
@@ -51,7 +47,7 @@ To create a service:
 
       ![find service](images/svc.png)
 
-Here we can see that the service named by review is created. Take a look at the pod selector and location, the service has exposed our review pod on port `8080`.
+  Here we can see that the service named by review is created. Take a look at the pod selector and location, the service has exposed our review pod on port `8080`.
 
 ## Expose your application to external traffic via route
 
@@ -77,7 +73,7 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
     c) `targetPort: http`: This specifies the target port for the Route. In this case, the value is set to `http`, which is a named port defined in the associated Service configuration. It represents the port on which the backend service is listening to handle incoming traffic.
 
-> You can change or add any configuration for the route. To see more configurations [click](https://docs.openshift.com/container-platform/4.11/networking/routes/route-configuration.html)
+    > You can change or add any configuration for the route. To see more configurations [click](https://github.com/stakater/application.git)
 
 1. Run `tilt up` in your directory containing updated `tilt/values-local`.
 
@@ -89,7 +85,7 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
     ![review-route](images/review-route.png)
 
-Here you can see the route and the service that is associated with it.
+  Here you can see the route and the service that is associated with it.
 
 1. At the end of the route add `/api/review/329199`
 
