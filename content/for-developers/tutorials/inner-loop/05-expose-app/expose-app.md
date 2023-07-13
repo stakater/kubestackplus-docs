@@ -49,9 +49,9 @@ To create a service:
 
 1. Let's go to the services under the networking section in your namespace
 
-      ![`find svc`](images/svc.png)
+      ![find service](images/svc.png)
 
-Here we can see that the service named by review is created. Take a look at the pod selector and location, the service has exposed our review pod on the port `8080`.
+Here we can see that the service named by review is created. Take a look at the pod selector and location, the service has exposed our review pod on port `8080`.
 
 ## Expose your application to external traffic via route
 
@@ -89,7 +89,7 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
     ![review-route](images/review-route.png)
 
-Here you can see the route and the service that is accociated to it.
+Here you can see the route and the service that is associated with it.
 
 1. At the end of the route add `/api/review/329199`
 
