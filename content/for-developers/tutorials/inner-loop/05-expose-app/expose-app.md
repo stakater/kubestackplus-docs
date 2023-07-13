@@ -33,17 +33,21 @@ To create a service:
           targetPort: 8080
     ```
 
+    It should look like this:
+
+    ![svc-values](images/svc-values.png)
+
     a) Service is `enabled: true`, which means the service resource will be created on the OpenShift cluster when you tilt up your application.
 
     b) `port:` This section defines the port configuration for the service resource.
 
     c) `name: http`: We have seen in the route `targetPort: http` was given which was pointing to this service port named `http`. `port: 8080` is the port of the service itself. `targetPort: 8080` is the pod/container port of the application.
 
-> You can change or add any configuration for the service. To see more configurations [click](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html#services)
+    > You can change or add any configuration for the service. To see more configurations [click](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html#services)
 
-1. Run `tilt up` in your directory containing updated `tilt/values-local`.
+2. Run `tilt up` in your directory containing updated `tilt/values-local`.
 
-1. Let's go to the services under networking section in your namespace
+3. Let's go to the services under networking section in your namespace
 
       ![find svc](images/svc.png)
 
@@ -62,6 +66,10 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
       port:
         targetPort: http
     ```
+
+    It should look like this:
+
+    ![route-values](images/route-values.png)
 
     a) Route is `enabled: true`, which means the route resource will be created when you tilt up.
 
