@@ -45,11 +45,11 @@ To create a service:
 
     > You can change or add any configuration for the service. To see more configurations [click](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html#services)
 
-2. Run `tilt up` in your directory containing updated `tilt/values-local`.
+1. Run `tilt up` in your directory containing updated `tilt/values-local`.
 
-3. Let's go to the services under networking section in your namespace
+1. Let's go to the services under the networking section in your namespace
 
-      ![find svc](images/svc.png)
+      ![`find svc`](images/svc.png)
 
 Here we can see that the service named by review is created. Take a look at the pod selector and location, the service has exposed our review pod on the port `8080`.
 
