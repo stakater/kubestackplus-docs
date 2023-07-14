@@ -99,7 +99,7 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
 ## Exposing Your Application to External Traffic via Ingress
 
-1. To expose application via `Ingress`, we need a service. Create a service from the section [Create a Service](#exposing-your-application-within-the-cluster).
+1. To expose application via `Ingress`, we need a service. Create a service from [this](#exposing-your-application-within-the-cluster) section.
 
 1. In your `deploy/values.yaml` file, define ingress:
 
