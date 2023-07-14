@@ -1,6 +1,6 @@
 # Expose your Application
 
-After successfully deploying your application on Red Hat OpenShift, you need to expose it to internal or external traffic so that users and other resources can access your application over the network. This tutorial will guide you through the process of exposing your application and making it accessible from outside the OpenShift cluster.
+Once you have successfully deployed your application on the SAAP (Stakater APP Agility Platform), the next step is to make it accessible to users and resources over the network. In this tutorial, you will learn how to expose your application and enable external traffic to reach it, whether for internal use within the cluster or external access from outside the cluster. By following these steps, you will ensure that your application is reachable and can serve its intended purpose.
 
 ## Objective
 
@@ -11,9 +11,9 @@ After successfully deploying your application on Red Hat OpenShift, you need to 
 
 - Application is exposed for traffic in/out of cluster
 
-## Tutorial
+## Tutorial #1
 
-### Expose Application Within the Cluster
+### Exposing Your Application Within the Cluster
 
 Create a service:
 
@@ -33,7 +33,7 @@ Create a service:
 
     ![svc-values](images/svc-values.png)
 
-    a) Service is `enabled: true`, which means the service resource will be created on the OpenShift cluster when you tilt up your application.
+    a) Service is `enabled: true`, which means the service resource will be created on the SAAP when you tilt up your application.
 
     b) `port:` This section defines the port configuration for the service resource.
 
@@ -47,9 +47,11 @@ Create a service:
 
       ![find service](images/svc.png)
 
-  Here we can see that the service named by review is created. Take a look at the pod selector and location, the service has exposed our review pod on port `8080`.
+    Here we can see that the service named by review is created. Take a look at the pod selector and location, the service has exposed our review pod on port `8080`.
 
-## Expose your application to external traffic via route
+## Tutorial #2
+
+## Exposing Your Application to External Traffic via Route
 
 OpenShift provides a routing mechanism called "routes" that allows you to expose applications using hostnames and paths. Routes are created using the Route resource and can provide additional features such as SSL termination and path-based routing. To create a route:
 
@@ -85,17 +87,19 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
     ![review-route](images/review-route.png)
 
-  Here you can see the route and the service that is associated with it.
+    Here you can see the route and the service that is associated with it.
 
 1. At the end of the route add `/api/review/329199`
 
     Now you can access the application externally with this route.
 
-    ![updated review](./../04-deploy-app/images/product-review-json-after-change.png)
+    ![browse-route](images/browse-route.png)
 
-## Expose your application to external traffic via ingress
+## Tutorial #3
 
-1. To expose application via `Ingress`, we need a service. Create a service from the section [Create a Service](#expose-application-within-the-cluster).
+## Exposing Your Application to External Traffic via Ingress
+
+1. To expose application via `Ingress`, we need a service. Create a service from the section [Create a Service](#exposing-your-application-within-the-cluster).
 
 1. In your `deploy/values.yaml` file, define ingress:
 
@@ -125,7 +129,7 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
       - `host: review.[CLUSTER-NAME].kubeapp.cloud`: Specifies the host for the Ingress resource. You can replace [CLUSTER-NAME] with the actual name of your cluster. This means that the Ingress resource will handle requests for the host review.[CLUSTER-NAME].kubeapp.cloud.
 
-        > Note: In order to use a different host, you must have a DNS record pointing to the OpenShift cluster's external IP or load balancer.
+        > Note: In order to use a different host, you must have a DNS record pointing to the cluster's external IP or load balancer.
 
       - `paths`: Specifies a list of paths for the given host.
 
@@ -155,7 +159,7 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
     ![output ingress](images/output.png)
 
-By following the steps outlined above, you can successfully expose your application deployed on Red Hat OpenShift, using the example application "`stakater-nordmart-review-api`". Using the NodePort, LoadBalancer, or Route approach, you can make your application accessible from outside the OpenShift cluster, allowing users to access and interact with your application over the network.
+By following the tutorials above, you can successfully expose your application deployed on SAAP, using the example application "`stakater-nordmart-review-api`".
 
 ## Whitelisting application routes
 
