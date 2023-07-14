@@ -1,15 +1,15 @@
 # Expose your Application
 
-Once you have successfully deployed your application on the SAAP (Stakater APP Agility Platform), the next step is to make it accessible to users and resources over the network. In this tutorial, you will learn how to expose your application and enable external traffic to reach it, whether for internal use within the cluster or external access from outside the cluster. By following these steps, you will ensure that your application is reachable and can serve its intended purpose.
+Once you have successfully deployed your application on the SAAP (Stakater App Agility Platform), the next step is to make it accessible to users and resources over the network. In this tutorial, you will learn how to expose your application and enable external traffic to reach it, whether for internal use within the cluster or external access from outside the cluster. By following these steps, you will ensure that your application is reachable and can serve its intended purpose.
 
 ## Objective
 
-- Expose your application internally using service
+- Expose your application internally using the service
 - Expose your application externally using route or ingress
 
 ## Key Results
 
-- Application is exposed for traffic in/out of cluster
+- Application is exposed for traffic in/out of the cluster
 
 ## Tutorial #1
 
@@ -119,11 +119,11 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
     ![ingress-values](images/ingress-values.png)
 
-    a) First make sure the **route** field is `enabled: false`. It's because Ingress will create it's own route.
+    a) First make sure the **route** field is `enabled: false`. It's because Ingress will create its own route.
 
-    b) Ingress is `enabled: true`, it means the ingress resource will be created on our cluster when we tilt up.
+    b) Ingress is `enabled: true`, which means the ingress resource will be created on our cluster when we tilt up.
 
-    c) `pathType: ImplementationSpecific`: Sets the type of path matching for the Ingress resource. The value `ImplementationSpecific` indicates that the specific implementation should determine the path matching behavior.
+    c) `pathType: ImplementationSpecific`: Sets the type of path matching for the Ingress resource. The value `ImplementationSpecific` indicates that the specific implementation should determine the path-matching behavior.
 
     d) `hosts`: Defines a list of hosts for the Ingress resource. In this case, there is a single host specified.
 
@@ -147,11 +147,11 @@ OpenShift provides a routing mechanism called "routes" that allows you to expose
 
     We can see there is an `Ingress` resource created with our mentioned `Host`.
 
-1. Now let's see if `Ingress` has created the route. Go to the routes under networking section:
+1. Now let's see if `Ingress` has created the route. Go to the routes under the networking section:
 
     ![find-ingress-route](images/find-ingress-route.png)
 
-   Here you can see the route is created and the service that is associated with `Ingress`.
+   Here you can see the route created and the service that is associated with `Ingress`.
 
 1. Copy the route with the copy icon and add `/api/review/329199` at the end of the route.
 
