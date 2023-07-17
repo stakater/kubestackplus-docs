@@ -34,9 +34,9 @@ Create a service:
 
     ![svc-values](images/svc-values.png)
 
-    > You can change or add any configuration for the service. To see more configurations [click](https://github.com/stakater/application.git).
+    > You n change or add any configuration for the service. To see more configurations [click](https://github.com/stakater/applition.git).
 
-1. Run `tilt up` at the root of your directory. Hit the space bar, the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
+1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
 1. Let's go to the services under the networking section in your namespace
 
@@ -70,7 +70,7 @@ To create a route:
 
     > You can change or add any configuration for the route. To see more configurations [click](https://github.com/stakater/application.git).
 
-1. Run `tilt up` at the root of your directory. Hit the space bar, the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
+1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
 1. Let's go to the routes resource in your namespace:
 
@@ -92,7 +92,7 @@ To create a route:
 
 ### Exposing Your Application to External Traffic via Ingress
 
-1. To expose application via `Ingress`, we need a service. Create a service from [this](#exposing-your-application-within-the-cluster) section.
+1. To expose the application via `Ingress`, we need a service. Create a service from [this](#exposing-your-application-within-the-cluster) section.
 
 1. In your `deploy/values.yaml` file, define ingress:
 
@@ -102,7 +102,7 @@ To create a route:
       enabled: true  # Enables the creation of an Ingress resource on SAAP
       servicePort: http  # Specifies the service port to use for routing traffic
       hosts:    # Defines the list of hosts to route traffic to
-        - host:  review.apps.om-sno5.lcaas.lab.kubeapp.cloud  # define list of hosts
+        - host:  review.<CLUSTER-NAME>.kubeapp.cloud  # define a list of hosts
           paths:
           - path: /   # Specifies the path for incoming traffic
             servicePort: 'http'  # Specifies the service name to forward traffic to
@@ -110,7 +110,7 @@ To create a route:
       - {}   # Configures TLS settings for the Ingress resource, using the default ingress-controller certificate
     ```
 
-    > Note: If you prefer not to use your cluster domain, you have the option to create a TLS secret for your own domain. This TLS secret should contain the trusted certificates signed by well-known certificate authorities (CAs). To add this secret to your configuration, you can specify the secret name under `application.ingress.tls.secretName` in your values.yaml file.
+    > Note: If you prefer not to use your cluster domain, you have the option to create a TLS secret for your own domain. This TLS secret should contain the trusted certificates signed by well-known certificate authorities `(CAs)`. To add this secret to your configuration, you can specify the secret name under `application.ingress.tls.secretName` in your values.yaml file.
 
     It should look like this:
 
@@ -120,7 +120,7 @@ To create a route:
 
 > Note: In order to use a different host, you must have a DNS record pointing to the cluster's external IP or load balancer. You can change or add any configuration for the ingress. To see more configurations [click](https://docs.openshift.com/container-platform/4.11/networking/routes/route-configuration.html#nw-ingress-creating-a-route-via-an-ingress_route-configuration).
 
-1. Run `tilt up` at the root of your directory. Hit the space bar, the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
+1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
 1. Let's go to the cluster and see your ingress resource and the route associated with it in your namespace:
 
