@@ -69,13 +69,13 @@ In stateful applications deployed on the SAAP (Stakater App Agility Platform), e
 
     ![pvc](images/pvc.png)
 
-    > Note: The PVC named "review" has dynamically provision a PV and gave a default storage class named "standard". The most important thing here is the status of PVC which is "Bound" that means not only all the configurations were right but has efficiently applied on the cluster and the application.
+    > Note: The PVC named "review" has dynamically provisioned a PV and gave a default storage class named "standard". The most important thing here is the status of PVC which is "Bound" which means not only all the configurations were right but have efficiently applied on the cluster and the application.
 
 1. Let's see the application pod "review". Click on the review pod:
 
     ![review-pods](images/pods.png)
 
-1. Scroll down to see the pod volume for this application is mounted with the name `tmp` and the PVC "review".
+1. Scroll down to see if the pod volume for this application is mounted with the name `tmp` and the PVC "review".
 
     ![pod-volumes](images/pod-volumes.png)
 
