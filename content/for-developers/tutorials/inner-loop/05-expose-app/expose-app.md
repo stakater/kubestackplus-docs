@@ -66,8 +66,6 @@ To create a route:
 
     ![route-values](images/route-values.png)
 
-    `targetPort: http` represents the port on which the backend service is listening to handle incoming traffic.
-
     > You can change or add any configuration for the route. To see more configurations [click](https://github.com/stakater/application.git).
 
 1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
