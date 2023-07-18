@@ -48,7 +48,7 @@ Create a service:
 
 ### Exposing Your Application to External Traffic via Route
 
-OpenShift provides a routing mechanism called "routes" that allows you to expose applications using hostnames and paths. Routes are created using the Route resource and can provide additional features such as SSL termination and path-based routing.
+SAAP provides a "routes" routing mechanism that allows you to expose applications using hostnames and paths. Routes are created using the Route resource and can provide additional features such as SSL termination and path-based routing.
 
 To create a route:
 
