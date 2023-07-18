@@ -11,7 +11,7 @@ Once you have successfully deployed your application on the SAAP (Stakater App A
 
 - Application is exposed for traffic in/out of the cluster
 
-## Tutorial #1
+## Tutorial
 
 ### Exposing Your Application Within the Cluster
 
@@ -43,8 +43,6 @@ Create a service:
     The service has exposed our review pod on port `8080`.
 
     ![find service](images/svc.png)
-
-## Tutorial #2
 
 ### Exposing Your Application to External Traffic via Route
 
@@ -85,8 +83,6 @@ To create a route:
     Now you can access the application externally with this route.
 
     ![browse-route](images/browse-route.png)
-
-## Tutorial #3
 
 ### Exposing Your Application to External Traffic via Ingress
 
