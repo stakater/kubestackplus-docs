@@ -2,9 +2,9 @@
 
 There are multiple ways to deploy your Application on the Cluster.
 
-- For development with tilt follow below tutorial. Use tilt for deploying the application on test clusters.
+- For development with tilt follow the below tutorial. Use tilt for deploying the application on test clusters.
 
-    > This the recommended local development workflow
+    > This is the recommended local development workflow
 
 - For Deployment via GitOps, follow [this](../../../../for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md) guide for Deploying the Application with GitOps
 
@@ -22,13 +22,13 @@ Learn local development for testing and developing applications on local/lab clu
 
 ## Tutorial
 
-In this guide we will deploy an application with tilt and namespace in remote OpenShift cluster
+In this guide, we will deploy an application with tilt and namespace in the remote OpenShift cluster
 
 1. Clone this sample repo [Nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review)
 
 1. You should have a namespace in remote/local cluster; If you are in SAAP then enable sandbox namespace/project/environment for your tenant; you can read more [here](https://docs.stakater.com/mto/main/customresources.html)
 
-1. Login to cluster via `OpenShift CLI`, copy the login command from your `username` tab as discussed in the previous tutorial.
+1. Login to the cluster via `OpenShift CLI`, and copy the login command from your `username` tab as discussed in the previous tutorial.
 
 1. Switch project to sandbox namespace/project/environment
 
@@ -38,15 +38,15 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
 1. Login to OpenShift internal docker registry
 
-    First get the OpenShift internal docker registry URL and set in HOST variable name
+    First, get the OpenShift internal docker registry URL and set in the HOST variable name
 
     ```bash
     HOST=image-registry-openshift-image-registry.apps.[CLUSTER-NAME].[CLUSTER-ID].kubeapp.cloud
     ```
 
-    NOTE: Ask `sca` (SAAP Cluster Admin) or `cluster-admin` to provide you the OpenShift internal registry route
+    NOTE: Ask `sca` (SAAP Cluster Admin) or `cluster-admin` to provide you with the OpenShift internal registry route
 
-    Then login into docker registry with following command:
+    Then login into the docker registry with the following command:
 
     ```bash
     docker login -u $(oc whoami) -p $(oc whoami -t) $HOST
@@ -62,12 +62,12 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
 1. (Optional) Add Helm chart repos
 
-    If you reference Helm charts from private registry then you first need to add it
+    If you reference Helm charts from the private registry then you first need to add it
 
     ```sh
     cd deploy
 
-    # Helm credentials can be found in Vault or in a secret in build namespace
+    # Helm credentials can be found in Vault or in a secret in the build namespace
     helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********
 
     cd ..
@@ -127,9 +127,9 @@ In this guide we will deploy an application with tilt and namespace in remote Op
     **/tmpcharts
     ```
 
-1. Go through `values-local.yaml` in a `tilt` folder in base application directory.
+1. Go through `values-local.yaml` in a `tilt` folder in the base application directory.
 
-    `values-local.yaml` should contain the following content. Make sure that replica count should always be 1.
+    `values-local.yaml` should contain the following content. Make sure that the replica count should always be 1.
 
     ```yaml
     application:
@@ -144,11 +144,11 @@ In this guide we will deploy an application with tilt and namespace in remote Op
           tag: null
     ```
 
-1. Validate this application is not running already
+1. Validate that this application is not running already
 
     ![sandbox namespace](images/sandbox-env-b4-tilt-up.png)
 
-1. Run `tilt up` at base directory
+1. Run `tilt up` at the base directory
 
     ![tilt up](images/tilt-up.png)
 
@@ -160,31 +160,27 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
     ![sandbox namespace](images/sandbox-env-after-tilt-up.png)
 
-    Press space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
+    Press the space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
 
-1. Lets browse through some reviews; go to routes
+1. In your Tiltfile, there is a port forwarding command written on line #60, this command will forward the port of the application to your local machine. To see the output of the deployment:
 
-    ![find route](images/find-route.png)
-
-    Click on the review route
-
-    ![review-route](images/review-route.png)
-
-    In the end of the route add `/api/review/329199`
+    ```sh
+    curl localhost:8080/api/review/329199
+    ```
 
     Review the json output
 
     ![product review](images/product-review-json-b4-change.png)
 
-1. Lets make one change; we will update the first review text to "Tilt Demo"
+1. let's make one change; we will update the first review text to "Tilt Demo"
 
     ![update review service](images/review-service-to-update.png)
 
-    Switch back to tilt browser, you will see it has started picking up changes
+    Switch back to the tilt browser, you will see it has started picking up changes
 
     ![tilt pick up change](images/tilt-picking-up-change.png)
 
-    Within few seconds the change will be deployed; and you can refresh the route to see the change
+    Within a few seconds, the change will be deployed, and you can refresh the route to see the change
 
     ![updated review](images/product-review-json-after-change.png)
 

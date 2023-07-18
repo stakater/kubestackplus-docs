@@ -1,100 +1,141 @@
 # Expose your Application
 
-After successfully deploying your application on Red Hat OpenShift, you need to expose it to external traffic so that users can access your application over the network. This documentation will guide you through the process of exposing your application and making it accessible from outside the OpenShift cluster.
+Once you have successfully deployed your application on the SAAP (Stakater App Agility Platform), the next step is to make it accessible to users and resources over the network. In this tutorial, you will learn how to expose your application and enable external traffic to reach it, whether for internal use within the cluster or external access from outside the cluster. By following these steps, you will ensure that your application is reachable and can serve its intended purpose.
 
-## Route
+## Objective
 
-OpenShift provides a routing mechanism called "routes" that allows you to expose applications using hostnames and paths. Routes are created using the Route resource and can provide additional features such as SSL termination and path-based routing. To create a route:
+- Expose your application internally using the service
+- Expose your application externally using route or ingress
 
-a. In your deployment configuration YAML file, define a route:
+## Key Results
 
-```yaml
-apiVersion: route.openshift.io/v1
-kind: Route
-metadata:
-  name: nordmart-route
-spec:
-  host: nordmart.example.com
-  to:
-    kind: Service
-    name: nordmart-service
-```
+- Application is exposed for traffic in/out of the cluster
 
-In the above example, a route named `nordmart-route` is defined, pointing to the `nordmart-service` service.
+## Tutorial
 
-b. Apply the configuration to create the route:
+### Exposing Your Application Within the Cluster
 
-`oc apply -f route.yaml`
-c. Once the route is created, it will assign a hostname (`nordmart.example.com`) that you can use to access your application externally.
+Create a service:
 
-Note: In order to use a hostname, you must have a DNS record pointing to the OpenShift cluster's external IP or load balancer.
+1. In your `deploy/values.yaml` file, define a service:
 
-By following the steps outlined above, you can successfully expose your application deployed on Red Hat OpenShift, using the example application "`nordmart`". Whether using the NodePort, LoadBalancer, or Route approach, you can make your application accessible from outside the OpenShift cluster, allowing users to access and interact with your application over the network.
+    ```yaml
+    ## Service
+    service:
+      enabled: true  # Enables the creation of a Service resource on SAAP
+      ports:
+        - name: http  # Specifies the name of the service
+          port: 8080  # Specifies the port on which the service will listen
+          targetPort: 8080  # Specifies the port on the container/application to which the traffic will be forwarded
 
-## Service Type
+    ```
 
-In OpenShift, services are used to expose applications internally within the cluster. To expose your application externally, you need to specify the appropriate service type:
+    It should look like this:
 
-a. In your deployment configuration YAML file, define a service with the type NodePort or LoadBalancer:
+    ![svc-values](images/svc-values.png)
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: nordmart-service
-spec:
-  type: NodePort
-  ports:
-    - port: 80
-      targetPort: 8080
-  selector:
-    app: nordmart
-```
+    > You n change or add any configuration for the service. To see more configurations [click](https://github.com/stakater/applition.git).
 
-In the above example, a service named `nordmart-service` is defined with the NodePort type, exposing port 80 and forwarding traffic to port 8080 of the application.
+1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
-### NodePort
+1. Let's go to the services under the networking section in your namespace
 
-When using the NodePort service type, OpenShift assigns a random port within a predefined range on each node of the cluster. To access your application externally, you need to determine the assigned port and the IP address of any of the cluster's nodes:
+    The service has exposed our review pod on port `8080`.
 
-a. Retrieve the port assigned to the service by running the following command:
+    ![find service](images/svc.png)
 
-`oc get service nordmart-service`
+### Exposing Your Application to External Traffic via Route
 
-b. Identify the port assigned to the NodePort field. This port will be used to access your application externally.
+SAAP provides a "routes" routing mechanism that allows you to expose applications using hostnames and paths. Routes are created using the Route resource and can provide additional features such as SSL termination and path-based routing.
 
-c. Obtain the IP address of any node in the cluster:
+To create a route:
 
-`oc get nodes -o wide`
+1. In your `deploy/values.yaml` file, define a route:
 
-d. Combine the node's IP address with the assigned port to access your application. For example: `http://<node-ip>:<assigned-port>`
+    ```yaml
+    ## Route
+    route:
+      enabled: true # Enables the creation of a Route resource on SAAP
+      port:
+        targetPort: http  # Specifies the target service port name
+    ```
 
-### LoadBalancer
+    It should look like this:
 
-If your OpenShift cluster is running in a cloud environment that supports load balancers, you can use the LoadBalancer service type. This type automatically provisions a load balancer to distribute traffic to your application:
+    ![route-values](images/route-values.png)
 
-a. In your deployment configuration YAML file, define a service with the type LoadBalancer:
+    > You can change or add any configuration for the route. To see more configurations [click](https://github.com/stakater/application.git).
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: nordmart-service
-spec:
-  type: LoadBalancer
-  ports:
-    - port: 80
-      targetPort: 8080
-  selector:
-    app: nordmart
-```
+1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
-In the above example, a service named `nordmart-service` is defined with the LoadBalancer type, exposing port 80 and forwarding traffic to port 8080 of the application.
+1. Let's go to the routes resource in your namespace:
 
-b. After applying the configuration, OpenShift will provision a load balancer in the cloud environment, which will route external traffic to your application.
+    ![find route](images/find-route.png)
 
-c. Obtain the load balancer IP address or domain name provided by your cloud provider to access your application. For example: `http://<load-balancer-ip>:<port>`
+1. Click on the "review" route
+
+    Here you can see the route and the service that is associated with it.
+
+    ![review-route](images/review-route.png)
+
+1. At the end of the route add `/api/review/329199`
+
+    Now you can access the application externally with this route.
+
+    ![browse-route](images/browse-route.png)
+
+### Exposing Your Application to External Traffic via Ingress
+
+1. To expose the application via `Ingress`, we need a service. Create a service from [this](#exposing-your-application-within-the-cluster) section.
+
+1. In your `deploy/values.yaml` file, define ingress:
+
+    ```yaml
+    ## Ingress
+    ingress:
+      enabled: true  # Enables the creation of an Ingress resource on SAAP
+      servicePort: http  # Specifies the service port to use for routing traffic
+      hosts:    # Defines the list of hosts to route traffic to
+        - host:  review.<CLUSTER-NAME>.kubeapp.cloud  # define a list of hosts
+          paths:
+          - path: /   # Specifies the path for incoming traffic
+            servicePort: 'http'  # Specifies the service name to forward traffic to
+      tls:
+      - {}   # Configures TLS settings for the Ingress resource, using the default ingress-controller certificate
+    ```
+
+    > Note: If you prefer not to use your cluster domain, you have the option to create a TLS secret for your own domain. This TLS secret should contain the trusted certificates signed by well-known certificate authorities `(CAs)`. To add this secret to your configuration, you can specify the secret name under `application.ingress.tls.secretName` in your values.yaml file.
+
+    It should look like this:
+
+    ![ingress-values](images/ingress-values.png)
+
+1. Make sure the **route** field is `enabled: false`. It's because Ingress will create its own route.
+
+    > Note: In order to use a different host, you must have a DNS record pointing to the cluster's external IP or load balancer. You can change or add any configuration for the ingress. To see more configurations [click](https://docs.openshift.com/container-platform/4.11/networking/routes/route-configuration.html#nw-ingress-creating-a-route-via-an-ingress_route-configuration).
+
+1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
+
+1. Let's go to the cluster and see your ingress resource and the route associated with it in your namespace:
+
+    We can see there is an `Ingress` resource created with our mentioned `Host`.
+
+    ![find ingress](images/find-ingress.png)
+
+1. Now let's see if `Ingress` has created the route. Go to the routes under the networking section:
+
+    ![find-ingress-route](images/find-ingress-route.png)
+
+1. Copy the route with the copy icon and add `/api/review/329199` at the end of the route.
+
+    The lock sign shows that the connection of this route is secure. Now you can access the application externally exposed via `Ingress`.
+
+    ![output ingress](images/output.png)
+
+By following the tutorials above, you can successfully expose your application deployed on SAAP, using the example application "`stakater-nordmart-review-api`".
+
+> Please note that any modifications and configurations specific to your cluster should be made in the `deploy/values.yaml` file, while changes and configurations related to your local environment should be made in the `tilt/values-local.yaml` file.
 
 ## Whitelisting application routes
 
-See [Additional route configurations](../../../../for-administrators/secure-your-cluster/secure-routes.md#additional-route-configuration) section on how to allow only whitelisted IPs for your application routes
+See [Additional route configurations](../../../../for-administrators/secure-your-cluster/secure-routes.md#additional-route-configuration) section on how to allow only whitelisted IPs for your application routes.
