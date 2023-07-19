@@ -1,85 +1,82 @@
 # Persist your Application
 
-Persistent storage is essential for preserving data in stateful applications deployed on Red Hat OpenShift. To ensure data persistence, OpenShift provides Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) as abstractions for managing and allocating storage resources. This documentation will guide you through the process of persisting your application data using PVs and PVCs.
+In stateful applications deployed on the SAAP (Stakater App Agility Platform), ensuring data persistence is crucial. To achieve this, SAAP provides Persistent Volumes `(PVs)` and Persistent Volume Claims `(PVCs)` as powerful abstractions for managing and allocating storage resources. This tutorial to help you understand and implement data persistence in your SAAP applications using `PVs` and `PVCs` effectively.
 
-## Persistent Volumes (PVs)
+## Objective
 
-A Persistent Volume represents a physical storage resource in the OpenShift cluster. PVs can be provisioned statically or dynamically based on the underlying storage infrastructure. To set up a PV for your application:
+- Configure PVs and PVCs in SAAP applications for efficient storage allocation.
+- Integrate PVs and PVCs with your SAAP application for data persistence.
 
-a. Define a PV configuration YAML file, specifying the storage type, size, access modes, and other parameters. For example:
+## Key Results
 
-```yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: `nordmart-pv`
-spec:
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: your-storage-class
-  <storage-specific parameters>
-```
+- Ensure data durability in stateful applications deployed on SAAP.
 
-In the above example, a PV named Nordmart-pv is defined with a storage capacity of 10 gigabytes, read-write access mode, and a storage class specified. Additional storage-specific parameters can be provided based on the underlying storage infrastructure.
+## Tutorial
 
-b. Apply the PV configuration to create the persistent volume:
+1. To create `PVs` and `PVCs` for your application, we need to add **persistence** in our `deploy/values.yaml`.
 
-`oc apply -f pv.yaml`
+    Persistence field is to provide a convenient and customizable way to define the PVC settings within the Helm chart configuration by specifying the PVC settings in the values.yaml file.
 
-c. Once the PV is created, it will be available for use by PVCs in the cluster.
+    ```yaml
+      ## Persistence
+      persistence:
+        enabled: true  # Enables persistence for the application.
+        mountPVC: false  # Indicates that the PVC will not be automatically mounted to a pod.
+        mountPath: "/data"  # Specifies the mount path where the PVC will be mounted within the pod.
+        name: "review"  # Provides a unique name for the PVC resource.
+        accessMode: ReadWriteOnce  # Specifies the access mode for the PVC (read-write by a single node).
+        storageClass: ""  # Specifies the desired storage class for the PVC. (Here, using the default storage class.)
+        storageSize: 5Gi  # Specifies the desired storage capacity for  the PVC (Here, 5 Gigabytes).
+        volumeMode: "Filesystem"  # Specifies the volume mode as "Filesystem". (You can choose other volumeModes according to your application requirements)
+        volumeName: ""  # Specifies the name of the Persistent Volume (PV) to be used by the PVC. This field is usually left empty, as PVs are dynamically provisioned and associated with PVCs by the cluster.
+    ```
 
-## Persistent Volume Claims (PVCs)
+    > Note: Make sure that the indentation is correct. It follows `application.persistence`.
 
-A Persistent Volume Claim represents a request for storage by an application. PVCs are used to bind PVs to application pods and provide a storage abstraction for application developers. To configure a PVC for your application:
+    It should look like this:
 
-a. Define a PVC configuration YAML file, specifying the storage request, access mode, and other parameters. For example:
+    ![pvc-values](images/pvc-values.png)
 
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: nordmart-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
-  storageClassName: your-storage-class
-```
+1. Once the Persistence is defined in your `deploy/values.yaml`, you can proceed with mounting them in your pod. Mounting the PV and PVC allows your application to access and utilize the persistent storage provided by the PV.
 
-In the above example, a PVC named `nordmart-pvc` is defined with a storage request of 5 gigabytes and a read-write access mode. The storage class specifies the desired type of storage.
-
-b. Apply the PVC configuration to create the persistent volume claim:
-
-`oc apply -f pvc.yaml`
-
-c. Once the PVC is created, OpenShift will automatically bind it to an available PV that satisfies the requested storage class, size, and access mode.
-
-### Mounting PVCs in Application Deployments
-
-To make use of the PVC in your application deployment, you need to mount it as a volume within the application containers. Modify your deployment configuration YAML file as follows:
-
-a. Add a volume definition that references the PVC:
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nordmart
-spec:
-  template:
-    spec:
+    ```yaml
+      ## volume
+      # Define the Persistent Volume (PV) binding for the application.
       volumes:
-      - name: nordmart-data
-        persistentVolumeClaim:
-          claimName: nordmart-pvc
-      containers:
-      - name: nordmart-app
-        image: your-image
-        volumeMounts:
-        - name: nordmart-data
-```
+        tmp:  # Volume name
+          persistentVolumeClaim:
+            claimName: review  # Specify the claimName to bind the Persistent Volume Claim (PVC) with the name "review" to this volume tmp.
+
+      # Define the mount path within the pod for the PV.
+      volumeMounts:
+        tmp:  # Volume name
+          mountPath: /data  # Specify the mountPath as "/data" to mount the Persistent Volume (PV) referenced by the volume named "tmp" to this path within the pod.
+    ```
+
+    > Note: Make sure that the indentation is correct. It follows `application.deployment.volumes` and `application.deployment.volumeMounts`.
+
+    It should look like this:
+
+    ![volume-values](images/volume-values.png)
+
+1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
+
+1. login to SAAP, there should be a Persistent Volume Claim created when you get an overview of your project/namespace.
+
+    ![show-pvc](images/show-pvc.png)
+
+1. Click on Persistent Volume Claim
+
+    ![pvc](images/pvc.png)
+
+    > Note: The PVC named "review" has dynamically provisioned a PV and gave a default storage class named "standard". The most important thing here is the status of PVC which is "Bound" which means not only all the configurations were right but have efficiently applied on the cluster and the application.
+
+1. Let's see the application pod "review". Click on the review pod:
+
+    ![review-pods](images/pods.png)
+
+1. Scroll down to see if the pod volume for this application is mounted with the name `tmp` and the PVC "review".
+
+    ![pod-volumes](images/pod-volumes.png)
+
+> Note: You can change or add any configuration for the PVC or volumes. To see more configurations [click](https://github.com/stakater/application.git).
