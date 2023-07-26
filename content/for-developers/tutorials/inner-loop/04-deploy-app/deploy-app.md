@@ -158,32 +158,16 @@ In this guide, we will deploy an application with tilt and namespace in the remo
 
     If everything is green then the application will be deployed in the cluster
 
-    ![sandbox namespace](images/sandbox-env-after-tilt-up.png)
+    ![sandbox namespace](images/pods.png)
 
-    Press the space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
+    Let's view your application pods
 
-1. In your Tiltfile, there is a port forwarding command written on line #60, this command will forward the port of the application to your local machine. To see the output of the deployment:
+    ![show error](images/show-error.png)
 
-    ```sh
-    curl localhost:8080/api/review/329199
-    ```
+    The application is not deployed yet. Let's see pod's events:
 
-    Review the json output
+    ![show event](images/failed-probes.png)
 
-    ![product review](images/product-review-json-b4-change.png)
+    Because of the liveness and readiness probes got failed, the pods are not in running state.
 
-1. let's make one change; we will update the first review text to "Tilt Demo"
-
-    ![update review service](images/review-service-to-update.png)
-
-    Switch back to the tilt browser, you will see it has started picking up changes
-
-    ![tilt pick up change](images/tilt-picking-up-change.png)
-
-    Within a few seconds, the change will be deployed, and you can refresh the route to see the change
-
-    ![updated review](images/product-review-json-after-change.png)
-
-    Awesome! you made it
-
-1. Run `tilt down` to delete the application and related configuration from the namespace
+    To deploy your application smoothly you need to configure probes. See [next](../05-configure-probes/) tutorial.
