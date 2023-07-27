@@ -127,7 +127,7 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     ![product review](images/product-review-json-b4-change.png)
 
-3. let's make one change; we will update the first review text to "Tilt Demo"
+1. let's make one change; we will update the first review text to "Tilt Demo"
 
     ![update review service](images/review-service-to-update.png)
 
@@ -141,4 +141,4 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     Awesome! you made it
 
-4. Run `tilt down` to delete the application and related configuration from the namespace
+1. Run `tilt down` to delete the application and related configuration from the namespace
