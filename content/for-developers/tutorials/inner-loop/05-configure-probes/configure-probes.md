@@ -1,12 +1,12 @@
 # Configure Probes for Your Application
 
-SAAP provides robust mechanisms for managing the health and availability of applications running in containers. Liveness, readiness, and startup probes are essential features that help ensure application reliability and stability.
+SAAP provides robust mechanisms for managing the health and availability of container applications. Liveness, readiness, and startup probes are essential features that help ensure application reliability and stability.
 
 In this tutorial, we will explore how to leverage the capabilities of SAAP to define different probes using the values.yaml file.
 
 ## Objective
 
-- Configure liveness, readiness and startup probes in your application with their parameters.
+- Configure your application's liveness, readiness, and startup probes with their parameters.
 
 ## Key Results
 
@@ -14,7 +14,7 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
 ## Tutorial
 
-1. Liveness probes continuously monitor the health of containers and automatically restart any instances that fail the health check. To add liveness probe in your application, you need to define it in your `deploy/values.yaml`.
+1. Liveness probes continuously monitor the health of containers and automatically restart any instances that fail the health check. To add a liveness probe in your application, you need to define it in your `deploy/values.yaml`.
 
     ```yaml
         # Liveness Probe Configuration
@@ -45,9 +45,9 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     ![liveness probe](images/liveness-probe.png)
 
-    > Note: You can configure the probes parameters as per the requirement of your application. To know more about liveness probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+    > Note: You can configure the parameters of the probe per your application's requirement. To know more about liveness probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
-1. Readiness probes determine if a container is ready to serve traffic and delay routing until the container is ready. To add readiness probe in your application, you need to define it in your `deploy/values.yaml`.
+1. Readiness probes determine if a container is ready to serve traffic and delay routing until the container is ready. To add a readiness probe in your application, you need to define it in your `deploy/values.yaml`.
 
     ```yaml
         # Readiness Probe Configuration
@@ -78,7 +78,7 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     ![readiness probe](images/readiness-probe.png)
 
-    > Note: You can configure the probes parameters as per the requirement of your application. To know more about readiness probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+    > Note: You can configure the parameters of the probe as per your application's requirement. To know more about readiness probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 1. Startup probe is specifically designed to check if an application has completed its initialization and is fully ready to serve traffic. To add startup probe in your application, you need to define it in your `deploy/values.yaml`.
 
@@ -111,7 +111,7 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     ![startup probe](images/startup-probe.png)
 
-    > Note: You can configure the probes parameters as per the requirement of your application. To know more about startupprobes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+    > Note: You can configure the parameters of the probe as per your application's requirement. To know more about startup probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 1. Save and run `tilt up` at the root of your directory. Press the space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
 
