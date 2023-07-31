@@ -22,7 +22,6 @@ We need to decide what Kubernetes resources are required for our application. A 
 Create a directory named deploy/ in your repository that will contain the helm chart which will be deployed for our application.
 
    ```sh
-   git clone https://github.com/ORG/repo && cd repo
    mkdir deploy
    ```
 

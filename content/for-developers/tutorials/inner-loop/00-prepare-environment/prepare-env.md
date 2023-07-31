@@ -26,8 +26,4 @@ The following CLI tools are required for working with the Stakater App Agility P
 
 - [docker](https://docs.docker.com/get-docker/) Docker is an open platform for developing, shipping and running applications. Docker enables you to separate your applications from your infrastructure, so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications.
 
-- [buildah](https://github.com/containers/buildah/blob/main/install.md) buildah is an open-source, Linux-based tool that can build Docker- and Kubernetes-compatible images and is easy to incorporate into scripts and build pipelines. It runs without a container runtime or daemon compared to docker.
-
-- [podman](https://podman.io/docs/installation) Podman (the POD MANager) is a tool for managing containers and images, volumes mounted into those containers, and pods made from groups of containers. Podman is based on `libpod`, a library for container lifecycle management. The `libpod` library provides APIs for managing containers, pods, container images, and volumes.
-
 - [tilt](https://docs.tilt.dev/install.html) Tilt powers microservice development and ensures they behave! Run tilt up to work in a complete dev environment configured for your team. Tilt automates all the steps from a code change to a new process: watching files, building container images, and bringing your environment up-to-date. Think docker build && kubectl apply or docker-compose up.
