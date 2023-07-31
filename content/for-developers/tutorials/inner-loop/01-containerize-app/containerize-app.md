@@ -92,16 +92,23 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
   1. Run the following command to build the image.
 
         ```sh
-        buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <app-name>:1.0.0 .
-
+        docker build -t <app-name>:1.0.0 .
         ```
 
-  1. Run the following command to run the image.
+  1. Execute the following command to run the image.
+
+      > Note: To run the application container you need Mongo_DB server running.
 
         ```sh
         # -p flag exposes container port 8080 on your local port 8080
         # --env flag allows Mongo_DB necessary environment variables; e.g. MONGO_HOST, MONGO_DB_PASS
-        podman run -dt -p [<localhost-port>:<container-port>] --env <variable1>=<value> --env <variable2>=<value> <image-name>:1.0.0
+        docker run -dt -p [<localhost-port>:<container-port>] --env <variable1>=<value> --env <variable2>=<value> <image-name>:1.0.0
+        ```
+
+      > Note: If Mongo_DB server is running on your local machine, replace **-p** flag and it's values with --network="host".
+
+      ```sh
+      docker run -dt --network="host" --env <variable1>=<value> --env <variable2>=<value> <image-name>:1.0.0
         ```
 
   1. Run a curl command to verify that image is running.
@@ -109,6 +116,8 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
         ```sh
         curl localhost:8080/api/review/329199
         ```
+
+        ![curl output](images/local-output.png)
 
 Read the following articles for more information:
 
