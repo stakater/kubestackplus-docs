@@ -123,11 +123,13 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
     curl localhost:8080/api/review/329199
     ```
 
-    Review the json output
+    ![local output](images/local-output.png)
 
-    ![product review](images/product-review-json-b4-change.png)
+    Review the json output on browser
 
-5. let's make one change; we will update the first review text to "Tilt Demo"
+    ![output before change](images/output-before-change.png)
+
+1. let's make one change; we will update the first review text to "Tilt Demo"
 
     ![update review service](images/review-service-to-update.png)
 
@@ -137,8 +139,8 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     Within a few seconds, the change will be deployed, and you can refresh the route to see the change
 
-    ![updated review](images/product-review-json-after-change.png)
+    ![output after change](images/after-change-output.png)
 
     Awesome! you made it
 
-6. Run `tilt down` to delete the application and related configuration from the namespace
+1. Run `tilt down` to delete the application and related configuration from the namespace
