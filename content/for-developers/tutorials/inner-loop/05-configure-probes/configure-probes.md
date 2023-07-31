@@ -14,10 +14,10 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
 ## Tutorial
 
-1. Liveness probes continuously monitor the health of containers and automatically restart any instances that fail the health check. To add a liveness probe in your application, you need to define it in your `deploy/values.yaml`.
+1. To add a liveness probe in your application, you need to define it in your `deploy/values.yaml`. Liveness probes continuously monitor the health of containers and automatically restart any instances that fail the health check.
 
     ```yaml
-        # Liveness Probe Configuration
+    # Liveness Probe Configuration
     livenessProbe:
         # Enable liveness probe for the container
       enabled: true
@@ -47,10 +47,10 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     > Note: You can configure the parameters of the probe per your application's requirement. To know more about liveness probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
-1. Readiness probes determine if a container is ready to serve traffic and delay routing until the container is ready. To add a readiness probe in your application, you need to define it in your `deploy/values.yaml`.
+1. To add a readiness probe in your application, you need to define it in your `deploy/values.yaml`. Readiness probes determine if a container is ready to serve traffic and delay routing until the container is ready.
 
     ```yaml
-        # Readiness Probe Configuration
+    # Readiness Probe Configuration
     readinessProbe:
         # Enable readiness probe for the container
       enabled: true
@@ -80,10 +80,10 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     > Note: You can configure the parameters of the probe as per your application's requirement. To know more about readiness probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
-1. Startup probe is specifically designed to check if an application has completed its initialization and is fully ready to serve traffic. To add startup probe in your application, you need to define it in your `deploy/values.yaml`.
+1. To add startup probe in your application, you need to define it in your `deploy/values.yaml`. Startup probe is specifically designed to check if an application has completed its initialization and is fully ready to serve traffic.
 
     ```yaml
-        # Startup Probe Configuration
+    # Startup Probe Configuration
     startupProbe:
         # Enable the startup probe for the container
       enabled: true
@@ -113,7 +113,7 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     > Note: You can configure the parameters of the probe as per your application's requirement. To know more about startup probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
-1. Save and run `tilt up` at the root of your directory. Press the space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
+1. Save the `values.yaml` and run `tilt up` at the root of your directory. Press the space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
 
     ![show pods](images/show-pods.png)
 
@@ -127,7 +127,7 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     ![product review](images/product-review-json-b4-change.png)
 
-1. let's make one change; we will update the first review text to "Tilt Demo"
+5. let's make one change; we will update the first review text to "Tilt Demo"
 
     ![update review service](images/review-service-to-update.png)
 
@@ -141,4 +141,4 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     Awesome! you made it
 
-1. Run `tilt down` to delete the application and related configuration from the namespace
+6. Run `tilt down` to delete the application and related configuration from the namespace
