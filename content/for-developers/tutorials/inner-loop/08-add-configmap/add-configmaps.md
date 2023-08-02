@@ -95,7 +95,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     Let's see the data in this configMap.
 
-    ![`cofigmaps` data](images/configmap-data.png)
+    ![Configmap data](images/configmap-data.png)
 
     The environment variables that we have set for the **review-config** in values.yaml file are here.
 
