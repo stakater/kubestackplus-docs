@@ -16,7 +16,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
 ### Set Environment Variables Using Secrets
 
-1. To set environment variables using secrets, define it in the `deploy/values.yaml` file. Environment variables allow you to pass sensitive information as configuration parameters to your application containers.
+1. To set environment variables using secrets, define them in the `deploy/values.yaml` file. Environment variables allow you to pass sensitive information as configuration parameters to your application containers.
 
     ```yaml
     # Define environment variables for the application container.
@@ -29,7 +29,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
           secretKeyRef:
       # Name of the secret that contains the 'mongodb-root-password' key.
             name: review-mongodb-creds
-      # Key within the secret from which to fetch the value for 'MONGODB_PASSWORD'.
+      # Key within the secret to fetch the value for 'MONGODB_PASSWORD'.
             key: mongodb-root-password
     ```
 
@@ -37,11 +37,11 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     ![env secret](images/env-secret.png)
 
-    > Note: The indentation to be followed for `env` in `deploy/values.yaml` is **application.deployment.env**. You can also refer configmap in env, to see more [click](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-with-data-from-multiple-configmaps).
+    > Note: The indentation for `env` in `deploy/values.yaml` is **application.deployment.env**. You can also refer configmap in env, to see more [click](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-with-data-from-multiple-configmaps).
 
 ### Utilize envFrom to Access ConfigMaps
 
-1. To utilize environment variables from a resource itself, such as ConfigMap, we can mention the `envFrom` field and specify the configmap name. Add this yaml to `deploy/values.yaml`. `envFrom` will fetch all the environment variables define in this configmap.
+1. To utilize environment variables from a resource, such as ConfigMap, we can mention the `envFrom` field and specify the configmap name. Add this yaml to `deploy/values.yaml`. `envFrom` will fetch all the environment variables define in this configmap.
 
     ```yaml
     # Example of using envFrom to load environment variables from a ConfigMap
@@ -61,7 +61,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     ![envfrom configmap](images/envfrom-config.png)
 
-    > Note: The indentation to be followed for `envFrom` in `deploy/values.yaml` is **application.deployment.envFrom**. You can also reference secret in envFrom, to see more [click](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables).
+    > Note: The indentation for `envFrom` in `deploy/values.yaml` is **application.deployment.envFrom**. You can also reference secret in envFrom, to see more [click](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables).
 
 ### Define ConfigMap Data in values.yaml
 
@@ -85,7 +85,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     ![configmap definition](images/configmap.png)
 
-    > Note: The indentation follows for `configmap` is: **application.configMap**.
+    > Note: The indentation follows for `configmap` is **application.configMap**.
 
 1. Save the file and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
@@ -93,7 +93,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     ![Configmap show](images/configmap-show.png)
 
-    Let's see the data in of this configMap.
+    Let's see the data in this configMap.
 
     ![cofigmap data](images/configmap-data.png)
 
