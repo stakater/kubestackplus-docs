@@ -1,4 +1,4 @@
-# Configuring Your Application with Secrets and ConfigMaps in SAAP
+# Configuring your Application with Secrets and ConfigMaps
 
 This comprehensive tutorial will walk you through the process of effectively utilizing `secrets` and `configmaps` within your application deployment. By the end of this tutorial, you will be equipped with the knowledge and skills to securely store sensitive information, set `environment variables` using `secrets`, and manage application configuration data using `configmaps`. Let's get started on enhancing the security and configuration aspects of your applications in SAAP!
 
