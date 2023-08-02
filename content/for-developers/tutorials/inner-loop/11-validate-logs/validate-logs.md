@@ -21,8 +21,8 @@ Logging is an essential aspect of any application deployment, providing valuable
 1. Observe logs from any given container:
 
     ```bash
-    oc project ${TENANT_NAME}-dev
-    oc logs `oc get po -l app.kubernetes.io/component=mongodb -o name -n ${TENANT_NAME}-dev` --since 10m
+    oc project <your-namespace>
+    oc logs `oc get po -l app.kubernetes.io/component=mongodb -o name -n <your-namespace>` --since 10m
     ```
 
     By default, these logs are not stored in a database, but there are a number of reasons to store them (i.e. troubleshooting, legal obligations..)
@@ -54,7 +54,7 @@ Logging is an essential aspect of any application deployment, providing valuable
 1. Let's filter the information, and look for the logs specifically for pet-battle apps running in the test namespace by adding this to the query bar:
 
     ```yaml
-    kubernetes.namespace_name:"<TENANT_NAME>-dev" AND kubernetes.container_name:"review"
+    kubernetes.namespace_name:"<your-namespace>" AND kubernetes.container_name:"review"
     ```
 
     ![Kibana-example-query](./images/kibana-example-query-2.png)
@@ -64,8 +64,8 @@ Logging is an essential aspect of any application deployment, providing valuable
 1. Connect to the pod via `rsh` and generate logs.
 
     ```bash
-    oc project ${TENANT_NAME}-dev
-    oc rsh `oc get po -l app.kubernetes.io/name=review -o name -n ${TENANT_NAME}-dev`
+    oc project <your-namespace>
+    oc rsh `oc get po -l app.kubernetes.io/name=review -o name -n <your-namespace>`
     ```
 
     Then inside the container you've just remote logged on to we'll add some nonsense messages to the logs:
@@ -83,7 +83,7 @@ Logging is an essential aspect of any application deployment, providing valuable
 1. Back on Kibana we can filter and find these messages with another query:
 
     ```yaml
-    kubernetes.namespace_name:"<TENANT_NAME>-dev" AND kubernetes.container_name:"review" AND message:"🦄🦄🦄🦄"
+    kubernetes.namespace_name:"<your-namespace>" AND kubernetes.container_name:"review" AND message:"🦄🦄🦄🦄"
     ```
 
     ![Kibana-review-unicorn](./images/kibana-review-unicorn.png)
