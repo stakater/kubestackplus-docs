@@ -34,7 +34,7 @@ Create a service:
 
     ![svc-values](images/svc-values.png)
 
-    > You n change or add any configuration for the service. To see more configurations [click](https://github.com/stakater/applition.git).
+    > You can change or add any configuration for the service. To see more configurations [click](https://github.com/stakater/applition.git).
 
 1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
