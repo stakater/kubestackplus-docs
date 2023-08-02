@@ -41,7 +41,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
 ### Utilize envFrom to Access ConfigMaps
 
-1. To utilize environment variables from a resource, such as ConfigMap, we can mention the `envFrom` field and specify the configmap name. Add this yaml to `deploy/values.yaml`. `envFrom` will fetch all the environment variables define in this configmap.
+1. To utilize environment variables from a resource, such as ConfigMap, we can mention the `envFrom` field and specify the configmap name. Add this yaml to `deploy/values.yaml`. `envFrom` allows you to fetch all the environment variables define in this configmap.
 
     ```yaml
     # Example of using envFrom to load environment variables from a ConfigMap
