@@ -77,7 +77,7 @@ The rating counter is initialized through the following lines of code:
 
 ```java
 
-ratingCounter = Counter.builder("nordmart-review.low.ratings")  
+ratingCounter = Counter.builder("nordmart-review.low.ratings")
             .tag("type", "product")
             .description("Total number of ratings below 3 for all product")
             .register(meterRegistry);
@@ -91,7 +91,6 @@ Every time a rating of below 3 is added, [the rating counter is incremented](htt
             if (Integer.parseInt(rating) <= 3) {
                 `ratingCounter`.increment();
             }
-            
 ```
 
 This custom metric we just added can be seen through Prometheus. In the following section, we will add an alert using this metric.

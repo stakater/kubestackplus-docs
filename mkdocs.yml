@@ -158,7 +158,7 @@ nav:
                 - for-developers/tutorials/inner-loop/09-add-secret/add-secrets.md
                 - for-developers/tutorials/inner-loop/10-add-dependency/add-dependency.md
                 - for-developers/tutorials/inner-loop/11-validate-logs/validate-logs.md
-                - for-developers/tutorials/inner-loop/12-expose-metrics/expose-metrics.md
+                - for-developers/tutorials/inner-loop/12-monitor-your-app/monitor-your-app.md
                 - for-developers/tutorials/inner-loop/13-add-grafana-dashboard/add-grafana-dashboard.md
                 - for-developers/tutorials/inner-loop/14-add-alerts/add-alerts.md
                 - for-developers/tutorials/inner-loop/15-scale-app/scale-app.md
@@ -179,6 +179,10 @@ nav:
             - for-developers/how-to-guides/overview.md
             - for-developers/how-to-guides/add-a-new-environment-to-apps-gitops/add-a-new-environment-to-application.md
             - for-developers/how-to-guides/promote-your-application/promote-your-application.md
+            - for-developers/how-to-guides/build-and-push-your-image/build-and-push-your-image.md
+            - for-developers/how-to-guides/deploy-app-with-argocd-and-helm/deploy-app-with-argocd-and-helm.md
+            - for-developers/how-to-guides/expose-spring-boot-metrics/expose-spring-boot-metrics.md
+            - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
     - For CISOs:
         - for-cisos/overview.md
         - for-cisos/policies/policies.md
