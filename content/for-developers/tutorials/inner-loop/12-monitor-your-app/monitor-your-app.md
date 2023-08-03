@@ -33,9 +33,7 @@ In this tutorial, you will learn how to leverage SAAP's built-in monitoring capa
 
 ### Add Service Monitor
 
-1. Lets check `ServiceMonitor` in `stakater-nordmart-review-api` app.
-
-    SAAP gathers the base metrics to see how our pods are doing. In order to get application specific metrics (like response time or number of reviews or active users etc) alongside the base ones, we need another object: _`ServiceMonitor`_. It will let Prometheus know which endpoint the metrics are exposed so that Prometheus can scrape them. And once the Prometheus has the metrics, we can run query on them (just like we did before!) and create shiny dashboards!
+SAAP gathers the base metrics to see how our pods are doing. In order to get application specific metrics (like response time or number of reviews or active users etc) alongside the base ones, we need another object: _`ServiceMonitor`_. It will let Prometheus know which endpoint the metrics are exposed so that Prometheus can scrape them. And once the Prometheus has the metrics, we can run query on them (just like we did before!) and create shiny dashboards!
 
 Now, let's add the `ServiceMonitor` for our `stakater-nordmart-review-api` application.
 
