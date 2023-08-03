@@ -37,30 +37,7 @@ In this tutorial, you will learn how to leverage SAAP's built-in monitoring capa
 
     SAAP gathers the base metrics to see how our pods are doing. In order to get application specific metrics (like response time or number of reviews or active users etc) alongside the base ones, we need another object: _`ServiceMonitor`_. It will let Prometheus know which endpoint the metrics are exposed so that Prometheus can scrape them. And once the Prometheus has the metrics, we can run query on them (just like we did before!) and create shiny dashboards!
 
-    **Example** `ServiceMonitor` object:
-
-    ```yaml
-    apiVersion: monitoring.coreos.com/v1
-    kind: ServiceMonitor
-    metadata:
-      labels:
-         app: review
-      name: review-svc-monitor
-      namespace: <TENANT_NAME>-dev
-    spec:
-      endpoints:
-        - interval: 5s
-          port: http # port that metrics are exposed
-          path: /actuator/prometheus
-      namespaceSelector:
-       matchNames:
-       - <TENANT_NAME>-dev
-      selector:
-        matchLabels:
-          app: review
-    ```
-
-    Now, let's check the `ServiceMonitor` for our `stakater-nordmart-review-api` app.
+Now, let's add the `ServiceMonitor` for our `stakater-nordmart-review-api` application.
 
 1. Open up `stakater-nordmart-review-api/deploy/values.yaml` file. Add this yaml in your `values.yaml` file.
 
