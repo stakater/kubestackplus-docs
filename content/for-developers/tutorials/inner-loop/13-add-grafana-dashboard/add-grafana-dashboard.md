@@ -29,7 +29,7 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
             enabled: true
     ```
 
-1. Go to your `Forecastle` and Let's login to Grafana and view the predefined dashboards for `stakater-nordmart-review` API;
+1. Go to your `Forecastle` and let's login to Grafana and view the predefined dashboards for `stakater-nordmart-review` API;
 
     ![Forecastle-workload-Grafana](images/forecastle-workload-grafana.png)
 
