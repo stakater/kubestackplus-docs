@@ -1,20 +1,20 @@
 # Add Grafana Dashboard to your Application
 
-Welcome to the world of data visualization and real-time monitoring with Grafana on SAAP! If you want to enhance your application's capabilities, you're in the right place. In this tutorial, we'll explore how to add a customized Grafana dashboard to your application in SAAP, allowing you to display live data for various operational use cases, efficiency analysis and A/B test results.
+Welcome to the world of data visualization and real-time monitoring with Grafana on SAAP! If you want to enhance your application's capabilities, you're in the right place. In this tutorial, we'll explore how to add a customized Grafana dashboard to your application in SAAP, allowing you to display live data for various operational use cases, efficiency analysis, and A/B test results.
 
-The good news is that Grafana is already a part of the SAAP (Stackater's App Agility Platform) monitoring stack, so you don't need to install it separately. Everything is set up for you!
+The good news is that Grafana is already a part of the SAAP (Stakater's App Agility Platform) monitoring stack, so you don't need to install it separately. Everything is set up for you!
 
 To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafana-dashboard.yaml` folder, where you'll find the pre-configured dashboard ready to be utilized.
 
 ## Objectives
 
-- Explore and view the predefined dashboards for stakater-nordmart-review-api.
+- Explore and view the predefined dashboards for `stakater-nordmart-review-api`.
 - Extend the Nordmart Review Dashboard with a new panel to visualize metrics.
 - Learn how to configure dashboards using the Grafana UI.
 
 ## Key Results
 
-- Successfully log in to Grafana and view the predefined dashboards for stakater-nordmart-review API.
+- Successfully log in to Grafana and view the predefined dashboards for `stakater-nordmart-review` API.
 - Execute API requests to generate data, observing real-time updates in Grafana dashboards.
 
 ## Tutorial
@@ -33,7 +33,7 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
 
     ![Forecastle-workload-Grafana](images/forecastle-workload-grafana.png)
 
-    If you use `Log in with OpenShift` to login and display dashboards - you user will only have `view` role which is read-only. This is alright in most cases, but we want to be able to edit and admin the boards.
+    If you use `Login with OpenShift` to login and display dashboards - your user will only have the `view` role which is read-only. This is alright in most cases, but we want to be able to edit and admin the boards.
 
   > In order to complete the next steps you will need the OpenShift CLI installed locally, credentials can be retrieved from the OpenShift UI
 
@@ -48,7 +48,7 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
     curl -L -X DELETE $(oc get route/review -n <your-namespace> --template='{{.spec.host}}')/api/review/6323904100aeb66032db19dc
     ```
 
-1. Back in Grafana, we should see some data populated into the boards... Go to the `Manage` and then click on your `<your-namespace>`.
+1. Back in Grafana, we should see some data populated into the boards... Go to `Manage` and then click on your `<your-namespace>`.
 
     ![Grafana-http-reqs](./images/product-review-grafana-dashboard-manage.png)
     ![Grafana-http-reqs](./images/product-review-grafana-dashboard-tanent.png)
