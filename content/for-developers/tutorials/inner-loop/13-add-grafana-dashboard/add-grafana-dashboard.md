@@ -4,8 +4,6 @@ Welcome to the world of data visualization and real-time monitoring with Grafana
 
 The good news is that Grafana is already a part of the SAAP (Stakater's App Agility Platform) monitoring stack, so you don't need to install it separately. Everything is set up for you!
 
-To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafana-dashboard.yaml` folder, where you'll find the pre-configured dashboard ready to be utilized.
-
 ## Objectives
 
 - Explore and view the predefined dashboards for `stakater-nordmart-review-api`.
@@ -20,6 +18,8 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
 ## Tutorial
 
 ### Explore Predefined Dashboards
+
+To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafana-dashboard.yaml` folder, where you'll find the pre-configured dashboard ready to be utilized.
 
 1. Open up `stakater-nordmart-review-api/deploy/values.yaml` file. Add this yaml in your `values.yaml` file.
 
