@@ -8,11 +8,11 @@ Logging is an essential aspect of any application deployment, providing valuable
 
 - Ensure that application logs are stored securely and comply with legal obligations using Fluentd, Elastic Search.
 
-- Facilitate easier debugging and error analysis through log aggregation and filtering using Kibana, Fluentd and Elastic Search.
+- Facilitate easier debugging and error analysis through log aggregation and filtering using Kibana, Fluentd, and Elastic Search.
 
 ## Key Results
 
-- Enhance log storage, retrieval capabilities, centralize log collection and aggregation for better troubleshooting and monitoring within SAAP.
+- Improve log storage and retrieval capabilities, while centralizing log collection and aggregation, to enhance troubleshooting and monitoring within SAAP.
 
 ## Tutorial
 
@@ -27,13 +27,13 @@ Logging is an essential aspect of any application deployment, providing valuable
 
     By default, these logs are not stored in a database, but there are a number of reasons to store them (i.e. troubleshooting, legal obligations..)
 
-    SAAP comes equipped with a powerful logging mechanism that seamlessly collects logs from various services. Any data written to `STDOUT` or `STDERR` is automatically collected by Fluentd and indexed in Elastic Search. This efficient setup makes indexing and querying logs a breeze. Kibana is added on top for easy visualisation of the data.
+    SAAP comes equipped with a powerful logging mechanism that seamlessly collects logs from various services. Any data written to `STDOUT` or `STDERR` is automatically collected by Fluentd and indexed in Elastic Search. This efficient setup makes indexing and querying logs a breeze. Kibana is added on top for easy visualization of the data.
 
 1. Let's take a look at Kibana now. Back to Forecastle:
 
     ![Forecastle-Kibana](./images/forecastle-kibana.png)
 
-1. Login using your standard credentials. On first login you'll need to `Allow selected permissions` for OpenShift to pull your permissions.
+1. Login using your standard credentials. On the first login, you'll need to `Allow selected permissions` for OpenShift to pull your permissions.
 
     ![Kibana-authorize-access](./images/kibana-authorize-access.png)
 
@@ -47,11 +47,11 @@ Logging is an essential aspect of any application deployment, providing valuable
 
     ![Kibana-create-index-timestamp](./images/kibana-create-index-timestamp.png)
 
-1. Go to the Kibana Dashboard - Hit `Discover` in the top right hand corner, we should now see all logs across all pods. It's a lot of information but we can query it easily.
+1. Go to the Kibana Dashboard - Hit `Discover` in the top right-hand corner, we should now see all logs across all pods. It's a lot of information but we can query it easily.
 
     ![Kibana-discover](./images/kibana-discover.png)
 
-1. Let's filter the information, look for the logs specifically for pet-battle apps running in the test namespace by adding this to the query bar:
+1. Let's filter the information, and look for the logs specifically for pet-battle apps running in the test namespace by adding this to the query bar:
 
     ```yaml
     kubernetes.namespace_name:"<your-namespace>" AND kubernetes.container_name:"review"
@@ -59,9 +59,9 @@ Logging is an essential aspect of any application deployment, providing valuable
 
     ![Kibana-example-query](./images/kibana-example-query-2.png)
 
-    Container logs are ephemeral, so once they die you'd loose them unless they're aggregated and stored somewhere. Let's generate some messages and query them from the UI in Kibana.
+    Container logs are ephemeral, so once they die you'd lose them unless they're aggregated and stored somewhere. Let's generate some messages and query them from the UI in Kibana.
 
-1. Connect to pod via `rsh` and generate logs.
+1. Connect to the pod via `rsh` and generate logs.
 
     ```bash
     oc project <your-namespace>
