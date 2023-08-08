@@ -31,7 +31,7 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
 
 1. Go to your `Forecastle` and let's log in to Grafana and view the predefined dashboards for `stakater-nordmart-review` API;
 
-    ![Forecastle-workload-Grafana](images/forecastle-workload-grafana.png)
+    ![Forecastle-workload-Grafana](images/forecastle-view.png)
 
     If you use `Login with OpenShift` to login and display dashboards - your user will only have the `view` role which is read-only. This is alright in most cases, but we want to be able to edit and admin the boards.
 
@@ -50,9 +50,9 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
 
 1. Back in Grafana, we should see some data populated into the boards... Go to `Manage` and then click on your `<your-namespace>`.
 
-    ![Grafana-http-reqs](./images/product-review-grafana-dashboard-manage.png)
-    ![Grafana-http-reqs](./images/product-review-grafana-dashboard-tanent.png)
-    ![Grafana-http-reqs](./images/product-review-grafana-dashboard.png)
+    ![Grafana-home](images/grafana-home.png)
+    ![Grafana-dashboard](images/grafana-dashboard.png)
+    ![Grafana-data](images/dashboard-data.png)
 
 ### Create a Dashboard
 
@@ -60,27 +60,26 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
 
 1. Login back on Grafana
 
-1. Once you've signed in, add a new panel:
+1. Once you've signed in, go to (**+**) sign and click on "New dashboard" in your namespace.
 
-    ![Grafana-add-panel](./images/grafana-add-panel.png)
+    ![new dashboard](images/new-dashboard.png)
 
-1. On the new panel, let's configure it to query for some information about our projects. We're going to use a very simple query to count the number of pods running in the namespace (feel free to use any other query). On the Panel settings, set the title to something sensible and add the query below. Hit save!
+On the new panel, let's configure it to query for some information about our projects. We're going to use a very simple query to count the number of pods running in the namespace (feel free to use any other query).
 
-    ```bash
-    sum(kube_pod_status_ready{namespace="<your-namespace>",condition="true"})
-    ```
+1. On the Panel settings, set the title to something sensible and add the query, first select "kube_pod_status_ready". Next select the label filter "condition = true". Below it you'll see the operator option, select "sum" operator. Underneath, you will see there is a query generated for you.  Hit "Run queries". The data will be shown on the panel. Hit "Apply" to save this new dashboard in your namespace.
 
-    ![new-panel](./images/new-panel.png)
+    ![new panel](images/custom-query.png)
 
 1. With the new panel on our dashboard, let's see it in action by killing off some pods in our namespace
 
     ```bash
-    oc delete pods -l app=review -n <your-namespace>
-    oc delete pods -l app=review-web -n <your-namespace>
+    oc delete pods -l app.kubernetes.io/name=review -n <your-namespace>
     ```
 
-    ![Grafana-less-pods](./images/grafana-less-pods.png)
+    Go to the newly created dashboard, click on view:
 
-    <p class="tip">
-    🐌 THIS IS NOT GitOps - Manually configuring the dashboard is a good way to play with Grafana. See advanced exercises for creating and storing the dashboard as code 🐎
-    </p>
+    ![Grafana-less-pods](images/deleted-pod-view-grafana.png)
+
+    Here, we can see the live data demonstration of pods on our newly created dashboard.
+
+You did great! Let's move on to next tutorial.
