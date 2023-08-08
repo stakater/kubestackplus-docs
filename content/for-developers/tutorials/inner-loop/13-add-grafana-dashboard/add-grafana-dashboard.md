@@ -35,7 +35,7 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
 
     If you use `Login with OpenShift` to login and display dashboards - your user will only have the `view` role which is read-only. This is alright in most cases, but we want to be able to edit and admin the boards.
 
-  > In order to complete the next steps you will need the OpenShift CLI installed locally, credentials can be retrieved from the OpenShift UI
+    > In order to complete the next steps you will need the OpenShift CLI installed locally, credentials can be retrieved from the OpenShift UI
 
 1. The Dashboards should be showing some basic information and we can generate more data by firing some requests to the `stakater-nordmart-review-api`. In your IDE, run on your terminal:
 
@@ -64,7 +64,7 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
 
     ![new dashboard](images/new-dashboard.png)
 
-On the new panel, let's configure it to query for some information about our projects. We're going to use a very simple query to count the number of pods running in the namespace (feel free to use any other query).
+    On the new panel, let's configure it to query for some information about our projects. We're going to use a very simple query to count the number of pods running in the namespace (feel free to use any other query).
 
 1. On the Panel settings, set the title to something sensible and add the query, first select "kube_pod_status_ready". Next select the label filter "condition = true". Below it you'll see the operator option, select "sum" operator. Underneath, you will see there is a query generated for you.  Hit "Run queries". The data will be shown on the panel. Hit "Apply" to save this new dashboard in your namespace.
 
