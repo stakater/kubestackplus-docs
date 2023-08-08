@@ -159,8 +159,8 @@ nav:
                 - for-developers/tutorials/inner-loop/10-add-dependency/add-dependency.md
                 - for-developers/tutorials/inner-loop/11-validate-logs/validate-logs.md
                 - for-developers/tutorials/inner-loop/12-monitor-your-app/monitor-your-app.md
-                - for-developers/tutorials/inner-loop/13-add-grafana-dashboard/add-grafana-dashboard.md
-                - for-developers/tutorials/inner-loop/14-add-alerts/add-alerts.md
+                - for-developers/tutorials/inner-loop/13-add-alerts/add-alerts.md
+                - for-developers/tutorials/inner-loop/14-add-grafana-dashboard/add-grafana-dashboard.md
                 - for-developers/tutorials/inner-loop/15-scale-app/scale-app.md
                 - for-developers/tutorials/inner-loop/16-validate-auto-reload/validate-auto-reload.md
                 - for-developers/tutorials/inner-loop/17-validate-down-alert/validate-down-alert.md
