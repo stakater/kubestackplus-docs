@@ -1,176 +1,85 @@
-# Create Grafana Dashboard Guide
+# Add Grafana Dashboard to your Application
 
-This document explains how to create Grafana Dashboard via GrafanaDashboard CR powered by Grafana operator. In this way there is no need to configure/import it via web UI. Now, developers can ship new dashboards in any namespace and deploy them via GitOps. If Dashboard definition/json is invalid, the dashboard will not appear in Grafana web UI.
+Welcome to the world of data visualization and real-time monitoring with Grafana on SAAP! If you want to enhance your application's capabilities, you're in the right place. In this tutorial, we'll explore how to add a customized Grafana dashboard to your application in SAAP, allowing you to display live data for various operational use cases, efficiency analysis, and A/B test results.
 
-## Prerequisite
+The good news is that Grafana is already a part of the SAAP (Stakater's App Agility Platform) monitoring stack, so you don't need to install it separately. Everything is set up for you!
 
-- Grafana should be up and running. You should be able to find it under Workload Monitoring category in your Forecastle link.
+## Objectives
 
-## Instructions
+- Explore and view the predefined dashboards for `stakater-nordmart-review-api`.
+- Extend the Nordmart Review Dashboard with a new panel to visualize metrics.
+- Learn how to configure dashboards using the Grafana UI.
 
-1. Create GrafanaDashboard definition
+## Key Results
 
-   You can choose any existing namespace. The label `grafanaDashboard: grafana-operator` is required for Grafana Operator to discover the dashboard. The JSON string with the dashboard contents is placed in the “json” section. Check the [official documentation](https://grafana.com/docs/reference/dashboard/#dashboard-json) for details on JSON Model. You can create a dashboard via web UI first, and then export the dashboard json to define a GrafanaDashboard CR (Custom Resource). If the JSON is invalid, the dashboard will not appear in Grafana web UI. Below is a sample GrafanaDashboard CR yaml.
+- Successfully log in to Grafana and view the predefined dashboards for `stakater-nordmart-review` API.
+- Execute API requests to generate data, observing real-time updates in Grafana dashboards.
+
+## Tutorial
+
+### Explore Predefined Dashboards
+
+To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafana-dashboard.yaml` folder, where you'll find the pre-configured dashboard ready to be utilized.
+
+1. Open up `stakater-nordmart-review-api/deploy/values.yaml` file. Add this yaml in your `values.yaml` file.
 
     ```yaml
-    apiVersion: integreatly.org/v1alpha1
-    kind: GrafanaDashboard
-    metadata:
-      name: grafana-dashboard-example
-      namespace: test-ns
-      labels:
-        grafanaDashboard: grafana-operator
-    spec:
-      json: |-
-        {
-          "annotations": {
-            "list": [
-              {
-                "builtIn": 1,
-                "datasource": "-- Grafana --",
-                "enable": true,
-                "hide": true,
-                "iconColor": "rgba(0, 211, 255, 1)",
-                "name": "Annotations & Alerts",
-                "type": "dashboard"
-              }
-            ]
-          },
-          "editable": true,
-          "gnetId": null,
-          "graphTooltip": 0,
-          "id": null,
-          "links": [],
-          "panels": [
-            {
-              "aliasColors": {},
-              "bars": false,
-              "dashLength": 10,
-              "dashes": false,
-              "datasource": null,
-              "fieldConfig": {
-                "defaults": {},
-                "overrides": []
-              },
-              "fill": 1,
-              "fillGradient": 0,
-              "gridPos": {
-                "h": 9,
-                "w": 12,
-                "x": 0,
-                "y": 0
-              },
-              "hiddenSeries": false,
-              "id": 2,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 1,
-              "nullPointMode": "null",
-              "options": {
-                "alertThreshold": true
-              },
-              "percentage": false,
-              "pluginVersion": "7.5.11",
-              "pointradius": 2,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "spaceLength": 10,
-              "stack": false,
-              "steppedLine": false,
-              "thresholds": [],
-              "timeFrom": null,
-              "timeRegions": [],
-              "timeShift": null,
-              "title": "Panel Title",
-              "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
-              },
-              "type": "graph",
-              "xaxis": {
-                "buckets": null,
-                "mode": "time",
-                "name": null,
-                "show": true,
-                "values": []
-              },
-              "yaxes": [
-                {
-                  "format": "short",
-                  "label": null,
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "label": null,
-                  "logBase": 1,
-                  "max": null,
-                  "min": null,
-                  "show": true
-                }
-              ],
-              "yaxis": {
-                "align": false,
-                "alignLevel": null
-              }
-            }
-          ],
-          "schemaVersion": 27,
-          "style": "dark",
-          "tags": [],
-          "templating": {
-            "list": []
-          },
-          "time": {
-            "from": "now-6h",
-            "to": "now"
-          },
-          "timepicker": {},
-          "timezone": "",
-          "title": "New dashboard",
-          "uid": null,
-          "version": 0
-        }
+        # Grafana Dashboard
+        grafanaDashboard:
+            enabled: true
     ```
 
-1. Apply GrafanaDashbaord CR to your cluster, manually or via GitOps way
+1. Go to your `Forecastle` and let's log in to Grafana and view the predefined dashboards for `stakater-nordmart-review` API;
 
-1. View the dashboard via Grafana web UI
+    ![Forecastle-workload-Grafana](images/forecastle-view.png)
 
-    1. Under `stakater-workload-monitoring` project, find the URL to Grafana through Cluster menu [Networking]->[Routes]
-    1. Open Grafana web UI, and go to [Dashboards]->[Manage] to view Dashboards management page
-       ![Grafana-menu](./images/grafana-menu.png)
+    If you use `Login with OpenShift` to login and display dashboards - your user will only have the `view` role which is read-only. This is alright in most cases, but we want to be able to edit and admin the boards.
 
-    1. Your dashboard will be put in a folder named after the namespace that you specified in GrafanaDashboard definition. The following is an example. ![Grafana-dashboards-management](./images/grafana-dashboards-management.png)
+    > In order to complete the next steps you will need the OpenShift CLI installed locally, credentials can be retrieved from the OpenShift UI
 
-## Application chart
+1. The Dashboards should be showing some basic information and we can generate more data by firing some requests to the `stakater-nordmart-review-api`. In your IDE, run on your terminal:
 
-A template for installing GrafanaDashboard is provided by [application chart](https://github.com/stakater-charts/application). You are able to specify configuration via `values.yaml` and install dashboards on cluster. The following is an example.
+    ```bash
+    # Get the reviews for a specific Product (i.e. 329199)
+    curl -L $(oc get route/review -n <your-namespace> --template='{{.spec.host}}')/api/review/329199
+    # Add a review for a specific Product (i.e. 329199)
+    curl -L -X POST $(oc get route/review -n <your-namespace> --template='{{.spec.host}}')/api/review/329199/John/5/Great
+    # Delete a review for a specific review (First get the review id from Get request)
+    curl -L -X DELETE $(oc get route/review -n <your-namespace> --template='{{.spec.host}}')/api/review/6323904100aeb66032db19dc
+    ```
 
-```yaml
-grafanaDashboard:
-  enabled: true
-  additionalLabels:
-    test-label: chart
-  annotations: 
-    test-annoation: chart
-  contents:
-    dashboard-test-name-1: 
-      json: |-
-        {
-          ...
-        }
-```
+1. Back in Grafana, we should see some data populated into the boards... Go to `Manage` and then click on your `<your-namespace>`.
+
+    ![Grafana-home](images/grafana-home.png)
+    ![Grafana-dashboard](images/grafana-dashboard.png)
+    ![Grafana-data](images/dashboard-data.png)
+
+### Create a Dashboard
+
+> Let's extend the Nordmart Review Dashboard with a new `panel` to capture some metrics in a visual way for us. Configuring dashboards is easy through the Grafana UI. Then Dashboards are easily shared as they can be exported as a `JSON` document.
+
+1. Login back on Grafana
+
+1. Once you've signed in, go to (**+**) sign and click on "New dashboard" in your namespace.
+
+    ![new dashboard](images/new-dashboard.png)
+
+    On the new panel, let's configure it to query for some information about our projects. We're going to use a very simple query to count the number of pods running in the namespace (feel free to use any other query).
+
+1. On the Panel settings, set the title to something sensible and add the query, first select "kube_pod_status_ready". Next select the label filter "condition = true". Below it you'll see the operator option, select "sum" operator. Underneath, you will see there is a query generated for you.  Hit "Run queries". The data will be shown on the panel. Hit "Apply" to save this new dashboard in your namespace.
+
+    ![new panel](images/custom-query.png)
+
+1. With the new panel on our dashboard, let's see it in action by killing off some pods in our namespace
+
+    ```bash
+    oc delete pods -l app.kubernetes.io/name=review -n <your-namespace>
+    ```
+
+    Go to the newly created dashboard, click on view:
+
+    ![Grafana-less-pods](images/deleted-pod-view-grafana.png)
+
+    Here, we can see the live data demonstration of pods on our newly created dashboard.
+
+You did great! Let's move on to next tutorial.
