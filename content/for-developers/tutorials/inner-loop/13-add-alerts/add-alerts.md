@@ -40,7 +40,7 @@ Now let's add a PrometheusRule for the application. In the previous section, we 
                   severity: critical
     ```
 
-    > Note: The indentation follow by **application.prometheusRule**.
+    > Note: The indentation follows by **application.prometheusRule**.
 
 ### Alert Manager
 
