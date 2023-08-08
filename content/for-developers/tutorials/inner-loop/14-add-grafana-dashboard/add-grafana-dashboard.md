@@ -24,10 +24,12 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
 1. Open up `stakater-nordmart-review-api/deploy/values.yaml` file. Add this yaml in your `values.yaml` file.
 
     ```yaml
-        # Grafana Dashboard
-        grafanaDashboard:
-            enabled: true
+    # Grafana Dashboard
+    grafanaDashboard:
+      enabled: true
     ```
+
+1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
 1. Go to your `Forecastle` and let's log in to Grafana and view the predefined dashboards for `stakater-nordmart-review` API;
 
@@ -63,6 +65,10 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
 1. Once you've signed in, go to (**+**) sign and click on "New dashboard" in your namespace.
 
     ![new dashboard](images/new-dashboard.png)
+
+    Click on "Add visualization":
+
+    ![add visual](images/add-visual.png)
 
     On the new panel, let's configure it to query for some information about our projects. We're going to use a very simple query to count the number of pods running in the namespace (feel free to use any other query).
 
