@@ -1,118 +1,78 @@
-# Autoscale your application
+# Autoscaling your Application
 
-Autoscaling is a process of scaling up/down where pods are increased/decreased in order to distribute load between them if the load on the pods gets greater/less than the defined threshold. Application Autoscaling can be done using `HorizontalPodAutoscaler` which is defined by Kubernetes API `autoscaling/v1` or `autoscaling/v2beta2`
+Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to automatically manage the scaling of your application pods. Horizontal pod autoscaler (HPA) helps us to specify how SAAP should automatically increase or decrease the number of pod replicas of an application, based on metrics collected from the pods. When we define an HPA (based on CPU and/or memory usage metrics), the platform calculates the current usage and compares it with the utilization threshold and scales pods up or down accordingly.
 
-## Prerequisites
+## Objectives
 
-In order to use Horizontal Pod Autoscalers, your cluster administrator must have properly configured cluster metrics.
-You can use the `oc describe PodMetrics <any-pod-name>` command to determine if metrics are configured. If metrics are configured, the output appears similar to the following, with `Cpu` and `Memory` displayed under Usage.
+- Add HPA configuration to values.yaml to enable autoscaling with specific parameters.
+- Load-test the application to trigger autoscaling and observe the increase in pod replicas.
+- Monitor the HPA as it scales down the replicas after the load test.
 
-```yaml
-...
-Containers:
-  Name:  pod-name-xyz
-  Usage:
-    Cpu:     17877836n
-    Memory:  503572Ki
-...
-```
+## Key Results
 
-## HorizontalPodAutoscaler
+- Enable and configure Horizontal Pod Autoscaler for the `stakater-nordmart-review` application to automatically adjust the number of pod replicas based on CPU utilization.
 
-Stakater [Application Chart](https://github.com/stakater-charts/application) uses `autoscaling/v2beta2` API which provides additional metrics other than CPU only to be used as a metrics for autoscaling. These metrics can be CPU, Memory or custom metrics exposed by the application [See here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#autoscaling-on-multiple-metrics-and-custom-metrics)
+## Tutorial
 
-| Metrics | Description |
-|--- |--- |
-| CPU Utilization | Number of CPU cores used. Can be used to calculate a percentage/Integer Value of the pod's requested CPU. |
-| Memory Utilization | Amount of memory used. Can be used to calculate a percentage/Integer Value of the pod's requested memory. |
+1. The `stakater-nordmart-review` uses stakater's [application chart](https://github.com/stakater-charts/application/tree/master/application) as a dependency. This chart already contains a template for Horizontal Pod Autoscaler.
 
-## Defining Autoscaling on CPU
+   By default, the horizontal pod autoscaler is disabled in our `stakater-nordmart-review` chart.
 
-To define Autoscaling on the basis of CPU define the autoscaling section in your HelmRelease object.
+    > Often we only enable the HPA in the stage or prod environments, so being able to configure it on / off when testing is useful. To turn it on in a given environment, we can simply supply new values to our application config. Now let's do it for `stakater-nordmart-review`
 
-In the following example we will use `averageUtilization` ( in Percentage) calculated on all the pods.
+1. Head over to your `stakater-nordmart-review-api` repository and navigate to `deploy > values.yaml`. Under the `application:`, add the following yaml block. It should have the same indent as `applicationName: review`
 
-```yaml
-autoscaling:
-  enabled: true
-  minReplicas: 3                    # Minimum running pods 
-  maxReplicas: 10                   # Maximum running pods
-  additionalLabels: {}
-  annotations: {}
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu                     # Define autoscaling on the basis of CPU
-      target:
-        type: Utilization           # Calculate on the basis of Utilization Percentage (in percentage of the requested CPU)
-        averageUtilization: 80      # Scale when the average utilization of all pods go above 80%
-```
+    ```yaml
+      autoscaling:
+        enabled: true
+        minReplicas: 1
+        maxReplicas: 5
+        metrics:
+        - type: Resource
+          resource:
+            name: cpu
+            target:
+              type: Utilization
+              averageUtilization: 60
+    ```
 
-## Defining Autoscaling on Memory
+    It should look like this:
 
-To define Autoscaling on the basis of CPU define the autoscaling section in your HelmRelease object.
+   ![autoscaling values](images/autoscaling-yaml.png)
 
-In the following example we will use `averageValue` (in integer value) calculated on all the pods.
+1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
-```yaml
-autoscaling:
-  enabled: true
-  minReplicas: 3                    # Minimum running pods 
-  maxReplicas: 10                   # Maximum running pods
-  additionalLabels: {}
-  annotations: {}
-  metrics:
-  - type: Resource
-    resource:
-      name: memory                  # Define autoscaling on the basis of memory
-      target:
-        type: AverageValue          # Calculate on the basis of Utilization Value ( in integer value )
-        averageValue: 500Mi         # Scale when the average utilization of all pods go above 500Mi
-```
+    Let's now test our pod autoscaler, to do this we want to fire lots of load on the API of the `review` microservice. This should trigger an autoscaling event due to the increased load on the pods. [hey](https://github.com/rakyll/hey) is a simple load testing tool that can be run from the command line that will fire lots of load at our endpoint:
 
-## Autoscaling with GitOps
+1. Run the following command in your terminal.
 
-If you are using GitOps to manage your applications across clusters, you need to ignore the difference for replica count to make autoscaling work.
+    ```bash
+    hey -t 30 -c 10 -n 10000 -H "Content-Type: application/json" -m GET https://$(oc get route/review -n <your-namespace> --template='{{.spec.host}}')/api/review/329199
+    ```
 
-**Problem:**
-When your HPA will try to increase the number of pods, at the same time your GitOps tool will also try to maintain the original state of your application, and it will terminate the newly created pods after autoscaling.
+    Where:
 
-**Solution:**
-Update your GitOps tool to ignore the difference for replica count, so that whenever HPA scales up the number of pods and increases the replica count, the GitOps tool doesn't try to sync the replica count and doesn't terminate the new pods.
+      - -c: Number of workers to run concurrently (10)
+      - -n: Number of requests to run (10,000)
+      - -t: Timeout for each request in seconds (30)
 
-**Example (ArgoCD):**
-Argo CD allows [ignoring differences](https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration) at a specific JSON path, using JSON patches. The following sample application is configured to ignore differences in `spec.replicas` for all deployments
+1. While this is running, we should see in SAAP, the autoscaler is kicking in and spinning up additional pods.  Open the `Workloads` tab. At the very bottom, you will see HorizontalPodAutoScalar. Open the review HPA. You will see the below screen
+    Notice the CPU utilization and desired replica count. It has jumped!
 
-```yaml
-spec:
-  ignoreDifferences:
-  - group: apps
-    kind: Deployment
-    jsonPointers:
-    - /spec/replicas
-```
+   ![scale-up](./images/scale-up.png)
 
-## How to test HPA
+1. If you navigate to the review deployment, you should see the replica count has jumped and so have the number of pods.
 
-To test the HorizontalPodAutoscaler with your application, you need to install the HPA for your application and then gradually increase the load (memory or CPU depending on HPA configuration). You can use tools like postman, JMeter, readyAPI or a manual [script](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#increase-load) to increase the load on your application.
+   ![HPA-deployment](images/deployment-after-autoscale.png)
 
-You can monitor the Horizontal Pod Auto Scaler from your OpenShift/Kubernetes dashboard or with command
+   ![replicas-HPA](images/pods-hpa.png)
 
-```bash
-kubectl describe hpa <hpa-name>
-```
+1. Now let's wait for a couple of minutes for the load to ease. Navigate back to the `review` HorizontalPodAutoscaler. You will see that the CPU utilization and desired replicas have started going down.
 
-The CPU/memory usage and the events should show the application pods getting scaled up and down when the load increases or decreases.
+   ![scale-down](./images/back-to-before-hpa.png)
 
-**HPA Metrics:**
-![HPA Metrics High Load](./images/HPA-Metrics.png)
-![HPA Metrics Low Load](./images/HPA-Metrics2.png)
+1. Go to the review deployment, you will see that it has brought the pods down (Or is trying to decrease the number of pods)
 
-**HPA Events:**
-![HPA Events](./images/HPA-Events2.png)
+   ![scale-down](images/back-to-one-pod.png)
 
-## Useful Links
-
-* [Autoscaling in OpenShift](https://docs.openshift.com/container-platform/4.4/nodes/pods/nodes-pods-autoscaling.html)
-* [Kubernetes Example](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
-* [How it works](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+WELL DONE!! YOU NOW HAVE AUTO SCALING WITH YOUR APPLICATION!!

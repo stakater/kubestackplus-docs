@@ -14,6 +14,8 @@ In the modern landscape of software development, monitoring and managing the hea
 
 Now that we have enabled Service Monitor for our application in the previous section, let's create alerts for it. Metrics endpoints are scraped via ServiceMonitor by Prometheus and Prometheus is already installed on your SAAP cluster.
 
+## Tutorial
+
 ### Defining PrometheusRule
 
 If you want to generate an alert based on some metric, you will need a PrometheusRule Custom Resource. A PrometheusRule defines when an alert should fire.
@@ -106,7 +108,7 @@ Once you have the webhook Url, you can add the AlertManagerConfig. The Alertmana
 
     > Note: The indentation follows by **application.alertmanagerConfig**.
 
-1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
+1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
     Now that we have created everything we need, let's see the alerts firing. Log in to SAAP, and change the view to "Developer". You will see the 'Observe' tab in the left panel.
 
