@@ -63,9 +63,9 @@ Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to
 
 1. If you navigate to the review deployment, you should see the replica count has jumped and so have the number of pods.
 
-   ![`hpa-deployment`](images/deployment-after-autoscale.png)
+   ![HPA-deployment](images/deployment-after-autoscale.png)
 
-   ![`replicas-hpa`](images/pods-hpa.png)
+   ![replicas-HPA](images/pods-hpa.png)
 
 1. Now let's wait for a couple of minutes for the load to ease. Navigate back to the `review` HorizontalPodAutoscaler. You will see that the CPU utilization and desired replicas have started going down.
 
