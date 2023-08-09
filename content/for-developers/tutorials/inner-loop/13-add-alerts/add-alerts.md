@@ -108,7 +108,7 @@ Once you have the webhook Url, you can add the AlertManagerConfig. The Alertmana
 
     > Note: The indentation follows by **application.alertmanagerConfig**.
 
-1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
+1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
     Now that we have created everything we need, let's see the alerts firing. Log in to SAAP, and change the view to "Developer". You will see the 'Observe' tab in the left panel.
 
