@@ -1,16 +1,16 @@
 # Autoscaling your Application
 
-Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to automatically manage the scaling of your application pods. Horizontal pod autoscaler (HPA) helps us to specify how SAAP should automatically increase or decrease the number of pod replicas of an application, based on metrics collected from the pods. When we define an HPA (based on CPU and/or memory usage metrics), the platform calculates the current usage and compare it with the utilization threshold and scales pods up or down accordingly.
+Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to automatically manage the scaling of your application pods. Horizontal pod autoscaler (HPA) helps us to specify how SAAP should automatically increase or decrease the number of pod replicas of an application, based on metrics collected from the pods. When we define an HPA (based on CPU and/or memory usage metrics), the platform calculates the current usage and compares it with the utilization threshold and scales pods up or down accordingly.
 
 ## Objectives
 
 - Add HPA configuration to values.yaml to enable autoscaling with specific parameters.
-- Load test the application to trigger autoscaling and observe the increase in pod replicas.
+- Load-test the application to trigger autoscaling and observe the increase in pod replicas.
 - Monitor the HPA as it scales down the replicas after the load test.
 
 ## Key Results
 
-- Enable and configure Horizontal Pod Autoscaler for the stakater-nordmart-review application to automatically adjust the number of pod replicas based on CPU utilization.
+- Enable and configure Horizontal Pod Autoscaler for the `stakater-nordmart-review` application to automatically adjust the number of pod replicas based on CPU utilization.
 
 ## Tutorial
 
@@ -42,7 +42,7 @@ Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
-    Let's now test our pod autoscaler, to do this we want to fire lots of load on the API of review microservice. This should trigger an autoscaling event due to the increased load on the pods. [hey](https://github.com/rakyll/hey) is simple load testing tool that can be run from the command line that will fire lots of load at our endpoint:
+    Let's now test our pod autoscaler, to do this we want to fire lots of load on the API of the `review` microservice. This should trigger an autoscaling event due to the increased load on the pods. [hey](https://github.com/rakyll/hey) is a simple load testing tool that can be run from the command line that will fire lots of load at our endpoint:
 
 1. Run the following command in your terminal.
 
@@ -56,18 +56,18 @@ Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to
       - -n: Number of requests to run (10,000)
       - -t: Timeout for each request in seconds (30)
 
-1. While this is running, we should see in SAAP, the autoscaler is kicking in and spinning up additional pods.  Open the `Workloads` tab. At the very bottom you will see HorizontalPodAutoScalar. Open the review HPA. You will see the below screen
-    Notice the cpu utilization and desired replica count. It has jumped!
+1. While this is running, we should see in SAAP, the autoscaler is kicking in and spinning up additional pods.  Open the `Workloads` tab. At the very bottom, you will see HorizontalPodAutoScalar. Open the review HPA. You will see the below screen
+    Notice the CPU utilization and desired replica count. It has jumped!
 
    ![scale-up](./images/scale-up.png)
 
 1. If you navigate to the review deployment, you should see the replica count has jumped and so have the number of pods.
 
-   ![hpa-deployment](images/deployment-after-autoscale.png)
+   ![`hpa-deployment`](images/deployment-after-autoscale.png)
 
-   ![replicas-hpa](images/pods-hpa.png)
+   ![`replicas-hpa`](images/pods-hpa.png)
 
-1. Now let's wait for a couple of minutes for load to ease. Navigate back to the `review` HorizontalPodAutoscaler. You will see that the CPU utilization and desired replicas have started going down.
+1. Now let's wait for a couple of minutes for the load to ease. Navigate back to the `review` HorizontalPodAutoscaler. You will see that the CPU utilization and desired replicas have started going down.
 
    ![scale-down](./images/back-to-before-hpa.png)
 
@@ -75,4 +75,4 @@ Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to
 
   ![scale-down](images/back-to-one-pod.png)
 
-   WELLDONE!! YOU NOW HAVE AUTO SCALING WITH YOUR APPLICATION!!
+   WELL DONE!! YOU NOW HAVE AUTO SCALING WITH YOUR APPLICATION!!
