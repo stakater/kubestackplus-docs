@@ -14,6 +14,8 @@ In the modern landscape of software development, monitoring and managing the hea
 
 Now that we have enabled Service Monitor for our application in the previous section, let's create alerts for it. Metrics endpoints are scraped via ServiceMonitor by Prometheus and Prometheus is already installed on your SAAP cluster.
 
+## Tutorial
+
 ### Defining PrometheusRule
 
 If you want to generate an alert based on some metric, you will need a PrometheusRule Custom Resource. A PrometheusRule defines when an alert should fire.
