@@ -73,6 +73,6 @@ Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to
 
 1. Go to the review deployment, you will see that it has brought the pods down (Or is trying to decrease the number of pods)
 
-  ![scale-down](images/back-to-one-pod.png)
+   ![scale-down](images/back-to-one-pod.png)
 
-   WELL DONE!! YOU NOW HAVE AUTO SCALING WITH YOUR APPLICATION!!
+WELL DONE!! YOU NOW HAVE AUTO SCALING WITH YOUR APPLICATION!!
