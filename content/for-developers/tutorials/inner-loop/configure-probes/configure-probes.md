@@ -14,6 +14,20 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
 ## Tutorial
 
+### Probes Error
+
+When Deploying `Stakater Nordmart Review API` application, you might see this error in your application pods.
+
+  ![show error](images/show-error.png)
+
+  The pod status shows `CrashLoopBackOff`. Let's see pod's events for more detailed logs:
+
+  ![show event](images/failed-probes.png)
+
+  Because of the liveness and readiness probes got failed, the pods are not in running state.
+
+So, to deploy your application smoothly you need to configure probes.
+
 1. To add a liveness probe in your application, you need to define it in your `deploy/values.yaml`. Liveness probes continuously monitor the health of containers and automatically restart any instances that fail the health check.
 
     ```yaml
@@ -143,4 +157,6 @@ In this tutorial, we will explore how to leverage the capabilities of SAAP to de
 
     Awesome! you made it
 
-1. Run `tilt down` to delete the application and related configuration from the namespace
+1. Run `tilt down` to delete the application and related configuration from the namespace.
+
+Good Job! Let's move on to next tutorial, where we'll see how we can persist data of our application.
