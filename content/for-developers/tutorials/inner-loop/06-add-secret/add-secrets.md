@@ -71,11 +71,11 @@ Login to Vault to view your tenant path.
       refreshInterval: "1m"
       # Define a named secret entry within ExternalSecrets
       files:
-      # Name of the secret entry: review-ui-secret
-        review-ui-secret:
+      # Name of the secret only suffix
+        mongodb-creds:
       # Fetch secret data from Vault using a specific key in the specified tenant's KV engine
           dataFrom:
-          - key: <your-tenant>/kv/review-mongodb-creds
+            key: <your-tenant>/kv/review-mongodb-creds
     ```
 
     > Note: The indentation should be **application.externalSecret**.
