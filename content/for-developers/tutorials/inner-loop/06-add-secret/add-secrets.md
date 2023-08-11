@@ -36,25 +36,25 @@ Login to Vault to view your tenant path.
 
 1. Click on `<your-tenant>/kv/`.
 
-1. You will now be brought to the `secrets` and the `configurations` in vault for your tenant. Click on `create secret`.
+1. You will now be brought to the `secrets` and the `configurations` in Vault for your tenant. Click on `create secret`.
 
     ![create secret](images/create-secret.png)
 
-1. Let's create MongoDB secret. Write name of the secret in `path` which is `review-mongodb-creds`. Add `secret data` `mongodb-password` and `mongodb-root-password` and assign any password you like. Hit save.
+1. Let's create a MongoDB secret. Write the name of the secret in `path` which is `review-mongodb-creds`. Add `secret data` `mongodb-password` and `mongodb-root-password` and assign any password you like. Hit save.
 
-    ![key value secret mongodb](images/key-val-secret.png)
+    ![key value secret MongoDB](images/key-val-secret.png)
 
-1. Secret is created in vault.
+1. Secret is created in Vault.
 
     ![secret created](images/secret-created.png)
 
-### Access and Create Secret on SAAP from Vault
+### Access and Create a Secret on SAAP from Vault
 
-- External Secrets Operator is used to fetch secret data from Vault, and create Kubernetes secret in the SAAP.
+- External Secrets Operator is used to fetch secret data from Vault and create Kubernetes secret in the SAAP.
 - External Secrets Operator uses SecretStore to make a connection to the Vault.
 - SecretStore uses ServiceAccount with Vault label to access Vault.
-- SecretStore and ServiceAccount is created in each tenant namespace.
-- Each ExternalSecret CR contains reference to SecretStore to be used.
+- SecretStore and ServiceAccount are created in each tenant namespace.
+- Each ExternalSecret CR contains a reference to SecretStore to be used.
 - Stakater Application Chart contains support for ExternalSecret.
 
 1. In `deploy/values.yaml` file, add the following YAML for external secret:
@@ -84,13 +84,13 @@ Login to Vault to view your tenant path.
 
 1. Log in to SAAP and find `secrets` in your namespace.
 
-    ![mongodb secret](images/mongodb-secrets.png)
+    ![MongoDB secret](images/mongodb-secrets.png)
 
-1. Click on the `review-mongodb-creds` secret. Scroll-down to see the data of your secret. So the secret is created accurately.
+1. Click on the `review-mongodb-creds` secret. Scroll down to see the data of your secret. So the secret is created accurately.
 
     ![secret details](images/secret-details.png)
 
-1. Scroll-up to see the owner, which manages your secret.
+1. Scroll up to see the owner, which manages your secret.
 
     ![external secret cr](images/external-secret-cr.png)
 
@@ -98,10 +98,10 @@ Login to Vault to view your tenant path.
 
     ![external secret resources](images/external-secret-resources.png)
 
-Once the updated secret is created, application pod will be recreated. Refresh the application route to see if the pods are running.
+Once the updated secret is created, the application pod will be recreated. Refresh the application route to see if the pods are running.
 
 ![running pods](images/running-pods.png)
 
 For more information on ExternalSecrets, see [External Secrets documentation](https://external-secrets.io/v0.8.1/introduction/overview/)
 
-You are doing great!! Let's see how to configure probes for your application in next tutorial.
+You are doing great!! Let's see how to configure probes for your application in the next tutorial.
