@@ -98,7 +98,7 @@ Login to Vault to view your tenant path.
 
     ![external secret resources](images/external-secret-resources.png)
 
-Once the updated secret is created, the application pod will be recreated. Refresh the application route to see if the pods are running.
+Once the updated secret is created, the application pod will be recreated. Refresh to see if the pods are running.
 
 ![running pods](images/running-pods.png)
 
