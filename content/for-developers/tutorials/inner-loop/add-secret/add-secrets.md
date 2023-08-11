@@ -71,11 +71,11 @@ Login to Vault to view your tenant path.
       refreshInterval: "1m"
       # Define a named secret entry within ExternalSecrets
       files:
-      # Name of the secret entry: review-ui-secret
-        review-ui-secret:
+      # Name of the secret only suffix
+        mongodb-creds:
       # Fetch secret data from Vault using a specific key in the specified tenant's KV engine
           dataFrom:
-          - key: <your-tenant>/kv/review-mongodb-creds
+            key: <your-tenant>/kv/review-mongodb-creds
     ```
 
     > Note: The indentation should be **application.externalSecret**.
@@ -98,7 +98,7 @@ Login to Vault to view your tenant path.
 
     ![external secret resources](images/external-secret-resources.png)
 
-Once the updated secret is created, the application pod will be recreated. Refresh the application route to see if the pods are running.
+Once the updated secret is created, the application pod will be recreated. Refresh to see if the pods are running.
 
 ![running pods](images/running-pods.png)
 
