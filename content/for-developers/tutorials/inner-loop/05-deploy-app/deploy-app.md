@@ -162,12 +162,13 @@ In this guide, we will deploy an application with tilt and namespace in the remo
 
     Let's view your application pods
 
-    ![show error](images/show-error.png)
+    ![pods error](images/pods-error.png)
 
-    The application is not deployed yet. Let's see pod's events:
+    We can see there is an error on both API and MongoDB pods. Let's see the events of both pods to find the actual error:
 
-    ![show event](images/failed-probes.png)
+    ![review pod error](images/event-review.png)
+    ![mongodb pod error](images/events-mongodb.png)
 
-    Because of the liveness and readiness probes got failed, the pods are not in running state.
+    There is a secret missing named, "review-mongodb-creds".
 
-    To deploy your application smoothly you need to configure probes. See [next](../05-configure-probes/) tutorial.
+Let's create this secret in next chapter and deploy the app.
