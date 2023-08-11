@@ -28,7 +28,7 @@ In this guide, we will deploy an application with tilt and namespace in the remo
 
 1. You should have a namespace in remote/local cluster; If you are in SAAP then enable sandbox namespace/project/environment for your tenant; you can read more [here](https://docs.stakater.com/mto/main/customresources.html)
 
-1. Login to the cluster via `OpenShift CLI`, and copy the login command from your `username` tab as discussed in the previous tutorial.
+1. Log in to the cluster via `OpenShift CLI`, and copy the login command from your `username` tab as discussed in the previous tutorial.
 
 1. Switch project to sandbox namespace/project/environment
 
@@ -36,7 +36,7 @@ In this guide, we will deploy an application with tilt and namespace in the remo
     oc project <MY-SANDBOX>
     ```
 
-1. Login to OpenShift internal docker registry
+1. Log in to OpenShift internal docker registry
 
     First, get the OpenShift internal docker registry URL and set in the HOST variable name
 
@@ -67,7 +67,7 @@ In this guide, we will deploy an application with tilt and namespace in the remo
     ```sh
     cd deploy
 
-    # Helm credentials can be found in Vault or in a secret in the build namespace
+    # Helm credentials can be found in Vault or in secret in the build namespace
     helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********
 
     cd ..
@@ -162,12 +162,13 @@ In this guide, we will deploy an application with tilt and namespace in the remo
 
     Let's view your application pods
 
-    ![show error](images/show-error.png)
+    ![pods error](images/pods-error.png)
 
-    The application is not deployed yet. Let's see pod's events:
+    We can see there is an error on both API and MongoDB pods. Let's see the events of both pods to find the actual error:
 
-    ![show event](images/failed-probes.png)
+    ![review pod error](images/event-review.png)
+    ![MongoDB pod error](images/events-mongodb.png)
 
-    Because of the liveness and readiness probes got failed, the pods are not in running state.
+    There is a secret missing named, `review-mongodb-creds`.
 
-    To deploy your application smoothly you need to configure probes. See [next](../05-configure-probes/) tutorial.
+Let's create this secret in the next chapter and deploy the app.

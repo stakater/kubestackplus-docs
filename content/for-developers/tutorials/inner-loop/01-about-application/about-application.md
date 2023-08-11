@@ -1,4 +1,4 @@
-# 🐡 Nordmart Review 101
+# Nordmart Review 101
 
 Welcome to the Nordmart Review 101 guide! In this section, we'll explore the architecture of the Nordmart Review, a pivotal sub-module within the Stakater Nordmart fictitious online e-commerce store.
 
