@@ -97,7 +97,7 @@ In this guide, we will deploy an application with tilt and namespace in the remo
 
       1. `namespace`: your sandbox environment name
       1. `default_registry`: the OpenShift internal registry route (you have set in step # 6 in HOST above) and then add your namespace name after `/`
-      1. `allow_k8s_contexts`: given you are logged in the cluster; then run `oc config current-context to get the value for `allow_k8s_contexts`
+      1. `allow_k8s_contexts`: given you are logged in the cluster; then run `oc config current-context` to get the value for `allow_k8s_contexts`
 
           e.g.
 
