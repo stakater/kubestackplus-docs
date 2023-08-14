@@ -15,7 +15,7 @@ To address this challenge, Stakater has Reloader—a powerful tool that automate
 
 ## Tutorial
 
-Let's take a look at the deployment and secret before any change.
+Let's take a look at the secret before any change.
 
 The secret we created for our deployment earlier, notice the details and the value of `mongodb-password` which is `123456789`.
 
@@ -30,7 +30,7 @@ The secret we created for our deployment earlier, notice the details and the val
 
     It should look like this:
 
-    ![reloader values](images/reload-values.png)
+    ![Reloader values](images/reload-values.png)
 
     > Note: The indentation should be **application.deployment.reloadOnChange: true**.
 
@@ -54,7 +54,7 @@ The secret we created for our deployment earlier, notice the details and the val
 
     ![updated secret](images/updated-secret.png)
 
-1. Now let's go to `Pods` and see if the pod of our `review` application has reloaded. You will see the new pod for `review` deployment is deploying and once it's fully deployed and in a `Running` state, the older pod will be `terminated`.
+1. Now let's go to `Pods` and see if the pod of our `review` application has reloaded. You will see the new pod for `review` is deploying and once it's in a `Running` state and `Ready 1/1`, the older pod will be `terminated`.
 
     ![deployment pod restarted](images/deployment-pod-restarted.png)
     ![older pod terminated](images/old-pod-terminated.png).
