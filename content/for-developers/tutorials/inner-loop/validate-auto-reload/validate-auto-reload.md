@@ -44,7 +44,7 @@ The secret we created for our deployment earlier, notice the details and the val
 
 1. Log in to `Vault` and got to `your-tenant/kv`, click on the secret `review-mongodb-creds`, then click on `create new version`.
 
-    ![vault secret new version](images/vault-secret-new-version.png)
+    ![Vault secret new version](images/vault-secret-new-version.png)
 
 1. You can now edit the values of your secret which will be considered a new version of your external secret. Edit `mongodb-password` and set the value to `123456780`. Hit `Save`.
 
@@ -54,7 +54,7 @@ The secret we created for our deployment earlier, notice the details and the val
 
     ![updated secret](images/updated-secret.png)
 
-1. Now let's go to `Pods` and see if the pod of our `review` application has reloaded. You will see the new pod for `review` is deploying and once it's in a `Running` state and `Ready 1/1`, the older pod will be `terminated`.
+1. Now let's go to `Pods` and see if the pod of our `review` application has reloaded. You will see the new pod `review` is deploying and once it's in a `Running` state and `Ready 1/1`, the older pod will be `terminated`.
 
     ![deployment pod restarted](images/deployment-pod-restarted.png)
     ![older pod terminated](images/old-pod-terminated.png).
