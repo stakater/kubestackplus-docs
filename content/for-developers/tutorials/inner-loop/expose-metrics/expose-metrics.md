@@ -1,6 +1,6 @@
 # Add Service Monitor
 
-SAAP gathers the base metrics to see how our pods are doing. In order to get application specific metrics (like response time or number of reviews or active users etc) alongside the base ones, we need another object `ServiceMonitor`. It will let Prometheus know which endpoint the metrics are exposed so that Prometheus can scrape them. And once the Prometheus has the metrics, we can run query on them (just like we did before!) and create shiny dashboards!
+SAAP gathers the base metrics to see how our pods are doing. In order to get application-specific metrics (like response time or the number of reviews or active users etc) alongside the base ones, we need another object `ServiceMonitor`. It will let Prometheus know which endpoint the metrics are exposed to so that Prometheus can scrape them. And once Prometheus has the metrics, we can run queries on them (just like we did before!) and create shiny dashboards!
 
 ## Objectives
 
@@ -29,7 +29,7 @@ Now, let's add the `ServiceMonitor` for our `stakater-nordmart-review-api` appli
 
 1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
-1. To find `serviceMonitor` in SAAP, first login with your credentials, go to `API Explorer`, filter by service, find `ServiceMonitor`:
+1. To find `serviceMonitor` in SAAP, first login with your credentials, go to `API Explorer`, filter by service, and find `ServiceMonitor`:
 
     ![search service monitor](images/search-service-monitor.png)
 
@@ -47,6 +47,6 @@ Now, let's add the `ServiceMonitor` for our `stakater-nordmart-review-api` appli
 
     ![product-review-promql](images/product-review-promql.png)
 
-Voila, you sucessfully exposed metrics for your application!
+Voila, you successfully exposed metrics for your application!
 
-Move on to next tutorial to see how to trigger alerts for your application.
+Move on to the next tutorial to see how to trigger alerts for your application.
