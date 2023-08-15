@@ -1,4 +1,4 @@
-# Promote the application
+# Promote your Application
 
 To promote application from one environment to another; as mentioned above you will need to bump chart version and image tag version in that environment. You can do so by picking these versions from previous environment.
 

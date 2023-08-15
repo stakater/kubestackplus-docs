@@ -1,4 +1,4 @@
-# Access Your Cluster
+# Access your Cluster
 
 ## Objectives
 
