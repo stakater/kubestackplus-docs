@@ -39,7 +39,7 @@ Now, let's add the `ServiceMonitor` for our `stakater-nordmart-review-api` appli
 
    You can run queries across the namespace easily with `promql`, a query language for Prometheus. Run a `promql` query to get some info about the memory consumed by the pods in your `<your-namespace>` namespace/project.
 
-1. Go to Developer > Observe > Metrics. Select `Custom query` and paste the below query. Make sure to replace `your-namespace` before running it. Press Enter, and see the metrices for your application specifically.
+1. Go to Developer > Observe > Metrics. Select `Custom query` and paste the below query. Make sure to replace `your-namespace` before running it. Press Enter, and see the metrics for your application specifically.
 
     ```bash
     sum(container_memory_working_set_bytes{container!='',namespace='<your-namespace'}) by (pod)
@@ -47,6 +47,6 @@ Now, let's add the `ServiceMonitor` for our `stakater-nordmart-review-api` appli
 
     ![product-review-promql](images/product-review-promql.png)
 
-Voila, you sucessfully exposed metrices for your application!
+Voila, you sucessfully exposed metrics for your application!
 
 Move on to next tutorial to see how to trigger alerts for your application.
