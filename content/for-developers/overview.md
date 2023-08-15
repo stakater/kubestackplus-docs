@@ -6,11 +6,11 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
 - [Developer Training](./explanation/developer-training.md)
 
-    Lay the foundation of your development journey with comprehensive training. Explore fundamental concepts, programming languages, and technologies that are vital for successful application development.
+    Lay the foundation of your development journey with comprehensive training. Explore fundamental concepts, programming languages, and technologies vital for successful application development.
 
 - [Inner and Outer Loop](./explanation/inner-outer-loop.md)
 
-    Uncover the inner workings of software development processes. Distinguish between the inner development loop for code iteration and manual deployment and monitoring, and the outer development loop for GitOps deployment.
+    Uncover the inner workings of software development processes. Distinguish between the inner development loop for code iteration and manual deployment and monitoring and the outer development loop for GitOps deployment.
 
 - [Local Development Workflow](./explanation/local-development-workflow.md)
 
@@ -18,7 +18,7 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
 - [Plan Your Deployment](./explanation/plan-your-deployment.md)
 
-    Learn to strategize and plan your application deployments effectively. Understand your application and it's needs, deployment strategies, version control, and integration points for a smooth transition to production.
+    Learn to plan your application deployments effectively. Understand your application and its needs, deployment strategies, version control, and integration points for a smooth transition to production.
 
 - [Production Best Practices](./explanation/production-best-practices.md)
 
@@ -28,7 +28,7 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
 - [Add a New Environment to Apps GitOps](./how-to-guides/add-a-new-environment-to-apps-gitops/add-a-new-environment-to-application.md)
 
-    Extend your application's capabilities by integrating new environments into your GitOps workflow.
+    You can extend your application's capabilities by integrating new environments into your GitOps workflow.
 
 - [Build and Push Your Image](./how-to-guides/build-and-push-your-image/build-and-push-your-image.md)
 
@@ -58,7 +58,7 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
 - [Access Cluster](./tutorials/inner-loop/access-the-cluster/access-the-cluster.md)
 
-    Learn how to access and interact with SAAP.
+    You can learn how to access and interact with SAAP.
 
 - [Add Alerts](./tutorials/inner-loop/add-alerts/add-alerts.md)
 
@@ -72,7 +72,7 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
     Integrate external dependencies into your application. Manage libraries, frameworks, and services to enhance functionality and efficiency.
 
-- [Add Environment Variabl](./tutorials/inner-loop/add-env-variable/add-env-variable.md)
+- [Add Environment Variable](./tutorials/inner-loop/add-env-variable/add-env-variable.md)
 
     Explore the role of environment variables in your application. Configure and manage environment variables to ensure smooth operation across different environments.
 
@@ -114,11 +114,11 @@ Deploy your application onto SAAP. Utilize Helm charts for smooth deployment.
 
 - [Expose App](./tutorials/inner-loop/expose-app/expose-app.md)
 
-    Expose your application to external traffic by setting up services, load balancers, or Ingress controllers. Ensure accessibility and reachability for users.
+    Expose your application to external traffic by setting up services, load balancers, or Ingress controllers. Ensure accessibility for users.
 
 - [Monitor App](./tutorials/inner-loop/monitor-your-app/monitor-your-app.md)
 
-    Checkout SAAP monitoring solutions to track the health and performance of your application.
+    Check out SAAP monitoring solutions to track the health and performance of your application.
 
 - [Package App](./tutorials/inner-loop/package-app/package-app.md)
 
