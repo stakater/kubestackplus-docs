@@ -2,7 +2,7 @@
 
 Pod Disruption Budget (PDB) is a crucial tool for maintaining the availability and stability of your applications in SAAP during updates and disruptions. By setting the minimum and maximum pod availability, you can ensure that your application remains operational even in the face of cluster changes.
 
-In this tutorial, you will learn how to use Pod Disruption Budget (PDB) to manage the availability and stability of your applications in SAAP during updates and maintenance activities. PDBs help ensure that a minimum number of pods are available and operational at all times, reducing the risk of service disruptions.
+In this tutorial, you will learn how to use Pod Disruption Budget (PDB) to manage the availability and stability of your applications in SAAP during updates and maintenance activities. PDB help ensure that a minimum number of pods are available and operational at all times, reducing the risk of service disruptions.
 
 ## Objectives
 
