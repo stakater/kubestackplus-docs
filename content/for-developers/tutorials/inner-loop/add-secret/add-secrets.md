@@ -1,4 +1,4 @@
-# Adding Secrets
+# Adding External Secrets for your Application
 
 Securing sensitive information, such as API keys, passwords, and tokens, is crucial for any application. In this tutorial, we will explore how to leverage ExternalSecrets to securely manage and consume secrets stored in Vault for your Stakater Nordmart Review application. Now, we will set up applications to consume secrets from Vault, using ExternalSecrets.
 

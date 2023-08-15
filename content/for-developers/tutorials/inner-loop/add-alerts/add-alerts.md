@@ -1,4 +1,4 @@
-# Enable alerts for your Application
+# Enable Alerts for your Application
 
 In the modern landscape of software development, monitoring and managing the health and performance of your applications is crucial. To ensure seamless operations and timely responses to issues, setting up alerts and notifications is essential. In this tutorial, we will guide you through the process of enabling alerts and notifications for your application using Prometheus and Alertmanager within your SAAP (Stakater App Agility Platform) cluster.
 

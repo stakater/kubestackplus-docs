@@ -1,4 +1,4 @@
-# Prepare the local environment
+# Prepare the Local Environment
 
 ## Objectives
 

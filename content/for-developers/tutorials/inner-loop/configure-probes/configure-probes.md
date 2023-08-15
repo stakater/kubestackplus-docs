@@ -1,4 +1,4 @@
-# Configure Probes for Your Application
+# Configure Probes for your Application
 
 SAAP provides robust mechanisms for managing the health and availability of container applications. Liveness, readiness, and startup probes are essential features that help ensure application reliability and stability.
 
