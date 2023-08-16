@@ -67,45 +67,28 @@ Let's scaled up number of `replicas` to see how `pdb` works.
 1. Click on `PodDisruptionBudget` and see the newly created `pdb` named `review`.
 
     ![review PDB](images/review-pdb.png)
-<<<<<<< HEAD
 
 1. Click on `review` `pdb`. Go to `YAML`, scroll down and see the `status` of `pdb`. Check out the status and `currentHealthy: 3`, `desiredHealthy: 2` which satisfies the condition of `minAvailable: 2`. We can see the `DisruptionAllowed` status is `true`.
-=======
->>>>>>> 587426b4bc7cd596e0d19082d711c8bcb8bedcb7
 
     ![review PDB yaml](images/review-pdb-yaml.png)
 
-<<<<<<< HEAD
 1. let's scale down the replicas to create a disruption and see if `pdb` works accurately.
-=======
-    ![review PDB yaml](images/review-pdb-yaml.png)
->>>>>>> 587426b4bc7cd596e0d19082d711c8bcb8bedcb7
 
     ```sh
     oc scale deployment review --replicas=1 -n <your-namespace>
     ```
 
-<<<<<<< HEAD
     As soon as the replicas are scaled down, the `pdb` condition will enforce `replicaSet` to make sure the minimum replicas are available.
-=======
+
 1. Delete the `review` pod and check the `pdb status`.
->>>>>>> 587426b4bc7cd596e0d19082d711c8bcb8bedcb7
 
     ![scale down pods](images/scale-down.png)
 
-<<<<<<< HEAD
 1. Go to `pdb review`, and check the `status` now. Click on reload. Now look at the `currentHealthy: 1`, which clealy shows that `pdb` is working fine.
 
     ![after disruption](images/after-disruption.png)
 
     As soon as the pods are recreated, `pdb status` will change to `currentHealthy: 3` which meets the condition perfectly. Click on `reload` and you will see the updated status.
-=======
-1. Go to `pdb review`, and check the `status` now. Click on reload. Now look at the `currentHealthy: 0`, which clearly shows that `pdb` is working fine.
-
-    ![new status PDB](images/new-status-pdb.png)
-
-    As soon as the pod is deleted, a new pod will be created, and `pdb status` will change to `currentHealthy: 1`. Click on `reload` and you will see the updated status.
->>>>>>> 587426b4bc7cd596e0d19082d711c8bcb8bedcb7
 
 Remember that the behavior of the `PDB` and the speed at which it restores pod availability may be influenced by factors such as node resources, cluster conditions, and pod scheduling rules. It's important to give the system some time to react and observe how it gradually restores the desired number of healthy pods according to the `PDB` constraints.
 
