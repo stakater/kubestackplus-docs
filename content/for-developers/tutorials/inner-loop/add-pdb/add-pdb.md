@@ -6,6 +6,7 @@ In this tutorial, you will learn how to use Pod Disruption Budgets (PDBs) to man
 
 ## Objectives
 
+- Enable replicas.
 - Configure a Pod Disruption Budget for an application deployed on SAAP.
 - Observe the behavior of the PDB by deleting a pod and analyzing the changes in PDB status.
 
@@ -15,6 +16,23 @@ In this tutorial, you will learn how to use Pod Disruption Budgets (PDBs) to man
 
 ## Tutorial
 
+Let's scaled up number of `replicas` to see how `pdb` works.
+
+1. Add `replicas: 3` in `deploy/values.yaml`.
+
+    ```yaml
+    # Scale up replicas
+    replicas: 3 # Number of replicas
+    ```
+
+    It should look like this
+
+    ![replicas values](images/replicas-values.png)
+
+    Make sure **autoscaling** is `enabaled: false`, or you can scale up the `minReplicas` to match the replicas, that way you don't need to disable autoscaling.
+
+    > Note: The indentation should be **application.deployment.replicas**.
+
 1. Enable `pdb` in your `deploy/values.yaml` file. Add the following yaml:
 
     ```yaml
@@ -23,44 +41,52 @@ In this tutorial, you will learn how to use Pod Disruption Budgets (PDBs) to man
         # Set PDB enabled to true to activate the Pod Disruption Budget.
       enabled: true
         # Specify the minimum number of available pods during disruptions. In this case, ensure at least 1 pod is available at all times.
-      minAvailable: 1
-        # Specify the maximum number of pods that can be unavailable simultaneously. During disruptions, allow up to 2 pods to be unavailable.
+      minAvailable: 2
+        # Specify the maximum number of pods that can be unavailable simultaneously during disruptions
       maxUnavailable: 2
     ```
 
     It should look like this:
 
-    ![pdb values](images/pdb-values.png)
+    ![PDB values](images/pdb-values.png)
 
     > Note: The indentation should be **application.pdb**.
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
-    Let's see if our `pdb` has deployed.
+    Let's see number od replicas.
 
-1. Log in to SAAP. Go to Administrator > Home > Search and search for `pdb`.
+1. Log in to SAAP. In your namespace check if the replicaSet has created number of replicaCounts which is `3`.
+
+    ![number of pods](images/number-of-pods.png)
+
+1. To check if `pdb` is created, switch to your namespace, go to Administrator > Home > Search and search for `pdb`.
 
     ![pdb search](images/search-pdb.png)
 
 1. Click on `PodDisruptionBudget` and see the newly created `pdb` named `review`.
 
-    ![review-pdb](images/review-pdb.png)
+    ![review PDB](images/review-pdb.png)
 
-1. Click on `review` `pdb`. Go to `YAML` and scroll down and see the `status` of `pdb`. Check out the status and `currentHealthy: 1`, `desiredHealthy: 1`.
+1. Click on `review` `pdb`. Go to `YAML`, scroll down and see the `status` of `pdb`. Check out the status and `currentHealthy: 3`, `desiredHealthy: 2` which satisfies the condition of `minAvailable: 2`. We can see the `DisruptionAllowed` status is `true`.
 
-    ![review pdb yaml](images/review-pdb-yaml.png)
+    ![review PDB yaml](images/review-pdb-yaml.png)
 
-    Let's create a disruption and see if `pdb` works accurately.
+1. let's scale down the replicas to create a disruption and see if `pdb` works accurately.
 
-1. Delete the `review` pod to and check the `pdb status`.
+    ```sh
+    oc scale deployment review --replicas=1 -n <your-namespace>
+    ```
 
-    ![delete review pod](images/delete-pod.png)
+    As soon as the replicas are scaled down, the `pdb` condition will enforce `replicaSet` to make sure the minimum replicas are available.
 
-1. Go to `pdb review`, and check the `status` now. Click on reload. Now look at the `currentHealthy: 0`, which clealy shows that `pdb` is working fine.
+    ![scale down pods](images/scale-down.png)
 
-    ![new status pdb](images/new-status-pdb.png)
+1. Go to `pdb review`, and check the `status` now. Click on reload. Now look at the `currentHealthy: 1`, which clealy shows that `pdb` is working fine.
 
-    As soon as the pod is deleted, a new pod will be created and `pdb status` will change to `currentHealthy: 1`. Click on `reload` and you will see the updated status.
+    ![after disruption](images/after-disruption.png)
+
+    As soon as the pods are recreated, `pdb status` will change to `currentHealthy: 3` which meets the condition perfectly. Click on `reload` and you will see the updated status.
 
 Remember that the behavior of the `PDB` and the speed at which it restores pod availability may be influenced by factors such as node resources, cluster conditions, and pod scheduling rules. It's important to give the system some time to react and observe how it gradually restores the desired number of healthy pods according to the `PDB` constraints.
 
