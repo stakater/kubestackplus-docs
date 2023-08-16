@@ -16,7 +16,7 @@ In this tutorial, you will learn how to use Pod Disruption Budget (PDB) to manag
 
 ## Tutorial
 
-Let's scaled up number of `replicas` to see how `pdb` works.
+Let's scale up the number of `replicas` to see how `pdb` works.
 
 1. Add `replicas: 3` in `deploy/values.yaml`.
 
@@ -29,7 +29,7 @@ Let's scaled up number of `replicas` to see how `pdb` works.
 
     ![replicas values](images/replicas-values.png)
 
-    Make sure **autoscaling** is `enabaled: false`, or you can scale up the `minReplicas` to match the replicas, that way you don't need to disable autoscaling.
+    Make sure **autoscaling** is `enabled: false`, or you can scale up the `minReplicas` to match the replicas, that way you don't need to disable autoscaling.
 
     > Note: The indentation should be **application.deployment.replicas**.
 
@@ -54,9 +54,9 @@ Let's scaled up number of `replicas` to see how `pdb` works.
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
-    Let's see number od replicas.
+    Let's see the number of replicas.
 
-1. Log in to SAAP. In your namespace check if the replicaSet has created number of replicaCounts which is `3`.
+1. Log in to SAAP. In your namespace check if the `replicaSet` has created the number of `replicaCounts` which is `3`.
 
     ![number of pods](images/number-of-pods.png)
 
@@ -84,7 +84,7 @@ Let's scaled up number of `replicas` to see how `pdb` works.
 
     ![scale down pods](images/scale-down.png)
 
-1. Go to `pdb review`, and check the `status` now. Click on reload. Now look at the `currentHealthy: 1`, which clealy shows that `pdb` is working fine.
+1. Go to `pdb review`, and check the `status` now. Click on reload. Now look at the `currentHealthy: 1`, which clearly shows that `pdb` is working fine.
 
     ![after disruption](images/after-disruption.png)
 
@@ -92,4 +92,4 @@ Let's scaled up number of `replicas` to see how `pdb` works.
 
 Remember that the behavior of the `PDB` and the speed at which it restores pod availability may be influenced by factors such as node resources, cluster conditions, and pod scheduling rules. It's important to give the system some time to react and observe how it gradually restores the desired number of healthy pods according to the `PDB` constraints.
 
-Awesome! Let's move on to the next tutorial to add network policy in your application.
+Awesome! Let's move on to the next tutorial to add a network policy to your application.
