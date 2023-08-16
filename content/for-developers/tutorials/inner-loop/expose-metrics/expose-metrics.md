@@ -20,11 +20,11 @@ Now, let's add the `ServiceMonitor` for our `stakater-nordmart-review-api` appli
     ```yaml
     ## Service Monitor
     serviceMonitor:
-        enabled: true
-        endpoints:
-        - interval: 5s
-            path: /actuator/prometheus # path where your metrics are exposed
-            port: http
+      enabled: true
+      endpoints:
+      - interval: 5s
+        path: /actuator/prometheus # path where your metrics are exposed
+        port: http
     ```
 
 1. Run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
