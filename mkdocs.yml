@@ -157,7 +157,6 @@ nav:
                 - for-developers/tutorials/inner-loop/configure-probes/configure-probes.md
                 - for-developers/tutorials/inner-loop/add-storage/persist-app.md
                 - for-developers/tutorials/inner-loop/expose-app/expose-app.md
-                - for-developers/tutorials/inner-loop/add-dependency/add-dependency.md
                 - for-developers/tutorials/inner-loop/validate-logs/validate-logs.md
                 - for-developers/tutorials/inner-loop/monitor-your-app/monitor-your-app.md
                 - for-developers/tutorials/inner-loop/add-alerts/add-alerts.md
