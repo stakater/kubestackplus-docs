@@ -27,6 +27,12 @@ Now, let's add the `ServiceMonitor` for our `stakater-nordmart-review-api` appli
         port: http
     ```
 
+    It should look like this:
+
+    ![service monitor values](images/service-monitor-values.png)
+
+    > Note: The indentation should be **application.serviceMonitor**.
+
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
 1. To find `serviceMonitor` in SAAP, first login with your credentials, go to `API Explorer`, filter by service, and find `ServiceMonitor`:
