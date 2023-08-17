@@ -2,7 +2,7 @@
 
 A `Network Policy` allows you to specify how groups of pods are allowed to communicate with each other and with other network endpoints. It acts as a firewall for your pods, controlling both incoming and outgoing traffic based on defined rules. Network policies are used to enhance the security and isolation of your applications.
 
-In SAAP we are using a `Network Policy` to control communication between pods within our cluster. This helps ensure that your application pods can communicate only with specific pods (e.g., MongoDB) and restricts communication from other pods that should not have access. By configuring `ingress` and `egress` rules, you are specifying the allowed traffic paths, thus enhancing the security and control of your application's network communication.
+In SAAP we are using `Network Policies` to control communication between pods within our cluster. This helps ensure that your application pods can communicate only with specific pods (e.g., MongoDB) and restricts communication from other pods that should not have access. By configuring `ingress` and `egress` rules, you are specifying the allowed traffic paths, thus enhancing the security and control of your application's network communication.
 
 ## Objectives
 
@@ -15,7 +15,7 @@ In SAAP we are using a `Network Policy` to control communication between pods wi
 
 ## Tutorial
 
-Let's set a `Network Policy` on `review-mongodb` pod, so that no other pods can communicate with our database other than the application pod `review`.
+Let's set a `Network Policy` on the `review-mongodb` pod so that no other pods can communicate with our database other than the application pod `review`.
 
 1. Add `Network Policy` yaml to your `deploy/values.yaml`.
 
@@ -50,13 +50,13 @@ Let's set a `Network Policy` on `review-mongodb` pod, so that no other pods can 
 
     ![network policy on SAAP](images/network-policy.png)
 
-1. Open `review` Network Policy, scroll down and see the rules:
+1. Open the `review` Network Policy, scroll down and see the rules:
 
     ![network policy rules](images/network-policy-rules.png)
 
     We can see the rule is set properly.
 
-To check if our `Network Policy` is working properly, let's create a random pod and try to communicate `review-mongodb` pod through it.
+To check if our `Network Policy` is working properly, let's create a random pod and try to communicate the `review-mongodb` pod through it.
 
 1. Create a pod in your namespace on SAAP. Copy below yaml:
 
@@ -73,25 +73,25 @@ To check if our `Network Policy` is working properly, let's create a random pod 
        args: ["echo Hello, World!; sleep 3600"]
     ```
 
-1. Click on `Create Pod` on top right corner. Paste the yaml and hit `save`.
+1. Click on `Create Pod` on the top right corner. Paste the yaml and hit `save`.
 
     ![new pod](images/new-pod.png)
 
     A new pod should be created.
 
-1. Go to `review-mongodb` pod and copy the `Pod IP`.
+1. Go to the `review-mongodb` pod and copy the `Pod IP`.
 
-    ![mongodb pod ip](images/mongodb-pod-ip.png)
+    ![MongoDB pod ip](images/mongodb-pod-ip.png)
 
-    Let's find the port for `review-mongodb` pod. Once you copy the IP, scroll down to find the container. Click `review` container.
+    Let's find the port for the `review-mongodb` pod. Once you copy the IP, scroll down to find the container. Click the `review` container.
 
-    ![mongodb container](images/mongodb-container.png)
+    ![MongoDB container](images/mongodb-container.png)
 
     Scroll down and copy the port:
 
-    ![mongodb container port](images/container-port.png)
+    ![MongoDB container port](images/container-port.png)
 
-1. Let's go to `hello-pod` and then to it's `Terminal`. Paste this command, make sure to replace the `review-mongodb` pod IP with yours.
+1. Let's go to `hello-pod` and then to it's `Terminal`. Paste this command, and make sure to replace the `review-mongodb` pod IP with yours.
 
     ```sh
     wget http://<review-mongodb-pod-ip>:27017
