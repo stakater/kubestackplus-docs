@@ -12,13 +12,12 @@ There are multiple ways to deploy your Application on the Cluster.
 
 ## Objective
 
-Learn local development for testing and developing applications on local/lab clusters.
+- Learn local development for testing and developing applications on local/lab clusters.
 
 ## Key Results
 
-- Create a Tiltfile for your application.
-
 - Deploy the application with tilt.
+- Deploy the dependency of the application.
 
 ## Tutorial
 
@@ -133,7 +132,7 @@ In this guide, we will deploy an application with tilt and namespace in the remo
 
     ```yaml
     application:
-        
+
       deployment:
         imagePullSecrets: null
 
@@ -144,11 +143,42 @@ In this guide, we will deploy an application with tilt and namespace in the remo
           tag: null
     ```
 
-1. Validate that this application is not running already
+    In our application setup, we have a dependency on MongoDB for storing and managing data. As part of our deployment process, we will ensure that both the application `API` named `review` and `MongoDB` named `review-mongodb` are deployed together to confirm proper functioning. This dependency ensures that the application can seamlessly interact with the database and access the necessary data. To understand more about application architecture, visit [here](../about-application/about-application.md).
+
+1. To add `mongodb` dependency, add this yaml to your `deploy/values.yaml` file.
+
+    ```yaml
+    mongodb:
+      fullnameOverride: review-mongodb  # Name for the MongoDB deployment
+      updateStrategy:  # Specify the update strategy for MongoDB pods
+        type: Recreate
+      resources:  # Define resource limits and requests for MongoDB
+        limits:
+          memory: 1Gi
+          cpu: 0.5
+        requests:
+          memory: 128Mi
+          cpu: 0.1
+      auth:  # Enable authentication for MongoDB
+        enabled: true
+        existingSecret: review-mongodb-creds  # Reference an external secret for MongoDB credentials (created via Vault)
+      podSecurityContext:  # Disable or enable if you require pod-level security context settings for MongoDB
+        enabled: false
+      containerSecurityContext:  # Disable or enable if you require container-level security context settings for MongoDB
+        enabled: false
+    ```
+
+    It should look like this:
+
+    ![MongoDB values](images/mongodb-values.png)
+
+    > Note: The indentation should be followed as `mongodb`. So you can define `MongoDB values` as a separate entity, because we are going to deploy a separate pod named, `review-mongodb`.
+
+1. Validate that the `review` application is not running already
 
     ![sandbox namespace](images/sandbox-env-b4-tilt-up.png)
 
-1. Run `tilt up` at the base directory
+1. Save the `values.yaml` file and run `tilt up` at the base directory of your repository.
 
     ![tilt up](images/tilt-up.png)
 
@@ -156,7 +186,7 @@ In this guide, we will deploy an application with tilt and namespace in the remo
 
     ![tilt browser](images/tilt-browser.png)
 
-    If everything is green then the application will be deployed in the cluster
+    If everything is green then the application will be deployed in the cluster. By this we mean two pods will and 2 deployments will be created.
 
     ![sandbox namespace](images/pods.png)
 

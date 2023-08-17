@@ -68,10 +68,6 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
     Master the utilization of ConfigMaps for externalizing configuration from your application. Centralize your configuration management for increased flexibility.
 
-- [Add Dependency of your Application](./tutorials/inner-loop/add-dependency/add-dependency.md)
-
-    Integrate external dependencies into your application. Manage libraries, frameworks, and services to enhance functionality and efficiency.
-
 - [Add Environment Variables to your Application](./tutorials/inner-loop/add-env-variable/add-env-variable.md)
 
     Explore the role of environment variables in your application. Configure and manage environment variables to ensure smooth operation across different environments.
