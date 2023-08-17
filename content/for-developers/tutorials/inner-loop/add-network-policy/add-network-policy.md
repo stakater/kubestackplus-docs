@@ -22,27 +22,17 @@ Let's set a `Network Policy` on `review-mongodb` pod, so that no other pods can 
     ```yaml
     # Define a NetworkPolicy configuration.
     networkPolicy:
-      # Enable the NetworkPolicy.
-      enabled: true
-      # Specify the pods to which the NetworkPolicy rules will apply.
-      podSelector:
-      # Define labels to match pods.
-        matchLabels:
-      # Match pods with the label 'app.kubernetes.io/name' equal to 'mongodb'.
-          app.kubernetes.io/name: mongodb
-      # Define ingress rules for incoming traffic.
-      ingress:
-      # Specify a list of ports and their protocols.
-        - ports:
-        # Allow TCP traffic on port 27017.
-            - protocol: TCP
+      enabled: true  # Enable the NetworkPolicy.
+      podSelector:  # Specify the pods to which the NetworkPolicy rules will apply.
+        matchLabels:  # Define labels to match pods.
+          app.kubernetes.io/name: mongodb  # Match pods with the label 'app.kubernetes.io/name' equal to 'mongodb'.
+      ingress:  # Define ingress rules for incoming traffic.
+        - ports:  # Specify a list of ports and their protocols.
+            - protocol: TCP  # Allow TCP traffic on port 27017.
               port: 27017
-      # Define the source of allowed incoming traffic.
-          from:
-        # Allow traffic from pods matching certain labels.
-            - podSelector:
-            # Match pods with the label 'app.kubernetes.io/name' equal to 'review'.
-                matchLabels:
+          from:  # Define the source of allowed incoming traffic.
+            - podSelector:  # Allow traffic from pods matching certain labels.
+                matchLabels:  # Match pods with the label 'app.kubernetes.io/name' equal to 'review'.
                   app.kubernetes.io/name: review
     ```
 
