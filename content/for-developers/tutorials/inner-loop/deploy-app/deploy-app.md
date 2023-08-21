@@ -143,7 +143,7 @@ In this guide, we will deploy an application with tilt and namespace in the remo
           tag: null
     ```
 
-    In our application setup, we have a dependency on MongoDB for storing and managing data. As part of our deployment process, we will ensure that both the application `API` named `review` and `MongoDB` named `review-mongodb` are deployed together to confirm proper functioning. This dependency ensures that the application can seamlessly interact with the database and access the necessary data. To understand more about application architechture, visit [here](../about-application/about-application.md).
+    In our application setup, we have a dependency on MongoDB for storing and managing data. As part of our deployment process, we will ensure that both the application `API` named `review` and `MongoDB` named `review-mongodb` are deployed together to confirm proper functioning. This dependency ensures that the application can seamlessly interact with the database and access the necessary data. To understand more about application architecture, visit [here](../about-application/about-application.md).
 
 1. To add `mongodb` dependency, add this yaml to your `deploy/values.yaml` file.
 
@@ -172,9 +172,9 @@ In this guide, we will deploy an application with tilt and namespace in the remo
 
     ![MongoDB values](images/mongodb-values.png)
 
-    > Note: The indentation should be followed as **mongodb**. So you can define `mongodb values` as a separate entity, because we are going to deploy a separate pod named, `review-mongodb`.
+    > Note: The indentation should be followed as `mongodb`. So you can define `MongoDB values` as a separate entity, because we are going to deploy a separate pod named, `review-mongodb`.
 
-1. Validate that `review` application is not running already
+1. Validate that the `review` application is not running already
 
     ![sandbox namespace](images/sandbox-env-b4-tilt-up.png)
 
