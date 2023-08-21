@@ -9,7 +9,7 @@ In this tutorial, we will guide you through the process of setting up a service 
 ## Create a Service Account with a Secret
 
 1. Create a service account named `pipeline-service-account.yaml` in the namespace in which your pipelines will run.
-2. Add the following content to the file:
+2. Add the following content to the file.
 
 ```yaml
 
