@@ -9,31 +9,28 @@ In this tutorial, we will guide you through the process of setting up a service 
 ## Create a Service Account with a Secret
 
 1. Create a service account named `pipeline-service-account.yaml` in the namespace in which your pipelines will run.
-2. Add the following content to the file.
+2. Add the following content to the file:
 
    ```yaml
-   
-      kind: ServiceAccount
-      apiVersion: v1
-      metadata:
-        name: pipeline
-        namespace: <tenant>-build
-      secrets:
-        - name: nexus-docker-config
-   
+   kind: ServiceAccount
+   apiVersion: v1
+   metadata:
+   name: pipeline
+   namespace: <tenant>-build
+   secrets:
+     - name: nexus-docker-config
    ```
 
 1. Replace `<tenant>` with your actual namespace.
 
-Apply the file to the cluster. You can do this directly through the Openshift console or you can run oc apply.
+Apply the file to the cluster. You can do this directly through the OpenShift console or you can run oc apply.
 
 ## Create a Security Context Constraint (SCC)
 
-1. Create a new SCC named tekton-pipelines-scc.yaml.
-2. Add the following content to it.
+1. Create a new SCC named `tekton-pipelines-scc.yaml`.
+2. Add the following content to it:
 
    ```yaml
-   
    apiVersion: security.openshift.io/v1
    kind: SecurityContextConstraints
    allowHostPorts: false
@@ -68,10 +65,9 @@ Apply the file to the cluster. You can do this directly through the Openshift co
    allowHostNetwork: false
    allowPrivilegeEscalation: true
    allowedCapabilities: null
-   
    ```
 
-Apply it to the cluster. You can do this directly through the Openshift console.
+Apply it to the cluster. You can do this directly through the OpenShift console.
 ![SCC](images/allowpriv.png) 
 
 ## Create Role and RoleBinding
