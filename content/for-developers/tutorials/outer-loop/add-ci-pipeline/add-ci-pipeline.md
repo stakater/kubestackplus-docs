@@ -21,7 +21,7 @@ In modern software development practices, pipelines play a crucial role in autom
 
 - Personal Access Token (PAT) with the specified permissions is generated successfully in the GitHub account.
 - Created a Kubernetes Secret named `github-webhook-config` containing your GitHub personal token and webhook secret.
-- Defined a Repository CRD in your desired namespace, referencing the github-webhook-config Secret.
+- Defined a Repository CRD in your desired namespace, referencing the `github-webhook-config` Secret.
 - Enabled a secure connection between your code repository and your CI/CD pipeline through the GitHub webhook.
 - Successfully create SSH secret.
 - Successfully create `pipelineRun`.
@@ -91,7 +91,7 @@ In modern software development practices, pipelines play a crucial role in autom
 
 ### Create a Secret on SAAP
 
-1. To create a secret first log in to SAAP using OC CLI.
+1. To create a secret first log in to SAAP using `oc` CLI.
 
 1. Paste this command and replace `your-namespace` with your namespace, `provider.token` value with your PAT, and `webhook.secret` value with your webhook secret.
 
