@@ -66,7 +66,8 @@ Apply the file to the cluster. You can do this directly through the OpenShift co
 ```
 
 Apply it to the cluster. You can do this directly through the OpenShift console.
-![SCC](images/allowpriv.png)
+  
+   ![SCC](images/allowpriv.png)
 
 ## Create Role and RoleBinding
 
