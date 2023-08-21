@@ -13,6 +13,7 @@ In this tutorial, we will guide you through the process of setting up a service 
 2. Add the following content to the file:
 
 ```yaml
+
    kind: ServiceAccount
    apiVersion: v1
    metadata:
@@ -20,19 +21,21 @@ In this tutorial, we will guide you through the process of setting up a service 
      namespace: <tenant>-build
    secrets:
      - name: nexus-docker-config
-```
-   
-1. Replace `<tenant>` with your actual namespace.
-Apply the file to the cluster. You can do this directly through the openshift console or you can run oc apply.
 
+```
+
+1. Replace `<tenant>` with your actual namespace.
+
+Apply the file to the cluster. You can do this directly through the openshift console or you can run oc apply.
 
 ## Create a Security Context Constraint (SCC)
 
 1. Create a new SCC named tekton-pipelines-scc.yaml.
 
-2. Add the following content to it:
+2. Add the following content to it.
 
 ```yaml
+
 apiVersion: security.openshift.io/v1
 kind: SecurityContextConstraints
 allowHostPorts: false
@@ -67,6 +70,7 @@ allowHostPID: false
 allowHostNetwork: false
 allowPrivilegeEscalation: true
 allowedCapabilities: null
+
 ```
 
 Apply it to the cluster. You can do this directly through the openshift console.
