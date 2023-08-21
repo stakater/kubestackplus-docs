@@ -9,7 +9,6 @@ In this tutorial, we will guide you through the process of setting up a service 
 ## Create a Service Account with a Secret
 
 1. Create a service account named `pipeline-service-account.yaml` in the namespace in which your pipelines will run.
-2. Add the following content to the file:
 
 ```yaml
    kind: ServiceAccount
@@ -28,7 +27,6 @@ Apply the file to the cluster. You can do this directly through the OpenShift co
 ## Create a Security Context Constraint (SCC)
 
 1. Create a new SCC named `tekton-pipelines-scc.yaml`.
-2. Add the following content to it:
 
 ```yaml
    apiVersion: security.openshift.io/v1
