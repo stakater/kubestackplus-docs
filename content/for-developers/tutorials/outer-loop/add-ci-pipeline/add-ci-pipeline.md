@@ -1,238 +1,260 @@
-# Add Pipeline to Your Application
+# Creating a Pipeline Using Pipeline as Code
 
-Now that we have added our first application using Stakater Opinionated GitOps Structure, we can continue by adding pipeline to our application.
-SAAP is shipped with all the tools that you need to add a Tekton pipeline to your application.
+Now that we have added our first application using Stakater Opinionated GitOps Structure, we can continue by adding a pipeline to our application.
 
-## Tekton Pipeline
+In modern software development practices, pipelines play a crucial role in automating and streamlining the process of building, testing, and deploying applications. This tutorial will guide you through creating a pipeline using pipeline-as-code concepts. We'll focus on GitHub as the provider and assume that you have a SAAP set up with pipeline-as-code capabilities.
 
-> Tekton (OpenShift Pipelines) is the new kid on the block in the CI/CD space. It's grown rapidly in popularity as it's Kubernetes Native way of running CI/CD.
+## Objectives
 
-Tekton is deployed as an operator in our cluster and allows users to define in YAML Pipeline and Task definitions. <span style="color:blue;">[Tekton Hub](https://hub.tekton.dev/)</span> is a repository for sharing these YAML resources among the community, giving great reusability to standard workflows.
-Similar to Tekton Hub, we at stakater have created our own reusable tasks at [Tekton Catalog](https://github.com/stakater/tekton-catalog/)
+- Obtain the necessary GitHub access credentials and permissions required for creating and integrating a pipeline-as-code setup.
+- Obtain Interceptor URL from SAAP admin.
+- Create Webhook Secret for your webhook security.
+- Add webhook in your source code repository.
+- Create a Secret to store your GitHub personal token and webhook secret.
+- Define a Repository CRD that references the Kubernetes Secret for authentication.
+- Establish a secure connection between your code repository and the CI/CD pipeline using a GitHub webhook.
+- Create a Tekton PipelineRun using a `.tekton/main.yaml` file from a code repository.
+- Understand the components and tasks defined in the PipelineRun.
+- Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
-Tekton is made up of number of YAML files each with a different purpose such as `Task` and `Pipeline`. These are then wrapped together in another YAML file called a `PipelineRun` which represents an instance of a `Pipeline` and a `Workspace` to create an instance of a `Pipeline`.
+## Key Results
 
-## Deploying the Tekton Objects
+- Personal Access Token (PAT) with the specified permissions is generated successfully in the GitHub account.
+- Created a Kubernetes Secret named `github-webhook-config` containing your GitHub personal token and webhook secret.
+- Defined a Repository CRD in your desired namespace, referencing the `github-webhook-config` Secret.
+- Enabled a secure connection between your code repository and your CI/CD pipeline through the GitHub webhook.
+- Successfully create SSH secret.
+- Successfully create `pipelineRun`.
 
-> The Tekton pipeline definitions are not stored with the application codebase because we centralize and share a dynamic Pipeline to avoid duplicated code and effort.
+## Tutorial
 
-### Tekton Pipeline Chart
+### Configure GitHub Access
 
-We will use stakater's `pipeline-charts` Helm chart to deploy the Tekton resources. The chart contains templates for all required Tekton resources such as `pipeline`, `task`, `eventlistener`, `triggers`, etc.
+1. Generate a Fine-grained Token (PAT) on GitHub. PAT (Fine-grained): Allows you to select repositories from your GitHub organization that can use the token.[`Create a fine-grained token`](https://github.blog/2022-10-18-introducing-fine-grained-personal-access-tokens-for-github/) with the below-mentioned permissions for your source code repository:
 
-We will fill in the values for these resources and deploy a functioning pipeline with most of the complexity abstracted away using our Tekton pipeline chart.
+    - Go to your GitHub account `settings`.
+    - Navigate to `Developer settings` > `Personal access tokens`.
+    - From drop-down select `Fine-grained Tokens`.
+    - Click `Generate new token`.
+    - Provide a name for the token.
+    - Select the `Resource owner`.
+    - Provide `Repository access` to this token.
+    - Select the following scopes/permissions:
 
-The above chart contains all necessary resources needed to build and run a Tekton pipeline. Some of the key things to note above are:
+        - Administration (Read only)
+        - Commit status (Read only)
+        - Contents (Read only)
+        - Metadata (Read only)
+        - Pull requests (Read and write)
+        - Webhook (Read and write)
 
-* `eventlistener` -  listens to incoming events like a push to a branch.
-* `trigger` - the `eventlistener` specifies a trigger which in turn specifies:
-    * `interceptor` - it receives data from the event
-    * `triggerbinding` - extracts values from the event interceptor
-    * `triggertemplate` - defines `pipeline` run resource template in its definition which in turn references the pipeline
+    > Note: Save the token cautiously, you will need this to create a secret.
 
-  > **Note**: We do not need to define interceptor and trigger templates in every trigger while using stakater Tekton pipeline chart.
+### Setting Up Webhook for Pipeline as Code
 
-* `pipeline` -  this is the pipeline definition, it wires together all the items above (workspaces, tasks & secrets etc.) into a useful & reusable set of activities.
-* `tasks` - these are the building blocks of Tekton. They are the custom resources that take parameters and run steps on the shell of a provided image. They can produce results and share workspaces with other tasks.
+1. Begin by accessing the repository where you plan to set up the webhook. In your source code GitHub repository, locate and click on the `Settings` tab.
 
-### SAAP pre-configured cluster tasks
+1. Within the repository settings, navigate to the `Webhooks` section. This is where you can manage and configure webhooks for your repository.
 
-> SAAP is shipped with many ready-to-use Tekton cluster tasks. Let's take a look at some of the tasks that we will be using to construct a basic pipeline.
+1. Click on the option to `Add a new webhook` to initiate the process of creating a new webhook for your repository.
 
-1. Navigate to the `OpenShift Console` using `Forecastle`. Select `Pipelines` > `Tasks` in sidebar. Select the `ClusterTasks` tab and search `stakater`. Here you will see all the tasks shipped with SAAP.
+1. To set up the webhook, you'll need the `URL of the Pipeline as Code interceptor`. This URL is used to connect GitHub with your SAAP's pipeline system.
 
-### Deploying a working pipeline
+1. Ask the SAAP admin to provide you with the `Interceptor URL` "route" from the project or namespace where the Pipeline as Code is installed.
 
-> Let's use the `tekton-pipeline-chart` and the above tasks to create a working pipeline. We will be using [this example GitOps repository](https://github.com/stakater/nordmart-apps-gitops-config) and [application](https://github.com/stakater-lab/stakater-nordmart-review) in this section.
+1. Back in the GitHub repository's webhook settings, enter the `Pipeline as Code interceptor URL` you obtained in the previous step in the `Payload URL`.
 
-1. Open up your GitOps repository. We will be using [Stakater opinionated GitOps structure](https://docs.stakater.com/saap/for-delivery-engineers/gitops/structure.html) to deploy our pipelines through it. We will be deploying our pipeline resources in 'build' environment. We assume here that the environment has already been created for every tenant.
+1. Choose `Content type` as `application/json`.
 
-1. Navigate to Tenant > Application > env (build). In our case 01-gabbar (Tenant) > 02-stakater-`nordmart`-review-ui > 00-build.
+1. Let's create a secret for our webhook to make it secure. Generate a random secret with this command.
 
-1. Add a Chart.yaml file and a values.yaml file at this location.
+    ```sh
+    openssl rand -hex 20
+    ```
 
-1. Populate the Chart.yaml file with the following content:
+    > Note: Save the secret because we will need it later.
 
-```yaml
-       apiVersion: v2
-       dependencies:
-    - name: stakater-tekton-chart
-      repository: https://stakater.github.io/stakater-charts
-      version: 3.6.7
-      description: Helm chart for Tekton Pipelines
-      name: stakater-main-pr-v1
-      version: 3.6.7
-```
+    Now copy it and paste it under `Secret` section in Webhook.
 
-As mentioned earlier, we will use the `stakater-tekton-chart` to deploy our Tekton pipeline resources.
-Now we will be populating the values file for the Tekton pipeline Chart to create our pipeline.
+1. Choose the specific events that should trigger the webhook. Click “Let me select individual events” and select the following events to trigger the webhook:
 
-```yaml
-   pipeline-charts:
-      name: stakater-main-pr-v1
-      workspaces:
-      - name: source
-        volumeClaimTemplate:
-          accessModes: ReadWriteOnce
-          resourcesRequestsStorage: 1Gi
-      - name: ssh-directory
+      - Commit status
+      - Issue comments
+      - Pushes
+      - pull requests
+
+1. Click on `Add webhook`/`Update webhook`.
+
+    ![Webhook details](images/webhook-details.png)
+
+    Once you've entered the interceptor URL and chosen the triggering events, proceed to add the webhook. This will establish the connection between your GitHub repository and SAAP pipeline.
+
+### Create a Secret on SAAP
+
+1. To create a secret first log in to SAAP using `oc` CLI.
+
+1. Paste this command and replace `your-namespace` with your namespace, `provider.token` value with your PAT, and `webhook.secret` value with your webhook secret.
+
+    ```sh
+    oc -n <your-namespace> create secret generic github-webhook-config --from-literal provider.token="FINE_GRAINED_TOKEN_AS_GENERATED_PREVIOUSLY" --from-literal webhook.secret="SECRET_AS_SET_IN_WEBHOOK_CONFIGURATION"
+    ```
+
+1. Log in to SAAP and check if the secret is created in your targeted namespace.
+
+    ![git webhook config](images/git-webhook.png)
+
+    > Note: In older versions of PaC, webhook secret can't be stored, so for older versions, use the below command:
+
+    ```sh
+    oc -n <namespace-where-PaC-installed> create secret generic pipelines-as-code-secret --from-literal webhook.secret="$WEBHOOK_SECRET_AS_GENERATED"
+    ```
+
+    ![pipeline as code secret](images/pipeline-as-code.png)
+
+### Define the Repository CRD
+
+1. To create the `Repository` CRD, go to SAAP, beside your username you will see the (**+**) sign, click it.
+
+    ![plus sign](images/plus-sign.png)
+
+1. Now paste the below yaml, with the changes according to your needs.
+
+    ```yaml
+    apiVersion: "pipelinesascode..dev/v1alpha1"
+    kind: Repository
+    metadata:
+      name: <name-of-repo>
+      namespace: <your-namespace>
+    spec:
+      url: "https://<YOUR_GITHUB_REPO_URL>"
+      git_provider:
         secret:
-          secretName: repo-ssh-creds (Give your own unique name)
-      - name: repo-token
-        secret:
-          secretName: stakater-ab-token
+          name: "github-webhook-config"
+       webhook_secret:
+        name: "github-webhook-config"
+    ```
 
-      pipelines:
-        finally:
-          - defaultTaskName: stakater-set-commit-status-0-0-3
-            name: stakater-set-commit-status
-            params:
-            - name: GIT_SECRET_NAME
-              value: stakater-ab-token
-          - defaultTaskName: stakater-remove-environment-0-0-1
-            when:
-            - input: $(tasks.stakater-github-update-cd-repo-0-0-2.status)
-              operator: notin
-              values: ["Succeeded"]
-        tasks:
-          - defaultTaskName: stakater-set-commit-status-0-0-3
-            params:
-            - name: STATE
-              value: pending
-          - name: GIT_SECRET_NAME
-            value: stakater-ab-token
-          - defaultTaskName: git-clone
-            params:
-            - name: url
-              value: "" (Give repo url)
-            workspaces:
-            - name: ssh-directory
-              workspace: ssh-directory
-          - defaultTaskName: stakater-create-git-tag-0-0-3
-          - defaultTaskName: stakater-create-environment-0-0-2
-            params:
-            - name: IMAGE_TAG
-              value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-          - defaultTaskName: stakater-code-linting-0-0-1
-          - defaultTaskName: stakater-kube-linting-0-0-1
-            runAfter:
-            - stakater-create-environment-0-0-2
-          - defaultTaskName: stakater-sonarqube-scan-0-0-2
-            runAfter:
-            - stakater-kube-linting-0-0-1
-            - stakater-code-linting-0-0-1
-          - defaultTaskName: stakater-build-image-flag-0-0-2
-          - defaultTaskName: stakater-buildah-0-0-2
-            name: build-and-push
-            params:
-            - name: IMAGE
-              value: $(params.image_registry_url):$(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-            - name: CURRENT_GIT_TAG
-              value: $(tasks.stakater-create-git-tag-0-0-3.results.CURRENT_GIT_TAG)
-            - name: BUILD_IMAGE
-              value: $(tasks.stakater-build-image-flag-0-0-2.results.BUILD_IMAGE)
-          - defaultTaskName: stakater-trivy-scan-0-0-1
-            params:
-            - name: IMAGE
-              value: $(params.image_registry_url):$(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-            - name: BUILD_IMAGE
-              value: $(tasks.stakater-build-image-flag-0-0-2.results.BUILD_IMAGE)
-            runAfter:
-            - build-and-push
-          - defaultTaskName: stakater-checkov-scan-0-0-2
-            params:
-            - name: BUILD_IMAGE
-              value: $(tasks.stakater-build-image-flag-0-0-2.results.BUILD_IMAGE)
-            runAfter:
-              - build-and-push
-          - defaultTaskName: stakater-comment-on-pr-0-0-2
-            params:
-            - name: image
-              value: >-
-                  $(params.image_registry_url):$(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-            runAfter:
-              - stakater-trivy-scan-0-0-1
-              - stakater-checkov-scan-0-0-2
-          - defaultTaskName: stakater-helm-push-0-0-2
-            params:
-            - name: semVer
-              value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-          - defaultTaskName: stakater-github-update-cd-repo-0-0-2
-            params:
-              - name: CD_REPO_URL
-                value: 'git@github.com:stakater-ab/stakater-apps-gitops-prod.git'
-              - name: IMAGE_TAG
-                value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-          - defaultTaskName: stakater-push-main-tag-0-0-2
-            params:
-              - name: IMAGE_TAG
-                value: $(tasks.stakater-create-git-tag-0-0-3.results.GIT_TAG)
-              - name: GITHUB_TOKEN_SECRET
-                value: "repo-ssh-creds"
+    ![repository crd](images/repository-crd.png)
 
-      triggertemplate:
-        serviceAccountName: stakater-tekton-builder
-        pipelineRunNamePrefix: $(tt.params.repoName)-$(tt.params.prnumberBranch)
-        pipelineRunPodTemplate:
-          tolerations:
-            - key: "pipeline"
-              operator: "Exists"
-              effect: "NoExecute"
-      eventlistener:
-        serviceAccountName: stakater-tekton-builder
-        triggers:
-        - name: stakater-pr-cleaner-v2-pullrequest-merge
-          create: false
-        - name: github-pullrequest-create
-          bindings:
-          - ref: stakater-pr-v1
-          - name: oldcommit
-            value: $(body.pull_request.base.sha)
-          - name: newcommit
-            value: $(body.pull_request.head.sha)
-        - name: github-pullrequest-synchronize
-          bindings:
-          - ref: stakater-pr-v1
-          - name: oldcommit
-            value: $(body.before)
-          - name: newcommit
-            value: $(body.after)
-        - name: github-push
-          bindings:
-          - ref: stakater-main-v1
-          - name: oldcommit
-            value: $(body.before)
-          - name: newcommit
-            value: $(body.after)
-      rbac:
-        enabled: false
-      serviceAccount:
-        name: stakater-tekton-builder
-        create: false
-```
+    Recheck the `Project` selected above and hit `Create`.
 
-Here, we are using the [default triggers](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/default-config/triggers.yaml) and trigger bindings. You will need to [deploy your own trigger bindings](https://github.com/stakater/stakater-tekton-chart/blob/085d1ba52175294a21255a27561ac0ebe8621e85/stakater-tekton-chart/values.yaml#L96) and add them as ref to the triggers.
+### Create PipelineRun Resource
 
-Let's see our pipeline definition in the SAAP console now. Select `<TENANT_NAME>-build` namespace in the console. Now in the `Pipelines` section, click `pipelines`. You should be able to see the pipeline that you just created using the chart.
+Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach. Create a `.tekton` folder and place it in the `pipelineRun` for your source code repository as `main.yaml`. This enables you to define and manage your pipelines along with your application code, promoting better code-pipeline integration and version control.
 
-![pipeline-basic.png](./images/pipeline-basic.png)
+Since the `.tekton` folder containing your `pipelineRun` definition is part of your source code repository, you want to avoid including sensitive authentication information directly in the repository. Storing them as a secret allows you to version control your pipeline definition without exposing sensitive data.
 
-With our pipelines definitions synchronized to the cluster, we can now add the webhook to GitHub `nordmart-review-ui` project.
+1. Let's create SSH keys to access the repository.
 
-Grab the URL we're going to invoke to trigger the pipeline by checking the event listener route in `<TENANT_NAME>-build` project
+    For SSH Access
 
-   ![add-route.png](./images/add-route.png)
+    - [`Generate SSH Key Pair`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+    - [`Add Deploy Key to your Repository`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
 
-Once you have the URL, over on GitHub go to the application repo > `Settings` > `Webhook` to add the webhook:
+    > Note: A deploy key is specific to a single repository and cannot be used for multiple repositories.*
 
-    * Add the URL we obtained through the last step in the URL box
-    * select `Push Events`, leave the branch empty for now
-    * Select `Merge request events`
-    * select `SSL Verification`
-    * Click `Add webhook` button.
+1. After adding the "public key" to the `Deploy keys` section of your repository, now is the time to add the "private key" in the secret.
 
-With all these components in place - now it's time to trigger pipeline via webhook by checking in some code for Nordmart review `ui`.
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: nordmart-ssh-creds
+      namespace: argocd
+      labels:
+        argocd.argoproj.io/secret-type: repository
+    stringData:
+      type: git
+      url: git@github.com:argoproj/my-private-repository # Copy the SSH URL of your repo and paste it here
+      sshPrivateKey: | # Paste base64 encoded private key here
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        ...
+        -----END OPENSSH PRIVATE KEY-----
+    ```
 
-Let's make a simple change to `stakater-nordmart-review-ui`. Edit `ReadMe.md` by adding some new lines in the file. Create a Pull request.
+    > Note: We will be using this secret in our `pipelineRun`
 
-Navigate to the OpenShift Console. Open up 'Pipelines'. Change the project to the namespace in which you have deployed your pipeline. You will see a pipeline running.
+1. Let's place this `PipelineRun` in `.tekton/main.yaml` for your source code repository.
+
+    ```yaml
+    apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      name: main # pipelineRun name
+      annotations:
+        pipelinesascode.tekton.dev/on-event: "[push]" # Trigger the pipelineRun on push events on branch main
+        pipelinesascode.tekton.dev/on-target-branch: "main"
+        pipelinesascode.tekton.dev/task: "[https://raw.usercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, git-clone]"
+        # pipelineRun Tasks are fetching from our tekton-catalog repo where all the tasks are rendered
+        pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
+    spec:
+      params:
+        - name: repo_url
+          value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME/" # Place your repo SSH URL
+        - name: gitrevision
+          value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
+        - name: repo_path
+          value: {{repo_name}} # Dynamic varaible to fetch repo name
+        - name: image_registry_url
+          value: "<docker-registry-url>" # Place image registry URL without https://
+        - name: helm_registry
+          value: "<https://helm-registry-url>" # Place helm registry URL with https://
+      pipelineSpec: # Define what parameters will be used for pipeline
+        params:
+          - name: repo_url
+          - name: gitrevision
+          - name: repo_path
+          - name: image_registry_url
+          - name: helm_registry
+        workspaces: # Mention what workspaces will be used by this pipeline to store data and used by data transferring between tasks
+          - name: source
+          - name: ssh-directory
+        tasks: # Mention what tasks will be used by this pipeline
+          - name: fetch-repository #Name what you want to call the task
+            taskRef:
+              name: git-clone # Name of tasks mentioned in tekton-catalog
+              kind: Task
+            workspaces: # Mention what workspaces will be used by this task
+              - name: output
+                workspace: source
+              - name: ssh-directory
+                workspace: ssh-directory
+            params: # Parameters will be used by this task
+              - name: depth
+                value: "0"
+              - name: url
+                value: $(params.repo_url)
+              - name: revision
+                value: $(params.gitrevision)
+          - name: create-git-tag # Name what you want to call the task
+            runAfter: # Created dependency so the below task will only run if fetch-repository will be suceeded
+              - fetch-repository
+            taskRef:
+              name: stakater-create-git-tag-0.0.7 # Name of tasks mentioned in tekton-catalog
+              kind: Task
+            params: # Parameters will be used by this task
+              - name: PR_NUMBER
+                value: "NA"
+              - name: GIT_REVISION
+                value: $(params.gitrevision)
+            workspaces: # Mention what workspaces will be used by this task
+              - name: source
+                workspace: source
+              - name: ssh-directory
+                workspace: ssh-directory
+      workspaces: # Mention Workspaces configuration
+        - name: source
+          volumeClaimTemplate:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 1Gi
+        - name: ssh-directory # Using ssh-directory workspace for our task to have better security
+          secret:
+            secretName: nordmart-ssh-creds # Created this secret earlier
+        - name: basic-auth
+          secret:
+            secretName: git-auth
+    ```
