@@ -1,8 +1,8 @@
 # Creating a Pipeline Using Pipeline as Code
 
-Now that we have added our first application using Stakater Opinionated GitOps Structure, we can continue by adding pipeline to our application.
+Now that we have added our first application using Stakater Opinionated GitOps Structure, we can continue by adding a pipeline to our application.
 
-In modern software development practices, pipelines play a crucial role in automating and streamlining the process of building, testing, and deploying applications. This tutorial will guide you through creating a pipeline using pipeline-as-code concepts. We'll focus on GitHub as the provider and assume that you have an SAAP set up with pipeline-as-code capabilities.
+In modern software development practices, pipelines play a crucial role in automating and streamlining the process of building, testing, and deploying applications. This tutorial will guide you through creating a pipeline using pipeline-as-code concepts. We'll focus on GitHub as the provider and assume that you have a SAAP set up with pipeline-as-code capabilities.
 
 ## Objectives
 
@@ -13,14 +13,14 @@ In modern software development practices, pipelines play a crucial role in autom
 - Create a Secret to store your GitHub personal token and webhook secret.
 - Define a Repository CRD that references the Kubernetes Secret for authentication.
 - Establish a secure connection between your code repository and the CI/CD pipeline using a GitHub webhook.
-- Create a Tekton PipelineRun using a .tekton/main.yaml file from a code repository.
+- Create a Tekton PipelineRun using a `.tekton/main.yaml` file from a code repository.
 - Understand the components and tasks defined in the PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
 - Personal Access Token (PAT) with the specified permissions is generated successfully in the GitHub account.
-- Created a Kubernetes Secret named github-webhook-config containing your GitHub personal token and webhook secret.
+- Created a Kubernetes Secret named `github-webhook-config` containing your GitHub personal token and webhook secret.
 - Defined a Repository CRD in your desired namespace, referencing the github-webhook-config Secret.
 - Enabled a secure connection between your code repository and your CI/CD pipeline through the GitHub webhook.
 - Successfully create SSH secret.
@@ -30,7 +30,7 @@ In modern software development practices, pipelines play a crucial role in autom
 
 ### Configure GitHub Access
 
-1. Generate a Fine-grained Token (PAT) on GitHub. PAT (Fine-grained): Allows you to select repositories from your GitHub organization which can use the token.[`Create a fine-grained token`](https://github.blog/2022-10-18-introducing-fine-grained-personal-access-tokens-for-github/) with the below-mentioned permissions for your source code repository:
+1. Generate a Fine-grained Token (PAT) on GitHub. PAT (Fine-grained): Allows you to select repositories from your GitHub organization that can use the token.[`Create a fine-grained token`](https://github.blog/2022-10-18-introducing-fine-grained-personal-access-tokens-for-github/) with the below-mentioned permissions for your source code repository:
 
     - Go to your GitHub account `settings`.
     - Navigate to `Developer settings` > `Personal access tokens`.
@@ -48,7 +48,7 @@ In modern software development practices, pipelines play a crucial role in autom
         - Pull requests (Read and write)
         - Webhook (Read and write)
 
-    > Note: Save the token causiously, you will need this to create a secret.
+    > Note: Save the token cautiously, you will need this to create a secret.
 
 ### Setting Up Webhook for Pipeline as Code
 
@@ -60,7 +60,7 @@ In modern software development practices, pipelines play a crucial role in autom
 
 1. To set up the webhook, you'll need the `URL of the Pipeline as Code interceptor`. This URL is used to connect GitHub with your SAAP's pipeline system.
 
-1. Ask SAAP admin to provide you with the `Interceptor URL` "route" from the project or namespace where the Pipeline as Code is installed.
+1. Ask the SAAP admin to provide you with the `Interceptor URL` "route" from the project or namespace where the Pipeline as Code is installed.
 
 1. Back in the GitHub repository's webhook settings, enter the `Pipeline as Code interceptor URL` you obtained in the previous step in the `Payload URL`.
 
@@ -74,9 +74,9 @@ In modern software development practices, pipelines play a crucial role in autom
 
     > Note: Save the secret because we will need it later.
 
-    Now copy it and paste it under `Secret` section in webhook.
+    Now copy it and paste it under `Secret` section in Webhook.
 
-1. Choose the specific events that should trigger the webhook. Click “Let me select individual events” and select following events to trigger the webhook:
+1. Choose the specific events that should trigger the webhook. Click “Let me select individual events” and select the following events to trigger the webhook:
 
       - Commit status
       - Issue comments
@@ -91,7 +91,7 @@ In modern software development practices, pipelines play a crucial role in autom
 
 ### Create a Secret on SAAP
 
-1. To create a secret first login to SAAP using OC CLI.
+1. To create a secret first log in to SAAP using OC CLI.
 
 1. Paste this command and replace `your-namespace` with your namespace, `provider.token` value with your PAT, and `webhook.secret` value with your webhook secret.
 
@@ -99,11 +99,11 @@ In modern software development practices, pipelines play a crucial role in autom
     oc -n <your-namespace> create secret generic github-webhook-config --from-literal provider.token="FINE_GRAINED_TOKEN_AS_GENERATED_PREVIOUSLY" --from-literal webhook.secret="SECRET_AS_SET_IN_WEBHOOK_CONFIGURATION"
     ```
 
-1. Log in to SAAP and check if the the secret is created in your targeted namespace.
+1. Log in to SAAP and check if the secret is created in your targeted namespace.
 
     ![git webhook config](images/git-webhook.png)
 
-    > Note : In older versions of PaC, webhook secret can't be stored, so for older version, use below command:
+    > Note: In older versions of PaC, webhook secret can't be stored, so for older versions, use the below command:
 
     ```sh
     oc -n <namespace-where-PaC-installed> create secret generic pipelines-as-code-secret --from-literal webhook.secret="$WEBHOOK_SECRET_AS_GENERATED"
@@ -113,14 +113,14 @@ In modern software development practices, pipelines play a crucial role in autom
 
 ### Define the Repository CRD
 
-1. To create the `Repository` CRD, go to SAAP, beside your username you will see (**+**) sign, click it.
+1. To create the `Repository` CRD, go to SAAP, beside your username you will see the (**+**) sign, click it.
 
     ![plus sign](images/plus-sign.png)
 
 1. Now paste the below yaml, with the changes according to your needs.
 
     ```yaml
-    apiVersion: "pipelinesascode.tekton.dev/v1alpha1"
+    apiVersion: "pipelinesascode..dev/v1alpha1"
     kind: Repository
     metadata:
       name: <name-of-repo>
@@ -140,7 +140,7 @@ In modern software development practices, pipelines play a crucial role in autom
 
 ### Create PipelineRun Resource
 
-Let's walks you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach. Create a `.tekton` folder and place in the `pipelineRun` for your source code repository as `main.yaml`. This enables you to define and manage your pipelines along with your application code, promoting better code-pipeline integration and version control.
+Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach. Create a `.tekton` folder and place it in the `pipelineRun` for your source code repository as `main.yaml`. This enables you to define and manage your pipelines along with your application code, promoting better code-pipeline integration and version control.
 
 Since the `.tekton` folder containing your `pipelineRun` definition is part of your source code repository, you want to avoid including sensitive authentication information directly in the repository. Storing them as a secret allows you to version control your pipeline definition without exposing sensitive data.
 
@@ -153,7 +153,7 @@ Since the `.tekton` folder containing your `pipelineRun` definition is part of y
 
     > Note: A deploy key is specific to a single repository and cannot be used for multiple repositories.*
 
-1. After adding "public key" to the `Deploy keys` section of in your repository, now is the time to add "private key" in the secret.
+1. After adding the "public key" to the `Deploy keys` section of your repository, now is the time to add the "private key" in the secret.
 
     ```yaml
     apiVersion: v1
@@ -165,7 +165,7 @@ Since the `.tekton` folder containing your `pipelineRun` definition is part of y
         argocd.argoproj.io/secret-type: repository
     stringData:
       type: git
-      url: git@github.com:argoproj/my-private-repository # Copy SSH URL of your repo and paste here
+      url: git@github.com:argoproj/my-private-repository # Copy the SSH URL of your repo and paste it here
       sshPrivateKey: | # Paste base64 encoded private key here
         -----BEGIN OPENSSH PRIVATE KEY-----
         ...
@@ -174,7 +174,7 @@ Since the `.tekton` folder containing your `pipelineRun` definition is part of y
 
     > Note: We will be using this secret in our `pipelineRun`
 
-1. Let's place in this `PipelineRun` in `.tekton/main.yaml` for your source code repository.
+1. Let's place this `PipelineRun` in `.tekton/main.yaml` for your source code repository.
 
     ```yaml
     apiVersion: tekton.dev/v1beta1
@@ -184,7 +184,7 @@ Since the `.tekton` folder containing your `pipelineRun` definition is part of y
       annotations:
         pipelinesascode.tekton.dev/on-event: "[push]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
-        pipelinesascode.tekton.dev/task: "[https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, git-clone]"
+        pipelinesascode.tekton.dev/task: "[https://raw.usercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, git-clone]"
         # pipelineRun Tasks are fetching from our tekton-catalog repo where all the tasks are rendered
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
