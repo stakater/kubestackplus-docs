@@ -11,17 +11,17 @@ In this tutorial, we will guide you through the process of setting up a service 
 1. Create a service account named `pipeline-service-account.yaml` in the namespace in which your pipelines will run.
 2. Add the following content to the file.
 
-```yaml
-
-   kind: ServiceAccount
-   apiVersion: v1
-   metadata:
-     name: pipeline
-     namespace: <tenant>-build
-   secrets:
-     - name: nexus-docker-config
-
-```
+   ```yaml
+   
+      kind: ServiceAccount
+      apiVersion: v1
+      metadata:
+        name: pipeline
+        namespace: <tenant>-build
+      secrets:
+        - name: nexus-docker-config
+   
+   ```
 
 1. Replace `<tenant>` with your actual namespace.
 
@@ -32,44 +32,44 @@ Apply the file to the cluster. You can do this directly through the Openshift co
 1. Create a new SCC named tekton-pipelines-scc.yaml.
 2. Add the following content to it.
 
-```yaml
-
-apiVersion: security.openshift.io/v1
-kind: SecurityContextConstraints
-allowHostPorts: false
-priority: 10
-requiredDropCapabilities:
-  - MKNOD
-allowPrivilegedContainer: true
-runAsUser:
-  type: RunAsAny
-users: []
-allowHostDirVolumePlugin: false
-allowHostIPC: false
-seLinuxContext:
-  type: MustRunAs
-readOnlyRootFilesystem: false
-metadata:
-  name: tekton-pipelines-scc
-fsGroup:
-  type: MustRunAs
-groups: []
-defaultAddCapabilities: null
-supplementalGroups:
-  type: RunAsAny
-volumes:
-  - configMap
-  - downwardAPI
-  - emptyDir
-  - persistentVolumeClaim
-  - projected
-  - secret
-allowHostPID: false
-allowHostNetwork: false
-allowPrivilegeEscalation: true
-allowedCapabilities: null
-
-```
+   ```yaml
+   
+   apiVersion: security.openshift.io/v1
+   kind: SecurityContextConstraints
+   allowHostPorts: false
+   priority: 10
+   requiredDropCapabilities:
+     - MKNOD
+   allowPrivilegedContainer: true
+   runAsUser:
+     type: RunAsAny
+   users: []
+   allowHostDirVolumePlugin: false
+   allowHostIPC: false
+   seLinuxContext:
+     type: MustRunAs
+   readOnlyRootFilesystem: false
+   metadata:
+     name: tekton-pipelines-scc
+   fsGroup:
+     type: MustRunAs
+   groups: []
+   defaultAddCapabilities: null
+   supplementalGroups:
+     type: RunAsAny
+   volumes:
+     - configMap
+     - downwardAPI
+     - emptyDir
+     - persistentVolumeClaim
+     - projected
+     - secret
+   allowHostPID: false
+   allowHostNetwork: false
+   allowPrivilegeEscalation: true
+   allowedCapabilities: null
+   
+   ```
 
 Apply it to the cluster. You can do this directly through the Openshift console.
 
