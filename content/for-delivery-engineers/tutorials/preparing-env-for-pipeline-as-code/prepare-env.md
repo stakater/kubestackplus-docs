@@ -11,7 +11,7 @@ In this tutorial, we will guide you through the process of setting up a service 
 1. Create a service account named `pipeline-service-account.yaml` in the namespace in which your pipelines will run.
 2. Add the following content to the file:
 
-   ```yaml
+```yaml
    kind: ServiceAccount
    apiVersion: v1
    metadata:
@@ -19,7 +19,7 @@ In this tutorial, we will guide you through the process of setting up a service 
    namespace: <tenant>-build
    secrets:
      - name: nexus-docker-config
-   ```
+```
 
 1. Replace `<tenant>` with your actual namespace.
 
@@ -30,7 +30,7 @@ Apply the file to the cluster. You can do this directly through the OpenShift co
 1. Create a new SCC named `tekton-pipelines-scc.yaml`.
 2. Add the following content to it:
 
-   ```yaml
+```yaml
    apiVersion: security.openshift.io/v1
    kind: SecurityContextConstraints
    allowHostPorts: false
@@ -65,7 +65,7 @@ Apply the file to the cluster. You can do this directly through the OpenShift co
    allowHostNetwork: false
    allowPrivilegeEscalation: true
    allowedCapabilities: null
-   ```
+```
 
 Apply it to the cluster. You can do this directly through the OpenShift console.
 ![SCC](images/allowpriv.png) 
