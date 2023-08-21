@@ -26,7 +26,7 @@ In this tutorial, we will guide you through the process of setting up a service 
 
 1. Replace `<tenant>` with your actual namespace.
 
-Apply the file to the cluster. You can do this directly through the openshift console or you can run oc apply.
+Apply the file to the cluster. You can do this directly through the Openshift console or you can run oc apply.
 
 ## Create a Security Context Constraint (SCC)
 
@@ -73,7 +73,7 @@ allowedCapabilities: null
 
 ```
 
-Apply it to the cluster. You can do this directly through the openshift console.
+Apply it to the cluster. You can do this directly through the Openshift console.
 
 ![SCC](images/allowpriv.png) 
 
