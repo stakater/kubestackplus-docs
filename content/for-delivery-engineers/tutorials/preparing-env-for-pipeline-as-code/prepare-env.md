@@ -82,6 +82,7 @@ Apply it to the cluster. You can do this directly through the Openshift console.
 1. Create a ClusterRole named *pipelines-scc-role*
 
 ```yaml
+
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -95,10 +96,13 @@ rules:
       - securitycontextconstraints
     resourceNames:
       - tekton-pipelines-scc
+
 ```
+
 Now let's create a RoleBinding for this:
 
 ```yaml
+
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -113,10 +117,6 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: pipelines-scc-role-for-nordmart
+
 ```
 Replace the `<tenant>` in the namespace name with your actual tenant name.
-
-
-
-
-
