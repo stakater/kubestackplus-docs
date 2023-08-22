@@ -69,4 +69,4 @@ In this tutorial, you'll create secrets containing your GitHub access credential
 
     Recheck the `Project` selected above and hit `Create`.
 
-That's cool! Let's move on to next tutorial to create fully function pipeline with `pipeline-as-code`.
+That's cool! Let's move on to the next tutorial to create a fully functional pipeline with `pipeline-as-code`.
