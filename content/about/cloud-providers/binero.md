@@ -1,6 +1,6 @@
 # Binero
 
-A OpenStack account is needed to create and manage cluster on Binero OpenStack. The following criteria must be met
+A OpenStack account is needed to create and manage cluster on Binero OpenStack. The following criteria must be met:
 
 - An account on Binero.
 - A Stakater user (ask Stakater team for the email to use for this user) with admin privileges.
@@ -19,22 +19,6 @@ A OpenStack account is needed to create and manage cluster on Binero OpenStack. 
   | Security Groups Rules | 1000 |
   | Ports  | 5000 |
   | Routers | 10 |
-
-## Instance Types
-
-SAAP offers the following worker node types and sizes on Binero:
-
-### General Purpose
-
-- ...
-
-### Memory Optimized
-
-- ...
-
-### Compute Optimized
-
-- ..
 
 ## Network usage
 
