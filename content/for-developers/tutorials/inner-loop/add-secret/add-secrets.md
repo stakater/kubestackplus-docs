@@ -78,7 +78,8 @@ Login to Vault to view your tenant path.
             key: <your-tenant>/kv/review-mongodb-creds
     ```
 
-    > Note: Replace <your-tenant> with the actual name of your tenant or the appropriate path in your Vault instance. The indentation should be **application.externalSecret**.
+    !!! note
+        Replace <your-tenant> with the actual name of your tenant or the appropriate path in your Vault instance. The indentation should be **application.externalSecret**.
 
 1. Save the `values.yaml` and run `tilt up` at the root of your directory. Press the space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
 

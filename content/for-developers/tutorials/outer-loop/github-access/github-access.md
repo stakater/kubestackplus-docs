@@ -45,6 +45,7 @@ A Fine-grained PAT ensures that your CI/CD pipeline can securely interact with y
 
     <div style="text-align:center"><img src="images/pat-permissions.png" /></div>
 
-    > Note: Save the token cautiously, you will need this to create a secret.
+    !!! note
+        Save the token cautiously, you will need this to create a secret.
 
 Awesome! Let's move to next tutorial and create a Webhook for our pipeline.

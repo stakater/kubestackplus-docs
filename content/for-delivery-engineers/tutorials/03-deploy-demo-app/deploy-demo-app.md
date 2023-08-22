@@ -245,7 +245,8 @@ Navigate to `apps-gitops-config` repository and add a helm chart in path `gabbar
 
 For Chart.yaml:
 
-> Note: In **Chart.yaml** 'C' is capitalized.
+!!! note
+    In **Chart.yaml** 'C' is capitalized.
 
 ```yaml
 # <tenant-name>/<app-name>/dev/Chart.yaml

@@ -172,7 +172,8 @@ In this guide, we will deploy an application with tilt and namespace in the remo
 
     ![MongoDB values](images/mongodb-values.png)
 
-    > Note: The indentation should be followed as `mongodb`. So you can define `MongoDB values` as a separate entity, because we are going to deploy a separate pod named, `review-mongodb`.
+    !!! note
+        The indentation should be followed as `mongodb`. So you can define `MongoDB values` as a separate entity, because we are going to deploy a separate pod named, `review-mongodb`.
 
 1. Validate that the `review` application is not running already
 

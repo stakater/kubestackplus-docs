@@ -192,14 +192,6 @@ If you want to add this clustertask as `defaultTask` in [`stakater-tekton-chart`
 
 1. Log in to ArgoCD and open the application corresponding to this environment. You can find the application name in `tenant/argocd-apps/env/app-name-env.yaml` or `tenant/argocd-apps/env/tekton-pipeline-env.yaml`.
 
-    `Image`
-
 1. Check if your pipeline resource is updated by clicking on the pipeline resource.
 
-    `Image`
-
 1. Trigger the pipeline by making a change in your code repository and see if your task works as expected for pull request opened, updated and merged scenarios.
-
-    `Image`
-
-### Possible Issues
