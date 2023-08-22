@@ -46,7 +46,7 @@ When working with Tekton Pipelines and storing your pipeline definition in a `.t
         -----END OPENSSH PRIVATE KEY-----
     ```
 
-1. Log in to SAAP, go to Adminitrator > Workloads > Secrets. Create a secret with yaml.
+1. Log in to SAAP, go to Administrator > Workloads > Secrets. Create a secret with yaml.
 
     ![secret with yaml](images/secret-yaml.png)
 
@@ -56,7 +56,7 @@ When working with Tekton Pipelines and storing your pipeline definition in a `.t
 
     Now look at the `nordmart-ssh-creds` secret yaml, the private key will be encoded to `base64`.
 
-    ![normart ssh](images/nordmart-ssh.png)
+    ![`normart` ssh](images/nordmart-ssh.png)
 
     > Note: We will be using this secret in our `pipelineRun`.
 
