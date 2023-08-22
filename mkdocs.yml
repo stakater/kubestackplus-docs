@@ -175,6 +175,7 @@ nav:
                 - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
                 - for-developers/tutorials/outer-loop/github-access/github-access.md
                 - for-developers/tutorials/outer-loop/webhook-setup/webhook-setup.md
+                - for-developers/tutorials/outer-loop/secret-and-repo-crd/secret-and-repo-crd.md
                 - for-developers/tutorials/outer-loop/add-ci-pipeline/add-ci-pipeline.md
                 - for-developers/tutorials/outer-loop/promote-application/promote-app.md
         - How-to guides:

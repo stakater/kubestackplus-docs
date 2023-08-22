@@ -6,71 +6,14 @@ In modern software development practices, pipelines play a crucial role in autom
 
 ## Objectives
 
-- Create a Secret to store your GitHub personal token and webhook secret.
-- Define a Repository CRD that references the Kubernetes Secret for authentication.
-- Establish a secure connection between your code repository and the CI/CD pipeline using a GitHub webhook.
+- Congure SSH keys and secret for the pipeline.
 - Create a Tekton PipelineRun using a `.tekton/main.yaml` file from a code repository.
-- Understand the components and tasks defined in the PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
-- Created a Kubernetes Secret named `github-webhook-config` containing your GitHub personal token and webhook secret.
-- Defined a Repository CRD in your desired namespace, referencing the `github-webhook-config` Secret.
-- Enabled a secure connection between your code repository and your CI/CD pipeline through the GitHub webhook.
-- Successfully create SSH secret.
-- Successfully create `pipelineRun`.
-
-## Tutorial
-
-### Create a Secret on SAAP
-
-1. To create a secret first log in to SAAP using `oc` CLI.
-
-1. Paste this command and replace `your-namespace` with your namespace, `provider.token` value with your PAT, and `webhook.secret` value with your webhook secret.
-
-    ```sh
-    oc -n <your-namespace> create secret generic github-webhook-config --from-literal provider.token="FINE_GRAINED_TOKEN_AS_GENERATED_PREVIOUSLY" --from-literal webhook.secret="SECRET_AS_SET_IN_WEBHOOK_CONFIGURATION"
-    ```
-
-1. Log in to SAAP and check if the secret is created in your targeted namespace.
-
-    ![git webhook config](images/git-webhook.png)
-
-    > Note: In older versions of PaC, webhook secret can't be stored, so for older versions, use the below command:
-
-    ```sh
-    oc -n <namespace-where-PaC-installed> create secret generic pipelines-as-code-secret --from-literal webhook.secret="$WEBHOOK_SECRET_AS_GENERATED"
-    ```
-
-    ![pipeline as code secret](images/pipeline-as-code.png)
-
-### Define the Repository CRD
-
-1. To create the `Repository` CRD, go to SAAP, beside your username you will see the (**+**) sign, click it.
-
-    ![plus sign](images/plus-sign.png)
-
-1. Now paste the below yaml, with the changes according to your needs.
-
-    ```yaml
-    apiVersion: "pipelinesascode..dev/v1alpha1"
-    kind: Repository
-    metadata:
-      name: <name-of-repo>
-      namespace: <your-namespace>
-    spec:
-      url: "https://<YOUR_GITHUB_REPO_URL>"
-      git_provider:
-        secret:
-          name: "github-webhook-config"
-       webhook_secret:
-        name: "github-webhook-config"
-    ```
-
-    ![repository crd](images/repository-crd.png)
-
-    Recheck the `Project` selected above and hit `Create`.
+- Successfully generate and configure an SSH secret to provide secure access to your code repository.
+- Successfully create and execute the Tekton PipelineRun using the defined .tekton/main.yaml file, enabling automated CI/CD processes for your application.
 
 ### Create PipelineRun Resource
 
