@@ -21,7 +21,7 @@ A Fine-grained PAT ensures that your CI/CD pipeline can securely interact with y
 
     <div style="text-align:center"><img src="images/git-account-settings.png" /></div>
 
-    - Navigate to `Developer settings` 
+    - Navigate to `Developer settings`
 
         <div style="text-align:center"><img src="images/developer-settings.png" /></div>
 
