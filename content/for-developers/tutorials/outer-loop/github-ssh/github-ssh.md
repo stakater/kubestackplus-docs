@@ -1,12 +1,12 @@
 # Securely Storing SSH Keys for Tekton PipelineRun
 
-When working with Tekton Pipelines and storing your pipeline definition in a .tekton folder within your source code repository, it's important to keep sensitive authentication information, such as SSH keys, secure and separate from the public codebase. In this tutorial, you will learn how to securely store SSH keys using Secrets to access your code repository within your Tekton PipelineRun.
+When working with Tekton Pipelines and storing your pipeline definition in a `.tekton` folder within your source code repository, it's important to keep sensitive authentication information, such as SSH keys, secure and separate from the public codebase. In this tutorial, you will learn how to securely store SSH keys using Secrets to access your code repository within your Tekton PipelineRun.
 
 ## Objectives
 
 - Generate SSH keys to securely access your code repository.
 - Add your public key as a deploy key in your GitHub repository.
-- Store the private SSH key in a Secret to be used by your Tekton PipelineRun.
+- Store the private SSH key in Secret to be used by your Tekton PipelineRun.
 
 ## Key Results
 
@@ -22,13 +22,13 @@ When working with Tekton Pipelines and storing your pipeline definition in a .te
 
     - [`Generate SSH Key Pair`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 
-1. Add your `public-key` in to the `Deploy key` section of your repository:
+1. Add your `public-key` into the `Deploy key` section of your repository:
 
     - [`Add Deploy Key to your Repository`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
 
     > Note: A deploy key is specific to a single repository and cannot be used for multiple repositories.*
 
-    After adding the `Deploy keys` in your repository, now is the time to add the the secret.
+    After adding the `Deploy keys` in your repository, now is the time to add the secret.
 
 1. Copy the below `secret` yaml.
 
