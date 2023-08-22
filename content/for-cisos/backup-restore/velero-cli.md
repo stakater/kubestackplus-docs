@@ -10,7 +10,7 @@ Note: Below commands are Linux specific
 1. To unzip the download file:
 
     ```sh
-    tar -xzf velero-<VERSION>-<PLATFORM>.tar.gz 
+    tar -xzf velero-<VERSION>-<PLATFORM>.tar.gz
     cd velero-<VERSION>-<PLATFORM>/
     ```
 

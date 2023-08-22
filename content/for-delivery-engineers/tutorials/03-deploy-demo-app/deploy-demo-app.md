@@ -204,7 +204,7 @@ If your application contains dependency charts run the following command in depl
     ```sh
     # Generates the chart against values file provided
     # and write the output to application-output.yaml
-    # command info : helm template --help 
+    # command info : helm template --help
     helm template . > application-output.yaml
     ```
 

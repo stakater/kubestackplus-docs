@@ -42,7 +42,7 @@ A sample AlertmanagerConfig can be configured in [Application Chart](https://git
 |:---|:---|
 | .Values.alertmanagerConfig.enabled | Enable alertmanagerConfig for this app (Will be merged in the base config)
 | .Values.alertmanagerConfig.spec.route | The Alertmanager route definition for alerts matching the resource's namespace. It will be added to the generated Alertmanager configuration as a first-level route
-| .Values.alertmanagerConfig.spec.receivers | List of receivers  
+| .Values.alertmanagerConfig.spec.receivers | List of receivers
 
 We will use Slack as an example here.
 
@@ -129,5 +129,5 @@ prometheusRule:
       expr: up{namespace="test-app"} == 0
       for: 1m
       labels:
-        severity: critical 
+        severity: critical
 ```

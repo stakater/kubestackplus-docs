@@ -116,7 +116,7 @@ metadata:
 spec:
   releaseName: external-dns
   chart:
-    repository: https://kubernetes-charts.storage.googleapis.com 
+    repository: https://kubernetes-charts.storage.googleapis.com
     name: external-dns
     version: 2.4.2
   values:

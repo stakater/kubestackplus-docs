@@ -226,7 +226,7 @@ nav:
                 - managed-addons/nexus/how-to-guide/how-to-configure-maven-with-nexus.md
                 - managed-addons/nexus/how-to-guide/how-to-upload-from-ui.md
                 - managed-addons/nexus/how-to-guide/how-to-upload-local-machine.md
-                - managed-addons/nexus/how-to-guide/how-to-grant-admin-privileges.md           
+                - managed-addons/nexus/how-to-guide/how-to-grant-admin-privileges.md
             - Explanation:            
                 - managed-addons/nexus/explanation/routes.md
                 - managed-addons/nexus/explanation/permissions.md
