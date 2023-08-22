@@ -1,6 +1,4 @@
-# Secret and Repository CRD Definition
-
-The `Secret` holds sensitive data, such as your GitHub access token and webhook secret. By storing these secrets separately from your source code, you ensure that sensitive information is kept secure and not exposed in your repository.
+# Repository CRD Definition
 
 The `Repository CRD` helps you define the structure of your CI/CD pipeline. By referencing authentication secrets in the CRD, you ensure that your pipeline has the necessary access rights to interact with GitHub.
 
@@ -21,6 +19,8 @@ In this tutorial, you'll create secrets containing your GitHub access credential
 ## Tutorial
 
 ### Create a Secret on SAAP
+
+The `Secret` holds sensitive data, such as your GitHub access token and webhook secret. By storing these secrets separately from your source code, you ensure that sensitive information is kept secure and not exposed in your repository.
 
 1. To create a secret first log in to SAAP using `oc` CLI.
 
