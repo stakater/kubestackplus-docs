@@ -174,6 +174,8 @@ nav:
             - Outer Loop:
                 - for-developers/tutorials/outer-loop/access-cluster/access-the-cluster.md
                 - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
+                - for-developers/tutorials/outer-loop/github-access/github-access.md
+                - for-developers/tutorials/outer-loop/webhook-setup/webhook-setup.md
                 - for-developers/tutorials/outer-loop/add-ci-pipeline/add-ci-pipeline.md
                 - for-developers/tutorials/outer-loop/promote-application/promote-app.md
         - How-to guides:

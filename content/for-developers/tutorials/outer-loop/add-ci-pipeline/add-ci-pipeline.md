@@ -6,10 +6,6 @@ In modern software development practices, pipelines play a crucial role in autom
 
 ## Objectives
 
-- Obtain the necessary GitHub access credentials and permissions required for creating and integrating a pipeline-as-code setup.
-- Obtain Interceptor URL from SAAP admin.
-- Create Webhook Secret for your webhook security.
-- Add webhook in your source code repository.
 - Create a Secret to store your GitHub personal token and webhook secret.
 - Define a Repository CRD that references the Kubernetes Secret for authentication.
 - Establish a secure connection between your code repository and the CI/CD pipeline using a GitHub webhook.
@@ -19,7 +15,6 @@ In modern software development practices, pipelines play a crucial role in autom
 
 ## Key Results
 
-- Personal Access Token (PAT) with the specified permissions is generated successfully in the GitHub account.
 - Created a Kubernetes Secret named `github-webhook-config` containing your GitHub personal token and webhook secret.
 - Defined a Repository CRD in your desired namespace, referencing the `github-webhook-config` Secret.
 - Enabled a secure connection between your code repository and your CI/CD pipeline through the GitHub webhook.
@@ -27,67 +22,6 @@ In modern software development practices, pipelines play a crucial role in autom
 - Successfully create `pipelineRun`.
 
 ## Tutorial
-
-### Configure GitHub Access
-
-1. Generate a Fine-grained Token (PAT) on GitHub. PAT (Fine-grained): Allows you to select repositories from your GitHub organization that can use the token.[`Create a fine-grained token`](https://github.blog/2022-10-18-introducing-fine-grained-personal-access-tokens-for-github/) with the below-mentioned permissions for your source code repository:
-
-    - Go to your GitHub account `settings`.
-    - Navigate to `Developer settings` > `Personal access tokens`.
-    - From drop-down select `Fine-grained Tokens`.
-    - Click `Generate new token`.
-    - Provide a name for the token.
-    - Select the `Resource owner`.
-    - Provide `Repository access` to this token.
-    - Select the following scopes/permissions:
-
-        - Administration (Read only)
-        - Commit status (Read only)
-        - Contents (Read only)
-        - Metadata (Read only)
-        - Pull requests (Read and write)
-        - Webhook (Read and write)
-
-    > Note: Save the token cautiously, you will need this to create a secret.
-
-### Setting Up Webhook for Pipeline as Code
-
-1. Begin by accessing the repository where you plan to set up the webhook. In your source code GitHub repository, locate and click on the `Settings` tab.
-
-1. Within the repository settings, navigate to the `Webhooks` section. This is where you can manage and configure webhooks for your repository.
-
-1. Click on the option to `Add a new webhook` to initiate the process of creating a new webhook for your repository.
-
-1. To set up the webhook, you'll need the `URL of the Pipeline as Code interceptor`. This URL is used to connect GitHub with your SAAP's pipeline system.
-
-1. Ask the SAAP admin to provide you with the `Interceptor URL` "route" from the project or namespace where the Pipeline as Code is installed.
-
-1. Back in the GitHub repository's webhook settings, enter the `Pipeline as Code interceptor URL` you obtained in the previous step in the `Payload URL`.
-
-1. Choose `Content type` as `application/json`.
-
-1. Let's create a secret for our webhook to make it secure. Generate a random secret with this command.
-
-    ```sh
-    openssl rand -hex 20
-    ```
-
-    > Note: Save the secret because we will need it later.
-
-    Now copy it and paste it under `Secret` section in Webhook.
-
-1. Choose the specific events that should trigger the webhook. Click “Let me select individual events” and select the following events to trigger the webhook:
-
-      - Commit status
-      - Issue comments
-      - Pushes
-      - pull requests
-
-1. Click on `Add webhook`/`Update webhook`.
-
-    ![Webhook details](images/webhook-details.png)
-
-    Once you've entered the interceptor URL and chosen the triggering events, proceed to add the webhook. This will establish the connection between your GitHub repository and SAAP pipeline.
 
 ### Create a Secret on SAAP
 
