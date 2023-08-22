@@ -19,6 +19,6 @@ An Azure subscription is needed to create and manage cluster on Azure. The follo
   | Machine Specifications | 6 machines of 8x32x120G |
   | Region | Region will be identified by the customer |
 
-### Autoscaling
+## Autoscaling
 
 Node autoscaling is available on Azure. You can configure the autoscaler option to automatically scale the number of machines in a cluster.

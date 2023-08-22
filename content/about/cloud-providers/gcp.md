@@ -23,6 +23,6 @@ A GCP account is needed to create and manage cluster on GCP. The following crite
   | Machine Specifications | 9 machines of 8x32x120G |
   | Region | Region will be identified by the customer |
 
-### Autoscaling
+## Autoscaling
 
 Node autoscaling is available on GCP. You can configure the autoscaler option to automatically scale the number of machines in a cluster.
