@@ -56,7 +56,7 @@ When working with Tekton Pipelines and storing your pipeline definition in a `.t
 
     Now look at the `nordmart-ssh-creds` secret yaml, the private key will be encoded to `base64`.
 
-    ![`normart` ssh](images/nordmart-ssh.png)
+    ![ssh secret](images/nordmart-ssh.png)
 
     > Note: We will be using this secret in our `pipelineRun`.
 
