@@ -20,22 +20,24 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     ```yaml
     # Define environment variables for the application container.
-    env:
+        env:
       # Set the environment variable 'MONGODB_PASSWORD'.
-      MONGODB_PASSWORD:
+          MONGODB_PASSWORD:
       # Obtain the value for 'MONGODB_PASSWORD' from a secret key reference.
-        valueFrom:
+            valueFrom:
       # Specify that the value is retrieved from a secret.
-          secretKeyRef:
+              secretKeyRef:
       # Name of the secret that contains the 'mongodb-root-password' key.
-            name: review-mongodb-creds
+                name: review-mongodb-creds
       # Key within the secret to fetch the value for 'MONGODB_PASSWORD'.
-            key: mongodb-root-password
+                key: mongodb-root-password
     ```
 
     It should look like this:
 
     ![env secret](images/env-secret.png)
+
+    Look at the different colors that indicates indentation.
 
     > Note: The indentation for `env` in `deploy/values.yaml` is **application.deployment.env**. You can also refer configmap in env, to see more [click](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-with-data-from-multiple-configmaps).
 
@@ -46,13 +48,13 @@ This comprehensive tutorial will walk you through the process of effectively uti
     ```yaml
     # Example of using envFrom to load environment variables from a ConfigMap
     # We create a new named context 'review-config' to refer to this ConfigMap
-    envFrom:
+        envFrom:
       # Create a context named 'review-config' to refer to a ConfigMap
-      review-config:
+          review-config:
      # Indicate that the source of the environment variables is a ConfigMap
-        type: configmap
+            type: configmap
       # Specify the suffix 'config' to identify the relevant ConfigMap named 'review-config'
-        nameSuffix: config
+            nameSuffix: config
     ```
 
     >Note: **review-config** is referring the configmap defined in step #3.
@@ -60,6 +62,8 @@ This comprehensive tutorial will walk you through the process of effectively uti
     It should look like this:
 
     ![envfrom configmap](images/envfrom-config.png)
+
+    Look at the different colors that indicates indentation.
 
     > Note: The indentation for `envFrom` in `deploy/values.yaml` is **application.deployment.envFrom**. You can also reference secret in envFrom, to see more [click](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables).
 
@@ -69,21 +73,23 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     ```yaml
     ## ConfigMap defines the configuration for the ConfigMap that will be used in your application deployment.
-    configMap:
+      configMap:
         # Set this to true to enable the ConfigMap for your application.
-      enabled: true
+        enabled: true
         # files will allows you to define multiple ConfigMap files.
-      files:
-        config:
+        files:
+          config:
         # Define the 'DB_NAME' key and set its value to "nordmartDB".
-          DB_NAME: "nordmartDB"
+            DB_NAME: "nordmartDB"
         # Define the 'MONGO_HOST' key and set its value to "review-mongodb".
-          MONGO_HOST: "review-mongodb"
+            MONGO_HOST: "review-mongodb"
     ```
 
     It should look like this:
 
     ![configmap definition](images/configmap.png)
+
+    Look at the different colors that indicates indentation.
 
     > Note: The indentation follows for `configmap` is **application.configMap**.
 
@@ -107,23 +113,25 @@ You can also mount secrets as files in your application containers, enabling dir
 
     ```yaml
     ## Define volumes
-    volumes:
+        volumes:
       # Define the name of the volume, which will be used to reference it in the pod specification.
-      - name: secret-volume
+          - name: secret-volume
       # Mount a secret named 'review-mongodb-creds' into this volume.
-        secret:
-          secretName: review-mongodb-creds
+            secret:
+              secretName: review-mongodb-creds
     ## Define volumeMounts
-    volumeMounts:
+        volumeMounts:
       # Mount the volume with the name 'secret-volume' to the container.
-      - name: secret-volume
+          - name: secret-volume
       # Mount the volume at the path '/etc/secrets' within the container.
-        mountPath: /etc/secrets
+            mountPath: /etc/secrets
     ```
 
     It should look like this:
 
     ![volumes and volume mounts](images/volumes-mounts.png)
+
+    Look at the different colors that indicates indentation.
 
     > Note: The indentation should be: **application.deployment.volumes** and **application.deployment.volumeMounts**.
 
@@ -141,23 +149,25 @@ If your application requires a configuration file with sensitive information, yo
 
     ```yaml
     ## Define volumes
-    volumes:
+        volumes:
       # Define the volume named "config-volume"
-      - name: config-volume
+          - name: config-volume
       # Populate the volume with data from a ConfigMap named "your-configmap"
-        configMap:
-          name: your-configmap
+            configMap:
+              name: your-configmap
     ## Define volumeMounts
-    volumeMounts:
+        volumeMounts:
       # Define the volume mount named "config-volume"
-      - name: config-volume
+          - name: config-volume
       # Mount the content of the volume at path "/etc/config" in the container
-        mountPath: /etc/config
+            mountPath: /etc/config
     ```
 
     It should look like this:
 
     ![configmao volumes and volume mounts](images/volume-config.png)
+
+    Look at the different colors that indicates indentation.
 
     > Note: The indentation should be: **application.deployment.volumes** and **application.deployment.volumeMounts**.
 

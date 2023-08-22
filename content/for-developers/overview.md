@@ -68,10 +68,6 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
     Master the utilization of ConfigMaps for externalizing configuration from your application. Centralize your configuration management for increased flexibility.
 
-- [Add Environment Variables to your Application](./tutorials/inner-loop/add-env-variable/add-env-variable.md)
-
-    Explore the role of environment variables in your application. Configure and manage environment variables to ensure smooth operation across different environments.
-
 - [Add Grafana Dashboard to your Application](./tutorials/inner-loop/add-grafana-dashboard/add-grafana-dashboard.md)
 
     Create and integrate Grafana dashboards to visualize and monitor your application's performance metrics. Design informative and insightful dashboards.
