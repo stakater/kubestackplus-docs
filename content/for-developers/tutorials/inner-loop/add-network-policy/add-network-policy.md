@@ -21,24 +21,26 @@ Let's set a `Network Policy` on the `review-mongodb` pod so that no other pods c
 
     ```yaml
     # Define a NetworkPolicy configuration.
-    networkPolicy:
-      enabled: true  # Enable the NetworkPolicy.
-      podSelector:  # Specify the pods to which the NetworkPolicy rules will apply.
-        matchLabels:  # Define labels to match pods.
-          app.kubernetes.io/name: mongodb  # Match pods with the label 'app.kubernetes.io/name' equal to 'mongodb'.
-      ingress:  # Define ingress rules for incoming traffic.
-        - ports:  # Specify a list of ports and their protocols.
-            - protocol: TCP  # Allow TCP traffic on port 27017.
-              port: 27017
-          from:  # Define the source of allowed incoming traffic.
-            - podSelector:  # Allow traffic from pods matching certain labels.
-                matchLabels:  # Match pods with the label 'app.kubernetes.io/name' equal to 'review'.
+      networkPolicy:
+        enabled: true  # Enable the NetworkPolicy.
+        podSelector:  # Specify the pods to which the NetworkPolicy rules will apply.
+          matchLabels:  # Define labels to match pods.
+            app.kubernetes.io/name: mongodb  # Match pods with the label 'app.kubernetes.io/name' equal to 'mongodb'.
+        ingress:  # Define ingress rules for incoming traffic.
+          - ports:  # Specify a list of ports and their protocols.
+              - protocol: TCP  # Allow TCP traffic on port 27017.
+                port: 27017
+            from:  # Define the source of allowed incoming traffic.
+              - podSelector:  # Allow traffic from pods matching certain labels.
+                  matchLabels:  # Match pods with the label 'app.kubernetes.io/name' equal to 'review'.
                   app.kubernetes.io/name: review
     ```
 
     It should look like this:
 
     ![network policy values](images/network-policies-values.png)
+
+    Look at the different colors that indicates indentation.
 
     So, our application pod `review` will not entertain any traffic from any other pod.
 
