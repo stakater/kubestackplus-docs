@@ -6,14 +6,14 @@ In modern software development practices, pipelines play a crucial role in autom
 
 ## Objectives
 
-- Congure SSH keys and secret for the pipeline.
+- Configure SSH keys and secret for the pipeline.
 - Create a Tekton PipelineRun using a `.tekton/main.yaml` file from a code repository.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
 - Successfully generate and configure an SSH secret to provide secure access to your code repository.
-- Successfully create and execute the Tekton PipelineRun using the defined .tekton/main.yaml file, enabling automated CI/CD processes for your application.
+- Successfully create and execute the Tekton PipelineRun using the defined `.tekton/main.yaml` file, enabling automated CI/CD processes for your application.
 
 ### Create PipelineRun Resource
 
