@@ -69,54 +69,23 @@ nav:
             - about/cloud-providers/azure.md
             - about/cloud-providers/gcp.md
             - about/cloud-providers/binero.md
-            - about/cloud-providers/upcloud.md
+            - about/cloud-providers/exoscale.md
         - about/update-lifecycle.md
         - about/onboarding.md
     - For Administrators:
         - Plan your environment:
             - for-administrators/plan-your-environment/sizing.md
-        - Create your cluster:
-            - for-administrators/create-your-cluster.md
         - Secure your cluster:
             - for-administrators/secure-your-cluster/user-access.md
             - for-administrators/secure-your-cluster/secure-routes.md
-        - Onboarding:
-            - Day 1:
-                - for-administrators/onboarding/day1/bootstrap-gitops.md
-                - for-administrators/onboarding/day1/add-cluster.md
-                - for-administrators/onboarding/day1/add-template.md
-            - Day 2:
-                - for-administrators/onboarding/day2/add-quota.md
-                - for-administrators/onboarding/day2/add-tenant.md
-                - for-administrators/onboarding/day2/add-template.md
         - Manage Network:
             - for-administrators/networking/custom-domains.md
             - for-administrators/networking/external-dns.md
         - Manage Storage:
             - for-administrators/storage/volume-expansion.md
-        - for-administrators/capacity-management.md
-        - for-administrators/disaster-recovery.md
-        - for-administrators/registry-cicd.md
-        - for-administrators/use-of-credentials.md
-        - Security Best Practices:
-            - for-administrators/security/overview.md
-            - for-administrators/security/identity-verification-access-control.md
-            - for-administrators/security/pod-security.md
-            - for-administrators/security/runtime-security.md
-            - for-administrators/security/supply-chain-security.md
-            - for-administrators/security/data-encryption-secret-management.md
-            - for-administrators/security/network-security.md
-            - for-administrators/security/logging-auditing.md
-            - for-administrators/security/multi-tenancy-security.md
-            - for-administrators/security/host-security.md
         - Cluster Lifecycle:
             - for-administrators/cluster-lifecycle/hibernate-your-cluster.md
-            - for-administrators/cluster-lifecycle/add-node-to-your-cluster.md
-            - for-administrators/cluster-lifecycle/autoscale-your-cluster.md
-            - for-administrators/cluster-lifecycle/upgrade-your-cluster.md
-            - for-administrators/cluster-lifecycle/terminate-your-cluster.md
         - Help:
-            - for-administrators/help/troubleshooting.md
             - for-administrators/help/faq.md
     - For Delivery Engineers:
         - for-delivery-engineers/overview.md
@@ -135,6 +104,7 @@ nav:
         - How-to guides:
             - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
             - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
+            - for-delivery-engineers/how-to-guides/use-a-cluster-task-in-pipeline/use-a-clustertask-in-pipeline.md
 
     - For Developers:
         - for-developers/overview.md
@@ -164,11 +134,8 @@ nav:
                 - for-developers/tutorials/inner-loop/add-grafana-dashboard/add-grafana-dashboard.md
                 - for-developers/tutorials/inner-loop/scale-app/scale-app.md
                 - for-developers/tutorials/inner-loop/validate-auto-reload/validate-auto-reload.md
-                - for-developers/tutorials/inner-loop/validate-down-alert/validate-down-alert.md
                 - for-developers/tutorials/inner-loop/add-pdb/add-pdb.md
                 - for-developers/tutorials/inner-loop/add-network-policy/add-network-policy.md
-                - for-developers/tutorials/inner-loop/backup-data/backup-data.md
-                - for-developers/tutorials/inner-loop/restore-data/restore-data.md
                 - for-developers/tutorials/inner-loop/tilt-zero-to-hero/step-by-step-guide.md
             - Outer Loop:
                 - for-developers/tutorials/outer-loop/access-cluster/access-the-cluster.md
@@ -179,7 +146,6 @@ nav:
                 - for-developers/tutorials/outer-loop/add-ci-pipeline/add-ci-pipeline.md
                 - for-developers/tutorials/outer-loop/promote-application/promote-app.md
         - How-to guides:
-            - for-developers/how-to-guides/overview.md
             - for-developers/how-to-guides/add-a-new-environment-to-apps-gitops/add-a-new-environment-to-application.md
             - for-developers/how-to-guides/promote-your-application/promote-your-application.md
             - for-developers/how-to-guides/build-and-push-your-image/build-and-push-your-image.md
@@ -187,7 +153,6 @@ nav:
             - for-developers/how-to-guides/expose-spring-boot-metrics/expose-spring-boot-metrics.md
             - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
     - For CISOs:
-        - for-cisos/overview.md
         - for-cisos/policies/policies.md
         - Red Hat Advanced Cluster Security (RHACS):
             - for-cisos/rhacs/introduction.md
@@ -214,8 +179,6 @@ nav:
             - for-cisos/data-protection/rhacm-data-lifecycle.md
             - for-cisos/data-protection/rhacm-data-collection.md
             - for-cisos/data-protection/rhacm-data-storage.md
-    - For Partners:
-        - for-partners/overview.md
     - Managed Addons:
         - managed-addons/overview.md
         - Nexus:
@@ -234,6 +197,11 @@ nav:
             - managed-addons/vault/overview.md
         - ArgoCD:
             - managed-addons/argocd/overview.md
+            - managed-addons/argocd/for-administrators/architecture.md
+            - managed-addons/argocd/for-administrators/availability.md
+            - managed-addons/argocd/for-administrators/installation.md
+            - managed-addons/argocd/for-administrators/observability.md
+            - managed-addons/argocd/for-administrators/resource-requirements.md
         - Cert Manager:
             - managed-addons/cert-manager/overview.md
         - External Secrets Operator:
@@ -282,12 +250,9 @@ nav:
         - legal-documents/nda.md
         - legal-documents/pp.md
     - Help:
-        - help/overview.md
         - help/support/support.md
         - Kubernetes Concepts:
-            - help/k8s-concepts/overview.md
             - help/k8s-concepts/storage-basics.md
-            - help/k8s-concepts/container-anatomy.md
             - help/k8s-concepts/cloud-native-app.md
             - help/k8s-concepts/helm.md
             - help/k8s-concepts/high-availability.md

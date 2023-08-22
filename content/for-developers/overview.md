@@ -88,10 +88,6 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
     Explore different storage options for your application. Configure and manage storage resources to store data and maintain stateful applications.
 
-- [Backup Data](./tutorials/inner-loop/backup-data/backup-data.md)
-
-    Implement data backup strategies for your application. Ensure data resilience by setting up regular backups and recovery mechanisms.
-
 - [Configure Probes for your Application](./tutorials/inner-loop/configure-probes/configure-probes.md)
 
     Optimize the reliability of your application by configuring readiness and liveness probes. Set up health checks to ensure proper functioning and automatic recovery.
@@ -120,10 +116,6 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
     Set up the environment for your application's deployment. Configure resources, settings, and dependencies to ensure a consistent and reliable environment.
 
-- [Restore Data](./tutorials/inner-loop/restore-data/restore-data.md)
-
-    Develop data restoration strategies for your application. Plan and execute data recovery processes to ensure business continuity.
-
 - [Autoscaling your Application](./tutorials/inner-loop/scale-app/scale-app.md)
 
     Scale your application to handle varying workloads. Configure horizontal scaling to optimize performance and resource utilization.
@@ -131,10 +123,6 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 - [Tilt Zero to Hero](./tutorials/inner-loop/tilt-zero-to-hero/step-by-step-guide.md)
 
     Master Tilt for efficient local development. Learn how to set up, configure, and utilize Tilt to streamline your development workflow.
-
-- [Validate Down Alert](./tutorials/inner-loop/validate-down-alert/validate-down-alert.md)
-
-    Simulate and validate alerts for application downtime. Test and verify your alerting system's responsiveness to ensure timely incident management.
 
 - [Enable logging for your Application](./tutorials/inner-loop/validate-logs/validate-logs.md)
 
