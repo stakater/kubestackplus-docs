@@ -21,7 +21,7 @@ metadata:
   namespace: openshift-monitoring
 data:
   config.yaml: |
-    enableUserWorkload: true 
+    enableUserWorkload: true
 ```
 
 ## Excluding a user-defined project from monitoring

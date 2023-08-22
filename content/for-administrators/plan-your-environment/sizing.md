@@ -1,5 +1,5 @@
 # Sizing
-<!---
+
 > Glossary:
 >
 > **User workloads:** User applications (e-commerce frontend, backend APIs, etc.)
@@ -207,4 +207,3 @@ No additional Floating IPs/Public IPs are required.
 #### For OpenStack
 
 `2 x Floating IPs` are required (for cluster API and cluster dashboard).
--->

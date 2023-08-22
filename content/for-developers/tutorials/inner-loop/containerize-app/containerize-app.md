@@ -97,7 +97,8 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
 
   1. Execute the following command to run the image.
 
-      > Note: To run the application container you need Mongo_DB server running.
+      !!! note
+          To run the application container you need Mongo_DB server running.
 
         ```sh
         # -p flag exposes container port 8080 on your local port 8080
@@ -105,7 +106,8 @@ Lets create a Dockerfile inside the repository folder and delete any existing fi
         docker run -dt -p [<localhost-port>:<container-port>] --env <variable1>=<value> --env <variable2>=<value> <image-name>:1.0.0
         ```
 
-      > Note: If Mongo_DB server is running on your local machine, replace **-p** flag and it's values with --network="host".
+      !!! note
+          If Mongo_DB server is running on your local machine, replace **-p** flag and it's values with --network="host".
 
       ```sh
       docker run -dt --network="host" --env <variable1>=<value> --env <variable2>=<value> <image-name>:1.0.0

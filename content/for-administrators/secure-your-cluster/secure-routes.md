@@ -62,7 +62,7 @@ metadata:
   namespace: route-demo
   annotations:
     haproxy.router.openshift.io/ip_whitelist: 8.8.8.8 8.8.8.9 # Will whitelist this route for the 8.8.8.8 and 8.8.8.9
-    haproxy.router.openshift.io/timeout: 5000ms # Sets a server-side timeout for the route for 5000ms   
+    haproxy.router.openshift.io/timeout: 5000ms # Sets a server-side timeout for the route for 5000ms
 spec:
 # In case you omit `host` field OpenShift will generate a hostname for you as <name>-<namespace-name>.DOMAIN_NAME
   host: hello-world-app.apps.<CLUSTER_NAME>.<CLUSTER_ID>.kubeapp.cloud

@@ -32,7 +32,8 @@ The secret we created for our deployment earlier, notice the details and the val
 
     ![Reloader values](images/reload-values.png)
 
-    > Note: The indentation should be **application.deployment.reloadOnChange: true**.
+    !!! note
+        The indentation should be **application.deployment.reloadOnChange: true**.
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 

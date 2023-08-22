@@ -1,8 +1,8 @@
 # Azure
 
-An azure subscription is needed to create and manage cluster on azure. The following criteria must be met
+An Azure subscription is needed to create and manage cluster on Azure. The following criteria must be met:
 
-- An azure subscription.
+- An Azure subscription.
 - A Stakater user (ask Stakater team for the email to use for this user) with privileges to create an application in Azure AD (Recommended). [Create a Service Principal](https://docs.openshift.com/container-platform/4.9/installing/installing_azure/installing-azure-account.html#installation-azure-service-principal_installing-azure-account) to be used by SAAP installer if you do not want to give permissions to Azure AD.
 - Resource limits must be applied on the subscription and the following resources must be allowed to be created.
 
@@ -19,16 +19,6 @@ An azure subscription is needed to create and manage cluster on azure. The follo
   | Machine Specifications | 6 machines of 8x32x120G |
   | Region | Region will be identified by the customer |
 
-## Instance Types
-
-SAAP offers the following worker node types and sizes on Azure:
-
-### General Purpose
-
-### Memory Optimized
-
-### Compute Optimized
-
-### Autoscaling
+## Autoscaling
 
 Node autoscaling is available on Azure. You can configure the autoscaler option to automatically scale the number of machines in a cluster.

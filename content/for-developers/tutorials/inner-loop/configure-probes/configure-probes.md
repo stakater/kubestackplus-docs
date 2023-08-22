@@ -53,13 +53,15 @@ So, to deploy your application smoothly you need to configure probes.
         port: 8080
     ```
 
-    > Note: Indentation should be followed as: **application.deployment.livenessProbe**.
+    !!! note
+        Indentation should be followed as: **application.deployment.livenessProbe**.
 
     It should look like this:
 
     ![liveness probe](images/liveness-probe.png)
 
-    > Note: You can configure the parameters of the probe per your application's requirement. To know more about liveness probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+    !!! note
+        You can configure the parameters of the probe per your application's requirement. To know more about liveness probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 1. To add a readiness probe in your application, you need to define it in your `deploy/values.yaml`. Readiness probes determine if a container is ready to serve traffic and delay routing until the container is ready.
 
@@ -86,13 +88,15 @@ So, to deploy your application smoothly you need to configure probes.
         port: 8080
     ```
 
-    > Note: Indentation should be followed as: **application.deployment.readinessProbe**.
+    !!! note
+        Indentation should be followed as: **application.deployment.readinessProbe**.
 
     It should look like this:
 
     ![readiness probe](images/readiness-probe.png)
 
-    > Note: You can configure the parameters of the probe as per your application's requirement. To know more about readiness probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+    !!! note
+        You can configure the parameters of the probe as per your application's requirement. To know more about readiness probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 1. To add startup probe in your application, you need to define it in your `deploy/values.yaml`. Startup probe is specifically designed to check if an application has completed its initialization and is fully ready to serve traffic.
 
@@ -119,13 +123,15 @@ So, to deploy your application smoothly you need to configure probes.
         port: 8080
     ```
 
-    > Note: Indentation should be followed as: **application.deployment.startupProbe**.
+    !!! note
+        Indentation should be followed as: **application.deployment.startupProbe**.
 
     It should look like this:
 
     ![startup probe](images/startup-probe.png)
 
-    > Note: You can configure the parameters of the probe as per your application's requirement. To know more about startup probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
+    !!! note
+        You can configure the parameters of the probe as per your application's requirement. To know more about startup probes, visit [here](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 1. Save the `values.yaml` and run `tilt up` at the root of your directory. Press the space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
 

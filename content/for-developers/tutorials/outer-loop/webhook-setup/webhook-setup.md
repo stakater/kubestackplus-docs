@@ -35,7 +35,8 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
     openssl rand -hex 20
     ```
 
-    > Note: Save the secret because we will need it later.
+    !!! note
+        Save the secret because we will need it later.
 
     Now copy it and paste it under `Secret` section in Webhook.
 
@@ -52,6 +53,7 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 
     Once you've entered the interceptor URL and chosen the triggering events, proceed to add the webhook. This will establish the connection between your GitHub repository and SAAP pipeline.
 
-    > Note: For GitLab Webhook configuration follow [this](https://pipelinesascode.com/docs/install/gitlab/), for Bitbucket webhook configuration follow [this](https://pipelinesascode.com/docs/install/bitbucket_cloud/).
+    !!! note
+        For GitLab Webhook configuration follow [this](https://pipelinesascode.com/docs/install/gitlab/), for Bitbucket webhook configuration follow [this](https://pipelinesascode.com/docs/install/bitbucket_cloud/).
 
 Great! Now that you added a Webhook to your repository, let's move on to create secret for it in the next tutorial.

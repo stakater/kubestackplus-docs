@@ -94,4 +94,6 @@ If you see the following error. Check `argocd-ssh-known-hosts-cm` config map in 
 ![`ArgoCD-repo-connection-ssh-issue`](../images/ArgoCD-repo-connection-ssh-issue.png)
 
 Some known hosts public keys might be missing in `argocd-ssh-known-hosts-cm` for older ArgoCD versions, Find full list of public keys against repository server [here](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#ssh-known-host-public-keys).
-> Note: If the error persists, contact **Stakater Support** to review it.
+
+!!! note
+    If the error persists, contact **Stakater Support** to review it.

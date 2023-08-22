@@ -42,7 +42,8 @@ Now let's add a PrometheusRule for the application. In the previous section, we 
                   severity: critical
     ```
 
-    > Note: The indentation follows by **application.prometheusRule**.
+    !!! note
+        The indentation follows by **application.prometheusRule**.
 
 ### Alert Manager
 
@@ -106,7 +107,8 @@ Once you have the webhook Url, you can add the AlertManagerConfig. The Alertmana
             receiver: nordmart-review-receiver
     ```
 
-    > Note: The indentation follows by **application.alertmanagerConfig**.
+    !!! note
+        The indentation follows by **application.alertmanagerConfig**.
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 

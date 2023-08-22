@@ -12,20 +12,20 @@ For `Mac` or `Linux` users, one can set these environment values in `.bashrc` or
 1. Open `.bashrc` or `.bash_profile` in your favourite editor.
 1. Paste below lines and set your actual environment values. You can find the credentials in Vault on this path: `secrets/managed-addons/nexus`
 
-```bash
-export NEXUS_USERNAME=username
-export NEXUS_PASSWORD=password
-export MAVEN_MIRROR_URL=URL
-```
+    ```bash
+    export NEXUS_USERNAME=username
+    export NEXUS_PASSWORD=password
+    export MAVEN_MIRROR_URL=URL
+    ```
 
 1. Save and exit the file and run below command in terminal:
 
-```bash
-source ~/.bash_profile
-```
+    ```bash
+    source ~/.bash_profile
+    ```
 
-* you can start using Maven commands now. If it does not work, try restarting the terminal once.
-* Read more about `.bashrc` and `.bash_profile` online if you want to decide between the two.
+1. You can start using Maven commands now. If it does not work, try restarting the terminal once.
+1. Read more about `.bashrc` and `.bash_profile` online if you want to decide between the two.
 
 ### Windows
 

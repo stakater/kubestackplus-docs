@@ -28,7 +28,8 @@ Since the `.tekton` folder containing your `pipelineRun` definition is part of y
     - [`Generate SSH Key Pair`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
     - [`Add Deploy Key to your Repository`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
 
-    > Note: A deploy key is specific to a single repository and cannot be used for multiple repositories.*
+    !!! note
+        A deploy key is specific to a single repository and cannot be used for multiple repositories.*
 
 1. After adding the "public key" to the `Deploy keys` section of your repository, now is the time to add the "private key" in the secret.
 
@@ -49,7 +50,8 @@ Since the `.tekton` folder containing your `pipelineRun` definition is part of y
         -----END OPENSSH PRIVATE KEY-----
     ```
 
-    > Note: We will be using this secret in our `pipelineRun`
+    !!! note
+        We will be using this secret in our `pipelineRun`
 
 1. Let's place this `PipelineRun` in `.tekton/main.yaml` for your source code repository.
 
