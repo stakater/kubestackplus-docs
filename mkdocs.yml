@@ -169,7 +169,6 @@ nav:
                 - for-developers/tutorials/inner-loop/add-network-policy/add-network-policy.md
                 - for-developers/tutorials/inner-loop/backup-data/backup-data.md
                 - for-developers/tutorials/inner-loop/restore-data/restore-data.md
-                - for-developers/tutorials/inner-loop/add-env-variable/add-env-variable.md
                 - for-developers/tutorials/inner-loop/tilt-zero-to-hero/step-by-step-guide.md
             - Outer Loop:
                 - for-developers/tutorials/outer-loop/access-cluster/access-the-cluster.md
