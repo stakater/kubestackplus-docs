@@ -37,18 +37,20 @@ Let's scale up the number of `replicas` to see how `pdb` works.
 
     ```yaml
     # Enable Pod Disruption Budget (PDB) for your application's pods.
-    pdb:
+      pdb:
         # Set PDB enabled to true to activate the Pod Disruption Budget.
-      enabled: true
+        enabled: true
         # Specify the minimum number of available pods during disruptions. In this case, ensure at least 1 pod is available at all times.
-      minAvailable: 2
+        minAvailable: 2
         # Specify the maximum number of pods that can be unavailable simultaneously during disruptions
-      maxUnavailable: 2
+        maxUnavailable: 2
     ```
 
     It should look like this:
 
     ![PDB values](images/pdb-values.png)
+
+    Look at the different colors that indicates indentation.
 
     > Note: The indentation should be **application.pdb**.
 
