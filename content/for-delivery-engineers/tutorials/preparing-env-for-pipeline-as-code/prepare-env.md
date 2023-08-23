@@ -1,6 +1,6 @@
-# Setting Up Service Account, SCC, Role, and RoleBinding for Tekton Pipelines
+# Setting Up Service Account, SCC, Cluster Role, and RoleBinding for Tekton Pipelines
 
-In this tutorial, we will guide you through the process of setting up a service account, a Security Context Constraint (SCC), a role, and a role binding for Tekton Pipelines. These steps are essential for managing your pipeline's security and access within your Kubernetes/OpenShift cluster.
+In this tutorial, we will guide you through the process of setting up a service account, a Security Context Constraint (SCC), a role, and a role binding for Tekton Pipelines. These steps are essential for managing your pipeline's security and access within your SAAP cluster.
 
 ## Prerequisites
 
@@ -8,7 +8,7 @@ In this tutorial, we will guide you through the process of setting up a service 
 
 ## Create a Service Account with a Secret
 
-1. Create a service account named `pipeline-service-account.yaml` in the namespace in which your pipelines will run.
+1. Create a service account named `pipeline.yaml` in the namespace in which your pipelines will run.
 
 ```yaml
    kind: ServiceAccount
@@ -113,3 +113,34 @@ roleRef:
 ```
 
 Replace the `<tenant>` in the namespace name with your actual tenant name.
+
+```yaml
+apiVersion: tenantoperator.stakater.com/v1alpha1
+kind: Template
+metadata:
+  name: pipeline-rolebinding
+resources:
+  manifests:
+    - kind: ServiceAccount
+      apiVersion: v1
+      metadata:
+      name: pipeline
+      namespace: ${tenant}-build
+      secrets:
+        - name: nexus-docker-config
+    - kind: RoleBinding
+      apiVersion: rbac.authorization.k8s.io/v1
+      metadata:
+        name: pipeline-rolebinding
+        namespace: ${tenant}-build
+
+      subjects:
+        - kind: ServiceAccount
+          name: pipeline
+          namespace: ${tenant}-build
+      roleRef:
+        apiGroup: rbac.authorization.k8s.io
+        kind: ClusterRole
+        name: pipelines-scc-role
+
+```
