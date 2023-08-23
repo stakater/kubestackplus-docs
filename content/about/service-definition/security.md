@@ -2,7 +2,7 @@
 
 ## Authentication Provider
 
-Authentication for the cluster is configured as part of the [cluster creation process](../../for-administrators/create-your-cluster.md). SAAP is not an identity provider, and all access to the cluster must be managed by the customer as part of their integrated solution. Creating multiple identity providers at the same time is supported. The following identity providers are supported:
+Authentication for the cluster is configured as part of the cluster creation process. SAAP is not an identity provider, and all access to the cluster must be managed by the customer as part of their integrated solution. Creating multiple identity providers at the same time is supported. The following identity providers are supported:
 
 - GitHub or GitHub Enterprise OAuth
 - GitLab OAuth

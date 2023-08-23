@@ -31,7 +31,8 @@ In stateful applications deployed on the SAAP (Stakater App Agility Platform), e
         volumeName: ""  # Specifies the name of the Persistent Volume (PV) to be used by the PVC. This field is usually left empty, as PVs are dynamically provisioned and associated with PVCs by the cluster.
     ```
 
-    > Note: Make sure that the indentation is correct. It follows `application.persistence`.
+    !!! note
+        Make sure that the indentation is correct. It follows `application.persistence`.
 
     It should look like this:
 
@@ -53,7 +54,8 @@ In stateful applications deployed on the SAAP (Stakater App Agility Platform), e
           mountPath: /data  # Specify the mountPath as "/data" to mount the Persistent Volume (PV) referenced by the volume named "tmp" to this path within the pod.
     ```
 
-    > Note: Make sure that the indentation is correct. It follows `application.deployment.volumes` and `application.deployment.volumeMounts`.
+    !!! note
+        Make sure that the indentation is correct. It follows `application.deployment.volumes` and `application.deployment.volumeMounts`.
 
     It should look like this:
 
@@ -69,7 +71,8 @@ In stateful applications deployed on the SAAP (Stakater App Agility Platform), e
 
     ![pvc](images/pvc.png)
 
-    > Note: The PVC named "review" has dynamically provisioned a PV and gave a default storage class named "standard". The most important thing here is the status of PVC which is "Bound" which means not only all the configurations were right but have efficiently applied on the cluster and the application.
+    !!! note
+        The PVC named "review" has dynamically provisioned a PV and gave a default storage class named "standard". The most important thing here is the status of PVC which is "Bound" which means not only all the configurations were right but have efficiently applied on the cluster and the application.
 
 1. Let's see the application pod "review". Click on the review pod:
 
@@ -79,4 +82,5 @@ In stateful applications deployed on the SAAP (Stakater App Agility Platform), e
 
     ![pod-volumes](images/pod-volumes.png)
 
-> Note: You can change or add any configuration for the PVC or volumes. To see more configurations [click](https://github.com/stakater/application.git).
+!!! note
+    You can change or add any configuration for the PVC or volumes. To see more configurations [click](https://github.com/stakater/application.git).

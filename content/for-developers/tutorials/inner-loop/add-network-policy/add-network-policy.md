@@ -44,7 +44,8 @@ Let's set a `Network Policy` on the `review-mongodb` pod so that no other pods c
 
     So, our application pod `review` will not entertain any traffic from any other pod.
 
-    > Note: The indentation should be **application.networkPolicy**.
+    !!! note
+        The indentation should be **application.networkPolicy**.
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 

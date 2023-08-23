@@ -31,7 +31,8 @@ Let's scale up the number of `replicas` to see how `pdb` works.
 
     Make sure **autoscaling** is `enabled: false`, or you can scale up the `minReplicas` to match the replicas, that way you don't need to disable autoscaling.
 
-    > Note: The indentation should be **application.deployment.replicas**.
+    !!! note
+        The indentation should be **application.deployment.replicas**.
 
 1. Enable `pdb` in your `deploy/values.yaml` file. Add the following yaml:
 
@@ -52,7 +53,8 @@ Let's scale up the number of `replicas` to see how `pdb` works.
 
     Look at the different colors that indicates indentation.
 
-    > Note: The indentation should be **application.pdb**.
+    !!! note
+        The indentation should be **application.pdb**.
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 

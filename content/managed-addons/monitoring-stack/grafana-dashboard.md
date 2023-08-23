@@ -6,7 +6,7 @@ This document explains how to create Grafana Dashboard via GrafanaDashboard CR p
 
 - Grafana should be up and running. You should be able to find it under Workload Monitoring category in your Forecastle link.
 
-## Instructions  
+## Instructions
 
 1. Create GrafanaDashboard definition
 

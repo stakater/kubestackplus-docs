@@ -69,7 +69,7 @@ spec:
           region: eu-north-1            # default region
           secretAccessKeySecretRef:     # Secret with key "aws_secret_access_key" must exist in `stakater-cert-manager-operator`
             name: aws-creds
-            key: aws_secret_access_key  
+            key: aws_secret_access_key
 ```
 
 !!! warning
@@ -98,7 +98,7 @@ sequenceDiagram
     Cert-Manager Routes Controller->>Cert-Manager: Creates a Certfificate CR
     Cert-Manager->>Let's encrypt: Requests a valid TLS certificate
     Let's encrypt->>Cert-Manager: Issues a TLS certificate
-    Cert-Manager->>TLS Secret: Creates a secret in the same namespace as Route 
+    Cert-Manager->>TLS Secret: Creates a secret in the same namespace as Route
     Cert-Manager Routes->> TLS Secret: Picks up the generated Values
     Cert-Manager Routes->> Route: Injects TLS secret values into the Route
 ```

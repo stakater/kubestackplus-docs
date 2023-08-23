@@ -19,6 +19,40 @@ Now that we have completed all the prerequisites to run this `pipelineRun`, we c
 
 Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach. Create a `.tekton` folder and place it in the `pipelineRun` for your source code repository as `main.yaml`. This enables you to define and manage your pipelines along with your application code, promoting better code-pipeline integration and version control.
 
+Since the `.tekton` folder containing your `pipelineRun` definition is part of your source code repository, you want to avoid including sensitive authentication information directly in the repository. Storing them as a secret allows you to version control your pipeline definition without exposing sensitive data.
+
+1. Let's create SSH keys to access the repository.
+
+    For SSH Access
+
+    - [`Generate SSH Key Pair`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+    - [`Add Deploy Key to your Repository`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
+
+    !!! note
+        A deploy key is specific to a single repository and cannot be used for multiple repositories.*
+
+1. After adding the "public key" to the `Deploy keys` section of your repository, now is the time to add the "private key" in the secret.
+
+    ```yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: nordmart-ssh-creds
+      namespace: argocd
+      labels:
+        argocd.argoproj.io/secret-type: repository
+    stringData:
+      type: git
+      url: git@github.com:argoproj/my-private-repository # Copy the SSH URL of your repo and paste it here
+      sshPrivateKey: | # Paste base64 encoded private key here
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        ...
+        -----END OPENSSH PRIVATE KEY-----
+    ```
+
+    !!! note
+        We will be using this secret in our `pipelineRun`
+
 1. Let's place this `PipelineRun` in `.tekton/main.yaml` for your source code repository.
 
     ```yaml

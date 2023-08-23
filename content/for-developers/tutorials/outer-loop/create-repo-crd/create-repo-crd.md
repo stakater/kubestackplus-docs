@@ -34,7 +34,8 @@ The `Secret` holds sensitive data, such as your GitHub access token and webhook 
 
     ![git webhook config](images/git-webhook.png)
 
-    > Note: In older versions of PaC, webhook secret can't be stored, so for older versions, use the below command:
+    !!! note
+        In older versions of PaC, webhook secret can't be stored, so for older versions, use the below command:
 
     ```sh
     oc -n <namespace-where-PaC-installed> create secret generic pipelines-as-code-secret --from-literal webhook.secret="$WEBHOOK_SECRET_AS_GENERATED"

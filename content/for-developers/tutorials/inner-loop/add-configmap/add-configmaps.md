@@ -39,7 +39,8 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     Look at the different colors that indicates indentation.
 
-    > Note: The indentation for `env` in `deploy/values.yaml` is **application.deployment.env**. You can also refer configmap in env, to see more [click](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-with-data-from-multiple-configmaps).
+    !!! note
+        The indentation for `env` in `deploy/values.yaml` is **application.deployment.env**. You can also refer configmap in env, to see more [click](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-with-data-from-multiple-configmaps).
 
 ### Utilize envFrom to Access ConfigMaps
 
@@ -65,7 +66,8 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     Look at the different colors that indicates indentation.
 
-    > Note: The indentation for `envFrom` in `deploy/values.yaml` is **application.deployment.envFrom**. You can also reference secret in envFrom, to see more [click](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables).
+    !!! note
+        The indentation for `envFrom` in `deploy/values.yaml` is **application.deployment.envFrom**. You can also reference secret in envFrom, to see more [click](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables).
 
 ### Define ConfigMap Data in values.yaml
 
@@ -91,7 +93,8 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     Look at the different colors that indicates indentation.
 
-    > Note: The indentation follows for `configmap` is **application.configMap**.
+    !!! note
+        The indentation follows for `configmap` is **application.configMap**.
 
 1. Save the file and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
@@ -133,7 +136,8 @@ You can also mount secrets as files in your application containers, enabling dir
 
     Look at the different colors that indicates indentation.
 
-    > Note: The indentation should be: **application.deployment.volumes** and **application.deployment.volumeMounts**.
+    !!! note
+        The indentation should be: **application.deployment.volumes** and **application.deployment.volumeMounts**.
 
     In the above example, the `review-mongodb-creds` secret is mounted as a volume named `secret-volume` at the path `/etc/secrets` within the container.
 
@@ -169,6 +173,7 @@ If your application requires a configuration file with sensitive information, yo
 
     Look at the different colors that indicates indentation.
 
-    > Note: The indentation should be: **application.deployment.volumes** and **application.deployment.volumeMounts**.
+    !!! note
+        The indentation should be: **application.deployment.volumes** and **application.deployment.volumeMounts**.
 
     In the above example, the `your-configmap` ConfigMap is mounted as a volume named `config-volume` at the path `/etc/config` within the container.
