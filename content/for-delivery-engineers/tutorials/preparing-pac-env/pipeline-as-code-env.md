@@ -22,13 +22,13 @@ Create a file named, rbac-template and add the following content to it:
 apiVersion: tenantoperator.stakater.com/v1alpha1
 kind: Template
 metadata:
-  name: tekton-pipeline-validation-rbac
+  name: tekton-pipeline-template
 resources:
   manifests:
   - apiVersion: rbac.authorization.k8s.io/v1
     kind: RoleBinding
     metadata:
-      name: pipeline-rolebinding
+      name: tekton-pipeline-rolebinding
     subjects:
       - kind: ServiceAccount
         name: pipeline
@@ -40,7 +40,7 @@ resources:
   - apiVersion: v1
     kind: ServiceAccount
     metadata:
-      name: stakater-tekton-builder
+      name: pipeline
       labels:
         multi-tenant-operator/ignore-resource-updates: ''
     secrets:
@@ -48,4 +48,17 @@ resources:
 ```
 
 Now let's create a TemplateGroupInstance for this:
+
+```yaml
+apiVersion: tenantoperator.stakater.com/v1alpha1
+kind: TemplateGroupInstance
+metadata:
+  name: tekton-pipeline-tgi
+spec:
+  selector:
+    matchExpressions:
+    - {key: stakater.com/kind, operator: In, values: [build]}
+  sync: true
+  template: tekton-pipeline-template
+```
 
