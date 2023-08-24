@@ -8,7 +8,7 @@ This tutorial assumes that tekton-pipeline-scc and tekton-pipeline-clusterrole a
 
 MTO deployed on the Cluster
 
-Pre configured infra repository
+Pre configured infra repository (TODO: link tutorial)
 
 # Deploying Service Account and RoleBinding
 
