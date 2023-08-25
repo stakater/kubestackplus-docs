@@ -62,3 +62,5 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
   ```
              
  ![`pipeline-template`](../images/pipeline-template.png)
+
+ ![`argocd`](../images/argocd-sync.png)
