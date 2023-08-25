@@ -5,7 +5,7 @@
 1. You should have SAAP Cluster Admin role on the cluster.
 2. `tekton-pipeline` SCC (Service Cluster Configurations) and Tekton Pipeline ClusterRole should already be deployed in the SAAP cluster.
 3. Multi-Tenant Operator (MTO).
-4. You have a pre-configured infrastructure repository. (If not, follow [this tutorial](TODO: Add link to tutorial))
+4. You have a pre-configured infrastructure repository. If you already configured it, follow [this tutorial](../../tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md)
 
 # Deploying Service Account and RoleBinding
 
@@ -17,34 +17,34 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
 
 3. Within the pipeline-resources directory, create a file named rbac-template.yaml and add the following content:
 
-  ```yaml
-  apiVersion: tenantoperator.stakater.com/v1alpha1
-  kind: Template
-  metadata:
-    name: tekton-pipeline-template
-  resources:
-    manifests:
-    - apiVersion: rbac.authorization.k8s.io/v1
-      kind: RoleBinding
-      metadata:
-        name: tekton-pipeline-rolebinding
-      subjects:
-        - kind: ServiceAccount
-          name: pipeline
-          namespace: "${tenant}-build"
-      roleRef:
-         apiGroup: rbac.authorization.k8s.io
-         kind: ClusterRole
-         name: tekton-pipelne-clusterrole
-    - apiVersion: v1
-      kind: ServiceAccount
-      metadata:
-        name: pipeline
-        labels:
-          multi-tenant-operator/ignore-resource-updates: ''
-      secrets:
-        - name: nexus-docker-config
-  ```
+   ```yaml
+   apiVersion: tenantoperator.stakater.com/v1alpha1
+   kind: Template
+   metadata:
+     name: tekton-pipeline-template
+   resources:
+     manifests:
+     - apiVersion: rbac.authorization.k8s.io/v1
+       kind: RoleBinding
+       metadata:
+         name: tekton-pipeline-rolebinding
+       subjects:
+         - kind: ServiceAccount
+           name: pipeline
+           namespace: "${tenant}-build"
+       roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: tekton-pipelne-clusterrole
+     - apiVersion: v1
+       kind: ServiceAccount
+       metadata:
+         name: pipeline
+         labels:
+           multi-tenant-operator/ignore-resource-updates: ''
+       secrets:
+         - name: nexus-docker-config
+   ```
   
 4. Now let's create a TemplateGroupInstance for this in the same folder:
 
