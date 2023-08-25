@@ -2,13 +2,10 @@
 
 # Prerequisites
 
-For performing this tutorial, you will need to have SAAP Cluster Admin role on the cluster
-
-This tutorial assumes that tekton-pipeline-scc and tekton-pipeline-clusterrole are already deployed in the SAAP cluster.
-
-MTO deployed on the Cluster
-
-Pre configured infra repository (TODO: link tutorial)
+1. You should have SAAP Cluster Admin role on the cluster.
+2. `tekton-pipeline` SCC (Service Cluster Configurations) and Tekton Pipeline ClusterRole should already be deployed in the SAAP cluster.
+3. Multi-Tenant Operator (MTO).
+4. You have a pre-configured infrastructure repository. (If not, follow [this tutorial](TODO: Add link to tutorial))
 
 # Deploying Service Account and RoleBinding
 
