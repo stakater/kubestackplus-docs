@@ -15,7 +15,7 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
 
 2. Inside the tenant-operator-config folder, create a new directory named pipeline-resources.
 
-3. Within the pipeline-resources directory, create a file named rbac-template.yaml and add the following content:
+3. Within the pipeline-resources directory, create a file named tekton-pipeline-template.yaml and add the following content:
 
    ```yaml
    apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -46,7 +46,7 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
          - name: nexus-docker-config
    ```
   
-4. Now let's create a TemplateGroupInstance for this in the same folder:
+4. Now let's create a TemplateGroupInstance for this in the same folder. Create a file name tekon-pipeline-tgi.yaml and add the following content:
 
   ```yaml
   apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -60,4 +60,5 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
     sync: true
     template: tekton-pipeline-template
   ```
-
+             
+ ![`pipeline-template`](../images/pipeline-template.png)
