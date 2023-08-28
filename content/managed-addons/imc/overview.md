@@ -33,7 +33,7 @@ data:
 type: Opaque
 ```
 
-### Add EndpointMonitor using CR
+### Add EndpointMonitor
 
 `EndpointMonitor` resource can be used to manage monitors on static urls or route/ingress references.
 
