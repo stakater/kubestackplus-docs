@@ -60,6 +60,6 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
 
    ![`pipeline-template`](./images/templates.png)
 
-1. If you already have ArgoCD application watching these folders, you will see the resources syncing in argocd.
+1. If you already have ArgoCD application watching these folders, you will see the resources syncing in ArgoCD.
 
- ![`argocd`](./images/argocd.png)
+ ![`argocd`](./images/ArgoCD.png)
