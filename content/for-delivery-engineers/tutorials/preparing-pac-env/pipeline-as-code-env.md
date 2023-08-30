@@ -3,17 +3,17 @@
 ## Prerequisites
 
 1. You should have SAAP Cluster Admin role on the cluster.
-2. `tekton-pipelines-scc` SCC (Security Context Configurations) and `tekton-pac-cluster` ClusterRole should already be deployed in the SAAP cluster.
-3. Multi-Tenant Operator (MTO).
-4. You have a pre-configured infrastructure repository. If you already configured it, follow [this tutorial](../../tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md)
+1. `tekton-pipelines-scc` SCC (Security Context Configurations) and `tekton-pac-cluster` ClusterRole should already be deployed in the SAAP cluster.
+1. Multi-Tenant Operator (MTO).
+1. You have a pre-configured infrastructure repository. If you already configured it, follow [this tutorial](../../tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md)
 
 ## Deploying Service Account and RoleBinding
 
 We will use Multi-Tenant Operator's Templates and Template Group Instances to deploy a pipeline service account and a pipeline-rolebinding to the tenant's build namespaces.
 
 1. Navigate to the infrastructure repository that you've prepared earlier. If not done already, create the repository or use any other repository bootstrapped with ArgoCD.
-2. Inside the tenant-operator-config folder, create a new directory named pipeline-resources.
-3. Within the pipeline-resources directory, create a file named `tekton-pac-rbac.yaml` and add the following content:
+1. Inside the tenant-operator-config folder, create a new directory named pipeline-resources.
+1. Within the pipeline-resources directory, create a file named `tekton-pac-rbac.yaml` and add the following content:
 
    ```yaml
    apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -44,7 +44,7 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
          - name: nexus-docker-config
    ```
      
-4. Now let's create a TemplateGroupInstance for this in the same folder. Create a file name `tekon-pac-tgi.yaml` and add the following content:
+1. Now let's create a TemplateGroupInstance for this in the same folder. Create a file name `tekon-pac-tgi.yaml` and add the following content:
 
    ```yaml
    apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -61,6 +61,6 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
    
    ![`pipeline-template`](./images/templates.png)
 
-5. If you already have ArgoCD application watching these folders, you will see the resources syncing in argocd.
+1. If you already have ArgoCD application watching these folders, you will see the resources syncing in argocd.
 
  ![`argocd`](./images/argocd.png)

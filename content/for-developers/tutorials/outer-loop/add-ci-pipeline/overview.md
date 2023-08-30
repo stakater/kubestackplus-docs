@@ -8,22 +8,22 @@ To be able to run a pipeline using Tekton pipeline as code. The delivery enginee
 
 1. Configure Security Context
    - Deploy a ClusterRole that grants necessary permissions for the Security Context required by the pipeline's service account.
-2. Set Up Pipeline Service Account
+1. Set Up Pipeline Service Account
    - Utilize the tenant operator to deploy a dedicated pipeline service account within the tenant's designated build namespace. 
-3. Create Rolebinding
+1. Create Rolebinding
    - Create a Rolebinding specifically in the build namespace to ensure appropriate access and permissions for the pipeline service account.
-4. Manage Application Secrets
+1. Manage Application Secrets
    - For each application, securely deploy the required secrets within the respective namespace housing the pipeline-as-code setup.
 
 **For the Developer:**
 
 1. Define Repository Resource
    - Set up the Repository resource within the tenant's designated build namespace. This resource will link to the application's source code repository.
-2. Configure Repository Access
+1. Configure Repository Access
    - Securely deploy a secret within the build namespace. This secret will provide the necessary credentials to access the application's Git repository.
-3. Create PipelineRun
+1. Create PipelineRun
    - Author a PipelineRun that encapsulates the specific workflow for the application. This defines how the source code will be built, tested, and deployed.
-4. Deploy Required Secrets
+1. Deploy Required Secrets
    - If any additional secrets are required during the pipeline run, ensure they are securely deployed within the appropriate namespace.
 
 By following these steps, the delivery engineer and the developer can collaboratively set up and execute Tekton pipelines as code efficiently and securely.
