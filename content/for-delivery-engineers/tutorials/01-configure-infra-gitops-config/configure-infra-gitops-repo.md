@@ -97,7 +97,7 @@ Open up the `argocd-apps` folder and add the following file to it:
     kind: Application
     metadata:
       name: CLUSTER_NAME-tenant-operator-config
-      namespace: openshift-gitops
+      namespace: rh-openshift-gitops-instance
     spec:
       destination:
         namespace: openshift-gitops

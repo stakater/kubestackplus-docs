@@ -1,6 +1,6 @@
-# Repository CRD Definition
+# Create Repository Resource
 
-The `Repository CRD` helps you define the structure of your CI/CD pipeline. By referencing authentication secrets in the CRD, you ensure that your pipeline has the necessary access rights to interact with GitHub.
+The `Repository` custom resource helps you connect pipeline-as-code to your SCM. By referencing authentication secrets in the resource, you ensure that your pipeline has the necessary access rights to interact with GitHub.
 
 In this tutorial, you'll create secrets containing your GitHub access credentials and webhook secret. As well as you'll define a Repository CustomResourceDefinition (CRD) to create a PipelineRun using pipeline-as-code.
 
@@ -34,15 +34,6 @@ The `Secret` holds sensitive data, such as your GitHub access token and webhook 
 
     ![git webhook config](images/git-webhook.png)
 
-    !!! note
-        In older versions of PaC, webhook secret can't be stored, so for older versions, use the below command:
-
-    ```sh
-    oc -n <namespace-where-PaC-installed> create secret generic pipelines-as-code-secret --from-literal webhook.secret="$WEBHOOK_SECRET_AS_GENERATED"
-    ```
-
-    ![pipeline as code secret](images/pipeline-as-code.png)
-
 ### Define the Repository CRD
 
 1. To create the `Repository` CRD, go to SAAP, beside your username you will see the (**+**) sign, click it.
@@ -62,7 +53,7 @@ The `Secret` holds sensitive data, such as your GitHub access token and webhook 
       git_provider:
         secret:
           name: "github-webhook-config"
-       webhook_secret:
+      webhook_secret:
         name: "github-webhook-config"
     ```
 

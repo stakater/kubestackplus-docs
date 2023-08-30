@@ -100,7 +100,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
       kind: Application
       metadata:
         name: gabbar-dev-stakater-nordmart-review
-        namespace: openshift-gitops
+        namespace: rh-openshift-gitops-instance
       spec:
         destination:
           namespace: TARGET_NAMESPACE_FOR_DEV
@@ -125,7 +125,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
       kind: Application
       metadata:
         name: gabbar-stage-stakater-nordmart-review
-        namespace: openshift-gitops
+        namespace: rh-openshift-gitops-instance
       spec:
         destination:
           namespace: TARGET_NAMESPACE_FOR_STAGE
@@ -180,7 +180,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
       kind: Application
       metadata:
         name:
-        namespace: openshift-gitops
+        namespace: rh-openshift-gitops-instance
       spec:
         destination:
           namespace: TARGET_NAMESPACE_FOR_DEV
@@ -201,7 +201,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
       kind: Application
       metadata:
         name: gabbar-stage
-        namespace: openshift-gitops
+        namespace: rh-openshift-gitops-instance
       spec:
         destination:
           namespace: TARGET_NAMESPACE_FOR_STAGE
@@ -232,7 +232,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
    kind: Application
    metadata:
      name: apps-gitops-repo
-     namespace: openshift-gitops
+     namespace: rh-openshift-gitops-instance
    spec:
      destination:
        namespace: openshift-gitops
