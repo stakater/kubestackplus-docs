@@ -63,4 +63,4 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
 
 1. If you already have ArgoCD application watching these folders, you will see the resources syncing in ArgoCD.
 
- ![`argocd`](./images/ArgoCD.png)
+ ![`ArgoCD`](./images/ArgoCD.png)
