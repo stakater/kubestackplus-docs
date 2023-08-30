@@ -43,6 +43,7 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
        secrets:
          - name: nexus-docker-config
    ```
+
 1. Now let's create a TemplateGroupInstance for this in the same folder. Create a file name `tekon-pac-tgi.yaml` and add the following content:
 
    ```yaml
