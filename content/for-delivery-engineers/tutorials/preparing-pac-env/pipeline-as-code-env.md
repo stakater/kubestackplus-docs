@@ -43,7 +43,6 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
        secrets:
          - name: nexus-docker-config
    ```
-     
 1. Now let's create a TemplateGroupInstance for this in the same folder. Create a file name `tekon-pac-tgi.yaml` and add the following content:
 
    ```yaml
@@ -58,7 +57,7 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
      sync: true
      template: tekton-pac-rbac
    ```
-   
+
    ![`pipeline-template`](./images/templates.png)
 
 1. If you already have ArgoCD application watching these folders, you will see the resources syncing in argocd.
