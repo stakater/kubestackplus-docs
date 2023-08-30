@@ -12,9 +12,7 @@
 We will use Multi-Tenant Operator's Templates and Template Group Instances to deploy a pipeline service account and a pipeline-rolebinding to the tenant's build namespaces.
 
 1. Navigate to the infrastructure repository that you've prepared earlier. If not done already, create the repository or use any other repository bootstrapped with ArgoCD.
-
 2. Inside the tenant-operator-config folder, create a new directory named pipeline-resources.
-
 3. Within the pipeline-resources directory, create a file named `tekton-pac-rbac.yaml` and add the following content:
 
    ```yaml
@@ -45,7 +43,7 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
        secrets:
          - name: nexus-docker-config
    ```
-  
+     
 4. Now let's create a TemplateGroupInstance for this in the same folder. Create a file name `tekon-pac-tgi.yaml` and add the following content:
 
    ```yaml
