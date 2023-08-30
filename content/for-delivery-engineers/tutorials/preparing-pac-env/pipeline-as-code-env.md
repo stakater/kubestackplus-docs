@@ -11,7 +11,7 @@
 
 We will use Multi-Tenant Operator's Templates and Template Group Instances to deploy a pipeline service account and a pipeline-rolebinding to the tenant's build namespaces.
 
-1. Navigate to the infrastructure repository that you've prepared earlier. If not done already, create the repository or use any other repository bootstrapped with ArgoCD. 
+1. Navigate to the infrastructure repository that you've prepared earlier. If not done already, create the repository or use any other repository bootstrapped with ArgoCD.
 
 2. Inside the tenant-operator-config folder, create a new directory named pipeline-resources.
 
@@ -59,9 +59,9 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
        - {key: stakater.com/kind, operator: In, values: [build]}
      sync: true
      template: tekton-pac-rbac
-   ```      
+   ```
    
- ![`pipeline-template`](./images/templates.png)  
+   ![`pipeline-template`](./images/templates.png)
 
 5. If you already have ArgoCD application watching these folders, you will see the resources syncing in argocd.
 
