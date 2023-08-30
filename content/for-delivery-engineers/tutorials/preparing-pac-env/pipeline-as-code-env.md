@@ -15,7 +15,7 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
 
 2. Inside the tenant-operator-config folder, create a new directory named pipeline-resources.
 
-3. Within the pipeline-resources directory, create a file named tekton-pac-rbac.yaml and add the following content:
+3. Within the pipeline-resources directory, create a file named `tekton-pac-rbac.yaml` and add the following content:
 
    ```yaml
    apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -63,6 +63,6 @@ We will use Multi-Tenant Operator's Templates and Template Group Instances to de
    
  ![`pipeline-template`](./images/templates.png)  
 
-5. If you already have argocd application watching these folders, you will see the resources syncing in argocd.
+5. If you already have ArgoCD application watching these folders, you will see the resources syncing in argocd.
 
  ![`argocd`](./images/argocd.png)
