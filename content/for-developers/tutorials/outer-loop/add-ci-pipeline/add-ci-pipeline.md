@@ -1,5 +1,7 @@
 # Creating a Pipeline Using Pipeline as Code
 
+We will embark on a comprehensive journey through a complete pipeline, with each individual task covered in its own tutorial. This approach aims to provide a detailed understanding of each task and how they collectively contribute to the functionality of pipeline-as-code.
+
 In modern software development practices, pipelines play a crucial role in automating and streamlining the process of building, testing, and deploying applications. This tutorial will guide you through creating a pipeline using pipeline-as-code concepts. We'll focus on GitHub as the provider and assume that you have a SAAP set up with pipeline-as-code capabilities.
 
 Now that we have completed all the prerequisites to run this `pipelineRun`, we can continue by adding a pipeline to our application using `pipeline-as-code` approach.
@@ -15,45 +17,11 @@ Now that we have completed all the prerequisites to run this `pipelineRun`, we c
 
 ## Tutorial
 
-### Create PipelineRun Resource
+### Create PipelineRun with Git Clone Task
 
-Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach. Create a `.tekton` folder and place it in the `pipelineRun` for your source code repository as `main.yaml`. This enables you to define and manage your pipelines along with your application code, promoting better code-pipeline integration and version control.
+Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach. Create a `.tekton` folder and place it in the `pipelineRun` with the `git-clone` task for your source code repository as `main.yaml`. This enables you to define and manage your pipelines along with your application code, promoting better code-pipeline integration and version control.
 
-Since the `.tekton` folder containing your `pipelineRun` definition is part of your source code repository, you want to avoid including sensitive authentication information directly in the repository. Storing them as a secret allows you to version control your pipeline definition without exposing sensitive data.
-
-1. Let's create SSH keys to access the repository.
-
-    For SSH Access
-
-    - [`Generate SSH Key Pair`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
-    - [`Add Deploy Key to your Repository`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
-
-    !!! note
-        A deploy key is specific to a single repository and cannot be used for multiple repositories.*
-
-1. After adding the "public key" to the `Deploy keys` section of your repository, now is the time to add the "private key" in the secret.
-
-    ```yaml
-    apiVersion: v1
-    kind: Secret
-    metadata:
-      name: nordmart-ssh-creds
-      namespace: argocd
-      labels:
-        argocd.argoproj.io/secret-type: repository
-    stringData:
-      type: git
-      url: git@github.com:argoproj/my-private-repository # Copy the SSH URL of your repo and paste it here
-      sshPrivateKey: | # Paste base64 encoded private key here
-        -----BEGIN OPENSSH PRIVATE KEY-----
-        ...
-        -----END OPENSSH PRIVATE KEY-----
-    ```
-
-    !!! note
-        We will be using this secret in our `pipelineRun`
-
-1. Let's place this `PipelineRun` in `.tekton/main.yaml` for your source code repository.
+1. Let's place this `PipelineRun` containing the `git-clone` task in `.tekton/main.yaml` for your source code repository.
 
     ```yaml
     apiVersion: tekton.dev/v1beta1
@@ -69,7 +37,7 @@ Since the `.tekton` folder containing your `pipelineRun` definition is part of y
     spec:
       params:
         - name: repo_url
-          value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME/" # Place your repo SSH URL
+          value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
         - name: gitrevision
           value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
         - name: repo_path
@@ -105,22 +73,6 @@ Since the `.tekton` folder containing your `pipelineRun` definition is part of y
                 value: $(params.repo_url)
               - name: revision
                 value: $(params.gitrevision)
-          - name: create-git-tag # Name what you want to call the task
-            runAfter: # Created dependency so the below task will only run if fetch-repository will be suceeded
-              - fetch-repository
-            taskRef:
-              name: stakater-create-git-tag-0.0.7 # Name of tasks mentioned in tekton-catalog
-              kind: Task
-            params: # Parameters will be used by this task
-              - name: PR_NUMBER
-                value: "NA"
-              - name: GIT_REVISION
-                value: $(params.gitrevision)
-            workspaces: # Mention what workspaces will be used by this task
-              - name: source
-                workspace: source
-              - name: ssh-directory
-                workspace: ssh-directory
       workspaces: # Mention Workspaces configuration
         - name: source
           volumeClaimTemplate:
@@ -137,3 +89,23 @@ Since the `.tekton` folder containing your `pipelineRun` definition is part of y
           secret:
             secretName: git-auth
     ```
+
+### Exploring the Git Clone Task
+
+The Git Clone task serves as the initial step in your pipeline, responsible for fetching the source code repository. Let's break down the key components:
+
+1. `name: fetch-repository`: This names the task, making it identifiable within the pipeline.
+
+1. Task Reference (`taskRef`): The Git Clone task is referred to using the name git-clone, which corresponds to a Task defined in the Tekton Catalog. This task knows how to clone a Git repository.
+
+1. Workspaces (`workspaces`): The task interacts with two workspaces;`output` and `ssh-directory`. The `output` workspace will store the cloned repository, while the `ssh-directory` workspace provides SSH authentication. This means that the private key stored in the secret `nordmart-ssh-creds` will be utilized during the cloning process.
+
+1. Parameters `(params)`:
+
+    `depth`: Specifies the depth of the Git clone. A value of "0" indicates a full clone.
+
+    `url`: The URL of the source code repository. This parameter is dynamically fetched from the repo_url parameter defined in the PipelineRun.
+
+    `revision`: The Git revision to fetch, often corresponding to a specific branch or commit. This parameter is also dynamically fetched from the gitrevision parameter in the PipelineRun.
+
+Great! Let's add more tasks in our pipelineRun in coming tutorials.
