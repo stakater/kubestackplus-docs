@@ -211,6 +211,8 @@ nav:
             - managed-addons/forecastle/overview.md
         - Ingress Monitor Controller:
             - managed-addons/imc/overview.md
+            - managed-addons/imc/tutorial/add-configuration.md
+            - managed-addons/imc/tutorial/add-monitors.md
         - Konfigurator:
             - managed-addons/konfigurator/overview.md
         - Logging:
