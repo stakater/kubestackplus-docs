@@ -2,7 +2,7 @@
 
 `EndpointMonitor` resource can be used to manage monitors on static urls or route/ingress references.
 
-## Specifying url:
+## Specifying url
 
 ```yaml
 apiVersion: endpointmonitor.stakater.com/v1alpha1
@@ -14,7 +14,7 @@ spec:
   url: https://stakater.com
 ```
 
-## Specifying route reference:
+## Specifying route reference
 
 ```yaml
 apiVersion: endpointmonitor.stakater.com/v1alpha1
@@ -28,7 +28,7 @@ spec:
       name: frontend
 ```
 
-## Specifying ingress reference:
+## Specifying ingress reference
 
 ```yaml
 apiVersion: endpointmonitor.stakater.com/v1alpha1
@@ -51,6 +51,6 @@ endpointMonitor:
   enabled: true
 ```
 
-This will configure UptimeRobot to watch the specified URL. 
+This will configure UptimeRobot to watch the specified URL.
 
 Downtime alerts can be sent to specific slack channels following this guide, [UptimeRobot Downtime Notifications](../monitoring-stack/downtime-notifications-uptimerobot.md).

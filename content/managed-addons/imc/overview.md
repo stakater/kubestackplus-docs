@@ -12,7 +12,6 @@ Stakater App Agility Platform uses `Ingress Monitor Controller`, an open-source 
 
 IngressMonitorController is already configured for Stakater Agility Platform users. More details can be found on [Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController#-ingress-monitor-controller) or [Add IMC Configuration](./tutorial/add-configuration.md).
 
-
 ## Usage
 
 Information about how to use `EndpointMonitor` CR can be found at [Add Endpoint Monitors](./tutorial/add-monitors.md).

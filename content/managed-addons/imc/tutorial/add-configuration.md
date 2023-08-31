@@ -16,4 +16,5 @@ data:
     <BASE64_ENCODED_CONFIG.YAML>
 type: Opaque
 ```
+
 Examples for different uptime checkers can be found in the [IMC Examples Directory](https://github.com/stakater/IngressMonitorController/tree/master/examples/configs).
