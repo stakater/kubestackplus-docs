@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-There are several uptime monitoring services `(StatusCake, UptimeRobot, Pingdom, etc)` available which serves the purpose of watching availability of the applications. We would like to take control of automating the configuration process of relevant publicly accessible URLs inside the third party monitoring services.
+There are several uptime monitoring services `(StatusCake, UptimeRobot, Pingdom, etc.)` available which serves the purpose of watching availability of the applications. We would like to take control of automating the configuration process of relevant publicly accessible URLs inside the third party monitoring services.
 
 ## Solution
 
