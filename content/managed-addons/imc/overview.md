@@ -2,11 +2,11 @@
 
 ## Problem Statement
 
-There are several uptime monitoring services `(StatusCake, UptimeRobot, Pingdom, etc)` available which serves the purpose of watching availability of the applications. We would like to take control of automating the configuration process of relevant publically accessible URLs inside the third party monitoring services.
+There are several uptime monitoring services `(StatusCake, UptimeRobot, Pingdom, etc)` available which serves the purpose of watching availability of the applications. We would like to take control of automating the configuration process of relevant publicly accessible URLs inside the third party monitoring services.
 
 ## Solution
 
-Stakater App Agility Platform uses `Ingress Monitor Controller`, an open-source tool to configure different out-of-the-cluster uptime monitor services to check for availability of publically reachable infrastructure and user applications running inside the clusters
+Stakater App Agility Platform uses `Ingress Monitor Controller`, an open-source tool to configure different out-of-the-cluster uptime monitor services to check for availability of publicly reachable infrastructure and user applications running inside the clusters
 
 ## Configuration
 
