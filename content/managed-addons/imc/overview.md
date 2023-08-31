@@ -10,82 +10,9 @@ Stakater App Agility Platform uses `Ingress Monitor Controller`, an open-source 
 
 ## Configuration
 
-IngressMonitorController is already configured for Stakater Agility Platform users. More details can be found on [Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController#-ingress-monitor-controller)
+IngressMonitorController is already configured for Stakater Agility Platform users. More details can be found on [Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController#-ingress-monitor-controller) or [Add IMC Configuration](./tutorial/add-configuration.md).
+
 
 ## Usage
 
-### Adding configuration
-
-SAAP uses UptimeRobot free tier as uptime checker, by default.
-
-Uptime checker is configured in the `config.yaml` based on uptime provider.
-A secret named
-`imc-config` is created that holds `config.yaml` key:
-
-```yaml
-kind: Secret
-apiVersion: v1
-metadata:
-  name: imc-config
-data:
-  config.yaml: >-
-    <BASE64_ENCODED_CONFIG.YAML>
-type: Opaque
-```
-
-### Add EndpointMonitor
-
-`EndpointMonitor` resource can be used to manage monitors on static urls or route/ingress references.
-
-- Specifying url:
-
-```yaml
-apiVersion: endpointmonitor.stakater.com/v1alpha1
-kind: EndpointMonitor
-metadata:
-  name: stakater
-spec:
-  forceHttps: true
-  url: https://stakater.com
-```
-
-- Specifying route reference:
-
-```yaml
-apiVersion: endpointmonitor.stakater.com/v1alpha1
-kind: EndpointMonitor
-metadata:
-  name: frontend
-spec:
-  forceHttps: true
-  urlFrom:
-    routeRef:
-      name: frontend
-```
-
-- Specifying ingress reference:
-
-```yaml
-apiVersion: endpointmonitor.stakater.com/v1alpha1
-kind: EndpointMonitor
-metadata:
-  name: frontend
-spec:
-  forceHttps: true
-  urlFrom:
-    ingressRef:
-      name: frontend
-```
-
- - Add EndpointMonitor using Application chart
-
-Stakater Helm application chart supports [`endpointMonitor`](https://github.com/stakater-charts/application/blob/master/application/values.yaml#L465-L475); You can enable it using the values file
-
-```yaml
-endpointMonitor:
-  enabled: true
-```
-
-This will configure UptimeRobot to watch the specified URL. 
-
-Downtime alerts can be sent to specific slack channels following this guide, [UptimeRobot Downtime Notifications](../monitoring-stack/downtime-notifications-uptimerobot.md).
+Information about how to use `EndpointMonitor` CR can be found at [Add Endpoint Monitors](./tutorial/add-monitors.md).
