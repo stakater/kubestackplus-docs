@@ -53,4 +53,4 @@ endpointMonitor:
 
 This will configure UptimeRobot to watch the specified URL.
 
-Downtime alerts can be sent to specific slack channels following this guide, [UptimeRobot Downtime Notifications](../monitoring-stack/downtime-notifications-uptimerobot.md).
+Downtime alerts can be sent to specific slack channels following this guide, [UptimeRobot Downtime Notifications](../../monitoring-stack/downtime-notifications-uptimerobot.md).
