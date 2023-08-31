@@ -13,7 +13,7 @@ You need Velero CLI setup, follow the `velero-cli` [doc](./velero-cli.md)
 Stakater App Agility Platforms divides backups into two:
 
 1. Customer backups
-2. Platform Tools backups
+1. Platform Tools backups
 
 These Backups are stored on the Cloud Provider under your account.
 

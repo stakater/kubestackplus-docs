@@ -5,7 +5,7 @@
 We divide the RHACS users into 2 groups according to the interaction method:
 
 1. Human users and
-2. Machines users
+1. Machines users
 
 ### 1. Human Users
 

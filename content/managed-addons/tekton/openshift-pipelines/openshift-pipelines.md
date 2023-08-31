@@ -11,19 +11,19 @@ OpenShift Pipelines is a cloud-native, continuous integration and delivery (CI/C
 Main goals:
 
 1. Faster
-2. Declarative
-3. Reproducible
-4. Cloud Native
+1. Declarative
+1. Reproducible
+1. Cloud Native
 
 ## OpenShift Pipeline Benefits
 
 1. Kubernetes native pipelines
-2. Runs pipelines in containers
-3. Runs server-less
-4. Build images with Kubernetes tools
-5. Deploy to multiple platforms
-6. Developer tools
-7. Decoupled
+1. Runs pipelines in containers
+1. Runs server-less
+1. Build images with Kubernetes tools
+1. Deploy to multiple platforms
+1. Developer tools
+1. Decoupled
 
 ## Tekton Concepts
 
@@ -47,7 +47,7 @@ provide a terminology that is consistent across CI/CD solutions:
 For Continuous Integration/Delivery we can use triggers and webhooks:
 
 1. Webhook: Send payload to event-listener whenever a push event or a pull request is created. [More on webhooks](https://docs.github.com/en/developers/webhooks-and-events/webhooks/about-webhooks)
-2. Triggers:
+1. Triggers:
     - Event Listeners: Listen to events over a route
     - Trigger Templates: Template generated PipelineResources & PipelineRun based on event
     - Trigger Bindings: Extract info out of payload to be used in trigger templates

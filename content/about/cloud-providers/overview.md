@@ -1,14 +1,11 @@
 # Overview
 
-Stakater App Agility Platform (SAAP) is currently supported on following cloud providers:
+Stakater App Agility Platform (SAAP) is currently supported on the following clouds:
 
-* [Azure](./azure.md)
 * [AWS](./aws.md)
-* [Google](./gcp.md)
+* [Azure](./azure.md)
+* [GCP](./gcp.md)
 * [Binero](./binero.md)
-* [UpCloud](./upcloud.md)
 * [Exoscale](./exoscale.md)
-* [Complior](./complior.md)
-* [Elastx](./elastx.md)
 
-We support all sorts of clouds which are based on OpenStack, VMWare or BareMetals; just drop us an email at [`sales@stakater.com`](mailto:sales@stakater.com) if you would like to include your cloud!
+Just drop us an email at [`sales@stakater.com`](mailto:sales@stakater.com) if you would like us to support another cloud. Visit our [Partnership page](https://www.stakater.com/partnership) to apply for becoming a cloud partner.

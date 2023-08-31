@@ -26,36 +26,7 @@ At a high level, there are multiple abstraction levels in a cloud-native applica
 
 This document describes the following facets of Kubernetes-native applications:
 
-1. One codebase, one application
-2. Dependency management
-3. Contract first, API first
-4. Design, build, release, and run
-5. Configuration, credentials, and code
-6. Liveness and readiness probes
-7. Logging
-8. Backing services
-9. Telemetry / Metric instrumentation
-10. Graceful Shutdown
-11. Port binding
-12. Stateless processes
-13. Concurrency
-14. Environment parity
-15. Authentication and authorization
-16. Dependencies initialization
-17. Disposability
-18. Declarative Syntax to Manage Kubernetes State
-19. Secrets handling
-20. Tracing instrumentation
-21. Administrative processes
-22. Requests & limits
-23. Alerts
-24. Backup & restore (optional)
-25. Certificates (optional)
-26. Forecastle (optional)
-27. Grafana Dashboard (optional)
-28. Multiple replicas
-29. Important state does not persist in container filesystem
-30. Testing
+[TOC]
 
 ## 1. One codebase, one application
 
@@ -67,25 +38,25 @@ Cloud-native applications must always consist of a single codebase that is track
 
 The single codebase for an application is used to produce any number of immutable releases that are destined for different environments. Following this particular discipline forces teams to analyze the seams of their application and potentially identify monoliths that should be split off into microservices. If you have multiple codebases, then you have a system that needs to be decomposed, not a single application.
 
-The simplest example of violating this guideline is where your application is actually made of up a dozen or more source code repositories. This makes it nearly impossible to automate the build and deploy phases of your application’s life cycle.
+The simplest example of violating this guideline is where your application is actually made of up a dozen or more source code repositories. This makes it nearly impossible to automate the build and deploy phases of your application's life cycle.
 
 Another way this rule is often broken is when there is a main application and a tightly coupled worker (or an en-queuer and de-queuer, etc.) that collaborate on the same units of work. In scenarios like this, there are actually multiple codebases supporting a single application, even if they share the same source repository root. This is why I think it is important to note that the concept of a codebase needs to imply a more cohesive unit than just a repository in your version control system.
 
 Conversely, this rule can be broken when one codebase is used to produce multiple applications. For example, a single codebase with multiple launch scripts or even multiple points of execution within a single wrapper module. In the Java world, EAR files are a gateway drug to violating the one codebase rule. In the interpreted language world (e.g., Ruby), you might have multiple launch scripts within the same codebase, each performing an entirely different task.
 
-Multiple applications within a single codebase are often a sign that multiple teams are maintaining a single codebase, which can get ugly for a number of reasons. Conway’s law states that the organization of a team will eventually be reflected in the architecture of the product that team builds. In other words, dysfunction, poor organization, and lack of discipline among teams usually results in the same dysfunction or lack of discipline in the code.
+Multiple applications within a single codebase are often a sign that multiple teams are maintaining a single codebase, which can get ugly for a number of reasons. Conway's law states that the organization of a team will eventually be reflected in the architecture of the product that team builds. In other words, dysfunction, poor organization, and lack of discipline among teams usually results in the same dysfunction or lack of discipline in the code.
 
-In situations where you have multiple teams and a single codebase, you may want to take advantage of Conway’s law and dedicate smaller teams to individual applications or microservices.
+In situations where you have multiple teams and a single codebase, you may want to take advantage of Conway's law and dedicate smaller teams to individual applications or microservices.
 
 When looking at your application and deciding on opportunities to reorganize the codebase and teams onto smaller products, you may find that one or more of the multiple codebases contributing to your application could be split out and converted into a microservice or API that can be reused by multiple applications.
 
-In other words, one codebase, one application does not mean you’re not allowed to share code across multiple applications; it just means that the shared code is yet another codebase.
+In other words, one codebase, one application does not mean you're not allowed to share code across multiple applications; it just means that the shared code is yet another codebase.
 
-This also doesn’t mean that all shared code needs to be a microservice. Rather, you should evaluate whether the shared code should be considered a separately released product that can then be vendored into your application as a dependency.
+This also doesn't mean that all shared code needs to be a microservice. Rather, you should evaluate whether the shared code should be considered a separately released product that can then be vendored into your application as a dependency.
 
 **Why?**
 
-Makes it nearly impossible to automate the build and deploy phases of your application’s life cycle.
+Makes it nearly impossible to automate the build and deploy phases of your application's life cycle.
 
 **How?**
 
@@ -103,9 +74,9 @@ A cloud-native application never relies on implicit existence of system-wide pac
 
 Not properly isolating dependencies can cause untold problems. In some of the most common dependency-related problems, you could have a developer working on version X of some dependent library on his workstation, but version X+1 of that library has been installed in a central location in production. This can cause everything from runtime failures all the way up to insidious and difficult to diagnose subtle failures. If left untreated, these types of failures can bring down an entire server or cost a company millions through undiagnosed data corruption.
 
-Properly managing your application’s dependencies is all about the concept of repeatable deployments. Nothing about the runtime into which an application is deployed should be assumed that isn’t automated. In an ideal world, the application’s container is bundled (or bootstrapped, as some frameworks called it) inside the app’s release artifact—or better yet, the application has no container at all.
+Properly managing your application's dependencies is all about the concept of repeatable deployments. Nothing about the runtime into which an application is deployed should be assumed that isn't automated. In an ideal world, the application's container is bundled (or bootstrapped, as some frameworks called it) inside the app's release artifact—or better yet, the application has no container at all.
 
-However, for some enterprises, it just isn’t practical (or possible, even) to embed a server or container in the release artifact, so it has to be combined with the release artifact, which, in many cloud environments like Heroku or Cloud Foundry, is handled by something called a buildpack.
+However, for some enterprises, it just isn't practical (or possible, even) to embed a server or container in the release artifact, so it has to be combined with the release artifact, which, in many cloud environments like Heroku or Cloud Foundry, is handled by something called a buildpack.
 
 Applying discipline to dependency management will bring your applications one step closer to being able to thrive in cloud environments.
 
@@ -119,15 +90,15 @@ Many of these tools also have the ability to isolate dependencies. This is done 
 
 **What?**
 
-Recognize your API as a first-class artifact of the development process, API first gives teams the ability to work against each other’s public contracts without interfering with internal development processes.
+Recognize your API as a first-class artifact of the development process, API first gives teams the ability to work against each other's public contracts without interfering with internal development processes.
 
 **Why?**
 
-Even if you’re not planning on building a service as part of a larger ecosystem, the discipline of starting all of your development at the API level still pays enough dividends to make it worth your time.
+Even if you're not planning on building a service as part of a larger ecosystem, the discipline of starting all of your development at the API level still pays enough dividends to make it worth your time.
 
 Built into every decision you make and every line of code you write is the notion that every functional requirement of your application will be met through the consumption of an API. Even a user interface, be it web or mobile, is really nothing more than a consumer of an API.
 
-By designing your API first, you are able to facilitate discussion with your stakeholders (your internal team, customers, or possibly other teams within your organization who want to consume your API) well before you might have coded yourself past the point of no return. This collaboration then allows you to build user stories, mock your API, and generate documentation that can be used to further socialize the intent and functionality of the service you’re building.
+By designing your API first, you are able to facilitate discussion with your stakeholders (your internal team, customers, or possibly other teams within your organization who want to consume your API) well before you might have coded yourself past the point of no return. This collaboration then allows you to build user stories, mock your API, and generate documentation that can be used to further socialize the intent and functionality of the service you're building.
 
 There is absolutely no excuse for claiming that API first is a difficult or unsupported path. This is a pattern that can be applied to non-cloud software development, but it is particularly well suited to cloud development in its ability to allow rapid prototyping, support a services ecosystem, and facilitate the automated deployment testing and continuous delivery pipelines that are some of the hallmarks of modern cloud-native application development.
 
@@ -149,7 +120,7 @@ Stakater App Agility Platform offers a fully managed 3Scale API Gateway add-on t
 
 In the world of waterfall application development, we spend an inordinate amount of time designing an application before a single line of code is written. This type of software development life cycle is not well suited to business situations with high uncertainty and high expectations of fast delivery. Agile works better then. Waterfall works better in business situations with high regulation, low uncertainty, clear expectations, and clear timelines.
 
-However, this doesn’t mean that we don’t design at all in Agile. Instead, it means we design small features that get released, and we have a high-level design that is used to inform everything we do; but we also know that designs change, and small amounts of design are part of every iteration rather than being done entirely up front.
+However, this doesn't mean that we don't design at all in Agile. Instead, it means we design small features that get released, and we have a high-level design that is used to inform everything we do; but we also know that designs change, and small amounts of design are part of every iteration rather than being done entirely up front.
 
 The application developer best understands the application dependencies, and it is during the design phase that arrangements are made to declare dependencies as well as the means by which those dependencies are vendored, or bundled, with the application. In other words, the developer decides what libraries the application is going to use, and how those libraries are eventually going to be bundled into an immutable release.
 
@@ -159,7 +130,7 @@ The build stage is where a code repository is converted into a versioned, binary
 
 Builds are ideally created by a Continuous Integration server, and there is a `1:many` relationship between builds and deployments. A single build should be able to be released or deployed to any number of environments, and each of those unmodified builds should work as expected. The immutability of this artifact and adherence to the other factors (especially environment parity) give you confidence that your app will work in production if it worked in QA.
 
-If you ever find yourself troubleshooting "works on my machine" problems, that is a clear sign that the four stages of this process are likely not as separate as they should be. Forcing your team to use a CI server may often seem like a lot of upfront work, but once running, you’ll see that the “one build, many deploys” pattern works.
+If you ever find yourself troubleshooting "works on my machine" problems, that is a clear sign that the four stages of this process are likely not as separate as they should be. Forcing your team to use a CI server may often seem like a lot of upfront work, but once running, you'll see that the “one build, many deploys” pattern works.
 
 Once you have confidence that your codebase will work anywhere it should, and you no longer fear production releases, you will start to see some of the truly amazing benefits of adopting the cloud-native philosophy, like continuous deployment and releases that happen hours after a commit rather than months.
 
@@ -169,21 +140,21 @@ In the cloud-native world, the release is typically done by pushing to your clou
 
 Releases need to be unique, and every release should ideally be tagged with some kind of unique ID, such as a timestamp or an auto-incremented number. Thinking back to the `1:many` relationship between builds and releases, it makes sense that releases should not be tagged with the build ID.
 
-Let’s say that your CI system has just built your application and labeled that artifact build-1234. The CI system might then release that application to the dev, staging, and production environments. The scheme is up to you, but each of those releases should be unique because each one combined the original build with environment specific configuration settings.
+Let's say that your CI system has just built your application and labeled that artifact build-1234. The CI system might then release that application to the dev, staging, and production environments. The scheme is up to you, but each of those releases should be unique because each one combined the original build with environment specific configuration settings.
 
 If something goes wrong, you want the ability to audit what you have released to a given environment and, if necessary, to roll back to the previous release. This is another key reason for keeping releases both immutable and uniquely identified.
 
-There are a million different types of problems that arise from an organization’s inability to reproduce a release as it appeared at one point in the past. By having separate build and release phases, and storing those artifacts, rollback and historical auditing is possible.
+There are a million different types of problems that arise from an organization's inability to reproduce a release as it appeared at one point in the past. By having separate build and release phases, and storing those artifacts, rollback and historical auditing is possible.
 
 ### Run
 
 The run phase is also typically done by the cloud provider (although developers need be able to run applications locally). The details vary among providers, but the general pattern is that your application is placed within some kind of container (Docker, Garden, Warden, etc.), and then a process is started to launch your application.
 
-It’s worth noting that ensuring that a developer can run an application locally on her workstation while still allowing it to be deployed to multiple clouds via CD pipeline is often a difficult problem to solve. It is worth solving, however, because developers need to feel unhindered while working on cloud-native applications.
+It's worth noting that ensuring that a developer can run an application locally on her workstation while still allowing it to be deployed to multiple clouds via CD pipeline is often a difficult problem to solve. It is worth solving, however, because developers need to feel unhindered while working on cloud-native applications.
 
 When an application is running, the cloud runtime is then responsible for keeping it alive, monitoring its health, and aggregating its logs, as well as a mountain of other administrative tasks like dynamic scaling and fault tolerance.
 
-Ultimately, the goal of this guidance is to maximize your delivery speed while keeping high confidence through automated testing and deployment. We get some agility and speed benefits out of the box when working on the cloud; but if we follow the guidelines in this chapter, we can squeeze every ounce of speed and agility out of our product release pipeline without sacrificing our confidence in our application’s ability to do its job.
+Ultimately, the goal of this guidance is to maximize your delivery speed while keeping high confidence through automated testing and deployment. We get some agility and speed benefits out of the box when working on the cloud; but if we follow the guidelines in this chapter, we can squeeze every ounce of speed and agility out of our product release pipeline without sacrificing our confidence in our application's ability to do its job.
 
 **Why?**
 
@@ -218,17 +189,17 @@ In order to be able to keep configuration separate from code and credentials, we
 - Credentials to third-party services such as Amazon AWS or APIs like Google Maps, Twitter, and Facebook
 - Information that might normally be bundled in properties files or configuration XML, or YML
 
-Configuration does not include internal information that is part of the application itself. Again, if the value remains the same across all deployments (it is intentionally part of your immutable build artifact), then it isn’t configuration.
+Configuration does not include internal information that is part of the application itself. Again, if the value remains the same across all deployments (it is intentionally part of your immutable build artifact), then it isn't configuration.
 
 **Why?**
 
-Credentials are extremely sensitive information and have absolutely no business in a codebase. Oftentimes, developers will extract credentials from the compiled source code and put them in properties files or XML configuration, but this hasn’t actually solved the problem. Bundled resources, including XML and properties files, are still part of the codebase. This means credentials bundled in resource files that ship with your application are still violating this rule.
+Credentials are extremely sensitive information and have absolutely no business in a codebase. Oftentimes, developers will extract credentials from the compiled source code and put them in properties files or XML configuration, but this hasn't actually solved the problem. Bundled resources, including XML and properties files, are still part of the codebase. This means credentials bundled in resource files that ship with your application are still violating this rule.
 
-If the general public were to have access to your code, have you exposed sensitive information about the resources or services on which your application relies? Can people see internal URLs, credentials to backing services, or other information that is either sensitive or irrelevant to people who don’t work in your target environments?
+If the general public were to have access to your code, have you exposed sensitive information about the resources or services on which your application relies? Can people see internal URLs, credentials to backing services, or other information that is either sensitive or irrelevant to people who don't work in your target environments?
 
-If you can open source your codebase without exposing sensitive or environment-specific information, then you’ve probably done a good job isolating your code, configuration, and credentials.
+If you can open source your codebase without exposing sensitive or environment-specific information, then you've probably done a good job isolating your code, configuration, and credentials.
 
-It should be immediately obvious why we don’t want to expose credentials, but the need for external configuration is often not as obvious. External configuration supports our ability to deploy immutable builds to multiple environments automatically via CD pipelines and helps us maintain development/production environment parity.
+It should be immediately obvious why we don't want to expose credentials, but the need for external configuration is often not as obvious. External configuration supports our ability to deploy immutable builds to multiple environments automatically via CD pipelines and helps us maintain development/production environment parity.
 
 **How?**
 
@@ -256,7 +227,7 @@ By combining liveness and readiness probes, you can instruct Kubernetes to autom
 
 **Why?**
 
-Readiness probes allow your application to report when it should start receiving traffic. This is always what marks a pod ‘Ready’ in the cluster.
+Readiness probes allow your application to report when it should start receiving traffic. This is always what marks a pod ‘Ready' in the cluster.
 
 Health checks (often custom HTTP endpoints) help orchestrators, like Kubernetes, perform automated actions to maintain overall system health. These can be a simple HTTP route that returns meaningful values, or a command that can be executed from within the container.
 
@@ -286,7 +257,7 @@ When your applications are decoupled from the knowledge of log storage, processi
 
 One of the many reasons your application should not be controlling the ultimate destiny of its logs is due to elastic scalability. When you have a fixed number of instances on a fixed number of servers, storing logs on disk seems to make sense. However, when your application can dynamically go from 1 running instance to 100, and you have no idea where those instances are running, you need your cloud provider to deal with aggregating those logs on your behalf.
 
-Simplifying your application’s log emission process allows you to reduce your codebase and focus more on your application’s core business value.
+Simplifying your application's log emission process allows you to reduce your codebase and focus more on your application's core business value.
 
 **How?**
 
@@ -308,7 +279,7 @@ A backing service is any service on which your application relies for its functi
 
 **Why?**
 
-When building applications designed to run in a cloud environment where the filesystem must be considered ephemeral, you also need to treat file storage or disk as a backing service. You shouldn’t be reading to or writing from files on disk like you might with regular enterprise applications. Instead, file storage should be a backing service that is bound to your application as a resource.
+When building applications designed to run in a cloud environment where the filesystem must be considered ephemeral, you also need to treat file storage or disk as a backing service. You shouldn't be reading to or writing from files on disk like you might with regular enterprise applications. Instead, file storage should be a backing service that is bound to your application as a resource.
 
 A bound resource is really just a means of connecting your application to a backing service. A resource binding for a database might include a username, a password, and a URL that allows your application to consume that resource.
 
@@ -324,7 +295,7 @@ This means that there is never a line of code in your application that tightly c
 
 Finally, one of the biggest advantages to treating backing services as bound resources is that when you develop an application with this in mind, it becomes possible to attach and detach bound resources at will.
 
-Let’s say one of the databases on which your application relies is not responding. This causes a cascading failure effect and endangers your application. A classic enterprise application would be helpless and at the mercy of the flailing database.
+Let's say one of the databases on which your application relies is not responding. This causes a cascading failure effect and endangers your application. A classic enterprise application would be helpless and at the mercy of the flailing database.
 
 ### Circuit Breakers
 
@@ -365,9 +336,9 @@ Finally, health and system logs are something that should be provided by your cl
 
 The cloud makes many things easy, but monitoring and telemetry are still difficult, probably even more difficult than traditional, enterprise application monitoring. When you are facing a stream that contains regular health checks, request audits, business-level events, and tracking data, and performance metrics, that is an incredible amount of data.
 
-When planning your monitoring strategy, you need to take into account how much information you’ll be aggregating, the rate at which it comes in, and how much of it you’re going to store. If your application dynamically scales from 1 instance to 100, that can also result in a hundredfold increase in your log traffic.
+When planning your monitoring strategy, you need to take into account how much information you'll be aggregating, the rate at which it comes in, and how much of it you're going to store. If your application dynamically scales from 1 instance to 100, that can also result in a hundredfold increase in your log traffic.
 
-Auditing and monitoring cloud applications are often overlooked but are perhaps some of the most important things to plan and do properly for production deployments. If you wouldn’t blindly launch a satellite into orbit with no way to monitor it, you shouldn’t do the same to your cloud application.
+Auditing and monitoring cloud applications are often overlooked but are perhaps some of the most important things to plan and do properly for production deployments. If you wouldn't blindly launch a satellite into orbit with no way to monitor it, you shouldn't do the same to your cloud application.
 
 Getting telemetry done right can mean the difference between success and failure in the cloud.
 
@@ -488,7 +459,7 @@ One question that we field on a regular basis stems from confusion around the co
 
 A stateless application makes no assumptions about the contents of memory prior to handling a request, nor does it make assumptions about memory contents after handling that request. The application can create and consume transient state in the middle of handling a request or processing a transaction, but that data should all be gone by the time the client has been given a response.
 
-To put it as simply as possible, all long-lasting state must be external to the application, provided by backing services. So the concept isn’t that state cannot exist; it is that it cannot be maintained within your application.
+To put it as simply as possible, all long-lasting state must be external to the application, provided by backing services. So the concept isn't that state cannot exist; it is that it cannot be maintained within your application.
 
 As an example, a microservice that exposes functionality for user management must be stateless, so the list of all users is maintained in a backing service (an Oracle or MongoDB database, for instance). For obvious reasons, it would make no sense for a database to be stateless.
 
@@ -496,7 +467,7 @@ As an example, a microservice that exposes functionality for user management mus
 
 Processes often communicate with each other by sharing common resources. Even without considering the move to the cloud, there are a number of benefits to be gained from adopting the Share-Nothing pattern. Firstly, anything shared among processes is a liability that makes all of those processes more brittle. In many high-availability patterns, processes will share data through a wide variety of techniques to elect cluster leaders, to decide on whether a process is a primary or backup, and so on.
 
-All of these options need to be avoided when running in the cloud. Your processes can vanish at a moment’s notice with no warning, and that’s a good thing. Processes come and go, scale horizontally and vertically, and are highly disposable. This means that anything shared among processes could also vanish, potentially causing a cascading failure.
+All of these options need to be avoided when running in the cloud. Your processes can vanish at a moment's notice with no warning, and that's a good thing. Processes come and go, scale horizontally and vertically, and are highly disposable. This means that anything shared among processes could also vanish, potentially causing a cascading failure.
 
 It should go without saying, but the filesystem is not a backing service. This means that you cannot consider files a means by which applications can share data. Disks in the cloud are ephemeral and, in some cases, even read-only.
 
@@ -566,7 +537,7 @@ Maintaining environment parity has become easier in the last few years because d
 
 The Environment Parity principle means all deployment paths are similar yet independent and that no deployment "leapfrogs" into another deployment target.
 
-Backing services, such as the app’s database, queueing system, or cache, is one area where dev/prod parity is important. Many languages offer libraries which simplify access to the backing service, including adapters to different types of services.
+Backing services, such as the app's database, queueing system, or cache, is one area where dev/prod parity is important. Many languages offer libraries which simplify access to the backing service, including adapters to different types of services.
 
 Developers sometimes find great appeal in using a lightweight backing service in their local environments, while a more serious and robust backing service will be used in production. For example, using SQLite locally and PostgreSQL in production; or local process memory for caching in development and Memcached in production.
 
@@ -588,15 +559,15 @@ From an app's point of view, APIs provide access to the apps in your enterprise 
 
 **Why?**
 
-A cloud-native application is a secure application. Your code, whether compiled or raw, is transported across many data centers, executed within multiple containers, and accessed by countless clients some legitimate, most nefarious. Even if the only reason you implement security in your application is so you have an audit trail of which user made which data change, that alone is benefit enough to justify the relatively small amount of time and effort it takes to secure your application’s endpoints.
+A cloud-native application is a secure application. Your code, whether compiled or raw, is transported across many data centers, executed within multiple containers, and accessed by countless clients some legitimate, most nefarious. Even if the only reason you implement security in your application is so you have an audit trail of which user made which data change, that alone is benefit enough to justify the relatively small amount of time and effort it takes to secure your application's endpoints.
 
-In an ideal world, all cloud-native applications would secure all of their endpoints with RBAC (role-based access control). Every request for an application’s resources should know who is making the request, and the roles to which that consumer belongs. These roles dictate whether the calling client has sufficient permission for the application to honor the request.
+In an ideal world, all cloud-native applications would secure all of their endpoints with RBAC (role-based access control). Every request for an application's resources should know who is making the request, and the roles to which that consumer belongs. These roles dictate whether the calling client has sufficient permission for the application to honor the request.
 
 **How?**
 
 Considerations for helping to protect access to your app include the following:
 
-- With tools like OAuth2, OpenID Connect, various SSO servers and standards, as well as a near infinite supply of language-specific authentication and authorization libraries, security should be something that is baked into the application’s development from day one, and not added as a bolt-on project after an application is running in production.
+- With tools like OAuth2, OpenID Connect, various SSO servers and standards, as well as a near infinite supply of language-specific authentication and authorization libraries, security should be something that is baked into the application's development from day one, and not added as a bolt-on project after an application is running in production.
 - Transport Layer Security (TLS). Use TLS to help protect data in transit. You might want to use mutual TLS for your business apps; this is made easier if you use service meshes like Istio on Kubernetes. It's also common for some use cases to create allow lists and deny lists based on IP addresses as an additional layer of security. Transport security also involves protecting your services against DDoS and bot attacks.
 - App and end-user security. Transport security helps provide security for data in transit and establishes trust. But it's a best practice to add app-level security to control access to your app based on who the consumer of the app is. The consumers can be other apps, employees, partners, or your enterprise's end customers. You can enforce security using API keys (for consuming apps), certification-based authentication and authorization, JSON Web Tokens (JWTs) exchange, or Security Assertion Markup Language (SAML).
 
@@ -839,7 +810,7 @@ If you need data persistence for your application, work with your platform team 
 
 **Why?**
 
-Your application’s container filesystem is considered ephemeral. Meaning it will not move with the workload. This ephemeral storage is typically resource constrained and should not be used for anything more than small write needs, where loss of data is not a concern.
+Your application's container filesystem is considered ephemeral. Meaning it will not move with the workload. This ephemeral storage is typically resource constrained and should not be used for anything more than small write needs, where loss of data is not a concern.
 
 **How?**
 

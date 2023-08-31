@@ -4,8 +4,6 @@
 
 ![delivery-workflow](./images/delivery-workflow.jpg)
 
-[[toc]]
-
 ### Pre-requisites
 
 This section provides the pre-requisite steps for this workshop
