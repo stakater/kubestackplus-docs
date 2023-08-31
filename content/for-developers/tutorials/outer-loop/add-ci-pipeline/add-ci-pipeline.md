@@ -1,8 +1,8 @@
 # Creating a Pipeline Using Pipeline as Code
 
-We will embark on a comprehensive journey through a complete pipeline, with each individual task covered in its own tutorial. This approach aims to provide a detailed understanding of each task and how they collectively contribute to the functionality of pipeline-as-code.
+We will embark on a comprehensive journey through a complete pipeline, with each individual task covered in its tutorial. This approach aims to provide a detailed understanding of each task and how they collectively contribute to the functionality of pipeline-as-code.
 
-In modern software development practices, pipelines play a crucial role in automating and streamlining the process of building, testing, and deploying applications. This tutorial will guide you through creating a pipeline using pipeline-as-code concepts. We'll focus on GitHub as the provider and assume that you have a SAAP set up with pipeline-as-code capabilities.
+In modern software development practices, pipelines play a crucial role in automating and streamlining the process of building, testing, and deploying applications. This tutorial will guide you through creating a pipeline using pipeline-as-code concepts. We'll focus on GitHub as the provider and assume you have a SAAP set up with pipeline-as-code capabilities.
 
 Now that we have completed all the prerequisites to run this `pipelineRun`, we can continue by adding a pipeline to our application using `pipeline-as-code` approach.
 
@@ -106,6 +106,6 @@ The Git Clone task serves as the initial step in your pipeline, responsible for 
 
     `url`: The URL of the source code repository. This parameter is dynamically fetched from the repo_url parameter defined in the PipelineRun.
 
-    `revision`: The Git revision to fetch, often corresponding to a specific branch or commit. This parameter is also dynamically fetched from the gitrevision parameter in the PipelineRun.
+    `revision`: The Git revision to fetch, often corresponding to a specific branch or commit. This parameter is also dynamically fetched from the `gitrevision` parameter in the PipelineRun.
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.
