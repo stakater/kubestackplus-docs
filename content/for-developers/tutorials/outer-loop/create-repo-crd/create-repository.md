@@ -4,16 +4,20 @@ The `Repository` custom resource helps you connect pipeline-as-code to your SCM.
 
 In this tutorial, you'll create secrets containing your GitHub access credentials and webhook secret. As well as you'll define a Repository CustomResourceDefinition (CRD) to create a PipelineRun using pipeline-as-code.
 
+## Prerequisites
+
+1. You have a pre-configured GitOps repository. If you haven't already configured it, follow [this tutorial](../../../../for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md)
+
 ## Objectives
 
 - Create a Secret to store your GitHub personal token and webhook secret.
-- Define a Repository CRD that references the Kubernetes Secret for authentication.
+- Define a Repository that references the Kubernetes Secret for authentication.
 - Establish a secure connection between your code repository and the CI/CD pipeline using a GitHub webhook.
 
 ## Key Results
 
 - Created a Kubernetes Secret named `github-webhook-config` containing your GitHub personal token and webhook secret.
-- Defined a Repository CRD in your desired namespace, referencing the `github-webhook-config` Secret.
+- Defined a Repository in your desired namespace, referencing the `github-webhook-config` Secret.
 - Enabled a secure connection between your code repository and your CI/CD pipeline through the GitHub webhook.
 
 ## Tutorial
@@ -22,25 +26,33 @@ In this tutorial, you'll create secrets containing your GitHub access credential
 
 The `Secret` holds sensitive data, such as your GitHub access token and webhook secret. By storing these secrets separately from your source code, you ensure that sensitive information is kept secure and not exposed in your repository.
 
-1. To create a secret first log in to SAAP using `oc` CLI.
+> Note: We assume that you already have a GitOps repository bootstrapped with ArgoCD. Open up the `apps-gitops-config` repository we created earlier.
 
-1. Paste this command and replace `your-namespace` with your namespace, `provider.token` value with your PAT, and `webhook.secret` value with your webhook secret.
+1. Navigate to `tenant`>`application`> build path. In our example, it will be `01-gabbar/01-stakater-nordmart-review-api/00-build`
 
-    ```sh
-    oc -n <your-namespace> create secret generic github-webhook-config --from-literal provider.token="FINE_GRAINED_TOKEN_AS_GENERATED_PREVIOUSLY" --from-literal webhook.secret="SECRET_AS_SET_IN_WEBHOOK_CONFIGURATION"
-    ```
+1. Create a file name `github-webhook-secret.yaml` here and add the following content:
 
-1. Log in to SAAP and check if the secret is created in your targeted namespace.
+   ```yaml
+   kind: Secret
+   apiVersion: v1
+   metadata:
+     name: github-webhook-config
+     namespace: gabbar-build
+   data:
+      provider.token: <base64-encoded-personal-access-token>
+      webhook.secret: <base64-encoded-webhook secret>
+   type: Opaque
+   ```
 
-    ![git webhook config](images/git-webhook.png)
+> Note: Replace values with PAT and webhook secret you created in the previous tutorials
 
-### Define the Repository CRD
+   ![secret](images/secret.png)
 
-1. To create the `Repository` CRD, go to SAAP, beside your username you will see the (**+**) sign, click it.
+### Create the Repository
 
-    ![plus sign](images/plus-sign.png)
+1. To create the `Repository`, navigate to `tenant`>`application`> build path.
 
-1. Now paste the below yaml, with the changes according to your needs.
+1. Create a file named `repository.yaml` and add the following content:
 
     ```yaml
     apiVersion: "pipelinesascode..dev/v1alpha1"
@@ -57,8 +69,10 @@ The `Secret` holds sensitive data, such as your GitHub access token and webhook 
         name: "github-webhook-config"
     ```
 
-    ![repository crd](images/repository-crd.png)
+    ![repository](images/repository.png)
 
-    Recheck the `Project` selected above and hit `Create`.
+Once you add these two files to the repository at the correct path, you can see that ArgoCD has deployed them to the cluster.
+
+  ![repository](images/repository-synced.png)
 
 That's cool! Let's move on to the next tutorial to create a fully functional pipeline with `pipeline-as-code`.
