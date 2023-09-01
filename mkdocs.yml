@@ -215,10 +215,13 @@ nav:
             - managed-addons/forecastle/overview.md
         - Ingress Monitor Controller:
             - managed-addons/imc/overview.md
-            - managed-addons/imc/tutorial/add-configuration.md
-            - managed-addons/imc/tutorial/add-monitors.md
+            - Tutorials:
+                - managed-addons/imc/tutorial/add-configuration.md
+                - managed-addons/imc/tutorial/add-monitors.md
         - Konfigurator:
             - managed-addons/konfigurator/overview.md
+            - Explanation:
+                - managed-addons/konfigurator/explanation/custom-resources.md
         - Logging:
             - managed-addons/logging-stack/overview.md
             - managed-addons/logging-stack/kibana-view-logs.md
