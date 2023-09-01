@@ -1,4 +1,4 @@
-# Adding configuration
+# Add Configuration
 
 SAAP uses UptimeRobot free tier as uptime checker, by default.
 

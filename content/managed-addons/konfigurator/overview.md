@@ -1,4 +1,4 @@
-# Konfigurator
+# Overview
 
 A kubernetes operator that can dynamically generate app configuration when kubernetes resources change
 
@@ -14,29 +14,10 @@ A kubernetes operator that can dynamically generate app configuration when kuber
   - Services
   - Ingresses
 
-## Deploying to Kubernetes
+## Configuration
 
-Deploying Konfigurator requires:
+Konfigurator is already configured for Stakater Agility Platform users. More details can be found on [Konfigurator](https://github.com/stakater/Konfigurator).
 
-1. Deploying CRD to your cluster
-2. Deploying Konfigurator operator
+## Custom Resources
 
-You can deploy CRDs either together or separately with the operator in the helm chart by setting `deployCRD` in values.yaml file.
-
-```bash
-helm repo add stakater https://stakater.github.io/stakater-charts
-
-helm repo update
-
-helm install stakater/konfigurator
-```
-
-Once Konfigurator is running, you can start creating resources supported by it. For details about its custom resources, look [here](https://github.com/stakater/Konfigurator/tree/master/docs/konfigurator-template.md).
-
-To make Konfigurator work globally, you would have to change the `WATCH_NAMESPACE` environment variable to "" in values.yaml. e.g. change `WATCH_NAMESPACE` section to:
-
-```yaml
-  env:
-  - name: WATCH_NAMESPACE
-    value: ""
-```
+Konfigurator uses two Custom Resources, `PodMetadataInjector` and `KonfiguratorTemplate`. Both are described in the [Custom Resources Section](./explanation/custom-resources.md).
