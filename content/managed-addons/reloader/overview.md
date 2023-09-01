@@ -13,4 +13,3 @@ Reloader can watch changes in `ConfigMap` and `Secret` and do rolling upgrades o
 ## Configuration
 
 Reloader is already configured for Stakater Agility Platform users. More details can be found on [Reloader](https://github.com/stakater/Reloader/tree/master#deploying-to-kubernetes).
-

@@ -59,4 +59,5 @@ spec:
   url: https://uptimerobot.com/
   networkRestricted: false
 ```
+
 More information about Forecastle usage can be found on [How to Use Forecastle](https://github.com/stakater/Forecastle#configuration)

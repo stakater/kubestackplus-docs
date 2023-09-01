@@ -48,7 +48,7 @@ volume mount.
 
 ## Reload on Specific Resources
 
-To perform rolling upgrade when change happens only on specific configmaps or secrets, the annotation `configmap.reloader.stakater.com/reload: "<secret1-name>/<configmap1-name>, <secret2-name>/<configmap2-name>"` can be used, which works on comma-separated names of configmaps or secrets, if multiple. 
+To perform rolling upgrade when change happens only on specific configmaps or secrets, the annotation `configmap.reloader.stakater.com/reload: "<secret1-name>/<configmap1-name>, <secret2-name>/<configmap2-name>"` can be used, which works on comma-separated names of configmaps or secrets, if multiple.
 
 If a `Deployment` called `foo` has a `ConfigMap` called `foo-configmap` and a secret called `foo-secret`. Then add this annotation to the metadata of your `Deployment`
 

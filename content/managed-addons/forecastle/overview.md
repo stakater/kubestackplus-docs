@@ -19,4 +19,4 @@ separate instance of Forecastle as well by following [Deploying Forecastle](http
 
 ## Usage
 
-Information on how to use Forcastle can be found at [How to Use Forecastle](./tutorial/how-to-use-forecastle.md)
+Information on how to use Forecastle can be found at [How to Use Forecastle](./tutorial/how-to-use-forecastle.md)
