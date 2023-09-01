@@ -8,7 +8,6 @@ In this tutorial, you'll create secrets containing your GitHub access credential
 
 1. You have a pre-configured GitOps repository. If you haven't already configured it, follow [this tutorial](../../tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md)
 
-
 ## Objectives
 
 - Create a Secret to store your GitHub personal token and webhook secret.
@@ -44,17 +43,16 @@ The `Secret` holds sensitive data, such as your GitHub access token and webhook 
       webhook.secret: <base64-encoded-webhook secret>
    type: Opaque
    ```
+   
 > Note: Replace values with PAT and webhook secret you created in the previous tutorials
 
    ![secret](images/secret.png)
 
-
-### Create the Repository 
+### Create the Repository
 
 1. To create the `Repository`, navigate to `tenant`>`application`> build path.
-    
 
-1. Create a file named `repository.yaml` and add the following cotent:
+1. Create a file named `repository.yaml` and add the following content:
 
     ```yaml
     apiVersion: "pipelinesascode..dev/v1alpha1"
@@ -76,6 +74,5 @@ The `Secret` holds sensitive data, such as your GitHub access token and webhook 
 Once you add these two files to the repository at the correct path, you can see that argocd has deployed them to the cluster.
 
   ![repository](images/repository-synced.png)
-
 
 That's cool! Let's move on to the next tutorial to create a fully functional pipeline with `pipeline-as-code`.
