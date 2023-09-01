@@ -26,11 +26,11 @@ In this tutorial, you'll create secrets containing your GitHub access credential
 
 The `Secret` holds sensitive data, such as your GitHub access token and webhook secret. By storing these secrets separately from your source code, you ensure that sensitive information is kept secure and not exposed in your repository.
 
-> Note: We assume that you already have a GitOps repository bootstrapped with ARgoCD. Open up the apps-gitops-config repository we created earlier.
+> Note: We assume that you already have a GitOps repository bootstrapped with ArgoCD. Open up the apps-gitops-config repository we created earlier.
 
 1. Navigate to `tenant`>`application`> build path. In our example, it will be `01-gabbar/01-stakater-nordmart-review-api/00-build`
 
-1. Create a file name github-webhook-secret.yaml here and add the following content:
+1. Create a file name `github-webhook-secret.yaml` here and add the following content:
 
    ```yaml
    kind: Secret
@@ -71,7 +71,7 @@ The `Secret` holds sensitive data, such as your GitHub access token and webhook 
 
     ![repository](images/repository.png)
 
-Once you add these two files to the repository at the correct path, you can see that argocd has deployed them to the cluster.
+Once you add these two files to the repository at the correct path, you can see that ArgoCD has deployed them to the cluster.
 
   ![repository](images/repository-synced.png)
 
