@@ -43,7 +43,7 @@ The `Secret` holds sensitive data, such as your GitHub access token and webhook 
       webhook.secret: <base64-encoded-webhook secret>
    type: Opaque
    ```
-   
+
 > Note: Replace values with PAT and webhook secret you created in the previous tutorials
 
    ![secret](images/secret.png)
