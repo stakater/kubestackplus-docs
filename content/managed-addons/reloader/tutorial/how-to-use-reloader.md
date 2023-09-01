@@ -1,10 +1,10 @@
 # Usage
 
-Reloader uses a set of annotations to determine which resources need to be watched and correspondingly which resources needs to be restarted if a change is detected.
+Reloader uses a set of annotations to determine which resources need to be watched and correspondingly which resources need to be restarted if a change is detected.
 
 ## Auto Detect Resources
 
-Most commonly used annotation is `reloader.stakater.com/auto: "true"`. This will discover all the secrets and configmaps which are used either via environment variable or from volume mount in the deploymentconfigs/deployments/daemonsets/statefulset/rollouts and it will perform rolling upgrade on related pods when the watched resources are updated.
+Most commonly used annotation is `reloader.stakater.com/auto: "true"`. This will discover all the secrets and configmaps which are used either via environment variable or from volume mount in the deploymentconfigs/deployments/daemonsets/statefulset/rollouts, and it will perform rolling upgrade on related pods when the watched resources are updated.
 
 ```yaml
 kind: Deployment
