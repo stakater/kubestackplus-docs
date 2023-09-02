@@ -213,6 +213,8 @@ nav:
             - managed-addons/external-secrets-operator/overview.md
         - Forecastle:
             - managed-addons/forecastle/overview.md
+            - Tutorials:
+                - managed-addons/forecastle/tutorial/how-to-use-forecastle.md
         - Ingress Monitor Controller:
             - managed-addons/imc/overview.md
             - Tutorials:
@@ -239,6 +241,8 @@ nav:
             - managed-addons/mto/overview.md
         - Reloader:
             - managed-addons/reloader/overview.md
+            - Tutorials:
+                - managed-addons/reloader/tutorial/how-to-use-reloader.md
         - SonarQube:
             - managed-addons/sonarqube/overview.md
             - managed-addons/sonarqube/sonarqube-upgrade.md
