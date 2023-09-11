@@ -214,7 +214,7 @@ nav:
         - Forecastle:
             - managed-addons/forecastle/overview.md
             - Tutorials:
-                - managed-addons/forecastle/tutorial/how-to-use-forecastle.md
+                - managed-addons/forecastle/tutorial/add-forecastle-app.md
         - Ingress Monitor Controller:
             - managed-addons/imc/overview.md
             - Tutorials:
@@ -223,7 +223,8 @@ nav:
         - Konfigurator:
             - managed-addons/konfigurator/overview.md
             - Explanation:
-                - managed-addons/konfigurator/explanation/custom-resources.md
+                - managed-addons/konfigurator/explanation/konfigurator-template.md
+                - managed-addons/konfigurator/explanation/pod-metadata-injector.md
         - Logging:
             - managed-addons/logging-stack/overview.md
             - managed-addons/logging-stack/kibana-view-logs.md
@@ -242,7 +243,7 @@ nav:
         - Reloader:
             - managed-addons/reloader/overview.md
             - Tutorials:
-                - managed-addons/reloader/tutorial/how-to-use-reloader.md
+                - managed-addons/reloader/tutorial/configure-resources.md
         - SonarQube:
             - managed-addons/sonarqube/overview.md
             - managed-addons/sonarqube/sonarqube-upgrade.md
