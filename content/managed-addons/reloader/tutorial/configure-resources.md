@@ -1,4 +1,4 @@
-# Usage
+# Configure Resources with Reloader
 
 Reloader uses a set of annotations to determine which resources need to be watched and correspondingly which resources need to be restarted if a change is detected.
 

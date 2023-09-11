@@ -1,4 +1,4 @@
-# Usage
+# ForecastleApp
 
 To add an application to Forecastle you need to add a custom resource for `ForecastleApp`.
 
@@ -57,6 +57,33 @@ spec:
   group: Alerting
   icon: https://uptimerobot.com/assets/img/logo_plain.png
   url: https://uptimerobot.com/
+  networkRestricted: false
+```
+
+## Add ForecastleApp using Application chart
+
+If the application is using Stakater Application Chart, [`forecastle`](https://github.com/stakater/application/blob/master/application/templates/forecastle.yaml) can be enabled by setting `enabled: true` in the values file
+
+```yaml
+forecastle:
+  enabled: false
+
+  # Add additional labels on Forecastle Custom Resource
+  additionalLabels:
+  
+  # URL of the icon for the custom app
+  icon: https://raw.githubusercontent.com/stakater/ForecastleIcons/master/stakater-big.png
+  
+  # Name of the application to be displayed on the Forecastle Dashboard
+  displayName: "application"
+  
+  # Group for the custom app (default: .Release.Namespace)
+  group: ""
+
+  # Add properties to Custom Resource
+  properties:
+  
+  # Whether app is network restricted or not
   networkRestricted: false
 ```
 
