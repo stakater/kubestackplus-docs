@@ -1,6 +1,6 @@
 # Service Level Agreement (SLA)
 
-`Version: 9 May 2023`
+`Version: 18 September 2023`
 
 This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you ("**Customer**"). Each a "Party", and together the "Parties".
 
@@ -180,7 +180,7 @@ Payment is due once during a Service Period and the Customer will be charged for
 
 - "**Covered Service**" means, for each of Zonal Clusters and Regional Clusters, the OpenShift API provided by Customer's cluster(s), so long as the version of OpenShift Engine deployed in the cluster is a version currently offered in the Stable Channel.
 - "**Stable Channel**" means the Red Hat OpenShift Container Platform Stable release channel.
-- "**Zonal Cluster**" means a single-Zone cluster with control planes (master) running in one Zone (data centre).
+- "**Zonal Cluster**" means a single-Zone cluster with control planes running in one Zone (data centre).
 - "**Regional Cluster**" means a cluster topology that consists of three replicas of the control plane, running in multiple Zones within a given Region.
 
 ## Service Level Objectives

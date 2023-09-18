@@ -6,7 +6,7 @@ We currently support Azure, AWS, Google, OpenStack and VMWare.
 
 ## What does Stakater Agility Platform include?
 
-Each Stakater Agility Platform cluster comes with a fully-managed control plane (master nodes), infra nodes and application nodes. Installation, management, maintenance, and upgrades are performed by Stakater SRE. Operational services (such as logging, metrics, monitoring, etc.) are available as well and are fully managed by Stakater SRE.
+Each Stakater Agility Platform cluster comes with a fully-managed control plane, infra nodes and application nodes. Installation, management, maintenance, and upgrades are performed by Stakater SRE. Operational services (such as logging, metrics, monitoring, etc.) are available as well and are fully managed by Stakater SRE.
 
 ## What is the current version of Red Hat OpenShift running in Stakater Agility Platform?
 
