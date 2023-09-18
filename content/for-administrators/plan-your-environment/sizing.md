@@ -29,7 +29,7 @@ The overall minimum resource requirements are:
 
 | Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU | Total Memory (GiB) | Total Storage (GiB)
 |:---|:---|---:|---:|---:|---:|
-| Master | 6 x 24 x 120 | 3 | 18 | 72 | 360 |
+| Control plane | 6 x 24 x 120 | 3 | 18 | 72 | 360 |
 | Infra | 4 x 16 x 120 | 2 | 8 | 32 | 240 |
 | Monitoring | 4 x 32 x 120 | 1 | 4 | 32 | 120 |
 | Worker | 4 x 16 x 120 | 3 | 12 | 48 | 360 |
@@ -41,7 +41,7 @@ The recommended resource requirements are:
 
 | Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU | Total Memory (GiB) | Total Storage (GiB) |
 |:---|:---|---:|---:|---:|---:|
-| Master | 6 x 24 x 120 | 3 | 18 | 72 | 360 |
+| Control plane | 6 x 24 x 120 | 3 | 18 | 72 | 360 |
 | Infra | 4 x 16 x 120 | 2 | 8 | 32 | 240 |
 | Monitoring | 4 x 32 x 120 | 1 | 4 | 32 | 120 |
 | Logging | 4 x 16 x 120 | 1 | 4 | 16 | 120 |
@@ -51,9 +51,9 @@ The recommended resource requirements are:
 
 ## Compute
 
-### 3 x Master
+### 3 x Control plane
 
-The control plane, which is composed of master nodes, also known as the control plane, manages the SAAP cluster. The control plane nodes run the control plane. No user workloads run on master nodes.
+The control plane manages the SAAP cluster. The control plane nodes run the control plane. No user workloads run on control plane nodes.
 
 ### 2 x Infra
 

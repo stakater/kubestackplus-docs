@@ -92,15 +92,15 @@ Create a PR and verify its status
 
 ![PR Status](./images/pr-comment.png)
 
-#### CD - Merge this PR into the master
+#### CD - Merge this PR into the main
 
-Now attempt to merge this PR in master
+Now attempt to merge this PR in main
 
-Merge PR in master
+Merge PR in main
 
-* Merge the Pull Request in the master to rigger the pipeline on master branch
+* Merge the Pull Request in the main to rigger the pipeline on main branch
 
-![Master status](./images/pr-merged.png)
+![main status](./images/pr-merged.png)
 
 * After successful execution a new release and tag will be created in the `Releases` section on GitHub
 

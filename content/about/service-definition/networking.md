@@ -14,7 +14,7 @@ SAAP includes TLS security certificates needed for both internal and external se
 
 ## Load-balancers
 
-SAAP is normally created via the installer provisioned infrastructure (IPI) installation method which installs operators that manage load-balancers in the customer cloud, and API load-balancers to the master nodes. Application load-balancers are created as part of creating routers and ingresses. The operators use cloud identities to interact with the cloud providers API to create the load-balancers.
+SAAP is normally created via the installer provisioned infrastructure (IPI) installation method which installs operators that manage load-balancers in the customer cloud, and API load-balancers to the control plane nodes. Application load-balancers are created as part of creating routers and ingresses. The operators use cloud identities to interact with the cloud providers API to create the load-balancers.
 
 User-provisioned installation (UPI) method is also possible if extra security is needed and then you must create the API and application ingress load balancing infrastructure separately and before SAAP is installed.
 
