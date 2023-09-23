@@ -1,1 +1,3 @@
 # Overview
+
+[External Secrets Operator](https://github.com/external-secrets/external-secrets-operator) is a powerful Kubernetes tool designed to simplify the management of external secrets and credentials within your cluster. With this operator, you can seamlessly integrate secrets stored in external vaults, key management services, or other secure storage solutions into your Kubernetes applications. It streamlines the process of fetching, managing, and securely distributing secrets to your pods, enhancing security and reducing complexity in secret management. Whether you need to access API tokens, database passwords, or other external secrets, the External Secrets Operator provides a seamless and efficient solution for your Kubernetes deployments.
