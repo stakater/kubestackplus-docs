@@ -1,6 +1,6 @@
 # Overview
 
-[Velero](https://velero.io/) is a powerful backup and restore tool tailored for Kubernetes environments. It simplifies the critical task of data protection, ensuring the safety and recoverability of your Kubernetes workloads. Velero allows you to take snapshots of your cluster's resources, including persistent volumes, configurations, and metadata. These backups can then be stored securely, either on-premises or in the cloud, providing disaster recovery capabilities for your Kubernetes applications.
+[Velero](https://velero.io/) is a powerful backup and restore tool tailored for Kubernetes environments. It simplifies the critical task of data protection, ensuring the safety and resilience of your Kubernetes workloads. Velero allows you to take snapshots of your cluster's resources, including persistent volumes, configurations, and metadata. These backups can then be stored securely, either on-premises or in the cloud, providing disaster recovery capabilities for your Kubernetes applications.
 
 Velero's versatility extends to:
 
