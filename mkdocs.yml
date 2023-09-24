@@ -202,7 +202,6 @@ nav:
             - managed-addons/vault/overview.md
         - ArgoCD:
             - managed-addons/argocd/overview.md
-            - managed-addons/argocd/for-administrators/architecture.md
             - managed-addons/argocd/for-administrators/availability.md
             - managed-addons/argocd/for-administrators/installation.md
             - managed-addons/argocd/for-administrators/observability.md

@@ -12,13 +12,13 @@ Resource requirements for a single SAAP cluster is as follows:
 
 | Resource | Minimum | Recommended |
 |:---|---:|---:|
-| vCPUs (m) | 36 | 44 |
-| Memory (Gib)  | 208 | 240 |
-| Storage Block (Gib)| 900 | 1100 |
+| vCPUs (m) | 60 | 76 |
+| Memory (Gib)  | 240 | 304 |
+| Storage Block (Gib)| 2850 | 3450 |
 | Storage Snapshots (Gib) | 330 | 330 |
-| Storage Buckets | 1 | 1 |
+| Storage Buckets (Backups) | 1 | 1 |
 | Load Balancers* | 3 | 3 |
-| Public IPs      | 2 | 2 |
+| Public/Floating IPs | 2 | 2 |
 
 !!! note
     * Load Balancers are only required for AWS, Azure and GCP.
@@ -27,33 +27,35 @@ Resource requirements for a single SAAP cluster is as follows:
 
 The overall minimum resource requirements are:
 
-| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU | Total Memory (GiB) | Total Storage (GiB)
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPUs | Total Memory (GiB) | Total Storage (GiB)
 |:---|:---|---:|---:|---:|---:|
-| Control plane | 6 x 24 x 120 | 3 | 18 | 72 | 360 |
-| Infra | 4 x 16 x 120 | 2 | 8 | 32 | 240 |
-| Monitoring | 4 x 32 x 120 | 1 | 4 | 32 | 120 |
-| Worker | 4 x 16 x 120 | 3 | 12 | 48 | 360 |
-| **Total** | | **9** | **42** | **184** | **1080** |
+| Control plane | 8 x 32 x 350 | 3 | 24 | 96 | 1050 (Provisioned IOPS 1000) |
+| Infra | 8 x 32 x 300 | 3 | 24 | 96 | 900 (General Purpose SSDs) |
+| Worker | 4 x 16 x 300 | 3 | 12 | 48 | 900 (General Purpose SSDs) |
+| **Grand Total** | | **9** | **60** | **240** | **2850** |
 
 ### Recommended
 
 The recommended resource requirements are:
 
-| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU | Total Memory (GiB) | Total Storage (GiB) |
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPUs | Total Memory (GiB) | Total Storage (GiB) |
 |:---|:---|---:|---:|---:|---:|
-| Control plane | 6 x 24 x 120 | 3 | 18 | 72 | 360 |
-| Infra | 4 x 16 x 120 | 2 | 8 | 32 | 240 |
-| Monitoring | 4 x 32 x 120 | 1 | 4 | 32 | 120 |
-| Logging | 4 x 16 x 120 | 1 | 4 | 16 | 120 |
-| Pipeline | 4 x 16 x 120 | 1 | 4 | 16 | 120 |
-| Worker | 4 x 16 x 120 | 3 | 12 | 48 | 360 |
-| **Total** | | **11** | **50** | **216** | **1320** |
+| Control plane | 8 x 32 x 350 | 3 | 24 | 96 | 1050 (Provisioned IOPS 1000) |
+| Infra | 8 x 32 x 300 | 2 | 16 | 64 | 600 (General Purpose SSDs) |
+| Monitoring | 8 x 32 x 300 | 1 | 8 | 32 | 300 (General Purpose SSDs) |
+| Logging | 8 x 32 x 300 | 1 | 8 | 32 | 300 (General Purpose SSDs) |
+| Pipeline | 8 x 32 x 300 | 1 | 8 | 32 | 300 (General Purpose SSDs) |
+| Worker | 4 x 16 x 300 | 3 | 12 | 48 | 900 (General Purpose SSDs) |
+| **Grand Total** | | **11** | **76** | **304** | **3450** |
 
 ## Compute
 
 ### 3 x Control plane
 
-The control plane manages the SAAP cluster. The control plane nodes run the control plane. No user workloads run on control plane nodes.
+The control plane manages the SAAP cluster. The control plane nodes run the control plane.
+
+!!! note
+    * No user workloads run on control plane nodes.
 
 ### 2 x Infra
 
@@ -83,7 +85,8 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 | 0.10 |
 | **Total** | **4275** | **11.61** |
 
-No user workloads run on infrastructure nodes.
+!!! note
+    * No user workloads run on control plane nodes.
 
 ### 1 x Monitoring
 
@@ -107,7 +110,8 @@ Minimum one monitoring node must be used for all production deployments. For hig
 
 For more details of monitoring, please visit [Creating Application Alerts](../../managed-addons/monitoring-stack/app-alerts.md).
 
-No user workloads run on monitoring nodes.
+!!! note
+    * No user workloads run on control plane nodes.
 
 ### 1 x Logging (optional)
 
@@ -125,7 +129,8 @@ Minimum one logging node is required. For high availability consider using three
 | [Kibana](https://github.com/elastic/kibana)| 300 | 0.5 |
 | **Total** | **1020** | **7.1** |
 
-No user workloads run on logging nodes.
+!!! note
+    * No user workloads run on control plane nodes.
 
 ### 1 x Pipeline (optional)
 
@@ -139,7 +144,8 @@ Minimum requirements for pipeline infrastructure is:
 |---|---:|---:|
 | OpenShift pipelines | 100 | 0.2 |
 
-No user workloads run on pipelines nodes.
+!!! note
+    * No user workloads run on control plane nodes.
 
 ### 3 x Worker
 
