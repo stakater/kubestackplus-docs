@@ -52,7 +52,7 @@ The recommended resource requirements are:
 
 ### 3 x Control plane
 
-The control plane manages the SAAP cluster. The control plane nodes run the control plane. 
+The control plane manages the SAAP cluster. The control plane nodes run the control plane.
 
 !!! note
     * No user workloads run on control plane nodes.
