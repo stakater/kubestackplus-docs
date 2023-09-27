@@ -79,4 +79,3 @@ curl localhost:port/path
 ```sh
 oc port-forward pod/prometheus-user-workload-0 9090:9090 -n openshift-user-workload-monitoring
 ```
-
