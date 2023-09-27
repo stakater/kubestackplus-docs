@@ -63,14 +63,20 @@ Move on to the next tutorial to see how to trigger alerts for your application.
 If something doesn't work here are some commonly useful things to check:
 
 - Start by doing curl on localhost from within the pod with the metrics path to make sure that metrics are exposed.
+
 ```sh
 oc get pods -n namespace
 oc debug pod/podname-from-above
 curl localhost:port/path
 ```
+
 - Make sure that the Selector labels in Service monitor and Labels in Service matches.
+
 - Make sure that the service monitor selector and service monitor namespace selector labels have been applied to the service monitor and the namespace respectively where the service monitor is present. You can check these selectors in Search -> Resources -> Prometheus and then check the yaml manifest of prometheus CR.
+
 - If nothing else works then start with port-forwarding the prometheus pod to port: 9090 and navigate to prometheus UI with http. Check in the service discovery that service monitor is picked up, also check the targets that Prometheus is able to scrape the metrics. If the target is visible but metrics are not scraped then the error should be visible in targets.
+
 ```sh
 oc port-forward pod/prometheus-user-workload-0 9090:9090 -n openshift-user-workload-monitoring
 ```
+
