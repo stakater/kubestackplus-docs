@@ -70,13 +70,10 @@ oc debug pod/podname-from-above
 curl localhost:port/path
 ```
 
-- Verify everything in spec in the Servicemonitor
-
-- - Verify that spec.endpoints.port: matches with the Service spec.ports.name:
-
-- - Verify that spec.namespaceSelector.matchnames matches with the Service metadata.namespace
-
-- - Verify that spec.selector.matchlabels: matches with the Service metadata.labels
+- Verify everything in spec in the ServiceMonitor.
+- - Verify that spec.endpoints.port matches with the Service spec.ports.name .
+- - Verify that spec.namespaceSelector.matchnames matches with the Service metadata.namespace .
+- - Verify that spec.selector.matchlabels matches with the Service metadata.labels .
 
 - Make sure that the service monitor selector and service monitor namespace selector labels have been applied to the service monitor and the namespace respectively where the service monitor is present. You can check these selectors in Search -> Resources -> Prometheus and then check the yaml manifest of Prometheus CR.
 
