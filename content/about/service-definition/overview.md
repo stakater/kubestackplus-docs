@@ -16,7 +16,7 @@ This section outlines the service definition for Stakater App Agility Platform (
 1. [Managed Service Mesh (`Istio`, `Kiali`, `Jagaer`, `Prometheus`)](./service-mesh.md)
 1. [Managed Certificates](../../managed-addons/cert-manager/overview.md)
 1. [Managed Continuous Delivery (ArgoCD)](../../managed-addons/argocd/overview.md)
-1. [Managed Continuous Integration (Tekton)](../../managed-addons/tekton/introduction.md)
+1. [Managed Continuous Integration (Tekton)](../../managed-addons/tekton/overview.md)
 1. [Managed Policy Enforcement (Kyverno, OPA)](../../for-cisos/policies/policies.md)
 1. [Managed Downtime Alerting (IMC)](../../managed-addons/imc/overview.md)
 1. [Managed Dynamic Environments (Tronador)](../../managed-addons/tronador/overview.md)

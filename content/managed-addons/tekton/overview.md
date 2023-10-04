@@ -1,8 +1,6 @@
-# Introduction
+# Overview
 
-OpenShift Pipelines is a cloud-native, continuous integration and delivery (CI/CD) solution for building pipelines using
- Tekton. Tekton is a flexible, Kubernetes-native, open-source CI/CD framework that enables automating deployments across
- multiple platforms (Kubernetes, serverless, VMs, etc) by abstracting away the underlying detail.
+Tekton is a cloud-native, continuous integration and delivery (CI/CD) solution for building pipelines. Tekton is a flexible, Kubernetes-native, open-source CI/CD framework that enables automating deployments across multiple platforms (Kubernetes, serverless, VMs, etc) by abstracting away the underlying detail.
 
 ![cloud-native-ci](./images/cloud-native-ci.png)
 
@@ -15,7 +13,7 @@ Main goals:
 1. Reproducible
 1. Cloud Native
 
-## OpenShift Pipeline Benefits
+## Tekton Pipeline Benefits
 
 1. Kubernetes native pipelines
 1. Runs pipelines in containers
@@ -56,19 +54,3 @@ For Continuous Integration/Delivery we can use triggers and webhooks:
 ### Trigger Workflow
 
 ![trigger-workflow](./images/trigger-workflow.png)
-
-## OpenShift Pipelines Catalog - Reusable Tasks
-
-- [Official](https://github.com/tektoncd/catalog)
-- [Kabanero-io](https://github.com/kabanero-io/kabanero-pipelines/tree/master/pipelines)
-- [OpenShift](https://github.com/openshift/pipelines-catalog)
-- [Open-toolchain](https://github.com/open-toolchain/tekton-catalog)
-- [RedHat-developer-demos](https://github.com/redhat-developer-demos/pipelines-catalog)
-
-## Useful Resources
-
-- [Tektoncd](https://github.com/tektoncd)
-- [OpenShift Pipelines](https://github.com/openshift-pipelines)
-- [Pipeline Examples](https://github.com/tektoncd/pipeline/tree/master/examples)
-- [Katacoda Course](https://www.katacoda.com/openshift/courses/middleware/pipelines)
-- [Visual Studio Code Tekton Pipelines Extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-tekton-pipelines)

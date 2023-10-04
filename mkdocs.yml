@@ -245,13 +245,8 @@ nav:
                 - managed-addons/reloader/tutorial/configure-resources.md
         - SonarQube:
             - managed-addons/sonarqube/overview.md
-            - managed-addons/sonarqube/sonarqube-upgrade.md
         - Tekton:
-            - managed-addons/tekton/introduction.md
-            - managed-addons/tekton/cluster-tasks.md
-            - managed-addons/tekton/openshift-pipelines/openshift-pipelines.md
-            - managed-addons/tekton/openshift-pipelines/deploying-cicd-pipeline.md
-            - managed-addons/tekton/openshift-pipelines/deploying-delivery-pipeline.md
+            - managed-addons/tekton/overview.md
         - Tronador:
             - managed-addons/tronador/overview.md
         - Velero:
