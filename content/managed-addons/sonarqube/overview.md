@@ -1,6 +1,4 @@
-# Code Quality
-
-We offer [SonarQube](https://www.sonarqube.org/) as managed addon to analyze the code's quality.
+# Overview
 
 SonarQube performs static code analysis to evaluate code quality, using analysis rules that focus on three areas:
 
