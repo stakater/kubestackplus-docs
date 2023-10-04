@@ -21,7 +21,7 @@ Argo CD supports defining Kubernetes manifests in a number of ways:
 
 ArgoCD compares the actual state of the application in the cluster with the desired state defined in Git and determines if they are out of sync. When it detects the environment is out of sync, ArgoCD can be configured to either send out a notification to kick off a separate reconciliation process or ArgoCD can automatically synchronize the environments to ensure they match.
 
-### Benefits
+## Benefits
 
 ArgoCD offers a wide range of powerful features that help streamline your continuous delivery workflow:
 
@@ -37,7 +37,7 @@ ArgoCD offers a wide range of powerful features that help streamline your contin
 
 1. **RBAC and Access Controls:** ArgoCD offers robust Role-Based Access Control (RBAC) mechanisms, allowing you to define granular permissions for different users or teams. This ensures that only authorized individuals can modify or deploy applications, maintaining the security and integrity of your deployments.
 
-### SLAs
+## SLAs
 
 **Availability:**
 We understand the importance of high availability for continuous deployment. We guarantee a minimum monthly uptime percentage of 99.9% for the ArgoCD platform integrated into our product. This ensures that the ArgoCD service remains accessible, allowing you to effectively manage and deploy your applications without significant disruptions.
@@ -54,7 +54,7 @@ We are dedicated to providing exceptional support to our customers throughout th
 **Service Maintenance:**
 To ensure the stability and security of our product, periodic maintenance activities may be necessary. We make every effort to schedule maintenance windows during off-peak hours to minimize any impact on your continuous deployment processes. Prior notice will be provided regarding any scheduled maintenance, allowing you to plan accordingly.
 
-### Terminology
+## Terminology
 
 Argo CD uses a number of terms to refer to the components:
 
