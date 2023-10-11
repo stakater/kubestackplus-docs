@@ -251,6 +251,8 @@ nav:
             - managed-addons/tronador/overview.md
         - Velero:
             - managed-addons/velero/overview.md
+        - Volume Expander Operator:
+            - managed-addons/volume-expander-operator/overview.md            
     - Legal Documents:
         - legal-documents/gtc.md
         - legal-documents/sla.md

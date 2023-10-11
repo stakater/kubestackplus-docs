@@ -29,3 +29,4 @@ Management and issuance of TLS certificates | [cert-manager](https://github.com/
 Automated base image management | [Renovate](https://github.com/renovatebot/renovate)
 Advanced cluster security | [StackRox](https://www.redhat.com/en/technologies/cloud-computing/openshift/advanced-cluster-security-kubernetes)
 Intrusion detection | Falco (coming soon)
+Automatic volume extension | [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)
