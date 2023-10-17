@@ -141,6 +141,7 @@ nav:
                 - for-developers/tutorials/inner-loop/tilt-zero-to-hero/step-by-step-guide.md
             - Outer Loop:
                 - for-developers/tutorials/outer-loop/access-cluster/access-the-cluster.md
+                - for-developers/tutorials/outer-loop/prerequisites.md
                 - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
                 - Configure Pipeline for your application:
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/overview.md
