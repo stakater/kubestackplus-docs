@@ -10,11 +10,11 @@ Stakater Agility Platform can be purchased by sending an email to [`sales@stakat
 
 ## Can I try Stakater Agility Platform before I buy?
 
-Stakater Agility Platform is available on a pay-as-you-go basis. Yes we offer one month guided trial!
+Yes, we offer a 30 day guided trial! Stakater Agility Platform is also available on a pay-as-you-go basis.
 
 ## Is there any free trial?
 
-Yes we offer 30 days free trial with premium support on major public clouds Azure, AWS and Google.
+Yes, we offer a 30 day free trial with premium support on major public clouds Azure, AWS and Google.
 
 ## Will I receive an invoice from Stakater?
 
