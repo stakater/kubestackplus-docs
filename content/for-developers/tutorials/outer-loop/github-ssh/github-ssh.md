@@ -14,7 +14,7 @@ When collaborating with Tekton Pipelines and housing your pipeline configuration
 
 ## Tutorial
 
-1. Let's create SSH keys to access both source code and gitops repositories.
+1. Let's create SSH keys to access both source code and GitOps repositories.
 
     For SSH Access:
 
@@ -25,6 +25,6 @@ When collaborating with Tekton Pipelines and housing your pipeline configuration
     - [`Add Deploy Key to your Repository`](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)
 
     > Note: A deploy key is specific to a single repository and cannot be used for multiple repositories.
-    > Save the keys cautiously, you'll need them to save in vault in upcoming tutorials.
+    > Save the keys cautiously, you'll need them to save in `Vault` in upcoming tutorials.
 
 Cool! Let's move on to the next tutorial and store the credentials in Vault.

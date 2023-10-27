@@ -49,6 +49,6 @@ A Fine-grained PAT ensures that your CI/CD pipeline can securely interact with y
     <div style="text-align:center"><img src="images/pat-permissions.png" /></div>
 
     !!! note
-        > Save the token cautiously, you'll need to save it in vault in upcoming tutorials.
+        > Save the token cautiously, you'll need to save it in `Vault` in upcoming tutorials.
 
 Congratulations! You have successfully configured GitHub access. Let's move to next tutorial.

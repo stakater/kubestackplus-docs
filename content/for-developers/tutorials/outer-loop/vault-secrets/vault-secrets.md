@@ -11,7 +11,7 @@ In this tutorial, you'll learn how to securely store critical credentials in Vau
 - Manage Helm Registry credentials for Helm chart deployments.
 - Store SonarQube credentials for code quality analysis.
 - Securely manage MongoDB credentials for database access.
-- Store Rox credentials for feature flag management.
+- Store `Rox` credentials for feature flag management.
 
 ## Key Results
 
@@ -22,7 +22,7 @@ In this tutorial, you'll learn how to securely store critical credentials in Vau
 - Efficiently manage Helm Registry credentials within the `<your-tenant>/kv` and `stakater/` path in Vault for Helm chart deployments.
 - Store SonarQube credentials within the `<your-tenant>/kv` path in Vault for code quality analysis.
 - Securely manage MongoDB credentials for database access within the `<your-tenant>/kv/review-api/dev/` path in Vault.
-- Store Rox credentials within the `<your-tenant>/kv` path in Vault for feature flag management.
+- Store `Rox` credentials within the `<your-tenant>/kv` path in Vault for feature flag management.
 
 ## Tutorial
 
@@ -50,7 +50,7 @@ Login to Vault to view <your-tenant> path.
 
     ![create secret](images/create-secret.png)
 
-1. Let's create a `pat-creds` secret for our PAT GitHub token. Write the name of the secret in `path` which is `pat-creds`. Add `secret data`, key: `username`, value: (your github username) and key: `password` , value: (your newly generated PAT). Hit save.
+1. Let's create a `pat-creds` secret for our PAT GitHub token. Write the name of the secret in `path` which is `pat-creds`. Add `secret data`, key: `username`, value: (your GitHub username) and key: `password` , value: (your newly generated PAT). Hit save.
 
     ![secret data](images/secret-data.png)
 
@@ -58,7 +58,7 @@ Login to Vault to view <your-tenant> path.
 
 1. Let's create a `nordmart-ssh-creds` secret for our SSH Key that we created in previous tutorials. Go to <your-tenant> in `Vault`. Click on `Create secret`. Write the name of the secret in `path` which is `nordmart-ssh-creds`. Add `secret data`, key: `api_private_key`, and value: (your newly generated SSH private key). Hit save.
 
-    ![nordmart ssh](images/nordmart.png)
+    ![Nordmart ssh](images/nordmart.png)
 
 ### Create SSH Key Secret in Vault for GitOps Repo
 
