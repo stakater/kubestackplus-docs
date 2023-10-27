@@ -2,7 +2,7 @@
 
 ## Which clouds are supported by Stakater Agility Platform?
 
-We currently support Azure, AWS, Google, OpenStack and VMWare.
+See [Cloud provider overview](../../about/cloud-providers/overview.md).
 
 ## What does Stakater Agility Platform include?
 
@@ -10,7 +10,7 @@ Each Stakater Agility Platform cluster comes with a fully-managed control plane,
 
 ## What is the current version of Red Hat OpenShift running in Stakater Agility Platform?
 
-OpenShift Container Platform 4.6+
+OpenShift Container Platform 4.12.
 
 ## How is Stakater Agility Platform different than Red Hat OpenShift Container Platform?
 

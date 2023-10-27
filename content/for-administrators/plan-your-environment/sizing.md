@@ -30,8 +30,8 @@ The overall minimum resource requirements are:
 | Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPUs | Total Memory (GiB) | Total Storage (GiB)
 |:---|:---|---:|---:|---:|---:|
 | Control plane | 8 x 32 x 350 | 3 | 24 | 96 | 1050 (Provisioned IOPS 1000) |
-| Infra | 8 x 32 x 300 | 3 | 24 | 96 | 900 (General Purpose SSDs) |
-| Worker | 4 x 16 x 300 | 3 | 12 | 48 | 900 (General Purpose SSDs) |
+| Infra | 8 x 32 x 300 | 3 | 24 | 96 | 900 (General Purpose SSD) |
+| Worker | 4 x 16 x 300 | 3 | 12 | 48 | 900 (General Purpose SSD) |
 | **Grand Total** | | **9** | **60** | **240** | **2850** |
 
 ### Recommended
@@ -41,11 +41,11 @@ The recommended resource requirements are:
 | Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPUs | Total Memory (GiB) | Total Storage (GiB) |
 |:---|:---|---:|---:|---:|---:|
 | Control plane | 8 x 32 x 350 | 3 | 24 | 96 | 1050 (Provisioned IOPS 1000) |
-| Infra | 8 x 32 x 300 | 2 | 16 | 64 | 600 (General Purpose SSDs) |
-| Monitoring | 8 x 32 x 300 | 1 | 8 | 32 | 300 (General Purpose SSDs) |
-| Logging | 8 x 32 x 300 | 1 | 8 | 32 | 300 (General Purpose SSDs) |
-| Pipeline | 8 x 32 x 300 | 1 | 8 | 32 | 300 (General Purpose SSDs) |
-| Worker | 4 x 16 x 300 | 3 | 12 | 48 | 900 (General Purpose SSDs) |
+| Infra | 8 x 32 x 300 | 2 | 16 | 64 | 600 (General Purpose SSD) |
+| Monitoring | 8 x 32 x 300 | 1 | 8 | 32 | 300 (General Purpose SSD) |
+| Logging | 8 x 32 x 300 | 1 | 8 | 32 | 300 (General Purpose SSD) |
+| Pipeline | 8 x 32 x 300 | 1 | 8 | 32 | 300 (General Purpose SSD) |
+| Worker | 4 x 16 x 300 | 3 | 12 | 48 | 900 (General Purpose SSD) |
 | **Grand Total** | | **11** | **76** | **304** | **3450** |
 
 ## Compute
