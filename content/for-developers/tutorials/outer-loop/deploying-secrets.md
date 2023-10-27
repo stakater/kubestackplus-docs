@@ -53,19 +53,52 @@ Once you have the both the repositories bootstrapped with ArgoCD, the first thin
     **Where** This secret will be deployed in build namespace of all tenants, the namespaces created by Tronador.
     **Who?** The owner of this secret will be customer's delivery engineer
 1. <app-name>-git-webhook-creds
-1. 
-1.
-1.
-1.
+    **Why** Used in the Repository CR. Pipeline as Code needs this to verify the webhook payload set
+    **Where** In build namespace of the tenant through apps-gitops repository
+    **Who** Developer owns this secret.
+
+1. <app-name>-ssh-creds
+   **Why** Used by multiple tekton tasks:
+    git-clone
+    push-main-tag
+    create-git-tag 
+    update-cd-repo
+   **Where** In build namespace of the tenant through apps-gitops repository.
+   **Who** Developer owns it
+
 
 Auto-distributed secrets
 
 We will need a few secrets to get our pipelines working. Here is a list of secrets that will need to be present in the namespace in which your pipeline will run:
 
 1. sonar-creds
+      **Why** Used by sonarqube-scan pipeline task
+      **Where** In build namespace of the tenant through apps-gitops repository.
+      **Who** SAAP admins
+
 1. docker-reg-creds
+   **Why** Used by buildah and the application itself to pull the image from the nexus registry
+    
+   **Where** Needs to be deployed in all of the tenants namespace. We distribute it using a TGI
+   **Who** SAAP admins
 1. helm-reg-creds
+   **Why** Used by:
+   1. stakater-helm-push
+   2. ArgoCD to fetch the helm chart 
+
+   **Where** Needs to be deployed in build namespace and rh-openshift-gitops-instance namespace. We deploy it using TGI
+   **Who** SAAP admins
 1. rox-creds
+
+   **Why** Used by:
+    1. 
+    2. stakater-rox-deployment-check
+       stakater-rox-image-check
+       stakater-rox-image-scan
+
+   **Where** Needs to be deployed in build namespace. We deploy it using TGI
+   **Who** SAAP admins
+
 
 Infra gitops (org level)
 Apps gitops (repo level)
