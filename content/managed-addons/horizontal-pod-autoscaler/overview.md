@@ -6,7 +6,7 @@ In the ever-evolving landscape of cloud-native applications, achieving dynamic s
 
 Horizontal Pod Autoscaler (HPA) is a core feature of Kubernetes designed to automate the scaling of your application's pods (containers) based on resource utilization or custom metrics. HPA ensures that your application always has the right number of replicas to handle varying workloads, thus optimizing efficiency and performance.
 
-## Key Features and Benefits:
+## Key Features and Benefits
 
 - **Automated Scalability**: HPA continuously monitors your applications and automatically scales the number of pods up or down to match the required resources, ensuring smooth performance and cost savings.
 

@@ -6,7 +6,7 @@ In the fast-paced world of cloud-native applications, achieving the perfect bala
 
 Vertical Pod Autoscaler (VPA) is a key component of Kubernetes that dynamically adjusts resource requests and limits for your container workloads based on their resource utilization. It helps your applications run smoothly by ensuring they have the right amount of CPU and memory resources available, minimizing waste and performance bottlenecks.
 
-## Key Features and Benefits:
+## Key Features and Benefits
 
 - **Effortless Resource Optimization:** Our Managed vPA addon continuously monitors your workloads and automatically adjusts resource requests and limits, optimizing application performance without manual intervention.
 

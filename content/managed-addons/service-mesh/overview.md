@@ -6,7 +6,7 @@ In today's dynamic and complex technology landscape, delivering reliable, scalab
 
 A service mesh is a dedicated infrastructure layer designed to manage communication between microservices in a cloud-native environment. It offers essential functionalities like traffic management, security, observability, and more, allowing organizations to seamlessly deploy, monitor, and secure their applications.
 
-## Key Features and Benefits:
+## Key Features and Benefits
 
 - **Effortless Deployment:** With our Service Mesh addon, you can quickly deploy and configure a service mesh in your SAAP, eliminating the steep learning curve and reducing time-to-market.
 
