@@ -252,7 +252,23 @@ nav:
         - Velero:
             - managed-addons/velero/overview.md
         - Volume Expander Operator:
-            - managed-addons/volume-expander-operator/overview.md            
+            - managed-addons/volume-expander-operator/overview.md
+        - RHACS:
+            - managed-addons/rhacs/overview.md
+        - Vertical Pod Autoscaler (VPA):
+            - managed-addons/vertical-pod-autoscaler/overview.md
+        - Horizontal Pod Autoscaler (HPA):
+            - managed-addons/horizontal-pod-autoscaler/overview.md
+        - Pelorus:
+            - managed-addons/pelorus/overview.md            
+        - Service Mesh:
+            - managed-addons/service-mesh/overview.md
+        - Patch Operator:
+            - managed-addons/patch-operator/overview.md            
+        - Ingress Controller:
+            - managed-addons/ingress-controller/overview.md    
+        - Event Router:
+            - managed-addons/event-router/overview.md                    
     - Legal Documents:
         - legal-documents/gtc.md
         - legal-documents/sla.md
