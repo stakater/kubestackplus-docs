@@ -16,6 +16,6 @@ In the era of cloud-native applications, safeguarding your Kubernetes workloads 
 
 - **Compliance and Policy Enforcement**: Ensure compliance with industry standards and internal security policies with RHACS's policy enforcement and audit capabilities.
 
-- **Configuration Managemen**: Gain visibility and control over your Kubernetes configurations, reducing the attack surface and minimizing security risks.
+- **Configuration Management**: Gain visibility and control over your Kubernetes configurations, reducing the attack surface and minimizing security risks.
 
 - **Incident Response**: RHACS helps organizations respond to security incidents by providing detailed insights into the attack chain and facilitating rapid incident response.

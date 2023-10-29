@@ -5,7 +5,7 @@ Here is the list of fully managed addons available on Stakater App Agility Platf
 Managed AddOn | Description
 --- | ---
 Logging | [ElasticSearch, Fluentd and Kibana](./logging-stack/overview.md)
-Monitoring | [Grafana, Prometheus, Thanos and AlertManager](./monitoring-stack/overview.md)
+Monitoring | [Grafana, Prometheus, Thanos and Alertmanager](./monitoring-stack/overview.md)
 CI (continuous integration) | [Tekton](./tekton/overview.md)
 CD (continuous delivery) | [ArgoCD](./argocd/overview.md)
 Internal alerting | [Alertmanager](./monitoring-stack/overview.md)
@@ -32,7 +32,7 @@ Automatic volume extension | [Volume Expander Operator](./volume-expander-operat
 Vertical pod autoscaling | [Vertical Pod Autoscaling](./vertical-pod-autoscaler/overview.md)
 Horizontal pod autoscaling | [Horizontal Pod Autoscaling](./horizontal-pod-autoscaler/overview.md)
 Dora metrics | [Pelorus](./pelorus/overview.md)
-Declartive resource patching | [Patch Operator](./patch-operator/overview.md)
+Declarative resource patching | [Patch Operator](./patch-operator/overview.md)
 Ingress controller | [OpenShift Router](./ingress-controller/overview.md)
 Kubernetes event routing [Event Router](./event-router/overview.md)
 Lock manager | [RDLM](./rdlm/overview.md)

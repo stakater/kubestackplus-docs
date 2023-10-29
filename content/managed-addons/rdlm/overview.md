@@ -6,7 +6,7 @@
 
 - RESTful interface
 - Timeout automatic management (to avoid stale locks)
-- Blocking wait for acquiring a lock (with customatizable timeout)
+- Blocking wait for acquiring a lock (with customizable timeout)
 - Very fast (in memory)
 - One unique single threaded process
 - Can deal with thousands of locks and simultaneous connections
