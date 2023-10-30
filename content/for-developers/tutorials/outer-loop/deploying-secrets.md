@@ -93,7 +93,7 @@ This secret needs to deployed on the cluster directly.
 
 These secrets need to go into your Infra Gitops Repository
 
-### apps-gitops-creds
+### 1. apps-gitops-creds
 
 **Purpose** This secret is added so ArgoCD can sync the apps-gitops repository. You can either use an ssh key or a personal access token for this purpose.
 
@@ -106,18 +106,18 @@ These secrets need to go into your Infra Gitops Repository
 **Use for** Syncing apps gitops repository
 
 Once you have the both the repositories bootstrapped with ArgoCD, the first thing we will need to do for our pipelines to function is to connect Pipeline as Code to our applications repository. We do this using a Repository CR. The Repository CR references a couple of secrets to connect with the application's repository in the SCM. 
-### git-pat-creds
+### 2. git-pat-creds
 
-**Purpose?** Used for three reasons:
-    1. In the Repository CR so Pipeline as Code can talk to the repository
-    2. In create-environment task to get commit hashes
-    3. In TronadorConfig to allow Tronador to access the application repository.
+**Purpose** Used for three reasons:
+   1. In the Repository CR so Pipeline as Code can talk to the repository
+   1. In create-environment task to get commit hashes
+   1. In TronadorConfig to allow Tronador to access the application repository.
 
 **Owner** The owner of this secret will be customer's delivery engineer
 
 **Where to find it** This secret will be deployed in build namespace of all tenants, the namespaces created by Tronador. 
 
-1. <app-name>-ssh-creds
+1. [app-name]-ssh-creds
 
 **Purpose** Used by multiple tekton tasks:
    1. git-clone
@@ -130,7 +130,7 @@ Once you have the both the repositories bootstrapped with ArgoCD, the first thin
 **Owner** Customer's delivery engineer.
 
 ## Repository level secrets
-### <app-name>-git-webhook-creds
+### 1. [app-name]-git-webhook-creds
 
 **Purpose** Used in the Repository CR. Pipeline as Code needs this to verify the webhook payload set
 
