@@ -5,7 +5,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 ## Auto Generated Secrets
 
-1. sonar-creds
+### sonar-creds
 
 **Purpose:** Used by sonarqube-scan pipeline task.
 
@@ -19,7 +19,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 **Misc:** The origin of this secret is the sonarqube namespace. Secret is copied over to build namespace using a MTO template and Template Group Instance.
 
-1. docker-reg-creds
+### docker-reg-creds
 
 **Purpose** Used by buildah and the application itself to pull the image from the nexus registry
 
@@ -31,7 +31,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 **Lifecycle:** Every time a new tenant is created, the secret gets deployed in all its namespaces.
 
-1. helm-reg-creds
+### helm-reg-creds
 
 **Purpose** Used to pull and push charts from the Nexus Helm Registry. We use it in two places for our pipeline:
     1. stakater-helm-push task
@@ -43,7 +43,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 **Lifecycle:** Every time a new tenant is created, the secret gets deployed in the build namespace. The same secret is deployed in the rh-openshift-gitops-instance when SAAP is provisioned.
 
-1. rox-creds
+### rox-creds
 
 **Purpose** Used by three Tekton Tasks:
      1. stakater-rox-deployment-check
@@ -62,7 +62,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 This secret needs to deployed on the cluster directly.
 
-1. infra-gitops-creds:
+### infra-gitops-creds:
 **Purpose** This secret is added so ArgoCD can sync the repository. You can either use an ssh key or a personal access token for this purpose.
 
 **Owner?** The owner of this secret will be customer's delivery engineer
@@ -93,7 +93,7 @@ This secret needs to deployed on the cluster directly.
 
 These secrets need to go into your Infra Gitops Repository
 
-1. apps-gitops-creds
+### apps-gitops-creds
 
 **Purpose** This secret is added so ArgoCD can sync the apps-gitops repository. You can either use an ssh key or a personal access token for this purpose.
 
@@ -106,7 +106,7 @@ These secrets need to go into your Infra Gitops Repository
 **Use for** Syncing apps gitops repository
 
 Once you have the both the repositories bootstrapped with ArgoCD, the first thing we will need to do for our pipelines to function is to connect Pipeline as Code to our applications repository. We do this using a Repository CR. The Repository CR references a couple of secrets to connect with the application's repository in the SCM. 
-1. git-pat-creds
+### git-pat-creds
 
 **Purpose?** Used for three reasons:
     1. In the Repository CR so Pipeline as Code can talk to the repository
@@ -130,7 +130,7 @@ Once you have the both the repositories bootstrapped with ArgoCD, the first thin
 **Owner** Customer's delivery engineer.
 
 ## Repository level secrets
-1. <app-name>-git-webhook-creds
+### <app-name>-git-webhook-creds
 
 **Purpose** Used in the Repository CR. Pipeline as Code needs this to verify the webhook payload set
 
