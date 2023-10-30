@@ -2,7 +2,7 @@
 
 In modern software development practices, pipelines play a crucial role in automating and streamlining the process of building, testing, and deploying applications. This tutorial will guide you through creating a pipeline using pipeline-as-code concepts. We'll focus on GitHub as the provider and assume that you have a SAAP set up with pipeline-as-code capabilities.
 
-To be able to run a pipeline using Tekton pipeline as code. The delivery engineer will need to perform a few steps:
+To be able to run a pipeline using Tekton pipeline-as-code. The delivery engineer will need to perform a few steps:
 
 **For the Delivery Engineer:**
 

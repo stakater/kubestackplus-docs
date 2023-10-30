@@ -1,4 +1,4 @@
-# Creating a Pipeline Using Pipeline as Code
+# Creating a Pipeline Using pipeline-as-code
 
 In modern software development practices, pipelines play a crucial role in automating and streamlining the process of building, testing, and deploying applications. This tutorial will guide you through creating a pipeline using pipeline-as-code concepts. We'll focus on GitHub as the provider and assume that you have a SAAP set up with pipeline-as-code capabilities.
 

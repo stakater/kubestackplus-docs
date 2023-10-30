@@ -29,6 +29,10 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
+
 extra:
     analytics:
         provider: google
@@ -143,6 +147,7 @@ nav:
                 - for-developers/tutorials/outer-loop/access-cluster/access-the-cluster.md
                 - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
                 - Configure Pipeline for your application:
+                  - for-developers/tutorials/outer-loop/deploying-secrets.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/overview.md
                   - for-developers/tutorials/outer-loop/github-pat/github-pat.md
                   - for-developers/tutorials/outer-loop/webhook-setup/webhook-setup.md
