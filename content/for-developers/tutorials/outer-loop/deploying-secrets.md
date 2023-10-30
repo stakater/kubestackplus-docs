@@ -15,7 +15,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Type_: Login credentials for SonarQube
     * _Used for_: For running SonarQube scan in pipeline
     * _Lifecycle_: Every time a new tenant is created, the secret gets deployed in the build namespace. SonarQube credentials are not rotated and remain the same.
-    * _Comment_: The origin of this secret is the SonarQube namespace. Secret is copied over to build namespace using a MTO template and Template Group Instance.
+    * _Comment_: The origin of this secret is the SonarQube namespace. Secret is copied over to build namespace using an MTO template and Template Group Instance.
 * `docker-reg-creds`
     * _Purpose_: Used by buildah and the application itself to pull the image from the nexus registry
     * _Owner_: SAAP admins
@@ -41,8 +41,6 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 ## Infra GitOps Creds
 
-This secret needs to deployed on the cluster directly.
-
 * `infra-gitops-creds`
     * _Purpose_: This secret is added so ArgoCD can sync the repository. You can either use an ssh key or a personal access token for this purpose.
     * _Owner_: The owner of this secret will be customer's delivery engineer
@@ -67,9 +65,12 @@ This secret needs to deployed on the cluster directly.
             -----END OPENSSH PRIVATE KEY-----
          ```
 
+    * _Comment_: This secret needs to be deployed on the cluster directly.
+
 ## Organization Level Secrets
 
-These secrets need to go into your Infra GitOps Repository:
+!!! note
+    These secrets need to go into your Infra GitOps Repository
 
 * `apps-gitops-creds`
     * _Purpose_: This secret is added so ArgoCD can sync the `apps-gitops` repository. You can either use an ssh key or a personal access token for this purpose.
