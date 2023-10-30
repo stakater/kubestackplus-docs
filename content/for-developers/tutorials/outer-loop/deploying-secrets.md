@@ -48,24 +48,24 @@ This secret needs to deployed on the cluster directly.
     * _Owner_: The owner of this secret will be customer's delivery engineer
     * _Location_: The secret will be deployed in the `rh-openshift-gitops-instance` namespace
     * _Used for_: Use only for the purpose of syncing your infra GitOps repository with ArgoCD
-    * _Format_: Given below is the template for this secret. The secret/external secret will need to have `argocd.argoproj.io/secret-type: repository` label on it.
+    * _Format_: Given below is the template for this secret. The secret/external secret will need to have `argocd.argoproj.io/secret-type: repository` label on it:
 
-      ```yaml
-      apiVersion: v1
-      kind: Secret
-      metadata:
-      name: private-repo
-      namespace: argocd
-      labels:
-         argocd.argoproj.io/secret-type: repository
-      stringData:
-      type: git
-      url: git@github.com:argoproj/my-private-repository
-      sshPrivateKey: |
-         -----BEGIN OPENSSH PRIVATE KEY-----
-         ...
-         -----END OPENSSH PRIVATE KEY-----
-      ```
+         ```yaml
+         apiVersion: v1
+         kind: Secret
+         metadata:
+         name: private-repo
+         namespace: argocd
+         labels:
+            argocd.argoproj.io/secret-type: repository
+         stringData:
+         type: git
+         url: git@github.com:argoproj/my-private-repository
+         sshPrivateKey: |
+            -----BEGIN OPENSSH PRIVATE KEY-----
+            ...
+            -----END OPENSSH PRIVATE KEY-----
+         ```
 
 ## Organization Level Secrets
 
