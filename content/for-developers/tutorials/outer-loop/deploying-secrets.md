@@ -5,7 +5,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 ## Auto Generated Secrets
 
-### sonar-creds
+### 1. sonar-creds
 
 **Purpose:** Used by sonarqube-scan pipeline task.
 
@@ -19,7 +19,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 **Misc:** The origin of this secret is the sonarqube namespace. Secret is copied over to build namespace using a MTO template and Template Group Instance.
 
-### docker-reg-creds
+### 2. docker-reg-creds
 
 **Purpose** Used by buildah and the application itself to pull the image from the nexus registry
 
@@ -31,7 +31,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 **Lifecycle:** Every time a new tenant is created, the secret gets deployed in all its namespaces.
 
-### helm-reg-creds
+### 3. helm-reg-creds
 
 **Purpose** Used to pull and push charts from the Nexus Helm Registry. We use it in two places for our pipeline:
     1. stakater-helm-push task
@@ -43,7 +43,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 **Lifecycle:** Every time a new tenant is created, the secret gets deployed in the build namespace. The same secret is deployed in the rh-openshift-gitops-instance when SAAP is provisioned.
 
-### rox-creds
+### 4. rox-creds
 
 **Purpose** Used by three Tekton Tasks:
      1. stakater-rox-deployment-check
@@ -52,13 +52,13 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 **Owner** SAAP admins
 
-**Use for** Talking to RHACS api to scan images and deployments
+**Use for** communicating with RHACS api to scan images and deployments
 
 **Lifecycle** Created at the time of RHACS deployment. The secret is then copied over to build namespaces of tenants.
 
 **Misc** Needs to be deployed in build namespace. We deploy it using TGI
 
-## INFRA GITOPS CREDS
+## Infra GitOps Creds
 
 This secret needs to deployed on the cluster directly.
 
