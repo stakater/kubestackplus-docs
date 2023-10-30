@@ -46,9 +46,9 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 ### 4. rox-creds
 
 **Purpose** Used by three Tekton Tasks:
-     1. stakater-rox-deployment-check
-     1. stakater-rox-image-check
-     1. stakater-rox-image-scan
+   1. stakater-rox-deployment-check
+   1. stakater-rox-image-check
+   1. stakater-rox-image-scan
 
 **Owner** SAAP admins
 
