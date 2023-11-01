@@ -16,12 +16,15 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Used for_: For running SonarQube scan in pipeline
     * _Lifecycle_: Every time a new tenant is created, the secret gets deployed in the build namespace. SonarQube credentials are not rotated and remain the same.
     * _Comment_: The origin of this secret is the SonarQube namespace. Secret is copied over to build namespace using an MTO template and Template Group Instance.
+    * _Deployment Process_: The SonarQube deployed on SAAP contains a secret named `sonar-creds` in its namespace. This secret contains the username and password for SonarQube. We use a Multi Tenant Operator Template and TemplateGroupInstance to copy this secret and distribute it the build namespaces of all tenants. The Template and TemplateGroupInstance are both named `sonar-creds`
 * `docker-reg-creds`
     * _Purpose_: Used by buildah and the application itself to pull the image from the nexus registry
     * _Owner_: SAAP admins
     * _Type_: Login credentials for nexus docker registry. The secret itself is of type dockerconfigjson.
     * _Used for_: Pulling images from the nexus registry. Needs to be deployed in all namespaces of the tenant. We distribute it using a TGI.
     * _Lifecycle_: Every time a new tenant is created, the secret gets deployed in all its namespaces.
+    * _Deployment Process_: Nexus comes shipped with SAAP. The `nexus3` namespace contains a secret named `docker-reg-creds`. This secret contains the .dockerconfigjson file. We use a Multi Tenant Operator Template and TemplateGroupInstance to copy this secret and distribute it all namespaces of the tenants. The Template and TemplateGroupInstance are both named `docker-reg-creds`
+
 * `helm-reg-creds`
     * _Purpose_: Used to pull and push charts from the Nexus Helm Registry. We use it in two places for our pipeline:
         1. `stakater-helm-push` task
