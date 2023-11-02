@@ -166,6 +166,49 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Owner_: The owner of this secret will be customer's delivery engineer
     * _Location_: This secret will be deployed in build namespace of all tenants, the namespaces created by Tronador.\
     * _Deployment Process_: To deploy the git-pat-creds, follow the below-mentioned steps:
+          1. Navigate to your infra-gitops repository.
+          1. At the base level, your infra repository should already have a folder with cluster name. Open up the tenant-operator-config and create a folder named templates if it is not already there.
+          1. Now add a template with the following structure. Remember to replace the placeholders.
+      ```yaml
+         apiVersion: tenantoperator.stakater.com/v1alpha1
+         kind: Template
+         metadata:
+           name: git-pat-creds
+         resources:
+           manifests:
+             - apiVersion: external-secrets.io/v1beta1
+               kind: ExternalSecret
+               metadata:
+                 name: git-pat-creds
+               spec:
+                 dataFrom:
+                   - extract:
+                     conversionStrategy: Default
+                     key: git-pat-creds
+                 refreshInterval: 1m0s
+                 secretStoreRef:
+                   kind: SecretStore
+                   name: tenant-vault-shared-secret-store
+                 target:
+                   name: git-pat-creds
+      ```
+        1. Now add a TemplateGroupInstance:
+       
+        ```yaml
+          apiVersion: tenantoperator.stakater.com/v1alpha1
+          kind: TemplateGroupInstance
+          metadata:
+            name: git-pat-creds
+          spec:
+             template: git-pat-creds
+             selector:
+               matchExpressions:
+                 - key: stakater.com/kind
+                   operator: In
+                   values: [ build, pr ]
+             sync: true
+        ```
+        1. If you have correctly configured your infra repository, ArgoCD should be able to sync the changes and deploy the secret in build namespaces of the tenants.
 
 ## Repository level secrets
 
