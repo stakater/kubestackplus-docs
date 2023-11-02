@@ -125,7 +125,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
               url: "https://github.com/DESTINATION_ORG/apps-gitops-config.git"
         ```
 
-        1. Now open up Vault and open the common-secrets path. Add a secret named git-pat-creds and add two key 'password' and 'username'. Password should have Personal Access Token with that can access your apps gitops repository.
+        1. Now open up Vault and open the common-secrets path. Add a secret named git-pat-creds and add two key 'password' and 'username'. Password should have Personal Access Token with that can access your `apps-gitops-config` repository.
         1. Now go to the `argocd-apps` folder in the `infra-gitops-config` repo and add and ArgoCD application pointing to your `gitops-repositories` folder.
 
       ```yaml
@@ -152,7 +152,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
                selfHeal: true
       ```
   
-       1. Wait for ArgoCd to sync your changes.
+       1. Wait for ArgoCD to sync your changes.
 
 * `git-pat-creds`
     * _Purpose_: Used for three reasons:
@@ -162,7 +162,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Owner_: The owner of this secret will be customer's delivery engineer
     * _Location_: This secret will be deployed in build namespace of all tenants, the namespaces created by Tronador.\
     * _Deployment Process_: To deploy the git-pat-creds, follow the below-mentioned steps:
-          1. Navigate to your infra-gitops repository.
+          1. Navigate to your `infra-gitops-config` repository.
           1. At the base level, your infra repository should already have a folder with cluster name. Open up the tenant-operator-config and create a folder named templates if it is not already there.
           1. Now add a template with the following structure. Remember to replace the placeholders.
 
@@ -220,7 +220,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Owner_: Customer's delivery engineer
     * _Location_: In build namespace of the tenant through `apps-gitops` repository
     * _Deployment Process_: To deploy the git-pat-creds, follow the below-mentioned steps:
-        1. Navigate to your apps-gitops repository
+        1. Navigate to your `apps-gitops-config` repository
         1. Open up the tenant for which you want to deploy this secret.
         1. Now navigate to the folder which bears the name of the application for which you want to run the pipelines.
         1. Open the build folder.
@@ -249,15 +249,15 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
                   property: api_private_key
        ```
 
-        1. Now open up the tenant path in vault and add a secret named [app-name]-ssh-creds. Add a key api_private_key. The value should have a private ssh key that has access to your application repository as well as you apps-gitops repository.
-        1. Assuming you have already set up the apps-gitops repository, you should be able to see the secret deployed to your tenant's build namespace.
+        1. Now open up the tenant path in Vault and add a secret named [app-name]-ssh-creds. Add a key api_private_key. The value should have a private ssh key that has access to your application repository as well as you `apps-gitops-config` repository.
+        1. Assuming you have already set up the `apps-gitops-config` repository, you should be able to see the secret deployed to your tenant's build namespace.
 
 * `[app-name]-git-webhook-creds`
     * _Purpose_: Used in the Repository CR. pipeline-as-code needs this to verify the webhook payload set
     * _Owner_: Developer owns this secret
     * _Location_: In build namespace of the tenant through `apps-gitops` repository
     * _Deployment Process_: Follow the below mentioned steps for deploying the secret:
-        1. Navigate to your apps-gitops repository
+        1. Navigate to your `apps-gitops-config` repository
         1. Open up the tenant for which you want to deploy this secret.
         1. Now navigate to the folder which bears the name of the application for which you want to run the pipelines.
         1. Open the build folder.
