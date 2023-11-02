@@ -90,7 +90,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
         1. At the base level, your infra repository should already have a folder with cluster name. You can refer to this tutorial for defining your infra gitops repository structure. Open up the relevant cluster folder.
         1. Inside it, create a folder named gitops-repositories.
         1. Now add an external secret that has the following structure. Remember to replace the placeholder.
-      
+
         ```yaml
           apiVersion: external-secrets.io/v1beta1
           kind: ExternalSecret
@@ -123,11 +123,11 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
               project: TENANT_NAME
               type: git
               url: "https://github.com/DESTINATION_ORG/apps-gitops-config.git"
-        ```   
-       
-        1. Now open up vault and open the common-secrets path. Add a secret named git-pat-creds and add two key 'password' and 'usrname'. Password should have Personal Access Token with that can access your apps gitops repository. 
+        ```
+
+        1. Now open up vault and open the common-secrets path. Add a secret named git-pat-creds and add two key 'password' and 'usrname'. Password should have Personal Access Token with that can access your apps gitops repository.
         1. Now go to the argocd-apps folder in the infra-gitops repo and add and ArgoCD application pointing to your gitops-repositories folder.
-        
+ 
       ```yaml
          apiVersion: argoproj.io/v1alpha1
          kind: Application
