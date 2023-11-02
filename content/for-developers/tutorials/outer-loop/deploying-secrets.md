@@ -5,7 +5,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 ## Auto Generated Secrets
 
-* `sonar-creds`
+1. `sonar-creds`
     * _Purpose_: Used by `sonarqube-scan` pipeline task
     * _Owner_: SAAP admins
     * _Type_: Login credentials for SonarQube
@@ -13,7 +13,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Lifecycle_: Every time a new tenant is created, the secret gets deployed in the build namespace. SonarQube credentials are not rotated and remain the same.
     * _Comment_: The origin of this secret is the SonarQube namespace. Secret is copied over to build namespace using an MTO template and Template Group Instance.
     * _Deployment Process_: The SonarQube deployed on SAAP contains a secret named `sonar-creds` in its namespace. This secret contains the username and password for SonarQube. We use a Multi Tenant Operator Template and TemplateGroupInstance to copy this secret and distribute it the build namespaces of all tenants. The Template and TemplateGroupInstance are both named `sonar-creds`
-* `docker-reg-creds`
+1. `docker-reg-creds`
     * _Purpose_: Used by buildah and the application itself to pull the image from the nexus registry
     * _Owner_: SAAP admins
     * _Type_: Login credentials for nexus docker registry. The secret itself is of type dockerconfigjson.
@@ -21,7 +21,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Lifecycle_: Every time a new tenant is created, the secret gets deployed in all its namespaces.
     * _Deployment Process_: Nexus comes shipped with SAAP. The `nexus3` namespace contains a secret named `docker-reg-creds`. This secret contains the .dockerconfigjson file. We use a Multi Tenant Operator Template and TemplateGroupInstance to copy this secret and distribute it all namespaces of the tenants. The Template and TemplateGroupInstance are both named `docker-reg-creds`
 
-* `helm-reg-creds`
+1. `helm-reg-creds`
     * _Purpose_: Used to pull and push charts from the Nexus Helm Registry. We use it in two places for our pipeline:
         1. `stakater-helm-push` task
         1. ArgoCD to fetch the helm chart
@@ -30,7 +30,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Lifecycle_: Every time a new tenant is created, the secret gets deployed in the build namespace. The same secret is deployed in the `rh-openshift-gitops-instance` when SAAP is provisioned.
     * _Deployment Process_: Nexus comes shipped with SAAP. The `nexus3` namespace contains a secret named `helm-reg-creds`. This secret contains the username and password for the helm registry. We use a Multi Tenant Operator Template and TemplateGroupInstance to copy this secret and distribute it all namespaces of the tenants. The Template and TemplateGroupInstance are both named `helm-reg-creds`. Another TGI named `helm-reg-creds-gitops` deploys the secret in GitOps namespace so ArgoCD can fetch the charts.
 
-* `rox-creds`
+1. `rox-creds`
     * _Purpose_: Used by three Tekton Tasks:
         1. `stakater-rox-deployment-check`
         1. `stakater-rox-image-check`
@@ -43,7 +43,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 ## Infra GitOps Creds
 
-* `infra-gitops-creds`
+1. `infra-gitops-creds`
     * _Purpose_: This secret is added so ArgoCD can sync the repository. You can either use an ssh key or a personal access token for this purpose.
     * _Owner_: The owner of this secret will be customer's delivery engineer
     * _Location_: The secret will be deployed in the `rh-openshift-gitops-instance` namespace
@@ -74,7 +74,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 !!! note
     These secrets need to go into your Infra GitOps Repository
 
-* `apps-gitops-creds`
+1. `apps-gitops-creds`
     * _Purpose_: This secret is added so ArgoC
     * _Used for_: Communicating with RHACS API to scan images and deployments
     * _Lifecycle_: Created at the time of RHACS deployment. The secret is then copied over to build namespaces of tenants.
@@ -154,7 +154,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
   
        1. Wait for ArgoCD to sync your changes.
 
-* `git-pat-creds`
+1. `git-pat-creds`
     * _Purpose_: Used for three reasons:
         1. In the Repository CR so pipeline-as-code can talk to the repository
         1. In create-environment task to get commit hashes
@@ -211,7 +211,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
 ## Repository level secrets
 
-* `[app-name]-ssh-creds`
+1. `[app-name]-ssh-creds`
     * _Purpose_: Used by these Tekton tasks:
         * `git-clone`
         * `push-main-tag`
@@ -252,7 +252,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
         1. Now open up the tenant path in Vault and add a secret named [app-name]-ssh-creds. Add a key api_private_key. The value should have a private ssh key that has access to your application repository as well as you `apps-gitops-config` repository.
         1. Assuming you have already set up the `apps-gitops-config` repository, you should be able to see the secret deployed to your tenant's build namespace.
 
-* `[app-name]-git-webhook-creds`
+1. `[app-name]-git-webhook-creds`
     * _Purpose_: Used in the Repository CR. pipeline-as-code needs this to verify the webhook payload set
     * _Owner_: Developer owns this secret
     * _Location_: In build namespace of the tenant through `apps-gitops` repository
