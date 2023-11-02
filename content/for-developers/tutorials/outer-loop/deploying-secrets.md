@@ -151,9 +151,9 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
                prune: true
                selfHeal: true
       ```
-      
-       1. Wait for ArgoCd to sync your changes. 
-      
+  
+       1. Wait for ArgoCd to sync your changes.
+
 * `git-pat-creds`
     * _Purpose_: Used for three reasons:
         1. In the Repository CR so pipeline-as-code can talk to the repository
@@ -165,7 +165,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
           1. Navigate to your infra-gitops repository.
           1. At the base level, your infra repository should already have a folder with cluster name. Open up the tenant-operator-config and create a folder named templates if it is not already there.
           1. Now add a template with the following structure. Remember to replace the placeholders.
-     
+
       ```yaml
          apiVersion: tenantoperator.stakater.com/v1alpha1
          kind: Template
@@ -189,9 +189,9 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
                  target:
                    name: git-pat-creds
       ```
-      
+
         1. Now add a TemplateGroupInstance:
-       
+
         ```yaml
           apiVersion: tenantoperator.stakater.com/v1alpha1
           kind: TemplateGroupInstance
@@ -206,7 +206,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
                    values: [ build, pr ]
              sync: true
         ```
-      
+ 
         1. If you have correctly configured your infra repository, ArgoCD should be able to sync the changes and deploy the secret in build namespaces of the tenants.
 
 ## Repository level secrets
@@ -225,7 +225,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
         1. Now navigate to the folder which bears the name of the application for which you want to run the pipelines.
         1. Open the build folder.
         1. Add an external secret named [app-name]-ssh-creds.
-      
+
         ```yaml
           apiVersion: external-secrets.io/v1beta1
           kind: ExternalSecret
@@ -248,10 +248,10 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
                   key: [app-name]-ssh-creds
                   property: api_private_key
        ```
-      
+
         1. Now open up the tenant path in vault and add a secret named [app-name]-ssh-creds. Add a key api_private_key. The value should have a private ssh key that has access to your application repository as well as you apps-gitops repository.
         1. Assuming you have already set up the apps-gitops repository, you should be able to see the secret deployed to your tenant's build namespace.
-      
+
 * `[app-name]-git-webhook-creds`
     * _Purpose_: Used in the Repository CR. pipeline-as-code needs this to verify the webhook payload set
     * _Owner_: Developer owns this secret
@@ -262,7 +262,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
         1. Now navigate to the folder which bears the name of the application for which you want to run the pipelines.
         1. Open the build folder.
         1. Add an external secret named [app-name]-git-webhook-creds
-      
+
         ```yaml
            apiVersion: external-secrets.io/v1beta1
            kind: ExternalSecret
