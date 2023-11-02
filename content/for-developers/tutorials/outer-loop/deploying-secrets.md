@@ -256,7 +256,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Purpose_: Used in the Repository CR. pipeline-as-code needs this to verify the webhook payload set
     * _Owner_: Developer owns this secret
     * _Location_: In build namespace of the tenant through `apps-gitops` repository
-    * _Deployment Process_: Follow the below mentioned steps for deploying the secret:
+    * _Deployment Process_: Follow the below-mentioned steps for deploying the secret:
         1. Navigate to your `apps-gitops-config` repository
         1. Open up the tenant for which you want to deploy this secret.
         1. Now navigate to the folder which bears the name of the application for which you want to run the pipelines.
