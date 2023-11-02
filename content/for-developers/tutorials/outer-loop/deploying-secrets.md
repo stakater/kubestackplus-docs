@@ -255,3 +255,37 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Purpose_: Used in the Repository CR. pipeline-as-code needs this to verify the webhook payload set
     * _Owner_: Developer owns this secret
     * _Location_: In build namespace of the tenant through `apps-gitops` repository
+    * _Deployment Process_: Follow the below mentioned steps for deploying the secret:
+        1. Navigate to your apps-gitops repository
+        1. Open up the tenant for which you want to deploy this secret.
+        1. Now navigate to the folder which bears the name of the application for which you want to run the pipelines.
+        1. Open the build folder.
+        1. Add an external secret named [app-name]-git-webhook-creds
+      
+        ```yaml
+           apiVersion: external-secrets.io/v1beta1
+           kind: ExternalSecret
+           metadata:
+             name: github-webhook-config
+           spec:
+             secretStoreRef:
+               name: tenant-vault-secret-store
+               kind: SecretStore
+             refreshInterval: "1m0s"
+             target:
+               name: github-webhook-config
+               creationPolicy: 'Owner'
+               template:
+                 data:
+                   provider.token: "{{ .password | toString }}"
+                   webhook.secret: "{{ .secret | toString }}"
+             data:
+               - secretKey: password
+                 remoteRef:
+                   key: github-webhook-config
+                   property: provider.token
+               - secretKey: secret
+                 remoteRef:
+                   key: github-webhook-config
+                   property: webhook.secret
+        ```
