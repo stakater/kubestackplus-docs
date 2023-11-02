@@ -1,13 +1,9 @@
 # Secrets
 
-[TOC]
-
 We will need the following secrets for running a fully functional pipeline using pipeline-as-code.
 To have a fully functional pipeline, we will be needing a few secrets. Some of the secrets are Auto-distributed in the build namespaces of all tenants. While the rest will be deployed through your infra repository (organization level secrets) and GitOps repository (repository/application level secrets)
 
 ## Auto Generated Secrets
-
-<TODO: Describe how each one is auto-generated>
 
 * `sonar-creds`
     * _Purpose_: Used by `sonarqube-scan` pipeline task
