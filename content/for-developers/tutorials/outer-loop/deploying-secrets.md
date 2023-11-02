@@ -127,7 +127,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
 
         1. Now open up Vault and open the common-secrets path. Add a secret named git-pat-creds and add two key 'password' and 'username'. Password should have Personal Access Token with that can access your apps gitops repository.
         1. Now go to the `argocd-apps` folder in the `infra-gitops-config` repo and add and ArgoCD application pointing to your `gitops-repositories` folder.
- 
+
       ```yaml
          apiVersion: argoproj.io/v1alpha1
          kind: Application
@@ -206,7 +206,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
                    values: [ build, pr ]
              sync: true
         ```
- 
+
         1. If you have correctly configured your infra repository, ArgoCD should be able to sync the changes and deploy the secret in build namespaces of the tenants.
 
 ## Repository level secrets
