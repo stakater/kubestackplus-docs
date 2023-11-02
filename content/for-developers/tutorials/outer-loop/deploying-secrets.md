@@ -39,7 +39,7 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Used for_: Communicating with RHACS API to scan images and deployments
     * _Lifecycle_: Created at the time of RHACS deployment. The secret is then copied over to build namespaces of tenants.
     * _Comment_: Needs to be deployed in build namespace. We deploy it using TGI.
-    * _Deployment Process_: After StackRox is installed on the SAAP cluster. An api token is created and stored in the rox-creds secret in the stakater-stackrox namespaces. We then use a Template and a TemplateGroupInstance with the same name to distribute the secret in the build namespace of tenants.
+    * _Deployment Process_: After StackRox is installed on the SAAP cluster. An api token is created and stored in the rox-creds secret in the `stakater-stackrox` namespaces. We then use a Template and a TemplateGroupInstance with the same name to distribute the secret in the build namespace of tenants.
 
 ## Infra GitOps Creds
 
@@ -79,16 +79,16 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
     * _Used for_: Communicating with RHACS API to scan images and deployments
     * _Lifecycle_: Created at the time of RHACS deployment. The secret is then copied over to build namespaces of tenants.
     * _Comment_: Needs to be deployed in build namespace. We deploy it using TGI.
-    * _Deployment Process_: After RD can sync the `apps-gitops` repository. You can either use an ssh key or a personal access token for this purpose.
+    * _Deployment Process_: After RD can sync the `apps-gitops-config` repository. You can either use an ssh key or a personal access token for this purpose.
     * _Owner_: The owner of this secret will be customer's delivery engineer
     * _Location_: The secret will be deployed in the `rh-openshift-gitops-instance` namespace **through the `infra-gitops` repository**
     * _Format_: Will have the same format as that of `infra-gitops-creds` secret
     * _Use for_: Syncing apps GitOps repository
     * _Comment_: Once you have the both the repositories bootstrapped with ArgoCD, the first thing we will need to do for our pipelines to function is to connect pipeline-as-code to our applications repository. We do this using a Repository CR. The Repository CR references a couple of secrets to connect with the application's repository in the SCM.
-    * _Deployment Process_: To deploy the apps-gitops-creds, follow the below-mentioned steps:
-        1. Navigate to your infra-gitops repository.
-        1. At the base level, your infra repository should already have a folder with cluster name. You can refer to this tutorial for defining your infra gitops repository structure. Open up the relevant cluster folder.
-        1. Inside it, create a folder named gitops-repositories.
+    * _Deployment Process_: To deploy the `apps-gitops-creds`, follow the below-mentioned steps:
+        1. Navigate to your `infra-gitops-config` repository.
+        1. At the base level, your infra repository should already have a folder with cluster name. You can refer to this tutorial for defining your Infra GitOps Repository structure. Open up the relevant cluster folder.
+        1. Inside it, create a folder named `gitops-repositories`.
         1. Now add an external secret that has the following structure. Remember to replace the placeholder.
 
         ```yaml
@@ -125,8 +125,8 @@ To have a fully functional pipeline, we will be needing a few secrets. Some of t
               url: "https://github.com/DESTINATION_ORG/apps-gitops-config.git"
         ```
 
-        1. Now open up vault and open the common-secrets path. Add a secret named git-pat-creds and add two key 'password' and 'usrname'. Password should have Personal Access Token with that can access your apps gitops repository.
-        1. Now go to the argocd-apps folder in the infra-gitops repo and add and ArgoCD application pointing to your gitops-repositories folder.
+        1. Now open up Vault and open the common-secrets path. Add a secret named git-pat-creds and add two key 'password' and 'username'. Password should have Personal Access Token with that can access your apps gitops repository.
+        1. Now go to the `argocd-apps` folder in the `infra-gitops-config` repo and add and ArgoCD application pointing to your `gitops-repositories` folder.
  
       ```yaml
          apiVersion: argoproj.io/v1alpha1
