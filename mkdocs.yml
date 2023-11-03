@@ -219,6 +219,7 @@ nav:
             - managed-addons/tilt/overview.md
         - Dependency updates:
             - managed-addons/renovate/overview.md
+            - managed-addons/renovate/how-to-guides/automerge.md
         - Gatekeeper:
             - managed-addons/gatekeeper/overview.md
         - Showback:

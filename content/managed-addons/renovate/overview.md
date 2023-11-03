@@ -13,3 +13,7 @@ We understand the critical need for keeping the Docker images and Helm charts up
 - **Enhanced Security**: Renovate ensures you're consistently using the latest, most secure, and reliable versions of Docker images and Helm charts, reducing vulnerability risks.
 
 - **Insightful Change Tracking**: Gain comprehensive insights into the changes in your dependencies through detailed changelogs, helping you make informed decisions on updates.
+
+## How-to guides
+
+- [How to automate upgrading dependencies](./how-to-guides/automerge.md)
