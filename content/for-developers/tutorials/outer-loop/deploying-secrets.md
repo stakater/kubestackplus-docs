@@ -149,7 +149,7 @@ The following secrets are needed for running a fully functional pipeline using p
                     selfHeal: true
             ```
 
-       1. Wait for ArgoCD to sync your changes
+        1. Wait for ArgoCD to sync your changes
 
 1. `git-pat-creds`
     * _Purpose_: Used for three reasons:
