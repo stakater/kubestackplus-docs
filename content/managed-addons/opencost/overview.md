@@ -1,6 +1,6 @@
 # Overview
 
-We understand the significance of managing Kubernetes costs while ensuring the efficient use of resources in your containerized environment. That's why we provide the OpenCost managed addon as an integral part of our SAAP (Stakater App Agility Platform) to help you take control of your Kubernetes spending.
+We understand the significance of managing Kubernetes costs while ensuring the efficient use of resources in your containerized environment. That's why we provide the [OpenCost](https://www.opencost.io/) managed addon as an integral part of our SAAP (Stakater App Agility Platform) to help you take control of your Kubernetes spending.
 
 ## Key Features and Benefits
 

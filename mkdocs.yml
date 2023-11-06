@@ -282,6 +282,10 @@ nav:
             - managed-addons/ingress-controller/overview.md
         - Event Router:
             - managed-addons/event-router/overview.md
+        - Kubernetes Dashboard:
+            - managed-addons/kubernetes-dashboard/overview.md
+        - OpenShift Data Foundation:
+            - managed-addons/odf/overview.md
     - Legal Documents:
         - legal-documents/gtc.md
         - legal-documents/sla.md
