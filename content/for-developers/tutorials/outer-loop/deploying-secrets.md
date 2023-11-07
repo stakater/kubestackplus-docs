@@ -72,11 +72,7 @@ The following secrets are needed for running a fully functional pipeline using p
     These secrets need to go into your Infra GitOps Repository
 
 1. `apps-gitops-creds`
-    * _Purpose_: This secret is added so ArgoC
-    * _Used for_: Communicating with RHACS API to scan images and deployments
-    * _Lifecycle_: Created at the time of RHACS deployment. The secret is then copied over to build namespaces of tenants.
-    * _Comment_: Needs to be deployed in build namespace. We deploy it using TGI.
-    * _Deployment Process_: After RD can sync the `apps-gitops-config` repository. You can either use an ssh key or a personal access token for this purpose.
+    * _Purpose_: This secret is added so ArgoCD can sync the `apps-gitops-config` repository
     * _Owner_: The owner of this secret will be customer's delivery engineer
     * _Location_: The secret will be deployed in the `rh-openshift-gitops-instance` namespace **through the `infra-gitops` repository**
     * _Format_: Will have the same format as that of `infra-gitops-creds` secret
