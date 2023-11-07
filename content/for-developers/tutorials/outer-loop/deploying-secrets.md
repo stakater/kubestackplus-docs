@@ -2,7 +2,7 @@
 
 The following secrets are needed for running a fully functional pipeline using pipeline-as-code. Some of the secrets are auto-distributed in the build namespaces of all tenants. Organization level secrets will be deployed through the infra repository. Repository and application level secrets will be deployed through GitOps repository.
 
-## Auto Generated Secrets
+## SAAP Managed Secrets
 
 1. `sonar-creds`
     * _Purpose_: Used by `sonarqube-scan` pipeline task
@@ -38,37 +38,37 @@ The following secrets are needed for running a fully functional pipeline using p
     * _Comment_: Needs to be deployed in build namespace. We deploy it using TGI.
     * _Deployment Process_: After StackRox is installed on the SAAP cluster. An api token is created and stored in the rox-creds secret in the `stakater-stackrox` namespaces. We then use a Template and a TemplateGroupInstance with the same name to distribute the secret in the build namespace of tenants.
 
-## Infrastructure GitOps Credentials
+## Customer Managed Secrets
+
+### Organization Level Secrets
 
 1. `infra-gitops-creds`
-    * _Purpose_: This secret is added so ArgoCD can sync the repository. You can either use an ssh key or a personal access token for this purpose.
-    * _Owner_: The owner of this secret will be customer's delivery engineer
-    * _Location_: The secret will be deployed in the `rh-openshift-gitops-instance` namespace
-    * _Used for_: Use only for the purpose of syncing your infra GitOps repository with ArgoCD
-    * _Format_: Given below is the template for this secret. The secret/external secret will need to have `argocd.argoproj.io/secret-type: repository` label on it:
+   * _Purpose_: This secret is added so ArgoCD can sync the repository. You can either use an ssh key or a personal access token for this purpose.
+   * _Owner_: The owner of this secret will be customer's delivery engineer
+   * _Location_: The secret will be deployed in the `rh-openshift-gitops-instance` namespace
+   * _Used for_: Use only for the purpose of syncing your infra GitOps repository with ArgoCD
+   * _Format_: Given below is the template for this secret. The secret/external secret will need to have `argocd.argoproj.io/secret-type: repository` label on it:
 
-         ```yaml
-         apiVersion: v1
-         kind: Secret
-         metadata:
-         name: private-repo
-         namespace: argocd
-         labels:
-            argocd.argoproj.io/secret-type: repository
-         stringData:
-         type: git
-         url: git@github.com:argoproj/my-private-repository
-         sshPrivateKey: |
-            -----BEGIN OPENSSH PRIVATE KEY-----
-            ...
-            -----END OPENSSH PRIVATE KEY-----
-         ```
+        ```yaml
+        apiVersion: v1
+        kind: Secret
+        metadata:
+        name: private-repo
+        namespace: argocd
+        labels:
+           argocd.argoproj.io/secret-type: repository
+        stringData:
+        type: git
+        url: git@github.com:argoproj/my-private-repository
+        sshPrivateKey: |
+           -----BEGIN OPENSSH PRIVATE KEY-----
+           ...
+           -----END OPENSSH PRIVATE KEY-----
+        ```
 
-    * _Comment_: This secret needs to be deployed on the cluster directly.
+   * _Comment_: This secret needs to be deployed on the cluster directly.
 
-## Organization Level Secrets
-
-!!! note
+    !!! note
     These secrets need to go into your Infra GitOps Repository
 
 1. `apps-gitops-creds`
@@ -206,7 +206,7 @@ The following secrets are needed for running a fully functional pipeline using p
 
         1. If you have correctly configured your infra repository, ArgoCD should be able to sync the changes and deploy the secret in build namespaces of the tenants
 
-## Repository Level Secrets
+### Repository Level Secrets
 
 1. `[app-name]-ssh-creds`
     * _Purpose_: Used by these Tekton tasks:
