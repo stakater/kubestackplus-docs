@@ -85,9 +85,6 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
         - name: ssh-directory # Using ssh-directory workspace for our task to have better security
           secret:
             secretName: [app-name]-ssh-creds # Created this secret earlier
-        - name: basic-auth
-          secret:
-            secretName: git-auth
     ```
 
 ### Exploring the Git Clone Task
