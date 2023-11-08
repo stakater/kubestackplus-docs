@@ -19,9 +19,10 @@ Now that we have completed all the prerequisites to run this `pipelineRun`, we c
 
 ### Create PipelineRun with Git Clone Task
 
-Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach. Create a `.tekton` folder and place it in the `pipelineRun` with the `git-clone` task for your source code repository as `main.yaml`. This enables you to define and manage your pipelines along with your application code, promoting better code-pipeline integration and version control.
+Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach. 
 
-1. Let's place this `PipelineRun` containing the `git-clone` task in `.tekton/main.yaml` for your source code repository.
+1. Create a .tekton folder at the root of your repository. 
+1. Now add a file named main.yaml in this folder and place the below given content in it. This file will represent a `PipelineRun`.
 
     ```yaml
     apiVersion: tekton.dev/v1beta1
@@ -31,8 +32,7 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
       annotations:
         pipelinesascode.tekton.dev/on-event: "[push]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
-        pipelinesascode.tekton.dev/task: "[https://raw.usercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, git-clone]"
-        # pipelineRun Tasks are fetching from our tekton-catalog repo where all the tasks are rendered
+        pipelinesascode.tekton.dev/task: "[git-clone]" # The task will be fetched from Tekton Hub. We can also provide direct links to yaml files
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
@@ -84,7 +84,7 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
                   storage: 1Gi
         - name: ssh-directory # Using ssh-directory workspace for our task to have better security
           secret:
-            secretName: nordmart-ssh-creds # Created this secret earlier
+            secretName: [app-name]-ssh-creds # Created this secret earlier
         - name: basic-auth
           secret:
             secretName: git-auth
