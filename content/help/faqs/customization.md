@@ -6,11 +6,11 @@ All supported mechanisms for authentication that are supported by OpenShift Cont
 
 ## Can I bring my own VPC/VNet?
 
-No. Currently it's not supported
+No, currently it's not supported.
 
 ## Can I add RHEL workers to my cluster?
 
-No. In order to maintain our ability to provide seamless updates to your clusters, only Red Hat Enterprise Linux CoreOS (RHCOS) workers are supported by Azure Red Hat OpenShift.
+No, in order to maintain our ability to provide seamless updates to your clusters, only Red Hat Enterprise Linux CoreOS (RHCOS) workers are supported by Azure Red Hat OpenShift.
 
 ## Which Red Hat OpenShift Container Platform rights do we have? Cluster-admin? Project-admin?
 

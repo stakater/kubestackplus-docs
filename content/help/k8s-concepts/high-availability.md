@@ -48,7 +48,7 @@ In the event of a complete control plane node outage, the OpenShift APIs will no
 
 All services running on infrastructure nodes are configured by Stakater to be highly available and distributed across infrastructure nodes. In the event of a complete infrastructure outage, these services will be unavailable until these nodes have been recovered.
 
-The Kubernetes master is the main component that keeps your cluster up and running. The master stores cluster resources and their configurations in the etcd database that serves as the single point of truth for your cluster. The Kubernetes API server is the main entry point for all cluster management requests from the worker nodes to the master, or when you want to interact with your cluster resources. To protect your cluster master from a zone failure: create a cluster in a multi-zone location, which spreads the master across zones or consider setting up a second cluster in another zone.
+The Kubernetes control plane is the main component that keeps your cluster up and running. The control plane stores cluster resources and their configurations in the etcd database that serves as the single point of truth for your cluster. The Kubernetes API server is the main entry point for all cluster management requests from the worker nodes to the control plane, or when you want to interact with your cluster resources. To protect your cluster control plane from a zone failure: create a cluster in a multi-zone location, which spreads the control plane across zones or consider setting up a second cluster in another zone.
 
 ### Potential failure point 4: Zone availability
 

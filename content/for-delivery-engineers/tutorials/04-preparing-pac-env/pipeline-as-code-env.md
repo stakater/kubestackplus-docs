@@ -1,11 +1,11 @@
-# Preparing Environment for Pipeline as code
+# Preparing Environment for pipeline-as-code
 
 ## Prerequisites
 
 1. You should have SAAP Cluster Admin role on the cluster.
 1. `tekton-pipelines-scc` SCC (Security Context Configurations) and `tekton-pac-cluster` ClusterRole should already be deployed in the SAAP cluster.
 1. Multi-Tenant Operator (MTO).
-1. You have a pre-configured infrastructure repository. If you already configured it, follow [this tutorial](../../tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md)
+1. You have a pre-configured infrastructure repository. If you haven't already configured it, follow [this tutorial](../../tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md)
 
 ## Deploying Service Account and RoleBinding
 

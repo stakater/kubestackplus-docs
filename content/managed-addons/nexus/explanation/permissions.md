@@ -30,7 +30,7 @@ Machine user interacts with nexus using API or CLI and we are using nexus local 
 Here is machine users list:
 
 1. `helm-user`: is able to use with OpenShift service DNS (public link is not available)
-1. `docker-user`: is able to use with the dedicated route for docker registry. Because the docker client does not allow a context as part of the path to a registry, a specific and separate port is used for docker registry. And also to use the docker registry at the node level (kubelet) the docker registry should be exposed. So we use a route which has the OpenShift cluster gateway IP in the whitelist.
+1. `docker-user`: is able to use with the dedicated route for docker registry. Because the docker client does not allow a context as part of the path to a registry, a specific and separate port is used for docker registry. And also to use the docker registry at the node level (kubelet) the docker registry should be exposed. So we use a route which has the OpenShift cluster gateway IP in the allow-list.
 
 `mnn-users` are able to access maven2, NuGet and NPM repositories (`mnn` stands for Maven, NuGet and NPM); developers should use these users if they want to connect their package manager with nexus:
 
