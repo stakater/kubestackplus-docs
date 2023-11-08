@@ -1,19 +1,22 @@
-# Configure GitHub Access
+# Configure SCM (GitHub) Access
 
-In this section, you'll learn how to configure GitHub access by generating a Fine-grained Personal Access Token (PAT) and setting up webhook security. These steps are essential for establishing a secure and automated Continuous Integration/Continuous Deployment (CI/CD) pipeline using pipeline-as-code concepts.
+In this section, you'll learn how to configure GitHub access by generating a Fine-grained Personal Access Token (PAT) and securely storing it as a secret in Vault. These steps are essential for establishing a secure and automated Continuous Integration/Continuous Deployment (CI/CD) pipeline using pipeline-as-code concepts.
 
-A Fine-grained PAT ensures that your CI/CD pipeline can securely interact with your GitHub repositories. By generating a token with finely controlled permissions, you grant the pipeline only the specific access it requires, reducing potential security risks.
+A Fine-grained PAT ensures that your CI/CD pipeline can securely interact with your GitHub repositories. By generating a token with finely controlled permissions, you grant the pipeline only the specific access it requires, reducing potential security risks. Additionally, storing the PAT in Vault adds an extra layer of security to protect your credentials.
 
 ## Objectives
 
 - Generate a Fine-grained PAT with the necessary permissions for pipeline integration.
-- Obtain the necessary GitHub access credentials and permissions required for creating and integrating a pipeline-as-code setup.
+- Securely store the GitHub PAT in Vault for added protection.
 
 ## Key Results
 
 - Personal Access Token (PAT) with the specified permissions is generated successfully in the GitHub account.
+- The GitHub PAT is securely stored in Vault and can be accessed only by authorized entities, enhancing security.
 
 ## Tutorial
+
+### Generate Token (PAT) on GitHub
 
 1. Generate a Fine-grained Token (PAT) on GitHub. PAT (Fine-grained): Allows you to select repositories from your GitHub organization that can use the token.[`Create a fine-grained token`](https://github.blog/2022-10-18-introducing-fine-grained-personal-access-tokens-for-github/) with the below-mentioned permissions for your source code repository:
 
@@ -46,6 +49,6 @@ A Fine-grained PAT ensures that your CI/CD pipeline can securely interact with y
     <div style="text-align:center"><img src="images/pat-permissions.png" /></div>
 
     !!! note
-        Save the token cautiously, you will need this to create a secret.
+        > Save the token cautiously, you'll need to save it in `Vault` in upcoming tutorials.
 
-Awesome! Let's move to next tutorial and create a Webhook for our pipeline.
+Congratulations! You have successfully configured GitHub access. Let's move to next tutorial.
