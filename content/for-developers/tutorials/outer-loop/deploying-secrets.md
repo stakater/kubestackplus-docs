@@ -66,7 +66,7 @@ The following secrets are needed for running a fully functional pipeline using p
             -----END OPENSSH PRIVATE KEY-----
         ```
 
-   * _Comment_: This secret needs to be deployed on the cluster directly.
+    * _Comment_: This secret needs to be deployed on the cluster directly.
 
     !!! note
         These secrets need to go into your Infra GitOps Repository
