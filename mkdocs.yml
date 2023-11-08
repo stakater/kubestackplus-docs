@@ -144,8 +144,8 @@ nav:
                 - for-developers/tutorials/outer-loop/prerequisites.md
                 - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
                 - Configure Pipeline for your application:
-                  - for-developers/tutorials/outer-loop/deploying-secrets.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/overview.md
+                  - for-developers/tutorials/outer-loop/deploying-secrets.md
                   - for-developers/tutorials/outer-loop/github-pat/github-pat.md
                   - for-developers/tutorials/outer-loop/webhook-setup/webhook-setup.md
                   - for-developers/tutorials/outer-loop/create-repo-crd/create-repository.md
