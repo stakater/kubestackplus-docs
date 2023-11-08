@@ -1,6 +1,6 @@
 # Data Processing Agreement (DPA)
 
-`Version: 9 May 2023`
+`Version: 18 September 2023`
 
 1. **Objectives of DPA**
 
@@ -12,7 +12,7 @@
 
     1. The characteristics of the Data, the categories of individuals whose data is being processed, and the duration and objectives of the processing are as follows, unless otherwise explicitly stated in the Framework Agreement:
 
-        1. **Data type:** The processed Data includes personal master data, communication data (e.g. email, chat), registration data, documents, and other data in electronic format that the Processor processes for the Controller in connection with the main contractual services. The Controller assures that no data that requires special protection will be transferred for processing without prior agreement.
+        1. **Data type:** The processed Data includes personal data, communication data (e.g. email, chat), registration data, documents, and other data in electronic format that the Processor processes for the Controller in connection with the main contractual services. The Controller assures that no data that requires special protection will be transferred for processing without prior agreement.
 
         1. **Categorization of data subjects:** Employees, customers, suppliers, and any other individuals associated with the data controller whose data the Controller transmits to the Processor under the Framework Agreement.
 

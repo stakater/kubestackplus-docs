@@ -1,1 +1,3 @@
 # Overview
+
+[Vault](https://www.hashicorp.com/products/vault) is a comprehensive secrets management solution that securely stores, manages, and controls access to sensitive data and credentials. It offers a centralized platform for storing and safeguarding secrets, encryption keys, and other critical information. Vault's capabilities extend to dynamic secrets generation, data encryption, access control policies, and integration with various authentication methods. Whether you're dealing with API keys, database credentials, or other sensitive data, Vault provides a robust solution for maintaining security and compliance across your organization.

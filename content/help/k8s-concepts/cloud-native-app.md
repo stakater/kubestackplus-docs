@@ -170,7 +170,7 @@ The key to Design, Build, Release, and Run is that the process is completely eph
 - Well-defined process to build (e.g. compile) the application and start it (e.g. a Makefile)
 - Dockerfile defines ENTRYPOINT to run the application
 - Docker composition (docker-compose.yml) can bring up the environment for automated testing
-- Cut releases on merge to master (preferred, not required); use semver
+- Cut releases on merge to main (preferred, not required); use semver
 
 Stakater App Agility Platform includes managed Tekton and ArgoCD to support all sorts of CI&CD workflows.
 
