@@ -1,4 +1,4 @@
-# Preparing Environment for Pipeline as code
+# Preparing Environment for pipeline-as-code
 
 ## Prerequisites
 

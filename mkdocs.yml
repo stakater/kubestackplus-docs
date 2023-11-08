@@ -87,6 +87,8 @@ nav:
             - for-administrators/cluster-lifecycle/hibernate-your-cluster.md
         - Help:
             - for-administrators/help/faq.md
+        - Explanation:
+            - for-administrators/explanation/number-of-clusters.md
     - For Delivery Engineers:
         - for-delivery-engineers/overview.md
         - Explanation:
@@ -102,12 +104,10 @@ nav:
               - for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
               - for-delivery-engineers/tutorials/04-add-tekton-pipeline-to-demo-app/add-pipeline.md
               - for-delivery-engineers/tutorials/04-preparing-pac-env/pipeline-as-code-env.md
-
         - How-to guides:
             - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
             - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
             - for-delivery-engineers/how-to-guides/use-a-cluster-task-in-pipeline/use-a-clustertask-in-pipeline.md
-
     - For Developers:
         - for-developers/overview.md
         - Explanation:
@@ -144,6 +144,7 @@ nav:
                 - for-developers/tutorials/outer-loop/prerequisites.md
                 - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
                 - Configure Pipeline for your application:
+                  - for-developers/tutorials/outer-loop/deploying-secrets.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/overview.md
                   - for-developers/tutorials/outer-loop/github-pat/github-pat.md
                   - for-developers/tutorials/outer-loop/webhook-setup/webhook-setup.md
@@ -196,7 +197,7 @@ nav:
                 - managed-addons/nexus/how-to-guide/how-to-upload-from-ui.md
                 - managed-addons/nexus/how-to-guide/how-to-upload-local-machine.md
                 - managed-addons/nexus/how-to-guide/how-to-grant-admin-privileges.md
-            - Explanation:            
+            - Explanation:
                 - managed-addons/nexus/explanation/routes.md
                 - managed-addons/nexus/explanation/permissions.md
         - Vault:
@@ -215,6 +216,18 @@ nav:
             - managed-addons/forecastle/overview.md
             - Tutorials:
                 - managed-addons/forecastle/tutorial/add-forecastle-app.md
+        - Tilt:
+            - managed-addons/tilt/overview.md
+        - Renovate:
+            - managed-addons/renovate/overview.md
+            - How-to guides:            
+                - managed-addons/renovate/how-to-guides/automerge.md
+        - Gatekeeper:
+            - managed-addons/gatekeeper/overview.md
+        - Showback:
+            - managed-addons/opencost/overview.md
+        - Restful Distributed Lock Manager (RDLM):
+            - managed-addons/rdlm/overview.md
         - Ingress Monitor Controller:
             - managed-addons/imc/overview.md
             - Tutorials:
@@ -253,7 +266,27 @@ nav:
         - Velero:
             - managed-addons/velero/overview.md
         - Volume Expander Operator:
-            - managed-addons/volume-expander-operator/overview.md            
+            - managed-addons/volume-expander-operator/overview.md
+        - RHACS:
+            - managed-addons/rhacs/overview.md
+        - Vertical Pod Autoscaler (VPA):
+            - managed-addons/vertical-pod-autoscaler/overview.md
+        - Horizontal Pod Autoscaler (HPA):
+            - managed-addons/horizontal-pod-autoscaler/overview.md
+        - Pelorus:
+            - managed-addons/pelorus/overview.md
+        - Service Mesh:
+            - managed-addons/service-mesh/overview.md
+        - Patch Operator:
+            - managed-addons/patch-operator/overview.md
+        - Ingress Controller:
+            - managed-addons/ingress-controller/overview.md
+        - Event Router:
+            - managed-addons/event-router/overview.md
+        - Kubernetes Dashboard:
+            - managed-addons/kubernetes-dashboard/overview.md
+        - OpenShift Data Foundation:
+            - managed-addons/odf/overview.md
     - Legal Documents:
         - legal-documents/gtc.md
         - legal-documents/sla.md

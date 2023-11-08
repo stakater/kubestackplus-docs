@@ -21,11 +21,11 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 
 1. Click on the option to `Add a new webhook` to initiate the process of creating a new webhook for your repository.
 
-1. To set up the webhook, you'll need the `URL of the Pipeline as Code interceptor`. This URL is used to connect GitHub with your SAAP's pipeline system.
+1. To set up the webhook, you'll need the `URL of the pipeline-as-code interceptor`. This URL is used to connect GitHub with your SAAP's pipeline system.
 
-1. Ask the SAAP admin to provide you with the `Interceptor URL` "route" from the project or namespace where the Pipeline as Code is installed.
+1. Ask the SAAP admin to provide you with the `Interceptor URL` "route" from the project or namespace where the pipeline-as-code is installed.
 
-1. Back in the GitHub repository's webhook settings, enter the `Pipeline as Code interceptor URL` you obtained in the previous step in the `Payload URL`.
+1. Back in the GitHub repository's webhook settings, enter the `pipeline-as-code interceptor URL` you obtained in the previous step in the `Payload URL`.
 
 1. Choose `Content type` as `application/json`.
 

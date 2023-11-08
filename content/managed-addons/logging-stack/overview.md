@@ -1,8 +1,17 @@
 # Logging
 
-Stakater App Agility Platform uses EFK Stack (ElasticSearch Fluentd Kibana) to provide logging for applications. Fluentd daemonsets pick up the logs and send these to ElasticSearch. Kibana dashboards can be used to view/analyze logs
+Stakater App Agility Platform uses EFK Stack (ElasticSearch, Fluentd and Kibana) to provide logging for applications. Fluentd daemonsets pick up the logs and send these to ElasticSearch. Kibana dashboards can be used to view/analyze logs
 
 ![Logging](./images/logging.jpg)
+
+## Components
+
+Here are the logging stack components:
+
+- Fluentd
+- ElasticSearch
+- Kibana
+- Event Router
 
 ## Parse JSON Application Logs
 
@@ -30,8 +39,6 @@ This will be parsed as follows:
     "correlation": "ef4f3737f2bcf856"
 }
 ```
-
-)
 
 ## Parse non JSON Application Logs
 
