@@ -72,7 +72,7 @@ The following secrets are needed for running a fully functional pipeline using p
     These secrets need to go into your Infra GitOps Repository
 
 1. `apps-gitops-creds`
-    * _Purpose_: This secret is added so ArgoCD can sync the `apps-gitops-config` repository
+    * _Purpose_: This secret is added so ArgoCD can sync the `apps-gitops-config` repository.
     * _Owner_: The owner of this secret will be customer's delivery engineer
     * _Location_: The secret will be deployed in the `rh-openshift-gitops-instance` namespace **through the `infra-gitops` repository**
     * _Format_: Will have the same format as that of `infra-gitops-creds` secret
@@ -152,7 +152,7 @@ The following secrets are needed for running a fully functional pipeline using p
         1. In the Repository CR so pipeline-as-code can talk to the repository
         1. In create-environment task to get commit hashes
         1. In TronadorConfig to allow Tronador to access the application repository
-    * _Owner_: The owner of this secret will be customer's delivery engineer
+    * _Owner_: The owner of this secret will be customer's delivery engineer.
     * _Location_: This secret will be deployed in build namespace of all tenants, the namespaces created by Tronador
     * _Deployment Process_: To deploy the git-pat-creds, follow the below-mentioned steps:
         1. Navigate to your `infra-gitops-config` repository
