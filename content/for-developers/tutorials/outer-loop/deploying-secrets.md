@@ -40,7 +40,7 @@ The following secrets are needed for running a fully functional pipeline using p
 
 ## Customer Managed Secrets
 
-### Add infra-gitops-config Repository to ArgoCD
+### Add 'infra-gitops-config' Repository to ArgoCD
 
 1. `infra-gitops-creds`
     * _Purpose_: This secret is added so ArgoCD can sync the repository. You can either use an ssh key or a personal access token for this purpose.
@@ -71,7 +71,7 @@ The following secrets are needed for running a fully functional pipeline using p
     !!! note
         These secrets need to go into your Infra GitOps Repository
 
-### Add apps-gitops-config Repository to ArgoCD
+### Add 'apps-gitops-config' Repository to ArgoCD
 
 1. `apps-gitops-creds`
     * _Purpose_: This secret is added so ArgoCD can sync the `apps-gitops-config` repository.
@@ -148,7 +148,7 @@ The following secrets are needed for running a fully functional pipeline using p
             ```
 
         1. Wait for ArgoCD to sync your changes
-      
+
 ### Organization Level Secrets
 
 1. `git-pat-creds`
