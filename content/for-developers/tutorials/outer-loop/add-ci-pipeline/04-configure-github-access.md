@@ -2,10 +2,10 @@
 
 The first thing that you will need to do for your Tekton pipeline to work is to create a Repository CR. The Repository CR tells pipeline-as-code controller that events from a specific repository need to be handled. It also provides a way for pipeline as code controller to authenticate with the github repository through a personal access token.
 
-We will add the Repository CR in three steps. 
-* First, we will generate a personal access token on Github. 
+We will add the Repository CR in three steps.
+* First, we will generate a personal access token on Github.
 * Second, we will create an External Secret and add the token to Vault.
-* Last, we will create a repository CR and reference the secret in it. 
+* Last, we will create a repository CR and reference the secret in it.
 
 In this section, you'll learn how to configure GitHub access by generating a Fine-grained Personal Access Token (PAT) and securely storing it as a secret in Vault. These steps are essential for establishing a secure and automated Continuous Integration/Continuous Deployment (CI/CD) pipeline using pipeline-as-code concepts.
 
@@ -55,7 +55,7 @@ A Fine-grained PAT ensures that your CI/CD pipeline can securely interact with y
 
     <div style="text-align:center"><img src="images/pat-permissions.png" /></div>
 
-    !!! note
-        > Save the token cautiously, you'll need to save it in `Vault` in upcoming tutorials.
+   !!! note
+   > Save the token cautiously, you'll need to save it in `Vault` in upcoming tutorials.
 
 Congratulations! You have successfully configured GitHub access. Let's move to next tutorial.
