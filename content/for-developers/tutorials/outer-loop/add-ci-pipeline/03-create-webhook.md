@@ -20,7 +20,7 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
      ![Repository settings](images/repository-settings.png)
 
 1. Within the repository settings, navigate to the `Webhooks` section. This is where you can manage and configure webhooks for your repository.
-   
+
      ![Webhook](images/webhook.png)
 
 1. Click on the option to `Add a new webhook` to initiate the process of creating a new webhook for your repository.
