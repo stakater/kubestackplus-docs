@@ -152,7 +152,6 @@ nav:
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/06-create-repository.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/07-add-secrets-to-apps-gitops.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/08-adding-pipeline.md
-                  - for-developers/tutorials/outer-loop/github-pat/github-pat.md
                   - for-developers/tutorials/outer-loop/create-repo-crd/create-repository.md
                   - for-developers/tutorials/outer-loop/github-ssh/github-ssh.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/add-ci-pipeline.md
