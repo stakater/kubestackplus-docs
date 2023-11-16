@@ -144,10 +144,14 @@ nav:
                 - for-developers/tutorials/outer-loop/prerequisites.md
                 - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
                 - Configure Pipeline for your application:
-                  - for-developers/tutorials/outer-loop/add-ci-pipeline/overview.md
-                  - for-developers/tutorials/outer-loop/deploying-secrets.md
-                  - for-developers/tutorials/outer-loop/github-pat/github-pat.md
-                  - for-developers/tutorials/outer-loop/webhook-setup/webhook-setup.md
+                  - for-developers/tutorials/outer-loop/add-ci-pipeline/01-overview.md
+                  - for-developers/tutorials/outer-loop/add-ci-pipeline/02-deploying-secrets.md
+                  - for-developers/tutorials/outer-loop/add-ci-pipeline/03-create-webhook.md
+                  - for-developers/tutorials/outer-loop/add-ci-pipeline/04-configure-github-access.md
+                  - for-developers/tutorials/outer-loop/add-ci-pipeline/05-add-external-secret.md
+                  - for-developers/tutorials/outer-loop/add-ci-pipeline/06-create-repository.md
+                  - for-developers/tutorials/outer-loop/add-ci-pipeline/07-add-secrets-to-apps-gitops.md
+                  - for-developers/tutorials/outer-loop/add-ci-pipeline/08-adding-pipeline.md
                   - for-developers/tutorials/outer-loop/create-repo-crd/create-repository.md
                   - for-developers/tutorials/outer-loop/github-ssh/github-ssh.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/add-ci-pipeline.md
