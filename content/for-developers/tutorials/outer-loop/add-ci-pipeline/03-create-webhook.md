@@ -86,7 +86,7 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 
 1. Let's create a `github-webhook-config` secret for our webhook secret. Write the name of the secret in `path` which is `github-webhook-config`. Add `secret data`, key: `webhook.secret`, value: (your webhook secret). Hit save.
 
-   ![secret data](images/secret-data.png)
+   ![secret data](images/webhook-secret.png)
 
 Congratulations! You have successfully configured GitHub access. Let's move to next tutorial.
 
