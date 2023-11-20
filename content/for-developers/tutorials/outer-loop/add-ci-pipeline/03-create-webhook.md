@@ -46,7 +46,7 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
     Now copy it and paste it under `Secret` section in Webhook.
 
     !!! note
-        Save the secret because we will need it later when we add it in to vault.
+        Save the secret because we will need it later when we add it in to Vault.
 
 1. Choose the specific events that should trigger the webhook. Click “Let me select individual events” and select the following events to trigger the webhook:
 
