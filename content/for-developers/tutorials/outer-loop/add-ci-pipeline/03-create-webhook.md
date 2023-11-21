@@ -70,7 +70,6 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 
      <div style="text-align:center"><img src="images/forecastle.png" /></div>
 
-
 1. From the drop-down menu under `Method`, select `OIDC` and click on `Sign in with OIDC Provider`.
 
      <div style="text-align:center"><img src="images/login-oidc.png" /></div>
@@ -78,7 +77,7 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 1. You will be brought to the `Vault` console. You should see the key/value path for <your-tenant>.
 
      <div style="text-align:center"><img src="images/vault-tenant.png" /></div>
-   
+  
 1. Click on `<your-tenant>/kv/`.
 
 1. You will now be brought to the `secrets` and the `configurations` in Vault for <your-tenant>. Click on `create secret`.
