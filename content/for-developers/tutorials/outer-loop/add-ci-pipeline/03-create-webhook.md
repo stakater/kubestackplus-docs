@@ -68,25 +68,26 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 
 1. Access Vault from `Forecastle` console, search `Vault` and open the `Vault` tile.
 
-   ![Forecastle-Vault](images/forecastle.png)
+     <div style="text-align:center"><img src="images/forecastle.png" /></div>
+
 
 1. From the drop-down menu under `Method`, select `OIDC` and click on `Sign in with OIDC Provider`.
 
-   ![Vault-odic-login](images/login-oidc.png)
+     <div style="text-align:center"><img src="images/login-oidc.png" /></div>
 
 1. You will be brought to the `Vault` console. You should see the key/value path for <your-tenant>.
 
-   ![secret engine](images/vault-tenant.png)
-
+     <div style="text-align:center"><img src="images/vault-tenant.png" /></div>
+   
 1. Click on `<your-tenant>/kv/`.
 
 1. You will now be brought to the `secrets` and the `configurations` in Vault for <your-tenant>. Click on `create secret`.
 
-   ![create secret](images/create-secret.png)
+     <div style="text-align:center"><img src="images/create-secret.png" /></div>
 
 1. Let's create a `github-webhook-config` secret for our webhook secret. Write the name of the secret in `path` which is `github-webhook-config`. Add `secret data`, key: `webhook.secret`, value: (your webhook secret). Hit save.
 
-   ![secret data](images/webhook-secret.png)
+     <div style="text-align:center"><img src="images/webhook-secret.png" /></div>
 
 Congratulations! You have successfully configured GitHub access. Let's move to next tutorial.
 
