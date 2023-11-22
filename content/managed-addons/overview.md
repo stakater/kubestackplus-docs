@@ -42,7 +42,7 @@ Kubernetes dashboard | [Kubernetes Dashboard](./kubernetes-dashboard/overview.md
 Software defined storage | [OpenShift Data Foundation - ODF](./odf/overview.md)
 Custom metrics autoscaler | [Custom Metrics Autoscaler](./custom-metrics-autoscaler/overview.md)
 Dev Spaces | [Dev Spaces](./devspaces/overview.md)
-DNS handling | [External DNS](./exterrnal-dns/overview.md)
+DNS handling | [External DNS](./external-dns/overview.md)
 Leader application chart | [Stakater Application Helm Chart](./helm-leader-chart/overview.md)
 Web terminal | [Web Terminal Operator](./web-terminal-operator/overview.md)
 Intrusion detection | Falco (coming soon)
