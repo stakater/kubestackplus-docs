@@ -290,6 +290,16 @@ nav:
             - managed-addons/kubernetes-dashboard/overview.md
         - OpenShift Data Foundation:
             - managed-addons/odf/overview.md
+        - Custom Metrics Autoscaler:
+            - managed-addons/custom-metrics-autoscaler/overview.md
+        - Dev Spaces:
+            - managed-addons/devspaces/overview.md                        
+        - External DNS:
+            - managed-addons/external-dns/overview.md
+        - Helm Leader Chart:
+            - managed-addons/helm-leader-chart/overview.md
+        - Web Terminal Operator:
+            - managed-addons/web-terminal-operator/overview.md
     - Legal Documents:
         - legal-documents/gtc.md
         - legal-documents/sla.md
