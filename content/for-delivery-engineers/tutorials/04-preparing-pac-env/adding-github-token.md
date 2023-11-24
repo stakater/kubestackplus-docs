@@ -15,7 +15,7 @@ You can check secrets documentation to read more on these secrets.
 
 ## Prerequisites
 
-* Infra Gitops Repository is configured.
+* Infra GitOps Repository is configured.
 
 ## Tutorial
 
@@ -83,8 +83,8 @@ Login to Vault to view <your-tenant> path.
      <div style="text-align:center"><img src="images/create-secret.png" /></div>
 
 1. Let's create a `git-pat-creds` secret for our webhook secret. Write the name of the secret in `path` which is `git-pat-creds`. Add `secret data`
-     * key: `username`, value: (GitHub username) 
-     * key: `password`, value (Newly created PAT). 
+     * key: `username`, value: (GitHub username).
+     * key: `password`, value (Newly created PAT).
    Hit save.
 
      <div style="text-align:center"><img src="images/git-pat-creds.png" /></div>
@@ -93,7 +93,7 @@ Login to Vault to view <your-tenant> path.
 
 Since we want the `git-pat-creds` secret to be deployed in all of the tenant namespaces, we will use a multi-tenant-operator template to deploy it.
 
-1. Open up the infra-gitops-config repository that we have already bootstrapped.
+1. Open up the `infra-gitops-config` repository that we have already bootstrapped.
 
 1. Open the `tenant-operator-config` folder and create a `templates` folder inside it.
 
@@ -124,10 +124,10 @@ Since we want the `git-pat-creds` secret to be deployed in all of the tenant nam
              target:
                name: git-pat-creds
      ```
-   
+
 1. Create another file named `git-pat-creds-tgi.yaml` and add the below content.
 
-     ```yaml 
+     ```yaml
         apiVersion: tenantoperator.stakater.com/v1alpha1
         kind: TemplateGroupInstance
         metadata:
@@ -141,7 +141,7 @@ Since we want the `git-pat-creds` secret to be deployed in all of the tenant nam
                 values: [ build, pr ]
           sync: true
      ```
-   
+
 1. Lets see our Template and TGI in ArgoCD. Open up ArgoCD and look for `tenant-operator-config` application. You should be able to see your Template and TGI deployed.
 
      <div style="text-align:center"><img src="images/tgi-and-template.png" /></div>
