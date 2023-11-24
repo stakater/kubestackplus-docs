@@ -104,6 +104,7 @@ nav:
               - for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
               - for-delivery-engineers/tutorials/04-add-tekton-pipeline-to-demo-app/add-pipeline.md
               - for-delivery-engineers/tutorials/04-preparing-pac-env/pipeline-as-code-env.md
+              - for-delivery-engineers/tutorials/04-preparing-pac-env/adding-github-token.md
         - How-to guides:
             - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
             - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
