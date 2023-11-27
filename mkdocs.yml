@@ -152,7 +152,9 @@ nav:
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/03-create-webhook.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/04-add-repository-secret.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/05-create-repository.md
-                  - for-developers/tutorials/outer-loop/add-ci-pipeline/06-adding-pipeline.md
+                  - Adding PipelineRun:
+                    - for-developers/tutorials/outer-loop/add-ci-pipeline/06-adding-pipeline.md
+                    - for-developers/tutorials/outer-loop/add-ci-pipeline/07-add-create-git-tag.md
                 - for-developers/tutorials/outer-loop/promote-application/promote-app.md
         - How-to guides:
             - for-developers/how-to-guides/add-a-new-environment-to-apps-gitops/add-a-new-environment-to-application.md

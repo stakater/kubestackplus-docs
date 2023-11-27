@@ -142,7 +142,7 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
     Build a dedicated environment for compiling and building your application. Configure essential tools and resources for efficient and consistent build processes.
 
-- [Add Pipeline to Your Application](./tutorials/outer-loop/add-ci-pipeline/add-ci-pipeline.md)
+- [Add Pipeline to Your Application](./tutorials/outer-loop/add-ci-pipeline/01-overview.md)
 
     Implement a Continuous Integration (CI) pipeline for your application. Automate testing, building, and deployment processes to ensure code quality and reliability.
 
