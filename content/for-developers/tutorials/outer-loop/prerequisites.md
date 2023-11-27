@@ -6,8 +6,6 @@ Before you embark on setting up your pipeline as code, it's essential to ensure 
 
 In certain cases, you may need to add a new environment to an existing application within a tenant. For example, when incorporating a production cluster into your infrastructure, you'll want to extend your application's deployment capabilities to this new environment. Ensure you have a clear understanding of how to add and configure this environment to your application as part of your prerequisites.
 
-## [Personal Access Token (PAT)](./add-ci-pipeline/04.1-configure-github-access.md)
-
 A Personal Access Token (PAT) is an essential component for ensuring secure and authenticated interactions with your code repositories. This token serves as a vital bridge between your pipeline and your version control system, allowing it to access and manage your code repositories. Whether it's for fetching code, creating branches, or managing pull requests, this token is the cornerstone of performing Git operations securely.
 
 ## [SSH Keys for Repository Access](./github-ssh/github-ssh.md)
