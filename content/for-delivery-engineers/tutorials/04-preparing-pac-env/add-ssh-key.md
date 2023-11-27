@@ -23,7 +23,7 @@
 1. Generate an ssh keypair. You can follow the official GitHub documentation for this.
 
    !!! note
-       Save the keypair cautiously, you'll need to add it to Vault nd GitHub.
+       Save the keypair cautiously, you'll need to add it to Vault and GitHub.
 
 1. Once you've generated the keypair, go to your GitHub account `settings` for the top-right corner on your profile.
 
@@ -38,8 +38,6 @@
 1. Now add the public key of the keypair you generated earlier.
 
      <div style="text-align:center"><img src="images/add-public-key.png" /></div>
-
-
 
 ### Adding Private Key to Vault
 
@@ -127,8 +125,3 @@ Since we want the `git-ssh-creds` secret to be deployed in all of the tenant nam
                 values: [ build, pr ]
           sync: true
      ```
-
-1. Lets see our Template and TGI in ArgoCD. Open up ArgoCD and look for `tenant-operator-config` application. You should be able to see your Template and TGI deployed.
-
-      ##TODO
-     <div style="text-align:center"><img src="images/tgi-and-template.png" /></div>
