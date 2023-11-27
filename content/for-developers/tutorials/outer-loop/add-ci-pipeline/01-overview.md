@@ -6,7 +6,7 @@ To be able to run a pipeline using Tekton pipeline-as-code. The delivery enginee
 
 **For the Delivery Engineer:**
 
-1. Bootstrap infra-gitops-config repository
+1. Bootstrap `infra-gitops-config` repository
 1. Deploy Organization level secret
 1. Bootstrap `apps-gitops-config` repository
 
