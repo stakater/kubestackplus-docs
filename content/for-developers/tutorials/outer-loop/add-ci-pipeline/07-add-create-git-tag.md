@@ -1,4 +1,4 @@
-# Add Create Git Tag Tash
+# Add Create Git Tag Task
 
 ## Objectives
 
@@ -99,5 +99,5 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           secret:
             secretName: git-ssh-creds # Created this secret earlier
     ```
-   
+ 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.
