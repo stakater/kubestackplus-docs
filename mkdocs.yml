@@ -150,11 +150,8 @@ nav:
                 - Configure Pipeline for your application:
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/01-overview.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/03-create-webhook.md
-                  - Add Repository:
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/04.0-add-repository-overview.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/04.1-configure-github-access.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/04.2-add-external-secret.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/04.3-create-repository.md
+                  - for-developers/tutorials/outer-loop/add-ci-pipeline/04-add-repository-secret.md
+                  - for-developers/tutorials/outer-loop/add-ci-pipeline/05-create-repository.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/06-adding-pipeline.md
                 - for-developers/tutorials/outer-loop/promote-application/promote-app.md
         - How-to guides:

@@ -6,18 +6,19 @@ To be able to run a pipeline using Tekton pipeline-as-code. The delivery enginee
 
 **For the Delivery Engineer:**
 
-1. Manage Application Secrets
-   - For each application, securely deploy the required secrets within the respective namespace housing the pipeline-as-code setup.
+1. Bootstrap `infra-gitops-config` repository
+1. Deploy Organization level secret
+1. Bootstrap `apps-gitops-config` repository
 
 **For the Developer:**
 
+1. Create Webhook
+   - Configure the Webhook for the Pipeline.
+1. Create Repository Secret
+   - Pipeline as code needs a secret to securely communicate with the Application Repository. This secret is deployed by the developer through the `apps-gitops-config` repository.
 1. Define Repository Resource
    - Set up the Repository resource within the tenant's designated build namespace. This resource will link to the application's source code repository.
-1. Configure Repository Access
-   - Securely deploy a secret within the build namespace. This secret will provide the necessary credentials to access the application's Git repository.
 1. Create PipelineRun
    - Author a PipelineRun that encapsulates the specific workflow for the application. This defines how the source code will be built, tested, and deployed.
-1. Deploy Required Secrets
-   - If any additional secrets are required during the pipeline run, ensure they are securely deployed within the appropriate namespace.
 
 By following these steps, the delivery engineer and the developer can collaboratively set up and execute Tekton pipelines as code efficiently and securely.
