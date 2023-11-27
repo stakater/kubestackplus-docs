@@ -48,25 +48,25 @@ This GitOps structure supports:
 
 Lets proceed by adding a tenant to the `apps-gitops-config` repository.
 
-1. Create a folder at root level for your tenant. Lets use `gabbar` as tenant name which was deployed in the previous section via `infra-gitops-config` repository.
+1. Create a folder at root level for your tenant. Lets use `arsenal` as tenant name which was deployed in the previous section via `infra-gitops-config` repository.
 
       ```bash
-      ├── gabbar
+      ├── arsenal
       ```
 
     Inside this folder we can define multiple applications per tenant.
 
-1. We need to create a `argocd-apps` folder inside this `gabbar` folder. This folder will deploy the applications defined inside its siblings folders (in `gabbar` folder).
+1. We need to create a `argocd-apps` folder inside this `arsenal` folder. This folder will deploy the applications defined inside its siblings folders (in `arsenal` folder).
 
       ```bash
-      ├── gabbar
+      ├── arsenal
           └── argocd-apps
       ```
 
-1. Lets add an application for tenant `gabbar`, Lets call this application `stakater-nordmart-review`. Create a folder named `stakater-nordmart-review` in `gabbar` folder.
+1. Lets add an application for tenant `arsenal`, Lets call this application `stakater-nordmart-review`. Create a folder named `stakater-nordmart-review` in `arsenal` folder.
 
       ```bash
-      ├── gabbar
+      ├── arsenal
           └── stakater-nordmart-review
       ```
 
@@ -74,7 +74,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
     We need to create two new folders now:
 
       ```bash
-      ├── gabbar
+      ├── arsenal
           └── stakater-nordmart-review
               ├── dev
               └── stage
@@ -83,7 +83,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
     We need the corresponding folders inside `argocd-apps` folder and define ArgoCD applications pointing to these folders.
 
       ```bash
-      ├── gabbar
+      ├── arsenal
           ├── argocd-apps
              ├── dev
              │   └── stakater-nordmart-review-dev.yaml
@@ -95,19 +95,19 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
 
       ```yaml
       # Name: stakater-nordmart-review.yaml(APP_NAME.yaml)
-      # Path: gabbar/argocd-apps/dev (TENANT_NAME/argocd-apps/ENV_NAME/)
+      # Path: arsenal/argocd-apps/dev (TENANT_NAME/argocd-apps/ENV_NAME/)
       apiVersion: argoproj.io/v1alpha1
       kind: Application
       metadata:
-        name: gabbar-dev-stakater-nordmart-review
+        name: arsenal-dev-stakater-nordmart-review
         namespace: rh-openshift-gitops-instance
       spec:
         destination:
           namespace: TARGET_NAMESPACE_FOR_DEV
           server: 'https://kubernetes.default.svc'
-        project: gabbar
+        project: arsenal
         source:
-          path: gabbar/stakater-nordmart-review/dev
+          path: arsenal/stakater-nordmart-review/dev
           repoURL: 'APPS_GITOPS_REPO_URL'
           targetRevision: HEAD
         syncPolicy:
@@ -120,19 +120,19 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
 
       ```yaml
       # Name: stakater-nordmart-review.yaml (APP_NAME.yaml)
-      # Path: gabbar/argocd-apps/stage (TENANT_NAME/argocd-apps/ENV_NAME/)
+      # Path: arsenal/argocd-apps/stage (TENANT_NAME/argocd-apps/ENV_NAME/)
       apiVersion: argoproj.io/v1alpha1
       kind: Application
       metadata:
-        name: gabbar-stage-stakater-nordmart-review
+        name: arsenal-stage-stakater-nordmart-review
         namespace: rh-openshift-gitops-instance
       spec:
         destination:
           namespace: TARGET_NAMESPACE_FOR_STAGE
           server: 'https://kubernetes.default.svc'
-        project: gabbar
+        project: arsenal
         source:
-          path: gabbar/stakater-nordmart-review/stage
+          path: arsenal/stakater-nordmart-review/stage
           repoURL: 'APPS_GITOPS_REPO_URL'
           targetRevision: HEAD
         syncPolicy:
@@ -146,7 +146,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
       After performing all the steps you should have the following folder structure:
 
       ```bash
-      ├── gabbar
+      ├── arsenal
           ├── argocd-apps
              ├── dev
              │   └── stakater-nordmart-review-dev.yaml
@@ -169,12 +169,12 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
               └── stage
       ```
 
-    > Folders in `argocd-apps` corresponds to clusters, these folders contain ArgoCD applications pointing to 1 or more environments inside multiple tenant folders per cluster. Folders in `gabbar/argocd-apps` correspond to environments.
+    > Folders in `argocd-apps` corresponds to clusters, these folders contain ArgoCD applications pointing to 1 or more environments inside multiple tenant folders per cluster. Folders in `arsenal/argocd-apps` correspond to environments.
 
     Next, create the following ArgoCD applications in each environment, dev and stage:
 
       ```yaml
-      # Name: gabbar-dev.yaml (TENANT_NAME-ENV_NAME.yaml)
+      # Name: arsenal-dev.yaml (TENANT_NAME-ENV_NAME.yaml)
       # Path: argocd-apps/dev
       apiVersion: argoproj.io/v1alpha1
       kind: Application
@@ -185,7 +185,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
         destination:
           namespace: TARGET_NAMESPACE_FOR_DEV
           server: 'https://kubernetes.default.svc'
-        project: gabbar
+        project: arsenal
         source:
           path: argocd-apps/dev
           repoURL: 'APPS_GITOPS_REPO_URL'
@@ -195,18 +195,18 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
             prune: true
             selfHeal: true
       ---
-      # Name: gabbar-stage.yaml (TENANT_NAME-ENV_NAME.yaml)
+      # Name: arsenal-stage.yaml (TENANT_NAME-ENV_NAME.yaml)
       # Path: argocd-apps/stage
       apiVersion: argoproj.io/v1alpha1
       kind: Application
       metadata:
-        name: gabbar-stage
+        name: arsenal-stage
         namespace: rh-openshift-gitops-instance
       spec:
         destination:
           namespace: TARGET_NAMESPACE_FOR_STAGE
           server: 'https://kubernetes.default.svc'
-        project: gabbar
+        project: arsenal
         source:
           path: argocd-apps/stage
           repoURL: 'APPS_GITOPS_REPO_URL'
