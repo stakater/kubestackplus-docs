@@ -41,15 +41,15 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
 1. Inside the folder created in step 2, add two folders; one named `argocd-apps`, and another one named `tenant-operator-config`
     > The `argocd-apps` folder will contain ArgoCD applications that will _watch_ different resources added to the same repository. Let's spare ourselves from the details for now.
 1. Open the `tenant-operator-config` folder and add two folders inside it: `quotas` and `tenants`
-1. The tenants folder will contain the tenant you want to add to your cluster. Let's create one called `gabbar` by adding the file below:
+1. The tenants folder will contain the tenant you want to add to your cluster. Let's create one called `arsenal` by adding the file below:
 
     ```yaml
     apiVersion: tenantoperator.stakater.com/v1beta1
     kind: Tenant
     metadata:
-      name: gabbar
+      name: arsenal
     spec:
-      quota: gabbar-large
+      quota: arsenal-large
       owners:
         users:
         - abc@gmail.com
@@ -67,13 +67,13 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
       - stage
     ```
 
-1. We also need to add a quota for our `gabbar` tenant in our `quotas` folder created in step 4. So let's do it using the file below. The name of this quota need to match the name you specified in tenant CR.
+1. We also need to add a quota for our `arsenal` tenant in our `quotas` folder created in step 4. So let's do it using the file below. The name of this quota need to match the name you specified in tenant CR.
 
     ```yaml
     apiVersion: tenantoperator.stakater.com/v1beta1
     kind: Quota
     metadata:
-      name: gabbar-large
+      name: arsenal-large
       annotations:
         quota.tenantoperator.stakater.com/is-default: "false"
     spec:
