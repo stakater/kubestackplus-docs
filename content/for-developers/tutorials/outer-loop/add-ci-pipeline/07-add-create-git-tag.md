@@ -1,14 +1,8 @@
-# Creating a Pipeline Using pipeline-as-code
-
-We will embark on a comprehensive journey through a complete pipeline, with each individual task covered in its tutorial. This approach aims to provide a detailed understanding of each task and how they collectively contribute to the functionality of pipeline-as-code.
-
-In modern software development practices, pipelines play a crucial role in automating and streamlining the process of building, testing, and deploying applications. This tutorial will guide you through creating a pipeline using pipeline-as-code concepts. We'll focus on GitHub as the provider and assume you have a SAAP set up with pipeline-as-code capabilities.
-
-Now that we have completed all the prerequisites to run this `pipelineRun`, we can continue by adding a pipeline to our application using `pipeline-as-code` approach.
+# Add Create Git Tag Task
 
 ## Objectives
 
-- Create a Tekton PipelineRun using a `.tekton/main.yaml` file from a code repository.
+- Add `create-git-tag` task to PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
@@ -17,12 +11,12 @@ Now that we have completed all the prerequisites to run this `pipelineRun`, we c
 
 ## Tutorial
 
-### Create PipelineRun with Git Clone Task
+### Create PipelineRun with Create Git Tag Task
 
-Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task `create-git-tag` to it.
 
-1. Create a `.tekton` folder at the root of your repository.
-1. Now add a file named main.yaml in this folder and place the below given content in it. This file will represent a `PipelineRun`.
+1. Open up the PipelineRun file you created in the previous tutorial.
+1. Now edit the file so the yaml becomes like the one given below.
 
     ```yaml
     apiVersion: tekton.dev/v1beta1
@@ -32,7 +26,7 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
       annotations:
         pipelinesascode.tekton.dev/on-event: "[push]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
-        pipelinesascode.tekton.dev/task: "[git-clone]" # The task will be fetched from Tekton Hub. We can also provide direct links to yaml files
+        pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml]" 
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
@@ -46,6 +40,8 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
           value: "<docker-registry-url>" # Place image registry URL without https://
         - name: helm_registry
           value: "<https://helm-registry-url>" # Place helm registry URL with https://
+        - name: pull_request_number
+          value: {{pull_request_number}}
       pipelineSpec: # Define what parameters will be used for pipeline
         params:
           - name: repo_url
@@ -53,6 +49,7 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
           - name: repo_path
           - name: image_registry_url
           - name: helm_registry
+          - name: pull_request_number
         workspaces: # Mention what workspaces will be used by this pipeline to store data and used by data transferring between tasks
           - name: source
           - name: ssh-directory
@@ -73,6 +70,22 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
                 value: $(params.repo_url)
               - name: revision
                 value: $(params.gitrevision)
+          - name: create-git-tag
+            runAfter:
+              - fetch-repository
+            taskRef:
+              name: stakater-create-git-tag-0.0.7
+              kind: Task
+            params:
+              - name: PR_NUMBER
+                value: $(params.pull_request_number)
+              - name: GIT_REVISION
+                value: $(params.git_revision)
+            workspaces:
+              - name: source
+                workspace: source
+              - name: ssh-directory
+                workspace: ssh-directory
       workspaces: # Mention Workspaces configuration
         - name: source
           volumeClaimTemplate:
@@ -84,25 +97,7 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
                   storage: 1Gi
         - name: ssh-directory # Using ssh-directory workspace for our task to have better security
           secret:
-            secretName: [app-name]-ssh-creds # Created this secret earlier
+            secretName: git-ssh-creds # Created this secret earlier
     ```
-
-### Exploring the Git Clone Task
-
-The Git Clone task serves as the initial step in your pipeline, responsible for fetching the source code repository. Let's break down the key components:
-
-1. `name: fetch-repository`: This names the task, making it identifiable within the pipeline.
-
-1. Task Reference (`taskRef`): The Git Clone task is referred to using the name git-clone, which corresponds to a Task defined in the Tekton Catalog. This task knows how to clone a Git repository.
-
-1. Workspaces (`workspaces`): The task interacts with two workspaces;`output` and `ssh-directory`. The `output` workspace will store the cloned repository, while the `ssh-directory` workspace provides SSH authentication. This means that the private key stored in the secret `nordmart-ssh-creds` will be utilized during the cloning process.
-
-1. Parameters `(params)`:
-
-    `depth`: Specifies the depth of the Git clone. A value of "0" indicates a full clone.
-
-    `url`: The URL of the source code repository. This parameter is dynamically fetched from the repo_url parameter defined in the PipelineRun.
-
-    `revision`: The Git revision to fetch, often corresponding to a specific branch or commit. This parameter is also dynamically fetched from the `gitrevision` parameter in the PipelineRun.
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.
