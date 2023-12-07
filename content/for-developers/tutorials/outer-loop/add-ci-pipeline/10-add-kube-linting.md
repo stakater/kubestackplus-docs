@@ -27,7 +27,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
       annotations:
         pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
-        pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml]" 
+        pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml,https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-code-linting/rendered/stakater-code-linting-0.0.3.yaml,
+            https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-kube-linting/rendered/stakater-kube-linting-0.0.6.yaml]" 
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
@@ -115,6 +116,31 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               workspace: source
             - name: repo-token
               workspace: repo-token
+          - name: code-linting
+            runAfter:
+              - stakater-create-environment
+            taskRef:
+              name: stakater-code-linting-0.0.3
+              kind: Task
+            workspaces:
+              - name: source
+                workspace: source
+          - name: kube-linting
+            runAfter:
+              - stakater-create-environment
+            taskRef:
+              name: stakater-kube-linting-0.0.6
+              kind: Task
+            params:
+              - name: FILE
+                value: manifest.yaml
+              - name: DEPLOYMENT_FILES_PATH
+                value: deploy
+              - name: NAMESPACE
+                value: arsenal-build
+            workspaces:
+              - name: source
+                workspace: source
       workspaces: # Mention Workspaces configuration
         - name: source
           volumeClaimTemplate:

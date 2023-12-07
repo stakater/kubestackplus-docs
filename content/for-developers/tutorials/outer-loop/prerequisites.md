@@ -1,14 +1,6 @@
 # Prerequisites
 
-Before you embark on setting up your pipeline as code, it's essential to ensure that you have all the necessary prerequisites in place. These prerequisites are the foundation for a successful and secure automation process. Below, we've listed the key prerequisites you'll need to consider:
-
-## [Add an Environment to an Application](./add-build-environment/add-environment.md)
-
 In certain cases, you may need to add a new environment to an existing application within a tenant. For example, when incorporating a production cluster into your infrastructure, you'll want to extend your application's deployment capabilities to this new environment. Ensure you have a clear understanding of how to add and configure this environment to your application as part of your prerequisites.
-
-A Personal Access Token (PAT) is an essential component for ensuring secure and authenticated interactions with your code repositories. This token serves as a vital bridge between your pipeline and your version control system, allowing it to access and manage your code repositories. Whether it's for fetching code, creating branches, or managing pull requests, this token is the cornerstone of performing Git operations securely.
-
-## [SSH Keys for Repository Access](./github-ssh/github-ssh.md)
 
 SSH keys play a crucial role in ensuring secure access to your code repositories, particularly when employing version control systems. These cryptographic keys provide a secure means for your pipeline to authenticate itself with your version control system, allowing it to perform tasks like cloning repositories, pushing changes, and managing version-controlled code with the highest level of security and trust.
 Steps to Generate SSH Keys:
