@@ -140,7 +140,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           secret:
             secretName: git-pat-creds
     ```
-   
+
     !!! note
         Remember to add the remote task in the annotations
 

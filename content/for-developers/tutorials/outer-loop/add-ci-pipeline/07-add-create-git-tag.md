@@ -99,7 +99,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           secret:
             secretName: git-ssh-creds # Created this secret earlier
     ```
-   
+
     !!! note
         Remember to add the remote task in the annotations
 
@@ -108,7 +108,5 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
    ![create-git-tag](images/create-git-tag.png)
 
    ![create-git-tag-logs](images/create-git-tag-logs.png)
-
-
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.
