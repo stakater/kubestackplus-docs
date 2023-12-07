@@ -1,4 +1,4 @@
-# Kube Linting
+# SonarQube Scan
 
 ## Objectives
 
@@ -28,7 +28,9 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
         pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
         pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml,https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-code-linting/rendered/stakater-code-linting-0.0.3.yaml,
-            https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-kube-linting/rendered/stakater-kube-linting-0.0.6.yaml]" 
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-kube-linting/rendered/stakater-kube-linting-0.0.6.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-unit-test/rendered/stakater-unit-test-0.0.5.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-sonarqube-scan/rendered/stakater-sonarqube-scan-0.0.5.yam]" 
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
@@ -141,6 +143,31 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             workspaces:
               - name: source
                 workspace: source
+          - name: unit-test
+            runAfter:
+              - code-linting
+              - kube-linting
+            taskRef:
+              name: stakater-unit-test-0.0.5
+              kind: Task
+            workspaces:
+              - name: source
+                workspace: source
+          - name: sonarqube-scan
+            runAfter:
+              - unit-test
+            taskRef:
+              name: stakater-sonarqube-scan-0.0.5
+              kind: Task
+            params:
+              - name: SONAR_HOST_URL
+                value: https://sonarqube-stakater-sonarqube.apps.tno2-ams.s9nghh76.lab.kubeapp.cloud
+              - name: SONAR_PROJECT_KEY
+                value: $(params.repo_path)
+              - name: SONAR_LOGIN
+            workspaces:
+              - name: source
+                workspace: source
       workspaces: # Mention Workspaces configuration
         - name: source
           volumeClaimTemplate:
@@ -163,8 +190,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![kube-linting](images/kube-linting.png)
+   ![sonar-scan](images/sonar-scan.png)
 
-   ![kube-linting-logs](images/kube-linting-logs.png)
+   ![sonar-scan-logs](images/sonar-scan-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.
