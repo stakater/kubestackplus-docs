@@ -1,4 +1,4 @@
-# Add Create Git Tag Task
+# Add Create Environment Task
 
 ## Objectives
 
@@ -7,14 +7,14 @@
 
 ## Key Results
 
-- Successfully create and execute the Tekton PipelineRun using the defined `.tekton/main.yaml` file, enabling automated CI/CD processes for your application.
-- Environment CR is deployed on cluster
+- Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
+- Environment CR is deployed on cluster.
 
 ## Tutorial
 
 ### Create PipelineRun with Create Environment Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `create-git-tag` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task `create-environment` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the yaml becomes like the one given below.
@@ -23,7 +23,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      name: main # pipelineRun name
+      name: pullrequest # pipelineRun name
       annotations:
         pipelinesascode.tekton.dev/on-event: "[push]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
@@ -131,5 +131,14 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           secret:
             secretName: git-pat-creds
     ```
+   
+    !!! note
+        Remember to add the remote task in the annotations
+
+1. Create a pullrequest with you changes. This should trigger the pipeline in the build namespace.
+
+   ![create-env](images/create-env.png)
+
+   ![create-env-logs](images/create-env-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

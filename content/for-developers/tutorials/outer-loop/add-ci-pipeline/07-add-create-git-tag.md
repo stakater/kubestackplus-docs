@@ -22,9 +22,9 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      name: main # pipelineRun name
+      name: pullrequest # pipelineRun name
       annotations:
-        pipelinesascode.tekton.dev/on-event: "[push]" # Trigger the pipelineRun on push events on branch main
+        pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on pullrequest events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
         pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml]" 
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
@@ -99,5 +99,16 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           secret:
             secretName: git-ssh-creds # Created this secret earlier
     ```
+   
+    !!! note
+        Remember to add the remote task in the annotations
+
+1. Create a pullrequest with you changes. This should trigger the pipeline in the build namespace.
+
+   ![create-git-tag](images/create-git-tag.png)
+
+   ![create-git-tag-logs](images/create-git-tag-logs.png)
+
+
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

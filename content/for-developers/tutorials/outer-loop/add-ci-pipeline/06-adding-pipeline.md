@@ -8,12 +8,12 @@ Now that we have completed all the prerequisites to run this `pipelineRun`, we c
 
 ## Objectives
 
-- Create a Tekton PipelineRun using a `.tekton/main.yaml` file from a code repository.
+- Create a Tekton PipelineRun using a `.tekton/pullrequest.yaml` file from a code repository.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
-- Successfully create and execute the Tekton PipelineRun using the defined `.tekton/main.yaml` file, enabling automated CI/CD processes for your application.
+- Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
 
 ## Tutorial
 
@@ -22,15 +22,15 @@ Now that we have completed all the prerequisites to run this `pipelineRun`, we c
 Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach.
 
 1. Create a `.tekton` folder at the root of your repository.
-1. Now add a file named main.yaml in this folder and place the below given content in it. This file will represent a `PipelineRun`.
+1. Now add a file named pullrequest.yaml in this folder and place the below given content in it. This file will represent a `PipelineRun`.
 
     ```yaml
     apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      name: main # pipelineRun name
+      name: pullrequest # pipelineRun name
       annotations:
-        pipelinesascode.tekton.dev/on-event: "[push]" # Trigger the pipelineRun on push events on branch main
+        pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on pullrequest events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
         pipelinesascode.tekton.dev/task: "[git-clone]" # The task will be fetched from Tekton Hub. We can also provide direct links to yaml files
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
@@ -86,6 +86,15 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
           secret:
             secretName: [app-name]-ssh-creds # Created this secret earlier
     ```
+   
+1. Now create a pullrequest on the repository with these changes. This should trigger a pipeline on your cluster.
+
+1. You can go to your tenant's build namespace and see the pipeline running.
+
+   ![git-clone](images/git-clone.png)
+
+   ![git-clone-logs](images/git-clone-logs.png)
+
 
 ### Exploring the Git Clone Task
 
@@ -104,5 +113,6 @@ The Git Clone task serves as the initial step in your pipeline, responsible for 
    `url`: The URL of the source code repository. This parameter is dynamically fetched from the repo_url parameter defined in the PipelineRun.
 
    `revision`: The Git revision to fetch, often corresponding to a specific branch or commit. This parameter is also dynamically fetched from the `gitrevision` parameter in the PipelineRun.
+
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

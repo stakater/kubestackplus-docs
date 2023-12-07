@@ -1,20 +1,20 @@
-# Add Create Git Tag Task
+# Add Kube Liting Task
 
 ## Objectives
 
-- Add `create-environment` task to PipelineRun.
+- Add `kube-liting` task to PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
-- Successfully create and execute the Tekton PipelineRun using the defined `.tekton/main.yaml` file, enabling automated CI/CD processes for your application.
-- Environment CR is deployed on cluster
+- Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
+- Linting is performed on application's Helm Chart.
 
 ## Tutorial
 
 ### Create PipelineRun with Create Environment Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `create-git-tag` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task `kube-linting` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the yaml becomes like the one given below.
@@ -23,9 +23,9 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      name: main # pipelineRun name
+      name: pullrequest # pipelineRun name
       annotations:
-        pipelinesascode.tekton.dev/on-event: "[push]" # Trigger the pipelineRun on push events on branch main
+        pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
         pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml]" 
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
@@ -131,5 +131,14 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           secret:
             secretName: git-pat-creds
     ```
+
+    !!! note
+        Remember to add the remote task in the annotations
+
+1. Create a pullrequest with you changes. This should trigger the pipeline in the build namespace.
+
+   ![kube-linting](images/kube-linting.png)
+
+   ![kube-linting-logs](images/kube-linting-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.
