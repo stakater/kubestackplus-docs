@@ -103,7 +103,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     !!! note
         Remember to add the remote task in the annotations
 
-1. Create a pullrequest with you changes. This should trigger the pipeline in the build namespace.
+1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
    ![create-git-tag](images/create-git-tag.png)
 

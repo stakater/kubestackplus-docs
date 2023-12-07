@@ -87,7 +87,7 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
             secretName: [app-name]-ssh-creds # Created this secret earlier
     ```
 
-1. Now create a pullrequest on the repository with these changes. This should trigger a pipeline on your cluster.
+1. Now create a pull request on the repository with these changes. This should trigger a pipeline on your cluster.
 
 1. You can go to your tenant's build namespace and see the pipeline running.
 
