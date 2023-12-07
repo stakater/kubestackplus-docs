@@ -1,4 +1,4 @@
-# Sonarqube Scan
+# SonarQube Scan
 
 ## Objectives
 

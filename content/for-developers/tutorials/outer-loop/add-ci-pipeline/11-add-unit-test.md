@@ -8,7 +8,7 @@
 ## Key Results
 
 - Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
-- Unitn tests performed on the application code.
+- Unit tests performed on the application code.
 
 ## Tutorial
 
