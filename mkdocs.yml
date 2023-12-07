@@ -155,6 +155,9 @@ nav:
                   - Adding PipelineRun:
                     - for-developers/tutorials/outer-loop/add-ci-pipeline/06-adding-pipeline.md
                     - for-developers/tutorials/outer-loop/add-ci-pipeline/07-add-create-git-tag.md
+                    - for-developers/tutorials/outer-loop/add-ci-pipeline/08-add-create-environment.md
+                    - for-developers/tutorials/outer-loop/add-ci-pipeline/09-add-code-linting.md
+                    - for-developers/tutorials/outer-loop/add-ci-pipeline/10-add-kube-linting.md
                 - for-developers/tutorials/outer-loop/promote-application/promote-app.md
         - How-to guides:
             - for-developers/how-to-guides/add-a-new-environment-to-apps-gitops/add-a-new-environment-to-application.md
