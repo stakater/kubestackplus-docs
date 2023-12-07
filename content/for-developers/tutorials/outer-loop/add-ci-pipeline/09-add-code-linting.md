@@ -1,4 +1,4 @@
-# Add Code Linting Task
+# Code Linting
 
 ## Objectives
 

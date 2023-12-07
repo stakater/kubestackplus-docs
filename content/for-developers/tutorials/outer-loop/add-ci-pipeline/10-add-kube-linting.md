@@ -1,4 +1,4 @@
-# Add Kube Linting Task
+# Kube Linting
 
 ## Objectives
 
