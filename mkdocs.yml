@@ -160,6 +160,8 @@ nav:
                     - for-developers/tutorials/outer-loop/add-ci-pipeline/10-add-kube-linting.md
                     - for-developers/tutorials/outer-loop/add-ci-pipeline/11-add-unit-test.md
                     - for-developers/tutorials/outer-loop/add-ci-pipeline/12-add-sonar-scan.md
+                    - for-developers/tutorials/outer-loop/add-ci-pipeline/13-add-buildah.md
+                    - for-developers/tutorials/outer-loop/add-ci-pipeline/14-add-trivy-scan.md
                 - for-developers/tutorials/outer-loop/promote-application/promote-app.md
         - How-to guides:
             - for-developers/how-to-guides/add-a-new-environment-to-apps-gitops/add-a-new-environment-to-application.md
