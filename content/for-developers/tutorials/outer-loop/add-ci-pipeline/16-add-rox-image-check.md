@@ -1,20 +1,19 @@
-# Trivy Scan
+# Rox Image Check
 
 ## Objectives
 
-- Add `trivy-scan` task to PipelineRun.
+- Add `rox-image-check` task to PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
 - Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
-- Trivy scan is run on application code.
 
 ## Tutorial
 
-### Create PipelineRun with Trivy Scan Task
+### Create PipelineRun with Rox Image Check Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `tricy-scan` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task `rox-image-check` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the yaml becomes like the one given below.
@@ -203,6 +202,42 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             workspaces:
               - name: source
                 workspace: source
+          - name: rox-image-scan
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-rox-image-scan-0.0.4
+              kind: Task
+            params:
+            - name: IMAGE
+              value: '$(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)'
+            - name: ROX_API_TOKEN
+              value: rox-creds
+            - name: ROX_CENTRAL_ENDPOINT
+              value: rox-creds
+            - name: OUTPUT_FORMAT
+              value: csv
+            - name: IMAGE_DIGEST
+              value: $(tasks.buildah.results.IMAGE_DIGEST)
+            - name: BUILD_IMAGE
+              value: "true"
+          - name: rox-image-check
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-rox-image-check-0.0.7
+              kind: Task
+            params:
+              - name: IMAGE
+                value: '$(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)'
+              - name: ROX_API_TOKEN
+                value: rox-creds
+              - name: ROX_CENTRAL_ENDPOINT
+                value: rox-creds
+              - name: BUILD_IMAGE
+                value: "true"
       workspaces: # Mention Workspaces configuration
         - name: source
           volumeClaimTemplate:
@@ -225,8 +260,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![Trivy-scan](images/Trivy-scan.png)
+   ![rox-image-check](images/rox-image-check.png)
 
-   ![Trivy-scan-logs](images/Trivy-scan-logs.png)
+   ![rox-image-check-logs](images/rox-image-check-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

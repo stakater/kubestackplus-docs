@@ -1,4 +1,4 @@
-# Buildah 
+# Buildah
 
 ## Objectives
 
@@ -12,9 +12,9 @@
 
 ## Tutorial
 
-### Create PipelineRun with Create Environment Task
+### Create PipelineRun with Buildah Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `kube-linting` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task `buildah` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the yaml becomes like the one given below.

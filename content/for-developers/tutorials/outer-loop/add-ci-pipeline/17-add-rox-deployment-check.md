@@ -1,4 +1,4 @@
-# Trivy Scan
+# Rox Deployment Check
 
 ## Objectives
 
@@ -8,13 +8,12 @@
 ## Key Results
 
 - Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
-- Trivy scan is run on application code.
 
 ## Tutorial
 
-### Create PipelineRun with Trivy Scan Task
+### Create PipelineRun with Rox Deployment Check Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `tricy-scan` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task `rox-deployment-check` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the yaml becomes like the one given below.
@@ -225,8 +224,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![Trivy-scan](images/Trivy-scan.png)
+   ![rox-deployment-check](images/rox-deployment-check.png)
 
-   ![Trivy-scan-logs](images/Trivy-scan-logs.png)
+   ![rox-deployment-check-logs](images/rox-deployment-check-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

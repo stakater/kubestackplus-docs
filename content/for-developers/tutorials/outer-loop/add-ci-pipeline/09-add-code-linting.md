@@ -12,7 +12,7 @@
 
 ## Tutorial
 
-### Create PipelineRun with Create Environment Task
+### Create PipelineRun with Code Linting Task
 
 You have already created a PipelineRun in the previous tutorial. Let's now add another task `code-linting` to it.
 
