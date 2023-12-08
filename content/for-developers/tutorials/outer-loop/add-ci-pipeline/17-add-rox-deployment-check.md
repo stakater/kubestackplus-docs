@@ -2,7 +2,7 @@
 
 ## Objectives
 
-- Add `trivy-scan` task to PipelineRun.
+- Add `rox-deployemnt-check` task to PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
