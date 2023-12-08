@@ -1,4 +1,4 @@
-# Rox Image Check
+# StackRox Image Check
 
 ## Objectives
 

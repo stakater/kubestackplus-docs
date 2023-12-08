@@ -1,4 +1,4 @@
-# Rox Deployment Check
+# StackRox Deployment Check
 
 ## Objectives
 

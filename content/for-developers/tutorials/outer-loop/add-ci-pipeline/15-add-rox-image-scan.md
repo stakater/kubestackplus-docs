@@ -1,4 +1,4 @@
-# Rox Image Scan
+# StackRox Image Scan
 
 ## Objectives
 
