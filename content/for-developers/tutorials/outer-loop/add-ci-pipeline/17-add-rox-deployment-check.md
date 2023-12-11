@@ -1,20 +1,19 @@
-# Code Linting
+# StackRox Deployment Check
 
 ## Objectives
 
-- Add `code-linting` task to PipelineRun.
+- Add `rox-deployemnt-check` task to PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
 - Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
-- Linting is performed on application's code.
 
 ## Tutorial
 
-### Create PipelineRun with Code Linting Task
+### Create PipelineRun with Rox Deployment Check Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `code-linting` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task `rox-deployment-check` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the yaml becomes like the one given below.
@@ -25,9 +24,12 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     metadata:
       name: pullrequest # pipelineRun name
       annotations:
-        pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on pullrequest events on branch main
+        pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
-        pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml,https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-code-linting/rendered/stakater-code-linting-0.0.3.yaml]"
+        pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml,https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-code-linting/rendered/stakater-code-linting-0.0.3.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-kube-linting/rendered/stakater-kube-linting-0.0.6.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-unit-test/rendered/stakater-unit-test-0.0.5.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-sonarqube-scan/rendered/stakater-sonarqube-scan-0.0.5.yam]" 
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
@@ -117,13 +119,89 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               workspace: repo-token
           - name: code-linting
             runAfter:
-            - stakater-create-environment
+              - stakater-create-environment
             taskRef:
               name: stakater-code-linting-0.0.3
               kind: Task
             workspaces:
-            - name: source
-              workspace: source
+              - name: source
+                workspace: source
+          - name: kube-linting
+            runAfter:
+              - stakater-create-environment
+            taskRef:
+              name: stakater-kube-linting-0.0.6
+              kind: Task
+            params:
+              - name: FILE
+                value: manifest.yaml
+              - name: DEPLOYMENT_FILES_PATH
+                value: deploy
+              - name: NAMESPACE
+                value: arsenal-build
+            workspaces:
+              - name: source
+                workspace: source
+          - name: unit-test
+            runAfter:
+              - code-linting
+              - kube-linting
+            taskRef:
+              name: stakater-unit-test-0.0.5
+              kind: Task
+            workspaces:
+              - name: source
+                workspace: source
+          - name: sonarqube-scan
+            runAfter:
+              - unit-test
+            taskRef:
+              name: stakater-sonarqube-scan-0.0.5
+              kind: Task
+            params:
+              - name: SONAR_HOST_URL
+                value: https://sonarqube-stakater-sonarqube.apps.tno2-ams.s9nghh76.lab.kubeapp.cloud
+              - name: SONAR_PROJECT_KEY
+                value: $(params.repo_path)
+              - name: SONAR_LOGIN
+            workspaces:
+              - name: source
+                workspace: source
+          - name: buildah
+            runAfter:
+              - unit-test
+            taskRef:
+              name: stakater-buildah-0.0.18
+              kind: Task
+            params:
+              - name: IMAGE
+                value: $(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)
+              - name: TLSVERIFY
+                value: "false"
+              - name: FORMAT
+                value: "docker"
+              - name: BUILD_IMAGE
+                value: "true"
+              - name: IMAGE_REGISTRY
+                value: $(params.image_registry)
+              - name: CURRENT_GIT_TAG
+                value: $(tasks.create-git-tag.results.CURRENT_GIT_TAG)
+            workspaces:
+              - name: source
+                workspace: source
+          - name: trivy-scan
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-trivy-scan-0.0.3
+              kind: Task
+            params:
+              - name: IMAGE
+                value: $(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)
+            workspaces:
+              - name: source
+                workspace: source
       workspaces: # Mention Workspaces configuration
         - name: source
           volumeClaimTemplate:
@@ -141,13 +219,13 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             secretName: git-pat-creds
     ```
 
-    !!! note
-        Remember to add the remote task in the annotations
+   !!! note
+   Remember to add the remote task in the annotations
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![code-linting](images/code-linting.png)
+   ![rox-deployment-check](images/rox-deployment-check.png)
 
-   ![code-linting-logs](images/code-linting-logs.png)
+   ![rox-deployment-check-logs](images/rox-deployment-check-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

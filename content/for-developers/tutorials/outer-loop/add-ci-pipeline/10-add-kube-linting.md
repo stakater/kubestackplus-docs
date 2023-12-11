@@ -12,7 +12,7 @@
 
 ## Tutorial
 
-### Create PipelineRun with Create Environment Task
+### Create PipelineRun with Kube Linting Task
 
 You have already created a PipelineRun in the previous tutorial. Let's now add another task `kube-linting` to it.
 
