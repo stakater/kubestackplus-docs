@@ -9,21 +9,22 @@ You can name these two repositories anything you want but make sure the names ar
 
 Let's set these two repositories up!!
 
-Objective:
+## Objective:
 
-Create your first tenant
+* Configure Infra Repository.
+* Create your first tenant.
 
-Key Results:
+## Key Results:
 
-- Create GitOps repository
-- Configure Tenant operator resources
-- Configure ArgoCD
+* Create GitOps repository
+* Configure Tenant operator resources
+* Configure ArgoCD
 
 ## Infra GitOps Config
 
 The cluster scoped infrastructural configurations are deployed through this repository.
 
-To make things easier, we have created a [template](https://github.com/stakater/infra-gitops-config.git) that you can use to create your infra repository.
+To make things easier, we have created a [template](https://github.com/NordMart/infra-gitops-config.git) that you can use to create your infra repository.
 
 Team Stakater will create a root [Tenant](https://docs.stakater.com/mto/main/customresources.html#2-tenant), which will then create a root AppProject.
 This AppProject will be used to sync all the Applications in `Infra Gitops Config` and it will provide visibility of these Applications in ArgoCD UI to customer cluster admins.
