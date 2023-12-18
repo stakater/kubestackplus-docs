@@ -1,20 +1,20 @@
-# StackRox Image Scan
+# Validate Environment Check
 
 ## Objectives
 
-- Add `rox-image-scan` task to PipelineRun.
+- Add `validate-environment` task to PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
 - Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
-- Application Image is scanned.
+- Tronador Environment deployment is validated.
 
 ## Tutorial
 
-### Create PipelineRun with Rox Image Scan Task
+### Create PipelineRun with Validate Environment Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `rox-image-scan` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task `validate-environment` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the yaml becomes like the one given below.
@@ -33,7 +33,13 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
            https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-sonarqube-scan/rendered/stakater-sonarqube-scan-0.0.5.yaml,
            https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-buildah/rendered/stakater-buildah-0.0.18.yaml,
            https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-trivy-scan/rendered/stakater-trivy-scan-0.0.3.yaml,
-           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-image-scan/rendered/stakater-rox-image-scan-0.0.4.yaml]"    
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-image-scan/rendered/stakater-rox-image-scan-0.0.4.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-deployment-check/rendered/stakater-rox-deployment-check-0.0.4.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-image-check/rendered/stakater-rox-image-check-0.0.6.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-checkov-scan/rendered/stakater-checkov-scan-0.0.3.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-helm-push/rendered/stakater-helm-push-0.0.12.yaml, 
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-github-update-cd-repo/rendered/stakater-github-update-cd-repo-0.0.7.yaml, 
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-validate-environment/rendered/stakater-validate-environment-0.0.4.yaml]" 
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
@@ -214,18 +220,131 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               name: stakater-rox-image-scan-0.0.4
               kind: Task
             params:
+            - name: IMAGE
+              value: '$(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)'
+            - name: ROX_API_TOKEN
+              value: rox-creds
+            - name: ROX_CENTRAL_ENDPOINT
+              value: rox-creds
+            - name: OUTPUT_FORMAT
+              value: csv
+            - name: IMAGE_DIGEST
+              value: $(tasks.buildah.results.IMAGE_DIGEST)
+            - name: BUILD_IMAGE
+              value: "true"
+          - name: rox-image-check
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-rox-image-check-0.0.7
+              kind: Task
+            params:
               - name: IMAGE
                 value: '$(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)'
               - name: ROX_API_TOKEN
                 value: rox-creds
               - name: ROX_CENTRAL_ENDPOINT
                 value: rox-creds
-              - name: OUTPUT_FORMAT
-                value: csv
-              - name: IMAGE_DIGEST
-                value: $(tasks.buildah.results.IMAGE_DIGEST)
               - name: BUILD_IMAGE
                 value: "true"
+          - name: rox-deployment-check
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-rox-deployment-check-0.0.4
+              kind: Task
+            params:
+              - name: ROX_API_TOKEN
+                value: rox-creds
+              - name: ROX_CENTRAL_ENDPOINT
+                value: rox-creds
+              - name: FILE
+                value: manifest.yaml
+              - name: DEPLOYMENT_FILES_PATH
+                value: deploy
+            workspaces:
+              - name: source
+                workspace: source
+          - name: checkov-scan
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-checkov-scan-0.0.3
+              kind: Task
+            workspaces:
+              - name: source
+                workspace: source
+          - name: helm-push
+            runAfter:
+              - trivy-scan
+              - rox-deployment-check
+              - rox-image-scan
+              - rox-image-check
+              - checkov-scan
+            taskRef:
+              name: stakater-helm-push-0.0.12
+              kind: Task
+            params:
+              - name: PR_NUMBER
+                value: $(params.pull_request_number)
+              - name: REPO_PATH
+                value: $(params.repo_path)
+              - name: GIT_REVISION
+                value: $(params.git_revision)
+              - name: REGISTRY
+                value: $(params.helm_registry)
+              - name: SEM_VER
+                value: $(tasks.create-git-tag.results.GIT_TAG)
+            workspaces:
+              - name: source
+                workspace: source
+          - name: update-cd-repo
+            runAfter:
+              - helm-push
+            taskRef:
+              kind: Task
+              name: stakater-github-update-cd-repo-0.0.7
+            params:
+              - name: IMAGE_TAG
+                value: $(tasks.create-git-tag.results.GIT_TAG)
+              - name: IMAGE_NAME
+                value: $(params.image_registry)
+              - name: PR_NUMBER
+                value: $(params.pull_request_number)
+              - name: REPO_PATH
+                value: $(params.repo_path)
+              - name: GIT_REVISION
+                value: $(params.git_revision)
+              - name: NAMESPACE
+                value: $(params.tenant)-dev
+              - name: ENVIRONMENT
+                value: dev
+              - name: HELM_REGISTRY
+                value: $(params.helm_registry)
+              - name: CD_REPO_URL
+                value: git@github.com:$(params.organization)/nordmart-apps-gitops-config.git
+            workspaces:
+              - name: source
+                workspace: source
+              - name: ssh-directory
+                workspace: cd-ssh-creds
+          - name: stakater-validate-environment
+            runAfter:
+              - update-cd-repo
+            taskRef:
+              kind: Task
+              name: stakater-validate-environment-0.0.4
+            params:
+              - name: TIMEOUT
+                value: "300"
+              - name: PR_NUMBER
+                value: $(params.pull_request_number)
+            workspaces:
+              - name: source
+                workspace: source
       workspaces: # Mention Workspaces configuration
         - name: source
           volumeClaimTemplate:
@@ -248,8 +367,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![rox-image-scan](images/rox-image-scan.png)
+   ![validate-environment](images/validate-environment.png)
 
-   ![rox-image-scan-logs](images/rox-image-scan-logs.png)
+   ![validate-environment](images/validate-env-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

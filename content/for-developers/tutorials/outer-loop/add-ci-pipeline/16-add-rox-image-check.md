@@ -29,7 +29,12 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
         pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml,https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-code-linting/rendered/stakater-code-linting-0.0.3.yaml,
            https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-kube-linting/rendered/stakater-kube-linting-0.0.6.yaml,
            https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-unit-test/rendered/stakater-unit-test-0.0.5.yaml,
-           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-sonarqube-scan/rendered/stakater-sonarqube-scan-0.0.5.yam]" 
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-sonarqube-scan/rendered/stakater-sonarqube-scan-0.0.5.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-buildah/rendered/stakater-buildah-0.0.18.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-trivy-scan/rendered/stakater-trivy-scan-0.0.3.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-image-scan/rendered/stakater-rox-image-scan-0.0.4.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-deployment-check/rendered/stakater-rox-deployment-check-0.0.4.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-image-check/rendered/stakater-rox-image-check-0.0.6.yaml]"    
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:

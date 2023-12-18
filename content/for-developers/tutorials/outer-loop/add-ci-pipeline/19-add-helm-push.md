@@ -1,20 +1,20 @@
-# SonarQube Scan
+# Helm Push Check
 
 ## Objectives
 
-- Add `kube-liting` task to PipelineRun.
+- Add `helm-push` task to PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
 - Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
-- Linting is performed on application's Helm Chart.
+- Application helm chart os pushed to nexus
 
 ## Tutorial
 
-### Create PipelineRun with Sonar Scan Task
+### Create PipelineRun with Helm Push Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `sonar-scan` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task `helm-push` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the yaml becomes like the one given below.
@@ -30,7 +30,14 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
         pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml,https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-code-linting/rendered/stakater-code-linting-0.0.3.yaml,
            https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-kube-linting/rendered/stakater-kube-linting-0.0.6.yaml,
            https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-unit-test/rendered/stakater-unit-test-0.0.5.yaml,
-           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-sonarqube-scan/rendered/stakater-sonarqube-scan-0.0.5.yaml]" 
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-sonarqube-scan/rendered/stakater-sonarqube-scan-0.0.5.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-buildah/rendered/stakater-buildah-0.0.18.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-trivy-scan/rendered/stakater-trivy-scan-0.0.3.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-image-scan/rendered/stakater-rox-image-scan-0.0.4.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-deployment-check/rendered/stakater-rox-deployment-check-0.0.4.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-image-check/rendered/stakater-rox-image-check-0.0.6.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-checkov-scan/rendered/stakater-checkov-scan-0.0.3.yaml,
+           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-helm-push/rendered/stakater-helm-push-0.0.12.yaml]" 
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
@@ -168,6 +175,130 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             workspaces:
               - name: source
                 workspace: source
+          - name: buildah
+            runAfter:
+              - unit-test
+            taskRef:
+              name: stakater-buildah-0.0.18
+              kind: Task
+            params:
+              - name: IMAGE
+                value: $(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)
+              - name: TLSVERIFY
+                value: "false"
+              - name: FORMAT
+                value: "docker"
+              - name: BUILD_IMAGE
+                value: "true"
+              - name: IMAGE_REGISTRY
+                value: $(params.image_registry)
+              - name: CURRENT_GIT_TAG
+                value: $(tasks.create-git-tag.results.CURRENT_GIT_TAG)
+            workspaces:
+              - name: source
+                workspace: source
+          - name: trivy-scan
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-trivy-scan-0.0.3
+              kind: Task
+            params:
+              - name: IMAGE
+                value: $(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)
+            workspaces:
+              - name: source
+                workspace: source
+          - name: rox-image-scan
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-rox-image-scan-0.0.4
+              kind: Task
+            params:
+            - name: IMAGE
+              value: '$(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)'
+            - name: ROX_API_TOKEN
+              value: rox-creds
+            - name: ROX_CENTRAL_ENDPOINT
+              value: rox-creds
+            - name: OUTPUT_FORMAT
+              value: csv
+            - name: IMAGE_DIGEST
+              value: $(tasks.buildah.results.IMAGE_DIGEST)
+            - name: BUILD_IMAGE
+              value: "true"
+          - name: rox-image-check
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-rox-image-check-0.0.7
+              kind: Task
+            params:
+              - name: IMAGE
+                value: '$(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)'
+              - name: ROX_API_TOKEN
+                value: rox-creds
+              - name: ROX_CENTRAL_ENDPOINT
+                value: rox-creds
+              - name: BUILD_IMAGE
+                value: "true"
+          - name: rox-deployment-check
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-rox-deployment-check-0.0.4
+              kind: Task
+            params:
+              - name: ROX_API_TOKEN
+                value: rox-creds
+              - name: ROX_CENTRAL_ENDPOINT
+                value: rox-creds
+              - name: FILE
+                value: manifest.yaml
+              - name: DEPLOYMENT_FILES_PATH
+                value: deploy
+            workspaces:
+              - name: source
+                workspace: source
+          - name: checkov-scan
+            runAfter:
+              - buildah
+              - sonarqube-scan
+            taskRef:
+              name: stakater-checkov-scan-0.0.3
+              kind: Task
+            workspaces:
+              - name: source
+                workspace: source
+          - name: helm-push
+            runAfter:
+              - trivy-scan
+              - rox-deployment-check
+              - rox-image-scan
+              - rox-image-check
+              - checkov-scan
+            taskRef:
+              name: stakater-helm-push-0.0.12
+              kind: Task
+            params:
+              - name: PR_NUMBER
+                value: $(params.pull_request_number)
+              - name: REPO_PATH
+                value: $(params.repo_path)
+              - name: GIT_REVISION
+                value: $(params.git_revision)
+              - name: REGISTRY
+                value: $(params.helm_registry)
+              - name: SEM_VER
+                value: $(tasks.create-git-tag.results.GIT_TAG)
+            workspaces:
+              - name: source
+                workspace: source
       workspaces: # Mention Workspaces configuration
         - name: source
           volumeClaimTemplate:
@@ -185,13 +316,13 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             secretName: git-pat-creds
     ```
 
-    !!! note
-        Remember to add the remote task in the annotations
+   !!! note
+   Remember to add the remote task in the annotations
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![sonar-scan](images/sonar-scan.png)
+   ![helm-push](images/helm-push.png)
 
-   ![sonar-scan-logs](images/sonar-scan-logs.png)
+   ![helm-push](images/helm-push-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.
