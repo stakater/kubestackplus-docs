@@ -9,12 +9,12 @@ You can name these two repositories anything you want but make sure the names ar
 
 Let's set these two repositories up!!
 
-## Objective:
+## Objective
 
 * Configure Infra Repository.
 * Create your first tenant.
 
-## Key Results:
+## Key Results
 
 * Create GitOps repository
 * Configure Tenant operator resources
