@@ -33,9 +33,45 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
 
 > Follow along GitHub/GitLab documentation for configuring other organization specific requirements set for source code repositories.
 
-1. Create a secret with read permissions over this repository. Navigate to following section for more info [Configure Repository Secret for ArgoCD](../../how-to-guides/configure-repository-secret/configure-repository-secret.md).
+1. Create an external secret on the cluster with read permissions over this repository. 
 
-> **Note: Provide this secret (PAT/SSH private key) and the infra repo URL to stakater-admin for it to be deployed with your ArgoCD instance.**
+   ```yaml
+      apiVersion: external-secrets.io/v1beta1
+      kind: ExternalSecret
+      metadata:
+        name: infra-gitops-creds
+        namespace: rh-openshift-gitops-instance
+      spec:
+        refreshInterval: 1m
+        secretStoreRef:
+          name: tenant-vault-shared-secret-store
+          kind: SecretStore
+        data:
+          - remoteRef:
+              key: git-pat-creds
+              property: username
+            secretKey: username
+          - remoteRef:
+              key: git-pat-creds
+              property: password
+            secretKey: password
+        target:
+          name: infra-gitops-creds
+          template:
+            metadata:
+              labels:
+                argocd.argoproj.io/secret-type: repository
+            data:
+              name: infra-gitops-creds
+              password: "{{ '{{' }} .password | toString {{ '}}' }}"
+              username: "{{ '{{' }} .username | toString {{ '}}' }}"
+              project: "{{ nordmart_tenant_name }}"
+              type: git
+              url: "https://github.com/{{ YOUR_ORGANIZATION }}/infra-gitops-config.git"
+   ```
+
+   !!! note
+   This ExternalSecret uses the personal access token we created in the earlier tutorial.   
 
 1. Now let's copy the structure that we saw in the [template](https://github.com/stakater/infra-gitops-config.git). Add a folder bearing your cluster's name say `dev` at the root of the repository that you just created.
     > If you plan on using this repository for multiple clusters, add a folder for each cluster.
@@ -101,7 +137,7 @@ Open up the `argocd-apps` folder and add the following file to it:
       namespace: rh-openshift-gitops-instance
     spec:
       destination:
-        namespace: openshift-gitops
+        namespace: rh-openshift-gitops-instance
         server: 'https://kubernetes.default.svc'
       source:
         path: CLUSTER_NAME/tenant-operator-config
