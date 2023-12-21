@@ -221,107 +221,121 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
 
 ## Linking Apps GitOps with Infra GitOps
 
-> You will need to do this once per `apps-gitops-config` repository.
-
 1. We need to create ArgoCD applications that will deploy the apps of apps structure defined in our `apps-gitops-config` repository.
 
 1. Suppose we want to deploy our application workloads of our dev (CLUSTER_NAME) cluster. We can create an ArgoCD application for `apps-gitops-config` repository pointing to `argocd-apps/dev (argocd-apps/CLUSTER_NAME)` inside `cluster/argocd-apps/` folder in `infra-gitops-config` repository.
 
-   ```yaml
-   apiVersion: argoproj.io/v1alpha1
-   kind: Application
-   metadata:
-     name: apps-gitops-repo
-     namespace: rh-openshift-gitops-instance
-   spec:
-     destination:
-       namespace: openshift-gitops
-       server: 'https://kubernetes.default.svc'
-     project: root-tenant
-     source:
-       path: argocd-apps/dev
-       repoURL: 'APPS_GITOPS_REPO_URL'
-       targetRevision: HEAD
-     syncPolicy:
-       automated:
-         prune: true
-         selfHeal: true
-   ```
+    ```yaml
+      apiVersion: argoproj.io/v1alpha1
+      kind: Application
+      metadata:
+        name: apps-gitops-config
+        namespace: rh-openshift-gitops-instance
+      spec:
+        destination:
+          namespace: rh-openshift-gitops-instance
+          server: 'https://kubernetes.default.svc'
+        project: root-tenant
+        source:
+          path: argocd-apps/dev
+          repoURL: 'APPS_GITOPS_REPO_URL'
+          targetRevision: HEAD
+        syncPolicy:
+          automated:
+            prune: true
+            selfHeal: true
+    ```
 
-    > Find the template file [here](https://github.com/stakater/infra-gitops-config/blob/main/CLUSTER_NAME/argocd-apps/apps-gitops-config.yamlSample)
+    > Find the template file [here](https://github.com/NordMart/infra-gitops-config/blob/main/cluster-name/argocd-apps/apps-gitops-config.yaml)
 
 1. We need to add this resource inside `argocd-apps` folder in `dev/argocd-apps (CLUSTER_NAME/argocd-apps)`.
 
-   ```bash
-   ├── dev
-       └── argocd-apps
-           └── apps-gitops-config.yaml
-   ```
+    ```bash
+      ├── dev
+          └── argocd-apps
+              └── apps-gitops-config.yaml
+    ```
 
-1. Now lets add the secret required by ArgoCD for reading `apps-gitops-config` repository. Lets add a folder called `argocd-secrets` at `cluster/`. This will contain secrets required by ArgoCD for authentication over repositories.
+1. Now lets add the secret required by ArgoCD for reading `apps-gitops-config` repository. Lets add a folder called `gitops-repositories` at `cluster/`. This will contain secrets required by ArgoCD for authentication over repositories.
 
-   ```bash
-   ├── dev
-       ├── argocd-apps
-       |   └── apps-gitops-config.yaml
-       └── argocd-secrets
-   ```
+    ```bash
+      ├── dev
+          ├── argocd-apps
+          |   └── apps-gitops-config.yaml
+          └── gitops-repositories
+    ```
 
-1. Add a secret in Vault at `root-tenant/<repo-name>` path depending upon whether you configure SSH or Token Access. Add a external secret custom resource in `cluster/argocd-secrets/<repo-name>.yaml` folder. Use the following template :
+1. Add an external secret custom resource in `cluster/gitops-repositories/apps-gitops-creds.yaml` folder. We have already stored the secret value in Vault. Use the following template :
 
-   ```yaml
-   # Name: apps-gitops-config-external-secret.yaml (<repo-name>-external-secret.yaml)
-   # Path: dev/argocd-secrets/
-   apiVersion: external-secrets.io/v1beta1
-   kind: ExternalSecret
-   metadata:
-     name: <repo-name>
-     namespace: argocd-ns
-   spec:
-     secretStoreRef:
-       name: root-tenant-secret-store
-       kind: SecretStore
-     refreshInterval: "1m"
-     target:
-       name: <repo-name>
-       creationPolicy: 'Owner'
-     dataFrom:
-       - key: <repo-name>
-   ```
+     ```yaml
+       apiVersion: external-secrets.io/v1beta1
+       kind: ExternalSecret
+       metadata:
+         name: apps-gitops-creds
+         namespace: rh-openshift-gitops-instance
+       spec:
+         refreshInterval: 1m0s
+         secretStoreRef:
+           name: tenant-vault-shared-secret-store
+           kind: SecretStore
+         data:
+         - remoteRef:
+             key: git-pat-creds
+             property: username
+           secretKey: username
+         - remoteRef:
+             key: git-pat-creds
+             property: password
+           secretKey: password
+         target:
+           name: apps-gitops-creds
+           template:
+             metadata:
+               labels:
+                 argocd.argoproj.io/secret-type: repository
+             data:
+               name: apps-gitops-creds
+               password: "{{ .password | toString }}"
+               username: "{{ .username | toString }}"
+               project: TENANT_NAME
+               type: git
+               url: "https://github.com/DESTINATION_ORG/apps-gitops-config.git"
+     ```
 
-1. Add an ArgoCD application pointing to this directory `dev/argocd-secrets/` inside `dev/argocd-apps/apps-gitops-config-external-secret.yaml`.
+1. Add an ArgoCD application pointing to this directory `dev/gitops-repositories/` inside `dev/argocd-apps/gitops-repositories.yaml`.
 
-   ```yaml
-   # Name: argocd-secrets.yaml (FOLDER_NAME.yaml)
-   # Path: dev/argocd-apps/
-   apiVersion: argoproj.io/v1alpha1
-   kind: Application
-   metadata:
-     name: argocd-secrets
-     namespace: openshift-gitops
-   spec:
-     destination:
-       namespace: openshift-gitops
-       server: 'https://kubernetes.default.svc'
-     project: root-tenant
-     source:
-       path: dev/argocd-secrets/
-       repoURL: 'INFRA_GITOPS_REPO_URL'
-       targetRevision: HEAD
-     syncPolicy:
-       automated:
-         prune: true
-         selfHeal: true
-   ```
+    ```yaml
+      apiVersion: argoproj.io/v1alpha1
+      kind: Application
+      metadata:
+         name: gitops-repositories
+         namespace: rh-openshift-gitops-instance
+         finalizers:
+         - resources-finalizer.argocd.argoproj.io
+      spec:
+        destination:
+         server: 'https://kubernetes.default.svc'
+      source:
+        path: cluster-name/gitops-repositories
+        repoURL: 'https://github.com/DESTINATION_ORG/infra-gitops-config.git'
+        targetRevision: main
+        directory:
+          recurse: true
+      project: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+    ```
 
-   ```bash
-   ├── dev
-       ├── argocd-apps
-       |   ├── argocd-secrets.yaml
-       |   └── apps-gitops-config.yaml
-       └── argocd-secrets
-           └── apps-gitops-config-external-secret.yaml
-   ```
+     ```bash
+     ├── dev
+         ├── argocd-apps
+         |   ├── gitops-repositories.yaml
+         |   └── apps-gitops-config.yaml
+         └── gitops-repositories
+             └── apps-gitops-creds.yaml
+     ```
 
 1. Login to ArgoCD and check if the secret is deployed by opening `argocd-secrets` application in `infra-gitops-config` application.
 
