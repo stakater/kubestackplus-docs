@@ -265,7 +265,7 @@ Lets proceed by adding a tenant to the `apps-gitops-config` repository.
           └── gitops-repositories
     ```
 
-1. Add an external secret custom resource in `cluster/gitops-repositories/apps-gitops-creds.yaml` folder. We have already stored the secret value in vault. Use the following template :
+1. Add an external secret custom resource in `cluster/gitops-repositories/apps-gitops-creds.yaml` folder. We have already stored the secret value in Vault. Use the following template :
 
      ```yaml
        apiVersion: external-secrets.io/v1beta1

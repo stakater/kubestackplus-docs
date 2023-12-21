@@ -64,7 +64,7 @@ You can check secrets documentation to read more on these secrets.
 Now that we have created the GitHub Token, we will store it in Vault.
 
    !!! note
-   The delivery engineer should be part of the root-tenant. Please contact SAAP team if you are unable to access vault using OIDC method
+   The delivery engineer should be part of the root-tenant. Please contact SAAP team if you are unable to access Vault using OIDC method
 
 Login to Vault to view <your-tenant> path.
 

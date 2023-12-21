@@ -33,7 +33,7 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
 
 > Follow along GitHub/GitLab documentation for configuring other organization specific requirements set for source code repositories.
 
-1. Create an external secret on the cluster with read permissions over this repository. 
+1. Create an external secret on the cluster with read permissions over this repository.
 
    ```yaml
       apiVersion: external-secrets.io/v1beta1
@@ -71,7 +71,7 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
    ```
 
    !!! note
-   This ExternalSecret uses the personal access token we created in the earlier tutorial.   
+   This ExternalSecret uses the personal access token we created in the earlier tutorial.
 
 1. Now let's copy the structure that we saw in the [template](https://github.com/stakater/infra-gitops-config.git). Add a folder bearing your cluster's name say `dev` at the root of the repository that you just created.
     > If you plan on using this repository for multiple clusters, add a folder for each cluster.
