@@ -28,8 +28,8 @@ To run Renovate locally:
     1. Create a local copy of the index file in [Mend Renovate App secrets encryption](https://app.renovatebot.com/encrypt)
     1. Replace the public key in the local html, see [`privateKey` config](https://docs.renovatebot.com/self-hosted-configuration/#privatekey)
     1. Encrypt any passwords and replace them temporarily in the local config file
-    1. RENOVATE_CONFIG_FILE should point to the local config file
-    1. RENOVATE_PRIVATE_KEY_PATH must be set
-1. RENOVATE_TOKEN need to be created and set
-1. LOG_LEVEL should be set as applicable
+    1. `RENOVATE_CONFIG_FILE` should point to the local config file
+    1. `RENOVATE_PRIVATE_KEY_PATH` must be set
+1. `RENOVATE_TOKEN` need to be created and set
+1. `LOG_LEVEL` should be set as applicable
 1. Run a dry-run from anywhere because it clones the repo in a cached location: `renovate --dry-run="full" --require-config="ignored" "stakater/saap-docs"`
