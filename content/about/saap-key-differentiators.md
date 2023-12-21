@@ -4,7 +4,7 @@ Stakater App Agility Platform is a true hybrid-cloud enabler. All components of 
 
 - We support infra nodes, i.e. we fully manage nodes that run all managed addons of your choice.
 - We manage the addons as well; and provide SLA on them.
-- We support public clouds (AWS, Azure, Google, OpenStack & VMWare) as well as on-premises.
+- We support public clouds (AWS, Azure, Google, OpenStack & VMware) as well as on-premises.
 - Our SREs have full-stack development experience; so they understand the needs of applications and their runtimes.
 - A managed container orchestration platform is much more than making an API available: it is an environment designed with client support and acceleration in mind
 - Having a fully automated and industrialized systems management is the only way to reduce operative risks, keep costs under control, reinforce security and scale with guarantees

@@ -238,6 +238,7 @@ nav:
             - managed-addons/renovate/overview.md
             - How-to guides:            
                 - managed-addons/renovate/how-to-guides/automerge.md
+                - managed-addons/renovate/how-to-guides/run-locally.md
         - Gatekeeper:
             - managed-addons/gatekeeper/overview.md
         - Showback:
