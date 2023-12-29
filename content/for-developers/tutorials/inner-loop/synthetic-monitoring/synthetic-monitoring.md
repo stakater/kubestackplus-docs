@@ -67,7 +67,7 @@ In this tutorial, we'll guide you through the process of configuring UptimeRobot
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
-1. Navigate to SAAP to see our configurations. Let's first check ingress, go to your namspace and then switch to Networking > Ingresses.
+1. Navigate to SAAP to see our configurations. Let's first check ingress, go to your namespace and then switch to Networking > Ingresses.
 
     ![ingress](images/ingress.png)
 
