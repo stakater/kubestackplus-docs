@@ -25,3 +25,25 @@ These permissions are granted per Tenant and are only restricted to the tenant's
 These roles can be granted by [SAAP Cluster Admin](#saap-cluster-admin) by creating/editing the *Tenant* CR.
 
 To grant Tenant level permissions see detailed example for [Tenant CR](https://docs.stakater.com/mto/main/customresources.html#2-tenant)
+
+## Configure Identity Provider For Your Cluster
+
+### Social Identity Providers
+
+A social identity provider can delegate authentication to a trusted, respected social media account. Red Hat Single Sign-On includes support for social networks such as Google, Facebook, Twitter, GitHub, LinkedIn, Microsoft, and Stack Overflow.
+
+### Add Microsoft Identity Provider
+
+This document provides instructions on how to add the Microsoft Identity Provider to your OpenShift cluster.
+
+1. The Stakater Team will provide the Redirect URI to customers who wish to use an identity provider to log in to the OpenShift cluster.
+
+1. To integrate the Redirect URI, follow these steps:
+
+   a. Navigate to the [Microsoft App Registration Portal](https://account.live.com/developers/applications/create).
+
+   b. Click on 'Add URL.' The URL will be shared with you by the Stakater Team.
+
+   c. Record both the 'Application ID' and 'Application Secret' for future reference.
+
+1. Share the recorded 'Application ID' and 'Application Secret' with the Stakater Team. They will use this information to configure the OpenShift cluster.
