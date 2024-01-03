@@ -15,7 +15,7 @@ The Keycloak instance provided by Stakater is only for managing access to the ma
     - Redirect URI: Ask Stakater Support team to provide the redirect URI
 
 1. On the newly created `Client`, go to the `Credentials` tab and copy the `Secret` mentioned there
-1. Provide Stakater with the copied secret, so  Stakater can setup authentication for your Keycloak
+1. Provide Stakater with the copied secret, so Stakater can set up authentication for your Keycloak
 
 ## Items provided by Stakater Support
 
