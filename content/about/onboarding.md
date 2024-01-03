@@ -20,6 +20,7 @@ This is a complete list of the customer data and permissions needed for getting 
 * Configure access to systems
 * On-boarding session and knowledge sharing
 * Configure SSO
+    * Configure [Keycloak IDP](../for-cisos/authentication-authorization/keycloak-idp.md)
 
 ## Week 2-4 - Application Migration - Time and Material - Optional
 
