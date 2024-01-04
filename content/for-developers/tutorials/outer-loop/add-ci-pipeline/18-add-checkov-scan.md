@@ -1,4 +1,4 @@
-# Checkov Scan Check
+# Checkov Scan
 
 ## Objectives
 
