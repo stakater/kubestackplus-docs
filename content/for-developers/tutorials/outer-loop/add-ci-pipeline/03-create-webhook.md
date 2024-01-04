@@ -1,4 +1,4 @@
-# Setting Up Webhook in SCM (GitHub) for Pipeline as Code
+# Setting Up Webhook
 
 The webhook setup acts as a bridge between your code repository and the CI/CD pipeline. It allows your pipeline to be triggered automatically whenever specific events occur in your repository, such as code pushes or pull requests. The webhook secret further ensures that these interactions are secured and authenticated.
 
@@ -15,7 +15,7 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 
 ## Tutorial
 
-### Creating Webhook
+### Creating Webhook in GitHub
 
 1. Begin by accessing the repository where you plan to set up the webhook. In your source code GitHub repository, locate and click on the `Settings` tab.
 
