@@ -1,4 +1,4 @@
-# Update CD Repo Check
+# Update CD Repo
 
 ## Objectives
 
