@@ -104,6 +104,8 @@ nav:
               - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md
               - for-delivery-engineers/tutorials/04-preparing-pac-env/add-ssh-key.md
               - for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
+              - for-delivery-engineers/tutorials/04-preparing-pac-env/webhook-secret.md
+              - for-delivery-engineers/tutorials/04-preparing-pac-env/pipeline-as-code-env.md
         - How-to guides:
             - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
             - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
@@ -135,6 +137,7 @@ nav:
                 - for-developers/tutorials/inner-loop/monitor-your-app/monitor-your-app.md
                 - for-developers/tutorials/inner-loop/expose-metrics/expose-metrics.md
                 - for-developers/tutorials/inner-loop/add-alerts/add-alerts.md
+                - for-developers/tutorials/inner-loop/add-alerts/synthetic-monitoring/synthetic-monitoring.md
                 - for-developers/tutorials/inner-loop/add-grafana-dashboard/add-grafana-dashboard.md
                 - for-developers/tutorials/inner-loop/scale-app/scale-app.md
                 - for-developers/tutorials/inner-loop/validate-auto-reload/validate-auto-reload.md

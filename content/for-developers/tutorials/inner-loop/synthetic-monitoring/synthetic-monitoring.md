@@ -21,7 +21,7 @@ In this tutorial, we'll guide you through the process of configuring UptimeRobot
   ```yaml
     ## Endpoint Monitor
     endpointMonitor:
-    enabled: true
+      enabled: true
   ```
 
 ### Create a TLS Certificate
@@ -51,17 +51,17 @@ In this tutorial, we'll guide you through the process of configuring UptimeRobot
     ```yaml
     # Ingress
     ingress:
-    enabled: true
-    ingressClassName: openshift-default
-    servicePort: http
-    hosts:
+      enabled: true
+      ingressClassName: openshift-default
+      servicePort: http
+      hosts:
         - host: review.<CLUSTER_NAME>.kubeapp.cloud
-        paths:
-        - path: /
+          paths:
+          - path: /
             servicePort: 'http'
-    tls:
+      tls:
         - secretName: review-tls-secret # TLS Secret name that we created above
-        hosts:
+          hosts:
             - review.<CLUSTER_NAME>.kubeapp.cloud
     ```
 
@@ -79,7 +79,7 @@ In this tutorial, we'll guide you through the process of configuring UptimeRobot
 
     Confirm that the route has been updated to use `https`.
 
-1. Let's verify our Endpoint Monitor, it should be created by now. Go to Home > Search > Resources, type Endpoint Monitor. If your are in your namespace, you'll see an Endpoint Monitor created there.
+1. Let's verify our Endpoint Monitor, it should be created by now. Go to Home > Search > Resources, type Endpoint Monitor. If you are in your namespace, you'll see an Endpoint Monitor created there.
 
     ![endpoint monitor](images/endpoint-monitor.png)
 
