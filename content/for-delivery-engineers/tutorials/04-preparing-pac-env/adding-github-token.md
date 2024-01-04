@@ -16,6 +16,7 @@ You can check secrets documentation to read more on these secrets.
 ## Prerequisites
 
 * Infra GitOps Repository is configured.
+* Delivery Engineer added as the owner of root-tenant. The root tenant makes sure that the delivery engineer is able to login to Vault with OIDC and is able to view the ArgoCD application created for bootstrapping Infra repository.
 
 ## Tutorial
 
@@ -57,14 +58,14 @@ You can check secrets documentation to read more on these secrets.
     <div style="text-align:center"><img src="images/repository-permissions.png" /></div>
 
    !!! note
-   Save the token cautiously, you'll need to save it in `Vault`.
+       Save the token cautiously, you'll need to save it in `Vault`.
 
 ### Adding Token to Vault
 
 Now that we have created the GitHub Token, we will store it in Vault.
 
    !!! note
-   The delivery engineer should be part of the root-tenant. Please contact SAAP team if you are unable to access Vault using OIDC method
+       The delivery engineer should be part of the root-tenant. Please contact SAAP team if you are unable to access Vault using OIDC method
 
 Login to Vault to view <your-tenant> path.
 

@@ -1,4 +1,4 @@
-# Helm Push Check
+# Helm Push
 
 ## Objectives
 
