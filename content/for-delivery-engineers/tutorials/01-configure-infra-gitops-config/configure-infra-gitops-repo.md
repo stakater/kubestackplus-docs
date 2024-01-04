@@ -1,4 +1,4 @@
-# Configure infra GitOps repository
+# Configure Infra GitOps repository
 
 Let us set up Stakater Opinionated GitOps Structure.
 
@@ -63,11 +63,11 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
                 argocd.argoproj.io/secret-type: repository
             data:
               name: infra-gitops-creds
-              password: "{{ '{{' }} .password | toString {{ '}}' }}"
-              username: "{{ '{{' }} .username | toString {{ '}}' }}"
-              project: "{{ nordmart_tenant_name }}"
+              password: '{{ .password | toString }}'
+              username: '{{ .username | toString }}'
+              project: root-tenant
               type: git
-              url: "https://github.com/{{ YOUR_ORGANIZATION }}/infra-gitops-config.git"
+              url: 'INFRA_GITOPS_REPO_URL'
    ```
 
    !!! note
@@ -172,7 +172,7 @@ Open up the `argocd-apps` folder and add the following file to it:
         project: default
         source:
           path: <cluster-name>/argocd-apps
-          repoURL: <YOUR INFRA REPOSITORY URL>
+          repoURL: 'INFRA_GITOPS_REPO_URL'
           targetRevision: HEAD
         syncPolicy:
           automated:
