@@ -26,7 +26,7 @@ The cluster scoped infrastructural configurations are deployed through this repo
 
 To make things easier, we have created a [template](https://github.com/NordMart/infra-gitops-config.git) that you can use to create your infra repository.
 
-Team Stakater will create a root [Tenant](https://docs.stakater.com/mto/main/customresources.html#2-tenant), which will then create a root AppProject.
+Team Stakater will create a root [Tenant](https://docs.stakater.com/mto/latest/tutorials/tenant/create-tenant.html), which will then create a root AppProject.
 This AppProject will be used to sync all the Applications in `Infra Gitops Config` and it will provide visibility of these Applications in ArgoCD UI to customer cluster admins.
 
 1. Open up your SCM and create any empty repository.
