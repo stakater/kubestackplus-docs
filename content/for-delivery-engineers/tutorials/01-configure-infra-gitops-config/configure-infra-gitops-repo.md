@@ -157,8 +157,8 @@ Open up the `argocd-apps` folder and add the following file to it:
 
 ## Bootstrapping the Infra GitOps Repository
 
-1. Now that we have the Infra Gitops Repository set up, we can bootstrap it to ArgoCD. Open the cluster and create an ArgoCD application using the below file.
-   
+1. Now that we have the Infra GitOps Repository set up, we can bootstrap it to ArgoCD. Open the cluster and create an ArgoCD application using the below file.
+
    ```yaml
       apiVersion: argoproj.io/v1alpha1
       kind: Application
