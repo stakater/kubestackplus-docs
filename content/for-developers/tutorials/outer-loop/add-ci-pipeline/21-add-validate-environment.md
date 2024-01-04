@@ -1,4 +1,4 @@
-# Validate Environment Check
+# Validate Environment
 
 ## Objectives
 
