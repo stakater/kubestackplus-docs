@@ -139,8 +139,3 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
      <div style="text-align:center"><img src="images/github-webhook-config-secret.png" /></div>
 
 Great! We have everything set up for creating the Repository CR.
-
-
-Congratulations! You have successfully configured GitHub access. Let's move to next tutorial.
-
-Great! Now that you added a Webhook to your repository, let's move on to create secret for it in the next tutorial.

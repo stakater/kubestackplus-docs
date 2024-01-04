@@ -56,7 +56,7 @@ You can check secrets documentation to read more on these secrets.
         * Webhook (Read and write)
 
     <div style="text-align:center"><img src="images/repository-permissions.png" /></div>
-   
+
 !!! note
     Save the token cautiously, you'll need to save it in `Vault`.
 
