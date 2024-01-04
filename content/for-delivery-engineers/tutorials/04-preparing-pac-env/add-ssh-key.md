@@ -75,7 +75,6 @@ Since we want the `git-ssh-creds` secret to be deployed in all of the tenant nam
 
 1. Open the `tenant-operator-config` folder and create a `templates` folder inside it.
 
-      ##TODO
      <div style="text-align:center"><img src="images/template.png" /></div>
 
 1. Now create a file named `git-ssh-creds-template.yaml` and add the following content.
