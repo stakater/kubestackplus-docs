@@ -73,7 +73,7 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
    !!! note
    This ExternalSecret uses the personal access token we created in the earlier tutorial.
 
-1. Now let's copy the structure that we saw in the [template](https://github.com/stakater/infra-gitops-config.git). Add a folder bearing your cluster's name say `dev` at the root of the repository that you just created.
+1. Now let's copy the structure that we saw in the [template](https://github.com/NordMart/infra-gitops-config.git). Add a folder bearing your cluster's name say `dev` at the root of the repository that you just created.
     > If you plan on using this repository for multiple clusters, add a folder for each cluster.
 1. Inside the folder created in step 2, add two folders; one named `argocd-apps`, and another one named `tenant-operator-config`
     > The `argocd-apps` folder will contain ArgoCD applications that will _watch_ different resources added to the same repository. Let's spare ourselves from the details for now.
