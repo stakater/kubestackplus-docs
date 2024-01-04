@@ -155,7 +155,30 @@ Open up the `argocd-apps` folder and add the following file to it:
     Make sure you replace the `repoURL` depending on the Secret type you generated, e.g., for SSH secret, repoURL should be SSH.  You may also need to change all the instances of `CLUSTER_NAME` with your cluster's name.
     If you notice the path, you will realize that this application is pointing to 'tenant-operator-config' folder housing your tenant and quotas.
 
-1. To deploy the ArgoCD application on the cluster pointing to `<cluster-name>/argocd-apps` directory, you will need to ask Stakater Admin to create it as part of ArgoCD Instance.
+## Bootstrapping the Infra GitOps Repository
+
+1. Now that we have the Infra Gitops Repository set up, we can bootstrap it to ArgoCD. Open the cluster and create an ArgoCD application using the below file.
+   
+   ```yaml
+      apiVersion: argoproj.io/v1alpha1
+      kind: Application
+      metadata:
+        name: infra-gitops-config
+        namespace: rh-openshift-gitops-instance
+      spec:
+        destination:
+          namespace: rh-openshift-gitops-instance
+          server: 'https://kubernetes.default.svc'
+        project: default
+        source:
+          path: <cluster-name>/argocd-apps
+          repoURL: <YOUR INFRA REPOSITORY URL>
+          targetRevision: HEAD
+        syncPolicy:
+          automated:
+            prune: true
+            selfHeal: true
+   ```
 
 1. Login to ArgoCD and check if `infra-gitops-config` application is present. Validate the child application `tenant-operator-config`.
 
