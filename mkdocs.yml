@@ -104,7 +104,6 @@ nav:
               - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md
               - for-delivery-engineers/tutorials/04-preparing-pac-env/add-ssh-key.md
               - for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
-              - for-delivery-engineers/tutorials/04-preparing-pac-env/pipeline-as-code-env.md
         - How-to guides:
             - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
             - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
