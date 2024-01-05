@@ -26,7 +26,7 @@ In this tutorial, you'll create secrets containing your GitHub access credential
 1. Create a file named `repository.yaml` and add the following content:
 
     ```yaml
-    apiVersion: "pipelinesascode..dev/v1alpha1"
+    apiVersion: "pipelinesascode.tekton.dev/v1alpha1"
     kind: Repository
     metadata:
       name: <name-of-repo>
