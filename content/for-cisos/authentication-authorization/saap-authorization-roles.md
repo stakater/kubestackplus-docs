@@ -7,9 +7,9 @@ Namespaces are divided into two sub-categories:
 - **Stakater owned** : created by the Stakater team which consists of projects/namespaces with format `openshift*`, `stakater*`, `kube*`, `redhat*`, `default`
 - **Customer owned** : created by the customer
 
-## SAAP Cluster Admin (`sca`) role
+## Customer Admin (`sca`) role
 
-The permissions for the SAAP Cluster Admin (`sca`) role includes:
+The permissions for the Customer Admin (`sca`) role includes:
 
 ### Operators Permissions
 
@@ -75,17 +75,17 @@ The permissions for the SAAP Cluster Admin (`sca`) role includes:
 ### Administration
 
 - can create/edit/delete resource quotas and limits on the cluster
-- can access the reserved `saap-cluster-admin` project on the cluster, which allows for the creation of `ServiceAccounts` with elevated privileges and gives the ability to update default limits and quotas for projects on the cluster
-- `saap-cluster-admin` service account can create project
-- `saap-cluster-admin` service account can delete project
-- `saap-cluster-admin` service account cannot edit/create rolebinding
+- can access the reserved `customer-admin` project on the cluster, which allows for the creation of `ServiceAccounts` with elevated privileges and gives the ability to update default limits and quotas for projects on the cluster
+- `customer-admin` service account can create project
+- `customer-admin` service account can delete project
+- `customer-admin` service account cannot edit/create rolebinding
 - can not create/edit/delete `clusterresourcequotas`
 
 Only the mentioned permissions above are present for the role, for any other permission required the user need to raise a case with Stakater Support team.
 
 ## How to request this role from Stakater Support
 
-If any user needs to be given `saap-cluster-admin` role , they can raise a request with Stakater team to assign the desired role to that user.
+If any user needs to be given `customer-admin` role , they can raise a request with Stakater team to assign the desired role to that user.
 
 ## Items to be provided to Stakater Support
 
