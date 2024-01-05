@@ -149,7 +149,6 @@ nav:
                 - Configure Pipeline for your application:
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/01-overview.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/03-create-webhook.md
-                  - for-developers/tutorials/outer-loop/add-ci-pipeline/04-add-repository-secret.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/05-create-repository.md
                   - Add PipelineRun:
                     - for-developers/tutorials/outer-loop/add-ci-pipeline/06-adding-pipeline.md
