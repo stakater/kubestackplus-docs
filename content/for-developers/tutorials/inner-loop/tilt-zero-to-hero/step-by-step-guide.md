@@ -54,7 +54,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
     HOST=image-registry-openshift-image-registry.apps.[CLUSTER-NAME].[CLUSTER-ID].kubeapp.cloud
     ```
 
-    NOTE: Ask `sca` (Customer Admin) or `cluster-admin` to provide you the OpenShift internal registry route
+    NOTE: Ask Customer Admin or Cluster Admin to provide you the OpenShift internal registry route
 
     Then login into docker registry with following command:
 
