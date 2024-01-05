@@ -135,6 +135,7 @@ nav:
                 - for-developers/tutorials/inner-loop/monitor-your-app/monitor-your-app.md
                 - for-developers/tutorials/inner-loop/expose-metrics/expose-metrics.md
                 - for-developers/tutorials/inner-loop/add-alerts/add-alerts.md
+                - for-developers/tutorials/inner-loop/synthetic-monitoring/synthetic-monitoring.md
                 - for-developers/tutorials/inner-loop/add-grafana-dashboard/add-grafana-dashboard.md
                 - for-developers/tutorials/inner-loop/scale-app/scale-app.md
                 - for-developers/tutorials/inner-loop/validate-auto-reload/validate-auto-reload.md
