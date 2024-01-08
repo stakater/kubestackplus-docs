@@ -22,9 +22,9 @@ Cluster Admin is an OpenShift role which give the user assigned this role full C
 ### Approval Process
 
 1. Identify Priority:1 incident.
-2. Escalate to Engineering Manager.
-3. Authorization granted by Engineering Manager.
-4. Cluster-Admin intervenes to resolve the incident.
+1. Escalate to Engineering Manager.
+1. Authorization granted by Engineering Manager.
+1. Cluster-Admin intervenes to resolve the incident.
 
 This role ensures swift response and resolution in critical situations, with approval granted by the Engineering Manager for emergency access.
 
