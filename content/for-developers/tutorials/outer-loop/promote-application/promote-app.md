@@ -32,9 +32,11 @@ To promote application from one environment to another, you can check the image 
   application:
     deployment:
       image:
-        repository: <application-docker-repo>
+        repository: nexus-docker-stakater-nexus.{CLUSTER_DOMAIN}/
         tag: 1.0.51
 ```
+
+  > Note: Find Nexus Docker registry URL and Helm Registry URL [here](../../../../managed-addons/nexus/explanation/routes.md)
 
 Pick version `1.0.51` and paste it to next environment
 
@@ -45,6 +47,6 @@ Pick version `1.0.51` and paste it to next environment
   application:
     deployment:
       image:
-        repository: <application-repo>
+        repository: nexus-docker-stakater-nexus.{CLUSTER_DOMAIN}/
         tag: 1.0.50
 ```
