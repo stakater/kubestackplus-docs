@@ -11,14 +11,16 @@ Following are the roles available in SAAP :
 
 ## Cluster Admin
 
-Cluster Admin is an openshift role which give the user assigned this role full Cluster-Admin Privileges
+Cluster Admin is an OpenShift role which give the user assigned this role full Cluster-Admin Privileges
 
 ### Responsibilities
+
 - Full access to manage the entire OpenShift cluster.
 - Quick resolution of Priority:1 incidents and emergencies.
 - Emergency and backdoor access for immediate intervention.
 
 ### Approval Process 
+
 1. Identify Priority:1 incident.
 2. Escalate to Engineering Manager.
 3. Authorization granted by Engineering Manager.
@@ -115,9 +117,12 @@ If any user needs to be given `customer-admin` role , they can raise a request w
 This role empowers administrators with the necessary permissions to maintain and optimize Stakater tools on the SAAP Managed platform while respecting security measures by excluding access to kubeconfig secrets.
 
 ### Responsibilities:
+
 - Manage and troubleshoot Stakater tools on OpenShift Cluster.
 - No access to kubeconfig secrets.
 
 ### Usage Guidelines:
+
 - Responsible and proactive management.
 - Collaborate for issue resolution.
+- 
