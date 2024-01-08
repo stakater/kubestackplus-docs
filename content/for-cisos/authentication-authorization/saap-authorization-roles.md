@@ -7,6 +7,25 @@ Namespaces are divided into two sub-categories:
 - **Stakater owned** : created by the Stakater team which consists of projects/namespaces with format `openshift*`, `stakater*`, `kube*`, `redhat*`, `default`
 - **Customer owned** : created by the customer
 
+Following are the roles available in SAAP :
+
+## Cluster Admin
+
+Cluster Admin is an openshift role which give the user assigned this role full Cluster-Admin Privileges
+
+### Responsibilities
+- Full access to manage the entire OpenShift cluster.
+- Quick resolution of Priority:1 incidents and emergencies.
+- Emergency and backdoor access for immediate intervention.
+
+### Approval Process 
+1. Identify Priority:1 incident.
+2. Escalate to Engineering Manager.
+3. Authorization granted by Engineering Manager.
+4. Cluster-Admin intervenes to resolve the incident.
+
+This role ensures swift response and resolution in critical situations, with approval granted by the Engineering Manager for emergency access.
+
 ## Customer Admin (`sca`) role
 
 The permissions for the Customer Admin (`sca`) role includes:
@@ -83,10 +102,22 @@ The permissions for the Customer Admin (`sca`) role includes:
 
 Only the mentioned permissions above are present for the role, for any other permission required the user need to raise a case with Stakater Support team.
 
-## How to request this role from Stakater Support
+### How to request this role from Stakater Support
 
 If any user needs to be given `customer-admin` role , they can raise a request with Stakater team to assign the desired role to that user.
 
-## Items to be provided to Stakater Support
+### Items to be provided to Stakater Support
 
 - User Email that needs to be assigned this group
+
+## Stakater Admin 
+
+This role empowers administrators with the necessary permissions to maintain and optimize Stakater tools on the SAAP Managed platform while respecting security measures by excluding access to kubeconfig secrets.
+
+### Responsibilities:
+- Manage and troubleshoot Stakater tools on OpenShift Cluster.
+- No access to kubeconfig secrets.
+
+### Usage Guidelines:
+- Responsible and proactive management.
+- Collaborate for issue resolution.
