@@ -19,7 +19,7 @@ Cluster Admin is an OpenShift role which give the user assigned this role full C
 - Quick resolution of Priority:1 incidents and emergencies.
 - Emergency and backdoor access for immediate intervention.
 
-### Approval Process 
+### Approval Process
 
 1. Identify Priority:1 incident.
 2. Escalate to Engineering Manager.
@@ -112,17 +112,16 @@ If any user needs to be given `customer-admin` role , they can raise a request w
 
 - User Email that needs to be assigned this group
 
-## Stakater Admin 
+## Stakater Admin
 
 This role empowers administrators with the necessary permissions to maintain and optimize Stakater tools on the SAAP Managed platform while respecting security measures by excluding access to kubeconfig secrets.
 
-### Responsibilities:
+### Responsibilities
 
 - Manage and troubleshoot Stakater tools on OpenShift Cluster.
 - No access to kubeconfig secrets.
 
-### Usage Guidelines:
+### Usage Guidelines
 
 - Responsible and proactive management.
 - Collaborate for issue resolution.
-- 
