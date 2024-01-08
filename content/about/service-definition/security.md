@@ -12,11 +12,11 @@ Authentication for the cluster is configured as part of the cluster creation pro
 
 ## Privileged Containers
 
-Privileged containers are not available by default on SAAP. The `anyuid` and `nonroot` Security Context Constraints (SCC) are available for members of the Customer Admin group, and should address many use cases. Privileged containers are only available for `sca` users.
+Privileged containers are not available by default on SAAP. The `anyuid` and `nonroot` Security Context Constraints (SCC) are available for members of the Customer Admin group, and should address many use cases. Privileged containers are only available for Customer Admin users.
 
 ## Customer Administrator User
 
-In addition to normal users, Stakater provides access to a SAAP-specific group called `sca`. The permissions for this role is described on the [roles in SAAP](../../for-cisos/authentication-authorization/saap-authorization-roles.md).
+In addition to normal users, Stakater provides access to a SAAP-specific group called `Customer Admin`. The permissions for this role is described on the [roles in SAAP](../../for-cisos/authentication-authorization/saap-authorization-roles.md).
 
 ## Cluster Administration Role
 

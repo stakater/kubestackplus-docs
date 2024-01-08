@@ -26,9 +26,9 @@ Cluster Admin is an openshift role which give the user assigned this role full C
 
 This role ensures swift response and resolution in critical situations, with approval granted by the Engineering Manager for emergency access.
 
-## Customer Admin (`sca`) role
+## Customer Admin role
 
-The permissions for the Customer Admin (`sca`) role includes:
+The permissions for the Customer Admin role includes:
 
 ### Operators Permissions
 
