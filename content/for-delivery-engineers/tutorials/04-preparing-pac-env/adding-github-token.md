@@ -18,6 +18,7 @@ You can check secrets documentation to read more on these secrets.
 * Infra GitOps Repository is configured.
 * Delivery Engineer added as the owner of root-tenant.
 * Delivery Engineer added as a member of customer admin group. The customer admin group provides permission to deploy ArgoCD application in ArgoCD namespace.
+* A GitHub user with access over all the repositories on GitHub. You can name this user `saap-bot`.
 
 ## Tutorial
 
