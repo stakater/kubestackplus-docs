@@ -34,6 +34,7 @@ This role ensures swift response and resolution in critical situations, with app
 The permissions for the Customer Admin role includes:
 
 ### Permissions
+
 #### Operators Permissions
 
 - can view OperatorHub in console
