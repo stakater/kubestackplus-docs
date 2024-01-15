@@ -32,7 +32,7 @@ To grant Tenant level permissions see detailed example for [Tenant CR](https://d
 
 A social identity provider can delegate authentication to a trusted, respected social media account. Red Hat Single Sign-On includes support for social networks such as Google, Facebook, Twitter, GitHub, LinkedIn, Microsoft, and Stack Overflow.
 
-- [Configuring Azure AD identity provider](./secure-your-cluster/azure-idp.md)
-- [Configuring a Keycloak identity provider](./secure-your-cluster/keycloak-idp.md)
-- [Configuring a SAML identity provider](./secure-your-cluster/saml-idp.md)
-- [Configuring a Google identity provider](./secure-your-cluster/google-idp.md)
+- [Configuring Azure AD identity provider](./azure-idp.md)
+- [Configuring a Keycloak identity provider](./keycloak-idp.md)
+- [Configuring a SAML identity provider](./saml-idp.md)
+- [Configuring a Google identity provider](./google-idp.md)
