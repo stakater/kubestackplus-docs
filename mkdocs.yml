@@ -78,6 +78,12 @@ nav:
         - Secure your cluster:
             - for-administrators/secure-your-cluster/user-access.md
             - for-administrators/secure-your-cluster/secure-routes.md
+            - for-administrators/secure-your-cluster/google-idp.md
+            - for-administrators/secure-your-cluster/azure-idp.md
+            - for-administrators/secure-your-cluster/keycloak-idp.md
+            - for-administrators/secure-your-cluster/saml-idp.md
+            - for-administrators/secure-your-cluster/saap-authorization-roles.md
+            - for-administrators/secure-your-cluster/curated-list-operators.md
         - Manage Network:
             - for-administrators/networking/custom-domains.md
             - for-administrators/networking/external-dns.md
@@ -181,13 +187,6 @@ nav:
             - for-cisos/rhacs/introduction.md
             - for-cisos/rhacs/accessing-rhacs.md
             - for-cisos/rhacs/permissions.md
-        - Authentication and Authorization:
-            - for-cisos/authentication-authorization/google-idp.md
-            - for-cisos/authentication-authorization/azure-idp.md
-            - for-cisos/authentication-authorization/keycloak-idp.md
-            - for-cisos/authentication-authorization/saml-idp.md
-            - for-cisos/authentication-authorization/saap-authorization-roles.md
-            - for-cisos/authentication-authorization/curated-list-operators.md
         - Backup and Restore:
             - for-cisos/backup-restore/introduction.md
             - for-cisos/backup-restore/velero-cli.md

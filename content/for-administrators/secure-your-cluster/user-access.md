@@ -32,18 +32,7 @@ To grant Tenant level permissions see detailed example for [Tenant CR](https://d
 
 A social identity provider can delegate authentication to a trusted, respected social media account. Red Hat Single Sign-On includes support for social networks such as Google, Facebook, Twitter, GitHub, LinkedIn, Microsoft, and Stack Overflow.
 
-### Add Microsoft Identity Provider
-
-This document provides instructions on how to add the Microsoft Identity Provider to your OpenShift cluster.
-
-1. The Stakater Team will provide the Redirect URI to customers who wish to use an identity provider to log in to the OpenShift cluster.
-
-1. To integrate the Redirect URI, follow these steps:
-
-   a. Navigate to the [Microsoft App Registration Portal](https://account.live.com/developers/applications/create).
-
-   b. Click on 'Add URL.' The URL will be shared with you by the Stakater Team.
-
-   c. Record both the 'Application ID' and 'Application Secret' for future reference.
-
-1. Share the recorded 'Application ID' and 'Application Secret' with the Stakater Team. They will use this information to configure the OpenShift cluster.
+- [Configuring Azure AD identity provider](./secure-your-cluster/azure-idp.md)
+- [Configuring a Keycloak identity provider](./secure-your-cluster/keycloak-idp.md)
+- [Configuring a SAML identity provider](./secure-your-cluster/saml-idp.md)
+- [Configuring a Google identity provider](./secure-your-cluster/google-idp.md)
