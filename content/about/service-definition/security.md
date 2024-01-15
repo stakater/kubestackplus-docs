@@ -16,7 +16,7 @@ Privileged containers are not available by default on SAAP. The `anyuid` and `no
 
 ## Customer Administrator User
 
-In addition to normal users, Stakater provides access to a SAAP-specific group called `Customer Admin`. The permissions for this role is described on the [roles in SAAP](../../for-cisos/authentication-authorization/saap-authorization-roles.md).
+In addition to normal users, Stakater provides access to a SAAP-specific group called `Customer Admin`. The permissions for this role is described on the [roles in SAAP](../../for-administrators/secure-your-cluster/saap-authorization-roles.md).
 
 ## Cluster Administration Role
 
