@@ -18,6 +18,6 @@ Welcome to the Adminstrator Section, your comprehensive guide to mastering Admin
 
     This how-to guide provides a comprehensive overview on securing your clusters through various identity providers. Learn step-by-step instructions to enhance the security of your environment, exploring different authentication methods to safeguard your clusters effectively.
 
-- [Whitelisting IPs on Routes](./how-to-guides/deploy-app-with-argocd-and-helm/deploy-app-with-argocd-and-helm.md)
+- [Whitelisting IPs on Routes](./secure-your-cluster/secure-routes.md)
 
     Follow step-by-step instructions to discover an easy guide on securing your OpenShift routes using IP Whitelisting. Learn how to limit access to specific IP addresses, boosting your cluster's security. This guide ensures a straightforward way to strengthen and control your OpenShift environment.
