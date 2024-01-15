@@ -21,7 +21,7 @@ To enable login with Google you first have to create a project and a client in t
 
 1. After you click Create you will be brought to the `Credentials` page. Click on your new OAuth 2.0 Client ID to view the settings of your new Google Client. You will need to obtain the `client ID` and `secret` **Send these to Stakater Support**.
 
-    ![client-id-scret](imagesoogle-client-id-secret.png)
+    ![client-id-scret](images/google-client-id-secret.png)
 
 ## Items provided by Stakater Support
 
