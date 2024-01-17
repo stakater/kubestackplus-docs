@@ -73,6 +73,7 @@ nav:
         - about/update-lifecycle.md
         - about/onboarding.md
     - For Administrators:
+        - for-administrators/overview.md
         - Plan your environment:
             - for-administrators/plan-your-environment/sizing.md
         - Secure your cluster:
