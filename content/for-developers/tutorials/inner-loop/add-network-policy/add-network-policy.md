@@ -17,7 +17,7 @@ In SAAP we are using `Network Policies` to control communication between pods wi
 
 Let's set a `Network Policy` on the `review-mongodb` pod so that no other pods can communicate with our database other than the application pod `review`.
 
-1. Add `Network Policy` yaml to your `deploy/values.yaml`.
+1. Add `Network Policy` YAML to your `deploy/values.yaml`.
 
     ```yaml
     # Define a NetworkPolicy configuration.

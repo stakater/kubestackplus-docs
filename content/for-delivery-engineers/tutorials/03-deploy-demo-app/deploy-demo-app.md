@@ -123,7 +123,7 @@ buildah push <nexus-docker-reg-url>/stakater-nordmart-review-web:1.0.0 docker://
 
 In application repo add Helm Chart in ***deploy*** folder at the root of your repository. To configure Helm chart add following 2 files in ***deploy*** folder.
 
-1. A Chart.yaml is YAML file containing information about the chart. We will be using an external helm dependency chart called **Stakater Application Chart**. The Helm chart is present in a remote Helm Chart repository
+1. A `Chart.yaml` is YAML file containing information about the chart. We will be using an external helm dependency chart called **Stakater Application Chart**. The Helm chart is present in a remote Helm Chart repository
 
     > More Info : Stakater Application Chart <https://github.com/stakater/application>
 
@@ -141,7 +141,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
       version: 1.0.0
     ```
 
-1. The values.yaml contains all the application specific **Kubernetes resources** (deployments, configmaps, namespaces, secrets, services, route, podautoscalers, RBAC) for the particular environment. Configure Helm values as per application needs.
+1. The `values.yaml` contains all the application specific **Kubernetes resources** (deployments, configmaps, namespaces, secrets, services, route, podautoscalers, RBAC) for the particular environment. Configure Helm values as per application needs.
 
     Here is a minimal values file defined for an application with deployment,route,service.
 
@@ -243,7 +243,7 @@ Navigate to `apps-gitops-config` repository and add a helm chart in path `gabbar
 
 ![app-in-dev-env](../images/app-in-dev-env.png)
 
-For Chart.yaml:
+For `Chart.yaml`:
 
 !!! note
     In **Chart.yaml** 'C' is capitalized.
@@ -263,7 +263,7 @@ dependencies:
 version: 1.0.0
 ```
 
-For values.yaml:
+For `values.yaml`:
 
 ```yaml
 # <tenant-name>/<app-name>/dev/values.yaml

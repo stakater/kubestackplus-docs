@@ -2,7 +2,7 @@
 
 SAAP provides robust mechanisms for managing the health and availability of container applications. Liveness, readiness, and startup probes are essential features that help ensure application reliability and stability.
 
-In this tutorial, we will explore how to leverage the capabilities of SAAP to define different probes using the values.yaml file.
+In this tutorial, we will explore how to leverage the capabilities of SAAP to define different probes using the `values.yaml` file.
 
 ## Objective
 

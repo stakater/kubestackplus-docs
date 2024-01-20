@@ -37,8 +37,8 @@ Helm can install a chart either in the package (.tgz) or un-packaged form (tree 
 
 Each Helm chart has the ability to define two separate versions:
 
-- The version of the chart itself (version field in Chart.yaml).
-- The version of the application contained in the chart (appVersion field in Chart.yaml).
+- The version of the chart itself (version field in `Chart.yaml`).
+- The version of the application contained in the chart (appVersion field in `Chart.yaml`).
 
 These are unrelated and can be bumped up in any manner that you see fit. You can sync them together or have them increase independently. There is no right or wrong practice here as long as you stick into one.
 
@@ -46,7 +46,7 @@ These are unrelated and can be bumped up in any manner that you see fit. You can
 
 The most basic way to use Helm is by having a single chart that holds a single application. The single chart will contain all the resources needed by your application such as deployments, services, config-maps etc.
 
-However, you can also create a chart with dependencies to other charts (a.k.a. umbrella chart) which are completely external using the requirements.yaml file. Using this strategy is optional and can work well in several organizations. Again, there is no definitive answer on right and wrong here, it depends on your team process.
+However, you can also create a chart with dependencies to other charts (a.k.a. umbrella chart) which are completely external using the `requirements.yaml` file. Using this strategy is optional and can work well in several organizations. Again, there is no definitive answer on right and wrong here, it depends on your team process.
 
 ![Chart Structure](./images/chart-structure.jpeg)
 

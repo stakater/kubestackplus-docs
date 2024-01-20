@@ -15,7 +15,7 @@ In stateful applications deployed on the SAAP (Stakater App Agility Platform), e
 
 1. To create `PVs` and `PVCs` for your application, we need to add **persistence** in our `deploy/values.yaml`.
 
-    Persistence field is to provide a convenient and customizable way to define the PVC settings within the Helm chart configuration by specifying the PVC settings in the values.yaml file.
+    Persistence field is to provide a convenient and customizable way to define the PVC settings within the Helm chart configuration by specifying the PVC settings in the `values.yaml` file.
 
     ```yaml
       ## Persistence

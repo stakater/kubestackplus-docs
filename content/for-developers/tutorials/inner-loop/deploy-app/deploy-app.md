@@ -145,7 +145,7 @@ In this guide, we will deploy an application with tilt and namespace in the remo
 
     In our application setup, we have a dependency on MongoDB for storing and managing data. As part of our deployment process, we will ensure that both the application `API` named `review` and `MongoDB` named `review-mongodb` are deployed together to confirm proper functioning. This dependency ensures that the application can seamlessly interact with the database and access the necessary data. To understand more about application architecture, visit [here](../about-application/about-application.md).
 
-1. To add `mongodb` dependency, add this yaml to your `deploy/values.yaml` file.
+1. To add `mongodb` dependency, add this YAML to your `deploy/values.yaml` file.
 
     ```yaml
     mongodb:

@@ -34,7 +34,7 @@ Let's scale up the number of `replicas` to see how `pdb` works.
     !!! note
         The indentation should be **application.deployment.replicas**.
 
-1. Enable `pdb` in your `deploy/values.yaml` file. Add the following yaml:
+1. Enable `pdb` in your `deploy/values.yaml` file. Add the following YAML:
 
     ```yaml
     # Enable Pod Disruption Budget (PDB) for your application's pods.
