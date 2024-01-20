@@ -74,7 +74,7 @@ Let's scale up the number of `replicas` to see how `pdb` works.
 
 1. Click on `review` `pdb`. Go to `YAML`, scroll down and see the `status` of `pdb`. Check out the status and `currentHealthy: 3`, `desiredHealthy: 2` which satisfies the condition of `minAvailable: 2`. We can see the `DisruptionAllowed` status is `true`.
 
-    ![review PDB yaml](images/review-pdb-yaml.png)
+    ![review PDB YAML](images/review-pdb-yaml.png)
 
 1. let's scale down the replicas to create a disruption and see if `pdb` works accurately.
 
