@@ -61,7 +61,7 @@ Let's set a `Network Policy` on the `review-mongodb` pod so that no other pods c
 
 To check if our `Network Policy` is working properly, let's create a random pod and try to communicate the `review-mongodb` pod through it.
 
-1. Create a pod in your namespace on SAAP. Copy below yaml:
+1. Create a pod in your namespace on SAAP. Copy below YAML:
 
     ```yaml
     apiVersion: v1
@@ -76,7 +76,7 @@ To check if our `Network Policy` is working properly, let's create a random pod 
        args: ["echo Hello, World!; sleep 3600"]
     ```
 
-1. Click on `Create Pod` on the top right corner. Paste the yaml and hit `save`.
+1. Click on `Create Pod` on the top right corner. Paste the YAML and hit `save`.
 
     ![new pod](images/new-pod.png)
 

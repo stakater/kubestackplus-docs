@@ -10,7 +10,7 @@ This document explains how to create Grafana Dashboard via GrafanaDashboard CR p
 
 1. Create GrafanaDashboard definition
 
-   You can choose any existing namespace. The label `grafanaDashboard: grafana-operator` is required for Grafana Operator to discover the dashboard. The JSON string with the dashboard contents is placed in the `json` section. Check the [official documentation](https://grafana.com/docs/reference/dashboard/#dashboard-json) for details on JSON Model. You can create a dashboard via web UI first, and then export the dashboard JSON to define a GrafanaDashboard CR (Custom Resource). If the JSON is invalid, the dashboard will not appear in Grafana web UI. Below is a sample GrafanaDashboard CR yaml.
+   You can choose any existing namespace. The label `grafanaDashboard: grafana-operator` is required for Grafana Operator to discover the dashboard. The JSON string with the dashboard contents is placed in the `json` section. Check the [official documentation](https://grafana.com/docs/reference/dashboard/#dashboard-json) for details on JSON Model. You can create a dashboard via web UI first, and then export the dashboard JSON to define a GrafanaDashboard CR (Custom Resource). If the JSON is invalid, the dashboard will not appear in Grafana web UI. Below is a sample GrafanaDashboard CR YAML.
 
     ```yaml
     apiVersion: integreatly.org/v1alpha1
