@@ -101,7 +101,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
     Remove `.template` from the file named `tilt_options.json.template`
 
-    ![Create tilt_options.json](images/tilt-options-json.png)
+    ![Create `tilt_options.json`](images/tilt-options-json.png)
 
     And then fill up all three things
 
@@ -172,17 +172,17 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
     Press space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
 
-1. Lets browse through some reviews; go to routes
+1. Lets browse through some reviews. Go to routes:
 
     ![find route](images/find-route.png)
 
-    Click on the review route
+    Click on the review route:
 
     ![review-route](images/review-route.png)
 
     In the end of the route add `/api/review/329199`
 
-    Review the json output
+    Review the JSON output:
 
     ![product review](images/product-review-json-b4-change.png)
 
