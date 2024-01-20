@@ -21,7 +21,7 @@ The good news is that Grafana is already a part of the SAAP (Stakater's App Agil
 
 To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafana-dashboard.yaml` folder, where you'll find the pre-configured dashboard ready to be utilized.
 
-1. Open up `stakater-nordmart-review-api/deploy/values.yaml` file. Add this yaml in your `values.yaml` file.
+1. Open up `stakater-nordmart-review-api/deploy/values.yaml` file. Add this YAML in your `values.yaml` file.
 
     ```yaml
     # Grafana Dashboard

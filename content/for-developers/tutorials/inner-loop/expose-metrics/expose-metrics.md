@@ -15,7 +15,7 @@ SAAP gathers the base metrics to see how our pods are doing. In order to get app
 
 Now, let's add the `ServiceMonitor` for our `stakater-nordmart-review-api` application.
 
-1. Open up `stakater-nordmart-review-api/deploy/values.yaml` file. Add this yaml in your `values.yaml` file.
+1. Open up `stakater-nordmart-review-api/deploy/values.yaml` file. Add this YAML in your `values.yaml` file.
 
     ```yaml
     ## Service Monitor
