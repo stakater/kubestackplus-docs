@@ -4,7 +4,7 @@ Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to
 
 ## Objectives
 
-- Add HPA configuration to values.yaml to enable autoscaling with specific parameters.
+- Add HPA configuration to `values.yaml` to enable autoscaling with specific parameters.
 - Load-test the application to trigger autoscaling and observe the increase in pod replicas.
 - Monitor the HPA as it scales down the replicas after the load test.
 
@@ -20,7 +20,7 @@ Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to
 
     > Often we only enable the HPA in the stage or prod environments, so being able to configure it on / off when testing is useful. To turn it on in a given environment, we can simply supply new values to our application config. Now let's do it for `stakater-nordmart-review`
 
-1. Head over to your `stakater-nordmart-review-api` repository and navigate to `deploy > values.yaml`. Under the `application:`, add the following yaml block. It should have the same indent as `applicationName: review`
+1. Head over to your `stakater-nordmart-review-api` repository and navigate to `deploy > values.yaml`. Under the `application:`, add the following YAML block. It should have the same indent as `applicationName: review`
 
     ```yaml
       autoscaling:

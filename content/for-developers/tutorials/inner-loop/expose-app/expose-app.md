@@ -105,7 +105,7 @@ To create a route:
     ```
 
     !!! note
-        If you prefer not to use your cluster domain, you have the option to create a TLS secret for your own domain. This TLS secret should contain the trusted certificates signed by well-known certificate authorities `(CAs)`. To add this secret to your configuration, you can specify the secret name under `application.ingress.tls.secretName` in your values.yaml file.
+        If you prefer not to use your cluster domain, you have the option to create a TLS secret for your own domain. This TLS secret should contain the trusted certificates signed by well-known certificate authorities `(CAs)`. To add this secret to your configuration, you can specify the secret name under `application.ingress.tls.secretName` in your `values.yaml` file.
 
     It should look like this:
 

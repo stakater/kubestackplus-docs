@@ -38,5 +38,3 @@ The Tutorials section provides step-by-step instructions for performing specific
 - [Configure Apps GitOps repository](./tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md): This tutorial focuses on configuring the application-specific GitOps repository. It covers topics such as repository setup, aligning directories and files structure, application deployment manifests, and linking of Infra and Apps GitOps repositories.
 
 - [Deploy demo app](./tutorials/03-deploy-demo-app/deploy-demo-app.md): This tutorial walks the delivery engineer through the process of deploying a demo application using Stakater's GitOps techniques. It covers steps like building and pushing of application image, creating an application chart, and pushing it to the helm repository.
-
-- [Add Tekton pipeline](./tutorials/04-add-tekton-pipeline-to-demo-app/add-pipeline.md): This tutorial explains how to add a Tekton pipeline to the GitOps workflow. It provides instructions on defining pipeline tasks, configuring triggers, and integrating the pipeline with the overall delivery process.

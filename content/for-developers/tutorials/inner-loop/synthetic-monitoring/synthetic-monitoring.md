@@ -14,14 +14,14 @@ In this tutorial, we'll guide you through the process of configuring UptimeRobot
 
 ## Tutorial
 
-### Enable Endpoint Monitoring in values.yaml
+### Enable Endpoint Monitoring in `values.yaml`
 
 1. You need to add the following lines to your `deploy/values.yaml` file:
 
   ```yaml
     ## Endpoint Monitor
     endpointMonitor:
-    enabled: true
+      enabled: true
   ```
 
 ### Create a TLS Certificate
@@ -44,24 +44,24 @@ In this tutorial, we'll guide you through the process of configuring UptimeRobot
     oc create secret tls review-tls-secret -n <YOUR_NAMESPACE> --cert=/path/to/your/tls.crt --key=/path/to/your/tls.key
     ```
 
-### Update Ingress Configuration in values.yaml
+### Update Ingress Configuration in `values.yaml`
 
 1. By default, Endpoint Monitor uses `ingress`. As we already have created `TLS` secret, let's modify it by adding the `TLS` secret to our ingress configuration.
 
     ```yaml
     # Ingress
     ingress:
-    enabled: true
-    ingressClassName: openshift-default
-    servicePort: http
-    hosts:
+      enabled: true
+      ingressClassName: openshift-default
+      servicePort: http
+      hosts:
         - host: review.<CLUSTER_NAME>.kubeapp.cloud
-        paths:
-        - path: /
+          paths:
+          - path: /
             servicePort: 'http'
-    tls:
+      tls:
         - secretName: review-tls-secret # TLS Secret name that we created above
-        hosts:
+          hosts:
             - review.<CLUSTER_NAME>.kubeapp.cloud
     ```
 
@@ -79,14 +79,14 @@ In this tutorial, we'll guide you through the process of configuring UptimeRobot
 
     Confirm that the route has been updated to use `https`.
 
-1. Let's verify our Endpoint Monitor, it should be created by now. Go to Home > Search > Resources, type Endpoint Monitor. If your are in your namespace, you'll see an Endpoint Monitor created there.
+1. Let's verify our Endpoint Monitor, it should be created by now. Go to Home > Search > Resources, type Endpoint Monitor. If you are in your namespace, you'll see an Endpoint Monitor created there.
 
     ![endpoint monitor](images/endpoint-monitor.png)
 
     We have an `Endpoint Monitor` with the name `review`. Awesome!
 
-    You can also view it's yaml, click on the name and go to `yaml`:
+    You can also view it's YAML, click on the name and go to `yaml`:
 
-    ![endpoint monitor yaml](images/endpoint-monitor-yaml.png)
+    ![endpoint monitor YAML](images/endpoint-monitor-yaml.png)
 
 Great job! You've successfully configured UptimeRobot Endpoint Monitoring to generate alerts for your SAAP application based on its availability. Now, whenever your application experiences downtime, an alert will be triggered on your UptimeRobot alert contact.

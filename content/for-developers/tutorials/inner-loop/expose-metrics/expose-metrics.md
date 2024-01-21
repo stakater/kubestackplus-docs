@@ -15,7 +15,7 @@ SAAP gathers the base metrics to see how our pods are doing. In order to get app
 
 Now, let's add the `ServiceMonitor` for our `stakater-nordmart-review-api` application.
 
-1. Open up `stakater-nordmart-review-api/deploy/values.yaml` file. Add this yaml in your `values.yaml` file.
+1. Open up `stakater-nordmart-review-api/deploy/values.yaml` file. Add this YAML in your `values.yaml` file.
 
     ```yaml
     ## Service Monitor
@@ -75,7 +75,7 @@ curl localhost:port/path
     - Verify that namespaceSelector `matchnames` matches with the Service `metadata.namespace`.
     - Verify that selector `matchlabels` matches with the Service `metadata.labels`.
 
-- Make sure that the service monitor selector and service monitor namespace selector labels have been applied to the service monitor and the namespace respectively where the service monitor is present. You can check these selectors in Search -> Resources -> Prometheus and then check the yaml manifest of Prometheus CR.
+- Make sure that the service monitor selector and service monitor namespace selector labels have been applied to the service monitor and the namespace respectively where the service monitor is present. You can check these selectors in Search -> Resources -> Prometheus and then check the YAML manifest of Prometheus CR.
 
 - If nothing else works then start with port-forwarding the Prometheus pod to port: 9090 and navigate to Prometheus UI with http. Check in the service discovery that service monitor is picked up, also check the targets that Prometheus is able to scrape the metrics. If the target is visible, but metrics are not scraped then the error should be visible in targets.
 

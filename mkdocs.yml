@@ -73,11 +73,18 @@ nav:
         - about/update-lifecycle.md
         - about/onboarding.md
     - For Administrators:
+        - for-administrators/overview.md
         - Plan your environment:
             - for-administrators/plan-your-environment/sizing.md
         - Secure your cluster:
             - for-administrators/secure-your-cluster/user-access.md
             - for-administrators/secure-your-cluster/secure-routes.md
+            - for-administrators/secure-your-cluster/google-idp.md
+            - for-administrators/secure-your-cluster/azure-idp.md
+            - for-administrators/secure-your-cluster/keycloak-idp.md
+            - for-administrators/secure-your-cluster/saml-idp.md
+            - for-administrators/secure-your-cluster/saap-authorization-roles.md
+            - for-administrators/secure-your-cluster/curated-list-operators.md
         - Manage Network:
             - for-administrators/networking/custom-domains.md
             - for-administrators/networking/external-dns.md
@@ -135,6 +142,7 @@ nav:
                 - for-developers/tutorials/inner-loop/monitor-your-app/monitor-your-app.md
                 - for-developers/tutorials/inner-loop/expose-metrics/expose-metrics.md
                 - for-developers/tutorials/inner-loop/add-alerts/add-alerts.md
+                - for-developers/tutorials/inner-loop/synthetic-monitoring/synthetic-monitoring.md
                 - for-developers/tutorials/inner-loop/add-grafana-dashboard/add-grafana-dashboard.md
                 - for-developers/tutorials/inner-loop/scale-app/scale-app.md
                 - for-developers/tutorials/inner-loop/validate-auto-reload/validate-auto-reload.md
@@ -148,9 +156,8 @@ nav:
                 - Configure Pipeline for your application:
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/01-overview.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/03-create-webhook.md
-                  - for-developers/tutorials/outer-loop/add-ci-pipeline/04-add-repository-secret.md
                   - for-developers/tutorials/outer-loop/add-ci-pipeline/05-create-repository.md
-                  - Adding PipelineRun:
+                  - Add PipelineRun:
                     - for-developers/tutorials/outer-loop/add-ci-pipeline/06-adding-pipeline.md
                     - for-developers/tutorials/outer-loop/add-ci-pipeline/07-add-create-git-tag.md
                     - for-developers/tutorials/outer-loop/add-ci-pipeline/08-add-create-environment.md
@@ -181,13 +188,6 @@ nav:
             - for-cisos/rhacs/introduction.md
             - for-cisos/rhacs/accessing-rhacs.md
             - for-cisos/rhacs/permissions.md
-        - Authentication and Authorization:
-            - for-cisos/authentication-authorization/google-idp.md
-            - for-cisos/authentication-authorization/azure-idp.md
-            - for-cisos/authentication-authorization/keycloak-idp.md
-            - for-cisos/authentication-authorization/saml-idp.md
-            - for-cisos/authentication-authorization/saap-authorization-roles.md
-            - for-cisos/authentication-authorization/curated-list-operators.md
         - Backup and Restore:
             - for-cisos/backup-restore/introduction.md
             - for-cisos/backup-restore/velero-cli.md
