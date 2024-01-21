@@ -101,7 +101,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
     Remove `.template` from the file named `tilt_options.json.template`
 
-    ![Create `tilt_options.json`](images/tilt-options-json.png)
+    ![Create tilt_options JSON](images/tilt-options-json.png)
 
     And then fill up all three things
 
