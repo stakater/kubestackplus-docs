@@ -214,7 +214,7 @@ References to Explore:
 
 - [`stakater-nordmart-review`](https://github.com/stakater-lab/stakater-nordmart-review/deploy)
 - [`stakater-nordmart-review-web`](https://github.com/stakater-lab/stakater-nordmart-review-web/deploy)
-- [All configurations available via Application Chart Values](https://github.com/stakater/application/blob/master/application/values.yaml)
+- [All configurations available via Application Chart Values YAML](https://github.com/stakater/application/blob/master/application)
 
 ## 4. Push Helm Chart to Nexus
 
