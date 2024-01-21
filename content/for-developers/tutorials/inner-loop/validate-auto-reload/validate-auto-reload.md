@@ -21,7 +21,7 @@ The secret we created for our deployment earlier, notice the details and the val
 
 ![secret details before change](images/secret-details-before-change.png)
 
-1. Add this yaml to your `deploy/values.yaml` file.
+1. Add this YAML to your `deploy/values.yaml` file.
 
     ```yaml
     ## Enable reloader on changes
