@@ -110,44 +110,44 @@ Login to Vault to view <your-tenant> path.
   1. Now create a file named `git-pat-creds-template.yaml` and add the following content.
   
   ```yaml
-apiVersion: tenantoperator.stakater.com/v1alpha1
-kind: Template
-metadata:
-  name: git-pat-creds
-resources:
-  manifests:
-    - apiVersion: external-secrets.io/v1beta1
-      kind: ExternalSecret
-      metadata:
-        name: git-pat-creds
-      spec:
-        dataFrom:
-          - extract:
-              conversionStrategy: Default
-              key: git-pat-creds
-        refreshInterval: 1m0s
-        secretStoreRef:
-          kind: SecretStore
-          name: tenant-vault-shared-secret-store
-        target:
-          name: git-pat-creds
+   apiVersion: tenantoperator.stakater.com/v1alpha1
+   kind: Template
+   metadata:
+     name: git-pat-creds
+   resources:
+     manifests:
+       - apiVersion: external-secrets.io/v1beta1
+         kind: ExternalSecret
+         metadata:
+           name: git-pat-creds
+         spec:
+           dataFrom:
+             - extract:
+                 conversionStrategy: Default
+                 key: git-pat-creds
+           refreshInterval: 1m0s
+           secretStoreRef:
+             kind: SecretStore
+             name: tenant-vault-shared-secret-store
+           target:
+             name: git-pat-creds
   ```
   
   1. Create another file named `git-pat-creds-tgi.yaml` and add the below content.
   
   ```yaml
-apiVersion: tenantoperator.stakater.com/v1alpha1
-kind: TemplateGroupInstance
-metadata:
-  name: git-pat-creds
-spec:
-  template: git-pat-creds
-  selector:
-    matchExpressions:
-      - key: stakater.com/kind
-        operator: In
-        values: [ build, pr ]
-  sync: true
+  apiVersion: tenantoperator.stakater.com/v1alpha1
+  kind: TemplateGroupInstance
+  metadata:
+    name: git-pat-creds
+  spec:
+    template: git-pat-creds
+    selector:
+      matchExpressions:
+        - key: stakater.com/kind
+          operator: In
+          values: [ build, pr ]
+    sync: true
   ```
   
   1. Lets see our Template and TGI in ArgoCD. Open up ArgoCD and look for `tenant-operator-config` application. You should be able to see your Template and TGI deployed.

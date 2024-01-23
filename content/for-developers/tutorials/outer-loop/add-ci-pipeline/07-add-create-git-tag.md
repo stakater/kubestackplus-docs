@@ -80,7 +80,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               - name: PR_NUMBER
                 value: $(params.pull_request_number)
               - name: GIT_REVISION
-                value: $(params.git_revision)
+                value: $(params.gitrevision)
             workspaces:
               - name: source
                 workspace: source
