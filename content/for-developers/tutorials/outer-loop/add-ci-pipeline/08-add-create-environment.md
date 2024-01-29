@@ -113,7 +113,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             - name: IMAGE_TAG
               value: $(tasks.create-git-tag.results.GIT_TAG)
             - name: IMAGE_REPO
-              value: $(params.image_registry)
+              value: $(params.image_registry_url)
             - name: PULL_REQUEST_COMMITS_API # Replace when not using Git
               value: https://api.github.com/repos/$(params.organization)/$(params.repo_path)/pulls/$(params.pull_request_number)/commits
             workspaces:

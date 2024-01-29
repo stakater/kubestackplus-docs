@@ -1,4 +1,4 @@
-# Creating a Pipeline Using pipeline-as-code
+# Creating a Pipeline
 
 We will embark on a comprehensive journey through a complete pipeline, with each individual task covered in its tutorial. This approach aims to provide a detailed understanding of each task and how they collectively contribute to the functionality of pipeline-as-code.
 
