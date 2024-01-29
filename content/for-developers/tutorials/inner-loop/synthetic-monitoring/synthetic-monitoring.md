@@ -14,7 +14,7 @@ In this tutorial, we'll guide you through the process of configuring UptimeRobot
 
 ## Tutorial
 
-### Enable Endpoint Monitoring in values.yaml
+### Enable Endpoint Monitoring in `values.yaml`
 
 1. You need to add the following lines to your `deploy/values.yaml` file:
 
@@ -44,7 +44,7 @@ In this tutorial, we'll guide you through the process of configuring UptimeRobot
     oc create secret tls review-tls-secret -n <YOUR_NAMESPACE> --cert=/path/to/your/tls.crt --key=/path/to/your/tls.key
     ```
 
-### Update Ingress Configuration in values.yaml
+### Update Ingress Configuration in `values.yaml`
 
 1. By default, Endpoint Monitor uses `ingress`. As we already have created `TLS` secret, let's modify it by adding the `TLS` secret to our ingress configuration.
 
@@ -85,8 +85,8 @@ In this tutorial, we'll guide you through the process of configuring UptimeRobot
 
     We have an `Endpoint Monitor` with the name `review`. Awesome!
 
-    You can also view it's yaml, click on the name and go to `yaml`:
+    You can also view it's YAML, click on the name and go to `yaml`:
 
-    ![endpoint monitor yaml](images/endpoint-monitor-yaml.png)
+    ![endpoint monitor YAML](images/endpoint-monitor-yaml.png)
 
 Great job! You've successfully configured UptimeRobot Endpoint Monitoring to generate alerts for your SAAP application based on its availability. Now, whenever your application experiences downtime, an alert will be triggered on your UptimeRobot alert contact.

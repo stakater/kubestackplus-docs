@@ -11,7 +11,7 @@ Following are the roles available in SAAP:
 
 ## Cluster Admin
 
-Cluster Admin is an OpenShift role which give the user assigned this role full Cluster-Admin Privileges including access to **Customer owned** aswell as **Stakater owned** namespaces.
+Cluster Admin is an OpenShift role which give the user assigned this role full Cluster-Admin Privileges including access to **Customer owned** as well as **Stakater owned** namespaces.
 
 ### Permissions
 
@@ -127,11 +127,11 @@ This role empowers administrators with the necessary permissions to maintain, de
 - Allows Stakater Admin Manage and troubleshoot Stakater tools on OpenShift Cluster.
 - No access to kubeconfig secrets.
 - Access to node metrics
-- Doesnot have permission on **Customer owned** namespaces.
+- Does not have permission on **Customer owned** namespaces.
 
 ### Approval Process
 
-1. Stakater Engineer accesses the Openshift Cluster to manage and troubleshoot Stakater Tools
+1. Stakater Engineer accesses the OpenShift Cluster to manage and troubleshoot Stakater Tools
 1. Request Permission on Azure Privileged Identity Management Console
 1. Approval escalated to Team Lead
 1. Authorization granted by Team Lead

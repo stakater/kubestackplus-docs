@@ -4,8 +4,8 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
 ## Objective
 
-- Define secrets and configMaps in the values.yaml file for your application.
-- Set environment variables using secrets defined in the values.yaml file.
+- Define secrets and configMaps in the `values.yaml` file for your application.
+- Set environment variables using secrets defined in the `values.yaml` file.
 - Configure volumes and mounts to access secrets and configmaps as files within your application.
 
 ## Key Results
@@ -44,7 +44,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
 ### Utilize envFrom to Access ConfigMaps
 
-1. To utilize environment variables from a resource, such as ConfigMap, we can mention the `envFrom` field and specify the configmap name. Add this yaml to `deploy/values.yaml`. `envFrom` allows you to fetch all the environment variables define in this configmap.
+1. To utilize environment variables from a resource, such as ConfigMap, we can mention the `envFrom` field and specify the configmap name. Add this YAML to `deploy/values.yaml`. `envFrom` allows you to fetch all the environment variables define in this configmap.
 
     ```yaml
     # Example of using envFrom to load environment variables from a ConfigMap
@@ -69,7 +69,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
     !!! note
         The indentation for `envFrom` in `deploy/values.yaml` is **application.deployment.envFrom**. You can also reference secret in envFrom, to see more [click](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables).
 
-### Define ConfigMap Data in values.yaml
+### Define ConfigMap Data in `values.yaml`
 
 1. To extract the environment variables from a configmap via `envFrom` we must create a configmap. Add this to your `deploy/values.yaml`.
 
@@ -106,13 +106,13 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     ![Configmap data](images/configmap-data.png)
 
-    The environment variables that we have set for the **review-config** in values.yaml file are here.
+    The environment variables that we have set for the **review-config** in `values.yaml` file are here.
 
 ### Mount Secrets within the Container
 
 You can also mount secrets as files in your application containers, enabling direct file access within your application code.
 
-1. To mount a secret as a file, add this yaml to your `deploy/values.yaml` file.
+1. To mount a secret as a file, add this YAML to your `deploy/values.yaml` file.
 
     ```yaml
     ## Define volumes

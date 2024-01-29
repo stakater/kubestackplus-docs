@@ -66,7 +66,7 @@ Typically, [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/config
 
 ### How can I make sure that my app has the correct resources?
 
-You can configure your pod yaml or pod template to set resource (CPU/Memory) limits and requests for each container.
+You can configure your pod YAML or pod template to set resource (CPU/Memory) limits and requests for each container.
 
 Resource Quotas can be setup by Administrators to enforce resource limits and prioritize pods with [Resource Quotas](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) and [Pod Priority](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/).
 
@@ -85,7 +85,7 @@ There are various methods to increase the availability of your application.
 
 ### How can I update my app ?
 
-Manage your Kubernetes yaml inside source code repository. We recommend packaging applications as Helm Chart along with source code. You can Kustomize for reusing your configuration. You can update Kubernetes yaml files and update them with `oc apply` for raw Kubernetes Manifests and `helm template chart_dir | oc apply` or `helm install chart_dir` for Helm Charts.
+Manage your Kubernetes YAML inside source code repository. We recommend packaging applications as Helm Chart along with source code. You can Kustomize for reusing your configuration. You can update Kubernetes YAML files and update them with `oc apply` for raw Kubernetes Manifests and `helm template chart_dir | oc apply` or `helm install chart_dir` for Helm Charts.
 
 You can use different strategies for update your Application. You might start with a rolling deployment or instantaneous switch before you progress to a more complicated canary deployment.
 
