@@ -22,7 +22,7 @@ Now that we have completed all the prerequisites to run this `pipelineRun`, we c
 Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code` approach.
 
 1. Create a `.tekton` folder at the root of your repository.
-1. Now add a file named pullrequest.yaml in this folder and place the below given content in it. This file will represent a `PipelineRun`.
+1. Now add a file named `pullrequest.yaml` in this folder and place the below given content in it. This file will represent a `PipelineRun`.
 
     ```yaml
     apiVersion: tekton.dev/v1beta1

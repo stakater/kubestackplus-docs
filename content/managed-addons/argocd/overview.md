@@ -16,7 +16,7 @@ Argo CD supports defining Kubernetes manifests in a number of ways:
 - Kustomize
 - ksonnet
 - jsonnet
-- plain directory of yaml/json manifests
+- plain directory of YAML/JSON manifests
 - custom plugins
 
 ArgoCD compares the actual state of the application in the cluster with the desired state defined in Git and determines if they are out of sync. When it detects the environment is out of sync, ArgoCD can be configured to either send out a notification to kick off a separate reconciliation process or ArgoCD can automatically synchronize the environments to ensure they match.

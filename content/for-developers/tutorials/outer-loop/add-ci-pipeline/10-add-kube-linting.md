@@ -17,7 +17,7 @@
 You have already created a PipelineRun in the previous tutorial. Let's now add another task `kube-linting` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
-1. Now edit the file so the yaml becomes like the one given below.
+1. Now edit the file so the YAML becomes like the one given below.
 
     ```yaml
     apiVersion: tekton.dev/v1beta1
@@ -163,8 +163,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![kube-linting](images/kube-linting.png)
+   ![Kube-linting](images/kube-linting.png)
 
-   ![kube-linting-logs](images/kube-linting-logs.png)
+   ![Kube-linting-logs](images/kube-linting-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

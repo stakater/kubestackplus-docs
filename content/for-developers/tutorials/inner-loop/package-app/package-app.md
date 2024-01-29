@@ -25,9 +25,9 @@ Create a directory named deploy/ in your repository that will contain the helm c
    mkdir deploy
    ```
 
-#### 2. Create Chart.yaml
+#### 2. Create `Chart.yaml`
 
-Create A YAML file containing information about the chart called Chart.yaml.
+Create A YAML file containing information about the chart called `Chart.yaml`.
 
    ```sh
    touch Chart.yaml
@@ -46,9 +46,9 @@ Create A YAML file containing information about the chart called Chart.yaml.
 
 > This dependency chart allows you to define resources without getting overwhelmed by the complexities of different resource with a simple interface. For a full list of configuration visit the chart repository [here](https://github.com/stakater/application)
 
-#### 3. Create values.yaml
+#### 3. Create `values.yaml`
 
-Next create a values.yaml file for default configuration values for this chart. Lets start by defining values for deployment and service.
+Next create a `values.yaml` file for default configuration values for this chart. Lets start by defining values for deployment and service.
 
    ```sh
    touch values.yaml

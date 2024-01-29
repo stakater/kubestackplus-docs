@@ -31,7 +31,7 @@ Add a clusterTask to enhance Tekton pipeline.
 
     `Image`
 
-1. Open values.yaml file and add the following yaml in pipeline.tasks:
+1. Open `values.yaml` file and add the following YAML in pipeline.tasks:
 
     ```yaml
           - defaultTaskName: git-clone
@@ -59,7 +59,7 @@ Add a clusterTask to enhance Tekton pipeline.
 
     If you want to override a parameter, you could simply define it with its new value as shown above.
 
-    If the task requires a workspace, Add the workspace in `stakater-tekton-chart.workspaces`. See [values.yaml](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/values.yaml) for other configurations.
+    If the task requires a workspace, Add the workspace in `stakater-tekton-chart.workspaces`. See [`values.yaml`](https://github.com/stakater/stakater-tekton-chart/blob/main/stakater-tekton-chart/values.yaml) for other configurations.
 
     ```yaml
       workspaces:
@@ -121,7 +121,7 @@ If you want to add this clustertask as `defaultTask` in [`stakater-tekton-chart`
 
 #### Add the Task
 
-1. Navigate to `stakater-tekton-chart/default-config/tasks` directory. Make a new yaml file named same as clustertask name.
+1. Navigate to `stakater-tekton-chart/default-config/tasks` directory. Make a new YAML file named same as clustertask name.
 1. Inside the file, name field will be matched with `defaultTaskName` in `pipeline.tasks[].defaultTaskName` to get `taskRef` or `taskSpec`, `params` & `workspaces`.
 
     ```yaml
@@ -144,9 +144,9 @@ If you want to add this clustertask as `defaultTask` in [`stakater-tekton-chart`
 
 1. Open your Apps GitOps Repository and Navigate to the folder of your pipelines either `tenant/app-name/build` or `tenant/tekton-pipelines/build` folder.
 
-1. Open the Chart.yaml file and update the repository and version in dependencies[].repository and dependencies[].version.
+1. Open the `Chart.yaml` file and update the repository and version in dependencies[].repository and dependencies[].version.
 
-1. Now you can add this task in pipeline under .Values.pipeline.tasks[] in values.yaml as following:
+1. Now you can add this task in pipeline under .Values.pipeline.tasks[] in `values.yaml` as following:
 
       ```yaml
       pipelines:
@@ -156,7 +156,7 @@ If you want to add this clustertask as `defaultTask` in [`stakater-tekton-chart`
       ```
 
     > 1. Specify name to make step name readable or avoid conflicting task names.
-    > 1. If your task uses a workspace, make sure you have defined it inside workspaces[] in values.yaml as well.
+    > 1. If your task uses a workspace, make sure you have defined it inside workspaces[] in `values.yaml` as well.
 
 1. Resulting pipeline manifest
 
