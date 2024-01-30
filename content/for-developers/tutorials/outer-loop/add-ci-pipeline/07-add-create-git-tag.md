@@ -16,7 +16,7 @@
 You have already created a PipelineRun in the previous tutorial. Let's now add another task `create-git-tag` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
-1. Now edit the file, so the yaml becomes like the one given below.
+1. Now edit the file, so the YAML becomes like the one given below.
 
     ```yaml
     apiVersion: tekton.dev/v1beta1
@@ -100,12 +100,12 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           secret:
             secretName: git-ssh-creds # Created this secret earlier
     ```
-3. Provide values for image_registry_url, and helm_registry parameters. You can find the urls from [here](../../../managed-addons/nexus/explanation/routes.md)
+   
+1. Provide values for image_registry_url, and helm_registry parameters. You can find the urls from [here](../../../../managed-addons/nexus/explanation/routes.md)
 
     !!! note
         Remember to add the remote task in the annotations
         ![create-git-tag](images/create-git-tag-annotation.png)
-
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
