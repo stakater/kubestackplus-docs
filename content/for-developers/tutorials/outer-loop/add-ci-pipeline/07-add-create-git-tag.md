@@ -100,7 +100,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           secret:
             secretName: git-ssh-creds # Created this secret earlier
     ```
-   
+
 1. Provide values for image_registry_url, and helm_registry parameters. You can find the urls from [here](../../../../managed-addons/nexus/explanation/routes.md)
 
     !!! note
