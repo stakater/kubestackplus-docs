@@ -100,7 +100,7 @@ Since we want the `git-ssh-creds` secret to be deployed in all of the tenant nam
                creationPolicy: 'Owner'
                template:
                  data:
-                   id_rsa: "{{ .id_rsa | b64dec | toString }}"
+                   id_rsa: "{{ .id_rsa  }}"
              data:
              - secretKey: id_rsa
                remoteRef:

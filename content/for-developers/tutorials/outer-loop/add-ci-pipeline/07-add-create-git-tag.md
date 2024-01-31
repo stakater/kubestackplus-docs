@@ -16,7 +16,7 @@
 You have already created a PipelineRun in the previous tutorial. Let's now add another task `create-git-tag` to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
-1. Now edit the file so the YAML becomes like the one given below.
+1. Now edit the file, so the YAML becomes like the one given below.
 
     ```yaml
     apiVersion: tekton.dev/v1beta1
@@ -26,7 +26,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
       annotations:
         pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on pullrequest events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
-        pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml]" 
+        pipelinesascode.tekton.dev/task: "[git-clone, 
+          https://raw.githubusercontent.com/stakater-tekton-catalog/create-git-tag/0.0.12/task/stakater-create-git-tag/stakater-create-git-tag.yaml]" 
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
@@ -74,13 +75,13 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             runAfter:
               - fetch-repository
             taskRef:
-              name: stakater-create-git-tag-0.0.7
+              name: stakater-create-git-tag
               kind: Task
             params:
               - name: PR_NUMBER
                 value: $(params.pull_request_number)
               - name: GIT_REVISION
-                value: $(params.git_revision)
+                value: $(params.gitrevision)
             workspaces:
               - name: source
                 workspace: source
@@ -100,8 +101,11 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             secretName: git-ssh-creds # Created this secret earlier
     ```
 
+1. Provide values for image_registry_url, and helm_registry parameters. You can find the urls from [here](../../../../managed-addons/nexus/explanation/routes.md)
+
     !!! note
         Remember to add the remote task in the annotations
+        ![create-git-tag](images/create-git-tag-annotation.png)
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 

@@ -35,6 +35,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
         - name: gitrevision
           value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
+        - name: git_branch
+          value: {{source_branch}}
         - name: repo_path
           value: {{repo_name}} # Dynamic varaible to fetch repo name
         - name: image_registry_url
@@ -43,6 +45,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           value: "<https://helm-registry-url>" # Place helm registry URL with https://
         - name: pull_request_number
           value: {{pull_request_number}}
+        - name: organization
+          value: {{YOUR_GIT_ORG}}
       pipelineSpec: # Define what parameters will be used for pipeline
         params:
           - name: repo_url
@@ -51,6 +55,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           - name: image_registry_url
           - name: helm_registry
           - name: pull_request_number
+          - name: organization
+          - name: git_branch
         workspaces: # Mention what workspaces will be used by this pipeline to store data and used by data transferring between tasks
           - name: source
           - name: ssh-directory
@@ -92,7 +98,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             - create-git-tag
             taskRef:
               kind: Task
-              name: stakater-create-environment-0.0.15
+              name: stakater-create-environment-0.0.16
             params:
             - name: CREATE_ON_CLUSTER
               value: "true"
@@ -107,7 +113,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             - name: IMAGE_TAG
               value: $(tasks.create-git-tag.results.GIT_TAG)
             - name: IMAGE_REPO
-              value: $(params.image_registry)
+              value: $(params.image_registry_url)
             - name: PULL_REQUEST_COMMITS_API # Replace when not using Git
               value: https://api.github.com/repos/$(params.organization)/$(params.repo_path)/pulls/$(params.pull_request_number)/commits
             workspaces:
