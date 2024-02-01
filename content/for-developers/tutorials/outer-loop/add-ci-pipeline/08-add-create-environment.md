@@ -144,14 +144,14 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
         Remember to add the remote task in the annotations
         ![create-env](images/create-env-annotation.png)
 
-1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
+1. Create a pull request with your changes. This should trigger the pipeline in the build namespace.
 
-   ![create-env](images/create-env.png)
+     ![create-env](images/create-env.png)
 
-   ![create-env-logs](images/create-env-logs.png)
+     ![create-env-logs](images/create-env-logs.png)
 
 1. Once the task completes, you should be able to see a new project. The name of this project will contain your pr number, application name, and first commit hash of your pr.
 
-   ![env-project](images/env-project.png)
+     ![env-project](images/env-project.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.
