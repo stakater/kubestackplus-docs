@@ -13,7 +13,7 @@
 
 ### Create PipelineRun with Create Git Tag Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `create-git-tag` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task ['create-git-tag`](https://github.com/stakater-tekton-catalog/create-git-tag) to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file, so the YAML becomes like the one given below.
@@ -81,7 +81,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               - name: PR_NUMBER
                 value: $(params.pull_request_number)
               - name: GIT_REVISION
-                value: $(params.gitrevision)
+                value: $(params.git_revision)
             workspaces:
               - name: source
                 workspace: source
@@ -100,6 +100,9 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           secret:
             secretName: git-ssh-creds # Created this secret earlier
     ```
+    
+    **Notice** that we added another value to the **pipelinesascode.tekton.dev/task** annotation. The annotation is used by pipeline as code resolver to fetch tasks defined remotely. To explore stakater's tekton 
+    catalog, please visit [stakater-tekton-catalog](https://github.com/stakater-tekton-catalog).
 
 1. Provide values for image_registry, and helm_registry parameters. You can find the urls from [here](../../../../managed-addons/nexus/explanation/routes.md)
    image_registry url should be succeeded by your application name. Example: nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/**review-api**

@@ -14,7 +14,8 @@
 
 ### Create PipelineRun with Create Environment Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `create-environment` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task [`create-environment`](https://github.com/stakater-tekton-catalog/create-environment) to it.
+The create environment task utilizes [tronador](https://docs.stakater.com/tronador/) to create dynamic environments.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the YAML becomes like the one given below.
@@ -100,7 +101,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             - create-git-tag
             taskRef:
               kind: Task
-              name: stakater-create-environment-0.0.16
+              name: stakater-create-environment
             params:
             - name: CREATE_ON_CLUSTER
               value: "true"
@@ -139,6 +140,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           secret:
             secretName: git-pat-creds
     ```
+   
+    **Notice** that we added another **workspace repo-token** to the pipeline run. This workspace utilizes the git-pat-creds secret that we previously created and mounts it to the create-environment task. 
 
     !!! note
         Remember to add the remote task in the annotations
@@ -153,5 +156,9 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 1. Once the task completes, you should be able to see a new project. The name of this project will contain your pr number, application name, and first commit hash of your pr.
 
      ![env-project](images/env-project.png)
+
+1. Open up the project and navigate to pods, you should be able to see your application running.
+
+     ![dynamic-env](images/dynamic-env.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.
