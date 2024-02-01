@@ -38,20 +38,20 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
       params:
         - name: repo_url
           value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
-        - name: gitrevision
+        - name: git_revision
           value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
         - name: repo_path
-          value: {{repo_name}} # Dynamic varaible to fetch repo name
-        - name: image_registry_url
-          value: "<docker-registry-url>" # Place image registry URL without https://
+          value: {{repo_name}} # Dynamic variable to fetch repo name
+        - name: image_registry
+          value: "<docker-registry-url>" # Place image registry URL without https:// succeeded by your application name
         - name: helm_registry
           value: "<https://helm-registry-url>" # Place helm registry URL with https://
       pipelineSpec: # Define what parameters will be used for pipeline
         params:
           - name: repo_url
-          - name: gitrevision
+          - name: git_revision
           - name: repo_path
-          - name: image_registry_url
+          - name: image_registry
           - name: helm_registry
         workspaces: # Mention what workspaces will be used by this pipeline to store data and used by data transferring between tasks
           - name: source
@@ -72,7 +72,7 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
               - name: url
                 value: $(params.repo_url)
               - name: revision
-                value: $(params.gitrevision)
+                value: $(params.git_revision)
       workspaces: # Mention Workspaces configuration
         - name: source
           volumeClaimTemplate:
@@ -82,10 +82,12 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
               resources:
                 requests:
                   storage: 1Gi
-        - name: ssh-directory # Using ssh-directory workspace for our task to have better security
+        - name: ssh-dibrectory # Using ssh-directory workspace for our task to have better security
           secret:
             secretName: [app-name]-ssh-creds # Created this secret earlier
     ```
+1. Provide values for image_registry, and helm_registry parameters. You can find the urls from [here](../../../../managed-addons/nexus/explanation/routes.md).
+   image_registry url should be succeeded by your application name. Example: nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/**review-api**
 
 1. Now create a pull request on the repository with these changes. This should trigger a pipeline on your cluster.
 
