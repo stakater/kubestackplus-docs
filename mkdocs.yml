@@ -10,8 +10,10 @@ theme:
     logo: assets/images/favicon.svg
     favicon: assets/images/favicon.svg
     custom_dir: custom_theme/
+    features:
+      - content.code.copy
     palette:
-        primary: white
+      primary: white
 
 markdown_extensions:
   - admonition
@@ -28,6 +30,12 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
 
 extra:
     analytics:
