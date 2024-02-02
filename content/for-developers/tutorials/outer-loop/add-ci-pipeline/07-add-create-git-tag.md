@@ -101,11 +101,11 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             secretName: git-ssh-creds # Created this secret earlier
     ```
 
-    **Notice** that we added another value to the **pipelinesascode.tekton.dev/task** annotation. The annotation is used by pipeline as code resolver to fetch tasks defined remotely. To explore stakater's Tekton
+    **Notice** that we added another value to the **`pipelinesascode.tekton.dev/task`** annotation. The annotation is used by pipeline as code resolver to fetch tasks defined remotely. To explore stakater's Tekton
     catalog, please visit [`stakater-tekton-catalog`](https://github.com/stakater-tekton-catalog).
 
-1. Provide values for image_registry, and helm_registry parameters. You can find the urls from [here](../../../../managed-addons/nexus/explanation/routes.md)
-   image_registry url should be succeeded by your application name. Example: nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/**review-api**
+1. Provide values for `image_registry`, and `helm_registry` parameters. You can find the urls from [here](../../../../managed-addons/nexus/explanation/routes.md)
+   `image_registry` url should be succeeded by your application name. Example: nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/**review-api**
 
     !!! note
         Remember to add the remote task in the annotations

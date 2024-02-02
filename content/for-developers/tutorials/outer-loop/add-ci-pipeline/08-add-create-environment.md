@@ -15,7 +15,7 @@
 ### Create PipelineRun with Create Environment Task
 
 You have already created a PipelineRun in the previous tutorial. Let's now add another task [`create-environment`](https://github.com/stakater-tekton-catalog/create-environment) to it.
-The create environment task utilizes [tronador](https://docs.stakater.com/tronador/) to create dynamic environments.
+The create environment task utilizes [Tronador](https://docs.stakater.com/tronador/) to create dynamic environments.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the YAML becomes like the one given below.

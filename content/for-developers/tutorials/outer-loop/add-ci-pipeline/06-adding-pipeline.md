@@ -86,7 +86,7 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
           secret:
             secretName: [app-name]-ssh-creds # Created this secret earlier
     ```
-   
+
 1. Provide values for `image_registry`, and helm_registry parameters. You can find the urls from [here](../../../../managed-addons/nexus/explanation/routes.md).
    `image_registry` url should be succeeded by your application name. Example: nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/**review-api**
 
