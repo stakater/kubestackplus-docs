@@ -192,7 +192,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
     !!! note
         Remember to add the remote task in the annotations
-        ![sonar-scan](images/sonar-scan-annotaion.png)
+        ![sonar-scan](images/sonar-scan-annotation.png)
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
