@@ -188,7 +188,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             secretName: git-pat-creds
     ```
 
-    **Notice** we have provided a paramter **SONAR_HOST_URL** to the sonar-scan task. You need to provide your sonarqube url here. You can get it from Forecastle.
+    **Notice** we have provided a parameter **SONAR_HOST_URL** to the sonar-scan task. You need to provide your SonarQube url here. You can get it from Forecastle.
 
     !!! note
         Remember to add the remote task in the annotations
