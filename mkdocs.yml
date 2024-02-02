@@ -12,6 +12,7 @@ theme:
     custom_dir: custom_theme/
     features:
       - content.code.copy
+      - content.code.select
     palette:
       primary: white
 
