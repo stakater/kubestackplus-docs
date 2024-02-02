@@ -14,7 +14,8 @@
 
 ### Create PipelineRun with Create Environment Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `create-environment` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task [`create-environment`](https://github.com/stakater-tekton-catalog/create-environment) to it.
+The create environment task utilizes [Tronador](https://docs.stakater.com/tronador/) to create dynamic environments.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the YAML becomes like the one given below.
@@ -27,7 +28,9 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
       annotations:
         pipelinesascode.tekton.dev/on-event: "[push]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
-        pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml]" 
+        pipelinesascode.tekton.dev/task: "[git-clone, 
+          https://raw.githubusercontent.com/stakater-tekton-catalog/create-git-tag/0.0.12/task/stakater-create-git-tag/stakater-create-git-tag.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/create-environment/0.0.16/task/stakater-create-environment/stakater-create-environment.yaml]" 
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
@@ -39,8 +42,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           value: {{source_branch}}
         - name: repo_path
           value: {{repo_name}} # Dynamic varaible to fetch repo name
-        - name: image_registry_url
-          value: "<docker-registry-url>" # Place image registry URL without https://
+        - name: image_registry
+          value: "<docker-registry-url>" # Place image registry URL without https:// succeeded by your application name
         - name: helm_registry
           value: "<https://helm-registry-url>" # Place helm registry URL with https://
         - name: pull_request_number
@@ -50,9 +53,9 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
       pipelineSpec: # Define what parameters will be used for pipeline
         params:
           - name: repo_url
-          - name: gitrevision
+          - name: git_revision
           - name: repo_path
-          - name: image_registry_url
+          - name: image_registry
           - name: helm_registry
           - name: pull_request_number
           - name: organization
@@ -76,7 +79,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               - name: url
                 value: $(params.repo_url)
               - name: revision
-                value: $(params.gitrevision)
+                value: $(params.git_revision)
           - name: create-git-tag
             runAfter:
               - fetch-repository
@@ -98,7 +101,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             - create-git-tag
             taskRef:
               kind: Task
-              name: stakater-create-environment-0.0.16
+              name: stakater-create-environment
             params:
             - name: CREATE_ON_CLUSTER
               value: "true"
@@ -113,7 +116,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             - name: IMAGE_TAG
               value: $(tasks.create-git-tag.results.GIT_TAG)
             - name: IMAGE_REPO
-              value: $(params.image_registry_url)
+              value: $(params.image_registry)
             - name: PULL_REQUEST_COMMITS_API # Replace when not using Git
               value: https://api.github.com/repos/$(params.organization)/$(params.repo_path)/pulls/$(params.pull_request_number)/commits
             workspaces:
@@ -138,13 +141,24 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             secretName: git-pat-creds
     ```
 
+    **Notice** that we added another **workspace repo-token** to the pipeline run. This workspace utilizes the git-pat-creds secret that we previously created and mounts it to the create-environment task.
+
     !!! note
         Remember to add the remote task in the annotations
+        ![create-env](images/create-env-annotation.png)
 
-1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
+1. Create a pull request with your changes. This should trigger the pipeline in the build namespace.
 
-   ![create-env](images/create-env.png)
+     ![create-env](images/create-env.png)
 
-   ![create-env-logs](images/create-env-logs.png)
+     ![create-env-logs](images/create-env-logs.png)
+
+1. Once the task completes, you should be able to see a new project. The name of this project will contain your pr number, application name, and first commit hash of your pr.
+
+     ![env-project](images/env-project.png)
+
+1. Open up the project and navigate to pods, you should be able to see your application running.
+
+     ![dynamic-env](images/dynamic-env.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

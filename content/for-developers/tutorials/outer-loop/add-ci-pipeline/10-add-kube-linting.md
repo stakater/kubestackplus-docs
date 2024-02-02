@@ -14,7 +14,7 @@
 
 ### Create PipelineRun with Kube Linting Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `kube-linting` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task [`kube-linting`](https://github.com/stakater-tekton-catalog/kube-linting) to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the YAML becomes like the one given below.
@@ -27,19 +27,22 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
       annotations:
         pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
-        pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml,https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-code-linting/rendered/stakater-code-linting-0.0.3.yaml,
-            https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-kube-linting/rendered/stakater-kube-linting-0.0.6.yaml]" 
+        pipelinesascode.tekton.dev/task: "[git-clone, 
+          https://raw.githubusercontent.com/stakater-tekton-catalog/create-git-tag/0.0.12/task/stakater-create-git-tag/stakater-create-git-tag.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/create-environment/0.0.16/task/stakater-create-environment/stakater-create-environment.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/code-linting-mvn/0.0.4/task/stakater-code-linting/stakater-code-linting.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/kube-linting/0.0.7/task/stakater-kube-linting/stakater-kube-linting.yaml]"
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
         - name: repo_url
           value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
-        - name: gitrevision
+        - name: git_revision
           value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
         - name: repo_path
-          value: {{repo_name}} # Dynamic varaible to fetch repo name
-        - name: image_registry_url
-          value: "<docker-registry-url>" # Place image registry URL without https://
+          value: {{repo_name}} # Dynamic variable to fetch repo name
+        - name: image_registry
+          value: "<docker-registry-url>" # Place image registry URL without https:// succeeded by your application name
         - name: helm_registry
           value: "<https://helm-registry-url>" # Place helm registry URL with https://
         - name: pull_request_number
@@ -47,9 +50,9 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
       pipelineSpec: # Define what parameters will be used for pipeline
         params:
           - name: repo_url
-          - name: gitrevision
+          - name: git_revision
           - name: repo_path
-          - name: image_registry_url
+          - name: image_registry
           - name: helm_registry
           - name: pull_request_number
         workspaces: # Mention what workspaces will be used by this pipeline to store data and used by data transferring between tasks
@@ -71,12 +74,12 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               - name: url
                 value: $(params.repo_url)
               - name: revision
-                value: $(params.gitrevision)
+                value: $(params.git_revision)
           - name: create-git-tag
             runAfter:
               - fetch-repository
             taskRef:
-              name: stakater-create-git-tag-0.0.7
+              name: stakater-create-git-tag
               kind: Task
             params:
               - name: PR_NUMBER
@@ -93,7 +96,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             - create-git-tag
             taskRef:
               kind: Task
-              name: stakater-create-environment-0.0.15
+              name: stakater-create-environment
             params:
             - name: CREATE_ON_CLUSTER
               value: "true"
@@ -120,7 +123,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             runAfter:
               - stakater-create-environment
             taskRef:
-              name: stakater-code-linting-0.0.3
+              name: stakater-code-linting
               kind: Task
             workspaces:
               - name: source
@@ -129,7 +132,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             runAfter:
               - stakater-create-environment
             taskRef:
-              name: stakater-kube-linting-0.0.6
+              name: stakater-kube-linting
               kind: Task
             params:
               - name: FILE
