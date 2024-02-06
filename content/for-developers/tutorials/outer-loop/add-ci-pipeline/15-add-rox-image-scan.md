@@ -14,7 +14,7 @@
 
 ### Create PipelineRun with Rox Image Scan Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task `rox-image-scan` to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task [`rox-image-scan`](https://github.com/stakater-tekton-catalog/rox-image-scan) to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the YAML becomes like the one given below.
@@ -27,24 +27,27 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
       annotations:
         pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on push events on branch main
         pipelinesascode.tekton.dev/on-target-branch: "main"
-        pipelinesascode.tekton.dev/task: "[git-clone, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-git-tag/rendered/stakater-create-git-tag-0.0.7.yaml, https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-create-environment/rendered/stakater-create-environment-0.0.16.yaml,https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-code-linting/rendered/stakater-code-linting-0.0.3.yaml,
-           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-kube-linting/rendered/stakater-kube-linting-0.0.6.yaml,
-           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-unit-test/rendered/stakater-unit-test-0.0.5.yaml,
-           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-sonarqube-scan/rendered/stakater-sonarqube-scan-0.0.5.yaml,
-           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-buildah/rendered/stakater-buildah-0.0.18.yaml,
-           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-trivy-scan/rendered/stakater-trivy-scan-0.0.3.yaml,
-           https://raw.githubusercontent.com/stakater/tekton-catalog/main/stakater-rox-image-scan/rendered/stakater-rox-image-scan-0.0.4.yaml]"    
+        pipelinesascode.tekton.dev/task: "[git-clone,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/create-git-tag/0.0.12/task/stakater-create-git-tag/stakater-create-git-tag.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/create-environment/0.0.16/task/stakater-create-environment/stakater-create-environment.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/code-linting-mvn/0.0.4/task/stakater-code-linting/stakater-code-linting.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/kube-linting/0.0.7/task/stakater-kube-linting/stakater-kube-linting.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/unit-test/0.0.6/task/stakater-unit-test/stakater-unit-test.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/sonarqube-scan/0.0.13/task/stakater-sonarqube-scan/stakater-sonarqube-scan.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/buildah/0.0.29/task/stakater-buildah/stakater-buildah.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/trivy-scan/0.0.3/task/stakater-trivy-scan/stakater-trivy-scan.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/rox-image-scan/0.0.4/task/stakater-rox-image-scan/stakater-rox-image-scan.yaml]"
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
         - name: repo_url
           value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
-        - name: gitrevision
+        - name: git_revision
           value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
         - name: repo_path
           value: {{repo_name}} # Dynamic varaible to fetch repo name
-        - name: image_registry_url
-          value: "<docker-registry-url>" # Place image registry URL without https://
+        - name: image_registry
+          value: "<docker-registry-url>" # Place image registry URL without https:// succeeded by your application name
         - name: helm_registry
           value: "<https://helm-registry-url>" # Place helm registry URL with https://
         - name: pull_request_number
@@ -52,7 +55,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
       pipelineSpec: # Define what parameters will be used for pipeline
         params:
           - name: repo_url
-          - name: gitrevision
+          - name: git_revision
           - name: repo_path
           - name: image_registry_url
           - name: helm_registry
@@ -76,12 +79,12 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               - name: url
                 value: $(params.repo_url)
               - name: revision
-                value: $(params.gitrevision)
+                value: $(params.git_revision)
           - name: create-git-tag
             runAfter:
               - fetch-repository
             taskRef:
-              name: stakater-create-git-tag-0.0.7
+              name: stakater-create-git-tag
               kind: Task
             params:
               - name: PR_NUMBER
@@ -98,7 +101,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             - create-git-tag
             taskRef:
               kind: Task
-              name: stakater-create-environment-0.0.15
+              name: stakater-create-environment
             params:
             - name: CREATE_ON_CLUSTER
               value: "true"
@@ -125,7 +128,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             runAfter:
               - stakater-create-environment
             taskRef:
-              name: stakater-code-linting-0.0.3
+              name: stakater-code-linting
               kind: Task
             workspaces:
               - name: source
@@ -134,7 +137,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             runAfter:
               - stakater-create-environment
             taskRef:
-              name: stakater-kube-linting-0.0.6
+              name: stakater-kube-linting
               kind: Task
             params:
               - name: FILE
@@ -151,7 +154,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               - code-linting
               - kube-linting
             taskRef:
-              name: stakater-unit-test-0.0.5
+              name: stakater-unit-test
               kind: Task
             workspaces:
               - name: source
@@ -160,7 +163,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             runAfter:
               - unit-test
             taskRef:
-              name: stakater-sonarqube-scan-0.0.5
+              name: stakater-sonarqube-scan
               kind: Task
             params:
               - name: SONAR_HOST_URL
@@ -175,7 +178,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             runAfter:
               - unit-test
             taskRef:
-              name: stakater-buildah-0.0.18
+              name: stakater-buildah
               kind: Task
             params:
               - name: IMAGE
@@ -198,7 +201,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               - buildah
               - sonarqube-scan
             taskRef:
-              name: stakater-trivy-scan-0.0.3
+              name: stakater-trivy-scan
               kind: Task
             params:
               - name: IMAGE
@@ -211,7 +214,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               - buildah
               - sonarqube-scan
             taskRef:
-              name: stakater-rox-image-scan-0.0.4
+              name: stakater-rox-image-scan
               kind: Task
             params:
               - name: IMAGE
@@ -244,7 +247,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     ```
 
    !!! note
-   Remember to add the remote task in the annotations
+       Remember to add the remote task in the annotations
+       ![rox-image-scan](images/rox-image-scan-annotation.png)
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
