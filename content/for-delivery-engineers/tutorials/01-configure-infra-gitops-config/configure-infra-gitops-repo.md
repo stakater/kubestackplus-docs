@@ -94,6 +94,7 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
           sourceRepos:
           - 'https://github.com/your-organization/infra-gitops-config'
           - 'https://github.com/your-organization/apps-gitops-config'
+          - '<YOUR-NEXUS-REGISTRY-URL>'
       templateInstances:
       - spec:
           template: tenant-vault-access
@@ -103,6 +104,9 @@ This AppProject will be used to sync all the Applications in `Infra Gitops Confi
       - dev
       - stage
     ```
+
+    !!! note
+        Remember to replace the Helm registry Url in ArgoCD source repositories. You can find the urls from [here](../../../managed-addons/nexus/explanation/routes.md)
 
 1. We also need to add a quota for our `arsenal` tenant in our `quotas` folder created in step 4. So let's do it using the file below. The name of this quota need to match the name you specified in tenant CR.
 
