@@ -14,7 +14,7 @@
 
 ### Create PipelineRun with Trivy Scan Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task [`tricy-scan`](https://github.com/stakater-tekton-catalog/trivy-scan) to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task [`trivy-scan`](https://github.com/stakater-tekton-catalog/trivy-scan) to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the YAML becomes like the one given below.
