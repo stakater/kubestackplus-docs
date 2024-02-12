@@ -36,7 +36,7 @@ The create environment task utilizes [Tronador](https://docs.stakater.com/tronad
       params:
         - name: repo_url
           value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
-        - name: gitrevision
+        - name: git_revision
           value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
         - name: git_branch
           value: {{source_branch}}

@@ -114,6 +114,6 @@ The Git Clone task serves as the initial step in your pipeline, responsible for 
 
    `url`: The URL of the source code repository. This parameter is dynamically fetched from the repo_url parameter defined in the PipelineRun.
 
-   `revision`: The Git revision to fetch, often corresponding to a specific branch or commit. This parameter is also dynamically fetched from the `gitrevision` parameter in the PipelineRun.
+   `revision`: The Git revision to fetch, often corresponding to a specific branch or commit. This parameter is also dynamically fetched from the `git_revision` parameter in the PipelineRun.
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

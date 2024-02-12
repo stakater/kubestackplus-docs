@@ -39,7 +39,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
       params:
         - name: repo_url
           value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
-        - name: gitrevision
+        - name: git_revision
           value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
         - name: git_branch
           value: {{source_branch}}
