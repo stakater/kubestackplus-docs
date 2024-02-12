@@ -41,7 +41,7 @@ The create environment task utilizes [Tronador](https://docs.stakater.com/tronad
         - name: git_branch
           value: {{source_branch}}
         - name: repo_path
-          value: {{repo_name}} # Dynamic varaible to fetch repo name
+          value: {{repo_name}} # Dynamic variable to fetch repo name
         - name: image_registry
           value: "<docker-registry-url>" # Place image registry URL without https:// succeeded by your application name
         - name: helm_registry
