@@ -40,14 +40,18 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
         - name: git_revision
           value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
+        - name: git_branch
+          value: {{source_branch}}
         - name: repo_path
-          value: {{repo_name}} # Dynamic varaible to fetch repo name
+          value: {{repo_name}} # Dynamic variable to fetch repo name
         - name: image_registry
           value: "<docker-registry-url>" # Place image registry URL without https:// succeeded by your application name
         - name: helm_registry
           value: "<https://helm-registry-url>" # Place helm registry URL with https://
         - name: pull_request_number
           value: {{pull_request_number}}
+        - name: organization
+          value: {{YOUR_GIT_ORG}}
       pipelineSpec: # Define what parameters will be used for pipeline
         params:
           - name: repo_url
@@ -56,6 +60,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           - name: image_registry
           - name: helm_registry
           - name: pull_request_number
+          - name: organization
+          - name: git_branch
         workspaces: # Mention what workspaces will be used by this pipeline to store data and used by data transferring between tasks
           - name: source
           - name: ssh-directory
