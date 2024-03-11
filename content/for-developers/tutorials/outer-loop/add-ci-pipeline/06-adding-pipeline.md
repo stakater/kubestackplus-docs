@@ -24,68 +24,10 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
 1. Create a `.tekton` folder at the root of your repository.
 1. Now add a file named `pullrequest.yaml` in this folder and place the below given content in it. This file will represent a `PipelineRun`.
 
-    ```yaml
-    apiVersion: tekton.dev/v1beta1
-    kind: PipelineRun
-    metadata:
-      name: pullrequest # pipelineRun name
-      annotations:
-        pipelinesascode.tekton.dev/on-event: "[pull_request]" # Trigger the pipelineRun on pullrequest events on branch main
-        pipelinesascode.tekton.dev/on-target-branch: "main"
-        pipelinesascode.tekton.dev/task: "[git-clone]" # The task will be fetched from Tekton Hub. We can also provide direct links to yaml files
-        pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
-    spec:
-      params:
-        - name: repo_url
-          value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
-        - name: git_revision
-          value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
-        - name: repo_path
-          value: {{repo_name}} # Dynamic variable to fetch repo name
-        - name: image_registry
-          value: "<docker-registry-url>" # Place image registry URL without https:// succeeded by your application name
-        - name: helm_registry
-          value: "<https://helm-registry-url>" # Place helm registry URL with https://
-      pipelineSpec: # Define what parameters will be used for pipeline
-        params:
-          - name: repo_url
-          - name: git_revision
-          - name: repo_path
-          - name: image_registry
-          - name: helm_registry
-        workspaces: # Mention what workspaces will be used by this pipeline to store data and used by data transferring between tasks
-          - name: source
-          - name: ssh-directory
-        tasks: # Mention what tasks will be used by this pipeline
-          - name: fetch-repository #Name what you want to call the task
-            taskRef:
-              name: git-clone # Name of tasks mentioned in tekton-catalog
-              kind: Task
-            workspaces: # Mention what workspaces will be used by this task
-              - name: output
-                workspace: source
-              - name: ssh-directory
-                workspace: ssh-directory
-            params: # Parameters will be used by this task
-              - name: depth
-                value: "0"
-              - name: url
-                value: $(params.repo_url)
-              - name: revision
-                value: $(params.git_revision)
-      workspaces: # Mention Workspaces configuration
-        - name: source
-          volumeClaimTemplate:
-            spec:
-              accessModes:
-                - ReadWriteOnce
-              resources:
-                requests:
-                  storage: 1Gi
-        - name: ssh-dibrectory # Using ssh-directory workspace for our task to have better security
-          secret:
-            secretName: [app-name]-ssh-creds # Created this secret earlier
-    ```
+   ```yaml 
+     {% include "./yamls/git_clone.yaml" %}
+   ```
+   
 
 1. Provide values for `image_registry`, and helm_registry parameters. You can find the urls from [here](../../../../managed-addons/nexus/explanation/routes.md).
    `image_registry` url should be succeeded by your application name. Example: nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/**review-api**

@@ -1,13 +1,21 @@
 FROM python:3.12 as builder
 
-RUN pip3 install mkdocs-material mkdocs-mermaid2-plugin mkdocs-table-reader-plugin
-
 # set workdir
 RUN mkdir -p $HOME/application
 WORKDIR $HOME/application
 
+# Install plugins
+RUN pip3 install mkdocs-material mkdocs-mermaid2-plugin mkdocs-table-reader-plugin  mkdocs-include-markdown-plugin
+
 # copy the entire application
 COPY --chown=1001:root . .
+COPY fetch-pipeline-yamls.sh .
+
+# Make the script executable
+RUN chmod +x fetch-pipeline-yamls.sh
+
+# Run the script to fetch pipeline YAMLs
+RUN ./fetch-pipeline-yamls.sh
 
 # build the docs
 RUN mkdocs build
