@@ -347,3 +347,4 @@ nav:
 plugins:
     - search
     - mermaid2
+    - include-markdown
