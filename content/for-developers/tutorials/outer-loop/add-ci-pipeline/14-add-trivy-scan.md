@@ -14,7 +14,7 @@
 
 ### Create PipelineRun with Trivy Scan Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task [`tricy-scan`](https://github.com/stakater-tekton-catalog/trivy-scan) to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task [`trivy-scan`](https://github.com/stakater-tekton-catalog/trivy-scan) to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the YAML becomes like the one given below.
@@ -43,6 +43,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
         - name: git_revision
           value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
+        - name: git_branch
+          value: {{source_branch}}
         - name: repo_path
           value: {{repo_name}} # Dynamic variable to fetch repo name
         - name: image_registry
@@ -51,6 +53,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           value: "<https://helm-registry-url>" # Place helm registry URL with https://
         - name: pull_request_number
           value: {{pull_request_number}}
+        - name: organization
+          value: {{YOUR_GIT_ORG}}
       pipelineSpec: # Define what parameters will be used for pipeline
         params:
           - name: repo_url
@@ -59,6 +63,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           - name: image_registry
           - name: helm_registry
           - name: pull_request_number
+          - name: organization
+          - name: git_branch
         workspaces: # Mention what workspaces will be used by this pipeline to store data and used by data transferring between tasks
           - name: source
           - name: ssh-directory

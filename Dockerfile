@@ -1,6 +1,6 @@
 FROM python:3.12 as builder
 
-RUN pip3 install mkdocs-material mkdocs-mermaid2-plugin mkdocs-table-reader-plugin
+RUN pip3 install mkdocs-material mkdocs-mermaid2-plugin mkdocs-table-reader-plugin mkdocs-include-markdown-plugin
 
 # set workdir
 RUN mkdir -p $HOME/application
