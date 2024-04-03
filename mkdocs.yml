@@ -29,8 +29,8 @@ markdown_extensions:
   - attr_list
   - tables
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -245,7 +245,7 @@ nav:
             - managed-addons/tilt/overview.md
         - Renovate:
             - managed-addons/renovate/overview.md
-            - How-to guides:            
+            - How-to guides:
                 - managed-addons/renovate/how-to-guides/automerge.md
                 - managed-addons/renovate/how-to-guides/run-locally.md
         - Gatekeeper:
@@ -316,7 +316,7 @@ nav:
         - Custom Metrics Autoscaler:
             - managed-addons/custom-metrics-autoscaler/overview.md
         - Dev Spaces:
-            - managed-addons/devspaces/overview.md                        
+            - managed-addons/devspaces/overview.md
         - External DNS:
             - managed-addons/external-dns/overview.md
         - Helm Leader Chart:
