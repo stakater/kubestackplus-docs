@@ -573,7 +573,7 @@ Considerations for helping to protect access to your app include the following:
 
 The security landscape constantly evolves within an enterprise, making it harder for you to code security constructs in your apps
 
-Stakater App Agility Platform offers Keycloak as fully managed IAM solution to cater all the needs.
+Stakater App Agility Platform offers Keycloak as fully managed IAM solution to support SSO login for managed addons.
 
 ## 16. Dependencies initialization
 
