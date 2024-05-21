@@ -1,350 +1,363 @@
-site_name: Stakater App Agility Platform (SAAP)
 docs_dir: content
-site_url: https://docs.stakater.com/saap/
-repo_url: https://github.com/stakater/saap-docs
 edit_uri: blob/main/content/
-use_directory_urls: false
+extra:
+  analytics:
+    property: G-TTH1YYW5TX
+    provider: google
+  consent:
+    actions:
+    - accept
+    - reject
+    - manage
+    description: We use cookies to recognize your repeated visits and preferences,
+      as well as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to make
+      our documentation better.
+    title: Cookie consent
+extra_css:
+- stylesheets/extra.css
+markdown_extensions:
+- pymdownx.tabbed:
+    alternate_style: true
+- attr_list
+- tables
+- pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+nav:
+- About:
+  - index.md
+  - Enterprise Kubernetes: about/saap-vs-k8s.md
+  - about/saap-features.md
+  - about/saap-key-differentiators.md
+  - Service Definition:
+    - about/service-definition/overview.md
+    - about/service-definition/platform.md
+    - about/service-definition/monitoring.md
+    - about/service-definition/logging.md
+    - about/service-definition/security.md
+    - about/service-definition/secrets-management.md
+    - about/service-definition/service-mesh.md
+    - about/service-definition/account-management.md
+    - about/service-definition/networking.md
+    - about/service-definition/storage.md
+  - about/responsibilities.md
+  - Cloud Providers:
+    - about/cloud-providers/overview.md
+    - about/cloud-providers/aws.md
+    - about/cloud-providers/azure.md
+    - about/cloud-providers/gcp.md
+    - about/cloud-providers/binero.md
+    - about/cloud-providers/exoscale.md
+  - about/update-lifecycle.md
+  - about/onboarding.md
+- For Administrators:
+  - for-administrators/overview.md
+  - Plan your environment:
+    - for-administrators/plan-your-environment/sizing.md
+  - Secure your cluster:
+    - for-administrators/secure-your-cluster/user-access.md
+    - for-administrators/secure-your-cluster/secure-routes.md
+    - for-administrators/secure-your-cluster/google-idp.md
+    - for-administrators/secure-your-cluster/azure-idp.md
+    - for-administrators/secure-your-cluster/keycloak-idp.md
+    - for-administrators/secure-your-cluster/saml-idp.md
+    - for-administrators/secure-your-cluster/saap-authorization-roles.md
+    - for-administrators/secure-your-cluster/curated-list-operators.md
+  - Manage Network:
+    - for-administrators/networking/custom-domains.md
+    - for-administrators/networking/external-dns.md
+  - Manage Storage:
+    - for-administrators/storage/volume-expansion.md
+  - Cluster Lifecycle:
+    - for-administrators/cluster-lifecycle/hibernate-your-cluster.md
+  - Help:
+    - for-administrators/help/faq.md
+  - Explanation:
+    - for-administrators/explanation/number-of-clusters.md
+- For Delivery Engineers:
+  - for-delivery-engineers/overview.md
+  - Explanation:
+    - for-delivery-engineers/explanation/gitops-intro.md
+    - for-delivery-engineers/explanation/gitops-structure.md
+    - for-delivery-engineers/explanation/secrets.md
+    - for-delivery-engineers/explanation/types-of-environments.md
+    - for-delivery-engineers/explanation/stakater-tekton-chart.md
+    - for-delivery-engineers/explanation/faq.md
+  - Tutorials:
+    - for-delivery-engineers/tutorials/04-preparing-pac-env/adding-github-token.md
+    - for-delivery-engineers/tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md
+    - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md
+    - for-delivery-engineers/tutorials/04-preparing-pac-env/add-ssh-key.md
+    - for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
+  - How-to guides:
+    - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
+    - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
+    - for-delivery-engineers/how-to-guides/use-a-cluster-task-in-pipeline/use-a-clustertask-in-pipeline.md
+- For Developers:
+  - for-developers/overview.md
+  - Explanation:
+    - for-developers/explanation/developer-training.md
+    - for-developers/explanation/plan-your-deployment.md
+    - for-developers/explanation/inner-outer-loop.md
+    - for-developers/explanation/local-development-workflow.md
+    - for-developers/explanation/production-best-practices.md
+    - for-developers/explanation/deploying-secrets.md
+  - Tutorials:
+    - Inner Loop:
+      - for-developers/tutorials/inner-loop/prepare-environment/prepare-env.md
+      - for-developers/tutorials/inner-loop/about-application/about-application.md
+      - for-developers/tutorials/inner-loop/access-the-cluster/access-the-cluster.md
+      - for-developers/tutorials/inner-loop/containerize-app/containerize-app.md
+      - for-developers/tutorials/inner-loop/package-app/package-app.md
+      - for-developers/tutorials/inner-loop/deploy-app/deploy-app.md
+      - for-developers/tutorials/inner-loop/add-secret/add-secrets.md
+      - for-developers/tutorials/inner-loop/add-configmap/add-configmaps.md
+      - for-developers/tutorials/inner-loop/configure-probes/configure-probes.md
+      - for-developers/tutorials/inner-loop/add-storage/persist-app.md
+      - for-developers/tutorials/inner-loop/expose-app/expose-app.md
+      - for-developers/tutorials/inner-loop/validate-logs/validate-logs.md
+      - for-developers/tutorials/inner-loop/monitor-your-app/monitor-your-app.md
+      - for-developers/tutorials/inner-loop/expose-metrics/expose-metrics.md
+      - for-developers/tutorials/inner-loop/add-alerts/add-alerts.md
+      - for-developers/tutorials/inner-loop/synthetic-monitoring/synthetic-monitoring.md
+      - for-developers/tutorials/inner-loop/add-grafana-dashboard/add-grafana-dashboard.md
+      - for-developers/tutorials/inner-loop/scale-app/scale-app.md
+      - for-developers/tutorials/inner-loop/validate-auto-reload/validate-auto-reload.md
+      - for-developers/tutorials/inner-loop/add-pdb/add-pdb.md
+      - for-developers/tutorials/inner-loop/add-network-policy/add-network-policy.md
+      - for-developers/tutorials/inner-loop/tilt-zero-to-hero/step-by-step-guide.md
+    - Outer Loop:
+      - for-developers/tutorials/outer-loop/access-cluster/access-the-cluster.md
+      - for-developers/tutorials/outer-loop/prerequisites.md
+      - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
+      - Configure Pipeline for your application:
+        - for-developers/tutorials/outer-loop/add-ci-pipeline/01-overview.md
+        - for-developers/tutorials/outer-loop/add-ci-pipeline/03-create-webhook.md
+        - for-developers/tutorials/outer-loop/add-ci-pipeline/05-create-repository.md
+        - Add PipelineRun:
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/06-adding-pipeline.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/07-add-create-git-tag.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/08-add-create-environment.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/09-add-code-linting.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/10-add-kube-linting.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/11-add-unit-test.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/12-add-sonar-scan.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/13-add-buildah.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/14-add-trivy-scan.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/15-add-rox-image-scan.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/16-add-rox-image-check.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/17-add-rox-deployment-check.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/18-add-checkov-scan.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/19-add-helm-push.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/20-add-update-cd-repo.md
+          - for-developers/tutorials/outer-loop/add-ci-pipeline/21-add-validate-environment.md
+      - for-developers/tutorials/outer-loop/promote-application/promote-app.md
+  - How-to guides:
+    - for-developers/how-to-guides/add-a-new-environment-to-apps-gitops/add-a-new-environment-to-application.md
+    - for-developers/how-to-guides/promote-your-application/promote-your-application.md
+    - for-developers/how-to-guides/build-and-push-your-image/build-and-push-your-image.md
+    - for-developers/how-to-guides/deploy-app-with-argocd-and-helm/deploy-app-with-argocd-and-helm.md
+    - for-developers/how-to-guides/expose-spring-boot-metrics/expose-spring-boot-metrics.md
+    - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
+- For CISOs:
+  - for-cisos/policies/policies.md
+  - Red Hat Advanced Cluster Security (RHACS):
+    - for-cisos/rhacs/introduction.md
+    - for-cisos/rhacs/accessing-rhacs.md
+    - for-cisos/rhacs/permissions.md
+  - Backup and Restore:
+    - for-cisos/backup-restore/introduction.md
+    - for-cisos/backup-restore/velero-cli.md
+    - for-cisos/backup-restore/backup-restore.md
+    - for-cisos/backup-restore/troubleshooting.md
+    - for-cisos/backup-restore/cleanup.md
+    - for-cisos/backup-restore/stateful-app-example.md
+    - for-cisos/backup-restore/restore-with-gitops.md
+    - for-cisos/backup-restore/limitations.md
+  - Data Protection:
+    - for-cisos/data-protection/gdpr.md
+    - for-cisos/data-protection/rhacm-data-lifecycle.md
+    - for-cisos/data-protection/rhacm-data-collection.md
+    - for-cisos/data-protection/rhacm-data-storage.md
+- Managed Addons:
+  - managed-addons/overview.md
+  - Nexus:
+    - managed-addons/nexus/overview.md
+    - Tutorials:
+      - managed-addons/nexus/tutorial/login-browse.md
+    - How-to guides:
+      - managed-addons/nexus/how-to-guide/how-to-configure-maven-with-nexus.md
+      - managed-addons/nexus/how-to-guide/how-to-upload-from-ui.md
+      - managed-addons/nexus/how-to-guide/how-to-upload-local-machine.md
+      - managed-addons/nexus/how-to-guide/how-to-grant-admin-privileges.md
+    - Explanation:
+      - managed-addons/nexus/explanation/routes.md
+      - managed-addons/nexus/explanation/permissions.md
+  - Vault:
+    - managed-addons/vault/overview.md
+  - ArgoCD:
+    - managed-addons/argocd/overview.md
+    - managed-addons/argocd/for-administrators/availability.md
+    - managed-addons/argocd/for-administrators/installation.md
+    - managed-addons/argocd/for-administrators/observability.md
+    - managed-addons/argocd/for-administrators/resource-requirements.md
+  - Cert Manager:
+    - managed-addons/cert-manager/overview.md
+  - External Secrets Operator:
+    - managed-addons/external-secrets-operator/overview.md
+  - Forecastle:
+    - managed-addons/forecastle/overview.md
+    - Tutorials:
+      - managed-addons/forecastle/tutorial/add-forecastle-app.md
+  - Tilt:
+    - managed-addons/tilt/overview.md
+  - Renovate:
+    - managed-addons/renovate/overview.md
+    - How-to guides:
+      - managed-addons/renovate/how-to-guides/automerge.md
+      - managed-addons/renovate/how-to-guides/run-locally.md
+  - Gatekeeper:
+    - managed-addons/gatekeeper/overview.md
+  - Showback:
+    - managed-addons/opencost/overview.md
+  - Restful Distributed Lock Manager (RDLM):
+    - managed-addons/rdlm/overview.md
+  - Ingress Monitor Controller:
+    - managed-addons/imc/overview.md
+    - Tutorials:
+      - managed-addons/imc/tutorial/add-configuration.md
+      - managed-addons/imc/tutorial/add-monitors.md
+  - Konfigurator:
+    - managed-addons/konfigurator/overview.md
+    - Explanation:
+      - managed-addons/konfigurator/explanation/konfigurator-template.md
+      - managed-addons/konfigurator/explanation/pod-metadata-injector.md
+  - Logging:
+    - managed-addons/logging-stack/overview.md
+    - managed-addons/logging-stack/kibana-view-logs.md
+  - Monitoring:
+    - managed-addons/monitoring-stack/overview.md
+    - managed-addons/monitoring-stack/stack.md
+    - managed-addons/monitoring-stack/app-uptime.md
+    - managed-addons/monitoring-stack/app-alerts.md
+    - managed-addons/monitoring-stack/grafana-dashboard.md
+    - managed-addons/monitoring-stack/downtime-notifications-uptimerobot.md
+    - managed-addons/monitoring-stack/log-alerts.md
+    - managed-addons/monitoring-stack/predefined-prometheusrules.md
+    - managed-addons/monitoring-stack/workload-application-alerts.md
+  - Multi Tenant Operator:
+    - managed-addons/mto/overview.md
+  - Reloader:
+    - managed-addons/reloader/overview.md
+    - Tutorials:
+      - managed-addons/reloader/tutorial/configure-resources.md
+  - SonarQube:
+    - managed-addons/sonarqube/overview.md
+  - Tekton:
+    - managed-addons/tekton/overview.md
+  - Tronador:
+    - managed-addons/tronador/overview.md
+  - Velero:
+    - managed-addons/velero/overview.md
+  - Volume Expander Operator:
+    - managed-addons/volume-expander-operator/overview.md
+  - RHACS:
+    - managed-addons/rhacs/overview.md
+  - Vertical Pod Autoscaler (VPA):
+    - managed-addons/vertical-pod-autoscaler/overview.md
+  - Horizontal Pod Autoscaler (HPA):
+    - managed-addons/horizontal-pod-autoscaler/overview.md
+  - Pelorus:
+    - managed-addons/pelorus/overview.md
+  - Service Mesh:
+    - managed-addons/service-mesh/overview.md
+  - Patch Operator:
+    - managed-addons/patch-operator/overview.md
+  - Ingress Controller:
+    - managed-addons/ingress-controller/overview.md
+  - Event Router:
+    - managed-addons/event-router/overview.md
+  - Kubernetes Dashboard:
+    - managed-addons/kubernetes-dashboard/overview.md
+  - OpenShift Data Foundation:
+    - managed-addons/odf/overview.md
+  - Custom Metrics Autoscaler:
+    - managed-addons/custom-metrics-autoscaler/overview.md
+  - Dev Spaces:
+    - managed-addons/devspaces/overview.md
+  - External DNS:
+    - managed-addons/external-dns/overview.md
+  - Helm Leader Chart:
+    - managed-addons/helm-leader-chart/overview.md
+  - Web Terminal Operator:
+    - managed-addons/web-terminal-operator/overview.md
+- Legal Documents:
+  - legal-documents/gtc.md
+  - legal-documents/sla.md
+  - legal-documents/agreement.md
+  - legal-documents/dpa.md
+  - legal-documents/nda.md
+  - legal-documents/pp.md
+- Help:
+  - help/support/support.md
+  - Kubernetes Concepts:
+    - help/k8s-concepts/storage-basics.md
+    - help/k8s-concepts/cloud-native-app.md
+    - help/k8s-concepts/helm.md
+    - help/k8s-concepts/high-availability.md
+  - FAQs:
+    - help/faqs/product.md
+    - help/faqs/purchasing.md
+    - help/faqs/customization.md
+    - help/faqs/developers.md
+    - help/faqs/operations.md
+plugins:
+- mermaid2
+- include-markdown
+repo_url: https://github.com/stakater/saap-docs
+site_name: Stakater App Agility Platform (SAAP)
+site_url: https://docs.stakater.com/saap/
 strict: true
 theme:
-    name: material
-    logo: assets/images/favicon.svg
-    favicon: assets/images/favicon.svg
-    custom_dir: custom_theme/
-    features:
-      - content.code.copy
-      - content.code.select
-    palette:
-      primary: white
-
-markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true
-  - attr_list
-  - tables
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-
-extra:
-    analytics:
-        provider: google
-        property: G-TTH1YYW5TX
-    consent:
-        title: Cookie consent
-        actions:
-            - accept
-            - reject
-            - manage
-        description: >-
-            Stakater uses cookies to recognize your repeated visits and preferences, as well
-            as to measure the effectiveness of our documentation and whether users
-            find what they're searching for. With your consent, you're helping us to
-            make our documentation better.
-
-nav:
-    - About:
-        - index.md
-        - Enterprise Kubernetes: about/saap-vs-k8s.md
-        - about/saap-features.md
-        - about/saap-key-differentiators.md
-        - Service Definition:
-            - about/service-definition/overview.md
-            - about/service-definition/platform.md
-            - about/service-definition/monitoring.md
-            - about/service-definition/logging.md
-            - about/service-definition/security.md
-            - about/service-definition/secrets-management.md
-            - about/service-definition/service-mesh.md
-            - about/service-definition/account-management.md
-            - about/service-definition/networking.md
-            - about/service-definition/storage.md
-        - about/responsibilities.md
-        - Cloud Providers:
-            - about/cloud-providers/overview.md
-            - about/cloud-providers/aws.md
-            - about/cloud-providers/azure.md
-            - about/cloud-providers/gcp.md
-            - about/cloud-providers/binero.md
-            - about/cloud-providers/exoscale.md
-        - about/update-lifecycle.md
-        - about/onboarding.md
-    - For Administrators:
-        - for-administrators/overview.md
-        - Plan your environment:
-            - for-administrators/plan-your-environment/sizing.md
-        - Secure your cluster:
-            - for-administrators/secure-your-cluster/user-access.md
-            - for-administrators/secure-your-cluster/secure-routes.md
-            - for-administrators/secure-your-cluster/google-idp.md
-            - for-administrators/secure-your-cluster/azure-idp.md
-            - for-administrators/secure-your-cluster/keycloak-idp.md
-            - for-administrators/secure-your-cluster/saml-idp.md
-            - for-administrators/secure-your-cluster/saap-authorization-roles.md
-            - for-administrators/secure-your-cluster/curated-list-operators.md
-        - Manage Network:
-            - for-administrators/networking/custom-domains.md
-            - for-administrators/networking/external-dns.md
-        - Manage Storage:
-            - for-administrators/storage/volume-expansion.md
-        - Cluster Lifecycle:
-            - for-administrators/cluster-lifecycle/hibernate-your-cluster.md
-        - Help:
-            - for-administrators/help/faq.md
-        - Explanation:
-            - for-administrators/explanation/number-of-clusters.md
-    - For Delivery Engineers:
-        - for-delivery-engineers/overview.md
-        - Explanation:
-            - for-delivery-engineers/explanation/gitops-intro.md
-            - for-delivery-engineers/explanation/gitops-structure.md
-            - for-delivery-engineers/explanation/secrets.md
-            - for-delivery-engineers/explanation/types-of-environments.md
-            - for-delivery-engineers/explanation/stakater-tekton-chart.md
-            - for-delivery-engineers/explanation/faq.md
-        - Tutorials:
-              - for-delivery-engineers/tutorials/04-preparing-pac-env/adding-github-token.md
-              - for-delivery-engineers/tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md
-              - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md
-              - for-delivery-engineers/tutorials/04-preparing-pac-env/add-ssh-key.md
-              - for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
-        - How-to guides:
-            - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
-            - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
-            - for-delivery-engineers/how-to-guides/use-a-cluster-task-in-pipeline/use-a-clustertask-in-pipeline.md
-    - For Developers:
-        - for-developers/overview.md
-        - Explanation:
-              - for-developers/explanation/developer-training.md
-              - for-developers/explanation/plan-your-deployment.md
-              - for-developers/explanation/inner-outer-loop.md
-              - for-developers/explanation/local-development-workflow.md
-              - for-developers/explanation/production-best-practices.md
-              - for-developers/explanation/deploying-secrets.md
-
-        - Tutorials:
-            - Inner Loop:
-                - for-developers/tutorials/inner-loop/prepare-environment/prepare-env.md
-                - for-developers/tutorials/inner-loop/about-application/about-application.md
-                - for-developers/tutorials/inner-loop/access-the-cluster/access-the-cluster.md
-                - for-developers/tutorials/inner-loop/containerize-app/containerize-app.md
-                - for-developers/tutorials/inner-loop/package-app/package-app.md
-                - for-developers/tutorials/inner-loop/deploy-app/deploy-app.md
-                - for-developers/tutorials/inner-loop/add-secret/add-secrets.md
-                - for-developers/tutorials/inner-loop/add-configmap/add-configmaps.md
-                - for-developers/tutorials/inner-loop/configure-probes/configure-probes.md
-                - for-developers/tutorials/inner-loop/add-storage/persist-app.md
-                - for-developers/tutorials/inner-loop/expose-app/expose-app.md
-                - for-developers/tutorials/inner-loop/validate-logs/validate-logs.md
-                - for-developers/tutorials/inner-loop/monitor-your-app/monitor-your-app.md
-                - for-developers/tutorials/inner-loop/expose-metrics/expose-metrics.md
-                - for-developers/tutorials/inner-loop/add-alerts/add-alerts.md
-                - for-developers/tutorials/inner-loop/synthetic-monitoring/synthetic-monitoring.md
-                - for-developers/tutorials/inner-loop/add-grafana-dashboard/add-grafana-dashboard.md
-                - for-developers/tutorials/inner-loop/scale-app/scale-app.md
-                - for-developers/tutorials/inner-loop/validate-auto-reload/validate-auto-reload.md
-                - for-developers/tutorials/inner-loop/add-pdb/add-pdb.md
-                - for-developers/tutorials/inner-loop/add-network-policy/add-network-policy.md
-                - for-developers/tutorials/inner-loop/tilt-zero-to-hero/step-by-step-guide.md
-            - Outer Loop:
-                - for-developers/tutorials/outer-loop/access-cluster/access-the-cluster.md
-                - for-developers/tutorials/outer-loop/prerequisites.md
-                - for-developers/tutorials/outer-loop/add-build-environment/add-environment.md
-                - Configure Pipeline for your application:
-                  - for-developers/tutorials/outer-loop/add-ci-pipeline/01-overview.md
-                  - for-developers/tutorials/outer-loop/add-ci-pipeline/03-create-webhook.md
-                  - for-developers/tutorials/outer-loop/add-ci-pipeline/05-create-repository.md
-                  - Add PipelineRun:
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/06-adding-pipeline.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/07-add-create-git-tag.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/08-add-create-environment.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/09-add-code-linting.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/10-add-kube-linting.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/11-add-unit-test.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/12-add-sonar-scan.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/13-add-buildah.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/14-add-trivy-scan.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/15-add-rox-image-scan.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/16-add-rox-image-check.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/17-add-rox-deployment-check.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/18-add-checkov-scan.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/19-add-helm-push.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/20-add-update-cd-repo.md
-                    - for-developers/tutorials/outer-loop/add-ci-pipeline/21-add-validate-environment.md
-                - for-developers/tutorials/outer-loop/promote-application/promote-app.md
-        - How-to guides:
-            - for-developers/how-to-guides/add-a-new-environment-to-apps-gitops/add-a-new-environment-to-application.md
-            - for-developers/how-to-guides/promote-your-application/promote-your-application.md
-            - for-developers/how-to-guides/build-and-push-your-image/build-and-push-your-image.md
-            - for-developers/how-to-guides/deploy-app-with-argocd-and-helm/deploy-app-with-argocd-and-helm.md
-            - for-developers/how-to-guides/expose-spring-boot-metrics/expose-spring-boot-metrics.md
-            - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
-    - For CISOs:
-        - for-cisos/policies/policies.md
-        - Red Hat Advanced Cluster Security (RHACS):
-            - for-cisos/rhacs/introduction.md
-            - for-cisos/rhacs/accessing-rhacs.md
-            - for-cisos/rhacs/permissions.md
-        - Backup and Restore:
-            - for-cisos/backup-restore/introduction.md
-            - for-cisos/backup-restore/velero-cli.md
-            - for-cisos/backup-restore/backup-restore.md
-            - for-cisos/backup-restore/troubleshooting.md
-            - for-cisos/backup-restore/cleanup.md
-            - for-cisos/backup-restore/stateful-app-example.md
-            - for-cisos/backup-restore/restore-with-gitops.md
-            - for-cisos/backup-restore/limitations.md
-        - Data Protection:
-            - for-cisos/data-protection/gdpr.md
-            - for-cisos/data-protection/rhacm-data-lifecycle.md
-            - for-cisos/data-protection/rhacm-data-collection.md
-            - for-cisos/data-protection/rhacm-data-storage.md
-    - Managed Addons:
-        - managed-addons/overview.md
-        - Nexus:
-            - managed-addons/nexus/overview.md
-            - Tutorials:
-                - managed-addons/nexus/tutorial/login-browse.md
-            - How-to guides:
-                - managed-addons/nexus/how-to-guide/how-to-configure-maven-with-nexus.md
-                - managed-addons/nexus/how-to-guide/how-to-upload-from-ui.md
-                - managed-addons/nexus/how-to-guide/how-to-upload-local-machine.md
-                - managed-addons/nexus/how-to-guide/how-to-grant-admin-privileges.md
-            - Explanation:
-                - managed-addons/nexus/explanation/routes.md
-                - managed-addons/nexus/explanation/permissions.md
-        - Vault:
-            - managed-addons/vault/overview.md
-        - ArgoCD:
-            - managed-addons/argocd/overview.md
-            - managed-addons/argocd/for-administrators/availability.md
-            - managed-addons/argocd/for-administrators/installation.md
-            - managed-addons/argocd/for-administrators/observability.md
-            - managed-addons/argocd/for-administrators/resource-requirements.md
-        - Cert Manager:
-            - managed-addons/cert-manager/overview.md
-        - External Secrets Operator:
-            - managed-addons/external-secrets-operator/overview.md
-        - Forecastle:
-            - managed-addons/forecastle/overview.md
-            - Tutorials:
-                - managed-addons/forecastle/tutorial/add-forecastle-app.md
-        - Tilt:
-            - managed-addons/tilt/overview.md
-        - Renovate:
-            - managed-addons/renovate/overview.md
-            - How-to guides:
-                - managed-addons/renovate/how-to-guides/automerge.md
-                - managed-addons/renovate/how-to-guides/run-locally.md
-        - Gatekeeper:
-            - managed-addons/gatekeeper/overview.md
-        - Showback:
-            - managed-addons/opencost/overview.md
-        - Restful Distributed Lock Manager (RDLM):
-            - managed-addons/rdlm/overview.md
-        - Ingress Monitor Controller:
-            - managed-addons/imc/overview.md
-            - Tutorials:
-                - managed-addons/imc/tutorial/add-configuration.md
-                - managed-addons/imc/tutorial/add-monitors.md
-        - Konfigurator:
-            - managed-addons/konfigurator/overview.md
-            - Explanation:
-                - managed-addons/konfigurator/explanation/konfigurator-template.md
-                - managed-addons/konfigurator/explanation/pod-metadata-injector.md
-        - Logging:
-            - managed-addons/logging-stack/overview.md
-            - managed-addons/logging-stack/kibana-view-logs.md
-        - Monitoring:
-            - managed-addons/monitoring-stack/overview.md
-            - managed-addons/monitoring-stack/stack.md
-            - managed-addons/monitoring-stack/app-uptime.md
-            - managed-addons/monitoring-stack/app-alerts.md
-            - managed-addons/monitoring-stack/grafana-dashboard.md
-            - managed-addons/monitoring-stack/downtime-notifications-uptimerobot.md
-            - managed-addons/monitoring-stack/log-alerts.md
-            - managed-addons/monitoring-stack/predefined-prometheusrules.md
-            - managed-addons/monitoring-stack/workload-application-alerts.md
-        - Multi Tenant Operator:
-            - managed-addons/mto/overview.md
-        - Reloader:
-            - managed-addons/reloader/overview.md
-            - Tutorials:
-                - managed-addons/reloader/tutorial/configure-resources.md
-        - SonarQube:
-            - managed-addons/sonarqube/overview.md
-        - Tekton:
-            - managed-addons/tekton/overview.md
-        - Tronador:
-            - managed-addons/tronador/overview.md
-        - Velero:
-            - managed-addons/velero/overview.md
-        - Volume Expander Operator:
-            - managed-addons/volume-expander-operator/overview.md
-        - RHACS:
-            - managed-addons/rhacs/overview.md
-        - Vertical Pod Autoscaler (VPA):
-            - managed-addons/vertical-pod-autoscaler/overview.md
-        - Horizontal Pod Autoscaler (HPA):
-            - managed-addons/horizontal-pod-autoscaler/overview.md
-        - Pelorus:
-            - managed-addons/pelorus/overview.md
-        - Service Mesh:
-            - managed-addons/service-mesh/overview.md
-        - Patch Operator:
-            - managed-addons/patch-operator/overview.md
-        - Ingress Controller:
-            - managed-addons/ingress-controller/overview.md
-        - Event Router:
-            - managed-addons/event-router/overview.md
-        - Kubernetes Dashboard:
-            - managed-addons/kubernetes-dashboard/overview.md
-        - OpenShift Data Foundation:
-            - managed-addons/odf/overview.md
-        - Custom Metrics Autoscaler:
-            - managed-addons/custom-metrics-autoscaler/overview.md
-        - Dev Spaces:
-            - managed-addons/devspaces/overview.md
-        - External DNS:
-            - managed-addons/external-dns/overview.md
-        - Helm Leader Chart:
-            - managed-addons/helm-leader-chart/overview.md
-        - Web Terminal Operator:
-            - managed-addons/web-terminal-operator/overview.md
-    - Legal Documents:
-        - legal-documents/gtc.md
-        - legal-documents/sla.md
-        - legal-documents/agreement.md
-        - legal-documents/dpa.md
-        - legal-documents/nda.md
-        - legal-documents/pp.md
-    - Help:
-        - help/support/support.md
-        - Kubernetes Concepts:
-            - help/k8s-concepts/storage-basics.md
-            - help/k8s-concepts/cloud-native-app.md
-            - help/k8s-concepts/helm.md
-            - help/k8s-concepts/high-availability.md
-        - FAQs:
-            - help/faqs/product.md
-            - help/faqs/purchasing.md
-            - help/faqs/customization.md
-            - help/faqs/developers.md
-            - help/faqs/operations.md
-
-plugins:
-    - search
-    - mermaid2
-    - include-markdown
+  cloud_security_alliance_logo_dark: assets/images/CSA_dark.png
+  cloud_security_alliance_logo_light: assets/images/CSA_light.png
+  custom_dir: dist/_theme
+  favicon: assets/images/favicon.svg
+  features:
+  - content.code.copy
+  - content.code.select
+  font:
+    code: Space Grotesk
+    text: Space Grotesk
+  footer_logo_dark: assets/images/footer-logo-dark.png
+  footer_logo_light: assets/images/footer-logo-light.png
+  hippa_compliant_logo_dark: assets/images/HC_dark.png
+  hippa_compliant_logo_light: assets/images/HC_light.png
+  logo: assets/images/favicon.svg
+  logo_dark: assets/images/logo-dark.png
+  logo_light: assets/images/logo-light.png
+  name: material
+  palette:
+  - media: (prefers-color-scheme)
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to system preference
+  - accent: custom
+    media: '(prefers-color-scheme: light)'
+    primary: custom
+    scheme: default
+    toggle:
+      icon: material/brightness-7
+      name: Switch to light mode
+  - accent: custom
+    media: '(prefers-color-scheme: dark)'
+    primary: custom
+    scheme: slate
+    toggle:
+      icon: material/brightness-3
+      name: Switch to dark mode
+use_directory_urls: false

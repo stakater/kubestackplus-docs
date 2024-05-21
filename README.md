@@ -42,7 +42,13 @@ Install mkdocs-material and mermaid plugin:
 $ pip3 install mkdocs-material mkdocs-mermaid2-plugin
 ```
 
-Finally serve the docs using the built-in web server which is based on Python http server - note that the production build will use Nginx instead:
+Install mkdocs-include-markdown-plugin (if not installed by default and gives an error):
+
+```bash
+$ pip install mkdocs-include-markdown-plugin
+```
+
+Finally, serve the docs using the built-in web server which is based on Python http server - note that the production build will use Nginx instead:
 
 ```bash
 $ mkdocs serve
@@ -76,4 +82,12 @@ Install [Tilt](https://docs.tilt.dev/index.html), then run:
 
 ```bash
 $ tilt up
+```
+
+Files `main.html` and `404.html` are served from `theme_common` rather than override since they are to be consistent throughout. If anything changes they can be served via `theme_override`.
+
+To execute the prepare theme command after setup you need to add the `prepare_theme.sh` or copy and paste bash file using sudo cmd file to your root directory and then run the following cmd:
+
+```bash
+$ chmod +x preparetheme sh
 ```
