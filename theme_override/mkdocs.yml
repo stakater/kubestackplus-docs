@@ -36,22 +36,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
 
-extra:
-  analytics:
-    provider: google
-    property: G-TTH1YYW5TX
-  consent:
-    title: Cookie consent
-    actions:
-      - accept
-      - reject
-      - manage
-    description: >-
-      Stakater uses cookies to recognize your repeated visits and preferences, as well
-      as to measure the effectiveness of our documentation and whether users
-      find what they're searching for. With your consent, you're helping us to
-      make our documentation better.
-
 nav:
   - About:
       - index.md

@@ -9,7 +9,7 @@ extra:
     - accept
     - reject
     - manage
-    description: Stakater uses cookies to recognize your repeated visits and preferences,
+    description: We use cookies to recognize your repeated visits and preferences,
       as well as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to make
       our documentation better.
@@ -17,20 +17,10 @@ extra:
 extra_css:
 - stylesheets/extra.css
 markdown_extensions:
-- admonition
-- pymdownx.details
-- pymdownx.superfences:
-    custom_fences:
-    - class: mermaid
-      format: !!python/name:pymdownx.superfences.fence_code_format ''
-      name: mermaid
 - pymdownx.tabbed:
     alternate_style: true
 - attr_list
 - tables
-- pymdownx.emoji:
-    emoji_generator: !!python/name:material.extensions.emoji.to_svg ''
-    emoji_index: !!python/name:material.extensions.emoji.twemoji ''
 - pymdownx.highlight:
     anchor_linenums: true
     line_spans: __span
@@ -326,7 +316,6 @@ nav:
     - help/faqs/developers.md
     - help/faqs/operations.md
 plugins:
-- search
 - mermaid2
 - include-markdown
 repo_url: https://github.com/stakater/saap-docs
