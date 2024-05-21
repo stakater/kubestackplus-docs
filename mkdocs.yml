@@ -344,6 +344,8 @@ theme:
   font:
     code: Space Grotesk
     text: Space Grotesk
+  footer_logo_dark: assets/images/footer-logo-dark.png
+  footer_logo_light: assets/images/footer-logo-light.png
   hippa_compliant_logo_dark: assets/images/HC_dark.png
   hippa_compliant_logo_light: assets/images/HC_light.png
   logo: assets/images/favicon.svg
