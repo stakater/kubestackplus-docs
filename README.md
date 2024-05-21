@@ -86,7 +86,7 @@ $ tilt up
 
 Files `main.html` and `404.html` are served from `theme_common` rather than override since they are to be consistent throughout. If anything changes they can be served via `theme_override`.
 
-To execute the prepare theme command after setup you need to add the `prepare_theme.sh` or copy paste bash file using sudo cmd file to your root directory and then run the following cmd:
+To execute the prepare theme command after setup you need to add the `prepare_theme.sh` or copy and paste bash file using sudo cmd file to your root directory and then run the following cmd:
 
 ```bash
 $ chmod +x preparetheme sh
