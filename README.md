@@ -48,7 +48,7 @@ Install mkdocs-include-markdown-plugin (if not installed by default and gives an
 $ pip install mkdocs-include-markdown-plugin
 ```
 
-Finally serve the docs using the built-in web server which is based on Python http server - note that the production build will use Nginx instead:
+Finally, serve the docs using the built-in web server which is based on Python http server - note that the production build will use Nginx instead:
 
 ```bash
 $ mkdocs serve
