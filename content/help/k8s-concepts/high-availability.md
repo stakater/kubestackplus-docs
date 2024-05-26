@@ -16,9 +16,8 @@ SAAP provides many features and options for protecting your workloads against do
 
 SAAP can help further protect you against many common Kubernetes issues by adding Stakater Site Reliability Engineer (SRE) support and the option to deploy a multi-zone cluster, but there are a number of ways in which a container or infrastructure can still fail. By understanding potential points of failure, you can understand risks and appropriately architect both your applications and your clusters to be as resilient as necessary at each specific level.
 
-!!! note "NOTE"
-
- An outage can occur at several different levels of infrastructure and cluster components.
+!!! note
+    An outage can occur at several different levels of infrastructure and cluster components.
 
 SAAP provides several approaches to add more availability to your cluster by adding redundancy and anti-affinity. Review the following image to learn about potential points of failure and how to eliminate them.
 
@@ -36,9 +35,8 @@ A worker node is a VM that runs on physical hardware. Worker node failures inclu
 
 Worker nodes are the virtual machines that contain your application pods. By default, SAAP cluster has a minimum of three worker nodes for a single availability-zone cluster. In the event of a worker node failure, pods are relocated to functioning worker nodes, as long as there is enough capacity, until any issue with an existing node is resolved or the node is replaced. More worker nodes means more protection against single node outages, and ensures proper cluster capacity for rescheduled pods in the event of a node failure.
 
-!!! note "NOTE"
-
- When accounting for possible node failures, it is also important to understand how storage is affected.
+!!! note
+    When accounting for possible node failures, it is also important to understand how storage is affected.
 
 ### Potential failure point 3: Cluster availability
 
