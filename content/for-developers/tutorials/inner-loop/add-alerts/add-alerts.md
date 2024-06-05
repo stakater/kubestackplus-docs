@@ -86,10 +86,9 @@ Once you have the webhook Url, you can add the AlertManagerConfig. The Alertmana
                     {{ range .Alerts }}
                     *Alert:* `{{ .Labels.severity | toUpper }}` - {{ .Annotations.summary }}
                     *Description:* {{ .Annotations.description }}
-                    *Details:*
-                      {{ range .Labels.SortedPairs }serviceMonitor} *{{ .Name }}:* `{{ .Value }}`
-                      {{ end }}
+                    *Details:* {{ range $k, $v := .Labels }} - *{{ $k }}:* {{ $v }}
                     {{ end }}
+                   {{ end }}
                   title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] SAAP Alertmanager Event Notification'
                   httpConfig:
                     tlsConfig:
@@ -107,8 +106,8 @@ Once you have the webhook Url, you can add the AlertManagerConfig. The Alertmana
             receiver: nordmart-review-receiver
     ```
 
-    !!! note
-        The indentation follows by **application.alertmanagerConfig**.
+  !!! note
+      The indentation follows by **application.alertmanagerConfig**.
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
