@@ -174,7 +174,6 @@ Retention is set to seven days, with a limit of 200 GiB of logs per shard. For l
 
 ### Log Forwarding
 
-The pre-integrated 
 For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
 ## Artifact Store - Nexus
@@ -215,7 +214,7 @@ SAAP comes integrated with Tekton, an open-source, serverless CI/CD solution tha
 
 ### Tekton Task Catalog
 
-SAAP also includes a meticulously maintained [Tekton task catalog[(https://github.com/stakater-tekton-catalog), featuring a comprehensive collection of pre-built and thoroughly validated CI/CD tasks. This catalog supports complete DevSecOps pipelines, ensuring seamless integration, security, and automation across the development lifecycle.
+SAAP also includes a meticulously maintained [Tekton task catalog](https://github.com/stakater-tekton-catalog), featuring a comprehensive collection of pre-built and thoroughly validated CI/CD tasks. This catalog supports complete DevSecOps pipelines, ensuring seamless integration, security, and automation across the development lifecycle.
 
 ### Stakater Trusted Application Pipelines
 
@@ -227,4 +226,4 @@ Stakater's Trusted Application Pipeline mitigates unexpected vulnerabilities, si
 
 ## Feature/Pull Request Environments - Tronador
 
-###  
+...
