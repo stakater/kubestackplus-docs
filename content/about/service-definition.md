@@ -28,7 +28,7 @@ Custom node labels are created by Stakater during node creation and cannot be ch
 
 ## OpenShift Version
 
-SAAP is run as a managed service and is kept up to date with the latest OpenShift Container Platform version, see [change management in responsibilities](../responsibilities.md#change-management). Upgrade scheduling to the latest version is available.
+SAAP is run as a managed service and is kept up to date with the latest OpenShift Container Platform version, see [change management in responsibilities](responsibilities.md#change-management). Upgrade scheduling to the latest version is available.
 
 ## Container Engine
 
@@ -176,19 +176,19 @@ For assistance, open a [support ticket](https://support.stakater.com/index.html)
 
 # Artifact Store
 
-...
+SAAP includes Nexus OSS as an integrated artifact store, restricted for use solely by applications running within SAAP. It is used to store Docker images, Helm charts, application dependencies, and other related artifacts.
 
 # Application Backup and Restore
 
-...
+SAAP includes Velero (OADP) for application and volume backup and restore. Users can configure backups using this integration. While a default S3 backup bucket is provided, customers also have the option to select a different S3 bucket provider. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
 # Secrets Store
 
-...
+SAAP includes HashiCorp Vault OSS for secrets management, limited to use by applications running on SAAP.
 
-## Integration with existing secrets store
+## Clouds Secrets Store
 
-
+SAAP includes the External Secrets Operator (ESO) integrated with Vault OSS out of the box. If customers prefer a different secret store, ESO can be configured to connect with it. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
 # In-Cluster Multi Tenancy
 
