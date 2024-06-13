@@ -1,3 +1,4 @@
+
 This section outlines the service definition for Stakater App Agility Platform (SAAP):
 
 # Platform
@@ -201,4 +202,3 @@ SAAP includes the External Secrets Operator (ESO) integrated with Vault OSS out 
 # Internal Development Platform (IDP)
 
 ...
-
