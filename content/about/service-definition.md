@@ -42,15 +42,15 @@ SAAP runs on OpenShift 4 and uses Red Hat CoreOS as the operating system for all
 
 Upgrades can be done either immediately or be scheduled at a specific date by opening a [support ticket](https://support.stakater.com/index.html).
 
-See the [SAAP Update Life Cycle](../update-lifecycle.md) for more information on the upgrade policy and procedures.
+See the [SAAP Update Life Cycle](update-lifecycle.md) for more information on the upgrade policy and procedures.
 
 ## Kubernetes Operator Support
 
-All operators listed in the [Operator Hub marketplace](https://operatorhub.io/) should be available for installation. These operators are considered customer workloads, and are not monitored by Stakater SRE, see [customer applications responsibilities](../responsibilities.md#data-and-applications).
+All operators listed in the [Operator Hub marketplace](https://operatorhub.io/) should be available for installation. These operators are considered customer workloads, and are not monitored by Stakater SRE, see [customer applications responsibilities](responsibilities.md#data-and-applications).
 
 ## Red Hat Operator Support
 
-Red Hat workloads typically refer to Red Hat-provided operators made available through [Operator Hub](https://operatorhub.io/). Red Hat workloads are not managed by the Stakater SRE team, and must be deployed on worker nodes and must be managed by the customer, see [customer applications responsibilities](../responsibilities.md#data-and-applications).
+Red Hat workloads typically refer to Red Hat-provided operators made available through [Operator Hub](https://operatorhub.io/). Red Hat workloads are not managed by the Stakater SRE team, and must be deployed on worker nodes and must be managed by the customer, see [customer applications responsibilities](responsibilities.md#data-and-applications).
 
 # Account Management
 
@@ -174,15 +174,15 @@ Retention is set to seven days, with a limit of 200 GiB of logs per shard. For l
 
 For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
-# Artifact Store
+# Artifact Store - Nexus
 
 SAAP includes Nexus OSS as an integrated artifact store, restricted for use solely by applications running within SAAP. It is used to store Docker images, Helm charts, application dependencies, and other related artifacts.
 
-# Application Backup and Restore
+# Application Backup and Restore - Velero
 
 SAAP includes Velero (OADP) for application and volume backup and restore. Users can configure backups using this integration. While a default S3 backup bucket is provided, customers also have the option to select a different S3 bucket provider. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
-# Secrets Store
+# Secrets Store - HashiCorp Vault OSS
 
 SAAP includes HashiCorp Vault OSS for secrets management, limited to use by applications running on SAAP.
 
