@@ -193,14 +193,38 @@ SAAP includes HashiCorp Vault OSS for secrets management, limited to use by appl
 
 SAAP includes the External Secrets Operator (ESO) integrated with Vault OSS out of the box. If customers prefer a different secret store, ESO can be configured to connect with it. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
-## In-Cluster Multi Tenancy
+## In-Cluster Multi Tenancy - Stakater MTO
 
-...
+SAAP comes integrated with Stakater MTO (Multi-Tenant Operator), the world’s leading in-cluster Kubernetes multi-tenancy solution. This allows organizations to easily share a cluster among multiple teams.
 
 ## Service Mesh
 
-...
+SAAP includes an Istio-based service mesh with a single control plane supported out of the box. Multiple control planes can be enabled upon request. For assistance, open a [support ticket](https://support.stakater.com/index.html).
+
+## ArgoCD
+
+SAAP integrates ArgoCD for GitOps automation, leveraging Git as the source of truth for Kubernetes deployments. It streamlines version-controlled updates, rollbacks, and application management, ensuring consistency and reliability. ArgoCD's declarative approach simplifies configuration management, supporting efficient, automated deployments across your infrastructure.
+
+### Stakater GitOps Structure
+
+SAAP provides a pre-defined GitOps repository structure, eliminating the need for teams to spend time and effort figuring out their own. This standardized approach ensures efficient deployment workflows and simplifies Kubernetes application deployment.
+
+## Tekton
+
+SAAP comes integrated with Tekton, an open-source, serverless CI/CD solution that is extremely powerful and flexible. This integration ensures streamlined, automated pipelines for building, testing, and deploying applications, enhancing productivity and efficiency for development teams.
+
+### Tekton Task Catalog
+
+SAAP also includes a meticulously maintained [Tekton task catalog[(https://github.com/stakater-tekton-catalog), featuring a comprehensive collection of pre-built and thoroughly validated CI/CD tasks. This catalog supports complete DevSecOps pipelines, ensuring seamless integration, security, and automation across the development lifecycle.
+
+### Stakater Trusted Application Pipelines
+
+Stakater's Trusted Application Pipeline mitigates unexpected vulnerabilities, simplifying the secure build and deployment of cloud-native applications to Kubernetes platforms. These pipelines wraps the process in a highly secure and manageable workflow, ensuring that developers and operations teams can focus on their jobs without needing deep Kubernetes expertise.
 
 ## Internal Development Platform (IDP)
 
 ...
+
+## Feature/Pull Request Environments - Tronador
+
+###  
