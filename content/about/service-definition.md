@@ -156,7 +156,7 @@ Data is stored for 14 days only. If you need to store data for a longer period, 
 
 ### Metrics Forwarding
 
-For assistance, open a [support ticket](https://support.stakater.com/index.html).
+SAAP also supports integrating and forwarding metrics to your existing monitoring system. For a list of supported monitoring systems, contact our support team [here](https://support.stakater.com/index.html).
 
 ## Logging Stack
 
@@ -174,7 +174,7 @@ Retention is set to seven days, with a limit of 200 GiB of logs per shard. For l
 
 ### Log Forwarding
 
-For assistance, open a [support ticket](https://support.stakater.com/index.html).
+SAAP also supports integrating and forwarding logs to your existing monitoring system. For a list of supported logging systems, contact our support team [here](https://support.stakater.com/index.html).
 
 ## Artifact Store - Nexus
 
@@ -220,10 +220,52 @@ SAAP also includes a meticulously maintained [Tekton task catalog](https://githu
 
 Stakater's Trusted Application Pipeline mitigates unexpected vulnerabilities, simplifying the secure build and deployment of cloud-native applications to Kubernetes platforms. These pipelines wraps the process in a highly secure and manageable workflow, ensuring that developers and operations teams can focus on their jobs without needing deep Kubernetes expertise.
 
-## Internal Development Platform (IDP)
+## Internal Development Platform (IDP) - Backstage
 
-...
+SAAP includes a customized [Backstage](https://github.com/backstage/backstage) instance, providing a unified developer portal for managing applications. It enhances developer productivity and can be further tailored to meet specific needs.
 
 ## Feature/Pull Request Environments - Tronador
 
-...
+SAAP includes Stakater Tronador, a powerful tool that deploys applications in dynamic ephemeral environments upon pull requests. This ensures seamless testing and validation in isolated environments. Once changes are merged, Tronador automatically cleans up, maintaining an efficient and clutter-free workspace. This integration significantly enhances the development workflow by providing reliable and automated environment management.
+
+## Reloader
+
+SAAP includes [Stakater Reloader](https://github.com/stakater/Reloader), which automatically restarts applications when configmaps or secrets change. This integration streamlines updates, enhances reliability, and minimizes downtime for developers.
+
+## IMC
+
+SAAP includes [Stakater IMC (IngressMonitorController)](https://github.com/stakater/IngressMonitorController), automating the setup of external uptime monitors for Kubernetes ingresses. It ensures continuous monitoring of application availability and performance with seamless integration into popular monitoring services.
+
+## Forecastle
+
+SAAP includes [Stakater Forecastle](https://github.com/stakater/Forecastle), a powerful tool that simplifies application discovery within Kubernetes clusters. This integration provides a unified, user-friendly dashboard, enhancing accessibility and efficiency.
+
+## Leader Application Helm Chart
+
+SAAP ships with the [Leader Helm application chart](https://github.com/stakater/application), providing a standardized approach to deploying applications. This ensures consistent and efficient deployments across all environments within SAAP.
+
+## Tilt
+
+SAAP includes [Tilt](https://tilt.dev/) to streamline the developer experience. Tilt enables rapid local development and testing for Kubernetes applications, enhancing productivity and ease of use for developers working on SAAP.
+
+## SonarQube
+
+SAAP integrates with SonarQube for robust code quality analysis and security scanning. This tool is exclusively for applications deployed on SAAP, ensuring high standards of code integrity and safety.
+
+## RHACS
+
+## Descheduler
+
+## Renovate
+
+## 
+
+
+Billing
+Storage
+Networking
+CICD
+Security & Compliance
+Developer Experience
+Observability
+Platform
