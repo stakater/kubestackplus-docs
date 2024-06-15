@@ -72,6 +72,10 @@ SAAP is available as a managed platform on the cloud providers listed on the [cl
 
 All storage needed for SAAP will be provided through the cloud provider of the customer's choice.
 
+### ODF
+
+SAAP can optionally include OpenShift Data Foundation (ODF), providing robust, integrated storage management. ODF supports dynamic provisioning and management of storage resources, enhancing the efficiency of data handling within Kubernetes environments.
+
 ## Security
 
 ### Authentication Provider
@@ -264,7 +268,7 @@ SAAP includes the Kubernetes Descheduler to optimize workload placement within c
 
 SAAP comes with Renovate, a tool for automating dependency updates. It helps keep applications secure and up-to-date by regularly checking for and applying updates. Renovate ensures a seamless and efficient dependency management process.
 
-## cert-manager
+## Cert-Manager
 
 SAAP comes integrated with Cert-Manager to automate the management and renewal of SSL/TLS certificates. It ensures secure communication for your applications by handling certificate issuance and renewal seamlessly.
 
