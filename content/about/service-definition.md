@@ -254,18 +254,24 @@ SAAP integrates with SonarQube for robust code quality analysis and security sca
 
 ## RHACS
 
+SAAP includes Red Hat Advanced Cluster Security (RHACS) for robust security management. It ensures comprehensive build and runtime security for applications. RHACS is essential for maintaining a secure Kubernetes environment.
+
 ## Descheduler
+
+SAAP includes the Kubernetes Descheduler to optimize workload placement within clusters. It periodically evicts and re-schedules pods to improve resource utilization and balance. This enhances overall cluster performance and reliability.
 
 ## Renovate
 
-## 
+SAAP comes with Renovate, a tool for automating dependency updates. It helps keep applications secure and up-to-date by regularly checking for and applying updates. Renovate ensures a seamless and efficient dependency management process.
 
+## cert-manager
 
-Billing
-Storage
-Networking
-CICD
-Security & Compliance
-Developer Experience
-Observability
-Platform
+SAAP comes integrated with Cert-Manager to automate the management and renewal of SSL/TLS certificates. It ensures secure communication for your applications by handling certificate issuance and renewal seamlessly. 
+
+## DevSpaces
+
+SAAP includes DevSpaces to provide developers with cloud-based, ready-to-code environments. These workspaces streamline development by offering preconfigured setups, ensuring consistency and reducing setup time. DevSpaces enhances productivity by allowing developers to start coding immediately in a fully equipped environment.
+
+## ExternalDNS
+
+SAAP integrates with ExternalDNS, automating DNS record management for Kubernetes services. This ensures seamless DNS updates as services are created or modified within the cluster, enhancing reliability and reducing manual DNS configuration efforts.
