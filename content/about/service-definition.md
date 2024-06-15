@@ -266,7 +266,7 @@ SAAP comes with Renovate, a tool for automating dependency updates. It helps kee
 
 ## cert-manager
 
-SAAP comes integrated with Cert-Manager to automate the management and renewal of SSL/TLS certificates. It ensures secure communication for your applications by handling certificate issuance and renewal seamlessly. 
+SAAP comes integrated with Cert-Manager to automate the management and renewal of SSL/TLS certificates. It ensures secure communication for your applications by handling certificate issuance and renewal seamlessly.
 
 ## DevSpaces
 
