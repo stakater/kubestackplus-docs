@@ -30,7 +30,7 @@ Let's see how you can create this namespace.
    ![tenant system namespace](images/tenant-system.png)
 
 1. After a few, the system namespace should start showing in SAAP. You will also see some pods running in the namespace
- 
+
    ![system namespace pods](images/tenant-system-pods.png)
 
 ### Create a Backup Schedule
