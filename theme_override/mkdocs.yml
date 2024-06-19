@@ -28,17 +28,7 @@ nav:
       - Enterprise Kubernetes: about/saap-vs-k8s.md
       - about/saap-features.md
       - about/saap-key-differentiators.md
-      - Service Definition:
-          - about/service-definition/overview.md
-          - about/service-definition/platform.md
-          - about/service-definition/monitoring.md
-          - about/service-definition/logging.md
-          - about/service-definition/security.md
-          - about/service-definition/secrets-management.md
-          - about/service-definition/service-mesh.md
-          - about/service-definition/account-management.md
-          - about/service-definition/networking.md
-          - about/service-definition/storage.md
+      - about/service-definition.md
       - about/responsibilities.md
       - Cloud Providers:
           - about/cloud-providers/overview.md
