@@ -1,4 +1,5 @@
-# Creating a backup schedule 
+# Creating a backup schedule
+
 Creating a backup schedule for an application using the OpenShift ADP (Application Data Protection) Operator involves several steps. This guide will walk you through the process, from installing the ADP Operator to configuring backup schedules.
 
 ## Objectives
@@ -29,7 +30,7 @@ Let's see how you can create this namespace.
    ![tenant system namespace](images/tenant-system.png)
 
 1. After a few, the system namespace should start showing in SAAP. You will also see some pods running in the namespace
-   
+ 
    ![system namespace pods](images/tenant-system-pods.png)
 
 ### Create a Backup Schedule
@@ -38,12 +39,12 @@ For creating a backup schedule, you will need to deploy the Schedule CR to the T
 Let us deploy a Backup Schedule for our application
 
 1. Navigate to the application GitOps repository. In your application's environments, add a 'system' environment folder.
- 
+
    ![system environment](images/system-folder.png)
 
 1. Next, add the ArgoCD application that points to the above folder.
 
-   ![argocd application](images/argocd-app.png)
+   ![ArgoCD application](images/argocd-app.png)
 
 1. Now add the Backup Schedule in the system environment folder. Remember to replace the placeholder values.
 
@@ -89,7 +90,7 @@ spec:
 
    ![schedule](images/schedule.png)
 
-1. When the scheduled time arrives, a backup will be automatically created and stored in the designated storage location configured by the SAAP Admin. For the purpose of this tutorial, we are using AWS S3 buckets to store the backups. 
+1. When the scheduled time arrives, a backup will be automatically created and stored in the designated storage location configured by the SAAP Admin. For the purpose of this tutorial, we are using AWS S3 buckets to store the backups.
 
 ### Restore Application from Backup
 
@@ -115,10 +116,9 @@ spec:
 
    ![restore](images/restore-cr.png)
 
-
   !!! note
-      When restoring using a schedule, the backupName should be empty. OADP will automatically replace it with the latest backup.
+      When restoring using a schedule, the `backupName` should be empty. OADP will automatically replace it with the latest backup.
 
-1. Once the Restore CR is created, you will see the Restore showing 'InProgress'. After the Bakcup is complete, the status will show as complete.
+1. Once the Restore CR is created, you will see the Restore showing 'InProgress'. After the Backup is complete, the status will show as complete.
 
    ![restore](images/restore.png)
