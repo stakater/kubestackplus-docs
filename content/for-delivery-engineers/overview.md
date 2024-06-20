@@ -1,6 +1,16 @@
 # Overview
 
 The "For Delivery Engineer" section focuses on providing information tailored explicitly for delivery engineers involved in GitOps-based application delivery.
+The primary goal of this section is to enable the developers to set up their CI-CD workflows. The delivery engineer is expected to have elevated permissions over their organization in their SCM provider to be able to create tokens and SSH keys.
+In this section, we will create the two repositories that are required for our CI-CD workflow. Later we will generate Tokens and SSH keys for accessing these repositories.
+
+We manage GitOps with two different kinds of repository with different purpose enlisted below:
+
+- **`Apps GitOps Config`**: Used for delivering applications belonging to tenants.
+- **`Infra GitOps Config`**: Used for delivering cluster scoped resources for application tenants or other services.
+
+You can pick any name for these two repositories as long as they explain the purpose well.
+
 This section is divided into three main parts: Explanations, How-to-Guides, and Tutorials.
 
 ## Explanation
@@ -10,8 +20,6 @@ The explanation contains all the required details that answer the obvious querie
 - [GitOps for Application Delivery](./explanation/gitops-intro.md): This chapter provides an overview of the GitOps methodology in the context of application delivery and how GitOps is different from DevOps.
 
 - [Stakater Opinionated GitOps Structure](./explanation/gitops-structure.md): This chapter introduces Stakater's opinionated GitOps structure. It explains how Stakater recommends organizing the GitOps repositories, directory structure, and naming conventions for managing infrastructure and application configurations with the deployment manifests.
-
-- [Pipeline Secrets](./explanation/secrets.md): This chapter covers the important secrets that are necessary to have in the Stakater's deployment pipeline process.
 
 - [Types of Environments](./explanation/types-of-environments.md): This chapter explores different environments involved in Stakater's application delivery.
 
