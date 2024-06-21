@@ -64,6 +64,7 @@ nav:
       - Explanation:
           - for-administrators/explanation/number-of-clusters.md
   - For Delivery Engineers:
+      - for-delivery-engineers/overview.md
       - Explanation:
           - for-delivery-engineers/explanation/gitops-intro.md
           - for-delivery-engineers/explanation/gitops-structure.md
@@ -71,7 +72,6 @@ nav:
           - for-delivery-engineers/explanation/stakater-tekton-chart.md
           - for-delivery-engineers/explanation/faq.md
       - Tutorials:
-          - for-delivery-engineers/tutorials/overview.md
           - for-delivery-engineers/tutorials/04-preparing-pac-env/adding-github-token.md
           - for-delivery-engineers/tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md
           - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md
