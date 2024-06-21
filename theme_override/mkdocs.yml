@@ -68,7 +68,6 @@ nav:
       - Explanation:
           - for-delivery-engineers/explanation/gitops-intro.md
           - for-delivery-engineers/explanation/gitops-structure.md
-          - for-delivery-engineers/explanation/secrets.md
           - for-delivery-engineers/explanation/types-of-environments.md
           - for-delivery-engineers/explanation/stakater-tekton-chart.md
           - for-delivery-engineers/explanation/faq.md
@@ -113,6 +112,7 @@ nav:
               - for-developers/tutorials/inner-loop/add-grafana-dashboard/add-grafana-dashboard.md
               - for-developers/tutorials/inner-loop/scale-app/scale-app.md
               - for-developers/tutorials/inner-loop/validate-auto-reload/validate-auto-reload.md
+              - for-developers/tutorials/inner-loop/add-backup-schedule/backup-restore.md
               - for-developers/tutorials/inner-loop/add-pdb/add-pdb.md
               - for-developers/tutorials/inner-loop/add-network-policy/add-network-policy.md
               - for-developers/tutorials/inner-loop/tilt-zero-to-hero/step-by-step-guide.md
