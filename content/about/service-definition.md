@@ -2,7 +2,11 @@
 
 This section outlines the service definition for Stakater App Agility Platform (SAAP):
 
-## Platform
+## Container Platform - OpenShift 4
+
+### Overview
+
+SAAP is built on OpenShift, leveraging its robust Kubernetes orchestration and enterprise-grade features. This ensures superior scalability, security, and developer productivity in managing and deploying applications.
 
 ### Autoscaling
 
@@ -10,7 +14,7 @@ Node autoscaling is available on few clouds; you can find details in the relevan
 
 ### Daemonsets
 
-Customers can create and run daemonsets on SAAP. To restrict daemonsets to only run on worker nodes, use the following `nodeSelector`:
+Customers can create and run daemonsets. To restrict daemonsets to only run on worker nodes, use the following `nodeSelector`:
 
 ```yaml
 ...
@@ -42,7 +46,7 @@ SAAP runs on OpenShift 4 and uses Red Hat CoreOS as the operating system for all
 
 ### Upgrades
 
-Upgrades can be done either immediately or be scheduled at a specific date by opening a [support ticket](https://support.stakater.com/index.html).
+Upgrades can be done either immediately or be scheduled at a specific date by opening a [support ticket](https://support.stakater.com/index.html). 
 
 See the [SAAP Update Life Cycle](update-lifecycle.md) for more information on the upgrade policy and procedures.
 
@@ -72,6 +76,26 @@ SAAP is available as a managed platform on the cloud providers listed on the [cl
 
 All storage needed for SAAP will be provided through the cloud provider of the customer's choice.
 
+### Encrypted-at-rest OS and node storage
+
+Control plane, infrastructure, and worker nodes can use encrypted-at-rest storage if supported by the cloud.
+
+### Encrypted-at-rest PV
+
+Volumes that are used for PVs can be encrypted-at-rest if supported by the cloud.
+
+### Block storage (RWO)
+
+RWO (Read-Write-Once) PVs are supported on all clouds.
+
+RWO PVs can be attached only to a single node at a time and are specific to the availability zone in which they were provisioned. However, PVs can be attached to any node in the availability zone.
+
+Each cloud provider has its own limits for how many PVs can be attached to a single node.
+
+### Shared Storage (RWX)
+
+RWX (Read-Write-Many) PVs are also supported when some distributed storage is available in the cloud. Alternatively, NFS can be deployed on the cluster to handle RWX use cases.
+
 ### ODF
 
 SAAP can optionally include OpenShift Data Foundation (ODF), providing robust, integrated storage management. ODF supports dynamic provisioning and management of storage resources, enhancing the efficiency of data handling within Kubernetes environments.
@@ -99,6 +123,10 @@ In addition to normal users, Stakater provides access to a SAAP-specific group c
 ### Cluster Administration Role
 
 As an administrator of SAAP, you have access to the cluster-admin role. While logged in to an account with the cluster-admin role, users have mostly unrestricted access to control and configure the cluster.
+
+### RHACS
+
+SAAP includes Red Hat Advanced Cluster Security (RHACS) for robust security management. It ensures comprehensive build and runtime security for applications. RHACS is essential for maintaining a secure Kubernetes environment.
 
 ## Networking
 
@@ -255,10 +283,6 @@ SAAP includes [Tilt](https://tilt.dev/) to streamline the developer experience. 
 ## SonarQube
 
 SAAP integrates with SonarQube for robust code quality analysis and security scanning. This tool is exclusively for applications deployed on SAAP, ensuring high standards of code integrity and safety.
-
-## RHACS
-
-SAAP includes Red Hat Advanced Cluster Security (RHACS) for robust security management. It ensures comprehensive build and runtime security for applications. RHACS is essential for maintaining a secure Kubernetes environment.
 
 ## Descheduler
 
