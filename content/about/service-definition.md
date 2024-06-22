@@ -2,7 +2,11 @@
 
 This section outlines the service definition for Stakater App Agility Platform (SAAP):
 
-## Platform
+## Container Platform - OpenShift 4
+
+### Overview
+
+SAAP is built on OpenShift, leveraging its robust Kubernetes orchestration and enterprise-grade features. This ensures superior scalability, security, and developer productivity in managing and deploying applications.
 
 ### Autoscaling
 
@@ -10,7 +14,7 @@ Node autoscaling is available on few clouds; you can find details in the relevan
 
 ### Daemonsets
 
-Customers can create and run daemonsets on SAAP. To restrict daemonsets to only run on worker nodes, use the following `nodeSelector`:
+Customers can create and run daemonsets. To restrict daemonsets to only run on worker nodes, use the following `nodeSelector`:
 
 ```yaml
 ...
@@ -54,23 +58,29 @@ All operators listed in the [Operator Hub marketplace](https://operatorhub.io/) 
 
 Red Hat workloads typically refer to Red Hat-provided operators made available through [Operator Hub](https://operatorhub.io/). Red Hat workloads are not managed by the Stakater SRE team, and must be deployed on worker nodes and must be managed by the customer, see [customer applications responsibilities](responsibilities.md#data-and-applications).
 
-## Account Management
-
-### Billing
-
-SAAP requires a minimum base cluster purchase with minimum technical requirements specified in [Sizing](../for-administrators/plan-your-environment/sizing.md).
-
-Customers can either use their existing cloud infrastructure account to deploy SAAP, or use one of Stakater's partners to create infrastructure. The customer always pays Stakater for the SAAP subscription and pays the cloud provider for the cloud costs. It is the customer's responsibility to pre-purchase or provide compute instances to ensure lower cloud infrastructure costs.
-
-Billing for SAAP is on a monthly basis, or yearly basis with discounts.
-
-### Cloud Providers
-
-SAAP is available as a managed platform on the cloud providers listed on the [cloud providers overview](cloud-providers/overview.md).
-
 ## Storage
 
 All storage needed for SAAP will be provided through the cloud provider of the customer's choice.
+
+### Encrypted-at-rest OS and node storage
+
+Control plane, infrastructure, and worker nodes can use encrypted-at-rest storage if supported by the cloud.
+
+### Encrypted-at-rest PV
+
+Volumes that are used for PVs can be encrypted-at-rest if supported by the cloud.
+
+### Block storage (RWO)
+
+RWO (Read-Write-Once) PVs are supported on all clouds.
+
+RWO PVs can be attached only to a single node at a time and are specific to the availability zone in which they were provisioned. However, PVs can be attached to any node in the availability zone.
+
+Each cloud provider has its own limits for how many PVs can be attached to a single node.
+
+### Shared Storage (RWX)
+
+RWX (Read-Write-Many) PVs are also supported when some distributed storage is available in the cloud. Alternatively, NFS can be deployed on the cluster to handle RWX use cases.
 
 ### ODF
 
@@ -99,6 +109,10 @@ In addition to normal users, Stakater provides access to a SAAP-specific group c
 ### Cluster Administration Role
 
 As an administrator of SAAP, you have access to the cluster-admin role. While logged in to an account with the cluster-admin role, users have mostly unrestricted access to control and configure the cluster.
+
+### RHACS
+
+SAAP includes Red Hat Advanced Cluster Security (RHACS) for robust security management. It ensures comprehensive build and runtime security for applications. RHACS is essential for maintaining a secure Kubernetes environment.
 
 ## Networking
 
@@ -256,10 +270,6 @@ SAAP includes [Tilt](https://tilt.dev/) to streamline the developer experience. 
 
 SAAP integrates with SonarQube for robust code quality analysis and security scanning. This tool is exclusively for applications deployed on SAAP, ensuring high standards of code integrity and safety.
 
-## RHACS
-
-SAAP includes Red Hat Advanced Cluster Security (RHACS) for robust security management. It ensures comprehensive build and runtime security for applications. RHACS is essential for maintaining a secure Kubernetes environment.
-
 ## Descheduler
 
 SAAP includes the Kubernetes Descheduler to optimize workload placement within clusters. It periodically evicts and re-schedules pods to improve resource utilization and balance. This enhances overall cluster performance and reliability.
@@ -279,3 +289,51 @@ SAAP includes DevSpaces to provide developers with cloud-based, ready-to-code en
 ## ExternalDNS
 
 SAAP integrates with ExternalDNS, automating DNS record management for Kubernetes services. This ensures seamless DNS updates as services are created or modified within the cluster, enhancing reliability and reducing manual DNS configuration efforts.
+
+## Account Management
+
+### Billing and Pricing
+
+SAAP requires a minimum base cluster purchase with minimum technical requirements specified in [Sizing](../for-administrators/plan-your-environment/sizing.md).
+
+Customers can either use their existing cloud infrastructure account to deploy SAAP, or use one of Stakater's partners to create infrastructure. The customer always pays Stakater for the SAAP subscription and pays the cloud provider for the cloud costs. It is the customer's responsibility to pre-purchase or provide compute instances to ensure lower cloud infrastructure costs.
+
+Billing for SAAP is on a monthly basis, or yearly basis with discounts.
+
+### Cloud Providers
+
+SAAP is available as a managed platform on the cloud providers listed on the [cloud providers overview](cloud-providers/overview.md).
+
+### Cluster self-service
+
+Customers can self-manage their clusters through the Stakater Cloud web console, including:
+
+- Creating and deleting clusters
+- Adding or removing identity providers
+- Managing users in elevated groups
+- Adding or removing machine pools and configuring autoscaling
+- Defining upgrade policies
+
+Note: Self-service capabilities are not supported on all cloud platforms.
+
+### Instance types
+
+Single availability zone clusters require a minimum of 3 control plane nodes, 2 infrastructure nodes, and 2 worker nodes deployed to a single availability zone.
+
+Multiple availability zone clusters require a minimum of 3 control plane nodes, 3 infrastructure nodes, and 3 worker nodes. Additional nodes must be purchased in multiples of three to maintain proper node distribution.
+
+Control plane and infrastructure nodes are deployed and managed by Stakater. Shutting down the underlying infrastructure through the cloud provider console is unsupported and can lead to data loss. There are at least 3 control plane nodes that handle etcd- and API-related workloads. There are at least 2 infrastructure nodes that handle metrics, routing, the web console, and other workloads. You must not run any workloads on the control and infrastructure nodes. Any workloads you intend to run must be deployed on worker nodes.
+
+!!! Note:
+
+    Approximately one vCPU core and 1 GiB of memory are reserved on each worker node and removed from allocatable resources. This reservation of resources is necessary to run processes required by the underlying platform. These processes include system daemons such as udev, kubelet, and container runtime among others. The reserved resources also account for kernel reservations.
+
+    OpenShift Container Platform core systems such as audit log aggregation, metrics collection, DNS, image registry, SDN, and others might consume additional allocatable resources to maintain the stability and maintainability of the cluster. The additional resources consumed might vary based on usage.
+
+### SLAs
+
+Any SLAs for the service itself are defined [here](../legal-documents/sla.md).
+
+### Support
+
+SAAP on any cloud includes Stakater Premium Support, which can be accessed by using the [Stakater Customer Support Portal](https://support.stakater.com/).
