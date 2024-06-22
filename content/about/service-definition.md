@@ -46,7 +46,7 @@ SAAP runs on OpenShift 4 and uses Red Hat CoreOS as the operating system for all
 
 ### Upgrades
 
-Upgrades can be done either immediately or be scheduled at a specific date by opening a [support ticket](https://support.stakater.com/index.html). 
+Upgrades can be done either immediately or be scheduled at a specific date by opening a [support ticket](https://support.stakater.com/index.html).
 
 See the [SAAP Update Life Cycle](update-lifecycle.md) for more information on the upgrade policy and procedures.
 
