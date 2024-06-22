@@ -58,20 +58,6 @@ All operators listed in the [Operator Hub marketplace](https://operatorhub.io/) 
 
 Red Hat workloads typically refer to Red Hat-provided operators made available through [Operator Hub](https://operatorhub.io/). Red Hat workloads are not managed by the Stakater SRE team, and must be deployed on worker nodes and must be managed by the customer, see [customer applications responsibilities](responsibilities.md#data-and-applications).
 
-## Account Management
-
-### Billing
-
-SAAP requires a minimum base cluster purchase with minimum technical requirements specified in [Sizing](../for-administrators/plan-your-environment/sizing.md).
-
-Customers can either use their existing cloud infrastructure account to deploy SAAP, or use one of Stakater's partners to create infrastructure. The customer always pays Stakater for the SAAP subscription and pays the cloud provider for the cloud costs. It is the customer's responsibility to pre-purchase or provide compute instances to ensure lower cloud infrastructure costs.
-
-Billing for SAAP is on a monthly basis, or yearly basis with discounts.
-
-### Cloud Providers
-
-SAAP is available as a managed platform on the cloud providers listed on the [cloud providers overview](cloud-providers/overview.md).
-
 ## Storage
 
 All storage needed for SAAP will be provided through the cloud provider of the customer's choice.
@@ -303,3 +289,51 @@ SAAP includes DevSpaces to provide developers with cloud-based, ready-to-code en
 ## ExternalDNS
 
 SAAP integrates with ExternalDNS, automating DNS record management for Kubernetes services. This ensures seamless DNS updates as services are created or modified within the cluster, enhancing reliability and reducing manual DNS configuration efforts.
+
+## Account Management
+
+### Billing and Pricing
+
+SAAP requires a minimum base cluster purchase with minimum technical requirements specified in [Sizing](../for-administrators/plan-your-environment/sizing.md).
+
+Customers can either use their existing cloud infrastructure account to deploy SAAP, or use one of Stakater's partners to create infrastructure. The customer always pays Stakater for the SAAP subscription and pays the cloud provider for the cloud costs. It is the customer's responsibility to pre-purchase or provide compute instances to ensure lower cloud infrastructure costs.
+
+Billing for SAAP is on a monthly basis, or yearly basis with discounts.
+
+### Cloud Providers
+
+SAAP is available as a managed platform on the cloud providers listed on the [cloud providers overview](cloud-providers/overview.md).
+
+### Cluster self-service
+
+Customers can self-manage their clusters through the Stakater Cloud web console, including:
+
+- Creating and deleting clusters
+- Adding or removing identity providers
+- Managing users in elevated groups
+- Adding or removing machine pools and configuring autoscaling
+- Defining upgrade policies
+
+Note: Self-service capabilities are not supported on all cloud platforms.
+
+### Instance types
+
+Single availability zone clusters require a minimum of 3 control plane nodes, 2 infrastructure nodes, and 2 worker nodes deployed to a single availability zone.
+
+Multiple availability zone clusters require a minimum of 3 control plane nodes, 3 infrastructure nodes, and 3 worker nodes. Additional nodes must be purchased in multiples of three to maintain proper node distribution.
+
+Control plane and infrastructure nodes are deployed and managed by Stakater. Shutting down the underlying infrastructure through the cloud provider console is unsupported and can lead to data loss. There are at least 3 control plane nodes that handle etcd- and API-related workloads. There are at least 2 infrastructure nodes that handle metrics, routing, the web console, and other workloads. You must not run any workloads on the control and infrastructure nodes. Any workloads you intend to run must be deployed on worker nodes.
+
+Note:
+
+Approximately one vCPU core and 1 GiB of memory are reserved on each worker node and removed from allocatable resources. This reservation of resources is necessary to run processes required by the underlying platform. These processes include system daemons such as udev, kubelet, and container runtime among others. The reserved resources also account for kernel reservations.
+
+OpenShift Container Platform core systems such as audit log aggregation, metrics collection, DNS, image registry, SDN, and others might consume additional allocatable resources to maintain the stability and maintainability of the cluster. The additional resources consumed might vary based on usage.
+
+### SLAs
+
+Any SLAs for the service itself are defined [here](../legal-documents/sla.md).
+
+### Support
+
+SAAP on any cloud includes Stakater Premium Support, which can be accessed by using the [Stakater Customer Support Portal](https://support.stakater.com/).
