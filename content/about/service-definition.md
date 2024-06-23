@@ -58,6 +58,18 @@ All operators listed in the [Operator Hub marketplace](https://operatorhub.io/) 
 
 Red Hat workloads typically refer to Red Hat-provided operators made available through [Operator Hub](https://operatorhub.io/). Red Hat workloads are not managed by the Stakater SRE team, and must be deployed on worker nodes and must be managed by the customer, see [customer applications responsibilities](responsibilities.md#data-and-applications).
 
+### Cluster Backup Policy
+
+...
+
+### Windows Containers
+
+...
+
+### Descheduler
+
+SAAP includes the Kubernetes Descheduler to optimize workload placement within clusters. It periodically evicts and re-schedules pods to improve resource utilization and balance. This enhances overall cluster performance and reliability.
+
 ## Storage
 
 All storage needed for SAAP will be provided through the cloud provider of the customer's choice.
@@ -113,6 +125,14 @@ As an administrator of SAAP, you have access to the cluster-admin role. While lo
 ### RHACS
 
 SAAP includes Red Hat Advanced Cluster Security (RHACS) for robust security management. It ensures comprehensive build and runtime security for applications. RHACS is essential for maintaining a secure Kubernetes environment.
+
+### Secrets Store - HashiCorp Vault OSS
+
+SAAP includes HashiCorp Vault OSS for secrets management, limited to use by applications running on SAAP.
+
+#### Clouds Secrets Store
+
+SAAP includes the External Secrets Operator (ESO) integrated with Vault OSS out of the box. If customers prefer a different secret store, ESO can be configured to connect with it. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
 ## Networking
 
@@ -176,6 +196,18 @@ Data is stored for 14 days only. If you need to store data for a longer period, 
 
 SAAP also supports integrating and forwarding metrics to your existing monitoring system. For a list of supported monitoring systems, contact our support team [here](https://support.stakater.com/index.html).
 
+### Downtime Notifications - IMC
+
+SAAP includes [Stakater IMC (IngressMonitorController)](https://github.com/stakater/IngressMonitorController), automating the setup of external uptime monitors for Kubernetes ingresses. It ensures continuous monitoring of application availability and performance with seamless integration into popular monitoring services.
+
+### Cluster notifications
+
+Cluster notifications are messages about the status, health, or performance of your cluster.
+
+Cluster notifications are the primary way that Stakater Site Reliability Engineering (SRE) communicates with you about the health of your managed cluster. SRE may also use cluster notifications to prompt you to perform an action in order to resolve or prevent an issue with your cluster.
+
+Cluster owners and administrators must regularly review and action cluster notifications to ensure clusters remain healthy and supported.
+
 ## Logging Stack
 
 ### Cluster Operations and Audit Logging
@@ -194,21 +226,59 @@ Retention is set to seven days, with a limit of 200 GiB of logs per shard. For l
 
 SAAP also supports integrating and forwarding logs to your existing monitoring system. For a list of supported logging systems, contact our support team [here](https://support.stakater.com/index.html).
 
-## Artifact Store - Nexus
+## DevOps Stack
+
+### Artifact Store - Nexus
 
 SAAP includes Nexus OSS as an integrated artifact store, restricted for use solely by applications running within SAAP. It is used to store Docker images, Helm charts, application dependencies, and other related artifacts.
+
+### Continuous Deployment - ArgoCD
+
+SAAP integrates ArgoCD for GitOps automation, leveraging Git as the source of truth for Kubernetes deployments. It streamlines version-controlled updates, rollbacks, and application management, ensuring consistency and reliability. ArgoCD's declarative approach simplifies configuration management, supporting efficient, automated deployments across your infrastructure.
+
+#### Stakater GitOps Structure
+
+SAAP provides a pre-defined GitOps repository structure, eliminating the need for teams to spend time and effort figuring out their own. This standardized approach ensures efficient deployment workflows and simplifies Kubernetes application deployment.
+
+### Continuous Integration - Tekton
+
+SAAP comes integrated with Tekton, an open-source, serverless CI/CD solution that is extremely powerful and flexible. This integration ensures streamlined, automated pipelines for building, testing, and deploying applications, enhancing productivity and efficiency for development teams.
+
+#### Tekton Task Catalog
+
+SAAP also includes a meticulously maintained [Tekton task catalog](https://github.com/stakater-tekton-catalog), featuring a comprehensive collection of pre-built and thoroughly validated CI/CD tasks. This catalog supports complete DevSecOps pipelines, ensuring seamless integration, security, and automation across the development lifecycle.
+
+#### Stakater Trusted Application Pipelines
+
+Stakater's Trusted Application Pipeline mitigates unexpected vulnerabilities, simplifying the secure build and deployment of cloud-native applications to Kubernetes platforms. These pipelines wraps the process in a highly secure and manageable workflow, ensuring that developers and operations teams can focus on their jobs without needing deep Kubernetes expertise.
+
+### Leader Application Helm Chart
+
+SAAP ships with the [Leader Helm application chart](https://github.com/stakater/application), providing a standardized approach to deploying applications. This ensures consistent and efficient deployments across all environments within SAAP.
+
+### Tilt
+
+SAAP includes [Tilt](https://tilt.dev/) to streamline the developer experience. Tilt enables rapid local development and testing for Kubernetes applications, enhancing productivity and ease of use for developers working on SAAP.
+
+### SonarQube
+
+SAAP integrates with SonarQube for robust code quality analysis and security scanning. This tool is exclusively for applications deployed on SAAP, ensuring high standards of code integrity and safety.
+
+### Feature/Pull Request Environments - Tronador
+
+SAAP includes Stakater Tronador, a powerful tool that deploys applications in dynamic ephemeral environments upon pull requests. This ensures seamless testing and validation in isolated environments. Once changes are merged, Tronador automatically cleans up, maintaining an efficient and clutter-free workspace. This integration significantly enhances the development workflow by providing reliable and automated environment management.
+
+### Renovate
+
+SAAP comes with Renovate, a tool for automating dependency updates. It helps keep applications secure and up-to-date by regularly checking for and applying updates. Renovate ensures a seamless and efficient dependency management process.
+
+### Browser IDE - DevSpaces
+
+SAAP includes DevSpaces to provide developers with cloud-based, ready-to-code environments. These workspaces streamline development by offering preconfigured setups, ensuring consistency and reducing setup time. DevSpaces enhances productivity by allowing developers to start coding immediately in a fully equipped environment.
 
 ## Application Backup and Restore - Velero
 
 SAAP includes Velero (OADP) for application and volume backup and restore. Users can configure backups using this integration. While a default S3 backup bucket is provided, customers also have the option to select a different S3 bucket provider. For assistance, open a [support ticket](https://support.stakater.com/index.html).
-
-## Secrets Store - HashiCorp Vault OSS
-
-SAAP includes HashiCorp Vault OSS for secrets management, limited to use by applications running on SAAP.
-
-### Clouds Secrets Store
-
-SAAP includes the External Secrets Operator (ESO) integrated with Vault OSS out of the box. If customers prefer a different secret store, ESO can be configured to connect with it. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
 ## In-Cluster Multi Tenancy - Stakater MTO
 
@@ -218,73 +288,21 @@ SAAP comes integrated with Stakater MTO (Multi-Tenant Operator), the world’s l
 
 SAAP includes an Istio-based service mesh with a single control plane supported out of the box. Multiple control planes can be enabled upon request. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
-## ArgoCD
-
-SAAP integrates ArgoCD for GitOps automation, leveraging Git as the source of truth for Kubernetes deployments. It streamlines version-controlled updates, rollbacks, and application management, ensuring consistency and reliability. ArgoCD's declarative approach simplifies configuration management, supporting efficient, automated deployments across your infrastructure.
-
-### Stakater GitOps Structure
-
-SAAP provides a pre-defined GitOps repository structure, eliminating the need for teams to spend time and effort figuring out their own. This standardized approach ensures efficient deployment workflows and simplifies Kubernetes application deployment.
-
-## Tekton
-
-SAAP comes integrated with Tekton, an open-source, serverless CI/CD solution that is extremely powerful and flexible. This integration ensures streamlined, automated pipelines for building, testing, and deploying applications, enhancing productivity and efficiency for development teams.
-
-### Tekton Task Catalog
-
-SAAP also includes a meticulously maintained [Tekton task catalog](https://github.com/stakater-tekton-catalog), featuring a comprehensive collection of pre-built and thoroughly validated CI/CD tasks. This catalog supports complete DevSecOps pipelines, ensuring seamless integration, security, and automation across the development lifecycle.
-
-### Stakater Trusted Application Pipelines
-
-Stakater's Trusted Application Pipeline mitigates unexpected vulnerabilities, simplifying the secure build and deployment of cloud-native applications to Kubernetes platforms. These pipelines wraps the process in a highly secure and manageable workflow, ensuring that developers and operations teams can focus on their jobs without needing deep Kubernetes expertise.
-
 ## Internal Development Platform (IDP) - Backstage
 
 SAAP includes a customized [Backstage](https://github.com/backstage/backstage) instance, providing a unified developer portal for managing applications. It enhances developer productivity and can be further tailored to meet specific needs.
-
-## Feature/Pull Request Environments - Tronador
-
-SAAP includes Stakater Tronador, a powerful tool that deploys applications in dynamic ephemeral environments upon pull requests. This ensures seamless testing and validation in isolated environments. Once changes are merged, Tronador automatically cleans up, maintaining an efficient and clutter-free workspace. This integration significantly enhances the development workflow by providing reliable and automated environment management.
 
 ## Reloader
 
 SAAP includes [Stakater Reloader](https://github.com/stakater/Reloader), which automatically restarts applications when configmaps or secrets change. This integration streamlines updates, enhances reliability, and minimizes downtime for developers.
 
-## IMC
-
-SAAP includes [Stakater IMC (IngressMonitorController)](https://github.com/stakater/IngressMonitorController), automating the setup of external uptime monitors for Kubernetes ingresses. It ensures continuous monitoring of application availability and performance with seamless integration into popular monitoring services.
-
 ## Forecastle
 
 SAAP includes [Stakater Forecastle](https://github.com/stakater/Forecastle), a powerful tool that simplifies application discovery within Kubernetes clusters. This integration provides a unified, user-friendly dashboard, enhancing accessibility and efficiency.
 
-## Leader Application Helm Chart
-
-SAAP ships with the [Leader Helm application chart](https://github.com/stakater/application), providing a standardized approach to deploying applications. This ensures consistent and efficient deployments across all environments within SAAP.
-
-## Tilt
-
-SAAP includes [Tilt](https://tilt.dev/) to streamline the developer experience. Tilt enables rapid local development and testing for Kubernetes applications, enhancing productivity and ease of use for developers working on SAAP.
-
-## SonarQube
-
-SAAP integrates with SonarQube for robust code quality analysis and security scanning. This tool is exclusively for applications deployed on SAAP, ensuring high standards of code integrity and safety.
-
-## Descheduler
-
-SAAP includes the Kubernetes Descheduler to optimize workload placement within clusters. It periodically evicts and re-schedules pods to improve resource utilization and balance. This enhances overall cluster performance and reliability.
-
-## Renovate
-
-SAAP comes with Renovate, a tool for automating dependency updates. It helps keep applications secure and up-to-date by regularly checking for and applying updates. Renovate ensures a seamless and efficient dependency management process.
-
 ## Cert-Manager
 
 SAAP comes integrated with Cert-Manager to automate the management and renewal of SSL/TLS certificates. It ensures secure communication for your applications by handling certificate issuance and renewal seamlessly.
-
-## DevSpaces
-
-SAAP includes DevSpaces to provide developers with cloud-based, ready-to-code environments. These workspaces streamline development by offering preconfigured setups, ensuring consistency and reducing setup time. DevSpaces enhances productivity by allowing developers to start coding immediately in a fully equipped environment.
 
 ## ExternalDNS
 
