@@ -186,7 +186,7 @@ Public outbound traffic from the control plane and infrastructure nodes is requi
 
 ### Kubernetes Router
 
-SAAP includes the OpenShift Router, the most advanced Kubernetes ingress controller available. It supports various routing options and protocols, ensuring high performance and reliability for your applications. 
+SAAP includes the OpenShift Router, the most advanced Kubernetes ingress controller available. It supports various routing options and protocols, ensuring high performance and reliability for your applications.
 
 ### ExternalDNS
 
