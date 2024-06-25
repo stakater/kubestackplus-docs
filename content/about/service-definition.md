@@ -126,7 +126,7 @@ As an administrator of SAAP, you have access to the cluster-admin role. While lo
 
 SAAP includes Red Hat Advanced Cluster Security (RHACS) for robust security management. It ensures comprehensive build and runtime security for applications. RHACS is essential for maintaining a secure Kubernetes environment.
 
-## Cert-Manager
+### Cert-Manager
 
 SAAP comes integrated with Cert-Manager to automate the management and renewal of SSL/TLS certificates. It ensures secure communication for your applications by handling certificate issuance and renewal seamlessly.
 
