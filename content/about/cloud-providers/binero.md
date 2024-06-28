@@ -1,6 +1,5 @@
-# Binero
 
-A OpenStack account is needed to create and manage cluster on Binero OpenStack. The following criteria must be met:
+A OpenStack account is needed to run SAAP on [Binero](https://binero.com/en/). The following criteria must be met:
 
 - An account on Binero.
 - A Stakater user (ask Stakater team for the email to use for this user) with admin privileges.

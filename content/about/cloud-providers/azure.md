@@ -1,4 +1,3 @@
-# Azure
 
 An Azure subscription is needed to create and manage cluster on Azure. The following criteria must be met:
 

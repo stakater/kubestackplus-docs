@@ -1,6 +1,5 @@
-# Exoscale
 
-An account is needed to create and provision SAAP instance on Exoscale. The following criteria must be met
+An account is needed to run SAAP on [Exoscale](https://www.exoscale.com/). The following criteria must be met
 
 | Type | Limit |
 |---|---|
