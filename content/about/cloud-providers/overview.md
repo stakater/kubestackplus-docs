@@ -6,7 +6,7 @@ Stakater App Agility Platform (SAAP) is currently supported on the following clo
 * [AWS](./aws.md)
 * [Azure](./azure.md)
 * [GCP](./gcp.md)
-* [Elastx](./exlastx.md)
+* [Elastx](./elastx.md)
 * [Cleura](./cleura.md)
 * [Exoscale](./exoscale.md)
 * [Binero](./binero.md)
