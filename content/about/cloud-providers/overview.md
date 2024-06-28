@@ -2,7 +2,7 @@
 
 Stakater App Agility Platform (SAAP) is currently supported on the following clouds:
 
-* [Stakater Cloud](./stakater-cloud.md): Zero-Touch OpenShift and SAAP Self-Service Provisioningg
+* [Stakater Cloud](./stakater-cloud.md): Zero-Touch OpenShift and SAAP Self-Service Provisioning
 * [AWS](./aws.md)
 * [Azure](./azure.md)
 * [GCP](./gcp.md)

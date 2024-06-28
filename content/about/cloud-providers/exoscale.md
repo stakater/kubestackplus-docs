@@ -1,3 +1,4 @@
+# Exoscale
 
 An account is needed to run SAAP on [Exoscale](https://www.exoscale.com/). The following criteria must be met
 
