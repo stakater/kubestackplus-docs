@@ -1,5 +1,7 @@
 # Binero
 
+Binero is headquartered in Sweden.
+
 A OpenStack account is needed to run SAAP on [Binero](https://binero.com/en/). The following criteria must be met:
 
 - An account on Binero.

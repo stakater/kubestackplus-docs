@@ -2,6 +2,8 @@
 
 An account is needed to run SAAP on [Exoscale](https://www.exoscale.com/). The following criteria must be met
 
+Exoscale is headquartered in Switzerland.
+
 | Type | Limit |
 |---|---|
 | Instances | 9 |
