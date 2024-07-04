@@ -32,11 +32,15 @@ nav:
       - about/responsibilities.md
       - Cloud Providers:
           - about/cloud-providers/overview.md
+          - about/cloud-providers/stakater-cloud.md          
           - about/cloud-providers/aws.md
           - about/cloud-providers/azure.md
           - about/cloud-providers/gcp.md
+          - about/cloud-providers/elastx.md          
+          - about/cloud-providers/cleura.md
           - about/cloud-providers/binero.md
           - about/cloud-providers/exoscale.md
+          - about/cloud-providers/upcloud.md          
       - about/update-lifecycle.md
       - about/onboarding.md
   - For Administrators:
