@@ -40,6 +40,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Debug Outputs
+        run: echo "IMAGE_PATH=${{ needs.build.outputs.IMAGE_PATH }}"
+
       - name: Run Docker container for the saap-docs app
         run: |
           docker run -p 8080:8080 ${{ needs.build.outputs.IMAGE_PATH }}
