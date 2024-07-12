@@ -28,25 +28,19 @@ nav:
       - Enterprise Kubernetes: about/saap-vs-k8s.md
       - about/saap-features.md
       - about/saap-key-differentiators.md
-      - Service Definition:
-          - about/service-definition/overview.md
-          - about/service-definition/platform.md
-          - about/service-definition/monitoring.md
-          - about/service-definition/logging.md
-          - about/service-definition/security.md
-          - about/service-definition/secrets-management.md
-          - about/service-definition/service-mesh.md
-          - about/service-definition/account-management.md
-          - about/service-definition/networking.md
-          - about/service-definition/storage.md
+      - about/service-definition.md
       - about/responsibilities.md
       - Cloud Providers:
           - about/cloud-providers/overview.md
+          - about/cloud-providers/stakater-cloud.md          
           - about/cloud-providers/aws.md
           - about/cloud-providers/azure.md
           - about/cloud-providers/gcp.md
+          - about/cloud-providers/elastx.md          
+          - about/cloud-providers/cleura.md
           - about/cloud-providers/binero.md
           - about/cloud-providers/exoscale.md
+          - about/cloud-providers/upcloud.md          
       - about/update-lifecycle.md
       - about/onboarding.md
   - For Administrators:
@@ -78,7 +72,6 @@ nav:
       - Explanation:
           - for-delivery-engineers/explanation/gitops-intro.md
           - for-delivery-engineers/explanation/gitops-structure.md
-          - for-delivery-engineers/explanation/secrets.md
           - for-delivery-engineers/explanation/types-of-environments.md
           - for-delivery-engineers/explanation/stakater-tekton-chart.md
           - for-delivery-engineers/explanation/faq.md
@@ -123,6 +116,7 @@ nav:
               - for-developers/tutorials/inner-loop/add-grafana-dashboard/add-grafana-dashboard.md
               - for-developers/tutorials/inner-loop/scale-app/scale-app.md
               - for-developers/tutorials/inner-loop/validate-auto-reload/validate-auto-reload.md
+              - for-developers/tutorials/inner-loop/add-backup-schedule/backup-restore.md
               - for-developers/tutorials/inner-loop/add-pdb/add-pdb.md
               - for-developers/tutorials/inner-loop/add-network-policy/add-network-policy.md
               - for-developers/tutorials/inner-loop/tilt-zero-to-hero/step-by-step-guide.md
