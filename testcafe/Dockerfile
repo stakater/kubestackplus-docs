@@ -4,7 +4,7 @@ WORKDIR testcafe
 ENV XDG_DOWNLOAD_DIR=/opt/JDownloader/Downloads
 
 COPY src src
-COPY package.json .
+COPY package.json /testcafe/package.json
 # COPY .env .
 
 RUN echo "Install build deps.." \

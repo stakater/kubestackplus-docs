@@ -28,7 +28,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Run Docker container for the saap-docs app
+      - name: Build testcafe tests
         run: |
           docker build . -t testcafe-tests -f testcafe/Dockerfile
 
