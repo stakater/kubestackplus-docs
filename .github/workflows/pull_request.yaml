@@ -25,6 +25,9 @@ jobs:
   build-tests:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Run Docker container for the saap-docs app
         run: |
           docker build . -t testcafe-tests -f testcafe/Dockerfile
@@ -32,6 +35,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Run Docker container for the saap-docs app
         run: |
           docker run -p 8080:8080 ${{ env.IMAGE_REPOSITORY }}:${{ steps.generate_tag.outputs.GIT_TAG }}
