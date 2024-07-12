@@ -21,3 +21,25 @@ jobs:
       CONTAINER_REGISTRY_USERNAME: stakater-user
       CONTAINER_REGISTRY_PASSWORD: ${{ secrets.STAKATER_GITHUB_TOKEN }}
       SLACK_WEBHOOK_URL: ${{ secrets.STAKATER_DELIVERY_SLACK_WEBHOOK }}
+
+  build-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Docker container for the saap-docs app
+        run: |
+          docker build . -t testcafe-tests -f testcafe/Dockerfile
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Docker container for the saap-docs app
+        run: |
+          docker run -p 8080:8080 ${{ env.IMAGE_REPOSITORY }}:${{ steps.generate_tag.outputs.GIT_TAG }}
+      
+      - name: Run Docker container to run tests
+        run: |
+          docker run -it --rm --network="host" --name myapp-testcafe-container testcafe-tests:latest
+
+      - name: Run TestCafe tests
+        run: |
+          docker exec myapp-testcafe-container testcafe chrome /src --reporter spec || exit 1
