@@ -29,10 +29,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build testcafe tests
-        working-directory: ./testcafe  # Ensure we are in the correct directory
+        working-directory: ./testcafe 
         run: |
-          docker build -t testcafe-tests
-          
+          docker build -t testcafe-tests .
+
   test:
     runs-on: ubuntu-latest
     steps:
