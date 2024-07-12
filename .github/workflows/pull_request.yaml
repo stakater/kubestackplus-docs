@@ -23,6 +23,7 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.STAKATER_DELIVERY_SLACK_WEBHOOK }}
     outputs:
       IMAGE_PATH: ${{ steps.build.outputs.IMAGE_PATH }}
+      
 
   build-tests:
     runs-on: ubuntu-latest
