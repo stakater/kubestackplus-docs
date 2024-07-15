@@ -22,8 +22,6 @@ jobs:
       CONTAINER_REGISTRY_PASSWORD: ${{ secrets.STAKATER_GITHUB_TOKEN }}
       SLACK_WEBHOOK_URL: ${{ secrets.STAKATER_DELIVERY_SLACK_WEBHOOK }}
 
-  
-
   run-saap-docs:
     runs-on: ubuntu-latest
     needs: [build]
@@ -46,6 +44,7 @@ jobs:
 
   test-saap-docs:
     runs-on: ubuntu-latest
+    needs: [run-saap-docs]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
