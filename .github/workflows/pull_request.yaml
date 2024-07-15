@@ -42,22 +42,15 @@ jobs:
         run: |
           docker run -d --name saap-docs -p 8080:8080 ghcr.io/stakater/${{ github.repository }}${{ env.IMAGE_PATH }} || exit 1
 
-  test-saap-docs:
-    runs-on: ubuntu-latest
-    needs: [run-saap-docs]
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
       - name: Build testcafe tests
         working-directory: ./testcafe 
         run: |
           docker build -t testcafe-tests .
-      
+        
       - name: Run Docker container to run tests
         run: |
           docker run --rm --network="host" --name myapp-testcafe-container testcafe-tests:latest
-
+  
       - name: Run TestCafe tests
         run: |
           docker exec myapp-testcafe-container testcafe chrome /src --reporter spec || exit 1
