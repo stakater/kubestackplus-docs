@@ -42,8 +42,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Debug Outputs
-        run: echo "IMAGE_PATH=${{ env.IMAGE_PATH }}"
+      - name: Pull Docker image
+        run: |
+          docker pull ghcr.io/stakater/${{ github.repository }}${{ env.IMAGE_PATH }}
 
       - name: Run Docker container for the saap-docs app
         run: |
