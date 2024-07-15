@@ -50,7 +50,3 @@ jobs:
       - name: Run Docker container to run tests
         run: |
           docker run --rm --network="host" --name myapp-testcafe-container testcafe-tests:latest
-  
-      - name: Run TestCafe tests
-        run: |
-          docker exec myapp-testcafe-container testcafe chrome /src --reporter spec || exit 1
