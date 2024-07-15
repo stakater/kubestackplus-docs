@@ -45,7 +45,7 @@ jobs:
 
       - name: Run Docker container for the saap-docs app
         run: |
-          docker run -p 8080:8080 ${{ needs.build.outputs.IMAGE_PATH }}
+          docker run -p 8080:8080 ${{ needs.build.secrets.CONTAINER_REGISTRY_URL }}/${{ github.repository }}${{ needs.build.outputs.IMAGE_PATH }}
       
       - name: Run Docker container to run tests
         run: |
