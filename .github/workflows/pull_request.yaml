@@ -54,3 +54,4 @@ jobs:
       - name: Run TestCafe tests
         run: |
           docker exec myapp-testcafe-container testcafe chrome /src --reporter spec || exit 1
+          
