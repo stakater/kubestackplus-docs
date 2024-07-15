@@ -42,17 +42,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Pull Docker image
-        run: |
-          docker pull ghcr.io/stakater/${{ github.repository }}${{ env.IMAGE_PATH }}
-
       - name: Run Docker container for the saap-docs app
-        run: |
-          docker run -p 8080:8080 ghcr.io/stakater/${{ github.repository }}${{ env.IMAGE_PATH }}
-        env:
-          CONTAINER_REGISTRY_URL: ghcr.io/stakater
-          CONTAINER_REGISTRY_USERNAME: stakater-user
-          CONTAINER_REGISTRY_PASSWORD: ${{ secrets.STAKATER_GITHUB_TOKEN }}
+        uses: addnab/docker-run-action@v3
+        with:
+          username: stakater-user
+          password: ${{ secrets.STAKATER_GITHUB_TOKEN }}
+          registry: ghcr.io/stakater
+          image: ${{ github.repository }}${{ env.IMAGE_PATH }}
+          run: echo "hello world"
+
+      # - name: Run Docker container for the saap-docs app
+      #   run: |
+      #     docker login ghcr.io/stakater -u stakater-user -p ${{ secrets.STAKATER_GITHUB_TOKEN }} && \
+      #     docker run -p 8080:8080 ghcr.io/stakater/${{ github.repository }}${{ env.IMAGE_PATH }}
+      #   env:
+      #     CONTAINER_REGISTRY_URL: ghcr.io/stakater
+      #     CONTAINER_REGISTRY_USERNAME: stakater-user
+      #     CONTAINER_REGISTRY_PASSWORD: ${{ secrets.STAKATER_GITHUB_TOKEN }}
       
       - name: Run Docker container to run tests
         run: |
