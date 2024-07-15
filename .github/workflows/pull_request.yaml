@@ -61,7 +61,7 @@ jobs:
         run: |
           echo "Running Docker container..."
           echo "Image: ghcr.io/stakater/${{ github.repository }}${{ env.IMAGE_PATH }}"
-          docker run -p 8080:8080 ghcr.io/stakater/${{ github.repository }}${{ env.IMAGE_PATH }} || exit 1
+          docker run -d --name saap-docs -p 8080:8080 ghcr.io/stakater/${{ github.repository }}${{ env.IMAGE_PATH }} || exit 1
         
       
       - name: Run Docker container to run tests
