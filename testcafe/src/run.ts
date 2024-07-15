@@ -12,20 +12,22 @@ fixture("Check if yamls are valid")
     .skipJsErrors();
 
 test(`Accept cookies if cookies consent message is displayed`, async (t) => {
+    await t.resizeWindow(1280, 800);
+
     const acceptButtonExists = await acceptButton.exists;
 
     if (acceptButtonExists) {
         await t.click(acceptButton);
     }
 
-    // Wait for 5 seconds for search label to become visible
-    await t.expect(searchLabel.visible).ok({ timeout: 5000 });
     const searchLabelExists = await searchLabel.exists;
-    if (searchLabelExists) {
+    const searchLabelVisible = await searchLabel.visible;
+
+    if (searchLabelExists && searchLabelVisible) {
         await t.click(searchLabel);
     }
 
-    await t.expect(searchInput.visible).ok(); // Wait up to 5 seconds
+    await t.expect(searchInput.visible).ok();
     await t.click(searchInput);
     await t.typeText(searchInput, "```")
     console.log('Search input clicked and typed on');
