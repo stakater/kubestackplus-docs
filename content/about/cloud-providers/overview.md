@@ -12,4 +12,4 @@ Stakater App Agility Platform (SAAP) is supported on the following clouds:
 * [GCP](./gcp.md)
 * [UpCloud](./upcloud.md)
 
-Just send an email to [`sales@stakater.com`](mailto:sales@stakater.com) if you would like us to support another cloud. Visit our [Partnership page](https://www.stakater.com/partnership) to apply for becoming a cloud partner.
+Just email [`sales@stakater.com`](mailto:sales@stakater.com) if you would like us to support another cloud. Visit our [Partnership page](https://www.stakater.com/partnership) to apply for becoming a cloud partner.
