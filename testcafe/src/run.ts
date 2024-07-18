@@ -30,7 +30,6 @@ test(`Accept cookies if cookies consent message is displayed`, async (t) => {
     await t.expect(searchInput.visible).ok();
     await t.click(searchInput);
     await t.typeText(searchInput, "```")
-    console.log('Search input clicked and typed on');
 
     const searchResultItemExists = await searchResultItem.exists;
     await t.expect(searchResultItemExists).notOk('Invalid yamls exist, failing the test');
