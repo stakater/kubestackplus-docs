@@ -13,7 +13,7 @@ SAAP provides a unique domain with every cluster with the format: `*.apps.<CLUST
 
 ### 2. Use the `oc new-app` command to create a service
 
-```shell script
+```sh
 oc new-app https://github.com/openshift/ruby-hello-world
 ```
 
