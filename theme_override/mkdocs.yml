@@ -24,8 +24,7 @@ markdown_extensions:
   - pymdownx.snippets
 nav:
   - About:
-      - index.md
-      - Enterprise Kubernetes: about/saap-vs-k8s.md
+      - about/overview.md
       - about/saap-features.md
       - about/saap-key-differentiators.md
       - about/service-definition.md
