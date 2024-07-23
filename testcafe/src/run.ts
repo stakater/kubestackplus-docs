@@ -12,7 +12,7 @@ fixture("Check if yamls are valid")
     .skipJsErrors();
 
 test(`Accept cookies if cookies consent message is displayed`, async (t) => {
-    await t.resizeWindow(1280, 800);
+    await t.maximizeWindow();
 
     const acceptButtonExists = await acceptButton.exists;
 
