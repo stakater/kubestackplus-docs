@@ -24,7 +24,7 @@ markdown_extensions:
   - pymdownx.snippets
 nav:
   - About:
-      - about/overview.md
+      - index.md
       - about/saap-features.md
       - about/saap-key-differentiators.md
       - about/service-definition.md

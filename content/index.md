@@ -8,7 +8,7 @@ Organizations have adopted containers and Kubernetes to automate their applicati
 
 Companies require a solution with a justifiable return on their investment.
 
-![Stakater App Agility Platform](./images/saap.jpg)
+![Stakater App Agility Platform](./about/images/saap.jpg)
 
 Stakater App Agility Platform is a fully managed enterprise Kubernetes platform. With Stakater App Agility Platform, innovators can focus on what matters, stay competitive, and outpace rising customer expectations without worrying about managing the underlying infrastructure.
 
