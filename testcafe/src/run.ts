@@ -7,11 +7,15 @@ const searchResultItem = Selector('li.md-search-result__item');
 const searchLabel = Selector('label.md-header__button.md-icon').withAttribute('for', '__search');
 
 
-fixture("Check if yamls are valid")
+fixture("Verify fenced code blocks render correctly")
     .page`${'http://127.0.0.1:8080/saap'}`
     .skipJsErrors();
 
-test(`Accept cookies if cookies consent message is displayed`, async (t) => {
+test('Verify index file exists', async t => {
+    await t.navigateTo('http://127.0.0.1:8080/saap/index.html');
+})
+
+test('Search for existence of incorrectly rendered fenced code blocks', async (t) => {
     await t.maximizeWindow();
 
     const acceptButtonExists = await acceptButton.exists;
@@ -32,5 +36,5 @@ test(`Accept cookies if cookies consent message is displayed`, async (t) => {
     await t.typeText(searchInput, "```")
 
     const searchResultItemExists = await searchResultItem.exists;
-    await t.expect(searchResultItemExists).notOk('Invalid yamls exist, failing the test');
+    await t.expect(searchResultItemExists).notOk('Fenced code blocks exist in the search result and are therefore incorrectly rendered, failing the test');
 })
