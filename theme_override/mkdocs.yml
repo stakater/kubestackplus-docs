@@ -25,7 +25,6 @@ markdown_extensions:
 nav:
   - About:
       - index.md
-      - Enterprise Kubernetes: about/saap-vs-k8s.md
       - about/saap-features.md
       - about/saap-key-differentiators.md
       - about/service-definition.md
@@ -285,6 +284,14 @@ nav:
           - managed-addons/helm-leader-chart/overview.md
       - Web Terminal Operator:
           - managed-addons/web-terminal-operator/overview.md
+      - Backstage:
+          - managed-addons/backstage/overview.md
+      - Crossplane:
+          - managed-addons/crossplane/overview.md
+      - Descheduler:
+          - managed-addons/descheduler/overview.md                                  
+      - OpenSCAP:
+          - managed-addons/compliance-operator/overview.md      
   - Legal Documents:
       - legal-documents/gtc.md
       - legal-documents/sla.md
