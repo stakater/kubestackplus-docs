@@ -12,7 +12,13 @@ fixture("Verify fenced code blocks render correctly")
     .skipJsErrors();
 
 test('Verify index file exists', async t => {
-    await t.navigateTo('http://127.0.0.1:8080/saap/index.html');
+    await t
+        .navigateTo('http://127.0.0.1:8080/saap/index.html');
+})
+
+test('Verify custom 404 file exists', async t => {
+    await t
+        .navigateTo('http://127.0.0.1:8080/saap/404.html');
 })
 
 test('Search for existence of incorrectly rendered fenced code blocks', async (t) => {
