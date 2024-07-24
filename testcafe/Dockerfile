@@ -8,7 +8,7 @@ COPY package.json package.json
 
 RUN echo "Install build deps.." \
   && apk --update --no-cache add \
-    chromium  \
+    chromium \
     tzdata
 
 RUN yarn
