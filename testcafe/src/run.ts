@@ -7,7 +7,7 @@ const searchResultItem = Selector('li.md-search-result__item');
 const searchLabel = Selector('label.md-header__button.md-icon').withAttribute('for', '__search');
 
 
-fixture("Verify fenced code blocks render correctly")
+fixture("Verify site")
     .page`${'http://127.0.0.1:8080/saap'}`
     .skipJsErrors();
 
