@@ -10,4 +10,4 @@ See [Elastx cloud partner](https://www.stakater.com/cloud-partner-elastx) for mo
 
 If you are an existing Elastx customer, email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP in your account.
 
-If you would like to become a Elastx customer, [sign up](https://elastx.se/en/signup) for one of their clouds and email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP.
+If you would like to become an Elastx customer, [sign up](https://elastx.se/en/signup) for one of their clouds and email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP.

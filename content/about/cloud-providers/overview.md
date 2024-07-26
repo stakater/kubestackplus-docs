@@ -1,6 +1,6 @@
 # Overview
 
-SAAP is offered on [Stakater Cloud](./stakater-cloud.md) will provides Zero-Touch OpenShift and SAAP Self-Service Provisioning.
+SAAP is offered on [Stakater Cloud](./stakater-cloud.md) which provides Zero-Touch OpenShift and SAAP Self-Service Provisioning.
 
 SAAP is also offered through cloud partners:
 
