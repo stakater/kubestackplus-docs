@@ -8,6 +8,6 @@ Fuga Cloud is headquartered in the Netherlands.
 
 See [Fuga Cloud partner](https://www.stakater.com/fuga-cloud-partner) for more information about Fuga Cloud and how to contact Fuga Cloud.
 
-If you are an existing Fuga Cloud customer, send an email to [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP in your account.
+If you are an existing Fuga Cloud customer, email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP in your account.
 
-If you would like to become a Fuga Cloud customer, [register](https://my.fuga.cloud/register) for their cloud and send an email to [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP.
+If you would like to become a Fuga Cloud customer, [register](https://my.fuga.cloud/register) for their cloud and email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP.

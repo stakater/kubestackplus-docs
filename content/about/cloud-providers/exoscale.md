@@ -8,9 +8,9 @@ An account is needed to run SAAP on [Exoscale](https://www.exoscale.com/). The f
 
 Exoscale is headquartered in Switzerland.
 
-If you are an existing Exoscale customer, send an email to [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP in your account.
+If you are an existing Exoscale customer, email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP in your account.
 
-If you would like to become an Exoscale customer, [register](https://portal.exoscale.com/register) for their clouds and send an email to [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP.
+If you would like to become an Exoscale customer, [register](https://portal.exoscale.com/register) for their clouds and email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP.
 
 ## Instance Types
 

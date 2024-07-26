@@ -6,6 +6,6 @@ The minimum quotas needed to be able to deploy SAAP in your account is listed on
 
 Complior is headquartered in Sweden.
 
-If you are an existing Complior customer, send an email to [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP in your account.
+If you are an existing Complior customer, email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP in your account.
 
-If you would like to become a Complior customer, [sign up](https://www.complior.se/compliance-platform/) for one of their clouds and send an email to [`sales@stakater.com`](mailto:sales@stakater.com) to get SAAP.
+If you would like to become a Complior customer, [sign up](https://www.complior.se/compliance-platform/) for one of their clouds and email [`sales@stakater.com`](mailto:sales@stakater.com) to get SAAP.

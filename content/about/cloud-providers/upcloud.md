@@ -6,6 +6,6 @@ The minimum quotas needed to be able to deploy SAAP in your account is listed on
 
 UpCloud is headquartered in Finland.
 
-If you are an existing UpCloud customer, send an email to [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP in your account.
+If you are an existing UpCloud customer, email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP in your account.
 
-If you would like to become a UpCloud customer, [signup](https://signup.upcloud.com/) for their public cloud and send an email to [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP.
+If you would like to become a UpCloud customer, [signup](https://signup.upcloud.com/) for their public cloud and email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP.
