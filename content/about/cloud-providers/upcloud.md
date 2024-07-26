@@ -8,4 +8,4 @@ UpCloud is headquartered in Finland.
 
 If you are an existing UpCloud customer, email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP in your account.
 
-If you would like to become a UpCloud customer, [signup](https://signup.upcloud.com/) for their public cloud and email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP.
+If you would like to become a UpCloud customer, [sign up](https://signup.upcloud.com/) for their public cloud and email [`sales@stakater.com`](mailto:sales@stakater.com) to get a quote for SAAP.
