@@ -2,11 +2,11 @@
 
 Binero is headquartered in Sweden.
 
-A OpenStack account is needed to run SAAP on [Binero](https://binero.com/en/). The following criteria must be met:
+An OpenStack account is needed to run SAAP on [Binero](https://binero.com/en/). The following criteria must be met:
 
-- An account on Binero.
-- A Stakater user (ask Stakater team for the email to use for this user) with admin privileges.
-- Resource limits must be applied on the account and the following resources must be allowed to be created; ask Binero support to increase the quotas as below
+- An account on Binero
+- A Stakater user (ask Stakater team for the email to use for this user) with admin privileges
+- Resource limits must be applied on the account and the following resources must be allowed to be created; request Binero support to increase the quotas of your account as below:
 
   | Type | Limit |
   |---|---|
@@ -19,7 +19,7 @@ A OpenStack account is needed to run SAAP on [Binero](https://binero.com/en/). T
   | Floating IPs | 10 |
   | Security Groups | 100 |
   | Security Groups Rules | 1000 |
-  | Ports  | 5000 |
+  | Ports | 5000 |
   | Routers | 10 |
 
 ## Network usage

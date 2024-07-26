@@ -2,9 +2,9 @@
 
 An AWS account is needed to create and manage cluster on AWS. The following criteria must be met:
 
-- An account on AWS.
+- An account on AWS
 - A Stakater user (ask Stakater team for the email to use for this user) with admin privileges on a separate project (Recommended). See the [required permissions](https://docs.openshift.com/container-platform/4.9/installing/installing_aws/installing-aws-account.html#installation-aws-permissions_installing-aws-account) for AWS if you do not want to grant admin privilege.
-- Resource limits must be applied on the account and the following resources must be allowed to be created.
+- Resource limits must be applied on the account and the following resources must be allowed to be created:
 
   |Type        | Limit |
   |------------|------------|
@@ -42,6 +42,6 @@ SAAP offers the following worker node types and sizes on AWS:
 - c5.2xlarge (8 vCPU, 16 GiB)
 - c5.4xlarge (16 vCPU, 32 GiB)
 
-### Autoscaling
+## Autoscaling
 
 Node autoscaling is available on AWS. You can configure the autoscaler option to automatically scale the number of machines in a cluster.
