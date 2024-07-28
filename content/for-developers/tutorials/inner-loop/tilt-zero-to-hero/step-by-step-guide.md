@@ -78,7 +78,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
     cd deploy
 
     # Helm credentials can be found in Vault or in a secret in build namespace
-    helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********; 
+    helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********;
 
     cd ..
     ```
@@ -143,7 +143,7 @@ In this guide we will deploy an application with tilt and namespace in remote Op
 
     ```yaml
     application:
-        
+
       deployment:
         imagePullSecrets: null
 

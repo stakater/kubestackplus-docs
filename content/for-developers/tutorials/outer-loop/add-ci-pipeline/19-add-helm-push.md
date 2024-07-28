@@ -40,7 +40,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           https://raw.githubusercontent.com/stakater-tekton-catalog/rox-image-check/0.0.7/task/stakater-rox-image-check/stakater-rox-image-check.yaml,
           https://raw.githubusercontent.com/stakater-tekton-catalog/rox-deployment-check/0.0.4/task/stakater-rox-deployment-check/stakater-rox-deployment-check.yaml,
           https://raw.githubusercontent.com/stakater-tekton-catalog/checkov-scan/0.0.4/task/stakater-checkov-scan/stakater-checkov-scan.yaml,
-          https://raw.githubusercontent.com/stakater-tekton-catalog/helm-push/0.0.17/task/stakater-helm-push/stakater-helm-push.yaml]"   
+          https://raw.githubusercontent.com/stakater-tekton-catalog/helm-push/0.0.17/task/stakater-helm-push/stakater-helm-push.yaml]"
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:

@@ -165,10 +165,10 @@ grafanaDashboard:
   enabled: true
   additionalLabels:
     test-label: chart
-  annotations: 
+  annotations:
     test-annoation: chart
   contents:
-    dashboard-test-name-1: 
+    dashboard-test-name-1:
       json: |-
         {
           ...

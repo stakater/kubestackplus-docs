@@ -70,7 +70,7 @@ alertmanagerConfig:
     receivers:
     - name: 'slack-webhook'
       slackConfigs:
-      - apiURL: 
+      - apiURL:
           name: slack-webhook-config
           key: webhook-url
         channel: '#channel-name'
@@ -119,7 +119,7 @@ A sample PrometheusRule can be configured in [Application Chart](https://github.
 ```yaml
 prometheusRule:
   enabled: true
-  groups: []    
+  groups: []
   - name: example-app-uptime
     rules:
     - alert: ExampleAppDown
