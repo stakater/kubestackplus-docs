@@ -42,7 +42,7 @@ Following Configuration will send the log to Slack channel `#my-application-log-
 deployment:
   fluentdConfigAnnotations:
     notifications:
-      slack: 
+      slack:
         webhookURL: "https://hooks.slack.com/services/XXXXXXX/YYYYYYYYY/aaaaaaabbbbbcccccddd"
         channelName: "#my-application-log-alerts"
       key: "level"

@@ -5,13 +5,13 @@
 Between
 
     Stakater AB, David Bagares gata 26A, 111 38 Stockholm, Sweden
-    
+
     (Hereinafter referred to as "STAKATER")
 
 and
 
     [CUSTOMER NAME & ADDRESS]
-    
+
     (Hereinafter referred to as "CUSTOMER")
 
 Each individually a "**Party**" and together the "**Parties**"

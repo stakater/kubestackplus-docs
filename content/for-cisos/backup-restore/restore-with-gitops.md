@@ -55,7 +55,7 @@ oc scale statefulsets <NAME> --replicas 0
 Delete the PVC which you want to restore data so that its created again by Velero.
 
 ```sh
-oc delete pvc <PVC-NAME> -n <NAMESPACE> 
+oc delete pvc <PVC-NAME> -n <NAMESPACE>
 ```
 
 ## 5. Restore Velero Backup

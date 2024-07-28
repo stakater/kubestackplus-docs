@@ -70,19 +70,19 @@ forecastle:
 
   # Add additional labels on Forecastle Custom Resource
   additionalLabels:
-  
+
   # URL of the icon for the custom app
   icon: https://raw.githubusercontent.com/stakater/ForecastleIcons/master/stakater-big.png
-  
+
   # Name of the application to be displayed on the Forecastle Dashboard
   displayName: "application"
-  
+
   # Group for the custom app (default: .Release.Namespace)
   group: ""
 
   # Add properties to Custom Resource
   properties:
-  
+
   # Whether app is network restricted or not
   networkRestricted: false
 ```

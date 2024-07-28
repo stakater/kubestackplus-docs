@@ -16,26 +16,26 @@ apiVersion: v1
 allowHostPorts: true
 allowedCapabilities:
 - '*'
-defaultAddCapabilities: [] 
-fsGroup: 
+defaultAddCapabilities: []
+fsGroup:
   type: RunAsAny
-groups: 
+groups:
 - system:cluster-admins
 - system:nodes
 metadata:
   name: privileged-app-test
 priority: null
 readOnlyRootFilesystem: false
-requiredDropCapabilities: [] 
-runAsUser: 
+requiredDropCapabilities: []
+runAsUser:
   type: RunAsAny
-seLinuxContext: 
+seLinuxContext:
   type: RunAsAny
 seccompProfiles:
 - '*'
-supplementalGroups: 
+supplementalGroups:
   type: RunAsAny
-users: 
+users:
 - system:serviceaccount:cassandra-app:default
 volumes:
 - '*'

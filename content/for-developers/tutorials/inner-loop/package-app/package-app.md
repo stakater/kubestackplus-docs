@@ -106,7 +106,7 @@ This chart will generate deployment, service account and service custom resource
         helm.sh/chart: application-2.1.13
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: APP_NAME
-    spec:  
+    spec:
       type: "ClusterIP"
       selector:
         app.kubernetes.io/name: APP_NAME
@@ -124,7 +124,7 @@ This chart will generate deployment, service account and service custom resource
         helm.sh/chart: application-2.1.13
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: APP_NAME
-      annotations: 
+      annotations:
         reloader.stakater.com/auto: "true"
       name: APP_NAME
       namespace: default
