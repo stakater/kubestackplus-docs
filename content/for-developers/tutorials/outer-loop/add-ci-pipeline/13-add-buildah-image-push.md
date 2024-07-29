@@ -1,20 +1,20 @@
-# Buildah
+# Buildah Image Push
 
 ## Objectives
 
-- Add `buildah` task to PipelineRun.
+- Add `buildah-image-push` task to PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
 - Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
-- Image is built and pushed to the Nexus Repository.
+- Image is pushed to the Nexus repository.
 
 ## Tutorial
 
-### Create PipelineRun with Buildah Task
+### Create PipelineRun with Buildah Image Push Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task [`buildah`](https://github.com/stakater-tekton-catalog/buildah) to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task [`buildah-image-push`](https://github.com/stakater-tekton-catalog/buildah-image-push) to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the YAML becomes like the one given below.
@@ -34,33 +34,31 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           https://raw.githubusercontent.com/stakater-tekton-catalog/kube-linting/0.0.7/task/stakater-kube-linting/stakater-kube-linting.yaml,
           https://raw.githubusercontent.com/stakater-tekton-catalog/unit-test/0.0.6/task/stakater-unit-test/stakater-unit-test.yaml,
           https://raw.githubusercontent.com/stakater-tekton-catalog/sonarqube-scan/0.0.13/task/stakater-sonarqube-scan/stakater-sonarqube-scan.yaml,
-          https://raw.githubusercontent.com/stakater-tekton-catalog/buildah/0.0.29/task/stakater-buildah/stakater-buildah.yaml]"
+          https://raw.githubusercontent.com/stakater-tekton-catalog/buildah-image-build/0.0.1/task/stakater-buildah-image-build/stakater-buildah-image-build.yaml,
+          https://raw.githubusercontent.com/stakater-tekton-catalog/buildah-image-push/0.0.1/task/stakater-buildah-image-push/stakater-buildah-image-push.yaml]"
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
       params:
         - name: repo_url
-          value: "git@github.com:<YOUR-ORG>/<YOUR-REPO-NAME>/" # Place your repo SSH URL
+          value: {{body.repository.ssh_url}} # Place your repo SSH URL
         - name: git_revision
           value: {{revision}} # Dynamic variable to fetch branch name of the push event on your repo
+        - name: repo_name
+          value: {{repo_name}} # Dynamic varaible to fetch repo name
+        - name: repo_path
+          value: "<-YOUR_APPLICATION-NAME->" # Dynamic varaible to define application name
         - name: git_branch
           value: {{source_branch}}
-        - name: repo_path
-          value: {{repo_name}} # Dynamic variable to fetch repo name
-        - name: image_registry
-          value: "<docker-registry-url>" # Place image registry URL without https:// succeeded by your application name
-        - name: helm_registry
-          value: "<https://helm-registry-url>" # Place helm registry URL with https://
         - name: pull_request_number
           value: {{pull_request_number}}
         - name: organization
-          value: {{YOUR_GIT_ORG}}
+          value: {{body.organization.login}}
       pipelineSpec: # Define what parameters will be used for pipeline
         params:
           - name: repo_url
           - name: git_revision
+          - name: repo_name
           - name: repo_path
-          - name: image_registry
-          - name: helm_registry
           - name: pull_request_number
           - name: organization
           - name: git_branch
@@ -71,7 +69,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
           - name: fetch-repository #Name what you want to call the task
             taskRef:
               name: git-clone # Name of tasks mentioned in tekton-catalog
-              kind: Task
+              kind: ClusterTask
             workspaces: # Mention what workspaces will be used by this task
               - name: output
                 workspace: source
@@ -119,10 +117,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
               value: $(params.git_branch)
             - name: IMAGE_TAG
               value: $(tasks.create-git-tag.results.GIT_TAG)
-            - name: IMAGE_REPO
-              value: $(params.image_registry)
             - name: PULL_REQUEST_COMMITS_API # Replace when not using Git
-              value: https://api.github.com/repos/$(params.organization)/$(params.repo_path)/pulls/$(params.pull_request_number)/commits
+              value: https://api.github.com/repos/$(params.organization)/$(params.repo_name)/pulls/$(params.pull_request_number)/commits
             workspaces:
             - name: output
               workspace: source
@@ -165,38 +161,51 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
                 workspace: source
           - name: sonarqube-scan
             runAfter:
-              - unit-test
+              - stakater-unit-test-dotnet
             taskRef:
               name: stakater-sonarqube-scan
               kind: Task
             params:
-              - name: SONAR_HOST_URL
-                value: <YOUR SONARQUBE URL>
               - name: SONAR_PROJECT_KEY
                 value: $(params.repo_path)
-              - name: SONAR_LOGIN
             workspaces:
               - name: source
                 workspace: source
-          - name: buildah
+          - name: buildah-image-build
             runAfter:
               - unit-test
             taskRef:
-              name: stakater-buildah
+              name: stakater-buildah-image-build
               kind: Task
             params:
-              - name: IMAGE
-                value: $(params.image_registry):$(tasks.create-git-tag.results.GIT_TAG)
+              - name: IMAGE_NAME
+                value: $(params.repo_path):$(tasks.create-git-tag.results.GIT_TAG)
               - name: TLSVERIFY
                 value: "false"
               - name: FORMAT
                 value: "docker"
-              - name: BUILD_IMAGE
-                value: "true"
-              - name: IMAGE_REGISTRY
-                value: $(params.image_registry)
               - name: CURRENT_GIT_TAG
                 value: $(tasks.create-git-tag.results.CURRENT_GIT_TAG)
+              - name: REPO_NAME
+                value: $(params.repo_path)
+            workspaces:
+              - name: source
+                workspace: source
+          - name: buildah-image-push
+            runAfter:
+              - buildah-image-build
+            taskRef:
+              name: stakater-buildah-image-push
+              kind: Task
+            params:
+              - name: IMAGE_NAME
+                value: $(params.repo_path):$(tasks.create-git-tag.results.GIT_TAG)
+              - name: TLSVERIFY
+                value: "false"
+              - name: CURRENT_GIT_TAG
+                value: $(tasks.create-git-tag.results.CURRENT_GIT_TAG)
+              - name: REPO_NAME
+                value: $(params.repo_path)
             workspaces:
               - name: source
                 workspace: source

@@ -1,20 +1,20 @@
-# Validate Environment
+# Comment on PR
 
 ## Objectives
 
-- Add `validate-environment` task to PipelineRun.
+- Add `comment-on-pr` task to PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
 - Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
-- Tronador Environment deployment is validated.
+- Dynamic environment application image name and route will be added in the PR comments.
 
 ## Tutorial
 
 ### Create PipelineRun with Validate Environment Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task [`validate-environment`](https://github.com/stakater-tekton-catalog/validate-environment) to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task [`comment-on-pr`](https://github.com/stakater-tekton-catalog/validate-environment) to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the YAML becomes like the one given below.
@@ -43,6 +43,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
         https://raw.githubusercontent.com/stakater-tekton-catalog/checkov-scan/0.0.4/task/stakater-checkov-scan/stakater-checkov-scan.yaml,
         https://raw.githubusercontent.com/stakater-tekton-catalog/github-update-cd-repo/0.0.18/task/stakater-github-update-cd-repo/stakater-github-update-cd-repo.yaml,
         https://raw.githubusercontent.com/stakater-tekton-catalog/cosign/0.0.4/task/stakater-cosign/stakater-cosign.yaml,
+        https://raw.githubusercontent.com/stakater-tekton-catalog/comment-on-pr/comment_route/helm/templates/task.yaml,
         https://raw.githubusercontent.com/stakater-tekton-catalog/validate-environment/0.0.8/task/stakater-validate-environment/stakater-validate-environment.yaml]" # The tasks will be fetched from Tekton Hub. We can also provide direct links to yaml files
         pipelinesascode.tekton.dev/max-keep-runs: "2" # Only remain 2 latest pipelineRuns on SAAP
     spec:
@@ -337,6 +338,24 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
             workspaces:
               - name: source
                 workspace: source
+          - name: comment-on-pr
+            runAfter:
+              - validate-environment
+            taskRef:
+              kind: Task
+              name: stakater-comment-on-pr
+            params:
+              - name: IMAGE_NAME
+                value: $(params.repo_path):$(tasks.create-git-tag.results.GIT_TAG)
+              - name: PR_NUMBER
+                value: $(params.pull_request_number)
+              - name: REPO_NAME
+                value: "$(params.organization)/$(params.repo_name)"
+            workspaces:
+              - name: source
+                workspace: source
+              - name: repo-token
+                workspace: repo-token
       workspaces: # Mention Workspaces configuration
         - name: source
           volumeClaimTemplate:
