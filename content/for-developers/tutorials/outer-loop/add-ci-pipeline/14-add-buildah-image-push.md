@@ -1,26 +1,26 @@
-# Buildah Image Build
+# Buildah Image Push
 
 ## Objectives
 
-- Add `buildah-image-build` task to PipelineRun.
+- Add `buildah-image-push` task to PipelineRun.
 - Define parameters, workspaces, and tasks within the PipelineRun for building and deploying your application.
 
 ## Key Results
 
 - Successfully create and execute the Tekton PipelineRun using the defined `.tekton/pullrequest.yaml` file, enabling automated CI/CD processes for your application.
-- Image is built and ready to be push to the repository.
+- Image is pushed to the Nexus repository.
 
 ## Tutorial
 
-### Create PipelineRun with Buildah Image Build Task
+### Create PipelineRun with Buildah Image Push Task
 
-You have already created a PipelineRun in the previous tutorial. Let's now add another task [`image-build`](https://github.com/stakater-tekton-catalog/buildah-image-build) to it.
+You have already created a PipelineRun in the previous tutorial. Let's now add another task [`buildah-image-push`](https://github.com/stakater-tekton-catalog/buildah-image-push) to it.
 
 1. Open up the PipelineRun file you created in the previous tutorial.
 1. Now edit the file so the YAML becomes like the one given below.
 
     ```yaml
-      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/buildah_image_build.yaml" %}
+      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/buildah_image_push.yaml" %}
     ```
     !!! note
         Remember to add the remote task in the annotations
