@@ -21,6 +21,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     ```yaml
       {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/rox_image_check.yaml" %}
     ```
+
    !!! note
        Remember to add the remote task in the annotations
        ![rox-image-check](images/rox-image-check-annotation.png)

@@ -22,6 +22,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     ```yaml
       {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/sonarqube_scan.yaml" %}
     ```
+
     **Notice** we have provided a parameter **SONAR_HOST_URL** to the sonar-scan task. You need to provide your SonarQube url here. You can get it from Forecastle.
 
     !!! note

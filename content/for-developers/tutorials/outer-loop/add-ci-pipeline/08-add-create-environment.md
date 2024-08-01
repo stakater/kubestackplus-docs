@@ -23,6 +23,7 @@ The create environment task utilizes [Tronador](https://docs.stakater.com/tronad
     ```yaml
       {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/code_linting.yaml" %}
     ```
+
     **Notice** that we added another **workspace, repo-token** to the pipeline run. This workspace utilizes the git-pat-creds secret that we previously created and mounts it to the create-environment task.
 
     !!! note

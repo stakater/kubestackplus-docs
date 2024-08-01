@@ -22,6 +22,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     ```yaml
       {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/buildah_image_push.yaml" %}
     ```
+
     !!! note
         Remember to add the remote task in the annotations
         ![buildah](images/buildah.png)
