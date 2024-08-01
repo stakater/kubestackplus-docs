@@ -20,7 +20,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 1. Now edit the file so the YAML becomes like the one given below.
 
     ```yaml
-      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/validate_enviroment.yaml" %}
+      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/validate_environment.yaml" %}
     ```
 
    !!! note
