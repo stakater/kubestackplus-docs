@@ -144,15 +144,17 @@ nav:
                       - for-developers/tutorials/outer-loop/add-ci-pipeline/10-add-kube-linting.md
                       - for-developers/tutorials/outer-loop/add-ci-pipeline/11-add-unit-test.md
                       - for-developers/tutorials/outer-loop/add-ci-pipeline/12-add-sonar-scan.md
-                      - for-developers/tutorials/outer-loop/add-ci-pipeline/13-add-buildah.md
-                      - for-developers/tutorials/outer-loop/add-ci-pipeline/14-add-trivy-scan.md
-                      - for-developers/tutorials/outer-loop/add-ci-pipeline/15-add-rox-image-scan.md
-                      - for-developers/tutorials/outer-loop/add-ci-pipeline/16-add-rox-image-check.md
-                      - for-developers/tutorials/outer-loop/add-ci-pipeline/17-add-rox-deployment-check.md
-                      - for-developers/tutorials/outer-loop/add-ci-pipeline/18-add-checkov-scan.md
-                      - for-developers/tutorials/outer-loop/add-ci-pipeline/19-add-helm-push.md
-                      - for-developers/tutorials/outer-loop/add-ci-pipeline/20-add-update-cd-repo.md
-                      - for-developers/tutorials/outer-loop/add-ci-pipeline/21-add-validate-environment.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/13-add-buildah-image-build.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/14-add-buildah-image-push.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/15-add-trivy-scan.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/16-add-rox-image-scan.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/17-add-rox-image-check.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/18-add-rox-deployment-check.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/19-add-checkov-scan.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/20-add-helm-push.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/21-add-update-cd-repo.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/22-add-validate-environment.md
+                      - for-developers/tutorials/outer-loop/add-ci-pipeline/23-add-comment-on-pr.md
               - for-developers/tutorials/outer-loop/promote-application/promote-app.md
       - How-to guides:
           - for-developers/how-to-guides/add-a-new-environment-to-apps-gitops/add-a-new-environment-to-application.md
