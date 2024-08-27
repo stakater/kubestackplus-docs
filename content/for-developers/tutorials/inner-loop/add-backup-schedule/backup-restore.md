@@ -111,12 +111,12 @@ Let us deploy a Backup Schedule for our application
       scheduleName: [SCHEDULE-NAME]
     ```
 
-   Remember to replace the placeholder values.
+    Remember to replace the placeholder values.
 
-   ![restore](images/restore-cr.png)
+    ![restore](images/restore-cr.png)
 
-   !!! note
-       When restoring using a schedule, the `backupName` should be empty. OADP will automatically replace it with the latest backup.
+    !!! note
+        When restoring using a schedule, the `backupName` should be empty. OADP will automatically replace it with the latest backup.
 
 1. Once the Restore CR is created, you will see the Restore showing 'InProgress'. After the Backup is complete, the status will show as complete.
 

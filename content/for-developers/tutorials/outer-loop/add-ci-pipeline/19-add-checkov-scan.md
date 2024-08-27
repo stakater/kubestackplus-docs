@@ -20,12 +20,13 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 1. Now edit the file so the YAML becomes like the one given below.
 
     ```yaml
-      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/checkov_scan.yaml" %}
+    {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/checkov_scan.yaml" %}
     ```
 
-   !!! note
-       Remember to add the remote task in the annotations
-       ![checkov-scan](images/checkov-scan-annotation.png)
+    !!! note
+        Remember to add the remote task in the annotations
+
+    ![checkov-scan](images/checkov-scan-annotation.png)
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 

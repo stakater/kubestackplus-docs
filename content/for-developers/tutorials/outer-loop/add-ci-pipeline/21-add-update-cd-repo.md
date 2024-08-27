@@ -20,18 +20,18 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 1. Now edit the file so the YAML becomes like the one given below.
 
     ```yaml
-      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/update_cd_repo.yaml" %}
+    {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/update_cd_repo.yaml" %}
     ```
 
-   !!! note
-       Remember to add the remote task in the annotations
+    !!! note
+        Remember to add the remote task in the annotations
 
 1. Remember to update the NAMESPACE and CD_REPO_URL parameter in the newly added task.
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![update-cd-repo](images/update-cd-repo.png)
+    ![update-cd-repo](images/update-cd-repo.png)
 
-   ![update-cd-repo](images/update-cd-repo-logs.png)
+    ![update-cd-repo](images/update-cd-repo-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

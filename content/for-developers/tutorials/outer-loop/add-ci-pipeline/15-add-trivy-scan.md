@@ -20,17 +20,18 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 1. Now edit the file so the YAML becomes like the one given below.
 
     ```yaml
-      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/trivy_scan.yaml" %}
+    {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/trivy_scan.yaml" %}
     ```
 
-   !!! note
-       Remember to add the remote task in the annotations
-       ![Trivy-scan](images/trivy-scan-annotation.png)
+    !!! note
+        Remember to add the remote task in the annotations
+
+    ![Trivy-scan](images/trivy-scan-annotation.png)
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![Trivy-scan](images/Trivy-scan.png)
+    ![Trivy-scan](images/Trivy-scan.png)
 
-   ![Trivy-scan-logs](images/Trivy-scan-logs.png)
+    ![Trivy-scan-logs](images/Trivy-scan-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.
