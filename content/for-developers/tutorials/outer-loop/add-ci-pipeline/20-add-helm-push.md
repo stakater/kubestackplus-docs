@@ -20,16 +20,16 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 1. Now edit the file so the YAML becomes like the one given below.
 
     ```yaml
-      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/helm_push.yaml" %}
+    {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/helm_push.yaml" %}
     ```
 
-   !!! note
-       Remember to add the remote task in the annotations
+    !!! note
+        Remember to add the remote task in the annotations
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![helm-push](images/helm-push.png)
+    ![helm-push](images/helm-push.png)
 
-   ![helm-push](images/helm-push-logs.png)
+    ![helm-push](images/helm-push-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

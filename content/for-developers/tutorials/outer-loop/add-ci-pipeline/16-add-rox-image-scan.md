@@ -20,17 +20,18 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 1. Now edit the file so the YAML becomes like the one given below.
 
     ```yaml
-      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/rox_image_scan.yaml" %}
+    {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/rox_image_scan.yaml" %}
     ```
 
-   !!! note
-       Remember to add the remote task in the annotations
-       ![rox-image-scan](images/rox-image-scan-annotation.png)
+    !!! note
+        Remember to add the remote task in the annotations
+
+    ![rox-image-scan](images/rox-image-scan-annotation.png)
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![rox-image-scan](images/rox-image-scan.png)
+    ![rox-image-scan](images/rox-image-scan.png)
 
-   ![rox-image-scan-logs](images/rox-image-scan-logs.png)
+    ![rox-image-scan-logs](images/rox-image-scan-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

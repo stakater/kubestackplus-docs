@@ -25,21 +25,21 @@ Now let's add a PrometheusRule for the application. In the previous section, we 
 1. You need to add the following lines to your `deploy/values.yaml` file:
 
     ```yaml
-      prometheusRule:
-        enabled: true
-        additionalLabels:
-          prometheus: stakater-workload-monitoring
-        groups:
-          - name: nordmart-review-low-rating-warning
-            rules:
-              - alert: NordmartReviewLowRatingsCritical
-                annotations:
-                  message: >-
-                    Total ratings below 2 has crossed the threshold 1. Total reviews: {{ $value }}.
-                expr: >
-                  sum by (namespace) (nordmart_review_ratings_total{rating="2"} or nordmart_review_ratings_total{rating="1"}) > 1
-                labels:
-                  severity: critical
+    prometheusRule:
+      enabled: true
+      additionalLabels:
+        prometheus: stakater-workload-monitoring
+      groups:
+        - name: nordmart-review-low-rating-warning
+          rules:
+            - alert: NordmartReviewLowRatingsCritical
+              annotations:
+                message: >-
+                  Total ratings below 2 has crossed the threshold 1. Total reviews: {{ $value }}.
+              expr: >
+                sum by (namespace) (nordmart_review_ratings_total{rating="2"} or nordmart_review_ratings_total{rating="1"}) > 1
+              labels:
+                severity: critical
     ```
 
     !!! note
@@ -69,45 +69,45 @@ Once you have the webhook Url, you can add the AlertManagerConfig. The Alertmana
 1. Let's add the AlertManagerConfig, add this YAML to `deploy/values.yaml`, and remember to replace "channel-name" with your channel name.
 
     ```yaml
-      alertmanagerConfig:
-        enabled: true
-        selectionLabels:
-          alertmanagerConfig: workload
-        spec:
-          receivers:
-            - name: nordmart-review-receiver
-              slackConfigs:
-                - apiURL:
-                    key: api_url
-                    name: review-slack-webhook
-                  channel: '<#channel-name>'
-                  sendResolved: true
-                  text: |2-
-                    {{ range .Alerts }}
-                    *Alert:* `{{ .Labels.severity | toUpper }}` - {{ .Annotations.summary }}
-                    *Description:* {{ .Annotations.description }}
-                    *Details:* {{ range $k, $v := .Labels }} - *{{ $k }}:* {{ $v }}
-                    {{ end }}
-                   {{ end }}
-                  title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] SAAP Alertmanager Event Notification'
-                  httpConfig:
-                    tlsConfig:
-                      insecureSkipVerify: true
-          route:
-            groupBy:
-              - alertname
-              - severity
-            groupInterval: 3m
-            groupWait: 30s
-            repeatInterval: 1h
-            matchers:
-              - name: alertname
-                value: NordmartReviewLowRatingsCritical
-            receiver: nordmart-review-receiver
+    alertmanagerConfig:
+      enabled: true
+      selectionLabels:
+        alertmanagerConfig: workload
+      spec:
+        receivers:
+          - name: nordmart-review-receiver
+            slackConfigs:
+              - apiURL:
+                  key: api_url
+                  name: review-slack-webhook
+                channel: '<#channel-name>'
+                sendResolved: true
+                text: |2-
+                  {{ range .Alerts }}
+                  *Alert:* `{{ .Labels.severity | toUpper }}` - {{ .Annotations.summary }}
+                  *Description:* {{ .Annotations.description }}
+                  *Details:* {{ range $k, $v := .Labels }} - *{{ $k }}:* {{ $v }}
+                  {{ end }}
+                  {{ end }}
+                title: '[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] SAAP Alertmanager Event Notification'
+                httpConfig:
+                  tlsConfig:
+                    insecureSkipVerify: true
+        route:
+          groupBy:
+            - alertname
+            - severity
+          groupInterval: 3m
+          groupWait: 30s
+          repeatInterval: 1h
+          matchers:
+            - name: alertname
+              value: NordmartReviewLowRatingsCritical
+          receiver: nordmart-review-receiver
     ```
 
-  !!! note
-      The indentation follows by **application.alertmanagerConfig**.
+    !!! note
+        The indentation follows by **application.alertmanagerConfig**.
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
@@ -119,4 +119,4 @@ Once you have the webhook Url, you can add the AlertManagerConfig. The Alertmana
 
     ![slack notification](images/slack-notification.png)
 
-Isn't it Awesome!!! Let's move to the next chapter.
+Isn't it awesome! Let's move to the next chapter.

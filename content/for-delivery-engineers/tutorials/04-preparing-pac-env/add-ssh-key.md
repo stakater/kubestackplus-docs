@@ -22,22 +22,22 @@
 
 1. Generate an ssh keypair. You can follow the official GitHub documentation for this.
 
-   !!! note
-       Save the keypair cautiously, you'll need to add it to Vault and GitHub.
+    !!! note
+        Save the keypair cautiously, you'll need to add it to Vault and GitHub.
 
 1. Once you've generated the keypair, go to your GitHub account `settings` for the top-right corner on your profile.
 
 1. Navigate to `SSH and GPG Keys`
 
-      <div style="text-align:center"><img src="images/ssh-key.png" /></div>
+    <div style="text-align:center"><img src="images/ssh-key.png" /></div>
 
 1. Click `Add New Key` in SSH Key section.
 
-     <div style="text-align:center"><img src="images/new-ssh-key.png" /></div>
+    <div style="text-align:center"><img src="images/new-ssh-key.png" /></div>
 
 1. Now add the public key of the keypair you generated earlier.
 
-     <div style="text-align:center"><img src="images/add-public-key.png" /></div>
+    <div style="text-align:center"><img src="images/add-public-key.png" /></div>
 
 ### Adding Private Key to Vault
 
@@ -59,13 +59,13 @@ Now that we have added the public key to GitHub, let's add the private key to Va
 
 1. You will now be brought to the `secrets` and the `configurations`. Click on `create secret`.
 
-     <div style="text-align:center"><img src="images/create-secret.png" /></div>
+    <div style="text-align:center"><img src="images/create-secret.png" /></div>
 
 1. Let's create a `git-ssh-creds` secret for our webhook secret. Write the name of the secret in `path` which is `git-ssh-creds`. Add `secret data`
     * key: `id_rsa`, value: (The SSH Private Key).
       Hit save.
 
-     <div style="text-align:center"><img src="images/git-ssh-creds.png" /></div>
+    <div style="text-align:center"><img src="images/git-ssh-creds.png" /></div>
 
 ### Adding External Secret
 
@@ -73,54 +73,54 @@ Since we want the `git-ssh-creds` secret to be deployed in all of the tenant nam
 
 1. Open up the `infra-gitops-config` repository that we have already bootstrapped.
 
-1. Open the `tenant-operator-config` folder and create a `templates` folder inside it.
+1. Open the `tenant-operator-config` folder and create a `templates` folder inside it:
 
-     <div style="text-align:center"><img src="images/template.png" /></div>
+    <div style="text-align:center"><img src="images/template.png" /></div>
 
-1. Now create a file named `git-ssh-creds-template.yaml` and add the following content.
+1. Now create a file named `git-ssh-creds-template.yaml` and add the following content:
 
-     ```yaml
-     apiVersion: tenantoperator.stakater.com/v1alpha1
-     kind: Template
-     metadata:
-       name: git-ssh-creds
-     resources:
-       manifests:
-         - apiVersion: external-secrets.io/v1beta1
-           kind: ExternalSecret
-           metadata:
-             name: git-ssh-creds
-           spec:
-             secretStoreRef:
-               name: tenant-vault-secret-store
-               kind: SecretStore
-             refreshInterval: "1m0s"
-             target:
-               name: git-ssh-creds
-               creationPolicy: 'Owner'
-               template:
-                 data:
-                   id_rsa: "{{ .id_rsa  }}"
-             data:
-             - secretKey: id_rsa
-               remoteRef:
-                 key: git-ssh-creds
-                 property: api_private_key
-     ```
+    ```yaml
+    apiVersion: tenantoperator.stakater.com/v1alpha1
+    kind: Template
+    metadata:
+      name: git-ssh-creds
+    resources:
+      manifests:
+        - apiVersion: external-secrets.io/v1beta1
+          kind: ExternalSecret
+          metadata:
+            name: git-ssh-creds
+          spec:
+            secretStoreRef:
+              name: tenant-vault-secret-store
+              kind: SecretStore
+            refreshInterval: "1m0s"
+            target:
+              name: git-ssh-creds
+              creationPolicy: 'Owner'
+              template:
+                data:
+                  id_rsa: "{{ .id_rsa  }}"
+            data:
+            - secretKey: id_rsa
+              remoteRef:
+                key: git-ssh-creds
+                property: api_private_key
+    ```
 
-1. Create another file named `git-ssh-creds-tgi.yaml` and add the below content.
+1. Create another file named `git-ssh-creds-tgi.yaml` and add the following content:
 
-     ```yaml
-        apiVersion: tenantoperator.stakater.com/v1alpha1
-        kind: TemplateGroupInstance
-        metadata:
-          name: git-ssh-creds
-        spec:
-          template: git-ssh-creds
-          selector:
-            matchExpressions:
-              - key: stakater.com/kind
-                operator: In
-                values: [ build, pr ]
-          sync: true
-     ```
+    ```yaml
+    apiVersion: tenantoperator.stakater.com/v1alpha1
+    kind: TemplateGroupInstance
+    metadata:
+      name: git-ssh-creds
+    spec:
+      template: git-ssh-creds
+      selector:
+        matchExpressions:
+          - key: stakater.com/kind
+            operator: In
+            values: [ build, pr ]
+      sync: true
+    ```
