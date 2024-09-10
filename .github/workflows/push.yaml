@@ -14,6 +14,6 @@ jobs:
     secrets:
       CONTAINER_REGISTRY_URL: ghcr.io/stakater
       CONTAINER_REGISTRY_USERNAME: ${{ github.actor }}
-      CONTAINER_REGISTRY_PASSWORD: ${{ secrets.PUBLISH_TOKEN }}
+      CONTAINER_REGISTRY_PASSWORD: ${{ secrets.GHCR_TOKEN }}
       SLACK_WEBHOOK_URL: ${{ secrets.STAKATER_DELIVERY_SLACK_WEBHOOK }}
       GH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
