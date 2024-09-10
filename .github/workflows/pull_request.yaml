@@ -18,8 +18,8 @@ jobs:
       DOCKER_FILE_PATH: Dockerfile
     secrets:
       CONTAINER_REGISTRY_URL: ghcr.io/stakater
-      CONTAINER_REGISTRY_USERNAME: stakater-user
-      CONTAINER_REGISTRY_PASSWORD: ${{ secrets.STAKATER_GITHUB_TOKEN }}
+      CONTAINER_REGISTRY_USERNAME: ${{ github.actor }}
+      CONTAINER_REGISTRY_PASSWORD: ${{ secrets.GHCR_TOKEN }}
       SLACK_WEBHOOK_URL: ${{ secrets.STAKATER_DELIVERY_SLACK_WEBHOOK }}
 
   test:
@@ -35,18 +35,18 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io/stakater
-          username: stakater-user
-          password: ${{ secrets.STAKATER_GITHUB_TOKEN }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Run Docker container for the saap-docs app
         run: |
           docker run -d --name saap-docs -p 8080:8080 ghcr.io/stakater/${{ github.repository }}${{ env.IMAGE_PATH }} || exit 1
 
       - name: Build testcafe tests
-        working-directory: ./testcafe 
+        working-directory: ./testcafe
         run: |
           docker build -t testcafe-tests .
-        
+
       - name: Run Docker container to run tests
         run: |
           docker run --rm --network="host" --name myapp-testcafe-container testcafe-tests:latest
