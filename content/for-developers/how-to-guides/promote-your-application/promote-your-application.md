@@ -10,7 +10,7 @@ Key Results:
 
 - Image or Chart version updated
 
-This guide assumes that application is already [on-boarded](../../../for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md) to different environments.
+This guide assumes that application is already [on-boarded](../../../for-devops-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md) to different environments.
 
 ## 1. Promote chart
 

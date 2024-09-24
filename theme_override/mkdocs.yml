@@ -75,24 +75,24 @@ nav:
           - for-administrators/help/faq.md
       - Explanation:
           - for-administrators/explanation/number-of-clusters.md
-  - For Delivery Engineers:
-      - for-delivery-engineers/overview.md
+  - For DevOps Engineers:
+      - for-devops-engineers/overview.md
       - Explanation:
-          - for-delivery-engineers/explanation/gitops-intro.md
-          - for-delivery-engineers/explanation/gitops-structure.md
-          - for-delivery-engineers/explanation/types-of-environments.md
-          - for-delivery-engineers/explanation/stakater-tekton-chart.md
-          - for-delivery-engineers/explanation/faq.md
+          - for-devops-engineers/explanation/gitops-intro.md
+          - for-devops-engineers/explanation/gitops-structure.md
+          - for-devops-engineers/explanation/types-of-environments.md
+          - for-devops-engineers/explanation/stakater-tekton-chart.md
+          - for-devops-engineers/explanation/faq.md
       - Tutorials:
-          - for-delivery-engineers/tutorials/04-preparing-pac-env/adding-github-token.md
-          - for-delivery-engineers/tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md
-          - for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md
-          - for-delivery-engineers/tutorials/04-preparing-pac-env/add-ssh-key.md
-          - for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
+          - for-devops-engineers/tutorials/04-preparing-pac-env/adding-github-token.md
+          - for-devops-engineers/tutorials/01-configure-infra-gitops-config/configure-infra-gitops-repo.md
+          - for-devops-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md
+          - for-devops-engineers/tutorials/04-preparing-pac-env/add-ssh-key.md
+          - for-devops-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md
       - How-to guides:
-          - for-delivery-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
-          - for-delivery-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
-          - for-delivery-engineers/how-to-guides/use-a-cluster-task-in-pipeline/use-a-clustertask-in-pipeline.md
+          - for-devops-engineers/how-to-guides/configure-repository-secret/configure-repository-secret.md
+          - for-devops-engineers/how-to-guides/add-a-cluster-task/add-cluster-task.md
+          - for-devops-engineers/how-to-guides/use-a-cluster-task-in-pipeline/use-a-clustertask-in-pipeline.md
   - For Developers:
       - for-developers/overview.md
       - Explanation:

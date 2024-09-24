@@ -6,7 +6,7 @@ There are multiple ways to deploy your Application on the Cluster.
 
     > This is the recommended local development workflow
 
-- For Deployment via GitOps, follow [this](../../../../for-delivery-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md) guide for Deploying the Application with GitOps
+- For Deployment via GitOps, follow [this](../../../../for-devops-engineers/tutorials/03-deploy-demo-app/deploy-demo-app.md) guide for Deploying the Application with GitOps
 
     > This is the recommended production workflow
 
