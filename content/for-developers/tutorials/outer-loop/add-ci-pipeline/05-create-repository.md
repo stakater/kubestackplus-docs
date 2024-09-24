@@ -6,7 +6,7 @@ In this tutorial, you'll create secrets containing your GitHub access credential
 
 ## Prerequisites
 
-1. You have a pre-configured GitOps repository. If you haven't already configured it, follow [this tutorial](../../../../for-delivery-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md)
+1. You have a pre-configured GitOps repository. If you haven't already configured it, follow [this tutorial](../../../../for-devops-engineers/tutorials/02-configure-apps-gitops-config/configure-apps-gitops-repo.md)
 
 ## Objectives
 
