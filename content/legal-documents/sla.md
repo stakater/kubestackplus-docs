@@ -176,7 +176,7 @@ The SLA does not apply to any:
 
 Payment is due once during a Service Period and the Customer will be charged for the number of worker nodes that have been running during the monthly Service Period.
 
-## 15. Covered Service
+## 15. Covered Service {#covered-service}
 
 - "**Covered Service**" means, for each of Zonal Clusters and Regional Clusters, the **OpenShift API** provided by Customer's cluster(s), so long as the version of OpenShift Engine deployed in the cluster is a version currently offered in the Stable Channel.
 - "**Stable Channel**" means the Red Hat OpenShift Container Platform Stable release channel.
