@@ -172,25 +172,25 @@ The SLA does not apply to any:
 
     - 13.5.10 for subscriptions reserved, but not paid for, at the time of the incident.
 
-## Payments
+## 14. Payments
 
 Payment is due once during a Service Period and the Customer will be charged for the number of worker nodes that have been running during the monthly Service Period.
 
-## Covered Service
+## 15. Covered Service
 
-- "**Covered Service**" means, for each of Zonal Clusters and Regional Clusters, the OpenShift API provided by Customer's cluster(s), so long as the version of OpenShift Engine deployed in the cluster is a version currently offered in the Stable Channel.
+- "**Covered Service**" means, for each of Zonal Clusters and Regional Clusters, the **OpenShift API** provided by Customer's cluster(s), so long as the version of OpenShift Engine deployed in the cluster is a version currently offered in the Stable Channel.
 - "**Stable Channel**" means the Red Hat OpenShift Container Platform Stable release channel.
 - "**Zonal Cluster**" means a single-Zone cluster with control planes running in one Zone (data centre).
-- "**Regional Cluster**" means a cluster topology that consists of three replicas of the control plane, running in multiple Zones within a given Region.
+- "**Regional Cluster**" means a cluster topology that consists of three replicas of the control plane, running in multiple Zones (data centres) within a given Region.
 
-## Service Level Objectives
+## 16. Service Level Objectives
 
 Covered Service | Monthly Uptime Percentage
 --- | ---
 Zonal Clusters | 99.00%
 Regional Clusters | 99.50%
 
-## Financial Credits
+## 17. Financial Credits
 
 If the SLO is not met in a Service Period, and if Customer meets its obligations under this SLA, Customer will be entitled to, upon request, a service Financial Credit equal to the following:
 
