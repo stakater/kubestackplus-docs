@@ -1,4 +1,4 @@
-# NDA
+# Non-Disclosure Agreement (NDA)
 
 `Version: 9 May 2023`
 

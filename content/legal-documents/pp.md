@@ -1,4 +1,4 @@
-# Privacy Policy
+# Privacy Policy (PP)
 
 `Version: 11 May 2023`
 
