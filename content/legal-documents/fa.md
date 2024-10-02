@@ -61,7 +61,7 @@ from
 
 1. **Further Provisions**
 
-    All other provisions are set out in the General Terms and Conditions and in the other referenced documents.
+    All other provisions are set out in the [General Terms and Conditions (GTC)](gtc.md) and in the other referenced documents.
 
 1. **Amendment**
 
