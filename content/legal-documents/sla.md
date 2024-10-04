@@ -1,6 +1,6 @@
 # Service Level Agreement (SLA)
 
-`Version: 18 September 2023`
+`Version: 05 October 2024`
 
 This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you ("**Customer**"). Each a "Party", and together the "Parties".
 

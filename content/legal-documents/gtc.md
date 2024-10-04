@@ -1,6 +1,6 @@
 # General Terms & Conditions (GTC)
 
-`Version: 13 May 2023`
+`Version: 05 Oct 2024`
 
 1. **Introduction**
 
