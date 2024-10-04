@@ -41,7 +41,7 @@
 
     Prior written consent of the Controller is required for awarding contracts with subcontractors for processing Personal Data covered by the contract.
 
-    The Controller grants the Processor general authorization to use subcontractors in accordance with the provisions of this DPA. The Processor shall inform the Controller in a timely manner of any intended change with respect to the use or replacement of other subcontractors. The Controller may object to the change within thirty (30) days if there is a valid reason. The objection must be in writing, specifying the reasons for the objection. Any further outsourcing by the subcontractor requires the express consent of the Controller.
+    The Controller grants the Processor authorization to use subcontractors in accordance with the provisions of this DPA. The Processor shall inform the Controller in a timely manner of any intended change with respect to the use or replacement of other subcontractors. The Controller may object to the change within thirty (30) days if there is a valid reason. The objection must be in writing, specifying the reasons for the objection. Any further outsourcing by the subcontractor requires the express consent of the Controller.
 
     The Processor must ensure that authorized subcontractors have data protection obligations fundamentally comparable to those contained in this Agreement before processing Personal Data of the Controller.
 
@@ -87,7 +87,7 @@
 
 1. **Other Provisions**
 
-    1. STAKATER reserves the right to modify this DPA at any time and will notify customers of the changes in a suitable manner, including electronically.
+    1. Both parties reserve the right to renegotiate this DPA at any time. Each party will notify the other of proposed changes in a suitable manner, including electronically to mutually agree on the changes.
 
     1. Any changes or additions to this DPA will become a binding part of the agreement unless the Customer objects within thirty (30) days of being informed of the amended provisions.
 

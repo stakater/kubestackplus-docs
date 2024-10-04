@@ -26,7 +26,7 @@ and
 
     The term "Contracting Parties" refers to the parties who are bound by this agreement on confidentiality.
 
-    The term "Confidential Information" refers to all information shared between the parties, whether in written, oral, electronic, or any other form, which is explicitly marked as secret or confidential or can be recognized as such. This includes but is not limited to data, drawings, photographs, illustrations, drafts, sketches, plans, descriptions, specifications, measurement results, calculations, experiences, ideas, procedures, samples, knowledge, processes, as well as any other applications for industrial property rights, work results, sales figures, business and financial plans, CUSTOMER data, and prices that have not been published yet. Additionally, the term includes the existence and contents of this agreement.
+    The term "Confidential Information" refers to all information shared between the parties, whether in written, oral, electronic, or any other form, which is explicitly marked as secret or confidential or can be recognized as such. This includes but is not limited to data, drawings, photographs, illustrations, drafts, sketches, plans, descriptions, specifications, measurement results, calculations, experiences, ideas, procedures, samples, knowledge, processes, as well as any other applications for industrial property rights, work results, sales figures, business and financial plans, CUSTOMER data, and prices that have not been published yet, or those agreed in consulting services scope agreement. Additionally, the term includes the existence and contents of this agreement.
 
 1. **Secrecy Agreement**
 

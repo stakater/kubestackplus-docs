@@ -10,9 +10,9 @@
 
 1. **Scope of Services**
 
-    1. The scope of services provided by STAKATER is determined by the specific details outlined in the contractual orders, service descriptions, and relevant [Service Level Agreements (SLAs)](sla.md).
+    1. The scope of services provided by STAKATER is determined by the specific details outlined in the statmenet of work / contractual orders.
 
-    1. Both Parties agree to collaborate on related activities and, pursuant to statements of work [Service Level Agreements (SLAs)](sla.md) to this Agreement.
+    1. Both Parties agree to collaborate on related activities pursuant to the statements of work to this Agreement.
 
     1. Any services provided by STAKATER under this Agreement shall be known as the "**Services**".
 
@@ -22,7 +22,7 @@
 
     1. Should STAKATER be required to provide additional services beyond the agreed support scope or charge for additional expenses incurred due to the Customer's non-compliance of its obligations, these additional services and expenses will be charged based on STAKATER's current hourly rates.
 
-    1. STAKATER has the right to modify its services, including the SLA, at any time. If these changes affect the services purchased by the Customer, STAKATER will provide written notice at least 30 (30) calendar days prior to the changes taking effect. If the Customer does not indicate their objection to such changes prior to the proposed date of effect, consent will be assumed on their behalf.
+    1. STAKATER has the right to modify its services, including the SLA, at any time. If these changes affect the services purchased by the Customer, STAKATER will provide written notice at least thirty (30) calendar days prior to the changes taking effect. If the Customer does not indicate their objection to such changes prior to the proposed date of effect, consent will be assumed on their behalf.
 
 1. **STAKATER's Obligations**
 
@@ -88,11 +88,23 @@
 
     1. The Customer will be solely responsible to ensure continuity of their own systems and backing up their data during and before termination of contract. Upon request, STAKATER may assist the Customer in transferring services and data to their own or third-party systems and may charge standard rates for the service.
 
+1. **Intellectual Property**
+
+    1. The terms “Software” and “Platform” encompass all inventions, including new applications of the Study, Device, or Technology, as well as any intellectual property created or developed by the Parties, either individually or collaboratively, under this Agreement.
+    
+    1. Inventorship for any Inventions will be determined according to applicable Swedish patent law (1967:837). The Parties agree to fully cooperate in preparing and filing patent applications related to these Inventions.
+    
+    1. All information exchanged between the Parties in relation to this Agreement will be classified as “Business Sensitive,” “Confidential,” or “Mission Critical,” including electronic communications at operational, project, and executive levels.
+    
+    1. The confidentiality of shared information is governed by, “Non-Disclosure Agreement,”.
+    
+    1. Each Party retains ownership of its pre-existing intellectual property and any modifications made during the Agreement.
+
 1. **Legal Warranty**
 
     1. STAKATER guarantees that the Customer's use of its services in compliance with the law and the Agreement does not violate any third-party intellectual property rights.
 
-    1. If a third-party claims that their intellectual property rights have been violated by the Customer's use of Stakater's services, except if the customer is using other service(s) as a combination to Stakater's services that fall under is intellectual property rights violations, STAKATER will defend the Customer against such a claim at its own expense if the customer:
+    1. If a third-party claims that their intellectual property rights have been violated by the Customer's use of Stakater's services, except if the customer is using other service(s) as a combination to Stakater's services that fall under its intellectual property rights violations, STAKATER will defend the Customer against such a claim at its own expense if the customer:
 
         1. notifies STAKATER immediately in writing within three (3) working days of such event,
 
@@ -142,13 +154,18 @@
 
 1. **Confidentiality**
 
-    1. STAKATER commits to treat Customer data with care. Customer gives STAKATER its consent that its data may be used for the fulfilment of contractual obligations and may be used in anonymous form to improve the services and products of STAKATER.
+    1. As used in this Agreement, “Confidential Information” means all non-public information related to the Business, including without limitation, financial information, technical information, marketing information, cost information, sales information, customer information, operating information, product information, all documents, reports, plans, formulas, compilations, devices, techniques, data, materials, methods, processes, sources, and any other information, however described, which is, or could be, valuable in the type of business in which Owner is engaged. Owner makes no representation or warranty with respect to any Confidential Information provided to Recipient. Recipient shall not have any ownership rights or license with respect to any Confidential Information and shall not use any Confidential Information for its benefit without Owner’s prior written consent.
 
-    1. Both Parties undertake to treat as confidential all information not generally known which they have learned from the other Party or about its Customers and business relations in connection with the provision of their services within the scope of the contractual relationship.
+    1. Supplier covenants and agrees that the Supplier, its owners, managers, agents, employees, consultants, and representatives will not disclose, divulge, communicate, or confirm to any person or entity, for any purpose or reason whatsoever, any Confidential Information, without the prior written consent of The Company. The foregoing parties shall only receive such Confidential Information as reasonably necessary for the purpose set forth above and shall agree to maintain confidentiality in accordance with terms no less protective that those set forth in this Agreement. All such information shall be deemed confidential, sensitive, and valuable, shall be used solely for the purpose set forth above, and shall not at any time, in any manner, be used for any other purpose. The covenants and restrictions described herein shall apply to the extent that the Confidential Information
+            a. 	is not otherwise made public by Owner,
+            b.	is not already a matter of public information, or
+            c.	is not requested in the context of a subpoena or records request in connection with a lawsuit; provided that in the case of such a request, Recipient shall give adequate notice to Owner that such Confidential Information has been requested in connection with a lawsuit and shall allow Owner to enter such proceedings for the purpose of protecting against disclosure of such Confidential Information..
 
-    1. Furthermore, both Parties undertake not to make such information available to third parties, either in whole or in part, nor to publish such information, unless and to the extent as the other Party expressly permits this, becomes necessary due to a court order or legal obligation or this is necessary for the execution of the Agreement.
+    1. If a party claims to have known any such Confidential Information prior to disclosure, that party shall have the burden of proof of such prior knowledge.
 
-    1. If the Customer processes or discloses personal information within the definition of the Data Protection Act by use of a STAKATER Service(s), the Customer must obtain necessary consent of each affected individual. If the Customer is unable to obtain such consent, then it will be identified as a Data Breach and the Customer must proceed with their processes according to the law, and contact their respective Supervisory Authority where the breach took place.
+    1. This Agreement and the non-disclosure covenant set forth herein shall terminate upon written notice of termination from The Company to Supplier.
+
+    1. The parties recognize that irreparable injury will result to the Company and others in the event of a breach of this Agreement, and that this covenant not to disclose is an inducement to The Company to disclose the information contemplated hereunder. It is hereby agreed that in the event of a breach, The Company shall be entitled, in addition to any other remedies and damages available at law or in equity, to an injunction to restrain the violation thereof by Supplier, or Supplier’s owners, managers, agents, employees, consultants and representatives, and all other persons acting for or in concert with The Supplier.
 
 1. **Data Protection and Security Measures**
 
@@ -191,3 +208,15 @@
     1. In the event that both Parties are unable to cooperatively resolve the Dispute, they shall attempt, in good faith, to mediate the matter in a mutually acceptable location (“Arbitration”), engaging the services of a mediator familiar with subject matter at issue and acceptable to both Parties.
     1. The requirement of Arbitration shall be deemed satisfied if the filing Party proposed a qualified mediator and offered to make itself reasonably available during the sixty (60) calendar days following Notice, but Mediation did not take place or conclude within such 60-day period.
     1. The requirement of Mediation and Negotiation may be waived upon mutual written consent of the Parties. Further, notwithstanding the foregoing, either Party may seek injunctive relief against a Party related to the acts or omissions of such Party that breach this Agreement and cause or are likely to cause irreparable harm to the other Party, without the requirement of Mediation or Negotiation.
+
+1. **Entire Agreement**
+
+    1. This Agreement, the exhibits hereto, including any related Services, constitute and contain the entire agreement and final understanding between the Parties concerning the Services and all other subject matters addressed herein or pertaining thereto.This Agreement supersedes and replaces all prior negotiations and all prior or contemporaneous representations, promises or agreements, proposed or otherwise between the parties, whether written or oral, concerning the Services, any study and all other subject matters addressed herein or pertaining thereto. 
+
+1. **Assignment**
+
+    1. Neither Party hereto may assign, cede, or transfer any of its rights or obligations under this Agreement without the written consent of the other Party, whether by merger, acquisition, sale, operation of law, or otherwise.
+
+1. **Waiver**
+
+    1. No waiver of any term, provision or condition of this Agreement whether by conduct or otherwise in any one or more instances shall be deemed to be or construed as a further or continuing waiver of any such term, provision or condition, or of any other term, provision or condition of this Agreement.
