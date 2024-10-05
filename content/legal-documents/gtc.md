@@ -10,7 +10,7 @@
 
 1. **Scope of Services**
 
-    1. The scope of services provided by STAKATER is determined by the specific details outlined in the statmenet of work / contractual orders.
+    1. The scope of services provided by STAKATER is determined by the specific details outlined in the statement of work / contractual orders.
 
     1. Both Parties agree to collaborate on related activities pursuant to the statements of work to this Agreement.
 
