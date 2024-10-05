@@ -1,18 +1,18 @@
 # General Terms & Conditions (GTC)
 
-`Version: 13 May 2023`
+`Version: 05 Oct 2024`
 
 1. **Introduction**
 
-    1. These General Terms and Conditions ("**GTC**") together with the other documents referenced herein govern the legal relationship (the "**Agreement**") between STAKATER  ("**STAKATER**") and the customer of STAKATER ("**Customer**", each a "**Party**" and together the "**Parties**").
+    1. These General Terms and Conditions ("**GTC**") together with the other documents referenced herein govern the legal relationship (the "**Agreement**") between STAKATER  ("**STAKATER**") and the customer of STAKATER ("**Customer**", each a "**Party**" and together the "**Parties**").
 
     1. This Agreement applies to all relationships engaged between The Parties.
 
 1. **Scope of Services**
 
-    1. The scope of services provided by STAKATER is determined by the specific details outlined in the contractual orders, service descriptions, and relevant [Service Level Agreements (SLAs)](sla.md).
+    1. The scope of services provided by STAKATER is determined by the specific details outlined in the statmenet of work / contractual orders.
 
-    1. Both Parties agree to collaborate on related activities and, pursuant to statements of work [Service Level Agreements (SLAs)](sla.md) to this Agreement.
+    1. Both Parties agree to collaborate on related activities pursuant to the statements of work to this Agreement.
 
     1. Any services provided by STAKATER under this Agreement shall be known as the "**Services**".
 
@@ -22,7 +22,7 @@
 
     1. Should STAKATER be required to provide additional services beyond the agreed support scope or charge for additional expenses incurred due to the Customer's non-compliance of its obligations, these additional services and expenses will be charged based on STAKATER's current hourly rates.
 
-    1. STAKATER has the right to modify its services, including the SLA, at any time. If these changes affect the services purchased by the Customer, STAKATER will provide written notice at least 30 (30) calendar days prior to the changes taking effect. If the Customer does not indicate their objection to such changes prior to the proposed date of effect, consent will be assumed on their behalf.
+    1. STAKATER has the right to modify its services, including the SLA, at any time. If these changes affect the services purchased by the Customer, STAKATER will provide written notice at least thirty (30) calendar days prior to the changes taking effect. If the Customer does not indicate their objection to such changes prior to the proposed date of effect, consent will be assumed on their behalf.
 
 1. **STAKATER's Obligations**
 
@@ -60,6 +60,45 @@
 
     1. If a third party claims a violation of rights by the data, content, or information provided by the Customer, STAKATER is entitled to suspend the data, content, or information as appropriate and permissible under the General Terms and Conditions.
 
+1. **Content**
+
+    1.  **Your Right to Post Content**
+    Our Service allows You to post Content. You are responsible for the Content that You post to the Service, including its legality, reliability, and appropriateness.
+
+    By posting Content to the Service, You grant Us the right and license to use, modify, publicly perform, publicly display, reproduce, and distribute such Content on and through the Service. You retain any and all of Your rights to any Content You submit, post or display on or through the Service and You are responsible for protecting those rights. You agree that this license includes the right for Us to make Your Content available to other users of the Service, who may also use Your Content subject to these Terms.
+
+    You represent and warrant that: 
+            (i) the Content is Yours (You own it) or You have the right to use it and grant Us the rights and license as provided in these Terms, and 
+            (ii)    the posting of Your Content on or through the Service does not violate the privacy rights, publicity rights, copyrights, contract rights or any other rights of any person.
+
+    1.  **Content Restrictions**
+    The Company is not responsible for the content of the Service's users. You expressly understand and agree that You are solely responsible for the Content and for all activity that occurs under your account, whether done so by You or any third person using Your account.
+
+    You may not transmit any Content that is unlawful, offensive, upsetting, intended to disgust, threatening, libelous, defamatory, obscene or otherwise objectionable. Examples of such objectionable Content include, but are not limited to, the following:
+
+            i.      Unlawful or promoting unlawful activity.
+            ii.     Defamatory, discriminatory, or mean-spirited content, including references or commentary about religion, race, sexual orientation, gender, national/ethnic origin, or other targeted groups.
+            iii.    Spam, machine – or randomly – generated, constituting unauthorized or unsolicited advertising, chain letters, any other form of unauthorized solicitation, or any form of lottery or gambling.
+            iv.     Containing or installing any viruses, worms, malware, trojan horses, or other content that is designed or intended to disrupt, damage, or limit the functioning of any software, hardware or telecommunications equipment or to damage or obtain unauthorized access to any data or other information of a third person.
+            v.      Infringing on any proprietary rights of any party, including patent, trademark, trade secret, copyright, right of publicity or other rights.
+            vi.     Impersonating any person or entity including the Company and its employees or representatives.
+            vii.    Violating the privacy of any third person.
+            viii.   False information and features.
+    
+    The Company reserves the right, but not the obligation, to, in its sole discretion, determine whether or not any Content is appropriate and complies with this Terms, refuse or remove this Content. The Company further reserves the right to make formatting and edits and change the manner of any Content. 
+
+    The Company can also limit or revoke the use of the Service if You imply objectionable Content, or malicious activity towards Us or any other Users of our platforms. As the Company cannot control all content posted by users and/or third parties on the Service, you agree to use the Service at your own risk. 
+    
+    You understand that by using the Service You may be exposed to content that You may find offensive, indecent, incorrect or objectionable, and You agree that under no circumstances will the Company be liable in any way for any content, including any errors or omissions in any content, or any loss or damage of any kind incurred as a result of your use of any content.
+
+    1.  **Content Backups**
+    Although regular backups of Content are performed, the Company does not guarantee there will be no loss or corruption of data.
+    Corrupt or invalid backup points may be caused by, without limitation, Content that is corrupted prior to being backed up or that changes during the time a backup is performed.
+
+    The Company will provide support and attempt to troubleshoot any known or discovered issues that may affect the backups of Content. But You acknowledge that the Company has no liability related to the integrity of Content or the failure to successfully restore Content to a usable state.
+   
+    You agree to maintain a complete and accurate copy of any Content in a location independent of the Service. 
+
 1. **Invoicing and Payment**
 
     1. Unless otherwise agreed in writing, STAKATER will invoice the Services quarterly in advance.
@@ -88,11 +127,21 @@
 
     1. The Customer will be solely responsible to ensure continuity of their own systems and backing up their data during and before termination of contract. Upon request, STAKATER may assist the Customer in transferring services and data to their own or third-party systems and may charge standard rates for the service.
 
+1. **Intellectual Property**
+
+    1. The terms “Software” and “Platform” encompass all inventions, including new applications of the Study, Device, or Technology, as well as any intellectual property created or developed by the Parties, either individually or collaboratively, under this Agreement. Each Party retains ownership of its pre-existing intellectual property and any modifications made during the Agreement.
+
+    1. We respect the intellectual property rights of others and will respond to any claims that content posted on the Service infringes on copyright or other intellectual property rights. If you are a copyright owner or authorized representative and believe that your work has been copied in a way that constitutes infringement through the Service, you must submit a written notice to our legal team at legal@stakater.com, including a detailed description of the alleged infringement. Misrepresentation regarding any content's infringement may result in accountability for damages, including costs and attorneys' fees.
+
+    1. Inventorship for any inventions will be determined according to applicable Swedish patent law (1967:837). The Parties agree to fully cooperate in preparing and filing patent applications related to these inventions.
+    
+    1. All information exchanged between the Parties in relation to this Agreement will be classified as “Business Sensitive,” “Confidential,” or “Mission Critical,” including electronic communications at operational, project, and executive levels. The confidentiality of shared information is governed by a Non-Disclosure Agreement.
+
 1. **Legal Warranty**
 
     1. STAKATER guarantees that the Customer's use of its services in compliance with the law and the Agreement does not violate any third-party intellectual property rights.
 
-    1. If a third-party claims that their intellectual property rights have been violated by the Customer's use of Stakater's services, except if the customer is using other service(s) as a combination to Stakater's services that fall under is intellectual property rights violations, STAKATER will defend the Customer against such a claim at its own expense if the customer:
+    1. If a third-party claims that their intellectual property rights have been violated by the Customer's use of Stakater's services, except if the customer is using other service(s) as a combination to Stakater's services that fall under its intellectual property rights violations, STAKATER will defend the Customer against such a claim at its own expense if the customer:
 
         1. notifies STAKATER immediately in writing within three (3) working days of such event,
 
@@ -134,21 +183,30 @@
 
 1. **Liability and Indemnification**
 
-    1. STAKATER is liable to the Customer for damages caused intentionally or by gross negligence. The liability of STAKATER for damages caused by negligence unintentionally, or damage caused by an auxiliary person(s) is excluded, as far as legally permissible.
+    1. STAKATER is liable to the Customer for damages caused intentionally or by gross negligence. The liability of STAKATER for damages caused unintentionally, or by auxiliary person(s), is excluded, as far as legally permissible.
 
-    1. STAKATER is not liable for damages resulting from use in violation of the Agreement or to the law, and the Customer is liable for all damages incurred by STAKATER as a result. The Customer shall indemnify STAKATER for all damages resulting from breach of Agreement or rights, including third-party claims and any legal and attorney's fees.
+    1. Notwithstanding any damages that you might incur, the entire liability of STAKATER and its suppliers under any provision of these Terms shall be limited to the amount actually paid by you through the Service.
 
-    1. STAKATER is not liable for service delays or disruptions and damages that arise due to events that are not the responsibility of STAKATER or that make the performance significantly more difficult or impossible and that cannot be avoided, such as natural disasters of any kind, pandemics, riots, blockade, fire, civil war, embargo, earthquakes, hostage taking, war, revolution, sabotage, strikes, terrorism, traffic accidents or production disruptions, such as the failure of communication networks and gateways of other operators.
+    1. To the maximum extent permitted by applicable law, in no event shall STAKATER or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, loss of profits, data, business interruption, personal injury, or loss of privacy) arising out of or related to the use of or inability to use the Service or any third-party software and/or hardware used with it.
+
+    1. STAKATER is not liable for damages resulting from use in violation of the Agreement or applicable law. The Customer shall indemnify STAKATER for all damages resulting from breaches of the Agreement, including third-party claims and any legal fees incurred.
+
+    1. STAKATER is not liable for service delays or disruptions due to events beyond its control, such as natural disasters, pandemics, riots, fires, civil war, embargoes, earthquakes, hostage situations, wars, revolutions, sabotage, strikes, terrorism, traffic accidents, or production disruptions.
 
 1. **Confidentiality**
 
-    1. STAKATER commits to treat Customer data with care. Customer gives STAKATER its consent that its data may be used for the fulfilment of contractual obligations and may be used in anonymous form to improve the services and products of STAKATER.
+    1. As used in this Agreement, “Confidential Information” means all non-public information related to the Business, including without limitation, financial information, technical information, marketing information, cost information, sales information, customer information, operating information, product information, all documents, reports, plans, formulas, compilations, devices, techniques, data, materials, methods, processes, sources, and any other information, however described, which is, or could be, valuable in the type of business in which Owner is engaged. Owner makes no representation or warranty with respect to any Confidential Information provided to Recipient. Recipient shall not have any ownership rights or license with respect to any Confidential Information and shall not use any Confidential Information for its benefit without Owner’s prior written consent.
 
-    1. Both Parties undertake to treat as confidential all information not generally known which they have learned from the other Party or about its Customers and business relations in connection with the provision of their services within the scope of the contractual relationship.
+    1. Supplier covenants and agrees that the Supplier, its owners, managers, agents, employees, consultants, and representatives will not disclose, divulge, communicate, or confirm to any person or entity, for any purpose or reason whatsoever, any Confidential Information, without the prior written consent of The Company. The foregoing parties shall only receive such Confidential Information as reasonably necessary for the purpose set forth above and shall agree to maintain confidentiality in accordance with terms no less protective that those set forth in this Agreement. All such information shall be deemed confidential, sensitive, and valuable, shall be used solely for the purpose set forth above, and shall not at any time, in any manner, be used for any other purpose. The covenants and restrictions described herein shall apply to the extent that the Confidential Information
+            a.  is not otherwise made public by Owner,
+            b.  is not already a matter of public information, or
+            c.  is not requested in the context of a subpoena or records request in connection with a lawsuit; provided that in the case of such a request, Recipient shall give adequate notice to Owner that such Confidential Information has been requested in connection with a lawsuit and shall allow Owner to enter such proceedings for the purpose of protecting against disclosure of such Confidential Information..
 
-    1. Furthermore, both Parties undertake not to make such information available to third parties, either in whole or in part, nor to publish such information, unless and to the extent as the other Party expressly permits this, becomes necessary due to a court order or legal obligation or this is necessary for the execution of the Agreement.
+    1. If a party claims to have known any such Confidential Information prior to disclosure, that party shall have the burden of proof of such prior knowledge.
 
-    1. If the Customer processes or discloses personal information within the definition of the Data Protection Act by use of a STAKATER Service(s), the Customer must obtain necessary consent of each affected individual. If the Customer is unable to obtain such consent, then it will be identified as a Data Breach and the Customer must proceed with their processes according to the law, and contact their respective Supervisory Authority where the breach took place.
+    1. This Agreement and the non-disclosure covenant set forth herein shall terminate upon written notice of termination from The Company to Supplier.
+
+    1. The parties recognize that irreparable injury will result to the Company and others in the event of a breach of this Agreement, and that this covenant not to disclose is an inducement to The Company to disclose the information contemplated hereunder. It is hereby agreed that in the event of a breach, The Company shall be entitled, in addition to any other remedies and damages available at law or in equity, to an injunction to restrain the violation thereof by Supplier, or Supplier’s owners, managers, agents, employees, consultants and representatives, and all other persons acting for or in concert with The Supplier.
 
 1. **Data Protection and Security Measures**
 
@@ -184,10 +242,41 @@
 
     1. Should one or more provisions of these GTC or the remaining Agreement be or become invalid, ineffective or void, this provision shall be replaced by a valid and effective provision that comes closest to the meaning of the original provision and corresponds to the economic balance of the Parties.
 
-1. **Disputes**
+1. **Governing Law and Disputes**
 
-    1. This Agreement is subject to Swedish law, and the territorial legal bindings of the Customers registered head offices.
+    1. This Agreement shall be governed by Swedish Corporate Laws, excluding its conflicts of law rules, and is subject to the territorial legal bindings of the Customer's registered head office. Your use of the Service may also be subject to other local, state, national, or international laws.
     1. In the event that the Customer believes STAKATER to be in breach of this Agreement ("Dispute"), the aggrieved Party shall notify STAKATER or its legal representative of the alleged breach or violation, and the Parties shall attempt in good faith to resolve or clarify the Dispute.
     1. In the event that both Parties are unable to cooperatively resolve the Dispute, they shall attempt, in good faith, to mediate the matter in a mutually acceptable location (“Arbitration”), engaging the services of a mediator familiar with subject matter at issue and acceptable to both Parties.
     1. The requirement of Arbitration shall be deemed satisfied if the filing Party proposed a qualified mediator and offered to make itself reasonably available during the sixty (60) calendar days following Notice, but Mediation did not take place or conclude within such 60-day period.
     1. The requirement of Mediation and Negotiation may be waived upon mutual written consent of the Parties. Further, notwithstanding the foregoing, either Party may seek injunctive relief against a Party related to the acts or omissions of such Party that breach this Agreement and cause or are likely to cause irreparable harm to the other Party, without the requirement of Mediation or Negotiation.
+
+1. **Entire Agreement**
+
+    1. This Agreement, the exhibits hereto, including any related Services, constitute and contain the entire agreement and final understanding between the Parties concerning the Services and all other subject matters addressed herein or pertaining thereto.This Agreement supersedes and replaces all prior negotiations and all prior or contemporaneous representations, promises or agreements, proposed or otherwise between the parties, whether written or oral, concerning the Services, any study and all other subject matters addressed herein or pertaining thereto. 
+
+1. **Assignment**
+
+    1. Neither Party hereto may assign, cede, or transfer any of its rights or obligations under this Agreement without the written consent of the other Party, whether by merger, acquisition, sale, operation of law, or otherwise.
+
+1. **Waiver**
+
+    1. No waiver of any term, provision or condition of this Agreement whether by conduct or otherwise in any one or more instances shall be deemed to be or construed as a further or continuing waiver of any such term, provision or condition, or of any other term, provision or condition of this Agreement.
+
+1. **Your Feedback to Us**
+    You assign all rights, title and interest in any Feedback You provide the Company. If for any reason such assignment is ineffective, You agree to grant the Company a non-exclusive, perpetual, irrevocable, royalty free, worldwide right and license to use, reproduce, disclose, sub-license, distribute, modify and exploit such Feedback without restriction 
+
+1. **"AS IS" and "AS AVAILABLE" Disclaimer**
+    The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. 
+
+    Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.
+
+    Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: 
+
+        (i) as to the operation or availability of the Service, or the information, content, and materials or products included thereon; 
+        (ii)    that the Service will be uninterrupted or error-free; 
+        (iii)   as to the accuracy, reliability, or currency of any information or content provided through the Service; or 
+        (iv)    that the Service, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.
+
+    Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.
+
+
