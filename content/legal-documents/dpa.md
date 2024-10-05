@@ -1,12 +1,12 @@
 # Data Processing Agreement (DPA)
 
-`Version: 18 September 2023`
+`Version: 05 October 2023`
 
-1. **Objectives of DPA**
+1. **Introduction**
 
     1. The Parties, STAKATER and the Customer, have entered into a contract for specific IT services, referred to as the ["Framework Agreement."](./fa.md) In the performance of the "Framework Agreement", STAKATER processes personal data, referred to as the "Data," on behalf of the Customer.
 
-    1. This Data Processing Agreement (DPA) governs the processing of Customer Data by STAKATER in accordance with Article 28 of the [EU General Data Protection Regulation (GDPR)](../for-cisos/data-protection/gdpr.md).
+    1. This Data Processing Agreement (DPA) governs the processing of Customer Data by STAKATER as the Data Controller in accordance with Article 28 of the [EU General Data Protection Regulation (GDPR)](../for-cisos/data-protection/gdpr.md).
 
 1. **Data Control and Management**
 
