@@ -305,9 +305,9 @@ nav:
           - managed-addons/compliance-operator/overview.md
   - Legal Documents:
       - legal-documents/overview.md
+      - legal-documents/fa.md
       - legal-documents/gtc.md
       - legal-documents/sla.md
-      - legal-documents/fa.md
       - legal-documents/dpa.md
       - legal-documents/nda.md
       - legal-documents/pp.md
