@@ -1,6 +1,6 @@
 # Data Processing Agreement (DPA)
 
-`Version: 05 October 2023`
+`Version: 06 October 2024   `
 
 1. **Introduction**
 
