@@ -10,7 +10,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 ## 2. The Services
 
-- 2.1 Stakater will provide to the Customer the Services as described in the [Covered Service section](#covered-service).
+- 2.1 Stakater will provide to the Customer the Services as described in the [Covered Service section](#15-covered-service).
 
 ## 3. Service Period
 
@@ -20,11 +20,11 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 4.1 A Service is deemed available when the Customer, with appropriate hardware and sufficient internet bandwidth, can use the Service ("**Uptime**").
 
-- 4.2 Stakater will provide a Service to the Customer with the "**Service Level Objective**" (**SLO**) defined in the [Service Level Objectives section](#service-level-objectives).
+- 4.2 Stakater will provide a Service to the Customer with the "**Service Level Objective**" (**SLO**) defined in the [Service Level Objectives section](#16-service-level-objectives).
 
 - 4.3 Stakater shall use reasonable endeavours to provide the SLO. Stakater monitors a number of specific and generic elements, which collectively enable the Customer to use or access the service.
 
-- 4.4 If Stakater does not meet the SLO in a Service Period, and if Customer meets its obligations under this SLA, Customer will be entitled to, upon request, a "**Financial Credit**" defined in the [Financial Credits section](#financial-credits).
+- 4.4 If Stakater does not meet the SLO in a Service Period, and if Customer meets its obligations under this SLA, Customer will be entitled to, upon request, a "**Financial Credit**" defined in the [Financial Credits section](#17-financial-credits).
 
 - 4.5 The **SLO** does not apply to free, free trial, or paying Customers who have cancelled and received refunds; software (other than the Service); beta, test, or demo products; or other services that are not part of the Service. No uptime commitment of any kind shall apply to the foregoing Customers, products, or services.
 
@@ -40,7 +40,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 6.1 Service unavailability shall be excused when due to any of the following ("Excused Downtime"):
 
-    - 6.1.1 "**Scheduled Downtime**" or Downtime resulting from Stakater performing maintenance on the [Covered Service](#covered-service) during a Maintenance Window;
+    - 6.1.1 "**Scheduled Downtime**" or Downtime resulting from Stakater performing maintenance on the [Covered Service](#15-covered-service) during a Maintenance Window;
 
     - 6.1.2 "**Maintenance Window**" or a scheduled period of time when clusters are taken offline for maintenance tasks.
 
@@ -98,7 +98,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 ## 9. Maximum Financial Credits
 
-- 9.1 The total maximum Financial Credits that can be issued by Stakater to Customer for any and all Downtime that occur in a single Service Period will not exceed twenty percent (20%) of the amount due from the Customer for the [Covered Service](#covered-service) for the Service Period.
+- 9.1 The total maximum Financial Credits that can be issued by Stakater to Customer for any and all Downtime that occur in a single Service Period will not exceed twenty percent (20%) of the amount due from the Customer for the [Covered Service](#15-covered-service) for the Service Period.
 
 ## 10. Limitations
 
