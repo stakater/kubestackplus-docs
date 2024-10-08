@@ -1,6 +1,6 @@
 # Service Level Agreement (SLA)
 
-`Version: 18 September 2023`
+`Version: 8 October 2024`
 
 This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you ("**Customer**"). Each a "Party", and together the "Parties".
 
@@ -172,25 +172,25 @@ The SLA does not apply to any:
 
     - 13.5.10 for subscriptions reserved, but not paid for, at the time of the incident.
 
-## Payments
+## 14. Payments
 
 Payment is due once during a Service Period and the Customer will be charged for the number of worker nodes that have been running during the monthly Service Period.
 
-## Covered Service
+## 15. Covered Service
 
 - **Covered Service** refers to the **OpenShift API** in the Customer's cluster(s) for both Zonal and Regional Clusters, as long as the OpenShift version deployed is available in the Stable Channel and not under [Limited Support Status](../about/update-lifecycle.md#limited-support-status).
 - **Stable Channel** means the Red Hat OpenShift Container Platform Stable release channel.
 - **Zonal Cluster** means a single-Zone cluster with control planes running in one Zone (data centre).
 - **Regional Cluster** means a cluster topology that consists of three replicas of the control plane, running in multiple Zones within a given Region.
 
-## Service Level Objectives
+## 16. Service Level Objectives
 
 Covered Service | Monthly Uptime Percentage
 --- | ---
 Zonal Clusters OpenShift API | 99.00%
 Regional Clusters OpenShift API | 99.50%
 
-## Financial Credits
+## 17. Financial Credits
 
 If the SLO is not met in a Service Period, and if Customer meets its obligations under this SLA, Customer will be entitled to, upon request, a service Financial Credit equal to the following:
 
