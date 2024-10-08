@@ -16,6 +16,12 @@ There are at least three options to get fast continuous feedback during local de
 
 ### Build Dockerfile image and run container
 
+Checkout remote module:
+
+```bash
+git submodule update --init --recursive --remote
+```
+
 Build Dockerfile test image:
 
 ```bash
@@ -28,7 +34,7 @@ Run test container:
 $ docker run -p 8080:8080 test
 ```
 
-Then access the docs on [`localhost:8080`](localhost:8080).
+Then access the docs on [`localhost:8080/saap`](localhost:8080/saap).
 
 ### Run commands locally
 
