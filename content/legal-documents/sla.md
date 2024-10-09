@@ -1,6 +1,6 @@
 # Service Level Agreement (SLA)
 
-`Version: 18 September 2023`
+`Version: 8 October 2024`
 
 This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you ("**Customer**"). Each a "Party", and together the "Parties".
 
@@ -10,7 +10,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 ## 2. The Services
 
-- 2.1 Stakater will provide to the Customer the Services as described in the [Covered Service section](#covered-service).
+- 2.1 Stakater will provide to the Customer the Services as described in the [Covered Service section](#15-covered-service).
 
 ## 3. Service Period
 
@@ -20,11 +20,11 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 4.1 A Service is deemed available when the Customer, with appropriate hardware and sufficient internet bandwidth, can use the Service ("**Uptime**").
 
-- 4.2 Stakater will provide a Service to the Customer with the "**Service Level Objective**" (**SLO**) defined in the [Service Level Objectives section](#service-level-objectives).
+- 4.2 Stakater will provide a Service to the Customer with the "**Service Level Objective**" (**SLO**) defined in the [Service Level Objectives section](#16-service-level-objectives).
 
 - 4.3 Stakater shall use reasonable endeavours to provide the SLO. Stakater monitors a number of specific and generic elements, which collectively enable the Customer to use or access the service.
 
-- 4.4 If Stakater does not meet the SLO in a Service Period, and if Customer meets its obligations under this SLA, Customer will be entitled to, upon request, a "**Financial Credit**" defined in the [Financial Credits section](#financial-credits).
+- 4.4 If Stakater does not meet the SLO in a Service Period, and if Customer meets its obligations under this SLA, Customer will be entitled to, upon request, a "**Financial Credit**" defined in the [Financial Credits section](#17-financial-credits).
 
 - 4.5 The **SLO** does not apply to free, free trial, or paying Customers who have cancelled and received refunds; software (other than the Service); beta, test, or demo products; or other services that are not part of the Service. No uptime commitment of any kind shall apply to the foregoing Customers, products, or services.
 
@@ -40,7 +40,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 6.1 Service unavailability shall be excused when due to any of the following ("Excused Downtime"):
 
-    - 6.1.1 "**Scheduled Downtime**" or Downtime resulting from Stakater performing maintenance on the [Covered Service](#covered-service) during a Maintenance Window;
+    - 6.1.1 "**Scheduled Downtime**" or Downtime resulting from Stakater performing maintenance on the [Covered Service](#15-covered-service) during a Maintenance Window;
 
     - 6.1.2 "**Maintenance Window**" or a scheduled period of time when clusters are taken offline for maintenance tasks.
 
@@ -98,7 +98,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 ## 9. Maximum Financial Credits
 
-- 9.1 The total maximum Financial Credits that can be issued by Stakater to Customer for any and all Downtime that occur in a single Service Period will not exceed twenty percent (20%) of the amount due from the Customer for the [Covered Service](#covered-service) for the Service Period.
+- 9.1 The total maximum Financial Credits that can be issued by Stakater to Customer for any and all Downtime that occur in a single Service Period will not exceed twenty percent (20%) of the amount due from the Customer for the [Covered Service](#15-covered-service) for the Service Period.
 
 ## 10. Limitations
 
@@ -172,25 +172,25 @@ The SLA does not apply to any:
 
     - 13.5.10 for subscriptions reserved, but not paid for, at the time of the incident.
 
-## Payments
+## 14. Payments
 
 Payment is due once during a Service Period and the Customer will be charged for the number of worker nodes that have been running during the monthly Service Period.
 
-## Covered Service
+## 15. Covered Service
 
 - **Covered Service** refers to the **OpenShift API** in the Customer's cluster(s) for both Zonal and Regional Clusters, as long as the OpenShift version deployed is available in the Stable Channel and not under [Limited Support Status](../about/update-lifecycle.md#limited-support-status).
 - **Stable Channel** means the Red Hat OpenShift Container Platform Stable release channel.
 - **Zonal Cluster** means a single-Zone cluster with control planes running in one Zone (data centre).
 - **Regional Cluster** means a cluster topology that consists of three replicas of the control plane, running in multiple Zones within a given Region.
 
-## Service Level Objectives
+## 16. Service Level Objectives
 
 Covered Service | Monthly Uptime Percentage
 --- | ---
 Zonal Clusters OpenShift API | 99.00%
 Regional Clusters OpenShift API | 99.50%
 
-## Financial Credits
+## 17. Financial Credits
 
 If the SLO is not met in a Service Period, and if Customer meets its obligations under this SLA, Customer will be entitled to, upon request, a service Financial Credit equal to the following:
 
