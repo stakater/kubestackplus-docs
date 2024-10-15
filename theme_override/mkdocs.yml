@@ -307,7 +307,8 @@ nav:
       - legal-documents/overview.md
       - legal-documents/fa.md
       - legal-documents/gtc.md
-      - legal-documents/sla.md
+      - 'Uptime SLA': legal-documents/sla.md
+      - 'Support SLA': 'https://support.stakater.com/responsetimes.html'
       - legal-documents/dpa.md
       - legal-documents/nda.md
       - legal-documents/pp.md
