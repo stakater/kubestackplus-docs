@@ -132,7 +132,9 @@ SAAP comes integrated with Cert-Manager to automate the management and renewal o
 
 ## Secrets Management Stack
 
-### Secrets Store - HashiCorp Vault OSS
+### Secrets Stores
+
+#### HashiCorp Vault OSS
 
 SAAP includes HashiCorp Vault OSS for secrets management, limited to use by applications running on SAAP.
 
