@@ -238,7 +238,6 @@ nav:
               - managed-addons/konfigurator/explanation/pod-metadata-injector.md
       - Logging:
           - managed-addons/logging-stack/overview.md
-          - managed-addons/logging-stack/kibana-view-logs.md
       - Monitoring:
           - managed-addons/monitoring-stack/overview.md
           - managed-addons/monitoring-stack/stack.md
