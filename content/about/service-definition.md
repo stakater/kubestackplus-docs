@@ -122,13 +122,17 @@ In addition to normal users, Stakater provides access to a SAAP-specific group c
 
 As an administrator of SAAP, you have access to the cluster-admin role. While logged in to an account with the cluster-admin role, users have mostly unrestricted access to control and configure the cluster.
 
-### RHACS
-
-SAAP includes Red Hat Advanced Cluster Security (RHACS) for robust security management. It ensures comprehensive build and runtime security for applications. RHACS is essential for maintaining a secure Kubernetes environment.
-
 ### Cert-Manager
 
 SAAP comes integrated with Cert-Manager to automate the management and renewal of SSL/TLS certificates. It ensures secure communication for your applications by handling certificate issuance and renewal seamlessly.
+
+## Red Hat Advanced Cluster Security (RHACS)
+
+SAAP offers Red Hat Advanced Cluster Security (RHACS) as an optional, managed addon, available for an **additional fee**. RHACS enhances security by providing:
+
+- **Visibility**: Gain insights into cluster configurations, workload vulnerabilities, and container security risks.
+- **Compliance**: Monitor compliance status, address regulatory requirements, and report on Kubernetes security standards.
+- **Threat Detection**: Identify potential threats and unusual activities in real-time, leveraging automated responses for faster mitigation.
 
 ## Secrets Management Stack
 
@@ -140,7 +144,13 @@ SAAP includes HashiCorp Vault OSS for secrets management, limited to use by appl
 
 #### Clouds Secrets Store
 
-SAAP includes the External Secrets Operator (ESO) integrated with Vault OSS out of the box. If customers prefer a different secret store, ESO can be configured to connect with it. For assistance, open a [support ticket](https://support.stakater.com/index.html).
+SAAP supports integration with multiple cloud provider secret stores (e.g., AWS Secrets Manager, Azure Key Vault, Google Cloud Secret Manager). Through the External Secrets Operator (ESO), SAAP seamlessly connects to these cloud secrets stores, enabling users to manage secrets stored externally within their Kubernetes clusters.
+
+### Secret Retrieval in Clusters
+
+#### External Secrets Operator (ESO)
+
+The [External Secrets Operator (ESO)](https://github.com/external-secrets/external-secrets) is included in SAAP to manage secret retrieval from both HashiCorp Vault OSS and supported cloud secret stores. ESO automates secret synchronization into clusters, ensuring secrets are securely available to applications as Kubernetes-native resources.
 
 ## Networking
 
@@ -192,7 +202,7 @@ SAAP includes the OpenShift Router, the most advanced Kubernetes ingress control
 
 ### ExternalDNS
 
-SAAP integrates with ExternalDNS, automating DNS record management for Kubernetes services. This ensures seamless DNS updates as services are created or modified within the cluster, enhancing reliability and reducing manual DNS configuration efforts.
+SAAP integrates with [ExternalDNS](https://github.com/kubernetes-sigs/external-dns), automating DNS record management for Kubernetes services. This ensures seamless DNS updates as services are created or modified within the cluster, enhancing reliability and reducing manual DNS configuration efforts.
 
 ## Monitoring Stack
 
@@ -204,7 +214,7 @@ SAAP come with an integrated Prometheus/Grafana stack for cluster monitoring inc
 
 SAAP provides an integrated application monitoring stack based on Prometheus/Grafana stack to monitor business applications. This allows for adding scrape targets in user namespaces.
 
-### Metrics Data Retention
+### Metrics Retention
 
 Data is stored for 14 days only. If you need to store data for a longer period, please forward it to another system. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
@@ -234,11 +244,11 @@ SAAP deploys with services for maintaining the health and performance of the clu
 
 SAAP offers an integrated logging stack utilizing Vector as the collector and Loki as the log store. Application logs sent to `STDOUT` are gathered by the log collector and forwarded to the log store via the cluster logging stack.
 
-### Data Retention
+### Logs Retention
 
 Retention is set to seven days, with a limit of 200 GiB of logs per shard. For longer-term retention, customers should use the sidecar container design in their deployments and forward logs to their preferred log aggregation or analytics service. This integrated logging stack is intended for short-term retention to aid in cluster and application troubleshooting, not for long-term log archiving. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
-### Log Forwarding
+### Logs Forwarding
 
 SAAP also supports integrating and forwarding logs to your existing monitoring system. For a list of supported logging systems, contact our support team [here](https://support.stakater.com/index.html).
 
@@ -278,7 +288,7 @@ SAAP integrates with SonarQube for robust code quality analysis and security sca
 
 ### Feature/Pull Request Environments - Tronador
 
-SAAP includes Stakater Tronador, a powerful tool that deploys applications in dynamic ephemeral environments upon pull requests. This ensures seamless testing and validation in isolated environments. Once changes are merged, Tronador automatically cleans up, maintaining an efficient and clutter-free workspace. This integration significantly enhances the development workflow by providing reliable and automated environment management.
+SAAP includes Stakater [Tronador](https://docs.stakater.com/tronador/), a powerful tool that deploys applications in dynamic ephemeral environments upon pull requests. This ensures seamless testing and validation in isolated environments. Once changes are merged, Tronador automatically cleans up, maintaining an efficient and clutter-free workspace. This integration significantly enhances the development workflow by providing reliable and automated environment management.
 
 ### Renovate
 
@@ -306,7 +316,7 @@ SAAP includes Velero (OADP) for application and volume backup and restore. Users
 
 ## In-Cluster Multi Tenancy - Stakater MTO
 
-SAAP comes integrated with Stakater MTO (Multi-Tenant Operator), the world’s leading in-cluster Kubernetes multi-tenancy solution. This allows organizations to easily share a cluster among multiple teams.
+SAAP comes integrated with [Stakater MTO (Multi-Tenant Operator)](https://docs.stakater.com/mto/latest/), the world’s leading in-cluster Kubernetes multi-tenancy solution. This allows organizations to easily share a cluster among multiple teams.
 
 ## Service Mesh
 

@@ -4,7 +4,7 @@ Here is the list of fully managed addons available on Stakater App Agility Platf
 
 Managed AddOn | Description
 --- | ---
-Logging | [ElasticSearch, Fluentd and Kibana](./logging-stack/overview.md)
+Logging | [Loki and Vector](./logging-stack/overview.md)
 Monitoring | [Grafana, Prometheus, Thanos and Alertmanager](./monitoring-stack/overview.md)
 CI (continuous integration) | [Tekton](./tekton/overview.md)
 CD (continuous delivery) | [ArgoCD](./argocd/overview.md)

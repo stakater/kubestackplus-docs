@@ -238,7 +238,6 @@ nav:
               - managed-addons/konfigurator/explanation/pod-metadata-injector.md
       - Logging:
           - managed-addons/logging-stack/overview.md
-          - managed-addons/logging-stack/kibana-view-logs.md
       - Monitoring:
           - managed-addons/monitoring-stack/overview.md
           - managed-addons/monitoring-stack/stack.md
@@ -319,12 +318,6 @@ nav:
           - help/k8s-concepts/cloud-native-app.md
           - help/k8s-concepts/helm.md
           - help/k8s-concepts/high-availability.md
-      - FAQs:
-          - help/faqs/product.md
-          - help/faqs/purchasing.md
-          - help/faqs/customization.md
-          - help/faqs/developers.md
-          - help/faqs/operations.md
 
 plugins:
   - include-markdown
