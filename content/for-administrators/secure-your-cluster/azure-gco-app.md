@@ -7,11 +7,11 @@
 ![Azure AD](images/azure-ad.png)
 1. The GroupSync job requires permissions on the Azure AD tenant in addition to the default ones. For it to work, add the these entries under the ‘API Permissions’ menu item.:
 
-- `Group.Read.All`
-- `GroupMember.Read.All`
-- `User.Read.All`
+   - `Group.Read.All`
+   - `GroupMember.Read.All`
+   - `User.Read.All`
 
-![Azure App API Permissions](images/azure-permissions-group-sync.png)
+   ![Azure App API Permissions](images/azure-permissions-group-sync.png)
 
 1. Click on the Newly created app `group-sync`. Click `Certificates & secrets` from the left tab. Click `New Client Secret`. Under `Expires` pick any option. Under `Description` put *saap-group-sync* and click `Add`
 ![Certificates and Secrets](images/azure-ad-certificates-secrets.png)
