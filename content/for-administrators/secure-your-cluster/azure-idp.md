@@ -2,13 +2,13 @@
 
 1. To enable login with Azure AD (Microsoft's) account you first have to register an OAuth application on Azure. Go to the <https://portal.azure.com>
 1. Open `Azure Active Directory` service
-1. On the tab on the left under Manage section click `App Registrations`
+1. On the left tab under the Manage section, click `App Registrations`
 1. Click on `New Registration`. Use `saap` under Name. Under Redirect URI section Choose `Web` and enter the Redirect URI (**This will be provided by Stakater Support**) and click `Register`
 ![Azure AD](images/azure-ad.png)
 1. Go to "API permissions" and add the required Microsoft Graph API permissions. Typically, you need `User.Read` and `openid`, `profile`, and `email` permissions.
-1. Click on the Newly created app `saap`. Click `Certificates & secrets` from the left tab. Click `New Client Secret`. Under `Expires` pick any option. Under `Description` put *saap oidc* and click `Add`
+1. lick on the newly created app `saap`. Click `Certificates & secrets` from the left tab. Click `New Client Secret`. Under `Expires` pick any option. Under `Description` put *saap oidc* and click `Add`
 ![Certificates and Secrets](images/azure-ad-certificates-secrets.png)
-1. Copy the value of the newly client secret and take note of the `Application (client) ID` and `Directory (tenant) ID` of the `saap` app registration from the `Overview` tab. **Send this to Stakater Support**
+1. Copy the value of the newly created client secret and note the `Application (client) ID` and `Directory (tenant) ID` of the `saap` app registration from the `Overview` tab. **Send this to Stakater Support**
 ![Client-Tenant-ID](images/azure-ad-clientid-tenantid.png)
 
 ## Items provided by Stakater Support

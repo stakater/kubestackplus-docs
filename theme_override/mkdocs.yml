@@ -60,7 +60,7 @@ nav:
           - for-administrators/secure-your-cluster/secure-routes.md
           - for-administrators/secure-your-cluster/google-idp.md
           - for-administrators/secure-your-cluster/azure-idp.md
-          - for-administrators/secure-your-cluster/azure-gco-app.md
+          - for-administrators/secure-your-cluster/azure-gso.md
           - for-administrators/secure-your-cluster/keycloak-idp.md
           - for-administrators/secure-your-cluster/saml-idp.md
           - for-administrators/secure-your-cluster/saap-authorization-roles.md
