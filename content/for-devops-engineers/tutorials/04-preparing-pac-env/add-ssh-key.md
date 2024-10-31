@@ -29,15 +29,15 @@
 
 1. Navigate to `SSH and GPG Keys`
 
-    <div style="text-align:center"><img src="images/ssh-key.png" /></div>
+    ![ssh-key](images/ssh-key.png)
 
 1. Click `Add New Key` in SSH Key section.
 
-    <div style="text-align:center"><img src="images/new-ssh-key.png" /></div>
+    ![new-ssh-key](images/new-ssh-key.png)
 
 1. Now add the public key of the keypair you generated earlier.
 
-    <div style="text-align:center"><img src="images/add-public-key.png" /></div>
+    ![add-public-key](images/add-public-key.png)
 
 ### Adding Private Key to Vault
 
@@ -45,27 +45,27 @@ Now that we have added the public key to GitHub, let's add the private key to Va
 
 1. Access Vault from `Forecastle` console, search `Vault` and open the `Vault` tile.
 
-    <div style="text-align:center"><img src="images/forecastle.png" /></div>
+    ![Forecastle](images/forecastle.png)
 
 1. From the drop-down menu under `Method`, select `OIDC` and click on `Sign in with OIDC Provider`.
 
-    <div style="text-align:center"><img src="images/login-oidc.png" /></div>
+    ![login-oidc](images/login-oidc.png)
 
 1. You will be brought to the `Vault` console. You should see `common-shared-secrets` folder.
 
-    <div style="text-align:center"><img src="images/common-shared-secrets.png" /></div>
+    ![common-shared-secrets](images/common-shared-secrets.png)
 
 1. Click on `common-shared-secrets`.
 
 1. You will now be brought to the `secrets` and the `configurations`. Click on `create secret`.
 
-    <div style="text-align:center"><img src="images/create-secret.png" /></div>
+    ![create-secret](images/create-secret.png)
 
 1. Let's create a `git-ssh-creds` secret for our webhook secret. Write the name of the secret in `path` which is `git-ssh-creds`. Add `secret data`
     * key: `id_rsa`, value: (The SSH Private Key).
       Hit save.
 
-    <div style="text-align:center"><img src="images/git-ssh-creds.png" /></div>
+    ![git-ssh-creds](images/git-ssh-creds.png)
 
 ### Adding External Secret
 
@@ -75,7 +75,7 @@ Since we want the `git-ssh-creds` secret to be deployed in all of the tenant nam
 
 1. Open the `tenant-operator-config` folder and create a `templates` folder inside it:
 
-    <div style="text-align:center"><img src="images/template.png" /></div>
+    ![template](images/template.png)
 
 1. Now create a file named `git-ssh-creds-template.yaml` and add the following content:
 

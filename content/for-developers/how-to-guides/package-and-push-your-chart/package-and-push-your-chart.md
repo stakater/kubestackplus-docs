@@ -22,7 +22,7 @@ Alternatively, Navigate to the cluster Forecastle, search `nexus` using the sear
 
 - `nexus-helm-reg-url` : Add `-helm` in URL after `nexus` and append `/repository/helm-charts/`. This URL points to Helm Registry referred as `nexus-helm-reg-url` in this tutorial for example `https://nexus-helm-stakater-nexus.apps.clustername.random123string.kubeapp.cloud/repository/helm-charts/`
 
-  ![nexus-Forecastle](../images/nexus-forecastle.png)
+    ![nexus-Forecastle](../images/nexus-forecastle.png)
 
 ### Package and Upload the chart to Nexus
 
@@ -45,12 +45,12 @@ Alternatively, Navigate to the cluster Forecastle, search `nexus` using the sear
 
 1. Open Nexus UI from Forecastle. Upon opening the link, you'll be redirected to Nexus home page.
 
-   ![`nexus-Forecastle`](../images/nexus-forecastle.png)
-   ![`nexus-homepage`](../images/nexus-homepage.png)
+    ![`nexus-Forecastle`](../images/nexus-forecastle.png)
+    ![`nexus-homepage`](../images/nexus-homepage.png)
 
 1. Select `Browse` from the left sidebar, Click on `Helm Charts` to view your Helm Registry Charts.
 
-   ![`nexus-browse-helm`](../images/nexus-browse-helm.png)
+    ![`nexus-browse-helm`](../images/nexus-browse-helm.png)
 
 1. Verify that the chart you uploaded is present in the list.
 

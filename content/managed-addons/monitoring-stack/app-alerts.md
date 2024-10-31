@@ -7,7 +7,7 @@ There are 2 types of monitoring:
 1. Infrastructure monitoring (comes default with OpenShift installation)
 1. User Workload monitoring (it can be enabled)
 
-![Monitoring Diagram](./images/monitoring-diagram.png)
+    ![Monitoring Diagram](./images/monitoring-diagram.png)
 
 ## Enabling monitoring for user-defined projects
 

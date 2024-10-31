@@ -19,15 +19,15 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 
 1. Begin by accessing the repository where you plan to set up the webhook. In your source code GitHub repository, locate and click on the `Settings` tab.
 
-     ![Repository settings](images/repository-settings.png)
+    ![Repository settings](images/repository-settings.png)
 
 1. Within the repository settings, navigate to the `Webhooks` section. This is where you can manage and configure webhooks for your repository.
 
-     ![Webhook](images/webhook.png)
+    ![Webhook](images/webhook.png)
 
 1. Click on the option to `Add a new webhook` to initiate the process of creating a new webhook for your repository.
 
-     ![Webhook](images/add-webhook.png)
+    ![Webhook](images/add-webhook.png)
 
 1. To set up the webhook, you'll need the `URL of the pipeline-as-code interceptor`. This URL is used to connect GitHub with your SAAP's pipeline system.
 
@@ -68,25 +68,25 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 
 1. Access Vault from `Forecastle` console, search `Vault` and open the `Vault` tile.
 
-     <div style="text-align:center"><img src="images/forecastle.png" /></div>
+    ![Forecastle](images/forecastle.png)
 
 1. From the drop-down menu under `Method`, select `OIDC` and click on `Sign in with OIDC Provider`.
 
-     <div style="text-align:center"><img src="images/login-oidc.png" /></div>
+    ![login-oidcs](images/login-oidc.png)
 
 1. You will be brought to the `Vault` console. You should see the key/value path for <your-tenant>.
 
-     <div style="text-align:center"><img src="images/vault-tenant.png" /></div>
+    ![Vault tenant](images/vault-tenant.png)
 
 1. Click on `<your-tenant>/kv/`.
 
 1. You will now be brought to the `secrets` and the `configurations` in Vault for <your-tenant>. Click on `create secret`.
 
-     <div style="text-align:center"><img src="images/create-secret.png" /></div>
+    ![create-secret](images/create-secret.png)
 
 1. Let's create a `github-webhook-config` secret for our webhook secret. Write the name of the secret in `path` which is `github-webhook-config`. Add `secret data`, key: `webhook.secret`, value: (your webhook secret). Hit save.
 
-     <div style="text-align:center"><img src="images/webhook-secret.png" /></div>
+    ![webhook secret](images/webhook-secret.png)
 
 ### Add External Secret
 
@@ -101,41 +101,41 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 1. Create a file named `github-webhook-config.yaml` and add in the below content. Replace the Url with your application repository's Url.
 
     ```yaml
-       apiVersion: external-secrets.io/v1beta1
-       kind: ExternalSecret
-       metadata:
+    apiVersion: external-secrets.io/v1beta1
+    kind: ExternalSecret
+    metadata:
+    name: github-webhook-config
+    spec:
+    secretStoreRef:
+         name: tenant-vault-secret-store
+         kind: SecretStore
+    refreshInterval: "1m0s"
+    target:
          name: github-webhook-config
-       spec:
-         secretStoreRef:
-           name: tenant-vault-secret-store
-           kind: SecretStore
-         refreshInterval: "1m0s"
-         target:
-           name: github-webhook-config
-           creationPolicy: 'Owner'
-           template:
-             data:
-               provider.token: "{{ .password | toString }}"
-               webhook.secret: "{{ .secret | toString }}"
+         creationPolicy: 'Owner'
+         template:
          data:
-           - secretKey: password
-             remoteRef:
-               key: github-webhook-config
-               property: provider.token
-           - secretKey: secret
-             remoteRef:
-               key: github-webhook-config
-               property: webhook.secret
+         provider.token: "{{ .password | toString }}"
+         webhook.secret: "{{ .secret | toString }}"
+    data:
+         - secretKey: password
+         remoteRef:
+         key: github-webhook-config
+         property: provider.token
+         - secretKey: secret
+         remoteRef:
+         key: github-webhook-config
+         property: webhook.secret
     ```
 
-     <div style="text-align:center"><img src="images/github-webhook-config-es.png" /></div>
+    ![GitHub-webhook-config-es](images/github-webhook-config-es.png)
 
 1. Now open up ArgoCD and look for this External Secret. If everything was added correctly, you will see a secret created from this External Secret.
 
-     <div style="text-align:center"><img src="images/github-webhook-config-argo.png" /></div>
+    ![GitHub-webhook-config-argo](images/github-webhook-config-argo.png)
 
 1. You can also check this secret by navigation to `<tenant>-build` namespace and searching for the secret.
 
-     <div style="text-align:center"><img src="images/github-webhook-config-secret.png" /></div>
+    ![GitHub-webhook-config-secret](images/github-webhook-config-secret.png)
 
 Great! We have everything set up for creating the Repository CR.

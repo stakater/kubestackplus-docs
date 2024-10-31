@@ -20,8 +20,8 @@ You need to define `ServiceMonitor` so, the application metrics can be scrapped.
 
 | Parameter | Description |
 |:---|:---|
-| `.Values.serviceMonitor.enabled` | Enable `ServiceMonitor`
-| `.Values.serviceMonitor.endpoints` | Array of endpoints to be scraped by Prometheus
+| `.Values.serviceMonitor.enabled` | Enable `ServiceMonitor` |
+| `.Values.serviceMonitor.endpoints` | Array of endpoints to be scraped by Prometheus |
 
 ```yaml
 serviceMonitor:
@@ -40,9 +40,9 @@ A sample AlertmanagerConfig can be configured in [Application Chart](https://git
 
 | Parameter | Description |
 |:---|:---|
-| .Values.alertmanagerConfig.enabled | Enable alertmanagerConfig for this app (Will be merged in the base config)
-| .Values.alertmanagerConfig.spec.route | The Alertmanager route definition for alerts matching the resource's namespace. It will be added to the generated Alertmanager configuration as a first-level route
-| .Values.alertmanagerConfig.spec.receivers | List of receivers
+| .Values.alertmanagerConfig.enabled | Enable alertmanagerConfig for this app (Will be merged in the base config) |
+| .Values.alertmanagerConfig.spec.route | The Alertmanager route definition for alerts matching the resource's namespace. It will be added to the generated Alertmanager configuration as a first-level route |
+| .Values.alertmanagerConfig.spec.receivers | List of receivers |
 
 We will use Slack as an example here.
 
@@ -113,8 +113,8 @@ A sample PrometheusRule can be configured in [Application Chart](https://github.
 
 | Parameter | Description |
 |:---|:---|
-| prometheusRule.enabled | Enable prometheusRule for this app
-| prometheusRule.spec.groups | PrometheusRules in their groups to be added
+| prometheusRule.enabled | Enable prometheusRule for this app |
+| prometheusRule.spec.groups | PrometheusRules in their groups to be added |
 
 ```yaml
 prometheusRule:

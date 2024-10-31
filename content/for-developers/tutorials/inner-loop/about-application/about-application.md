@@ -6,7 +6,7 @@ Welcome to the Nordmart Review 101 guide! In this section, we'll explore the arc
 
 The Nordmart Review is designed with a modular architecture that consists of three crucial components, each playing a unique role in delivering an exceptional user experience:
 
-<div style="text-align:center"><img src="images/nordmart-architecture.png" /></div>
+![Nordmart architecture](images/nordmart-architecture.png)
 
 ### Review UI
 
