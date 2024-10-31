@@ -41,11 +41,11 @@ Alternatively, Navigate to the cluster Forecastle, search `nexus` using the sear
 
 - `nexus-helm-reg-url` : Add `-helm` in URL after `nexus` and append `/repository/helm-charts/`. This URL points to Helm Registry referred as `nexus-helm-reg-url` in this tutorial for example `https://nexus-helm-stakater-nexus.apps.clustername.random123string.kubeapp.cloud/repository/helm-charts/`
 
-  ![nexus-Forecastle](../images/nexus-forecastle.png)
+    ![nexus-Forecastle](../images/nexus-forecastle.png)
 
 ### Login to Docker Registry
 
-Run following command to log into the registry.
+Run following command to log into the registry:
 
 ```sh
 buildah login <nexus-docker-reg-url>
@@ -117,7 +117,8 @@ Lets push the image to nexus docker repo. Make sure to get credentials from Stak
 buildah push <nexus-docker-reg-url>/stakater-nordmart-review-web:1.0.0 docker://<nexus-docker-reg-url>/stakater-nordmart-review-web:1.0.0
 ```
 
-> **Note: Nexus docker registry URL is the one we extract in the above section. Make sure you are logged in to the Nexus docker registry before building and pushing the application image.**
+!!! note
+    Nexus docker registry URL is the one we extract in the above section. Make sure you are logged in to the Nexus docker registry before building and pushing the application image.**
 
 ## 3. Add Helm Chart to application repository
 

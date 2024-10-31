@@ -24,12 +24,12 @@ For Azure AD, two applications are needed, one for group synchronization, and on
 
 ## Items provided by Stakater Support
 
-- `Redirect URIs`
+* `Redirect URIs`
 
 ## Items to be provided to Stakater Support
 
 Please provide the secrets via password manager:
 
-- `Application (client) ID`
-- `Directory (tenant) ID`
-- `client Secret`
+* `Application (client) ID`
+* `Directory (tenant) ID`
+* `client Secret`

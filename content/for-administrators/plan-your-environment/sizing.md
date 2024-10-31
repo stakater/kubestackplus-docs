@@ -27,7 +27,7 @@ Resource requirements for a single SAAP cluster is as follows:
 
 The overall minimum resource requirements are:
 
-| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPUs | Total Memory (GiB) | Total Storage (GiB)
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPUs | Total Memory (GiB) | Total Storage (GiB) |
 |:---|:---|---:|---:|---:|---:|
 | Control plane | 8 x 32 x 350 | 3 | 24 | 96 | 1050 (Provisioned IOPS 1000) |
 | Infra | 8 x 32 x 300 | 3 | 24 | 96 | 900 (General Purpose SSD) |

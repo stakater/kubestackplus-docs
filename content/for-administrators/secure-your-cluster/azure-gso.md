@@ -28,6 +28,6 @@ For Azure AD, two applications are needed, one for group synchronization, and on
 
 Please provide the secrets via password manager:
 
-- `Application (client) ID`
-- `Directory (tenant) ID`
-- `Client Secret`
+* `Application (client) ID`
+* `Directory (tenant) ID`
+* `Client Secret`
