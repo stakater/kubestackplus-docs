@@ -40,7 +40,7 @@ In this tutorial, you'll create secrets containing your GitHub access credential
         name: "github-webhook-config"
     ```
 
-   ![repository](images/repository.png)
+    ![repository](images/repository.png)
 
 Once you add these two files to the repository at the correct path, you can see that ArgoCD has deployed them to the cluster.
 

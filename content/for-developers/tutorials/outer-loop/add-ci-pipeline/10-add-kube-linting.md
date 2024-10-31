@@ -29,8 +29,8 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-   ![Kube-linting](images/kube-linting.png)
+    ![Kube-linting](images/kube-linting.png)
 
-   ![Kube-linting-logs](images/kube-linting-logs.png)
+    ![Kube-linting-logs](images/kube-linting-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

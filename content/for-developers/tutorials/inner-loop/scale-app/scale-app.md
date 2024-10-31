@@ -38,7 +38,7 @@ Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to
 
     It should look like this:
 
-   ![autoscaling values](images/autoscaling-yaml.png)
+    ![autoscaling values](images/autoscaling-yaml.png)
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
@@ -59,20 +59,20 @@ Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to
 1. While this is running, we should see in SAAP, the autoscaler is kicking in and spinning up additional pods.  Open the `Workloads` tab. At the very bottom, you will see HorizontalPodAutoScalar. Open the review HPA. You will see the below screen
     Notice the CPU utilization and desired replica count. It has jumped!
 
-   ![scale-up](./images/scale-up.png)
+    ![scale-up](./images/scale-up.png)
 
 1. If you navigate to the review deployment, you should see the replica count has jumped and so have the number of pods.
 
-   ![HPA-deployment](images/deployment-after-autoscale.png)
+    ![HPA-deployment](images/deployment-after-autoscale.png)
 
-   ![replicas-HPA](images/pods-hpa.png)
+    ![replicas-HPA](images/pods-hpa.png)
 
 1. Now let's wait for a couple of minutes for the load to ease. Navigate back to the `review` HorizontalPodAutoscaler. You will see that the CPU utilization and desired replicas have started going down.
 
-   ![scale-down](./images/back-to-before-hpa.png)
+    ![scale-down](./images/back-to-before-hpa.png)
 
 1. Go to the review deployment, you will see that it has brought the pods down (Or is trying to decrease the number of pods)
 
-   ![scale-down](images/back-to-one-pod.png)
+    ![scale-down](images/back-to-one-pod.png)
 
 WELL DONE!! YOU NOW HAVE AUTO SCALING WITH YOUR APPLICATION!!

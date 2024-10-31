@@ -35,9 +35,9 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
 
 1. You can go to your tenant's build namespace and see the pipeline running.
 
-   ![git-clone](images/git-clone.png)
+    ![git-clone](images/git-clone.png)
 
-   ![git-clone-logs](images/git-clone-logs.png)
+    ![git-clone-logs](images/git-clone-logs.png)
 
 ### Exploring the Git Clone Task
 

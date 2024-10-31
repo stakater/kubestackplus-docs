@@ -76,7 +76,7 @@ stringData:
 Login to the ArgoCD UI. Click `Setting` from left sidebar, then `Repositories` to view connected repositories.
 > Make sure connection status is successful
 
-  ![`ArgoCD-repositories`](../images/ArgoCD-repositories.png)
+    ![`ArgoCD-repositories`](../images/ArgoCD-repositories.png)
 
 ### Create an External Secret
 

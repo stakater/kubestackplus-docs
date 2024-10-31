@@ -19,15 +19,15 @@ The webhook setup acts as a bridge between your code repository and the CI/CD pi
 
 1. Begin by accessing the repository where you plan to set up the webhook. In your source code GitHub repository, locate and click on the `Settings` tab.
 
-     ![Repository settings](images/repository-settings.png)
+    ![Repository settings](images/repository-settings.png)
 
 1. Within the repository settings, navigate to the `Webhooks` section. This is where you can manage and configure webhooks for your repository.
 
-     ![Webhook](images/webhook.png)
+    ![Webhook](images/webhook.png)
 
 1. Click on the option to `Add a new webhook` to initiate the process of creating a new webhook for your repository.
 
-     ![Webhook](images/add-webhook.png)
+    ![Webhook](images/add-webhook.png)
 
 1. To set up the webhook, you'll need the `URL of the pipeline-as-code interceptor`. This URL is used to connect GitHub with your SAAP's pipeline system.
 

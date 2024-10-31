@@ -1,5 +1,7 @@
 # Configuring Azure AD Group Sync Application
 
+For Azure AD, two applications are needed, one for group synchronization, and one for the identity provider. Only users in target groups are synchronized. These are the steps to enable group sync:
+
 1. To enable sync groups from Azure AD (Microsoft's) account to Stakater Cloud you first have to register an application on Azure. Go to the <https://portal.azure.com>
 1. Open `Azure Active Directory` service
 1. On the left tab under the Manage section, click `App Registrations`
@@ -21,6 +23,8 @@
 
 ## Items to be provided to Stakater Support
 
+Please provide the secrets via password manager:
+
 - `Application (client) ID`
 - `Directory (tenant) ID`
-- `client Secret`
+- `Client Secret`

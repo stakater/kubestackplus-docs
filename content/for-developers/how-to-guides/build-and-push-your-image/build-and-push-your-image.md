@@ -58,12 +58,12 @@
 
 1. Open Nexus UI from Forecastle. Upon opening the link, you'll be redirected to Nexus home page.
 
-   ![`nexus-Forecastle`](../images/nexus-forecastle.png)
-   ![`nexus-homepage`](../images/nexus-homepage.png)
+    ![`nexus-Forecastle`](../images/nexus-forecastle.png)
+    ![`nexus-homepage`](../images/nexus-homepage.png)
 
 1. Select `Browse` from the left sidebar, Click on `docker` to view your Container Image Registry.
 
-   ![`nexus-browse-docker`](../images/nexus-browse-docker.png)
+    ![`nexus-browse-docker`](../images/nexus-browse-docker.png)
 
 1. Verify that the image you pushed is present in the list.
 
