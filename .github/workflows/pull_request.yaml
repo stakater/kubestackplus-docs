@@ -40,7 +40,7 @@ jobs:
 
       - name: Run Docker container for the saap-docs app
         run: |
-          docker run -d --name saap-docs -p 8080:8080 ghcr.io/stakater/${{ github.repository }}${{ env.IMAGE_PATH }} || exit 1
+          docker run -d --name saap-docs -p 8080:8080 ghcr.io/${{ github.repository }}${{ env.IMAGE_PATH }} || exit 1
 
       - name: Build testcafe tests
         working-directory: ./testcafe
