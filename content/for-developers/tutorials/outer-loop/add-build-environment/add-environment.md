@@ -10,7 +10,7 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
             └── <prod>
     ```
   
-2. Add the Helm Chart of your application with production environment configurations.
+1. Add the Helm Chart of your application with production environment configurations.
 
    ```bash
    └── <tenant-name>
