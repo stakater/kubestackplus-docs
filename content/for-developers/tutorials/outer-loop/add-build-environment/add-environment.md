@@ -10,7 +10,7 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
            └── prod
    ```
 
-1. Add the Helm Chart of your application with production environment configurations.
+2. Add the Helm Chart of your application with production environment configurations.
 
    ```bash
    └── gabbar
@@ -21,7 +21,7 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
                └── templates/
    ```
 
-1. Add an folder `prod` inside `<tenant-name>/argocd-apps`. Add an ArgoCD Application in this folder which points to `<tenant-name>/<app-name>/prod`.
+3. Add an folder `prod` inside `<tenant-name>/argocd-apps`. Add an ArgoCD Application in this folder which points to `<tenant-name>/<app-name>/prod`.
 
    ```yaml
    # Name: stakater-nordmart-review.yaml(APP_NAME.yaml)
@@ -46,7 +46,7 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
          selfHeal: true
    ```
 
-1. Add a folder called production (if not present)  corresponding to the cluster name inside `argocd-apps` at root level, Add an ArgoCD Application in this folder which points to `<tenant-name>/argocd-apps/prod`.
+4. Add a folder called production (if not present)  corresponding to the cluster name inside `argocd-apps` at root level, Add an ArgoCD Application in this folder which points to `<tenant-name>/argocd-apps/prod`.
 
    ```yaml
    # Name: gabbar-prod.yaml (TENANT_NAME-ENV_NAME.yaml)
@@ -71,7 +71,7 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
          selfHeal: true
    ```
 
-1. You should have a similar folder structure at the end:
+5. You should have a similar folder structure at the end:
 
    ```bash
    ├── gabbar
@@ -88,4 +88,5 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
            └── gabbar-prod.yaml
    ```
 
-1. Make sure Application that deploys applications inside `argocd-apps/cluster-name/` folder is deployed in relevant `infra-gitops-config` repository.
+6. Make sure Application that deploys applications inside `argocd-apps/cluster-name/` folder is deployed in relevant `infra-gitops-config` repository.
+
