@@ -66,6 +66,8 @@ The following secrets are needed for running a fully functional pipeline using p
             -----END OPENSSH PRIVATE KEY-----
         ```
 
+    * _Scopes_: When creating personal access token for this, token should have the following scopes attached.
+    ![`PAT scopes`](./images/pat-scopes-for-infra-gitops-config.png)
     * _Comment_: This secret needs to be deployed on the cluster directly.
 
     !!! note
