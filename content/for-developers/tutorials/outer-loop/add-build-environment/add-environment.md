@@ -90,6 +90,5 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
   
 1. Make sure Application that deploys applications inside `argocd-apps/cluster-name/` folder is deployed in relevant `infra-gitops-config` repository.
 
-
-!!! note 
+!!! note
     Anything defined in `<angle brackets>` are values that needs to be replaced according to specific needs.
