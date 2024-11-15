@@ -4,11 +4,11 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
 
 1. Create a folder named `<production>` at `<tenant-name>/<app-name>` which corresponds to the production environment. Suppose `<tenant-name>` as tenant name, `<app-name>` as application name, `<production>` as cluster name, `<prod>` as environment name.
 
-   ```bash
-   └── <tenant-name>
-       └── <app-name>
-           └── <prod>
-   ```
+    ```bash
+    └── <tenant-name>
+        └── <app-name>
+            └── <prod>
+    ```
 
 2. Add the Helm Chart of your application with production environment configurations.
 
@@ -90,6 +90,6 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
 
 6. Make sure Application that deploys applications inside `argocd-apps/cluster-name/` folder is deployed in relevant `infra-gitops-config` repository.
 
+
 !!! note 
     Anything defined in `<angle brackets>` are values that needs to be replaced according to specific needs.
-
