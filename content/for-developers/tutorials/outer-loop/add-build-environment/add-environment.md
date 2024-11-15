@@ -3,13 +3,13 @@
 Lets see how can we add an environment to an application in a tenant. Lets say, we have added a production cluster and want to add a new environment in application for it to be deployed on production.
 
 1. Create a folder named `<production>` at `<tenant-name>/<app-name>` which corresponds to the production environment. Suppose `<tenant-name>` as tenant name, `<app-name>` as application name, `<production>` as cluster name, `<prod>` as environment name.
-
+    
     ```bash
     └── <tenant-name>
         └── <app-name>
             └── <prod>
     ```
-
+    
 2. Add the Helm Chart of your application with production environment configurations.
 
    ```bash
