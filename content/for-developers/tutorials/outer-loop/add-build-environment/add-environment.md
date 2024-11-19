@@ -2,7 +2,7 @@
 
 Lets see how can we add an environment to an application in a tenant. Lets say, we have added a production cluster and want to add a new environment in application for it to be deployed on production.
 
-1. Create a folder named `<cluste<apps-gitops-repo-url>r-name>` at `<tenant-name>/<app-name>` which corresponds to the production environment. Suppose `<tenant-name>` as tenant name, `<app-name>` as application name, `<cluster-name>` as cluster name, `<env-name>` as environment name.
+1. Create a folder named `<cluster-name>` at `<tenant-name>/<app-name>` which corresponds to the production environment. Suppose `<tenant-name>` as tenant name, `<app-name>` as application name, `<cluster-name>` as cluster name, `<env-name>` as environment name.
   
     ```bash
     └── <tenant-name>
@@ -95,8 +95,8 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
     
 Brief details about what each key means is defined below:
 1. `tenant-name`: Name of the tenant where this environment needs to be deployed.
-2. `app-name`: Name of the application where this environment will be used.
-3. `cluster-name`: Name of the cluster. 
-4. `env-name`: Name of the environment.
-5. `target-namespace`: Name of the namespace where this environment will be deployed.
-6. `apps-gitops-repo-url`: URL for apps gitops repository. 
+1. `app-name`: Name of the application where this environment will be used.
+1. `cluster-name`: Name of the cluster. 
+1. `env-name`: Name of the environment.
+1. `target-namespace`: Name of the namespace where this environment will be deployed.
+1. `apps-gitops-repo-url`: URL for Apps Gitops repository. 
