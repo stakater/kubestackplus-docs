@@ -91,12 +91,13 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
 1. Make sure Application that deploys applications inside `argocd-apps/cluster-name/` folder is deployed in relevant `infra-gitops-config` repository.
 
 !!! note
-    Anything defined in `<angle brackets>` are values that needs to be replaced according to specific needs. 
-    
+    Anything defined in `<angle brackets>` are values that needs to be replaced according to specific needs.
+ 
 Brief details about what each key means is defined below:
+
 1. `tenant-name`: Name of the tenant where this environment needs to be deployed.
 1. `app-name`: Name of the application where this environment will be used.
-1. `cluster-name`: Name of the cluster. 
+1. `cluster-name`: Name of the cluster.
 1. `env-name`: Name of the environment.
 1. `target-namespace`: Name of the namespace where this environment will be deployed.
-1. `apps-gitops-repo-url`: URL for Apps GitOps repository. 
+1. `apps-gitops-repo-url`: URL for Apps GitOps repository.
