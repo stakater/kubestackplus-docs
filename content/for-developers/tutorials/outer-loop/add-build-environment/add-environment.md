@@ -30,7 +30,7 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
     kind: Application
     metadata:
       name: <tenant-name>-<env-name>-<app-name>
-      namespace: rh-openshift-gitops-instance
+      namespace: <argocd-namespace-name>
     spec:
       destination:
         namespace: <target-namespace>
@@ -55,7 +55,7 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
     kind: Application
     metadata:
       name: <tenant-name>-<env-name>
-      namespace: rh-openshift-gitops-instance
+      namespace: <argocd-namespace-name>
     spec:
       destination:
         namespace: <target-namespace>
@@ -101,3 +101,4 @@ Brief details about what each key means is defined below:
 1. `env-name`: Name of the environment.
 1. `target-namespace`: Name of the namespace where this environment will be deployed.
 1. `apps-gitops-repo-url`: URL for Apps GitOps repository.
+1. `argocd-namespace-name`: Namespace where ArgoCD is deployed.
