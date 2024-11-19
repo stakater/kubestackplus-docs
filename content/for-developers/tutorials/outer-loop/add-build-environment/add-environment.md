@@ -99,4 +99,4 @@ Brief details about what each key means is defined below:
 1. `cluster-name`: Name of the cluster. 
 1. `env-name`: Name of the environment.
 1. `target-namespace`: Name of the namespace where this environment will be deployed.
-1. `apps-gitops-repo-url`: URL for Apps Gitops repository. 
+1. `apps-gitops-repo-url`: URL for Apps GitOps repository. 
