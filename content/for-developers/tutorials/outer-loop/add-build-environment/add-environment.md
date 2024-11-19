@@ -92,7 +92,7 @@ Lets see how can we add an environment to an application in a tenant. Lets say, 
 
 !!! note
     Anything defined in `<angle brackets>` are values that needs to be replaced according to specific needs.
- 
+
 Brief details about what each key means is defined below:
 
 1. `tenant-name`: Name of the tenant where this environment needs to be deployed.
