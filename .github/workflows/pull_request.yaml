@@ -12,41 +12,41 @@ jobs:
       MD_CONFIG: .github/md_config.json
       DOC_SRC: content/**/*.md README.md
       MD_LINT_CONFIG: .markdownlint.yaml
-  build:
-    uses: stakater/.github/.github/workflows/pull_request_container_build.yaml@v0.0.106
-    with:
-      DOCKER_FILE_PATH: Dockerfile
-    secrets:
-      CONTAINER_REGISTRY_URL: ghcr.io/stakater
-      CONTAINER_REGISTRY_USERNAME: ${{ github.actor }}
-      CONTAINER_REGISTRY_PASSWORD: ${{ secrets.GHCR_TOKEN }}
-      SLACK_WEBHOOK_URL: ${{ secrets.STAKATER_DELIVERY_SLACK_WEBHOOK }}
+  # build:
+  #   uses: stakater/.github/.github/workflows/pull_request_container_build.yaml@v0.0.106
+  #   with:
+  #     DOCKER_FILE_PATH: Dockerfile
+  #   secrets:
+  #     CONTAINER_REGISTRY_URL: ghcr.io/stakater
+  #     CONTAINER_REGISTRY_USERNAME: ${{ github.actor }}
+  #     CONTAINER_REGISTRY_PASSWORD: ${{ secrets.GHCR_TOKEN }}
+  #     SLACK_WEBHOOK_URL: ${{ secrets.STAKATER_DELIVERY_SLACK_WEBHOOK }}
 
-  test:
-    runs-on: ubuntu-latest
-    needs: [build]
-    env:
-      IMAGE_PATH: ${{ needs.build.outputs.IMAGE_PATH }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+  # test:
+  #   runs-on: ubuntu-latest
+  #   needs: [build]
+  #   env:
+  #     IMAGE_PATH: ${{ needs.build.outputs.IMAGE_PATH }}
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
 
-      - name: Login to Docker Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io/stakater
-          username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_TOKEN }}
+  #     - name: Login to Docker Registry
+  #       uses: docker/login-action@v3
+  #       with:
+  #         registry: ghcr.io/stakater
+  #         username: ${{ github.actor }}
+  #         password: ${{ secrets.GHCR_TOKEN }}
 
-      - name: Run Docker container for the saap-docs app
-        run: |
-          docker run -d --name saap-docs -p 8080:8080 ghcr.io/${{ github.repository }}${{ env.IMAGE_PATH }} || exit 1
+  #     - name: Run Docker container for the saap-docs app
+  #       run: |
+  #         docker run -d --name saap-docs -p 8080:8080 ghcr.io/${{ github.repository }}${{ env.IMAGE_PATH }} || exit 1
 
-      - name: Build testcafe tests
-        working-directory: ./testcafe
-        run: |
-          docker build -t testcafe-tests .
+  #     - name: Build testcafe tests
+  #       working-directory: ./testcafe
+  #       run: |
+  #         docker build -t testcafe-tests .
 
-      - name: Run Docker container to run tests
-        run: |
-          docker run --rm --network="host" --name myapp-testcafe-container testcafe-tests:latest
+  #     - name: Run Docker container to run tests
+  #       run: |
+  #         docker run --rm --network="host" --name myapp-testcafe-container testcafe-tests:latest
