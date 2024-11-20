@@ -94,7 +94,6 @@ Files `main.html` and `404.html` are served from `theme_common` rather than over
 
 To execute the prepare theme command after setup you need to add the `prepare_theme.sh` or copy and paste bash file using sudo command file to your root directory and then run the following command:
 
-
 ```bash
 chmod +x prepare_theme.sh
 ```
