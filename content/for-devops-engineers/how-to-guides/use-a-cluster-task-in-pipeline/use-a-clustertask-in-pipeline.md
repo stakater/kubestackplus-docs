@@ -37,7 +37,7 @@ Add a clusterTask to enhance Tekton pipeline.
           - defaultTaskName: git-clone
             params:
               - name: url
-                value: "git@github.com:stakater-ab/mto-console.git"
+                value: # path to MTO Console
             workspaces:
               - name: ssh-directory
                 workspace: ssh-directory
@@ -80,7 +80,7 @@ Add a clusterTask to enhance Tekton pipeline.
           - defaultTaskName: git-clone
             params:
               - name: url
-                value: "git@github.com:stakater-ab/mto-console.git"
+                value: # path to MTO Console
             workspaces:
               - name: ssh-directory
                 workspace: ssh-directory
