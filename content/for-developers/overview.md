@@ -50,6 +50,14 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
     Explore the process of promoting your application across different environments. Facilitate seamless deployments by versioning and sharing your charts with your team.
 
+- [Backup and Restore a Stateful App using Velero](./how-to-guides/velero-stateful-app-example.md)
+
+    Backup and Restore a stateful app with Velero including its namespace and PVCs.
+
+- [Restore PVC data with GitOps](./how-to-guides/velero-restore-with-gitops.md)
+
+    Backup and Restore a gitops managed stateful app with Velero.
+
 ## Tutorials - Inner Loop
 
 - [Nordmart Review 101](./tutorials/inner-loop/about-application/about-application.md)

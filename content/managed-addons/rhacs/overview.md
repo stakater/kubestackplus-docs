@@ -6,6 +6,9 @@ In the era of cloud-native applications, safeguarding your Kubernetes workloads 
 
 [Red Hat Advanced Cluster Security (RHACS)](https://www.redhat.com/en/technologies/cloud-computing/openshift/advanced-cluster-security-kubernetes) is a comprehensive security solution designed to secure containerized applications and Kubernetes environments effectively. RHACS offers advanced capabilities for threat detection, vulnerability management, compliance enforcement, and more, ensuring your Kubernetes workloads remain resilient and protected.
 
+1. [Accessing RHACS](./accessing-rhacs.md)
+1. [Permissions](./permissions.md)
+
 ## Key Features and Benefits
 
 - **Container and Kubernetes Security**: RHACS provides comprehensive security for containerized applications and Kubernetes environments, helping organizations protect their critical workloads.
