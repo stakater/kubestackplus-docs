@@ -22,7 +22,7 @@ The following CLI tools are required for working with the Stakater App Agility P
 
     You can install the OpenShift CLI (oc) binary on Linux by using the following procedure.
 
-    #### Procedure
+    **Procedure**
 
     1. From the web console, click ?.
         ![OpenShift Console](images/console1.png)
@@ -34,20 +34,20 @@ The following CLI tools are required for working with the Stakater App Agility P
     1. Unpack the archive.
 
         ```shell
-        $ tar xvf <file>
+        tar xvf <file>
         ```
 
     1. Move the **oc** binary to a directory that is on your **PATH**.
     1. To check your **PATH**, execute the following command:
 
         ```shell
-        $ echo $PATH
+        echo $PATH
         ```
 
     1. After you install the OpenShift CLI, it is available using the **oc** command:
 
         ```shell
-        $ oc <command>
+        oc <command>
         ```
 
 - [helm](https://helm.sh/docs/intro/install/) helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
