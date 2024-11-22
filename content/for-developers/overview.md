@@ -56,7 +56,7 @@ Welcome to the Developer Section, your comprehensive guide to mastering applicat
 
 - [Restore PVC data with GitOps](./how-to-guides/velero-restore-with-gitops.md)
 
-    Backup and Restore a gitops managed stateful app with Velero.
+    Backup and Restore a GitOps managed stateful app with Velero.
 
 ## Tutorials - Inner Loop
 
