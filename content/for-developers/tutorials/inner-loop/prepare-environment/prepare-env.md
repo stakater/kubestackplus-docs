@@ -25,26 +25,31 @@ The following CLI tools are required for working with the Stakater App Agility P
     #### Procedure
 
     1. From the web console, click ?.
-        ![Openshift Console](images/console1.png)
+        ![OpenShift Console](images/console1.png)
     1. Click Command Line Tools.
-        ![Openshift Console](images/console2.png)
+        ![OpenShift Console](images/console2.png)
     1. Select appropriate oc binary for your Linux platform, and then click **Download oc for Linux**.
 
     1. Save the file.
     1. Unpack the archive.
+
         ```shell
         $ tar xvf <file>
         ```
+
     1. Move the **oc** binary to a directory that is on your **PATH**.
     1. To check your **PATH**, execute the following command:
+
         ```shell
         $ echo $PATH
         ```
+
     1. After you install the OpenShift CLI, it is available using the **oc** command:
+
         ```shell
         $ oc <command>
         ```
-     
+
 - [helm](https://helm.sh/docs/intro/install/) helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
 
 - [docker](https://docs.docker.com/get-docker/) Docker is an open platform for developing, shipping and running applications. Docker enables you to separate your applications from your infrastructure, so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications.
