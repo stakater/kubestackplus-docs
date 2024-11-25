@@ -12,4 +12,4 @@ Velero's versatility extends to:
 With Velero, you gain peace of mind knowing that your critical Kubernetes data is protected, recoverable, and resilient to unexpected events. It's an essential tool for ensuring the availability and reliability of your containerized applications.
 
 1. [Velero CLI](cli.md)
-1. [Troubleshooting](.troubleshooting.md)
+1. [Troubleshooting](troubleshooting.md)

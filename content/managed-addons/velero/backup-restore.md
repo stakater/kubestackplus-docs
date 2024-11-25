@@ -4,7 +4,7 @@ Back up and restore applications on Stakater App Agility Platform (AAP)
 
 ## Prerequisite
 
-You need Velero CLI setup, follow the `velero-cli` [doc](./velero-cli.md)
+You need Velero CLI setup, follow the `velero-cli` [doc](cli.md)
 
 ## Service viewpoint
 
