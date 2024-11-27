@@ -28,4 +28,4 @@ This division ensures clarity on roles while positioning Stakater as a complianc
 
 ## Subprocessors
 
-Stakater subprocessors can be found [here](subprocessors.md)
+Stakater subprocessors can be found [here](subprocessors.md).

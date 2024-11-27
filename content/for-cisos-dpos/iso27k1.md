@@ -1,1 +1,3 @@
 # ISO 27001 Controls
+
+SAAP provides a robust framework for achieving compliance with international standards like ISO 27001 by addressing critical technical security controls and operational requirements. Leveraging Kubernetes and CIS Kubernetes Benchmarks, SAAP empowers organizations to implement technical measures that align with ISO 27001 domains, ensuring data confidentiality, integrity, and availability. From secure workload orchestration to automated compliance checks and robust access control mechanisms, SAAP simplifies the complex task of meeting compliance obligations while enhancing overall security posture.
