@@ -166,6 +166,12 @@ nav:
           - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
   - For CISOs & DPOs:
       - for-cisos-dpos/overview.md
+      - for-cisos-dpos/gdpr-eu.md
+      - for-cisos-dpos/iso27k1.md
+      - for-cisos-dpos/nist-sp-800-171.md
+      - for-cisos-dpos/bsi-it-grundschutz.md
+      - for-cisos-dpos/toms.md
+      - for-cisos-dpos/subprocessors.md                  
   - Managed Addons:
       - managed-addons/overview.md
       - Nexus:
