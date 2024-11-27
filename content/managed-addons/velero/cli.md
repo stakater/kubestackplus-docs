@@ -1,4 +1,4 @@
-# Velero CLI setup
+# Velero CLI
 
 For Velero related tasks/sample. It's better to setup the Velero CLI. It can perform various task against the Velero server deployed on the cluster.
 

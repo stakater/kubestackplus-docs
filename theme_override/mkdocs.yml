@@ -164,26 +164,14 @@ nav:
           - for-developers/how-to-guides/deploy-app-with-argocd-and-helm/deploy-app-with-argocd-and-helm.md
           - for-developers/how-to-guides/expose-spring-boot-metrics/expose-spring-boot-metrics.md
           - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
-  - For CISOs:
-      - for-cisos/policies/policies.md
-      - Red Hat Advanced Cluster Security (RHACS):
-          - for-cisos/rhacs/introduction.md
-          - for-cisos/rhacs/accessing-rhacs.md
-          - for-cisos/rhacs/permissions.md
-      - Backup and Restore:
-          - for-cisos/backup-restore/introduction.md
-          - for-cisos/backup-restore/velero-cli.md
-          - for-cisos/backup-restore/backup-restore.md
-          - for-cisos/backup-restore/troubleshooting.md
-          - for-cisos/backup-restore/cleanup.md
-          - for-cisos/backup-restore/stateful-app-example.md
-          - for-cisos/backup-restore/restore-with-gitops.md
-          - for-cisos/backup-restore/limitations.md
-      - Data Protection:
-          - for-cisos/data-protection/gdpr.md
-          - for-cisos/data-protection/rhacm-data-lifecycle.md
-          - for-cisos/data-protection/rhacm-data-collection.md
-          - for-cisos/data-protection/rhacm-data-storage.md
+  - For CISOs & DPOs:
+      - for-cisos-dpos/overview.md
+      - for-cisos-dpos/gdpr-eu.md
+      - for-cisos-dpos/iso27k1.md
+      - for-cisos-dpos/nist-sp-800-171.md
+      - for-cisos-dpos/bsi-it-grundschutz.md
+      - for-cisos-dpos/toms.md
+      - for-cisos-dpos/subprocessors.md                  
   - Managed Addons:
       - managed-addons/overview.md
       - Nexus:
@@ -263,10 +251,14 @@ nav:
           - managed-addons/tronador/overview.md
       - Velero:
           - managed-addons/velero/overview.md
+          - managed-addons/velero/cli.md
+          - managed-addons/velero/troubleshooting.md
       - Volume Expander Operator:
           - managed-addons/volume-expander-operator/overview.md
       - RHACS:
           - managed-addons/rhacs/overview.md
+          - managed-addons/rhacs/accessing-rhacs.md
+          - managed-addons/rhacs/permissions.md                    
       - Vertical Pod Autoscaler (VPA):
           - managed-addons/vertical-pod-autoscaler/overview.md
       - Horizontal Pod Autoscaler (HPA):

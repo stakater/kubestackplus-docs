@@ -2,7 +2,7 @@
 
 ## Prerequisite
 
-You need Velero CLI setup, follow the `velero-cli` [doc](./velero-cli.md)
+You need Velero CLI setup, follow the `velero-cli` [doc](../../managed-addons/velero/cli.md)
 
 ## Prepare manifests for app
 

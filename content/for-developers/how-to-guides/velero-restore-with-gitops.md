@@ -4,7 +4,7 @@ Restore PVC data when its managed in GitOps by ArgoCD.
 
 ## 1. Prerequisite
 
-Setup `velero-cli` [doc](./velero-cli.md)
+Setup `velero-cli` [doc](../../managed-addons/velero/cli.md)
 
 ## 2. Take backup
 
