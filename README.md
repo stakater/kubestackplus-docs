@@ -2,8 +2,6 @@
 
 SAAP docs are built using [MkDocs](https://github.com/mkdocs/mkdocs) which is based on Python.
 
-TEST
-
 ## GitHub Actions
 
 This repository has GitHub action workflow which checks the quality of the documentation and builds the Dockerfile image on Pull Requests. On a push to the main branch, it will create a GitHub release and push the built Dockerfile image to an image repository.
