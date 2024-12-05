@@ -20,7 +20,7 @@ The first step is to setup `redis-cli` on your local machine. For this, go throu
 
 ## Create Port Forwarding to Redis Service
 
-Before running `redis-cli` command we need to port forward to redis service running in cluster. To achieve this, perform following steps:
+Before running `redis-cli` command we need to port forward to Redis service running in cluster. To achieve this, perform following steps:
 
 - In OpenShift console, click on your username on top right corner and click `Copy login command` as shown below:
   ![`OpenShift Console`](../images/openshift-console.png)
@@ -31,8 +31,8 @@ Before running `redis-cli` command we need to port forward to redis service runn
   ```shell
   oc get svc -n <redis-namespace>  
   ```
- 
-  Here `<redis-namespace>` is the name of namespace where redis is deployed (In current case its value is `bitnami-redis`). This name might be different for you. You can ask about this to cluster admin.
+
+  Here `<redis-namespace>` is the name of namespace where Redis is deployed (In current case its value is `bitnami-redis`). This name might be different for you. You can ask about this to cluster admin.
 - You'll get an output similar to one shown below:
   ![`Redis Services`](../images/redis-services.png)
 - Run the following command to create port forward.
@@ -51,6 +51,6 @@ Before running `redis-cli` command we need to port forward to redis service runn
   redis-cli -h 127.0.0.1 -p <port> -a <password>
   ```
   
-    - Here `<password>` should be replaced by password used to connect to redis. This password can easily be retrieved from Vault.
-- At this moment, you should have access to `redis-cli`. As shown below by doing a simple operation on redis.
+    - Here `<password>` should be replaced by password used to connect to Redis. This password can easily be retrieved from Vault.
+- At this moment, you should have access to `redis-cli`. As shown below by doing a simple operation on Redis.
 ![`Redis CLI`](../images/redis-cli.png)
