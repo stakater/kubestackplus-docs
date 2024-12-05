@@ -1,5 +1,9 @@
 # GDPR (Regulation (EU) 2016/679)
 
+!!! danger "Disclaimer"
+
+    It is important to note that the information provided in this document is for general informational purposes only. Any liability for the completeness, accuracy, timeliness, or reliability of the content is expressly excluded. Organizations are advised to consult with legal, compliance, or technical experts to ensure that their specific compliance and security needs are adequately addressed.
+
 ## Shared Responsibility Model
 
 The shared responsibility model outlines how GDPR compliance is a shared obligation between Stakater and its customers, with clearly defined roles:
