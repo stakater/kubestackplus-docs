@@ -32,7 +32,7 @@ Before running `psql` command we need to port forward to Postgres Pod running in
   PG_CLUSTER_PRIMARY_POD=$(oc get pod -n <postgres-namespace> -o name -l postgres-operator.crunchydata.com/cluster=<postgres-cluster>,postgres-operator.crunchydata.com/role=master)
   ```
 
-  Here `<postgres-namespace>` is the name of namespace where Postgres is deployed (In current case its value is `crunchy-postgres-instance`). This name might be different for you. You can ask about this to cluster admin. `<postgres-cluster>` is the name of cluster in postgres that usually get created at time of deployment (In current case its value is `postgres`). You can ask about its name from cluster admin as well.
+  Here `<Postgres-namespace>` is the name of namespace where Postgres is deployed (In current case its value is `crunchy-postgres-instance`). This name might be different for you. You can ask about this to cluster admin. `<postgres-cluster>` is the name of cluster in postgres that usually get created at time of deployment (In current case its value is `postgres`). You can ask about its name from cluster admin as well.
 
 - Upon printing the value stored in variable mentioned above, you'll get an output similar to one shown below:
   ![`Postgres Pod Name`](../images/postgres-pod.png)
