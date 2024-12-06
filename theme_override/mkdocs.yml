@@ -210,7 +210,7 @@ nav:
               - managed-addons/renovate/how-to-guides/automerge.md
               - managed-addons/renovate/how-to-guides/run-locally.md
       - Postgres:
-          - Tutorial:
+          - Tutorials:
               - managed-addons/postgres/tutorial/connect-to-postgres-cli/connect-to-postgres-cli.md
       - Gatekeeper:
           - managed-addons/gatekeeper/overview.md
