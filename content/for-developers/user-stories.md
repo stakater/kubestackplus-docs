@@ -94,7 +94,7 @@ As a developer, I want a unified dashboard to easily find all applications and t
 
 ![type:video](https://www.youtube.com/embed/IEHVfPRXKyg)
 
-Tags: OpenShift console, dashboard, forecastle
+Tags: OpenShift console, dashboard, Forecastle
 
 ## User Story # 13
 
@@ -102,7 +102,7 @@ As a developer, I want to inspect code quality and perform a security analysis, 
 
 ![type:video](https://www.youtube.com/embed/fhGHZDctlgU)
 
-Tags: sonarqube, outer loop
+Tags: SonarQube, outer loop
 
 ## User Story # 14
 
