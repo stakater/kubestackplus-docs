@@ -217,6 +217,9 @@ nav:
           - How-to guides:
               - managed-addons/renovate/how-to-guides/automerge.md
               - managed-addons/renovate/how-to-guides/run-locally.md
+      - Postgres:
+          - Tutorials:
+              - managed-addons/postgres/tutorial/connect-to-postgres-cli/connect-to-postgres-cli.md
       - Gatekeeper:
           - managed-addons/gatekeeper/overview.md
       - Showback:
@@ -251,6 +254,9 @@ nav:
           - managed-addons/reloader/overview.md
           - Tutorials:
               - managed-addons/reloader/tutorial/configure-resources.md
+      - Redis:
+          - Tutorials:
+              - managed-addons/redis/tutorial/connect-to-redis-cli/connect-to-redis-cli.md
       - SonarQube:
           - managed-addons/sonarqube/overview.md
       - Tekton:
