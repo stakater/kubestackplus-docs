@@ -54,7 +54,7 @@ As a developer, I want to define secrets using Vault and have them securely inje
 
 ![type:video](https://www.youtube.com/embed/I17DU8sHQN8)
 
-Tags: secrets management, Vault, openbao, Reloader
+Tags: secrets management, Vault, OpenBao, Reloader
 
 ## User Story # 8
 
@@ -106,7 +106,7 @@ Tags: SonarQube, outer loop
 
 ## User Story # 14
 
-As a developer, I want to view historical (upto 14 days) metrics related to my applications, such as CPU usage, memory consumption, and response times, so that I can analyze their performance over time, identify trends, and optimize resource allocation and application behavior accordingly.
+As a developer, I want to view historical (14 days) metrics related to my applications, such as CPU usage, memory consumption, and response times, so that I can analyze their performance over time, identify trends, and optimize resource allocation and application behavior accordingly.
 
 ![type:video](https://www.youtube.com/embed/qokw8tuFLt8)
 
@@ -150,7 +150,7 @@ As a developer, I want to receive downtime notification when application isn’t
 
 ![type:video](https://www.youtube.com/embed/3ZBeGaawxuI)
 
-Tags: ingress monitor controller, Prometheus, blackbox monitoring
+Tags: ingress monitor controller, Prometheus
 
 ## User Story # 20
 
