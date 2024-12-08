@@ -2,10 +2,10 @@
 
 The **3-2-1-1-0 Backup Rule** is a modern extension of the traditional backup strategy designed to ensure data protection and recovery. Here's what it stands for:
 
-- **3:** Maintain at least three copies of your data (the original and two backups).
-- **2:** Store the copies on two different types of media (e.g., local storage and external storage, or cloud storage and tape).
-- **1:** Keep at least one of the backups offsite (for protection against physical disasters).
-- **1:** Have at least one immutable backup copy or one backup that is air-gapped (meaning it cannot be tampered with or accessed online).
-- **0:** Ensure there are zero errors in your backups by regularly testing and verifying them to confirm data integrity and successful recovery.
+- **3 Copies of Your Data**: Keep three copies of your data: the primary data and two backups. This ensures redundancy.
+- **2 Different Storage Types**: Store backups on at least two different types of media (e.g., disk and tape, or local and cloud) to avoid single points of failure.
+- **1 Offsite Backup**: Keep one backup copy offsite, such as in a remote data center or a cloud service, to protect against local disasters.
+- **1 Immutable Backup**: Have at least one backup that is immutable or air-gapped, ensuring it cannot be modified or deleted (e.g., WORM storage or offline backups).
+- **0 Errors After Backup Verification**: Regularly verify and test backups to ensure they are error-free and can be restored when needed.
 
 This rule provides a comprehensive approach to safeguarding against data loss due to hardware failure, natural disasters, cyberattacks, or human error.

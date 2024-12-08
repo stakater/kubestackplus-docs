@@ -6,15 +6,7 @@ Through the Stakater App Agility Platform (SAAP), we provide our customers with 
 
 To explore specific compliance frameworks and how SAAP addresses them, it is essential to understand that these frameworks can be broadly divided into two major categories:
 
-## 1. Industry-Specific Standards
-
-These standards focus on addressing the unique compliance, security, and operational requirements of specific industries. SAAP incorporates relevant measures that can be applied to help organizations meet compliance requirements in areas such as:
-
-- Patient data protection (e.g., HIPAA for healthcare)
-- Payment card security (e.g., PCI DSS for financial services)
-- Cloud security for government services (e.g., FedRAMP)
-
-## 2. General Frameworks
+## 1. General Frameworks
 
 These frameworks are widely applicable across industries and focus on providing high-level best practices for security, privacy, and risk management. They serve as foundational guidelines for building secure and compliant environments. SAAP supports measures aligned with frameworks such as:
 
@@ -23,6 +15,14 @@ These frameworks are widely applicable across industries and focus on providing 
 - **General Data Protection Regulation (GDPR)**, which governs data privacy and protection in the European Union - [GDPR](gdpr-eu.md)
 - **BSI IT-Grundschutz**, a comprehensive framework developed by the German Federal Office for Information Security (BSI) to ensure robust information security management - [BSI IT-Grundschutz](bsi-it-grundschutz.md)
 - **Center for Internet Security (CIS) Benchmarks**, which provide globally recognized secure configuration guidelines for systems and applications - [CIS Benchmarks](cis.md)
+- **SOC 2 Type 2**, is a framework which evaluates the operational effectiveness of an organization’s security, availability, processing integrity, confidentiality, and privacy controls over a defined period - [SOC 2 Type 2](soc2-type2.md)
+
+## 2. Industry-Specific Standards
+
+These standards focus on addressing the unique compliance, security, and operational requirements of specific industries. SAAP incorporates relevant measures that can be applied to help organizations meet compliance requirements in areas such as:
+
+- Patient data protection - [HIPAA](hipaa.md)
+- Operational resilience in financial services - [DORA)](dora.md)
 
 SAAP provides a comprehensive approach to compliance by aligning with both industry-specific standards and general frameworks. The platform is designed to address these requirements efficiently, ensuring your organization remains secure and compliant.
 
