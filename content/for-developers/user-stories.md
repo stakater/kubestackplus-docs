@@ -14,7 +14,7 @@ As a developer, I want to automatically create preview environments for my pull 
 
 ![type:video](https://www.youtube.com/embed/ZOCZAJItUzY)
 
-Tags: preview environments, feature environments, tronador
+Tags: preview environments, feature environments, Tronador
 
 ## User Story # 3
 
@@ -22,7 +22,7 @@ As a developer, I want to monitor my application’s resource consumption (such 
 
 ![type:video](https://www.youtube.com/embed/HapJ03wCSkE)
 
-Tags: prometheus, openshift console, monitoring
+Tags: Prometheus, OpenShift console, monitoring
 
 ## User Story # 4
 
@@ -30,7 +30,7 @@ As a developer, I want a pipeline-as-code solution that allows the team to defin
 
 ![type:video](https://www.youtube.com/embed/PdZbu0eU_SI)
 
-Tags: tekton, argocd, outer loop, CI/CD, pipeline-as-code, pac, devops
+Tags: Tekton, ArgoCD, outer loop, CI/CD, pipeline-as-code, pac, devops
 
 ## User Story # 5
 
@@ -38,7 +38,7 @@ As a developer, I want environments (such as devtest, stage, and prod) to be sto
 
 ![type:video](https://www.youtube.com/embed/0CEO2Dsf-bE)
 
-Tags: argocd, gitops, outer loop
+Tags: ArgoCD, GitOps, outer loop
 
 ## User Story # 6
 
@@ -46,7 +46,7 @@ As a developer, I want to easily package applications as Helm charts using a lea
 
 ![type:video](https://www.youtube.com/embed/_yK_5c_sB_A)
 
-Tags: helm, outer loop, leader chart, gitops, argocd
+Tags: helm, outer loop, leader chart, GitOps, ArgoCD
 
 ## User Story # 7
 
@@ -54,7 +54,7 @@ As a developer, I want to define secrets using Vault and have them securely inje
 
 ![type:video](https://www.youtube.com/embed/I17DU8sHQN8)
 
-Tags: secrets management, reloader, vault, openbao, reloader
+Tags: secrets management, Vault, openbao, Reloader
 
 ## User Story # 8
 
@@ -78,7 +78,7 @@ As a developer, I want my application to be automatically released to the first 
 
 ![type:video](https://www.youtube.com/embed/VFvKg_owX2U)
 
-Tags: gitops, argocd, outer loop
+Tags: GitOps, ArgoCD, outer loop
 
 ## User Story # 11
 
@@ -86,7 +86,7 @@ As a developer, I want to see my application logs in real-time, so I can quickly
 
 ![type:video](https://www.youtube.com/embed/zqAFPuu1ABQ)
 
-Tags: logging, loki, fluentd
+Tags: logging, Loki, Vector
 
 ## User Story # 12
 
@@ -94,7 +94,7 @@ As a developer, I want a unified dashboard to easily find all applications and t
 
 ![type:video](https://www.youtube.com/embed/IEHVfPRXKyg)
 
-Tags: openshift console, dashboard, forecastle
+Tags: OpenShift console, dashboard, forecastle
 
 ## User Story # 13
 
@@ -110,7 +110,7 @@ As a developer, I want to view historical (upto 14 days) metrics related to my a
 
 ![type:video](https://www.youtube.com/embed/qokw8tuFLt8)
 
-Tags: prometheus, application monitoring
+Tags: Prometheus, application monitoring
 
 ## User Story # 15
 
@@ -126,7 +126,7 @@ As a developer I want end to end automation and dynamic loading of application c
 
 ![type:video](https://www.youtube.com/embed/HIhlOWgX4-8)
 
-Tags: reloader
+Tags: Reloader
 
 ## User Story # 17
 
@@ -134,7 +134,7 @@ As a developer, I want to configure ServiceMonitor objects to collect applicatio
 
 ![type:video](https://www.youtube.com/embed/FobNiJxLzc0)
 
-Tags: application monitoring, service monitor, prometheus
+Tags: application monitoring, service monitor, Prometheus
 
 ## User Story # 18
 
@@ -142,7 +142,7 @@ As a developer, I want to configure alert conditions and manage notifications, s
 
 ![type:video](https://www.youtube.com/embed/MwHhRHmkNjA)
 
-Tags: monitoring, alerting, prometheus, alert manager
+Tags: monitoring, alerting, Prometheus, alert manager
 
 ## User Story # 19
 
@@ -150,7 +150,7 @@ As a developer, I want to receive downtime notification when application isn’t
 
 ![type:video](https://www.youtube.com/embed/3ZBeGaawxuI)
 
-Tags: ingress monitor controller, prometheus, blackbox monitoring
+Tags: ingress monitor controller, Prometheus, blackbox monitoring
 
 ## User Story # 20
 
@@ -158,7 +158,7 @@ As a developer, I want to build and deploy custom Grafana dashboards for my appl
 
 ![type:video](https://www.youtube.com/embed/dE2sQ75Q8oI)
 
-Tags: grafana, application monitoring, prometheus
+Tags: Grafana, application monitoring, Prometheus
 
 ## User Story # 21
 
@@ -166,4 +166,4 @@ As a developer, I want to enable backups for my applications using Velero, so th
 
 ![type:video](https://www.youtube.com/embed/dyPm4-49DOk)
 
-Tags: backup restore, velero
+Tags: backup restore, Velero
