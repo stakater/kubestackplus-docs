@@ -3,13 +3,13 @@
 !!! danger "Disclaimer"
 
     It is important to note that the information provided in this document is for general informational purposes only. Any liability for the completeness, accuracy, timeliness, or reliability of the content is expressly excluded. Organizations are advised to consult with legal, compliance, or technical experts to ensure that their specific compliance and security needs are adequately addressed.
-    
+
 The BSI IT-Grundschutz framework, a German standard for IT security, defines systematic methodologies and controls for safeguarding IT systems. With Stakater App Agility Platform (SAAP) built on Red Hat OpenShift, organizations can effectively implement these controls for Kubernetes-based workloads.
 
-- Total applicable modules in BSI IT-Grundchutz: 2
+- **Total applicable modules in BSI IT-Grundchutz**: 2
     - SYS.1.6 - Containerization: 10 Controls
     - APP.4.4 - Kubernetes: 21 Controls
-- Total applicable controls in BSI IT-Grundchutz: 31
+- **Total applicable controls in BSI IT-Grundchutz**: 31
 
 ## Controls Addressed by SAAP
 

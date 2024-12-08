@@ -3,7 +3,7 @@
 !!! danger "Disclaimer"
 
     It is important to note that the information provided in this document is for general informational purposes only. Any liability for the completeness, accuracy, timeliness, or reliability of the content is expressly excluded. Organizations are advised to consult with legal, compliance, or technical experts to ensure that their specific compliance and security needs are adequately addressed.
-    
+
 The CIS Kubernetes Benchmark provides over **120 recommendations** for securing Kubernetes environments, addressing critical areas such as access control, data protection, and cluster configuration. SAAP plays a pivotal role in enabling compliance with these recommendations by leveraging Kubernetes features and advanced security configurations.
 
 - **Total Recommendations in CIS Kubernetes Benchmark**: 120+

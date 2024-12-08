@@ -3,7 +3,7 @@
 !!! danger "Disclaimer"
 
     It is important to note that the information provided in this document is for general informational purposes only. Any liability for the completeness, accuracy, timeliness, or reliability of the content is expressly excluded. Organizations are advised to consult with legal, compliance, or technical experts to ensure that their specific compliance and security needs are adequately addressed.
-    
+
 DORA (Digital Operational Resilience Act) is a European Union regulation designed to ensure the resilience of financial entities against operational disruptions and cyber threats. SAAP plays a critical role in enabling compliance with DORA by leveraging Kubernetes features and configurations to address its requirements.
 
 - **Total Articles in DORA**: 5
