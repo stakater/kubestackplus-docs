@@ -1,5 +1,9 @@
 # ISO 27001 Controls
 
+!!! danger "Disclaimer"
+
+    It is important to note that the information provided in this document is for general informational purposes only. Any liability for the completeness, accuracy, timeliness, or reliability of the content is expressly excluded. Organizations are advised to consult with legal, compliance, or technical experts to ensure that their specific compliance and security needs are adequately addressed.
+
 ISO 27001, an international standard for information security, includes 14 domains and 114 controls aimed at protecting information assets. SAAP plays a critical role in enabling compliance with these controls by focusing on the technical aspects of Kubernetes-based workloads.
 
 - Total Domains in ISO 27001: 14

@@ -96,6 +96,7 @@ nav:
           - for-devops-engineers/how-to-guides/use-a-cluster-task-in-pipeline/use-a-clustertask-in-pipeline.md
   - For Developers:
       - for-developers/overview.md
+      - for-developers/user-stories.md
       - Explanation:
           - for-developers/explanation/developer-training.md
           - for-developers/explanation/plan-your-deployment.md
@@ -166,12 +167,19 @@ nav:
           - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
   - For CISOs & DPOs:
       - for-cisos-dpos/overview.md
-      - for-cisos-dpos/gdpr-eu.md
-      - for-cisos-dpos/iso27k1.md
-      - for-cisos-dpos/nist-sp-800-171.md
-      - for-cisos-dpos/bsi-it-grundschutz.md
-      - for-cisos-dpos/toms.md
-      - for-cisos-dpos/subprocessors.md                  
+      - General Frameworks:
+        - for-cisos-dpos/gdpr-eu.md
+        - for-cisos-dpos/iso27k1.md
+        - for-cisos-dpos/nist-sp-800-171.md
+        - for-cisos-dpos/bsi-it-grundschutz.md
+        - for-cisos-dpos/cis.md
+        - for-cisos-dpos/soc2-type2.md        
+        - for-cisos-dpos/toms.md
+        - for-cisos-dpos/subprocessors.md
+      - Industry-Specific Standards:
+        - for-cisos-dpos/hipaa.md
+        - for-cisos-dpos/dora.md
+      - for-cisos-dpos/backup.md                
   - Managed Addons:
       - managed-addons/overview.md
       - Nexus:
@@ -301,6 +309,10 @@ nav:
           - managed-addons/descheduler/overview.md
       - OpenSCAP:
           - managed-addons/compliance-operator/overview.md
+      - Distributed Tracing:
+          - managed-addons/tracing/overview.md
+      - OpenTelemetry:
+          - managed-addons/opentelemetry/overview.md          
   - Legal Documents:
       - legal-documents/overview.md
       - legal-documents/fa.md
@@ -320,3 +332,4 @@ nav:
 
 plugins:
   - include-markdown
+  - mkdocs-video
