@@ -30,7 +30,7 @@ As a developer, I want a pipeline-as-code solution that allows the team to defin
 
 ![type:video](https://www.youtube.com/embed/PdZbu0eU_SI)
 
-Tags: Tekton, ArgoCD, outer loop, CI/CD, pipeline-as-code, pac, devops
+Tags: Tekton, ArgoCD, outer loop, CI/CD, pipeline-as-code, PAC, devops
 
 ## User Story # 5
 
