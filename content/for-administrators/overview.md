@@ -2,6 +2,10 @@
 
 Welcome to the administration section, your comprehensive guide to mastering administration of the SAAP ecosystem. This section equips you with the knowledge, tools, and techniques needed to excel in monitoring and maintaining your OpenShift cluster with SAAP . Whether you're just getting started or seeking to refine your environment , we've organized our content into following categories to cater to Administrators at every level:
 
+## User Stories
+
+To gain a deeper understanding of the user journeys with SAAP, refer to the detailed [User Stories](user-stories.md)
+
 ## Explanation
 
 - [Privileged Roles Available in SAAP](./secure-your-cluster/saap-authorization-roles.md)

@@ -2,6 +2,10 @@
 
 Welcome to the Developer Section, your comprehensive guide to mastering application development and deployment within our ecosystem. This section equips you with the knowledge, tools, and techniques needed to excel in building, deploying, and maintaining your software projects. Whether you're just getting started or seeking to refine your skills, we've organized our content into three main categories to cater to developers at every level:
 
+## User Stories
+
+To gain a deeper understanding of the user journeys with SAAP, refer to the detailed [User Stories](user-stories.md)
+
 ## Explanation
 
 - [Developer Training](./explanation/developer-training.md)

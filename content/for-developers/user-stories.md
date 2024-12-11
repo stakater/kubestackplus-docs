@@ -167,3 +167,11 @@ As a developer, I want to enable backups for my applications using Velero, so th
 ![type:video](https://www.youtube.com/embed/dyPm4-49DOk)
 
 Tags: backup restore, Velero
+
+## User Story # 22
+
+As a developer, I want to implement OpenTelemetry for distributed tracing, so I can efficiently visualize application traces and quickly troubleshoot issues to improve performance and reliability.
+
+![type:video](https://www.youtube.com/embed/tmOOWt33g_E)
+
+Tags: Tracing, OpenTelemetry
