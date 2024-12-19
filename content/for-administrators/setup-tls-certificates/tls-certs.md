@@ -96,6 +96,7 @@ Here `<environment>` correspond to the cluster where you want to deploy this.
     ```
 
     In `.spec.template`, we are specifying the name of the template that we created previously. In `.spec.selector` we need to specify namespaces where these resources would be deployed based on labels that are assigned to these namespaces. In present case, this will be deployed to all the namespaces which has `stakater.com/kind` as label key and `alpha` or `dev` as its value.
+
 1. Commit, push and then merge to `main` branch. In few minutes ArgoCD will deploy these resources to relevant namespaces.
 1. To verify whether resources are deployed correctly and working fine in cluster, you can go cluster console and select `Administrator` view and click `Home > Search`. Select a particular namespace and then search for `Certificate` in `Resources` dropdown as show below:
 ![OpenShift Console](images/console.png)
