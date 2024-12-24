@@ -86,7 +86,8 @@ Here `<environment>` correspond to the cluster where you want to deploy this.
 
 Commit, push and then merge to `main` branch. In few minutes ArgoCD will deploy these resources to relevant namespaces.
 
-# Deploying Ingress
+## Deploying Ingress
+
 By this point initial configuration is setup. As a next step, we need to deploy an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) network resource which will be responsible for exposing your application to internet over a specific domain. It is assumed at this point that you've already setup Leader Helm Chart for your application. We need to add following snippet to `values.yaml` for this chart. Leader chart will use these values to deploy ingress resource in your current namespace.
 
 ```YAML
@@ -116,7 +117,7 @@ application:
   
   `cert-manager.io/issuer`: tells `cert-manager` to use specified issuer for generating TLS certificate. Its value should refer to the `Issuer` that you created earlier.
 
-  `cert-manager.io/acme-challenge-type`: is an annotation specific to `cert-manager` that creates a challenge for `cert-manager` to resolve. More information about challenge can be found [`here`.](https://cert-manager.io/docs/configuration/acme/#solving-challenges) 
+  `cert-manager.io/acme-challenge-type`: is an annotation specific to `cert-manager` that creates a challenge for `cert-manager` to resolve. More information about challenge can be found [`here`.](https://cert-manager.io/docs/configuration/acme/#solving-challenges)
 
   `external-dns.alpha.kubernetes.io/hostname`: value of this annotation is used to register DNS record with DNS provider that we configured in `Issuer`.
 
