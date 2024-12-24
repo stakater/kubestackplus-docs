@@ -103,7 +103,7 @@ spec:
 
 - **`.spec.template`**: References the `Template` resource.
 - **`.spec.selector`**: Specifies namespaces to deploy resources based on label expressions.
-  - In this example, resources are deployed to tenant namespaces with the label `stakater.com/kind` having values `sandbox` or `dev`.
+    - In this example, resources are deployed to tenant namespaces with the label `stakater.com/kind` having values `sandbox` or `dev`.
 
 Commit, push, and merge these changes to the `main` branch. ArgoCD will deploy the resources to the specified namespaces within a few minutes.
 
@@ -140,12 +140,12 @@ application:
 #### Important Details
 
 - **Annotations**:
-  - `cert-manager.io/issuer`: Specifies the Issuer to generate TLS certificates.
-  - `cert-manager.io/acme-challenge-type`: Configures Cert-Manager to solve the ACME challenge. [Learn more](https://cert-manager.io/docs/configuration/acme/#solving-challenges).
-  - `external-dns.alpha.kubernetes.io/hostname`: Registers the DNS record with the configured provider.
+    - `cert-manager.io/issuer`: Specifies the Issuer to generate TLS certificates.
+    - `cert-manager.io/acme-challenge-type`: Configures Cert-Manager to solve the ACME challenge. [Learn more](https://cert-manager.io/docs/configuration/acme/#solving-challenges).
+    - `external-dns.alpha.kubernetes.io/hostname`: Registers the DNS record with the configured provider.
 
 - **TLS Configuration**:
-  - `secretName`: Name of the secret where the TLS certificate will be stored.
+    - `secretName`: Name of the secret where the TLS certificate will be stored.
 
 ### Verify Deployment
 
@@ -162,4 +162,3 @@ application:
 > If the certificate status is not updated, wait a few minutes as Cert-Manager may take time to generate the certificate.
 
 By following these steps, you can effectively configure TLS certificates using Infra GitOps.
-
