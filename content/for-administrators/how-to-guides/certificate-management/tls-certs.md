@@ -59,7 +59,7 @@ Here `<environment>` correspond to the cluster where you want to deploy this.
 
     There are 2 resources `ExternalSecret`and `Issuer` that are getting deployed from this template. Brief explanation about why we need these resources are needed is given below:
 
-    `ExternalSecret`: This is needed to pull `api-token` key from secret provider which in this case is Vault. This is an API-Token from DNS provider (which in present case is Cloudflare). This API-Token will be used by Certificate Authority to validate the authenticity of domains being registered. This secret will be referenced when creating issuer.
+    `ExternalSecret`: This is needed to pull `api-token` key from secret provider which in this case is Vault. This is an API-Token from DNS provider (which in present case is Cloudflare). This API-Token will be used by Certificate Authority to validate the authenticity of DNS name being registered. This secret will be referenced when creating issuer.
 
     `Issuer`: This is a cert-manager related resource and is responsible for setting up initial configuration against which TLS certificate will get generated. This issuer uses [`LetsEncrypt`](https://letsencrypt.org/) as certificate authority by setting one of its server's URL as value for `.spec.acme.server`. There is also a need for setting a value for `.spec.acme.email` which contains a valid email. This email will be a point of reference for `LetsEncrypt` to share any updates about certificate's lifecycle. This resource make a reference to secret in `.spec.acme.solvers.dns01.cloudflare.apiTokenSecretRef` that we created using `ExternalSecret`. In present case we are setting up for Cloudflare, so there is a reference to that in Issuer resource.
 
@@ -88,7 +88,7 @@ Commit, push and then merge to `main` branch. In few minutes ArgoCD will deploy 
 
 ## Deploying Ingress
 
-By this point initial configuration is setup. As a next step, we need to deploy an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) network resource which will be responsible for exposing your application to internet over a specific domain. It is assumed at this point that you've already setup Leader Helm Chart for your application. We need to add following snippet to `values.yaml` for this chart. Leader chart will use these values to deploy ingress resource in your current namespace.
+By this point initial configuration is setup. As a next step, we need to deploy an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) network resource which will be responsible for exposing your application to internet over a specific DNS name. It is assumed at this point that you've already setup Leader Helm Chart for your application. We need to add following snippet to `values.yaml` for this chart. Leader chart will use these values to deploy ingress resource in your current namespace.
 
 ```YAML
 application:
@@ -98,9 +98,9 @@ application:
     annotations:
       cert-manager.io/issuer: "letsencrypt-cloudflare"  # Reference your Issuer or ClusterIssuer
       cert-manager.io/acme-challenge-type: http01 # Use HTTP-01 challenge
-      external-dns.alpha.kubernetes.io/hostname: <domain name that you want to use>
+      external-dns.alpha.kubernetes.io/hostname: <DNS name that you want to use>
     hosts:
-      - host: <domain name that you want to use>
+      - host: <DNS name that you want to use>
         paths:
           - path: /
             pathType: Prefix
@@ -109,7 +109,7 @@ application:
     tls:
      - secretName: <secret name for TLS certificate>
        hosts:
-         - <domain name that you want to use>
+         - <DNS name that you want to use>
 ```
 
   In snippet above there are few details of importance. As a prerequisite, it is highly recommended to go through [`Kubernetes Ingress Resource`](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) to avoid any misconfiguration.
@@ -128,4 +128,4 @@ application:
 ![Certificate Details](images/certificate-details.png)
 
 !!! note
-    If certificate is showing a different status wait for couple of minutes. Its highly probable that `cert-manager` takes few minutes to generate certificate for this domain.
+    If certificate is showing a different status wait for a couple of minutes. Its highly probable that `cert-manager` takes few minutes to generate certificate for this ingress.
