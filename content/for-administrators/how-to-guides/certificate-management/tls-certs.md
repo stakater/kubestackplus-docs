@@ -158,7 +158,5 @@ application:
 
 ![Certificate Details](images/certificate-details.png)
 
-> **Note**
-> If the certificate status is not updated, wait a few minutes as Cert-Manager may take time to generate the certificate.
-
-By following these steps, you can effectively configure TLS certificates using Infra GitOps.
+!!! note
+    If the certificate status is not updated, wait a few minutes as Cert-Manager may take time to generate the certificate.
