@@ -9,7 +9,7 @@ Here `<environment>` correspond to the cluster where you want to deploy this.
 
 - ## Template
 
-    This resource is reponsible for keeping a record (template) or underlying resources (YAML files) that needs to be deployed to tenant namespaces.
+    This resource is reponsible for keeping a record (template) or underlying reexternal-dns.alpha.kubernetes.io/hostnamesources (YAML files) that needs to be deployed to tenant namespaces.
     Given below is an example of template with underlying resources that is required for setting up TLS certificate:
 
     ```YAML
@@ -55,26 +55,13 @@ Here `<environment>` correspond to the cluster where you want to deploy this.
                       apiTokenSecretRef:
                         name: certificate-creds
                         key: api-token
-        - apiVersion: cert-manager.io/v1
-          kind: Certificate
-          metadata:
-            name: tls-certificate
-          spec:
-            secretName: tls-secret  
-            dnsNames:
-              - example.com
-            issuerRef:
-              name: letsencrypt-cloudflare
-              kind: Issuer
     ```
 
-    There are 3 resources `ExternalSecret`, `Issuer` and `Certificate` that are getting deployed from this template. Brief explanation about why we need these resources are needed is given below:
+    There are 2 resources `ExternalSecret`and `Issuer` that are getting deployed from this template. Brief explanation about why we need these resources are needed is given below:
 
     `ExternalSecret`: This is needed to pull `api-token` key from secret provider which in this case is Vault. This is an API-Token from DNS provider (which in present case is Cloudflare). This API-Token will be used by Certificate Authority to validate the authenticity of domains being registered. This secret will be referenced when creating issuer.
 
     `Issuer`: This is a cert-manager related resource and is responsible for setting up initial configuration against which TLS certificate will get generated. This issuer uses [`LetsEncrypt`](https://letsencrypt.org/) as certificate authority by setting one of its server's URL as value for `.spec.acme.server`. There is also a need for setting a value for `.spec.acme.email` which contains a valid email. This email will be a point of reference for `LetsEncrypt` to share any updates about certificate's lifecycle. This resource make a reference to secret in `.spec.acme.solvers.dns01.cloudflare.apiTokenSecretRef` that we created using `ExternalSecret`. In present case we are setting up for Cloudflare, so there is a reference to that in Issuer resource.
-
-    `Certificate`: This is the actual resource that will create TLS certificate for a particular domain referenced in `.spec.dnsNames`. This resource makes a reference to `Issuer` that is created earlier in `.spec.issuerRef`.
 
 - ## Template Group Instance
 
@@ -97,8 +84,47 @@ Here `<environment>` correspond to the cluster where you want to deploy this.
 
     In `.spec.template`, we are specifying the name of the template that we created previously. In `.spec.selector` we need to specify namespaces where these resources would be deployed based on labels that are assigned to these namespaces. In present case, this will be deployed to all the namespaces which has `stakater.com/kind` as label key and `sandbox` or `dev` as its value.
 
-1. Commit, push and then merge to `main` branch. In few minutes ArgoCD will deploy these resources to relevant namespaces.
-1. To verify whether resources are deployed correctly and working fine in cluster, you can go cluster console and select `Administrator` view and click `Home > Search`. Select a particular namespace and then search for `Certificate` in `Resources` dropdown as show below:
+Commit, push and then merge to `main` branch. In few minutes ArgoCD will deploy these resources to relevant namespaces.
+
+# Deploying Ingress
+By this point initial configuration is setup. As a next step, we need to deploy an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) network resource which will be responsible for exposing your application to internet over a specific domain. It is assumed at this point that you've already setup Leader Helm Chart for your application. We need to add following snippet to `values.yaml` for this chart. Leader chart will use these values to deploy ingress resource in your current namespace.
+
+```YAML
+application:
+  applicationName: <application name>
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/issuer: "letsencrypt-cloudflare"  # Reference your Issuer or ClusterIssuer
+      cert-manager.io/acme-challenge-type: http01 # Use HTTP-01 challenge
+      external-dns.alpha.kubernetes.io/hostname: <domain name that you want to use>
+    hosts:
+      - host: <domain name that you want to use>
+        paths:
+          - path: /
+            pathType: Prefix
+            serviceName: <application's service name>
+            servicePort: "http"
+    tls:
+     - secretName: <secret name for TLS certificate>
+       hosts:
+         - <domain name that you want to use>
+```
+
+  In snippet above there are few details of importance. As a prerequisite, it is highly recommended to go through [`Kubernetes Ingress Resource`](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) to avoid any misconfiguration.
+  `application.ingress.annotations` contains few annotations that are crucial for instructing `cert-manager` to generate certificate and `external-dns` to register DNS name for this ingress.
+  
+  `cert-manager.io/issuer`: tells `cert-manager` to use specified issuer for generating TLS certificate. Its value should refer to the `Issuer` that you created earlier.
+
+  `cert-manager.io/acme-challenge-type`: is an annotation specific to `cert-manager` that creates a challenge for `cert-manager` to resolve. More information about challenge can be found [`here`.](https://cert-manager.io/docs/configuration/acme/#solving-challenges) 
+
+  `external-dns.alpha.kubernetes.io/hostname`: value of this annotation is used to register DNS record with DNS provider that we configured in `Issuer`.
+
+1. To verify whether resources are deployed correctly and working fine in cluster, you can go to `Networking > Ingresses` tab to see whether ingress is available.
+1. Furthermore, you can go cluster console and select `Administrator` view and click `Home > Search`. Select a particular namespace and then search for `Certificate` in `Resources` dropdown as show below:
 ![OpenShift Console](images/console.png)
 1. Select the certificate that is deployed in this namespace and scroll to bottom to `Condition` section. There you'll see a message that certificate is up-to-date as shown below:
 ![Certificate Details](images/certificate-details.png)
+
+!!! note
+    If certificate is showing a different status wait for couple of minutes. Its highly probable that `cert-manager` takes few minutes to generate certificate for this domain.
