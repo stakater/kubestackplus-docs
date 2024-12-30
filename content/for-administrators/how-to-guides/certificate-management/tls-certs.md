@@ -1,18 +1,24 @@
-# Configuring TLS Certificates Using Infra GitOps
+# Configuring TLS Certificates and External DNS
 
-This document provides a step-by-step guide to configure TLS certificates for different tenants using Infra GitOps.
+This document provides a step-by-step guide to configure TLS certificates and External DNS for different tenants.
 
-## Step 1: Navigate to the Target Path
+## Step 1: Setup DNS creds in Vault
+
+Go to `common-shared-secret` path in Vault and create a secret `external-dns-creds`. This secret mainly have credentials for authenticating with DNS provider (in present case `Cloudflare`) and should contain following fields:
+
+- `api-token (required)`: API token generated from DNS provider being used. In case of Cloudflare, it should have `DNS:Edit` and `Zone:Read` access.
+- `domain-filter (optional)`: This field should contain base domain that becomes base for registering further subdomains. For example: `example.com`.
+- `zone-id-filter (optional)`: In case of Cloudflare, if you want to give more restrictive access of only few zones to this token, then this field should contain these zone ids.
+
+## Step 2: Navigate to the Target Path
 
 Navigate to the appropriate path in your Infra GitOps repository. For this example, the path is:
 
 ```plaintext
-<environment>/tenant-operator-config/templates/
+<cluster>/tenant-operator-config/templates/
 ```
 
-Here, `<environment>` corresponds to the cluster where the deployment will occur.
-
-## Step 2: Create Required Resources
+## Step 3: Create Required Resources
 
 In this directory, create the following resources:
 
@@ -61,11 +67,22 @@ resources:
           privateKeySecretRef:
             name: letsencrypt-account-key
           solvers:
-            - dns01:
+            - http01:
                 cloudflare:
                   apiTokenSecretRef:
                     name: certificate-creds
                     key: api-token
+    - apiVersion: cert-manager.io/v1
+      kind: Certificate
+      metadata:
+        name: tls-certificate
+      spec:
+        secretName: tls-certificate-secret
+        dnsNames:
+          - <DNS for which we need to generate certificate for example:example.com>
+        issuerRef:
+          name: <Issuer name in present case:letsencrypt-cloudflare>
+          kind: Issuer
 ```
 
 #### Explanation of Resources
@@ -79,6 +96,12 @@ resources:
    - Requires:
      - `.spec.acme.email`: Email address for certificate lifecycle updates.
      - `.spec.acme.solvers.dns01.cloudflare.apiTokenSecretRef`: Reference to the `ExternalSecret` created earlier.
+
+1. **`Certificate`**:
+   - Instruct Cert-Manager to generate TLS certificates for specific DNS entries.
+   - Requires:
+     - `.spec.dnsNames`: DNS name for which this certificate will be valid. It can also contain wildcard names like `*.example.com` or specific names like `api.example.com`.
+     - `.spec.issuerRef.name`: Name of the issuer that this certificate will reference. We have created this issuer in previous steps.
 
 ### TemplateGroupInstance
 
@@ -107,49 +130,8 @@ spec:
 
 Commit, push, and merge these changes to the `main` branch. ArgoCD will deploy the resources to the specified namespaces within a few minutes.
 
-## Step 3: Deploy Ingress
-
-With the initial configuration in place, deploy an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) resource to expose your application to the internet over a specific hostname name.
-
-### Update `values.yaml`
-
-Update the `values.yaml` file of your application’s Helm chart with the following snippet:
-
-```yaml
-application:
-  applicationName: <application name>
-  ingress:
-    enabled: true
-    annotations:
-      cert-manager.io/issuer: "letsencrypt-cloudflare"  # Reference the Issuer or ClusterIssuer
-      cert-manager.io/acme-challenge-type: http01  # Use HTTP-01 challenge
-      external-dns.alpha.kubernetes.io/hostname: <DNS name>
-    hosts:
-      - host: <DNS name>
-        paths:
-          - path: /
-            pathType: Prefix
-            serviceName: <application service name>
-            servicePort: "http"
-    tls:
-      - secretName: <TLS secret name>
-        hosts:
-          - <DNS name>
-```
-
-#### Important Details
-
-- **Annotations**:
-    - `cert-manager.io/issuer`: Specifies the Issuer to generate TLS certificates.
-    - `cert-manager.io/acme-challenge-type`: Configures Cert-Manager to solve the ACME challenge. [Learn more](https://cert-manager.io/docs/configuration/acme/#solving-challenges).
-    - `external-dns.alpha.kubernetes.io/hostname`: Registers the DNS record with the configured provider.
-
-- **TLS Configuration**:
-    - `secretName`: Name of the secret where the TLS certificate will be stored.
-
 ### Verify Deployment
 
-1. Check the `Networking > Ingresses` tab in the cluster console to ensure the ingress resource is available.
 1. In the cluster console, switch to `Administrator` view and navigate to `Home > Search`.
 1. Select the namespace and search for `Certificate` in the `Resources` dropdown.
 1. Inspect the deployed certificate. In the `Condition` section, confirm that the certificate is up-to-date.
