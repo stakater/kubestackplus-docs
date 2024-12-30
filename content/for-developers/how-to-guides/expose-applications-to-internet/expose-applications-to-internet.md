@@ -1,4 +1,4 @@
-# Exposing Your Application to Internet over HTTPS and custom Hostname
+# Exposing Your Application to Internet over HTTPS and custom hostname
 
 This guide provides a step-by-step process to configure an OpenShift `Route` resource to expose your application to the internet.
 
