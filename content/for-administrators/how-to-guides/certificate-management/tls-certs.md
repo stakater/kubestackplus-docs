@@ -1,10 +1,12 @@
-# Configuring TLS Certificates and External DNS
+# Configuring Cert Manager Issuer and External DNS
 
-This document provides a step-by-step guide to configure TLS certificates and External DNS for different tenants.
+This document provides a step-by-step guide to configure Cert Manager Issuer and External DNS for different tenants.
 
 ## Step 1: Setup DNS creds in Vault
 
-Go to `common-shared-secret` path in Vault and create a secret `external-dns-creds`. This secret mainly have credentials for authenticating with DNS provider (in present case `Cloudflare`) and should contain following fields:
+Go to `common-shared-secret` path in Vault and create a secret `external-dns-creds`. This secret mainly have credentials for authenticating with DNS provider and should contain following fields:
+
+### Cloudflare
 
 - `api-token (required)`: API token generated from DNS provider being used. In case of Cloudflare, it should have `DNS:Edit` and `Zone:Read` access.
 - `domain-filter (optional)`: This field should contain base domain that becomes base for registering further subdomains. For example: `example.com`.
@@ -28,6 +30,8 @@ In this directory, create the following resources:
 ### Template
 
 The `Template` resource defines the underlying YAML files to be deployed to tenant namespaces. Below is an example template for setting up a TLS certificate:
+
+#### Cloudflare
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -67,22 +71,11 @@ resources:
           privateKeySecretRef:
             name: letsencrypt-account-key
           solvers:
-            - http01:
+            - dns01:
                 cloudflare:
                   apiTokenSecretRef:
                     name: certificate-creds
                     key: api-token
-    - apiVersion: cert-manager.io/v1
-      kind: Certificate
-      metadata:
-        name: tls-certificate
-      spec:
-        secretName: tls-certificate-secret
-        dnsNames:
-          - <DNS for which we need to generate certificate for example:example.com>
-        issuerRef:
-          name: <Issuer name in present case:letsencrypt-cloudflare>
-          kind: Issuer
 ```
 
 #### Explanation of Resources
@@ -96,12 +89,6 @@ resources:
    - Requires:
      - `.spec.acme.email`: Email address for certificate lifecycle updates.
      - `.spec.acme.solvers.dns01.cloudflare.apiTokenSecretRef`: Reference to the `ExternalSecret` created earlier.
-
-1. **`Certificate`**:
-   - Instruct Cert-Manager to generate TLS certificates for specific DNS entries.
-   - Requires:
-     - `.spec.dnsNames`: DNS name for which this certificate will be valid. It can also contain wildcard names like `*.example.com` or specific names like `api.example.com`.
-     - `.spec.issuerRef.name`: Name of the issuer that this certificate will reference. We have created this issuer in previous steps.
 
 ### TemplateGroupInstance
 
@@ -133,12 +120,9 @@ Commit, push, and merge these changes to the `main` branch. ArgoCD will deploy t
 ### Verify Deployment
 
 1. In the cluster console, switch to `Administrator` view and navigate to `Home > Search`.
-1. Select the namespace and search for `Certificate` in the `Resources` dropdown.
-1. Inspect the deployed certificate. In the `Condition` section, confirm that the certificate is up-to-date.
+1. Select the namespace and search for `Issuer` in the `Resources` dropdown.
+1. Inspect the deployed issuer. In the `Condition` section, confirm that the issuer is up-to-date.
 
 ![OpenShift Console](images/console.png)
 
-![Certificate Details](images/certificate-details.png)
-
-!!! note
-    If the certificate status is not updated, wait a few minutes as Cert-Manager may take time to generate the certificate.
+![Issuer Details](images/issuer-status.png)
