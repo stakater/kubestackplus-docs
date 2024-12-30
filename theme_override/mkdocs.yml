@@ -54,6 +54,10 @@ nav:
   - For Administrators:
       - for-administrators/overview.md
       - for-administrators/user-stories.md      
+      - How-to guides:
+          - for-administrators/how-to-guides/certificate-management/tls-certs.md
+      - Explanation:
+          - for-administrators/explanation/number-of-clusters.md
       - Plan your environment:
           - for-administrators/plan-your-environment/sizing.md
       - Secure your cluster:
@@ -75,8 +79,6 @@ nav:
           - for-administrators/cluster-lifecycle/hibernate-your-cluster.md
       - Help:
           - for-administrators/help/faq.md
-      - Explanation:
-          - for-administrators/explanation/number-of-clusters.md
   - For DevOps Engineers:
       - for-devops-engineers/overview.md
       - Explanation:
@@ -166,6 +168,7 @@ nav:
           - for-developers/how-to-guides/deploy-app-with-argocd-and-helm/deploy-app-with-argocd-and-helm.md
           - for-developers/how-to-guides/expose-spring-boot-metrics/expose-spring-boot-metrics.md
           - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
+          - for-developers/how-to-guides/expose-applications-to-internet/expose-applications-to-internet.md
   - For CISOs & DPOs:
       - for-cisos-dpos/overview.md
       - General Frameworks:
