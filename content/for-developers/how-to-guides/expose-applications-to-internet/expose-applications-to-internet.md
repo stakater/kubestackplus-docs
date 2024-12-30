@@ -5,6 +5,7 @@ This guide provides a step-by-step process to configure an OpenShift `Route` res
 ## Prerequisites
 
 Before proceeding, ensure the following prerequisites are met:
+
 - **TLS Certificates**: Verify with your cluster administrator that TLS certificates are properly configured.
 - **External DNS**: Confirm that External DNS is set up and operational for managing DNS records.
 
@@ -42,7 +43,7 @@ application:
 
 ### Verify Deployment
 
-After updating the values.yaml file and applying the Helm chart, verify the deployment:
+After updating the `values.yaml` file and applying the Helm chart, verify the deployment:
 
 1. Navigate to the OpenShift cluster console.
 1. Go to Networking > Routes and locate the Route resource for your application.
