@@ -33,11 +33,11 @@ application:
 #### Important Details
 
 - **Certificate**:
-   - Instruct Cert-Manager to generate TLS certificates for specific DNS entries.
-   - Requires:
-     - `.certificate.secretName`: This is the name of secret that `Certificate` will create. It will contain TLS credentials that will find its utilization in next steps.
-     - `.certificate.dnsNames`: DNS name for which this certificate will be valid. It can contain wildcard names like `*.example.com` or specific names like `api.example.com`.
-     - `.certificate.issuerRef.name`: Name of the issuer that this certificate will reference. We have created this issuer in previous steps.
+    - Instruct Cert-Manager to generate TLS certificates for specific DNS entries.
+    - Requires:
+        - `.certificate.secretName`: This is the name of secret that `Certificate` will create. It will contain TLS credentials that will find its utilization in next steps.
+        - `.certificate.dnsNames`: DNS name for which this certificate will be valid. It can contain wildcard names like `*.example.com` or specific names like `api.example.com`.
+        - `.certificate.issuerRef.name`: Name of the issuer that this certificate will reference. We have created this issuer in previous steps.
 
 ## Step 2: Deploy the Route
 
