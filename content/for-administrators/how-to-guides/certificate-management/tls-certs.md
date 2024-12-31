@@ -80,15 +80,15 @@ resources:
 
 **`ExternalSecret`**:
 
-   - Retrieves the `api-token` from the secret provider (Vault).
-   - The `api-token` authenticates the DNS provider (e.g., Cloudflare) for certificate validation.
+- Retrieves the `api-token` from the secret provider (Vault).
+- The `api-token` authenticates the DNS provider (e.g., Cloudflare) for certificate validation.
 
 **`Issuer`**:
 
-   - Configures Cert-Manager to generate TLS certificates using [Let’s Encrypt](https://letsencrypt.org/).
-   - Requires:
-     - `.spec.acme.email`: Email address for certificate lifecycle updates.
-     - `.spec.acme.solvers.dns01.cloudflare.apiTokenSecretRef`: Reference to the `ExternalSecret` created earlier.
+- Configures Cert-Manager to generate TLS certificates using [Let’s Encrypt](https://letsencrypt.org/).
+- Requires:
+    - `.spec.acme.email`: Email address for certificate lifecycle updates.
+    - `.spec.acme.solvers.dns01.cloudflare.apiTokenSecretRef`: Reference to the `ExternalSecret` created earlier.
 
 ### TemplateGroupInstance
 
