@@ -10,7 +10,7 @@ Go to `common-shared-secret` path in Vault and create a secret `external-dns-cre
 
 | Key | Required/Optional | Explanation |
 |----------|----------|----------|
-| `api-token`   | required   | API token generated from DNS provider being used. In case of Cloudflare, it should have following access <br> - `DNS:Edit` <br> - `Zone:Read`   |
+| `api-token`   | required   | API token generated from DNS provider being used. In case of Cloudflare, it should have the following access <br> - `DNS:Edit` <br> - `Zone:Read`   |
 | `domain-filter`    | optional   | This field should contain base domain that becomes base for registering further subdomains. For example: `example.com`.   |
 | `zone-id-filter`| optional   | In case of Cloudflare, if you want to give more restrictive access of only few zones to this token, then this field should contain these zone ids.
 
