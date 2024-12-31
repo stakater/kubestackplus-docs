@@ -105,7 +105,7 @@ spec:
     matchExpressions:
       - key: stakater.com/tenant
         operator: In
-        values: [ tenant1, tenant2 ]
+        values: [ <comma separated tenant names list> ]
   sync: true
 ```
 
@@ -113,7 +113,7 @@ spec:
 
 - **`.spec.template`**: References the `Template` resource.
 - **`.spec.selector`**: Specifies namespaces to deploy resources based on label expressions.
-    - In this example, resources are deployed to tenant with the label `stakater.com/tenant` having values `tenant1` or `tenant2`.
+    - In this example, resources are deployed to tenant with the label `stakater.com/tenant` having values `tenant1` or `tenant2`. Ensure this list includes the names of all tenants where the `Issuer` needs to be available. Whenever you add a new tenant requiring an `Issuer`, update this field to include its name.
 
 Commit, push, and merge these changes to the `main` branch. ArgoCD will deploy the resources to the specified namespaces within a few minutes.
 
