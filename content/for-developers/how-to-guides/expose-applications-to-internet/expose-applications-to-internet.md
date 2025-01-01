@@ -26,7 +26,7 @@ application:
     dnsNames:
       - <DNS for which we need to generate certificate for example:example.com>
     issuerRef:
-      name: <cert manager's Issuer name. You can ask cluster admin for this>
+      name: <cert manager's Issuer name.>
       kind: Issuer
 ```
 
@@ -37,7 +37,7 @@ application:
     - Requires:
         - `.certificate.secretName`: This is the name of secret that `Certificate` will create. It will contain TLS credentials that will find its utilization in next steps.
         - `.certificate.dnsNames`: DNS name for which this certificate will be valid. It can contain wildcard names like `*.example.com` or specific names like `api.example.com`.
-        - `.certificate.issuerRef.name`: Name of the issuer that this certificate will reference. We have created this issuer in previous steps.
+        - `.certificate.issuerRef.name`: Name of the issuer that this certificate will reference. We have created this issuer in previous steps. You can find this in the cluster console by switching to `Administrator` view and navigate to `Home > Search` and search for `Issuer` in your current namespace.
 
 ## Step 2: Deploy the Route
 
@@ -71,7 +71,7 @@ application:
     - `route.host`: Specifies the host name that you want to use for this route. This value must match the `external-dns.alpha.kubernetes.io/hostname` annotation.
     - `route.path`:  Specifies the URL path where your application will be exposed (e.g., `/api`).
 
-### Verify Deployment
+### Validation
 
 After updating the `values.yaml` file and applying the Helm chart, verify the deployment:
 
@@ -93,6 +93,6 @@ After updating the `values.yaml` file and applying the Helm chart, verify the de
 1. Navigate to the OpenShift cluster console.
 1. Go to Networking > Routes and locate the Route resource for your application.
 1. Confirm that:
-   - The Route resource is listed.
-   - Its status is Accepted.
-   - The DNS name and TLS configuration are correct.
+    - The Route resource is listed.
+    - Its status is Accepted.
+    - The DNS name and TLS configuration are correct.
