@@ -5,6 +5,7 @@
 | Supplier   |  Function  |  Geographic Location  |  Legal basis  |
 | -- | -- | -- | -- |
 | Digital Realty + OpenMetal | Hardware/bare metal infrastructure | EU (Amsterdam) | GDPR |
+| AWS | <ul><li>Route 53 for DNS Management</li><li>S3 for Backups</li></ul> | EU (Sweden) | GDPR |
 
 ## Stakater Subprocessors
 
