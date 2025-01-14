@@ -97,7 +97,7 @@ spec:
 Next step is to deploy ClusterIssuer. For that we need to deploy following resources at given paths in Infra GitOps.
 
 ### ArgoCD application
-  
+
   `Path: <cluster>/argocd-apps/`
 
   ```yaml
@@ -121,17 +121,17 @@ Next step is to deploy ClusterIssuer. For that we need to deploy following resou
         selfHeal: true
   ```
 
-  #### Key Fields
+#### Key Fields
 
-  - **`.spec.project`**: Project name that this application should belong to. This can be a name of tenant.
-  - **`.spec.source.path`**: Path in Infra GitOps repo that this application should sync. This corresponds to the path of folder where `ClusterIssuer` resource would exist.
-  - **`.spec.source.repoURL`**: This is the url of Infra GitOps repo.
+- **`.spec.project`**: Project name that this application should belong to. This can be a name of tenant.
+- **`.spec.source.path`**: Path in Infra GitOps repo that this application should sync. This corresponds to the path of folder where `ClusterIssuer` resource would exist.
+- **`.spec.source.repoURL`**: This is the url of Infra GitOps repo.
 
 ### Cluster Issuer
 
   `Path: <cluster>/<path where Cluster Issuer resource exist in Infra Gitops repo>`
 
-  #### Cloudflare
+#### Cloudflare
 
   ```yaml
   apiVersion: cert-manager.io/v1
@@ -152,14 +152,14 @@ Next step is to deploy ClusterIssuer. For that we need to deploy following resou
                 key: api-token
   ```
 
-  #### Key Fields
+#### Key Fields
 
-  - **`.spec.acme.email`**: Email address for certificate lifecycle updates.
-  - **`.spec.acme.solvers.dns01.cloudflare.apiTokenSecretRef`**: Reference to the `ExternalSecret` created earlier.
+- **`.spec.acme.email`**: Email address for certificate lifecycle updates.
+- **`.spec.acme.solvers.dns01.cloudflare.apiTokenSecretRef`**: Reference to the `ExternalSecret` created earlier.
 
 !!! note
 
-To deploy cluster-scoped resource (like ClusterIssuer), there is a need to whitelist deployment of these using [`MTO's Extension resource`](https://docs.stakater.com/mto/main/crds-api-reference/extensions.html). This resource must be created at `<cluster>/tenant-operator-config/extensions/` path in Infra GitOps.
+To deploy cluster-scoped resource (like ClusterIssuer), there is a need of whitelisting deployment of these using [`MTO's Extension resource`](https://docs.stakater.com/mto/main/crds-api-reference/extensions.html). This resource must be created at `<cluster>/tenant-operator-config/extensions/` path in Infra GitOps.
 
 Commit, push, and merge these changes to the `main` branch. ArgoCD will deploy the resources to the specified namespaces within few minutes.
 
@@ -175,8 +175,8 @@ Commit, push, and merge these changes to the `main` branch. ArgoCD will deploy t
 
 !!!note
 
-If you haven't whitelist creation of cluster-scoped resource in step 3 then corresponding ArgoCD application will have `OutofSync` as `Sync Status`.
+If you haven't whitelisted creation of cluster-scoped resource in step 3 then corresponding ArgoCD application will have `OutofSync` as `Sync Status`.
 ![ArgoCD Out of Sync App](images/argocd-app-out-of-sync.png)
 
-When you click on `Sync Failed` you get a detailed message saying that current project dont have access to create ClusterIssuer.
+When you click on `Sync Failed` you get a detailed message saying that current project does not have access to create ClusterIssuer.
 ![ArgoCD Out of Sync App error](images/argocd-app-out-of-sync-error.png)
