@@ -29,6 +29,6 @@ An OpenStack account is needed to run SAAP on [Binero](https://binero.com/en/). 
 
 ## Cloud network configuration
 
-### Floating Ips
+### Floating IPs
 
 - 20 SEK per IPV4 IP Address

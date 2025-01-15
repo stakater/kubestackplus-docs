@@ -26,7 +26,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     !!! note
         Remember to add the remote task in the annotations
 
-1. Remember to update the NAMESPACE and CD_REPO_URL parameter in the newly added task.
+1. Remember to update the `NAMESPACE` and `CD_REPO_URL` parameter in the newly added task.
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 

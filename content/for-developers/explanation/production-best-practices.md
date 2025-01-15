@@ -203,6 +203,6 @@ Implement logging, tracing, and monitoring mechanisms to gain visibility into th
 
 - Pod security policies are configurations that define which security-related conditions a Kubernetes pod has to meet in order to be accepted into a cluster
 
-## Documentation and Runbook
+## Documentation and runbook
 
 Create detailed documentation or a runbook that outlines the deployment process, including all necessary steps and configurations. Include troubleshooting guides, common issues, and solutions for reference during the go-live process and ongoing maintenance.

@@ -50,7 +50,7 @@
             selfHeal: true
     ```
 
-1. Once pushed, ArgoCD will automatically detect changes in the Infra GitOps repository and deploy the ClusterTasks defined in the Clustertask CR files.
+1. Once pushed, ArgoCD will automatically detect changes in the Infra GitOps repository and deploy the ClusterTasks defined in the ClusterTask CR files.
 
 ### Step 3: Validating ClusterTask Deployment via ArgoCD UI
 

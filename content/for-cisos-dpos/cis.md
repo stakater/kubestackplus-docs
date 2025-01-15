@@ -17,7 +17,7 @@ The CIS Kubernetes Benchmark provides over **120 recommendations** for securing 
         - Enforcing Role-Based Access Control (RBAC) to restrict unauthorized access.
         - Securing API server communication with TLS encryption.
     - **Node Security**:
-        - Disabling anonymous Kubelet access (--anonymous-auth=false).
+        - Disabling anonymous `kubelet` access (`--anonymous-auth=false`).
         - Restricting workload communications with NetworkPolicies.
     - **Data Protection**:
         - Encrypting Secrets in etcd using Kubernetes encryption providers.

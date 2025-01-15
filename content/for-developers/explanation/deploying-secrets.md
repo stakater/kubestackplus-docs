@@ -36,7 +36,7 @@ The following secrets are needed for running a fully functional pipeline using p
     * _Used for_: Communicating with RHACS API to scan images and deployments
     * _Lifecycle_: Created at the time of RHACS deployment. The secret is then copied over to build namespaces of tenants.
     * _Comment_: Needs to be deployed in build namespace. We deploy it using TGI.
-    * _Deployment Process_: After StackRox is installed on the SAAP cluster. An api token is created and stored in the rox-creds secret in the `stakater-stackrox` namespaces. We then use a Template and a TemplateGroupInstance with the same name to distribute the secret in the build namespace of tenants.
+    * _Deployment Process_: After StackRox is installed on the SAAP cluster. An API token is created and stored in the rox-creds secret in the `stakater-stackrox` namespaces. We then use a Template and a TemplateGroupInstance with the same name to distribute the secret in the build namespace of tenants.
 
 ## Customer Managed Secrets
 

@@ -106,9 +106,9 @@ See [StatefulSet Updates](https://kubernetes.io/docs/concepts/workloads/controll
 
 There can be multiple ways to scale your application.
 
-- Use Horizontal Pod Autoscaler (HPA) to specify how OpenShift Container Platform should automatically increase or decrease the scale of a replication controller or deployment configuration, based on metrics collected from the pods that belong to that replication controller or deployment configuration. See [Horizontal Pod AutoScaling Kubernetes](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) & [Horizontal Pod AutoScaling OpenShift](https://docs.openshift.com/container-platform/4.9/nodes/pods/nodes-pods-autoscaling.html)
+- Use Horizontal Pod Autoscaler (HPA) to specify how OpenShift Container Platform should automatically increase or decrease the scale of a replication controller or deployment configuration, based on metrics collected from the pods that belong to that replication controller or deployment configuration. See [Horizontal Pod Autoscaling Kubernetes](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) & [Horizontal Pod Autoscaling OpenShift](https://docs.openshift.com/container-platform/4.9/nodes/pods/nodes-pods-autoscaling.html)
 
-- Use Vertical Pod Autoscaler Operator (VPA) to automatically reviews the historic and current CPU and memory resources for containers in pods and can update the resource limits and requests based on the usage values it learns. See [Vertical Pod AutoScaling](https://docs.openshift.com/container-platform/4.9/nodes/pods/nodes-pods-vertical-autoscaler.html)
+- Use Vertical Pod Autoscaler Operator (VPA) to automatically reviews the historic and current CPU and memory resources for containers in pods and can update the resource limits and requests based on the usage values it learns. See [Vertical Pod Autoscaling](https://docs.openshift.com/container-platform/4.9/nodes/pods/nodes-pods-vertical-autoscaler.html)
 
 ### How can I automate my app deployment?
 

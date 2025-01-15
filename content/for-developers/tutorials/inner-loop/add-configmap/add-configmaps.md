@@ -4,7 +4,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
 ## Objective
 
-- Define secrets and configMaps in the `values.yaml` file for your application.
+- Define secrets and Configmaps in the `values.yaml` file for your application.
 - Set environment variables using secrets defined in the `values.yaml` file.
 - Configure volumes and mounts to access secrets and configmaps as files within your application.
 
@@ -94,7 +94,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
     Look at the different colors that indicates indentation.
 
     !!! note
-        The indentation follows for `configmap` is **application.configMap**.
+        The indentation follows for `configmap` is **`application.configMap`**.
 
 1. Save the file and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
@@ -102,7 +102,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     ![Configmap show](images/configmap-show.png)
 
-    Let's see the data in this configMap.
+    Let's see the data in this Configmap.
 
     ![Configmap data](images/configmap-data.png)
 

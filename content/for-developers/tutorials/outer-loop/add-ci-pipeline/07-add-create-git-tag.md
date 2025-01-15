@@ -26,7 +26,7 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
     catalog, please visit [`stakater-tekton-catalog`](https://github.com/stakater-tekton-catalog).
 
 1. Provide values for `image_registry`, and `helm_registry` parameters. You can find the URLs from [here](../../../../managed-addons/nexus/explanation/routes.md)
-   `image_registry` url should be succeeded by your application name. Example: nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/**review-api**
+   `image_registry` URL should be succeeded by your application name. Example: `nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/review-api`
 
     !!! note
         Remember to add the remote task in the annotations

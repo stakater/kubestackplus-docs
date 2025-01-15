@@ -18,7 +18,7 @@
 
 Find Nexus Helm Registry URL [here](../../../managed-addons/nexus/explanation/routes.md).
 
-Alternatively, Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus url.
+Alternatively, Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus URL.
 
 - `nexus-helm-reg-url` : Add `-helm` in URL after `nexus` and append `/repository/helm-charts/`. This URL points to Helm Registry referred as `nexus-helm-reg-url` in this tutorial for example `https://nexus-helm-stakater-nexus.apps.clustername.random123string.kubeapp.cloud/repository/helm-charts/`
 

@@ -9,7 +9,7 @@ An Azure subscription is needed to create and manage cluster on Azure. The follo
   |Type        | Limit |
   |------------|------------|
   | Virtual Machines | Varies. The limit should be 12 initially. (Initial deployment is 3 control plane + 3 infra + 3 worker) |
-  | Regional vCPUs | The limit should be A x B x 2 , where A = no. of VMS (worker + infra + control plane), B = vCPUs per VM) |
+  | Regional vCPUs | The limit should be A x B x 2 , where A = no. of VMs (worker + infra + control plane), B = vCPUs per VM) |
   | Public IP addresses | 5 |
   | Private IP Addresses | 7 |
   | Network Interfaces | 6 |

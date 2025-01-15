@@ -84,7 +84,7 @@ To check if our `Network Policy` is working properly, let's create a random pod 
 
 1. Go to the `review-mongodb` pod and copy the `Pod IP`.
 
-    ![MongoDB pod ip](images/mongodb-pod-ip.png)
+    ![MongoDB pod IP](images/mongodb-pod-ip.png)
 
     Let's find the port for the `review-mongodb` pod. Once you copy the IP, scroll down to find the container. Click the `review` container.
 

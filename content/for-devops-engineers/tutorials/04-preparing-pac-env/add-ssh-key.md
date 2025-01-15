@@ -18,7 +18,7 @@
 
 ## Tutorial
 
-### Creating SSH KeyPair
+### Creating SSH keypair
 
 1. Generate an ssh keypair. You can follow the official GitHub documentation for this.
 

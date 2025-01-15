@@ -6,4 +6,4 @@ As an administrator, I want to configure node autoscaling, including scale-up to
 
 ![type:video](https://www.youtube.com/embed/c3FvQXgZdRE)
 
-Tags: AutoScaling
+Tags: Autoscaling
