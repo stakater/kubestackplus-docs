@@ -27,7 +27,7 @@ The CIS Kubernetes Benchmark provides over **120 recommendations** for securing 
 - **Partially Applicable Recommendations**: SAAP supports an additional 30–40 recommendations through configurable features and organization-specific configurations. For example:
 
     - **Audit Logging**: SAAP enables centralized logging and monitoring but requires the organization to actively review and act on the logs.
-    - **Runtime Security**: Provides mechanisms to monitor workloads but relies on organization-defined actions for runtime behavior validation.
+    - **runtime Security**: Provides mechanisms to monitor workloads but relies on organization-defined actions for runtime behavior validation.
     - **Container Image Security**: Enforces trusted container image policies but depends on organizational processes to ensure compliance with image signing and verification standards.
 
 SAAP directly or partially addresses over **100 recommendations** from the CIS Kubernetes Benchmark, making it a comprehensive solution for securing Kubernetes workloads. By focusing on technical enforcement, automation, and integration, SAAP simplifies the path to compliance, reducing the operational burden for organizations.

@@ -45,7 +45,7 @@ So, to deploy your application smoothly you need to configure probes.
       timeoutSeconds: 50
         # Initial delay before the first liveness probe is performed
       initialDelaySeconds: 50
-        # HTTP GET request used for the liveness probe
+        # http GET request used for the liveness probe
       httpGet:
         # Path for the health check endpoint
         path: /actuator/health
@@ -80,7 +80,7 @@ So, to deploy your application smoothly you need to configure probes.
       timeoutSeconds: 50
         # Initial delay before the first readiness probe is performed
       initialDelaySeconds: 50
-        # HTTP GET request used for the readiness probe
+        # http GET request used for the readiness probe
       httpGet:
         # Path for the health check endpoint
         path: /actuator/health
@@ -115,7 +115,7 @@ So, to deploy your application smoothly you need to configure probes.
       timeoutSeconds: 5
         # Delay before the first startup probe is performed
       initialDelaySeconds: 5
-        # HTTP GET request used for the startup probe
+        # http GET request used for the startup probe
       httpGet:
         # Path for the startup check endpoint
         path: /actuator/health

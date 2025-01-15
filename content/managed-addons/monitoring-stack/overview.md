@@ -16,7 +16,7 @@ Level 1: Simple insights into utilization (CPU and Memory) of pods.
 
 ### Level 2
 
-Level 2: Runtime instrumentation (JVM, app server, response time, etc) -“Black Box”.
+Level 2: runtime instrumentation (JVM, app server, response time, etc) -“Black Box”.
 
 ### Level 3
 

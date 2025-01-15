@@ -18,7 +18,7 @@ spec:
 
 ## Restrict Auto Discovery
 
-You can restrict this discovery to only `ConfigMap` or `Secret` objects that
+You can restrict this discovery to only `Configmap` or `Secret` objects that
 are tagged with a special annotation. To take advantage of that, annotate
 your deploymentconfigs/deployments/daemonsets/statefulset/rollouts like this:
 
@@ -32,10 +32,10 @@ spec:
 ```
 
 and Reloader will trigger the rolling upgrade upon modification of any
-`ConfigMap` or `Secret` annotated like this:
+`Configmap` or `Secret` annotated like this:
 
 ```yaml
-kind: ConfigMap
+kind: Configmap
 metadata:
   annotations:
     reloader.stakater.com/match: "true"
@@ -50,7 +50,7 @@ volume mount.
 
 To perform rolling upgrade when change happens only on specific configmaps or secrets, the annotation `configmap.reloader.stakater.com/reload: "<secret1-name>/<configmap1-name>, <secret2-name>/<configmap2-name>"` can be used, which works on comma-separated names of configmaps or secrets, if multiple.
 
-If a `Deployment` called `foo` has a `ConfigMap` called `foo-configmap` and a secret called `foo-secret`. Then add this annotation to the metadata of your `Deployment`
+If a `Deployment` called `foo` has a `Configmap` called `foo-configmap` and a secret called `foo-secret`. Then add this annotation to the metadata of your `Deployment`
 
 ```yaml
 kind: Deployment

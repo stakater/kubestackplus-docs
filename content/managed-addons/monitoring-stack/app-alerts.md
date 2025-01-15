@@ -11,11 +11,11 @@ There are 2 types of monitoring:
 
 ## Enabling monitoring for user-defined projects
 
-Cluster administrators can enable monitoring for user-defined projects by setting the `enableUserWorkload: true` field in the cluster monitoring ConfigMap object.
+Cluster administrators can enable monitoring for user-defined projects by setting the `enableUserWorkload: true` field in the cluster monitoring Configmap object.
 
 ```yaml
 apiVersion: v1
-kind: ConfigMap
+kind: Configmap
 metadata:
   name: cluster-monitoring-config
   namespace: openshift-monitoring

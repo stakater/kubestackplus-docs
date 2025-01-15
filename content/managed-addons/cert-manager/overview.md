@@ -19,12 +19,12 @@ Before you start creating Certificates, you will have to first define a `Issuer`
 
 Two types of acme solvers are supported, The Pros and Cons of both strategies can be seen on the link:
 
-1. [HTTP01 Challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge)
+1. [http01 Challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge)
 1. [DNS01 Challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge)
 
-#### HTTP01 Challenge
+#### http01 Challenge
 
-For HTTP01 Challenge you just need to specify ingress field:
+For http01 Challenge you just need to specify ingress field:
 
 ```yaml
 apiVersion: cert-manager.io/v1
@@ -74,7 +74,7 @@ spec:
 
 !!! warning
 
-    1. Wildcard certificates can only be issued by DNS01 Challenges not with HTTP01 Challenges.
+    1. Wildcard certificates can only be issued by DNS01 Challenges not with http01 Challenges.
     2. You can only issue 50 certificates per Registered Domain. [See Details here](https://letsencrypt.org/docs/rate-limits/)
     3. If you think you need more certificates for your staging/CI environment consider using a [Staging server](https://letsencrypt.org/docs/staging-environment/). The only downside for this strategy is that browser will not trust the CI/staging environment certificate.
 

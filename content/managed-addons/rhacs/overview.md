@@ -15,7 +15,7 @@ In the era of cloud-native applications, safeguarding your Kubernetes workloads 
 
 - **Vulnerability Management**: It offers advanced vulnerability scanning and management to identify and remediate vulnerabilities in container images and Kubernetes configurations.
 
-- **Runtime Threat Detection**: RHACS uses machine learning and behavioral profiling to detect and respond to threats at runtime, enhancing your security posture.
+- **runtime Threat Detection**: RHACS uses machine learning and behavioral profiling to detect and respond to threats at runtime, enhancing your security posture.
 
 - **Compliance and Policy Enforcement**: Ensure compliance with industry standards and internal security policies with RHACS's policy enforcement and audit capabilities.
 

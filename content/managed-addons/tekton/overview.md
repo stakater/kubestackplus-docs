@@ -30,10 +30,10 @@ provide a terminology that is consistent across CI/CD solutions:
 
 - Step: Smallest unit of execution that defines Kubernetes container spec
 - Task: Run commands within container
-- Task Run: Runtime representation of an execution of a task
+- Task Run: runtime representation of an execution of a task
 - Pipeline Resources: Acts as input or output to tasks and pipelines. Example, source code, container image, pull request etc.
 - Pipeline: Runs tasks in a defined order based on inputs and outputs
-- Pipeline Run: Runtime representation of an execution of a pipeline
+- Pipeline Run: runtime representation of an execution of a pipeline
 - Conditions: Conditional tasks in pipeline
 
 ## Pipeline Workflow

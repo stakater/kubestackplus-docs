@@ -15,9 +15,9 @@ Following are the rules along their descriptions.
 | KubeStatefulSetReplicasMismatch   | StatefulSet `Namespace/StatefulSet` has not matched the expected number of replicas for longer than 15 minutes |
 | KubeStatefulSetGenerationMismatch | StatefulSet generation for `Namespace/StatefulSet` does not match, this indicates that the StatefulSet has failed but has not been rolled back. |
 | KubeStatefulSetUpdateNotRolledOut | StatefulSet `Namespace/StatefulSet` update has not been rolled out. |
-| KubeDaemonSetRolloutStuck         | DaemonSet `Namespace/DaemonSet` has not finished or progressed for at least 15 minutes. |
+| KubeDaemonsetRolloutStuck         | Daemonset `Namespace/Daemonset` has not finished or progressed for at least 15 minutes. |
 | KubeContainerWaiting              | Pod `Namespace/Pod` container `Container` has been in waiting state for longer than 1 hour. |
-| KubeDaemonSetNotScheduled         | Pods of DaemonSet `Namespace/DaemonSet` are not scheduled. |
+| KubeDaemonsetNotScheduled         | Pods of Daemonset `Namespace/Daemonset` are not scheduled. |
 | KubeJobCompletion                 | Job `Namespace/Job` is taking more than 12 hours to complete. |
 | KubeJobFailed                     | Job `Namespace/Job` failed to complete. Removing failed job after investigation should clear this alert. |
 | KubeHpaReplicasMismatch           | HPA (Horizontal Pod Autoscaler) `Namespace/HPA` has not matched the desired number of replicas for longer than 15 minutes. |

@@ -1,6 +1,6 @@
 # Add EndpointMonitor
 
-`EndpointMonitor` resource can be used to manage monitors on static urls or route/ingress references.
+`EndpointMonitor` resource can be used to manage monitors on static URLs or route/ingress references.
 
 ## Specifying url
 

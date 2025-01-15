@@ -1,4 +1,4 @@
-# Exposing Your Application to Internet over HTTPS and custom hostname
+# Exposing Your Application to Internet over httpS and custom hostname
 
 This guide provides a step-by-step process to configure an OpenShift `Route` resource to expose your application to the internet.
 
@@ -11,7 +11,7 @@ Before proceeding, ensure the following prerequisites are met:
 
 ## Step 1: Setup Cert Manager Certificate
 
-A [`Certificate`](https://cert-manager.io/docs/usage/certificate/#creating-certificate-resources) resource is used to automatically manage TLS certificates for your application by integrating with a certificate authority (e.g., Let’s Encrypt). It handles the issuance, renewal, and revocation of certificates, ensuring secure communication over HTTPS. Follow the steps below to configure the Certificate resource
+A [`Certificate`](https://cert-manager.io/docs/usage/certificate/#creating-certificate-resources) resource is used to automatically manage TLS certificates for your application by integrating with a certificate authority (e.g., Let’s Encrypt). It handles the issuance, renewal, and revocation of certificates, ensuring secure communication over https. Follow the steps below to configure the Certificate resource
 
 ### Update `values.yaml`
 

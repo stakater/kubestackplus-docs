@@ -6,7 +6,7 @@ Between
 
     Stakater AB, David Bagares gata 26A, 111 38 Stockholm, Sweden
 
-    (Hereinafter referred to as "STAKATER")
+    (Hereinafter referred to as "`STAKATER`")
 
 and
 
