@@ -14,4 +14,4 @@ As part of SAAP (Stakater App Agility Platform), we offer the OpenShift Console 
 
 - **Role-Based Access Control**: Ensure the security of your environment by implementing role-based access control (RBAC), allowing you to define and manage user permissions and access levels.
 
-- **Secure Access**: Our managed Kubernetes Dashboard is accessed securely over HTTPS, preserving the confidentiality and integrity of your data.
+- **Secure Access**: Our managed Kubernetes Dashboard is accessed securely over https, preserving the confidentiality and integrity of your data.

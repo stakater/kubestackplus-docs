@@ -75,9 +75,9 @@ The permissions for the Customer Admin role includes:
 
 #### Compute
 
-- can view machines, machinesets, nodes, machine configs, machine config pools, imagestreams
+- can view machines, MachineSets, nodes, machine configs, machine config pools, imagestreams
 - can start `anyuid` and `nonroot` SCCs
-- can not delete machines, machinesets, nodes, machine configs, machine config pools, imagestreams
+- can not delete machines, MachineSets, nodes, machine configs, machine config pools, imagestreams
 
 #### User Management
 

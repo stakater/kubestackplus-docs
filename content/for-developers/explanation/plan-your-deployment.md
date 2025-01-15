@@ -55,14 +55,14 @@ You can make many different types of workloads for your application. The followi
 | ReplicaSet  | ReplicaSet ensure a multiple replicas of pods keep running. If your pod is deleted, it schedules another pod. Find More Info on ReplicaSet [here](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)                                                                                                                                                        |
 | Deployment  | Deployment is a controller that manages ReplicaSets, It allows you to manage updates, scaling and `rollouts`. Find More Info on Deployment [here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)                                                                                                                                                          |
 | StatefulSet | StatefulSets is a controller that manages ReplicaSets, like deployments, but ensures that your pod has a unique network identity and storage that maintains its state across rescheduling. This type of workload is used for stateful applications like databases. Find More Info on StatefulSet [here](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) |
-| DaemonSet   | DaemonSet is a controller that runs same pod on every worker node typically used log collection applications. Find More Info on DaemonSet [here](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)                                                                                                                                                          |
+| Daemonset   | Daemonset is a controller that runs same pod on every worker node typically used log collection applications. Find More Info on Daemonset [here](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)                                                                                                                                                          |
 | Job         | Job ensures that a number of pods are completed successfully. You can use jobs for batch or parallel processing or configuring other services. Additionally, you can use CronJob to schedule Job at certain times. Find More Info on Job [here](https://kubernetes.io/docs/concepts/workloads/controllers/job/)                                                                 |
 
 ### What if I want my app configuration to use variables?
 
-If your application uses environments variables or configuration files, you can define them in separate ConfigMap or Secrets. You can reference values from these resources and specify them as either files at required path or environment variables.
+If your application uses environments variables or configuration files, you can define them in separate Configmap or Secrets. You can reference values from these resources and specify them as either files at required path or environment variables.
 
-Typically, [ConfigMaps](https://kubernetes.io/docs/concepts/configuration/configmap/) are used for storing non-sensitive configuration information. [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) are used for sensitive information like system credentials or personally identifiable information.
+Typically, [Configmaps](https://kubernetes.io/docs/concepts/configuration/configmap/) are used for storing non-sensitive configuration information. [Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) are used for sensitive information like system credentials or personally identifiable information.
 
 ### How can I make sure that my app has the correct resources?
 
@@ -106,9 +106,9 @@ See [StatefulSet Updates](https://kubernetes.io/docs/concepts/workloads/controll
 
 There can be multiple ways to scale your application.
 
-- Use Horizontal Pod Autoscaler (HPA) to specify how OpenShift Container Platform should automatically increase or decrease the scale of a replication controller or deployment configuration, based on metrics collected from the pods that belong to that replication controller or deployment configuration. See [Horizontal Pod AutoScaling Kubernetes](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) & [Horizontal Pod AutoScaling OpenShift](https://docs.openshift.com/container-platform/4.9/nodes/pods/nodes-pods-autoscaling.html)
+- Use Horizontal Pod Autoscaler (HPA) to specify how OpenShift Container Platform should automatically increase or decrease the scale of a replication controller or deployment configuration, based on metrics collected from the pods that belong to that replication controller or deployment configuration. See [Horizontal Pod Autoscaling Kubernetes](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) & [Horizontal Pod Autoscaling OpenShift](https://docs.openshift.com/container-platform/4.9/nodes/pods/nodes-pods-autoscaling.html)
 
-- Use Vertical Pod Autoscaler Operator (VPA) to automatically reviews the historic and current CPU and memory resources for containers in pods and can update the resource limits and requests based on the usage values it learns. See [Vertical Pod AutoScaling](https://docs.openshift.com/container-platform/4.9/nodes/pods/nodes-pods-vertical-autoscaler.html)
+- Use Vertical Pod Autoscaler Operator (VPA) to automatically reviews the historic and current CPU and memory resources for containers in pods and can update the resource limits and requests based on the usage values it learns. See [Vertical Pod Autoscaling](https://docs.openshift.com/container-platform/4.9/nodes/pods/nodes-pods-vertical-autoscaler.html)
 
 ### How can I automate my app deployment?
 

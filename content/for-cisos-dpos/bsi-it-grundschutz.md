@@ -19,7 +19,7 @@ SAAP enables the implementation of all 31 controls defined in the SYS.1.6 and AP
 - **Role-Based Access Control (RBAC) (APP.4.4)**: Implementing least privilege access and detailed role management through OpenShift’s integrated RBAC.
 - **Logging and Monitoring (APP.4.4)**: Ensuring comprehensive audit logging and monitoring with OpenShift Logging and Prometheus.
 - **Resource Quotas and Limits (APP.4.4)**: Managing resource usage through Kubernetes’ Resource Quotas and LimitRanges.
-- **Container Runtime Security (SYS.1.6)**: Restricting runtime capabilities using OpenShift’s Security Context Constraints (SCCs).
+- **Container runtime Security (SYS.1.6)**: Restricting runtime capabilities using OpenShift’s Security Context Constraints (SCCs).
 - **Persistent Data Security (APP.4.4)**: Encrypting data at rest and securing Persistent Volumes (PVs) with Kubernetes RBAC and OpenShift storage features.
 - **Network Isolation (SYS.1.6 and APP.4.4)**: Securing inter-service communication using OpenShift NetworkPolicies and Service Mesh.
 

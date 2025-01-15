@@ -118,7 +118,7 @@ As a developer, I want to use the OpenShift Console to easily scale resources up
 
 ![type:video](https://www.youtube.com/embed/aoCD2zI_Cww)
 
-Tags: sre, OpenShift Console, scale up, scale down
+Tags: SRE, OpenShift Console, scale up, scale down
 
 ## User Story # 16
 

@@ -65,7 +65,7 @@ Helm Feature | Alternative
 Templating | `Kustomize`, `k8comp`, `kdeploy`, `ktmpl`, `kuku`, `jinja`, `sed`, `awk`, etc.
 Manifest grouping (entity/package) | None
 Application/package dependencies | None
-Runtime view of cluster packages | None
+runtime view of cluster packages | None
 Registry of applications | None
 Direct rollbacks and upgrades | None
 

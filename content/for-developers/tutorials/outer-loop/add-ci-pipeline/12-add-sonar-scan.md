@@ -23,16 +23,16 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
       {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/sonarqube_scan.yaml" %}
     ```
 
-    **Notice** we have provided a parameter **SONAR_HOST_URL** to the sonar-scan task. You need to provide your SonarQube url here. You can get it from Forecastle.
+    **Notice** we have provided a parameter **`SONAR_HOST_URL`** to the `sonar-scan` task. You need to provide your SonarQube URL here. You can get it from Forecastle.
 
     !!! note
         Remember to add the remote task in the annotations
-        ![sonar-scan](images/sonar-scan-annotation.png)
+        ![`sonar-scan`](images/sonar-scan-annotation.png)
 
 1. Create a pull request with you changes. This should trigger the pipeline in the build namespace.
 
-    ![sonar-scan](images/sonar-scan.png)
+    ![`sonar-scan`](images/sonar-scan.png)
 
-    ![sonar-scan-logs](images/sonar-scan-logs.png)
+    ![`sonar-scan-logs`](images/sonar-scan-logs.png)
 
 Great! Let's add more tasks in our pipelineRun in coming tutorials.

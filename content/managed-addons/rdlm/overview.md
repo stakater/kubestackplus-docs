@@ -1,6 +1,6 @@
 # Overview
 
-[RDLM - Restful Distributed Lock Manager](https://github.com/stakater/RestfulDistributedLockManager) is a lock manager over HTTP
+[RDLM - Restful Distributed Lock Manager](https://github.com/stakater/RestfulDistributedLockManager) is a lock manager over http
 
 ## Key Features and Benefits
 

@@ -203,13 +203,13 @@ It should be immediately obvious why we don't want to expose credentials, but th
 
 **How?**
 
-While application configuration can be baked into container images, it's best to make your components configurable at runtime to support deployment in multiple contexts and allow more flexible administration. To manage runtime configuration parameters, Kubernetes offers two objects called ConfigMaps and Secrets.
+While application configuration can be baked into container images, it's best to make your components configurable at runtime to support deployment in multiple contexts and allow more flexible administration. To manage runtime configuration parameters, Kubernetes offers two objects called Configmaps and Secrets.
 
-ConfigMaps are a mechanism used to store data that can be exposed to pods and other objects at runtime. Data stored within ConfigMaps can be presented as environment variables or mounted as files in the pod. By designing your applications to read from these locations, you can inject the configuration at runtime using ConfigMaps and modify the behavior of your components without having to rebuild the container image.
+Configmaps are a mechanism used to store data that can be exposed to pods and other objects at runtime. Data stored within Configmaps can be presented as environment variables or mounted as files in the pod. By designing your applications to read from these locations, you can inject the configuration at runtime using Configmaps and modify the behavior of your components without having to rebuild the container image.
 
-Secrets are a similar Kubernetes object type used to securely store sensitive data and selectively allow pods and other components access as needed. Secrets are a convenient way of passing sensitive material to applications without storing them as plain text in easily accessible locations in your normal configuration. Functionally, they work in much the same way as ConfigMaps, so applications can consume data from ConfigMaps and Secrets using the same mechanisms.
+Secrets are a similar Kubernetes object type used to securely store sensitive data and selectively allow pods and other components access as needed. Secrets are a convenient way of passing sensitive material to applications without storing them as plain text in easily accessible locations in your normal configuration. Functionally, they work in much the same way as Configmaps, so applications can consume data from Configmaps and Secrets using the same mechanisms.
 
-ConfigMaps and Secrets help you avoid putting configuration directly in Kubernetes object definitions. You can map the configuration key instead of the value, allowing you to update configuration on the fly by modifying the ConfigMap or Secret. This gives you the opportunity to alter the active runtime behavior of pods and other Kubernetes objects without modifying the Kubernetes definitions of the resources.
+Configmaps and Secrets help you avoid putting configuration directly in Kubernetes object definitions. You can map the configuration key instead of the value, allowing you to update configuration on the fly by modifying the Configmap or Secret. This gives you the opportunity to alter the active runtime behavior of pods and other Kubernetes objects without modifying the Kubernetes definitions of the resources.
 
 Stakater App Agility Platform includes fully managed Vault for secrets management.
 
@@ -219,7 +219,7 @@ Stakater App Agility Platform includes fully managed Vault for secrets managemen
 
 Kubernetes includes a great deal of out-of-the-box functionality for managing component life cycles and ensuring that your applications are always healthy and available. However, to take advantage of these features, Kubernetes has to understand how it should monitor and interpret your application's health. To do so, Kubernetes allows you to define liveness and readiness probes.
 
-Liveness probes allow Kubernetes to determine whether an application within a container is alive and actively running. Kubernetes can periodically run commands within the container to check basic application behavior or can send HTTP or TCP network requests to a designated location to determine if the process is available and able to respond as expected. If a liveness probe fails, Kubernetes restarts the container to attempt to reestablish functionality within the pod.
+Liveness probes allow Kubernetes to determine whether an application within a container is alive and actively running. Kubernetes can periodically run commands within the container to check basic application behavior or can send http or TCP network requests to a designated location to determine if the process is available and able to respond as expected. If a liveness probe fails, Kubernetes restarts the container to attempt to reestablish functionality within the pod.
 
 Readiness probes are a similar tool used to determine whether a pod is ready to serve traffic. Applications within a container may need to perform initialization procedures before they are ready to accept client requests or they may need to reload upon being notified of a new configuration. When a readiness probe fails, instead of restarting the container, Kubernetes stops sending requests to the pod temporarily. This allows the pod to complete its initialization or maintenance routines without impacting the health of the group as a whole.
 
@@ -229,7 +229,7 @@ By combining liveness and readiness probes, you can instruct Kubernetes to autom
 
 Readiness probes allow your application to report when it should start receiving traffic. This is always what marks a pod ‘Ready' in the cluster.
 
-Health checks (often custom HTTP endpoints) help orchestrators, like Kubernetes, perform automated actions to maintain overall system health. These can be a simple HTTP route that returns meaningful values, or a command that can be executed from within the container.
+Health checks (often custom http endpoints) help orchestrators, like Kubernetes, perform automated actions to maintain overall system health. These can be a simple http route that returns meaningful values, or a command that can be executed from within the container.
 
 If the health check function is not configured, a pod cannot detect service exceptions or automatically restart the service to restore it. This results in a situation where the pod status is normal but the service in the pod is abnormal.
 
@@ -307,7 +307,7 @@ This kind of flexibility, resilience, and loose coupling with backing services i
 
 **How?**
 
-Externalize all configurations (URLs, username, passwords, etc.) as Kubernetes configmaps or secrets for the backing services.
+Externalize all configurations (URLs, username, passwords, etc.) as Kubernetes Configmaps or secrets for the backing services.
 
 - Use object storage where files are needed (not local storage)
 - Use external databases (e.g. Postgres, MySQL, Redis, etc) to persist state
@@ -328,7 +328,7 @@ The first of these, APM, consists of a stream of events that can be used by tool
 
 The second, domain-specific telemetry, is also up to you. This refers to the stream of events and data that makes sense to your business that you can use for your own analytics and reporting. This type of event stream is often fed into a “big data” system for warehousing, analysis, and forecasting.
 
-The difference between APM and domain-specific telemetry may not be immediately obvious. Think of it this way: APM might provide you the average number of HTTP requests per second an application is processing, while domain-specific telemetry might tell you the number of widgets sold to people on iPads within the last 20 minutes.
+The difference between APM and domain-specific telemetry may not be immediately obvious. Think of it this way: APM might provide you the average number of http requests per second an application is processing, while domain-specific telemetry might tell you the number of widgets sold to people on iPads within the last 20 minutes.
 
 Finally, health and system logs are something that should be provided by your cloud provider. They make up a stream of events, such as application start, shutdown, scaling, web request tracing, and the results of periodic health checks. (this is covered thoroughly under logging section)
 
@@ -407,7 +407,7 @@ process.on('SIGTERM', () => {
 
 **What?**
 
-In non-cloud environments, web apps are often written to run in app containers such as GlassFish, Apache Tomcat, and Apache HTTP Server. In contrast, twelve-factor apps don't rely on external app containers. Instead, they bundle the webserver library as a part of the app itself.
+In non-cloud environments, web apps are often written to run in app containers such as GlassFish, Apache Tomcat, and Apache http Server. In contrast, twelve-factor apps don't rely on external app containers. Instead, they bundle the webserver library as a part of the app itself.
 
 It's an architectural best practices for services to expose a port number, specified by the PORT environment variable.
 

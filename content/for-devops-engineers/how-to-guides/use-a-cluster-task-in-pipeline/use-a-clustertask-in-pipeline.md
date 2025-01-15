@@ -6,7 +6,7 @@
 
 ## Objective
 
-Add a clusterTask to enhance Tekton pipeline.
+Add a ClusterTask to enhance Tekton pipeline.
 
 ## Key Results
 
@@ -19,11 +19,11 @@ Add a clusterTask to enhance Tekton pipeline.
 
 1. Login to the OpenShift console, Select `Pipelines > Tasks` from the left bar and then select `ClusterTasks` tab in right pane.
 
-    ![`clustertasks-in-OpenShift-console`](../images/clustasks-in-openshift-console.png)
+    ![`ClusterTasks-in-OpenShift-console`](../images/clustasks-in-openshift-console.png)
 
 1. Verify that your Task exists on the cluster by searching its name.
 
-### Add clustertask in pipeline in place
+### Add ClusterTask in pipeline in place
 
 > To specify this task as default task, follow the [next section](#add-clustertask-in-pipeline-as-default-task)
 
@@ -107,11 +107,11 @@ Add a clusterTask to enhance Tekton pipeline.
 
 1. Create a pull request and get these changes merged.
 
-### Add clustertask in pipeline as default task
+### Add ClusterTask in pipeline as default task
 
 > Don't follow this section if you have completed the above section.
 
-If you want to add this clustertask as `defaultTask` in [`stakater-tekton-chart`](https://github.com/stakater/stakater-tekton-chart), you will need to fork and version control the chart. Push a new version of chart for every new default task.
+If you want to add this ClusterTask as `defaultTask` in [`stakater-tekton-chart`](https://github.com/stakater/stakater-tekton-chart), you will need to fork and version control the chart. Push a new version of chart for every new default task.
 
 #### Fork the Tekton Chart
 
@@ -121,7 +121,7 @@ If you want to add this clustertask as `defaultTask` in [`stakater-tekton-chart`
 
 #### Add the Task
 
-1. Navigate to `stakater-tekton-chart/default-config/tasks` directory. Make a new YAML file named same as clustertask name.
+1. Navigate to `stakater-tekton-chart/default-config/tasks` directory. Make a new YAML file named same as ClusterTask name.
 1. Inside the file, name field will be matched with `defaultTaskName` in `pipeline.tasks[].defaultTaskName` to get `taskRef` or `taskSpec`, `params` & `workspaces`.
 
     ```yaml

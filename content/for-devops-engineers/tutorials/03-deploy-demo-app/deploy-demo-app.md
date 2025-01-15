@@ -35,7 +35,7 @@ In this section, we will use [`stakater-nordmart-review-web`](https://github.com
 
 Find Nexus Docker registry URL and Helm Registry URL [here](../../../managed-addons/nexus/explanation/routes.md).
 
-Alternatively, Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus url.
+Alternatively, Navigate to the cluster Forecastle, search `nexus` using the search bar on top menu and copy the nexus URL.
 
 - `nexus-docker-reg-url`: Remove `https://` from the start and add `-docker` in URL after `nexus`. This URL points to Docker Registry referred as `nexus-docker-reg-url` in this tutorial for example `nexus-docker-stakater-nexus.apps.clustername.random123string.kubeapp.cloud` (Note: Remove '/' at the end of the URL to avoid errors while login).
 
@@ -290,6 +290,6 @@ Visit the OpenShift console to verify the application deployment.
 
 ![review-web-route](../images/review-web-route.png)
 
-Visit the application url using routes to check if application is working as expected.
+Visit the application URL using routes to check if application is working as expected.
 
 ![review-web-ui](../images/review-web-ui.png)

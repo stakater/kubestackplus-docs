@@ -22,7 +22,7 @@ SAAP has a default router/ingress load-balancer that is the default application 
 
 SAAP has an optional router/ingress load-balancer that is a secondary application load-balancer, denoted by `apps2` in the URL. The secondary load-balancer can be configured in SAAP to be either publicly accessible over the internet, or only privately accessible over a pre-existing private connection. If a 'Label match' is configured for this router load-balancer, then only application routes matching this label will be exposed on this router load-balancer, otherwise all application routes are also exposed on this router load-balancer.
 
-SAAP has optional load-balancers for services that can be mapped to a service running on SAAP to enable advanced ingress features, such as non-HTTP/SNI traffic or the use of non-standard ports. Cloud providers may have a quota that limits the number of load-balancers that can be used within each cluster.
+SAAP has optional load-balancers for services that can be mapped to a service running on SAAP to enable advanced ingress features, such as non-http/SNI traffic or the use of non-standard ports. Cloud providers may have a quota that limits the number of load-balancers that can be used within each cluster.
 
 ## Network use
 

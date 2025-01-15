@@ -93,7 +93,7 @@ Login to Vault to view your tenant path.
 
 1. Scroll up to see the owner, which manages your secret.
 
-    ![external secret cr](images/external-secret-cr.png)
+    ![external secret CR](images/external-secret-cr.png)
 
 1. Click on `review-mongodb-creds`, to see the `External Secret` CR. Click on resources to verify what `External Secret` is managing.
 

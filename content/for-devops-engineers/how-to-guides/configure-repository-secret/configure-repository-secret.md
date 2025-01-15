@@ -32,9 +32,9 @@ By properly configuring the permissions and access levels for the PAT, you can e
 
 ### Create a Kubernetes Secret with Token or SSH key
 
-Create a Kubernetes Secret in ArgoCD namespace with repository credentials. Each repository secret must have a url field and, depending on whether you connect using HTTPS, SSH, username and password (for HTTPS), sshPrivateKey (for SSH).
+Create a Kubernetes Secret in ArgoCD namespace with repository credentials. Each repository secret must have a URL field and, depending on whether you connect using https, SSH, username and password (for https), sshPrivateKey (for SSH).
 
-Example for HTTPS:
+Example for https:
 
 ```yaml
 apiVersion: v1

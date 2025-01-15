@@ -28,8 +28,8 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/git_clone.yaml" %}
    ```
 
-1. Provide values for `image_registry`, and helm_registry parameters. You can find the urls from [here](../../../../managed-addons/nexus/explanation/routes.md).
-   `image_registry` url should be succeeded by your application name. Example: nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/**review-api**
+1. Provide values for `image_registry`, and helm_registry parameters. You can find the URLs from [here](../../../../managed-addons/nexus/explanation/routes.md).
+   `image_registry` URL should be succeeded by your application name. Example: `nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/review-api`
 
 1. Now create a pull request on the repository with these changes. This should trigger a pipeline on your cluster.
 
