@@ -1,6 +1,6 @@
 # Privacy Policy (PP)
 
-`Version: 11 May 2023`
+`Version: 15 January 2025`
 
 1. **Data Protection**
 

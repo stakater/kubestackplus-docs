@@ -1,6 +1,6 @@
 # General Terms & Conditions (GTC)
 
-`Version: 15 Jan 2025`
+`Version: 15 January 2025`
 
 1. **Introduction**
 

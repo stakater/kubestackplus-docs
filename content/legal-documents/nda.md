@@ -1,6 +1,6 @@
 # Non-Disclosure Agreement (NDA)
 
-`Version: 9 May 2023`
+`Version: 15 January 2025`
 
 Between
 

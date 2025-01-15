@@ -1,6 +1,6 @@
 # Data Processing Agreement (DPA)
 
-`Version: 18 September 2023`
+`Version: 15 January 2025`
 
 1. **Objectives of DPA**
 
