@@ -1,12 +1,12 @@
 # Non-Disclosure Agreement (NDA)
 
-`Version: 15 January 2025`
+`Version: 9 May 2023`
 
 Between
 
     Stakater AB, David Bagares gata 26A, 111 38 Stockholm, Sweden
 
-    (Hereinafter referred to as "`STAKATER`")
+    (Hereinafter referred to as "STAKATER")
 
 and
 
