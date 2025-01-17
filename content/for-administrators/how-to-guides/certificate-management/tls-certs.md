@@ -14,7 +14,6 @@ Go to `common-shared-secret` path in Vault and create a secret `external-dns-cre
 | `domain-filter`    | optional   | This field should contain base domain that becomes base for registering further subdomains. For example: `example.com`. |
 | `zone-id-filter`| optional   | In case of Cloudflare, if you want to give more restrictive access of only few zones to this token, then this field should contain these zone ids. |
 
-
 !!! note
 
 Before proceeding further, confirm with Cluster Administrator that ClusterIssuer is setup in cluster as next steps are dependent on this resource.
@@ -50,10 +49,10 @@ Next step is to deploy Certificate. For that we need to deploy following resourc
 
 #### Key Fields
 
-- **`.spec.destination.namespace`**: Namespace where you want to deploy certificates. Usually it is `system` namespace that is assigned to you tenant. Check with cluster admin for availability of this namespace.
+- **`.spec.destination.namespace`**: Namespace where you want to deploy certificates. Usually it is `system` namespace that is assigned to your tenant. Check with cluster admin for availability of this namespace.
 - **`.spec.project`**: Project name that this application should belong to. This can be a name of tenant.
 - **`.spec.source.path`**: Path in Infra GitOps repo that this application should sync. This corresponds to the path of folder where `Certificate` resource would exist.
-- **`.spec.source.repoURL`**: This is the url of Infra GitOps repo.
+- **`.spec.source.repoURL`**: This is the URL of Infra GitOps repo.
 
 ### Certificate
 
@@ -85,9 +84,9 @@ Next step is to deploy Certificate. For that we need to deploy following resourc
 
 - **`.spec.secretName`**: Name of the secret that cert-manager will create once the certificate request gets approved by Certificate Authority (in present case LetsEncrypt).
 - **`.spec.dnsNames`**: List of DNS names that you want this certificate to support. This list can also include [wild card domain names](https://knowledge.digicert.com/general-information/what-is-a-wildcard-certificate) like `*.example.com`.
-- **`.spec.issuerRef.name`**: Name of the cluster issuer that you want to use when create this certificate. You can confirm value for this field with cluster admin.
+- **`.spec.issuerRef.name`**: Name of the cluster issuer that you want to use when creating this certificate. You can confirm value for this field with cluster admin.
 
-Commit, push, and merge these changes to the `main` branch. ArgoCD will deploy the resources to the specified namespaces within few minutes. Confirm that certificate is available in system namespace and is upto date before proceeding further.
+Commit, push, and merge these changes to the `main` branch. ArgoCD will deploy the resources to the specified namespaces within few minutes. Confirm that certificate is available in system namespace and is up-to-date before proceeding further.
 
 ## Step 3: Distribute certificate across tenant namespaces
 
@@ -144,7 +143,7 @@ spec:
 
 - **`.spec.template`**: References the `Template` resource.
 - **`.spec.selector`**: Specifies namespaces to deploy resources based on label expressions.
-    - In this example, resources are deployed to tenant with the label `stakater.com/tenant` having values `tenant1` or `tenant2`. Ensure this list includes the names of all tenants where the secret needs to be available. 
+    - In this example, resources are deployed to tenant with the label `stakater.com/tenant` having values `tenant1` or `tenant2`. Ensure this list includes the names of all tenants where the secret needs to be available.
 
 Commit, push, and merge these changes to the `main` branch. ArgoCD will deploy the resources to the specified namespaces within a few minutes.
 
