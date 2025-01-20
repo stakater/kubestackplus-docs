@@ -1,7 +1,8 @@
-!!! info
-    Volume Expansion is currently not supported on Stakater Cloud due to platform limitations. This feature may be available in future releases. You can follow the PVC Copy Tool workaround to resize or migrate PersistentVolumes if necessary.
 
 # Volume Expansion
+
+!!! info
+    Volume Expansion is currently not supported on Stakater Cloud due to platform limitations. This feature may be available in future releases. You can follow the PVC Copy Tool workaround to resize or migrate PersistentVolumes if necessary.
 
 SAAP offers volume expansion to expand volumes when they are running out of space. Volume expansion periodically checks the `kubelet_volume_stats_used_bytes` and `kubelet_volume_stats_capacity_bytes` published by the kubelets to decide when to expand a volume. These metrics are generated only when a volume is mounted to a pod. Also, the kubelet takes a minute or two to start generating accurate values for these metrics.
 
@@ -29,11 +30,12 @@ volume-expander-operator.redhat-cop.io/expand-up-to: "1Ti"            # Volume w
 
 # Pvc Copy Tool
 
-The pvc copy tool is designed to rsync the contents of one PersistentVolume (PV) to a newly created PersistentVolumeClaim (PVC). This tool is especially useful when migrating PersistentVolumes to a new StorageClass or when you need to resize a PV that belongs to a StorageClass that doesn’t support resizing.
+The pvc copy tool is designed to resync the contents of one PersistentVolume (PV) to a newly created PersistentVolumeClaim (PVC). This tool is especially useful when migrating PersistentVolumes to a new StorageClass or when you need to resize a PV that belongs to a StorageClass that doesn’t support resizing.
 
-The tool employs a workaround for reclaiming PVs, which is necessary to handle ReadWriteOnce (RWO) PVs. If you're working with a ReadWriteMany (RWX) PV, you can directly run an rsync job and attach the Job-Pod to the existing PVC—there's no need to create a new PVC.
+The tool employs a workaround for reclaiming PVs, which is necessary to handle ReadWriteOnce (RWO) PVs. If you're working with a ReadWriteMany (RWX) PV, you can directly run a resync job and attach the Job-Pod to the existing PVC—there's no need to create a new PVC.
 
 Use Cases
+
 - Migrate PVs to different StorageClasses.
 - Resize PVs that are using StorageClasses that don’t support resizing.
 - Copy data from one PV to another, maintaining data integrity.
