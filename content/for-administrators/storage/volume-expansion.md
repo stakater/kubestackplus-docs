@@ -4,6 +4,10 @@
 !!! info
     Volume Expansion is currently not supported on Stakater Cloud due to platform limitations. This feature may be available in future releases. You can follow the PVC Copy Tool workaround to resize or migrate PersistentVolumes if necessary.
 
+## Automatic
+
+### Volume Expander Operator
+
 SAAP offers volume expansion to expand volumes when they are running out of space. Volume expansion periodically checks the `kubelet_volume_stats_used_bytes` and `kubelet_volume_stats_capacity_bytes` published by the kubelets to decide when to expand a volume. These metrics are generated only when a volume is mounted to a pod. Also, the kubelet takes a minute or two to start generating accurate values for these metrics.
 
 Volume expansion works based on the following annotations to PersistentVolumeClaim resources:
@@ -28,7 +32,9 @@ volume-expander-operator.redhat-cop.io/polling-frequency: "10m"       # Volume e
 volume-expander-operator.redhat-cop.io/expand-up-to: "1Ti"            # Volume will be expanded no more than 1TB
 ```
 
-# Pvc Copy Tool
+## Manual
+
+### Pvc Copy Tool
 
 The pvc copy tool is designed to copy the contents of one PersistentVolume (PV) to a newly created PersistentVolumeClaim (PVC). This tool is especially useful when migrating PersistentVolumes to a new StorageClass or when you need to resize a PV that belongs to a StorageClass that doesn’t support resizing.
 
@@ -40,14 +46,16 @@ Use Cases
 - Resize PVs that are using StorageClasses that don’t support resizing.
 - Copy data from one PV to another, maintaining data integrity.
 
-## How to Use
+#### How to Use
 
-### Step-by-Step Process
+##### Step-by-Step Process
 
 **1. Clone the Repository:** First, clone the repository that contains the pvc-copy-tool.
 
 ```bash
-git clone https://github.com/stakater/pvc-copy-tool.git
+git clone https://github.com/stakater/charts
+
+cd pvc-copy-tool
 ```
 
 **2. Identify the PV to Copy:** Find the PersistentVolume (PV) you wish to copy.
@@ -71,7 +79,7 @@ git clone https://github.com/stakater/pvc-copy-tool.git
 
 Once the data has been copied and the Job has been deleted, you can rebind the PV to the original PVC name. If you're using an inflexible operator, like OpenShift image operator, you may need to perform a "hot swap" with the PVC for the PV to be properly bound.
 
-### Steps to Rebind
+##### Steps to Rebind
 
 **1. Check New PV:** Ensure the new PV has the persistentVolumeReclaimPolicy set to Retain and that the access mode matches the PVC you intend to bind it to.
 
@@ -85,7 +93,7 @@ Once the data has been copied and the Job has been deleted, you can rebind the P
 
 **6. Confirm Application:** If successful, your application should now be using the newly copied PV, which is on the new StorageClass.
 
-## Example Helm Chart Deployment for One-Off Job
+##### Example Helm Chart Deployment for One-Off Job
 
 To deploy the tool as a one-off job, you can use the following example Helm chart configuration:
 
