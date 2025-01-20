@@ -67,9 +67,11 @@ git clone https://github.com/stakater/pvc-copy-tool.git
 8. Cleanup: After the data has been copied, the new PVC will be available, and you can remove the Helm chart.
 
 ## Rebinding the PV to the Original PVC
+
 Once the data has been copied and the Job has been deleted, you can rebind the PV to the original PVC name. If you're using an inflexible operator, like openshift-image-operator, you may need to perform a "hot swap" with the PVC for the PV to be properly bound.
 
 ### Steps to Rebind:
+
 1. Check New PV: Ensure the new PV has the persistentVolumeReclaimPolicy set to Retain and that the access mode matches the PVC you intend to bind it to.
 
 2. Remove ClaimRef: Delete the PVC bound to the new PV and remove the ClaimRef from the PV.
@@ -83,6 +85,7 @@ Once the data has been copied and the Job has been deleted, you can rebind the P
 6. Confirm Application: If successful, your application should now be using the newly copied PV, which is on the new StorageClass.
 
 ## Example Helm Chart Deployment for One-Off Job
+
 To deploy the tool as a one-off job, you can use the following example Helm chart configuration:
 
 ```yaml
