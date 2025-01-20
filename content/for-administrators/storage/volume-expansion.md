@@ -50,28 +50,36 @@ Use Cases
 git clone https://github.com/stakater/pvc-copy-tool.git
 ```
 
-2. Identify the PV to Copy    
-  - Find the Persi stentVolume (PV) you wish to copy.
+2. Identify the PV to Copy
+
+- Find the PersistentVolume (PV) you wish to copy.
 
 3. Change PV Reclaim Policy
-  - Update the persistentVolumeReclaimPolicy of the PV to Retain.
+  
+- Update the persistentVolumeReclaimPolicy of the PV to Retain.
 
 4. Get PV Name
-  - Retrieve the name of the PV you want to copy.
 
-5. Deploy the Helm Chart 
-  - Apply the provided Helm chart, specifying:
+- Retrieve the name of the PV you want to copy.
+
+1. Deploy the Helm Chart
+  
+- Apply the provided Helm chart, specifying:
+  
     - The name of the PV in the values file.
     - The name, storage class, and size of the new PVC.
 
-6. Delete the Original PVC 
-  - Delete the old PVC and remove the claim reference from the source PV.
+1. Delete the Original PVC
+  
+- Delete the old PVC and remove the claim reference from the source PV.
 
 7. Monitor the Job
-  - The job will begin copying data from the original PV to the new PVC. The logs may show warnings about the inability to preserve the original file owners, but this is a known limitation due to OpenShift security settings and can be ignored.
+  
+- The job will begin copying data from the original PV to the new PVC. The logs may show warnings about the inability to preserve the original file owners, but this is a known limitation due to OpenShift security settings and can be ignored.
 
 8. Cleanup
-  - After the data has been copied, the new PVC will be available, and you can remove the Helm chart.
+  
+- After the data has been copied, the new PVC will be available, and you can remove the Helm chart.
 
 ## Rebinding the PV to the Original PVC
 
@@ -80,22 +88,28 @@ Once the data has been copied and the Job has been deleted, you can rebind the P
 ### Steps to Rebind:
 
 1. Check New PV
-  - Ensure the new PV has the persistentVolumeReclaimPolicy set to Retain and that the access mode matches the PVC you intend to bind it to.
+
+- Ensure the new PV has the persistentVolumeReclaimPolicy set to Retain and that the access mode matches the PVC you intend to bind it to.
 
 2. Remove Claim reference
-  - Delete the PVC bound to the new PV and remove the `ClaimRef` from the PV.
+
+- Delete the PVC bound to the new PV and remove the `ClaimRef` from the PV.
 
 3. Prepare PVC YAML
-  - Copy the YAML definition for the PVC you plan to bind the PV to. Paste it into a file or use OpenShift's "Import YAML" dialog.
+  
+- Copy the YAML definition for the PVC you plan to bind the PV to. Paste it into a file or use OpenShift's "Import YAML" dialog.
 
-4. Update PVC YAML 
-  - Update the volume name in the PVC YAML to point to your new PV.
+4. Update PVC YAML
+  
+- Update the volume name in the PVC YAML to point to your new PV.
 
 5. Delete PVC and Pod
-  - Delete the application's PVC and pod. Then quickly apply the updated PVC YAML to bind the new PV to the PVC.
+  
+- Delete the application's PVC and pod. Then quickly apply the updated PVC YAML to bind the new PV to the PVC.
 
-6. Confirm Application 
-  - If successful, your application should now be using the newly copied PV, which is on the new StorageClass.
+6. Confirm Application
+  
+- If successful, your application should now be using the newly copied PV, which is on the new StorageClass.
 
 ## Example Helm Chart Deployment for One-Off Job
 
