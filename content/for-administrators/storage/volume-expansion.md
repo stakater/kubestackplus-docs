@@ -58,8 +58,8 @@ git clone https://github.com/stakater/pvc-copy-tool.git
 
 **5. Deploy the Helm Chart:** Apply the provided Helm chart, specifying:
 
-  - The name of the PV in the values file.
-  - The name, storage class, and size of the new PVC.
+- The name of the PV in the values file.
+- The name, storage class, and size of the new PVC.
 
 **6. Delete the Original PVC:** Delete the old PVC and remove the claim reference from the source PV.
 
@@ -71,7 +71,7 @@ git clone https://github.com/stakater/pvc-copy-tool.git
 
 Once the data has been copied and the Job has been deleted, you can rebind the PV to the original PVC name. If you're using an inflexible operator, like OpenShift image operator, you may need to perform a "hot swap" with the PVC for the PV to be properly bound.
 
-### Steps to Rebind:
+### Steps to Rebind
 
 **1. Check New PV:** Ensure the new PV has the persistentVolumeReclaimPolicy set to Retain and that the access mode matches the PVC you intend to bind it to.
 
