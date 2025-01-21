@@ -2,7 +2,7 @@
 # Volume Expansion
 
 !!! info
-    Volume Expansion is currently not supported on Stakater Cloud due to platform limitations. This feature may be available in future releases. You can follow the PVC Copy Tool workaround to resize or migrate PersistentVolumes if necessary.
+    Volume Expansion is currently not supported on Stakater Cloud due to platform limitations. This feature may be available in future releases. You can follow the clone pvc workaround to resize or migrate PersistentVolumes if necessary.
 
 ## Automatic
 
@@ -34,11 +34,11 @@ volume-expander-operator.redhat-cop.io/expand-up-to: "1Ti"            # Volume w
 
 ## Manual
 
-### Pvc Copy Tool
+### Clone PVC
 
-The pvc copy tool is designed to copy the contents of one PersistentVolume (PV) to a newly created PersistentVolumeClaim (PVC). This tool is especially useful when migrating PersistentVolumes to a new StorageClass or when you need to resize a PV that belongs to a StorageClass that doesn’t support resizing.
+The clone PVC is designed to copy the contents of one PersistentVolume (PV) to a newly created PersistentVolumeClaim (PVC). Clone PVC is especially useful when migrating PersistentVolumes to a new StorageClass or when you need to resize a PV that belongs to a StorageClass that doesn’t support resizing.
 
-The tool employs a workaround for reclaiming PVs, which is necessary to handle ReadWriteOnce (RWO) PVs. If you're working with a ReadWriteMany (RWX) PV, you can directly run a copy job and attach the Job-Pod to the existing PVC—there's no need to create a new PVC.
+The clone PVC employs a workaround for reclaiming PVs, which is necessary to handle ReadWriteOnce (RWO) PVs. If you're working with a ReadWriteMany (RWX) PV, you can directly run a copy job and attach the Job-Pod to the existing PVC—there's no need to create a new PVC.
 
 Use Cases
 
@@ -50,12 +50,12 @@ Use Cases
 
 ##### Step-by-Step Process
 
-**1. Clone the Repository:** First, clone the repository that contains the pvc-copy-tool.
+**1. Clone the Repository:** First, clone the repository that contains the clone PVC.
 
 ```bash
 git clone https://github.com/stakater/charts
 
-cd pvc-copy-tool
+cd clone-pvc
 ```
 
 **2. Identify the PV to Copy:** Find the PersistentVolume (PV) you wish to copy.
@@ -95,28 +95,28 @@ Once the data has been copied and the Job has been deleted, you can rebind the P
 
 ##### Example Helm Chart Deployment for One-Off Job
 
-To deploy the tool as a one-off job, you can use the following example Helm chart configuration:
+To deploy the clone PVC as a one-off job, you can use the following example Helm chart configuration:
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: pvc-copy-tool
+  name: clone-pvc
   namespace: argocd
 spec:
   destination:
     namespace: <target-namespace>
     server: https://kubernetes.default.svc
   source:
-    path: pvc-copy-tool
-    repoURL: ssh://git@github.com:stakater/pvc-copy-tool.git
+    path: clone-pvc
+    repoURL: ssh://git@github.com:stakater/charts
     targetRevision: master
     helm:
       parameters:
         - name: oldPvName
           value: "<target-pv>"
         - name: newPvcName
-          value: "image-registry-storage-clone"
+          value: "clone-pvc"
         - name: newPvcStorageClass
           value: ""
         - name: newPvcSize
