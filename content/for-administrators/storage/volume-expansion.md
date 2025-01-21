@@ -75,7 +75,7 @@ cd clone-pvc
 
 **8. Cleanup:** After the data has been copied, the new PVC will be available, and you can remove the Helm chart.
 
-## Rebinding the PV to the Original PVC
+##### Rebinding the PV to the Original PVC
 
 Once the data has been copied and the Job has been deleted, you can rebind the PV to the original PVC name. If you're using an inflexible operator, like OpenShift image operator, you may need to perform a "hot swap" with the PVC for the PV to be properly bound.
 
