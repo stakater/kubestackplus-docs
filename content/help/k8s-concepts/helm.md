@@ -60,14 +60,14 @@ At the time of writing Helm is the only package manager for Kubernetes, so if yo
 
 Here is a table that highlights the comparison:
 
-Helm Feature | Alternative
---- | ---
-Templating | `Kustomize`, `k8comp`, `kdeploy`, `ktmpl`, `kuku`, `jinja`, `sed`, `awk`, etc.
-Manifest grouping (entity/package) | None
-Application/package dependencies | None
-runtime view of cluster packages | None
-Registry of applications | None
-Direct rollbacks and upgrades | None
+| Helm Feature | Alternative |
+| --- | --- |
+| Templating | `Kustomize`, `k8comp`, `kdeploy`, `ktmpl`, `kuku`, `jinja`, `sed`, `awk`, etc. |
+| Manifest grouping (entity/package) | None |
+| Application/package dependencies | None |
+| runtime view of cluster packages | None |
+| Registry of applications | None |
+| Direct rollbacks and upgrades | None |
 
 ## Helm packaging strategies
 
