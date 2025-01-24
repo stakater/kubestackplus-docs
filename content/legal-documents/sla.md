@@ -1,6 +1,6 @@
 # Service Level Agreement (SLA)
 
-`Version: 8 October 2024`
+`Version: 23 January 2025`
 
 This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you ("**Customer**"). Each a "Party", and together the "Parties".
 
@@ -185,17 +185,17 @@ Payment is due once during a Service Period and the Customer will be charged for
 
 ## 16. Service Level Objectives
 
-Covered Service | Monthly Uptime Percentage
---- | ---
-Zonal Clusters OpenShift API | 99.00%
-Regional Clusters OpenShift API | 99.50%
+| Covered Service | Monthly Uptime Percentage |
+| --- | --- |
+| Zonal Clusters OpenShift API | 99.00% |
+| Regional Clusters OpenShift API | 99.50% |
 
 ## 17. Financial Credits
 
 If the SLO is not met in a Service Period, and if Customer meets its obligations under this SLA, Customer will be entitled to, upon request, a service Financial Credit equal to the following:
 
-Monthly Uptime Percentage - Regional Cluster | Monthly Uptime Percentage - Zonal Cluster | Financial Credit of the Fees actually paid by the Customer for that Service Period
---- | --- | ---
-&gt;99.00% to 99.50% | | 5%
-&gt;95.00% to 99.00% | &gt;95.00% to 99.00% | 10%
-&lt;95.00% | &lt;95.00% | 20%
+| Monthly Uptime Percentage - Regional Cluster | Monthly Uptime Percentage - Zonal Cluster | Financial Credit of the Fees actually paid by the Customer for that Service Period |
+| --- | --- | --- |
+| &gt;99.00% to 99.50% | | 5% |
+| &gt;95.00% to 99.00% | &gt;95.00% to 99.00% | 10% |
+| &lt;95.00% | &lt;95.00% | 20% |

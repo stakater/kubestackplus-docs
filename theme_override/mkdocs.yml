@@ -22,6 +22,9 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
 nav:
   - About:
       - index.md
@@ -53,7 +56,7 @@ nav:
       - about/onboarding.md
   - For Administrators:
       - for-administrators/overview.md
-      - for-administrators/user-stories.md      
+      - for-administrators/user-stories.md
       - How-to guides:
           - for-administrators/how-to-guides/certificate-management/tls-certs.md
       - Explanation:
@@ -177,13 +180,13 @@ nav:
         - for-cisos-dpos/nist-sp-800-171.md
         - for-cisos-dpos/bsi-it-grundschutz.md
         - for-cisos-dpos/cis.md
-        - for-cisos-dpos/soc2-type2.md        
+        - for-cisos-dpos/soc2-type2.md
         - for-cisos-dpos/toms.md
         - for-cisos-dpos/subprocessors.md
       - Industry-Specific Standards:
         - for-cisos-dpos/hipaa.md
         - for-cisos-dpos/dora.md
-      - for-cisos-dpos/backup.md                
+      - for-cisos-dpos/backup.md
   - Managed Addons:
       - managed-addons/overview.md
       - Nexus:
@@ -276,7 +279,7 @@ nav:
       - RHACS:
           - managed-addons/rhacs/overview.md
           - managed-addons/rhacs/accessing-rhacs.md
-          - managed-addons/rhacs/permissions.md                    
+          - managed-addons/rhacs/permissions.md
       - Vertical Pod Autoscaler (VPA):
           - managed-addons/vertical-pod-autoscaler/overview.md
       - Horizontal Pod Autoscaler (HPA):
@@ -316,7 +319,7 @@ nav:
       - Distributed Tracing:
           - managed-addons/tracing/overview.md
       - OpenTelemetry:
-          - managed-addons/opentelemetry/overview.md          
+          - managed-addons/opentelemetry/overview.md
   - Legal Documents:
       - legal-documents/overview.md
       - legal-documents/fa.md
