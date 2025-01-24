@@ -43,7 +43,7 @@ Here is the list of fully managed addons available on Stakater App Agility Platf
 | Kubernetes dashboard | [Kubernetes Dashboard](./kubernetes-dashboard/overview.md) | OSS |
 | Software defined storage | [OpenShift Data Foundation - ODF](./odf/overview.md) | Enterprise license |
 | Custom metrics autoscaler | [Custom Metrics Autoscaler](./custom-metrics-autoscaler/overview.md) | OSS |
-| Dev Spaces | [Dev Spaces](./devspaces/overview.md) | Enterprise license |
+| Dev Spaces | [Dev Spaces](./devspaces/overview.md) | OSS |
 | DNS handling | [External DNS](./external-dns/overview.md) | OSS |
 | Leader application chart | [Stakater Application Helm Chart](./helm-leader-chart/overview.md) | OSS |
 | Web terminal | [Web Terminal Operator](./web-terminal-operator/overview.md) | OSS |
