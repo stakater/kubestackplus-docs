@@ -38,7 +38,7 @@ Then access the docs on [`localhost:8080/saap`](localhost:8080/saap).
 
 ### Run commands locally
 
-Use [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) to set up Python virtual environments.
+Use [`virtualenvwrapper`](https://virtualenvwrapper.readthedocs.io/en/latest/install.html) to set up Python virtual environments.
 
 Install [Python 3](https://www.python.org/downloads/).
 
