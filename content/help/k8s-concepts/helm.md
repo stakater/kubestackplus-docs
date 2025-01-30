@@ -33,12 +33,12 @@ Helm can install a chart either in the package (.tgz) or un-packaged form (tree 
 - Checkout from git a Helm chart described in uncompressed files.
 - Install this chart to a Kubernetes cluster.
 
-### 2. Chart versions and appVersions
+### 2. Chart versions and `appVersions`
 
 Each Helm chart has the ability to define two separate versions:
 
 - The version of the chart itself (version field in `Chart.yaml`).
-- The version of the application contained in the chart (appVersion field in `Chart.yaml`).
+- The version of the application contained in the chart (`appVersion` field in `Chart.yaml`).
 
 These are unrelated and can be bumped up in any manner that you see fit. You can sync them together or have them increase independently. There is no right or wrong practice here as long as you stick into one.
 

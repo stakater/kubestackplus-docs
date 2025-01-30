@@ -42,7 +42,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
     !!! note
         The indentation for `env` in `deploy/values.yaml` is **application.deployment.env**. You can also refer configmap in env, to see more [click](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-with-data-from-multiple-configmaps).
 
-### Utilize envFrom to Access Configmaps
+### Utilize `envFrom` to Access Configmaps
 
 1. To utilize environment variables from a resource, such as Configmap, we can mention the `envFrom` field and specify the configmap name. Add this YAML to `deploy/values.yaml`. `envFrom` allows you to fetch all the environment variables define in this configmap.
 
@@ -62,12 +62,12 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     It should look like this:
 
-    ![envfrom configmap](images/envfrom-config.png)
+    ![configmap](images/envfrom-config.png)
 
     Look at the different colors that indicates indentation.
 
     !!! note
-        The indentation for `envFrom` in `deploy/values.yaml` is **application.deployment.envFrom**. You can also reference secret in envFrom, to see more [click](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables).
+        The indentation for `envFrom` in `deploy/values.yaml` is `application.deployment.envFrom`. You can also reference secret in `envFrom`, to see more [click](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables).
 
 ### Define Configmap Data in `values.yaml`
 
@@ -169,7 +169,7 @@ If your application requires a configuration file with sensitive information, yo
 
     It should look like this:
 
-    ![configmao volumes and volume mounts](images/volume-config.png)
+    ![configmap volumes and volume mounts](images/volume-config.png)
 
     Look at the different colors that indicates indentation.
 

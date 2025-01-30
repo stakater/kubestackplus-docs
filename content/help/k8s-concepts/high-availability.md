@@ -40,7 +40,7 @@ Worker nodes are the virtual machines that contain your application pods. By def
 
 ### Potential failure point 3: Cluster availability
 
-SAAP clusters have at least three control plane nodes and three infrastructure nodes that are preconfigured for high availability, either in a single zone or across multiple zones depending on the type of cluster you have selected. This means that control plane and infrastructure nodes have the same resiliency of worker nodes, with the added benefit of being managed completely by Stakater.
+SAAP clusters have at least three control plane nodes and three infrastructure nodes that are pre-configured for high availability, either in a single zone or across multiple zones depending on the type of cluster you have selected. This means that control plane and infrastructure nodes have the same resiliency of worker nodes, with the added benefit of being managed completely by Stakater.
 
 In the event of a complete control plane node outage, the OpenShift APIs will not function, and existing worker node pods will be unaffected. However, if there is also a pod or node outage at the same time, the control plane nodes will have to recover before new pods or nodes can be added or scheduled.
 

@@ -84,7 +84,7 @@ CMD ["node", "server.js"]
 
 > Create [multi-stage builds](https://docs.docker.com/build/building/multi-stage/), use multiple `FROM` statements. Each `FROM` instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don't want in the final image. The end result is the same tiny production image as before, with a significant reduction in complexity. You don't need to create any intermediate images, and you don't need to extract any artifacts to your local system at all.
 
-Look into the following dockerizing guides for a start.
+Look into the following Docker guides for a start.
 
 | Framework/Language | Reference                                                   |
 |--------------------|-------------------------------------------------------------|
@@ -142,7 +142,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
       version: 1.0.0
     ```
 
-1. The `values.yaml` contains all the application specific **Kubernetes resources** (deployments, configmaps, namespaces, secrets, services, route, podautoscalers, RBAC) for the particular environment. Configure Helm values as per application needs.
+1. The `values.yaml` contains all the application specific **Kubernetes resources** (deployments, configmaps, namespaces, secrets, services, route, `podautoscalers`, RBAC) for the particular environment. Configure Helm values as per application needs.
 
     Here is a minimal values file defined for an application with deployment,route,service.
 

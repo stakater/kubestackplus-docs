@@ -72,7 +72,7 @@ curl localhost:port/path
 
 - Verify everything in spec in the ServiceMonitor.
     - Verify that endpoints port matches with the Service `spec.ports.name`.
-    - Verify that namespaceSelector `matchnames` matches with the Service `metadata.namespace`.
+    - Verify that `namespaceSelector` `matchnames` matches with the Service `metadata.namespace`.
     - Verify that selector `matchlabels` matches with the Service `metadata.labels`.
 
 - Make sure that the service monitor selector and service monitor namespace selector labels have been applied to the service monitor and the namespace respectively where the service monitor is present. You can check these selectors in Search -> Resources -> Prometheus and then check the YAML manifest of Prometheus CR.

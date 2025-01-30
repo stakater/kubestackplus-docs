@@ -118,7 +118,7 @@ Setup a CI/CD pipeline to for Continuous Integration and Continuous Deployments.
 
 Users can expose your application in/out the cluster using Services, Ingresses, Routes.
 
-- Users can create two types of services for external networking: NodePort, LoadBalancer.
+- Users can create two types of services for external networking: nodePort, LoadBalancer.
 - Users can create Routes to exposes a service at a host name, such as `www.example.com`, so that external clients can reach it by name.
 - Users can create Ingresses on a host name which is being watched by ingress controller and creates one or more routes to satisfy the conditions of the ingress object.
 

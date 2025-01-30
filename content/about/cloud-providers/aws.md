@@ -10,7 +10,7 @@ An AWS account is needed to create and manage cluster on AWS. The following crit
   |------------|------------|
   | Virtual Machines | Varies. The limit should be 12 initially. (Initial deployment is 3 control plane + 3 infra + 3 worker)|
   | Regional vCPUs | The limit should be A x B x 2 , where A = no. of VMs (worker + infra + control plane), B = vCPUs per VM) |
-  | Elastic IPs (EIPs) | 5 |
+  | Elastic IPs (`EIPs`) | 5 |
   | Virtual Private Clouds (VPCs) | 5 |
   | Elastic Load Balancing (ELB/NLB) | 3 |
   | NAT Gateways | 5 |
