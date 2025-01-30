@@ -72,7 +72,7 @@ To get started, head to the `stakater-nordmart-review-api/deploy/templates/grafa
 
     On the new panel, let's configure it to query for some information about our projects. We're going to use a very simple query to count the number of pods running in the namespace (feel free to use any other query).
 
-1. On the Panel settings, set the title to something sensible and add the query, first select "kube_pod_status_ready". Next select the label filter "condition = true". Below it you'll see the operator option, select "sum" operator. Underneath, you will see there is a query generated for you.  Hit "Run queries". The data will be shown on the panel. Hit "Apply" to save this new dashboard in your namespace.
+1. On the Panel settings, set the title to something sensible and add the query, first select `kube_pod_status_ready`. Next select the label filter `condition = true`. Below it you'll see the operator option, select `sum` operator. Underneath, you will see there is a query generated for you.  Hit `Run queries`. The data will be shown on the panel. Hit `Apply` to save this new dashboard in your namespace.
 
     ![new panel](images/custom-query.png)
 

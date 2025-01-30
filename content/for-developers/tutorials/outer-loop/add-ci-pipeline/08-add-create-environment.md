@@ -44,4 +44,4 @@ The create environment task utilizes [Tronador](https://docs.stakater.com/tronad
 
     ![dynamic-env](images/dynamic-env.png)
 
-Great! Let's add more tasks in our pipelineRun in coming tutorials.
+Great! Let's add more tasks in our `pipelineRun` in coming tutorials.

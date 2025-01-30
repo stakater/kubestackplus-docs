@@ -444,7 +444,7 @@ app.listen(PORT, () => {
 ```
 
 - Dockerfiles define a PORT definition
-- Services should listen on a preconfigured bind-address and port (e.g. 0.0.0.0:8000)
+- Services should listen on a pre-configured bind-address and port (e.g. 0.0.0.0:8000)
 - Should listen on non-privileged ports (> 1024)
 
 ## 12. Single stateless processes
@@ -539,7 +539,7 @@ The Environment Parity principle means all deployment paths are similar yet inde
 
 Backing services, such as the app's database, queueing system, or cache, is one area where dev/prod parity is important. Many languages offer libraries which simplify access to the backing service, including adapters to different types of services.
 
-Developers sometimes find great appeal in using a lightweight backing service in their local environments, while a more serious and robust backing service will be used in production. For example, using SQLite locally and PostgreSQL in production; or local process memory for caching in development and Memcached in production.
+Developers sometimes find great appeal in using a lightweight backing service in their local environments, while a more serious and robust backing service will be used in production. For example, using SQLite locally and PostgreSQL in production; or local process memory for caching in development and memcached in production.
 
 The cloud-native developer resists the urge to use different backing services between development and production, even when adapters theoretically abstract away any differences in backing services. Differences between backing services mean that tiny incompatibilities crop up, causing code that worked and passed tests in development or staging to fail in production. These types of errors create friction that discourages continuous deployment. The cost of this friction and the subsequent dampening of continuous deployment is extremely high when considered in aggregate over the lifetime of an application.
 

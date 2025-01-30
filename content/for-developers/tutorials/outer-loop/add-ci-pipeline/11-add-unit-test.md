@@ -33,4 +33,4 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
     ![unit-test-logs](images/unit-test-logs.png)
 
-Great! Let's add more tasks in our pipelineRun in coming tutorials.
+Great! Let's add more tasks in our `pipelineRun` in coming tutorials.

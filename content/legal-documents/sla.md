@@ -1,6 +1,6 @@
 # Service Level Agreement (SLA)
 
-`Version: 23 January 2025`
+`Version: 30 January 2025`
 
 This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you ("**Customer**"). Each a "Party", and together the "Parties".
 
@@ -52,7 +52,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
     - 6.1.6 In the case of Stakater having insufficient privileges to the Customers cloud environments to perform required maintenance and support tasks;
 
-    - 6.1.7 Due to issues caused by software or application bugs or faults as confirmed by the upstream vendors or product owners that are out of Stakaters control to patch and remediate;
+    - 6.1.7 Due to issues caused by software or application bugs or faults as confirmed by the upstream vendors or product owners that are out of Stakater's control to patch and remediate;
 
     - 6.1.8 Blocking or throttling by an internet service provider or transit provider;
 
@@ -70,7 +70,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
     - 6.1.15 Change requests made by the Customer in which the Customer has been notified concerning the possible impairment and the availability and has agreed to them;
 
-    - 6.1.16 Any actions or inactions from Customer or any third-party;
+    - 6.1.16 Any actions or in-actions from Customer or any third-party;
 
     - 6.1.17 A force majeure event (including any act of God, natural disaster, fire, riot, act of terrorism or cyber-warfare, act of government, labour strike, epidemic, pandemic) or reasons beyond the control of Stakater to the extent the unavailability could not have been mitigated by implementation of reasonable backup and recovery plans;
 

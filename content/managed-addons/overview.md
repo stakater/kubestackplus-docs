@@ -2,7 +2,7 @@
 
 Here is the list of fully managed addons available on Stakater App Agility Platform:
 
-| Managed AddOn | Description | License |
+| Managed Addon | Description | License |
 | --- | --- | --- |
 | CI (continuous integration) | [Tekton](./tekton/overview.md) | OSS |
 | CD (continuous delivery) | [ArgoCD](./argocd/overview.md) | OSS |

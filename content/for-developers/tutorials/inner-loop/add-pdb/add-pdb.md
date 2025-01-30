@@ -54,7 +54,7 @@ Let's scale up the number of `replicas` to see how `pdb` works.
     Look at the different colors that indicates indentation.
 
     !!! note
-        The indentation should be **application.pdb**.
+        The indentation should be `application.pdb`.
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
