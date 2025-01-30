@@ -43,7 +43,7 @@ Now let's add a PrometheusRule for the application. In the previous section, we 
     ```
 
     !!! note
-        The indentation follows by **application.prometheusRule**.
+        The indentation follows by `application.prometheusRule`.
 
 ### Alert Manager
 
@@ -52,7 +52,7 @@ Now we need to tell Alert Manager where to send the alert. For this, we will nee
 1. If you need to send an alert to a Slack channel. You will first need to [add a webhook for that channel in Slack](https://docs.stakater.com/saap/managed-addons/monitoring-stack/log-alerts.html)
 Once you have the webhook URL, you can add the AlertManagerConfig. The Alertmanager uses a secret to pick up details of the endpoint to send the alerts to.
 
-1. Let's create the secret first. Log in to SAAP > Administrator > Workloads > Secrets in your namespace. Create a secret from YAML. Replace "namespace" with the namespace in which your application is deployed and "api_url" with base64 encoded webhook URL:
+1. Let's create the secret first. Log in to SAAP > Administrator > Workloads > Secrets in your namespace. Create a secret from YAML. Replace "namespace" with the namespace in which your application is deployed and `api_url` with base64 encoded webhook URL:
 
     ```yaml
     kind: Secret
@@ -66,7 +66,7 @@ Once you have the webhook URL, you can add the AlertManagerConfig. The Alertmana
     type: Opaque
     ```
 
-1. Let's add the AlertManagerConfig, add this YAML to `deploy/values.yaml`, and remember to replace "channel-name" with your channel name.
+1. Let's add the AlertManagerConfig, add this YAML to `deploy/values.yaml`, and remember to replace `channel-name` with your channel name.
 
     ```yaml
     alertmanagerConfig:
@@ -107,7 +107,7 @@ Once you have the webhook URL, you can add the AlertManagerConfig. The Alertmana
     ```
 
     !!! note
-        The indentation follows by **application.alertmanagerConfig**.
+        The indentation follows by `application.alertmanagerConfig`.
 
 1. Save and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 

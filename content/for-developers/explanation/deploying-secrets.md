@@ -15,10 +15,10 @@ The following secrets are needed for running a fully functional pipeline using p
 1. `docker-reg-creds`
     * _Purpose_: Used by buildah task and the application deployment to pull the image from the nexus registry.
     * _Owner_: SAAP admins.
-    * _Type_: Login credentials for nexus docker registry. The secret itself is of type dockerconfigjson.
+    * _Type_: Login credentials for nexus docker registry. The secret itself is of type `dockerconfigjson`.
     * _Used for_: Pulling images from the nexus registry. Needs to be deployed in all namespaces of the tenant. We distribute it using a TGI.
     * _Lifecycle_: Every time a new tenant is created, the secret gets deployed in all its namespaces.
-    * _Deployment Process_: Nexus comes shipped with SAAP. The `nexus3` namespace contains a secret named `docker-reg-creds`. This secret contains the .dockerconfigjson file. We use a Multi Tenant Operator Template and TemplateGroupInstance to copy this secret and distribute it all namespaces of the tenants. The Template and TemplateGroupInstance are both named `docker-reg-creds`.
+    * _Deployment Process_: Nexus comes shipped with SAAP. The `nexus3` namespace contains a secret named `docker-reg-creds`. This secret contains the .`dockerconfigjson` file. We use a Multi Tenant Operator Template and TemplateGroupInstance to copy this secret and distribute it all namespaces of the tenants. The Template and TemplateGroupInstance are both named `docker-reg-creds`.
 1. `helm-reg-creds`
     * _Purpose_: Used to pull and push charts from the Nexus Helm Registry. We use it in two places for our pipeline:
         1. `stakater-helm-push` task
@@ -248,7 +248,7 @@ The following secrets are needed for running a fully functional pipeline using p
                       property: api_private_key
             ```
 
-        1. Now open up the tenant path in Vault and add a secret named [app-name]-ssh-creds. Add a key api_private_key. The value should have a private ssh key that has access to your application repository as well as you `apps-gitops-config` repository.
+        1. Now open up the tenant path in Vault and add a secret named `[app-name]-ssh-creds`. Add a key `api_private_key`. The value should have a private ssh key that has access to your application repository as well as you `apps-gitops-config` repository.
         1. Assuming you have already set up the `apps-gitops-config` repository, you should be able to see the secret deployed to your tenant's build namespace
 
 1. `[app-name]-git-webhook-creds`

@@ -40,9 +40,9 @@ A sample AlertmanagerConfig can be configured in [Application Chart](https://git
 
 | Parameter | Description |
 |:---|:---|
-| .Values.alertmanagerConfig.enabled | Enable alertmanagerConfig for this app (Will be merged in the base config) |
-| .Values.alertmanagerConfig.spec.route | The Alertmanager route definition for alerts matching the resource's namespace. It will be added to the generated Alertmanager configuration as a first-level route |
-| .Values.alertmanagerConfig.spec.receivers | List of receivers |
+| `.Values.alertmanagerConfig.enabled` | Enable AlertmanagerConfig for this app (Will be merged in the base config) |
+| `.Values.alertmanagerConfig.spec.route` | The Alertmanager route definition for alerts matching the resource's namespace. It will be added to the generated Alertmanager configuration as a first-level route |
+| `.Values.alertmanagerConfig.spec.receivers` | List of receivers |
 
 We will use Slack as an example here.
 
@@ -59,7 +59,7 @@ data:
 type: Opaque
 ```
 
-Step 2: Add a alertmanagerConfig spec to use `slack-webhook-config` secret created above in step 1, you need to replace `<workload-alertmanager-url>` with the link of Workload Alertmanager that you can get from Forecastle.
+Step 2: Add a AlertmanagerConfig spec to use `slack-webhook-config` secret created above in step 1, you need to replace `<workload-alertmanager-url>` with the link of Workload Alertmanager that you can get from Forecastle.
 
 ```yaml
 alertmanagerConfig:
@@ -113,8 +113,8 @@ A sample PrometheusRule can be configured in [Application Chart](https://github.
 
 | Parameter | Description |
 |:---|:---|
-| prometheusRule.enabled | Enable prometheusRule for this app |
-| prometheusRule.spec.groups | PrometheusRules in their groups to be added |
+| `prometheusRule.enabled` | Enable PrometheusRule for this app |
+| `prometheusRule.spec.groups` | PrometheusRules in their groups to be added |
 
 ```yaml
 prometheusRule:

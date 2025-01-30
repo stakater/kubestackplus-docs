@@ -2,7 +2,7 @@
 
 SAML v2.0 based IDPs can also be integrated with SAAP.
 
-Configurings for SAML are specific to tools and organizations.
+Configurations for SAML are specific to tools and organizations.
 
 Following attributes must be exposed via the SAML Service Provider (SP)
 

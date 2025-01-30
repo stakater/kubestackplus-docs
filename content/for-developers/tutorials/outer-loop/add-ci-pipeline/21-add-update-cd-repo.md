@@ -34,4 +34,4 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
     ![update-cd-repo](images/update-cd-repo-logs.png)
 
-Great! Let's add more tasks in our pipelineRun in coming tutorials.
+Great! Let's add more tasks in our `pipelineRun` in coming tutorials.

@@ -2,7 +2,7 @@
 # Volume Expansion
 
 !!! info
-    Volume Expansion is currently not supported on Stakater Cloud due to platform limitations. This feature may be available in future releases. You can follow the clone pvc workaround to resize or migrate PersistentVolumes if necessary.
+    Volume Expansion is currently not supported on Stakater Cloud due to platform limitations. This feature may be available in future releases. You can follow the clone PVC workaround to resize or migrate PersistentVolumes if necessary.
 
 ## Automatic
 

@@ -138,9 +138,9 @@ SAAP offers Red Hat Advanced Cluster Security (RHACS) as an optional, managed ad
 
 ### Secrets Stores
 
-#### HashiCorp Vault OSS
+#### Hashicorp Vault OSS
 
-SAAP includes HashiCorp Vault OSS for secrets management, limited to use by applications running on SAAP.
+SAAP includes Hashicorp Vault OSS for secrets management, limited to use by applications running on SAAP.
 
 #### Clouds Secrets Store
 
@@ -150,7 +150,7 @@ SAAP supports integration with multiple cloud provider secret stores (e.g., AWS 
 
 #### External Secrets Operator (ESO)
 
-The [External Secrets Operator (ESO)](https://github.com/external-secrets/external-secrets) is included in SAAP to manage secret retrieval from both HashiCorp Vault OSS and supported cloud secret stores. ESO automates secret synchronization into clusters, ensuring secrets are securely available to applications as Kubernetes-native resources.
+The [External Secrets Operator (ESO)](https://github.com/external-secrets/external-secrets) is included in SAAP to manage secret retrieval from both Hashicorp Vault OSS and supported cloud secret stores. ESO automates secret synchronization into clusters, ensuring secrets are securely available to applications as Kubernetes-native resources.
 
 ## Networking
 
@@ -296,7 +296,7 @@ SAAP comes with Renovate, a tool for automating dependency updates. It helps kee
 
 ### Browser IDE - DevSpaces
 
-SAAP includes DevSpaces to provide developers with cloud-based, ready-to-code environments. These workspaces streamline development by offering preconfigured setups, ensuring consistency and reducing setup time. DevSpaces enhances productivity by allowing developers to start coding immediately in a fully equipped environment.
+SAAP includes DevSpaces to provide developers with cloud-based, ready-to-code environments. These workspaces streamline development by offering pre-configured setups, ensuring consistency and reducing setup time. DevSpaces enhances productivity by allowing developers to start coding immediately in a fully equipped environment.
 
 ### Tilt
 

@@ -21,4 +21,4 @@ Stakater App Agility Platform is a true hybrid-cloud enabler. All components of 
 | Sandboxed environments | Try out new ideas in a low-risk sandboxed environment |
 | Time to market | Deliver new software features faster, focusing on customer value rather than infrastructure complexities |
 | Cost reduction | Remove the cost and complexity of provisioning, managing and scaling the underlying infrastructure, OS and middleware components |
-| Efficient devops | Realise more value from your DevOps team by allowing them to focus on the 'Dev' rather than 'Ops' |
+| Efficient DevOps | Realise more value from your DevOps team by allowing them to focus on the 'Dev' rather than 'Ops' |

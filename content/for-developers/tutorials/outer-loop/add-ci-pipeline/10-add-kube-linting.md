@@ -33,4 +33,4 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
     ![Kube-linting-logs](images/kube-linting-logs.png)
 
-Great! Let's add more tasks in our pipelineRun in coming tutorials.
+Great! Let's add more tasks in our `pipelineRun` in coming tutorials.

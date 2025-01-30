@@ -28,7 +28,7 @@ Let's walk you through creating a Tekton `PipelineRun` using a `Pipeline-as-Code
      {% include "https://raw.githubusercontent.com/NordMart/review-api/main/.tekton/git_clone.yaml" %}
    ```
 
-1. Provide values for `image_registry`, and helm_registry parameters. You can find the URLs from [here](../../../../managed-addons/nexus/explanation/routes.md).
+1. Provide values for `image_registry`, and `helm_registry` parameters. You can find the URLs from [here](../../../../managed-addons/nexus/explanation/routes.md).
    `image_registry` URL should be succeeded by your application name. Example: `nexus-docker-stakater-nexus.apps.lab.kubeapp.cloud/review-api`
 
 1. Now create a pull request on the repository with these changes. This should trigger a pipeline on your cluster.
@@ -53,8 +53,8 @@ The Git Clone task serves as the initial step in your pipeline, responsible for 
 
    `depth`: Specifies the depth of the Git clone. A value of "0" indicates a full clone.
 
-   `url`: The URL of the source code repository. This parameter is dynamically fetched from the repo_url parameter defined in the PipelineRun.
+   `url`: The URL of the source code repository. This parameter is dynamically fetched from the `repo_url` parameter defined in the PipelineRun.
 
    `revision`: The Git revision to fetch, often corresponding to a specific branch or commit. This parameter is also dynamically fetched from the `git_revision` parameter in the PipelineRun.
 
-Great! Let's add more tasks in our pipelineRun in coming tutorials.
+Great! Let's add more tasks in our `pipelineRun` in coming tutorials.
