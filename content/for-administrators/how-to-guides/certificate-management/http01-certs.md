@@ -37,7 +37,7 @@ spec:
 - **`.spec.issuerRef.name`**: Name of the cluster issuer that you want to use when creating this certificate. You can confirm value for this field with cluster admin.
 
 !!! note
-Avoid modifying/deleting existing certificates as this might cause rate limiting at Let's Encrypt side. You can read more about this [here](https://letsencrypt.org/docs/rate-limits/)
+    Avoid modifying/deleting existing certificates as this might cause rate limiting at Let's Encrypt side. You can read more about this [here](https://letsencrypt.org/docs/rate-limits/)
 
 ### Route
 
@@ -66,7 +66,7 @@ spec:
 ```
 
 !!! note
-The way you deploy these resources totally depend on how you want to ship it to cluster. If you want to deploy it with a particular application (which is a common case), then you need to ship it from your `app-gitops` repo as a part of your application's helm chart.
+    The way you deploy these resources totally depend on how you want to ship it to cluster. If you want to deploy it with a particular application (which is a common case), then you need to ship it from your `app-gitops` repo as a part of your application's helm chart.
 
 ## Step 3: Validation
 
