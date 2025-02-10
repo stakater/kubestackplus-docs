@@ -36,7 +36,7 @@ In stateful applications deployed on the SAAP (Stakater App Agility Platform), e
 
     It should look like this:
 
-    ![pvc-values](images/pvc-values.png)
+    ![`PVC-values`](images/pvc-values.png)
 
 1. Once the Persistence is defined in your `deploy/values.yaml`, you can proceed with mounting them in your pod. Mounting the PV and PVC allows your application to access and utilize the persistent storage provided by the PV.
 
@@ -65,11 +65,11 @@ In stateful applications deployed on the SAAP (Stakater App Agility Platform), e
 
 1. login to SAAP, there should be a Persistent Volume Claim created when you get an overview of your project/namespace.
 
-    ![show-pvc](images/show-pvc.png)
+    ![`show-PVC`](images/show-pvc.png)
 
 1. Click on Persistent Volume Claim
 
-    ![pvc](images/pvc.png)
+    ![`PVC`](images/pvc.png)
 
     !!! note
         The PVC named "review" has dynamically provisioned a PV and gave a default storage class named "standard". The most important thing here is the status of PVC which is "Bound" which means not only all the configurations were right but have efficiently applied on the cluster and the application.

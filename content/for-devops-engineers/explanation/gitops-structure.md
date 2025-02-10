@@ -2,8 +2,8 @@
 
 We manage GitOps with two different kinds of repository with different purpose enlisted below:
 
-- **`Apps GitOps Config`**: Used for delivering applications belonging to tenants.
-- **`Infra GitOps Config`**: Used for delivering cluster scoped resources for application tenants or other services.
+- `Apps GitOps Config`: Used for delivering applications belonging to tenants.
+- `Infra GitOps Config`: Used for delivering cluster scoped resources for application tenants or other services.
 
 ## Structure of Apps GitOps Config
 
@@ -19,7 +19,7 @@ Deployment files can only be vanilla YAML files, Helm chart and Kustomize reposi
 
 ### ArgoCD Applications (at tenant level)
 
-Inside `argocd-apps` folder there is a folder for each environment. In each environment folder there are `argocd-apps` custom resource that watches deployments files in ```<tenant>/<app>/<env>```.
+Inside `argocd-apps` folder there is a folder for each environment. In each environment folder there are `argocd-apps` custom resource that watches deployments files in `<tenant>/<app>/<env>`.
 
 ### ArgoCD Applications (at root level)
 
@@ -72,17 +72,17 @@ In each cluster folder there are folders containing resource for particular clus
 
 ### Cluster Deployments
 
-They are logical grouping of resources belong to an operator, tenant or service into folders. Each folder includes resources that are cluster scoped or don't belong to application tenant e.g. `tenant-operator` folder contains custom resources of ```Multi Tenant Operator```. They are following
+They are logical grouping of resources belong to an operator, tenant or service into folders. Each folder includes resources that are cluster scoped or don't belong to application tenant e.g. `tenant-operator` folder contains custom resources of `Multi Tenant Operator`. They are the following:
 
-- quotas: Amount of resource (configmaps, cpus, memory, i.e.) for each tenant that can consume.
-- tenants: Contains file for each team. It contain information of members that are part of tenant.
+- `quotas`: Amount of resource (configmaps, CPU, memory, i.e.) for each tenant that can consume
+- `tenants`: Contains file for each team. It contain information of members that are part of tenant
 
 ### ArgoCD Applications
 
 This folder is a starting point of all configuration in the cluster. Inside the folder we have following ArgoCD applications that deploy resources in other sibling folders:
 
-- **`tenant-operator.yaml`**: Responsible for creating tenants and quotas inside `tenant-operator` folder configuration in the cluster.
-- **`apps-gitops-config.yaml`**: Points to corresponding cluster folder in `apps-gitops-config` repository. This deploys the `apps-of-apps` structure that deploys all applications environments for the cluster.
+- `tenant-operator.yaml`: Responsible for creating tenants and quotas inside `tenant-operator` folder configuration in the cluster.
+- `apps-gitops-config.yaml`: Points to corresponding cluster folder in `apps-gitops-config` repository. This deploys the `apps-of-apps` structure that deploys all applications environments for the cluster.
 
 ```sh
 ├── 01-cluster

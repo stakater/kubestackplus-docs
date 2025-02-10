@@ -83,7 +83,7 @@ Configure appropriate values for your Kubernetes resources while keeping the fol
 
 ### Scaling Policies
 
-- Define scaling policies to automatically adjust the replica count based on predefined thresholds or metrics (e.g., CPUusage, request queue length).
+- Define scaling policies to automatically adjust the replica count based on predefined thresholds or metrics (e.g., CPU use, request queue length).
 - Set up horizontal pod autoscaling (HPA) or custom scaling controllers to dynamically scale replicas based on workload demands.
 
 ### Load Balancing
