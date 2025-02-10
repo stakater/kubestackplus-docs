@@ -37,7 +37,7 @@ spec:
 - **`.spec.issuerRef.name`**: Name of the cluster issuer that you want to use when creating this certificate. You can confirm value for this field with cluster admin.
 
 !!! note
-Avoid modifying/deleting existing certificates as this might cause rate limiting at letsencrypt side. You can read more about this [here](https://letsencrypt.org/docs/rate-limits/)
+Avoid modifying/deleting existing certificates as this might cause rate limiting at Let's Encrypt side. You can read more about this [here](https://letsencrypt.org/docs/rate-limits/)
 
 ### Route
 
