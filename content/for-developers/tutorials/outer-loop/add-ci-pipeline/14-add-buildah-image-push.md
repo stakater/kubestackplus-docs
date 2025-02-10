@@ -33,4 +33,4 @@ You have already created a PipelineRun in the previous tutorial. Let's now add a
 
     ![buildah-logs](images/buildah-logs.png)
 
-Great! Let's add more tasks in our pipelineRun in coming tutorials.
+Great! Let's add more tasks in our `pipelineRun` in coming tutorials.

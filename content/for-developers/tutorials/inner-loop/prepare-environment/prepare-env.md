@@ -6,7 +6,7 @@ Enable developers to start developing and testing applications on test clusters.
 
 ## Key Results
 
-- Install the CLIs required for interacting with the cluster
+- Install the CLI required for interacting with the cluster
 
 ## PreRequisites
 

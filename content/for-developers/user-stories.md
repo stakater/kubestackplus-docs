@@ -30,11 +30,11 @@ As a developer, I want a pipeline-as-code solution that allows the team to defin
 
 ![type:video](https://www.youtube.com/embed/PdZbu0eU_SI)
 
-Tags: Tekton, ArgoCD, outer loop, CI/CD, pipeline-as-code, PAC, devops
+Tags: Tekton, ArgoCD, outer loop, CI/CD, pipeline-as-code, PAC, DevOps
 
 ## User Story # 5
 
-As a developer, I want environments (such as devtest, stage, and prod) to be stored as code in Git, so the desired state is defined declaratively and Git tooling can be used as the UI.
+As a developer, I want environments (such as dev, test, stage, and prod) to be stored as code in Git, so the desired state is defined declaratively and Git tooling can be used as the UI.
 
 ![type:video](https://www.youtube.com/embed/0CEO2Dsf-bE)
 

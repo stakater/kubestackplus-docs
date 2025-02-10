@@ -126,5 +126,5 @@ Read the following articles for more information:
 - [Containerize an application](https://docs.docker.com/get-started/02_our_app/)
 - [Tutorial: Containerize a .NET app](https://learn.microsoft.com/en-us/dotnet/core/docker/build-container?tabs=linux)
 - [Containerize Your Application With Docker](https://towardsdatascience.com/containerize-your-application-with-docker-b0608557441f)
-- [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp)
-- [Dockerizing a Django app](https://blog.logrocket.com/dockerizing-django-app)
+- [`Dockerizing a Node.js web app`](https://nodejs.org/en/docs/guides/nodejs-docker-webapp)
+- [`Dockerizing a Django app`](https://blog.logrocket.com/dockerizing-django-app)

@@ -68,6 +68,6 @@ This situation could occur if a pod is set to tolerate a taint key=value:NoSched
 
 The RemovePodsHavingTooManyRestarts strategy ensures that pods that have been restarted too many times are removed from nodes.
 
-This situation could occur if a pod is scheduled on a node that is unable to start it. For example, if the node is having network issues and is unable to mount a networked persistent volume, then the pod should be evicted so that it can be scheduled on another node. Another example is if the pod is crashlooping.
+This situation could occur if a pod is scheduled on a node that is unable to start it. For example, if the node is having network issues and is unable to mount a networked persistent volume, then the pod should be evicted so that it can be scheduled on another node. Another example is if the pod is crash-looping.
 
 This strategy has two configurable parameters: PodRestartThreshold and IncludingInitContainers. If a pod is restarted more than the configured PodRestartThreshold value, then the pod is evicted. You can use the IncludingInitContainers parameter to specify whether restarts for Init Containers should be calculated into the PodRestartThreshold value.
