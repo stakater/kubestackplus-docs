@@ -16,7 +16,7 @@ This guide provides step-by-step instructions for setting up remote debugging fo
 
 Before setting up the debugging environment, ensure you have a .NET application with Docker and Tilt configuration files. This guide assumes that these are already in place. If you need help setting them up, refer to the [Inner Loop Documentation](https://docs.stakater.com/saap/for-developers/tutorials/inner-loop/prepare-environment/prepare-env.html) for detailed instructions.
 
-### Modifying Dockerfile to Install vsdbg for Remote Debugging
+### Modifying Dockerfile to Install VSDBG for Remote Debugging
 
 To enable remote debugging for your .NET application in a container, you need to install vsdbg (Visual Studio Debugger) inside the container. Below is a step-by-step guide to updating your Dockerfile to include vsdbg.
 
