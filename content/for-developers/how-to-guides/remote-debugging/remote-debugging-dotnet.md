@@ -18,8 +18,7 @@ Before setting up the debugging environment, ensure you have a .NET application 
 
 ### Modifying Dockerfile to Install VSDBG for Remote Debugging
 
-To enable remote debugging for your .NET application in a container, you need to install vsdbg (Visual Studio Debugger) inside the container. Below is a step-by-step guide to updating your Dockerfile to include vsdbg.
-
+To enable remote debugging for your .NET application in a container, you need to install VSDBG (Visual Studio Debugger) inside the container. Below is a step-by-step guide to updating your Dockerfile to include VSDBG.
 
 #### Step 1: Identify Your Base Image
 
@@ -30,12 +29,12 @@ Ensure that your Dockerfile is based on a .NET runtime or SDK image. You will ty
 
 If you're using a runtime-only image, debugging support might be limited, and you may need to switch to an SDK image for development.
 
-#### Step 2: Add vsdbg to the Dockerfile
+#### Step 2: Add VSDBG to the Dockerfile
 
-Modify your Dockerfile to download and install vsdbg. The installation process involves:
+Modify your Dockerfile to download and install VSDBG. The installation process involves:
 
-1. Creating a directory for vsdbg.
-1. Downloading the latest vsdbg package from Microsoft’s official source.
+1. Creating a directory for VSDBG.
+1. Downloading the latest VSDBG package from Microsoft’s official source.
 1. Extracting and setting correct permissions.
 
 Here’s how to do it:
@@ -102,17 +101,16 @@ CMD ["dotnet", "<application name>.dll", "--urls", "http://0.0.0.0:5045", "--wai
 
 ##### Explanation of Key Changes
 
-- Downloading vsdbg:
-The command downloads and installs the latest version of vsdbg into /vsdbg.
+- Downloading VSDBG:
+The command downloads and installs the latest version of VSDBG into `/vsdbg`.
 
   ```bash
   curl -sSL https://aka.ms/getvsdbg | bash /dev/stdin -v latest -l /vsdbg
   ```
 
-- Creating a directory (/vsdbg) to store the debugger.
-- Ensuring the correct permissions so that vsdbg can execute properly.
+- Creating a directory (`/vsdbg`) to store the debugger.
+- Ensuring the correct permissions so that VSDBG can execute properly.
 - Changes the user context to the non-root user (ID 1000) to run the application securely.
-
 
 ### Configure Helm Chart
 
@@ -120,9 +118,10 @@ In addition to the standard configurations required for deploying this applicati
 
 #### Mounting a Temporary Volume for Debugging
 
-To ensure compatibility with the remote debugger, mount a temporary volume (preferably an emptyDir volume) at the `/tmp` path inside the container.
+To ensure compatibility with the remote debugger, mount a temporary volume (preferably an `emptyDir` volume) at the `/tmp` path inside the container.
 
 #### For Applications Using Stakater's Leader Chart
+
 If your application is already using the [Stakater Leader Chart](https://github.com/stakater/application), you can achieve this by adding the following lines to your `values.yaml`:
 
 ```YAML
@@ -142,8 +141,8 @@ Next step is to deploy the application to cluster via inner loop. Make sure appl
 ### Configure VSCode
 
 1. Open VSCode and navigate to Run & Debug (Ctrl+Shift+D).
-1. Click on "Create a launch.json file" if you don’t have one.![VSCode Run and Debug](./images/vscode-run-and-debug.png)
-1. Add the following configuration in .vscode/launch.json:
+1. Click on "Create a `launch.json` file" if you don’t have one.![VSCode Run and Debug](./images/vscode-run-and-debug.png)
+1. Add the following configuration in `.vscode/launch.json`:
 
     ```JSON
       {
@@ -183,8 +182,8 @@ Next step is to deploy the application to cluster via inner loop. Make sure appl
       }
     ```
 
-1. Ensure your pod is running and the application is in debug mode (--wait-for-debugger).
-1. Ensure your application code has atleast 1 debug point.
+1. Ensure your pod is running, and the application is in debug mode (--wait-for-debugger).
+1. Ensure your application code has at least 1 debug point.
 1. In VSCode, open the Run & Debug panel.
 1. Select ".NET Core Remote Debug (OpenShift)" from the dropdown and click Start Debugging (F5).
 1. Choose the correct .NET process when prompted.![Select remote process](./images/select-remote-process.png)
