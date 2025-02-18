@@ -3,7 +3,7 @@
 Here is the list of fully managed addons available on SAAP (Stakater App Agility Platform):
 
 * No addons lock you in
-* All addons work well together and we have long experience running them, but they can still be considered optional
+* All addons work well together, and we have long experience running them, but they can still be considered optional
 * You can replace addons if you already use a similar tool
 * You can suggest adding new addons to the list
 * Addons are independent of your source code
