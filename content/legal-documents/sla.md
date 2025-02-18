@@ -197,7 +197,7 @@ Managed services and addons running on the OpenShift clusters has this SLA:
 | SLA Type | Commitment |
 | --- | --- |
 | Uptime SLA | Best effort - no strict guarantee |
-| Backup SLA | Daily backups |
+| Backup SLA | Daily backups where applicable |
 | Incident Response SLA | See the [Support Tiers](https://support.stakater.com/index.html) |
 | Support Cases SLA | See the [Support Tiers](https://support.stakater.com/index.html) |
 
