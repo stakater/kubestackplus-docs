@@ -24,8 +24,8 @@ To enable remote debugging for your .NET application in a container, you need to
 
 Ensure that your Dockerfile is based on a .NET runtime or SDK image. You will typically have one of the following:
 
-- SDK Image (for development and debugging): mcr.microsoft.com/dotnet/sdk:<version>
-- Runtime Image (for running the app): mcr.microsoft.com/dotnet/aspnet:<version>
+- `SDK Image` (for development and debugging): mcr.microsoft.com/dotnet/sdk:<version>
+- `Runtime Image` (for running the app): mcr.microsoft.com/dotnet/aspnet:<version>
 
 If you're using a runtime-only image, debugging support might be limited, and you may need to switch to an SDK image for development.
 
