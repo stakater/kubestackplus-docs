@@ -1,6 +1,6 @@
 # Privacy Policy (PP)
 
-`Version: 15 January 2025`
+`Version: 19 February 2025`
 
 1. **Data Protection**
 
@@ -18,7 +18,7 @@
 
         The Data Protection Officer is an authorized representative of `STAKATER` who can be contacted at any time in case of questions or suggestions regarding data protection.
 
-        Contact details: privacy[AT]stakater.com
+        Contact details: `privacy[AT]stakater.com`
 
 1. **Personal Data Collection**
 

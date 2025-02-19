@@ -14,7 +14,7 @@ Welcome to this tutorial on utilizing Horizontal Pod Autoscaler (HPA) in SAAP to
 
 ## Tutorial
 
-1. The `stakater-nordmart-review` uses stakater's [application chart](https://github.com/stakater-charts/application/tree/master/application) as a dependency. This chart already contains a template for Horizontal Pod Autoscaler.
+1. The `stakater-nordmart-review` uses Stakater's [application chart](https://github.com/stakater-charts/application/tree/master/application) as a dependency. This chart already contains a template for Horizontal Pod Autoscaler.
 
    By default, the horizontal pod autoscaler is disabled in our `stakater-nordmart-review` chart.
 
