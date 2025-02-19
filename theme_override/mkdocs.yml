@@ -173,6 +173,7 @@ nav:
           - for-developers/how-to-guides/expose-spring-boot-metrics/expose-spring-boot-metrics.md
           - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
           - for-developers/how-to-guides/expose-applications-to-internet/expose-applications-to-internet.md
+          - for-developers/how-to-guides/remote-debugging/remote-debugging-dotnet.md
   - For CISOs & DPOs:
       - for-cisos-dpos/overview.md
       - General Frameworks:
