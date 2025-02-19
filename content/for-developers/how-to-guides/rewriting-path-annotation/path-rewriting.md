@@ -16,7 +16,7 @@ Successfully implement and verify path rewriting in an OpenShift Route.
 
 OpenShift allows path rewriting using the `haproxy.router.openshift.io/rewrite-target` annotation.
 
-#### Example YAML Configuration:
+#### Example YAML Configuration
 
 ```yaml
 apiVersion: route.openshift.io/v1
