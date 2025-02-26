@@ -74,21 +74,23 @@ for app in apps:
             print("Path for %s not found. Skipping..." % (app))
 ```
 
-
 #### Example Apps List json file
+
 list of the application which can be deployed with meta tile
+
 ```json
 {
     "<application-name>": {
         "local": "local path for your application tilt file",
         "remote": "local app-gitops for your application chart",
         "mode": "define app mode either remote / local",
-        "enabled": true // if u want to deploy this app set it to ture or false
+        "enabled": true
     },
 }
 ```
 
 #### Example  Remote Values file
+
 if there is any override that needs be applied during meta tilt deployment
 
 ```yaml
