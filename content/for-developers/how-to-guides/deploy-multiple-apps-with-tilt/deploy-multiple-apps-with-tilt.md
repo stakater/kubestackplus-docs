@@ -74,11 +74,11 @@ for app in apps:
             print("Path for %s not found. Skipping..." % (app))
 ```
 
-#### Example Apps List json file
+#### Example Apps List JSON file
 
 list of the application which can be deployed with meta tile
 
-```json
+```yes its 
 {
     "<application-name>": {
         "local": "local path for your application tilt file",
@@ -101,4 +101,3 @@ if there is any override that needs be applied during meta tilt deployment
         repository: review
         tag: local
 ```
-
