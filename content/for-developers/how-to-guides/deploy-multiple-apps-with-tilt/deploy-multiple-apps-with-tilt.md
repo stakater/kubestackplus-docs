@@ -78,7 +78,7 @@ for app in apps:
 
 list of the application which can be deployed with meta tile
 
-```yes its 
+```json
 {
     "<application-name>": {
         "local": "local path for your application tilt file",
