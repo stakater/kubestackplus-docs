@@ -1,25 +1,20 @@
 # Deploy Multiple Applications with Tilt
 
-This solution enables local development and validation of applications with dependencies before promoting to development environments. It supports hybrid deployment from both local sources and remote Helm charts in OpenShift sandbox environments.
+Imagine you’re developing multiple microservices in a sandbox environment. Meta Tilt facilitates local development and validation of these applications before they are promoted to development environments. It also supports hybrid deployments, allowing you to use both local sources and remote Helm charts within sandbox environments.
 
-## Objectives
+## Local Source
 
-- Test and validate applications locally before deployment to development environments
-- Manage complex applications with multiple dependencies
-- Support hybrid workloads from local development machines and remote sources
+A local source refers to a microservice that has been cloned locally, where you are making changes for development or modifying the current version.
 
-## Key Results
+## Remote Source
 
-- Unified deployment interface for local and remote services
-- Isolated sandbox environment mirroring development configuration
-
-## Guide
+A Remote Source refers to a microservice that is already running in a development or production environment. You can deploy it in a sandbox environment as a dependency for your locally cloned microservice.
 
 ### Setup meta Tilt file and application
 
 Meta Tiltfile enables the deployment of multiple applications from both local and remote sources.
 
-#### Example Meta Tilt file
+#### Meta Tilt file
 
 ```py
 load('ext://helm_resource', 'helm_resource', 'helm_repo')
@@ -99,5 +94,5 @@ if there is any override that needs be applied during meta tilt deployment
       replicas: 1
       image:
         repository: review
-        tag: local
+        tag: 0.0.1
 ```
