@@ -62,6 +62,10 @@ To gain a deeper understanding of the user journeys with SAAP, refer to the deta
 
     Backup and Restore a GitOps managed stateful app with Velero.
 
+- [Deploy Multiple Applications with Tilt](./how-to-guides/deploy-multiple-apps-with-tilt/deploy-multiple-apps-with-tilt.md)
+                                           
+    Deploy multiple microservices in a sandbox environment using Tilt.
+
 ## Tutorials - Inner Loop
 
 - [Nordmart Review 101](./tutorials/inner-loop/about-application/about-application.md)
