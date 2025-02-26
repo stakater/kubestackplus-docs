@@ -84,7 +84,7 @@ list of the application which can be deployed with meta tile
 }
 ```
 
-#### Example  Remote Values file
+#### Example Remote Values file
 
 if there is any override that needs be applied during meta tilt deployment
 
