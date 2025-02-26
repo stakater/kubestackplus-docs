@@ -170,6 +170,7 @@ nav:
           - for-developers/how-to-guides/promote-your-application/promote-your-application.md
           - for-developers/how-to-guides/build-and-push-your-image/build-and-push-your-image.md
           - for-developers/how-to-guides/deploy-app-with-argocd-and-helm/deploy-app-with-argocd-and-helm.md
+          - for-developers/how-to-guides/deploy-multiple-apps-with-tilt/deploy-multiple-apps-with-tilt.md
           - for-developers/how-to-guides/expose-spring-boot-metrics/expose-spring-boot-metrics.md
           - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
           - for-developers/how-to-guides/expose-applications-to-internet/expose-applications-to-internet.md
