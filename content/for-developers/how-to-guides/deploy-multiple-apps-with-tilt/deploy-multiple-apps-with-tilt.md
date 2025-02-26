@@ -4,11 +4,11 @@ Imagine you’re developing multiple microservices in a sandbox environment. Met
 
 ## Local Source
 
-A local source refers to a microservice that has been cloned locally, where you are making changes for development or modifying the current version.
+Local source refers to a microservice that has been cloned locally, where you are making changes for development or modifying the current version.
 
 ## Remote Source
 
-A Remote Source refers to a microservice that is already running in a development or production environment. You can deploy it in a sandbox environment as a dependency for your locally cloned microservice.
+Remote source refers to a microservice that is already running in a development or production environment. You can deploy it in a sandbox environment as a dependency for your locally cloned microservice.
 
 ### Setup meta Tilt file and application
 
