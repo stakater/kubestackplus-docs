@@ -267,6 +267,9 @@ nav:
       - Redis:
           - Tutorials:
               - managed-addons/redis/tutorial/connect-to-redis-cli/connect-to-redis-cli.md
+      - MirrorD:
+          - Tutorials:
+              - managed-addons/mirrord/tutorial/mirrod-setup.md
       - SonarQube:
           - managed-addons/sonarqube/overview.md
       - Tekton:

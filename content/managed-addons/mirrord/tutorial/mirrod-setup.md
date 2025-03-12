@@ -10,12 +10,11 @@ This guide explains how to configure mirrord to enable remote debugging of your 
 - Local Build: Build your application locally with debug points set.
 - Service Account Details: Confirm the service account details with your cluster administrator if needed.
 
-
 ## Step 1: Install mirrord extension in VSCode
 
 1. Open VSCode and navigate to the Extensions view.
 1. Search for mirrord and install the extension.
-1. Verify that a mirrord.json file exists in your project at <project-path>/.mirrord/mirrord.json.
+1. Verify that a `mirrord.json` file exists in your project at `<project-path>/.mirrord/mirrord.json`.
 
 For additional guidance, refer to the [mirrord VSCode extension quick start guide](https://mirrord.dev/docs/overview/quick-start/#vs-code-extension).
 
@@ -102,7 +101,7 @@ For a complete configuration reference, see the [mirrord configuration documenta
 
 Now since that all the configuration is in place, the next step is to start the mirrord and debug application.
 
-At the bottom pane of vscode, there is toggle button for mirrord. Make sure it is switched on as shown below:
+At the bottom pane of VSCode, there is toggle button for mirrord. Make sure it is switched on as shown below:
 ![Mirrord switch](../images/mirrord-switch.png)
 
 Now click on `Run and Debug` on left pane and click on play button as show below:
@@ -111,6 +110,6 @@ Now click on `Run and Debug` on left pane and click on play button as show below
 You will see a message pop up in bottom right corner saying that `waiting for pod to be ready` as shown below:
 ![mirrord-agent](../images/mirrord-agent.png)
 
-Wait for few seconds. You'll see some logs in debug console related to mirrord setup. After a while try to interact with you application API to trigger breakpoint in your application.
+Wait for few seconds. You'll see some logs in debug console related to mirrord setup. After a while try to interact with you application API to trigger break point in your application.
 
 When finished, click the stop button in the top toolbar to end the debugging session.
