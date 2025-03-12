@@ -246,7 +246,7 @@ SAAP offers an integrated logging stack utilizing Vector as the collector and Lo
 
 ### Logs Retention
 
-Retention is set to seven days, with a limit of 200 GiB of logs per shard. For longer-term retention, customers should use the sidecar container design in their deployments and forward logs to their preferred log aggregation or analytics service. This integrated logging stack is intended for short-term retention to aid in cluster and application troubleshooting, not for long-term log archiving. For assistance, open a [support ticket](https://support.stakater.com/index.html).
+Retention is set to seven days, with a limit of 200 GiB of logs per shard. This can easily be changed. For longer-term retention, customers should use the sidecar container design in their deployments and forward logs to their preferred log aggregation or analytics service. This integrated logging stack is intended for short-term retention to aid in cluster and application troubleshooting, not for long-term log archiving. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
 ### Logs Forwarding
 

@@ -21,7 +21,7 @@ Some key things to note above are:
     * `triggerbinding` - extracts values from the event interceptor
     * `triggertemplate` - defines `pipeline` run resource template in its definition which in turn references the pipeline
 
-  > **Note**: We do not need to define interceptor and trigger templates in every trigger while using stakater Tekton pipeline chart.
+  > **Note**: We do not need to define interceptor and trigger templates in every trigger while using Stakater Tekton pipeline chart.
 
 * `pipeline` -  this is the pipeline definition, it wires together all the items above (workspaces, tasks & secrets etc) into a useful & reusable set of activities.
 * `tasks` - these are the building blocks of Tekton. They are the custom resources that take parameters and run steps on the shell of a provided image. They can produce results and share workspaces with other tasks.
