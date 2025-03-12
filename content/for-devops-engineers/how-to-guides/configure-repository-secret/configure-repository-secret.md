@@ -80,7 +80,7 @@ Login to the ArgoCD UI. Click `Setting` from left sidebar, then `Repositories` t
 
 ### Create an External Secret
 
-> Ask stakater-admin or user belonging to `customer-root-tent` to add this secret via Vault and External Secrets to ArgoCD namespace.
+> Ask `stakater-admin` or user belonging to `customer-root-tent` to add this secret via Vault and External Secrets to ArgoCD namespace.
 
 ## Possible Issues
 

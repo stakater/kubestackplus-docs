@@ -12,4 +12,4 @@ Application logs sent to `STDOUT` are collected by log collector and forwarded t
 
 ## Data Retention
 
-By default only 7 days data is kept; if you want to store data for longer then open a [support ticket](https://support.stakater.com/index.html).
+By default only 7 days data is kept. This can easily be changed. If you want to store data for longer then open a [support ticket](https://support.stakater.com/index.html).

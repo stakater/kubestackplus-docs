@@ -1,6 +1,6 @@
 # Service Level Agreement (SLA)
 
-`Version: 30 January 2025`
+`Version: 18 February 2025`
 
 This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you ("**Customer**"). Each a "Party", and together the "Parties".
 
@@ -185,10 +185,21 @@ Payment is due once during a Service Period and the Customer will be charged for
 
 ## 16. Service Level Objectives
 
+Managed OpenShift clusters has this SLA:
+
 | Covered Service | Monthly Uptime Percentage |
 | --- | --- |
 | Zonal Clusters OpenShift API | 99.00% |
 | Regional Clusters OpenShift API | 99.50% |
+
+Managed services and addons running on the OpenShift clusters has this SLA:
+
+| SLA Type | Commitment |
+| --- | --- |
+| Uptime SLA | Best effort - no strict guarantee |
+| Backup SLA | Daily backups where applicable |
+| Incident Response SLA | See the [Support Tiers](https://support.stakater.com/index.html) |
+| Support Cases SLA | See the [Support Tiers](https://support.stakater.com/index.html) |
 
 ## 17. Financial Credits
 
