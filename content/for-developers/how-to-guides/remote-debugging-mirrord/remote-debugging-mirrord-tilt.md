@@ -1,4 +1,4 @@
-## Remote debugging using mirrord and tilt
+# Remote debugging using mirrord and tilt
 
 This guide provides step-by-step instructions for setting up remote debugging for  applications in VSCode using the tilt and mirrord.
 
@@ -19,9 +19,9 @@ Before setting up the debugging environment, ensure you have an application with
 You should also have mirrord setup on VSCode. If it's not setup, you can follow [this tutorial](https://docs.stakater.com/saap/managed-addons/mirrord/tutorial/mirrod-setup.html).
 
 
-### Step 1: Deploy application to cluster.
+### Step 1: Deploy application to cluster
 
-The first step is to deploy your application to sandbox environment. You can simply run a `tilt up` command in the directory containing tiltfile. This will take few seconds to deploy your application.
+The first step is to deploy your application to sandbox environment. You can simply run a `tilt up` command in the directory containing Tiltfile. This will take few seconds to deploy your application.
 
 ### Step 2: Update mirrord configuration
 
