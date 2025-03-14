@@ -102,6 +102,7 @@ For a complete configuration reference, see the [mirrord configuration documenta
 Now since that all the configuration is in place, the next step is to start the mirrord and debug application.
 
 At the bottom pane of VSCode, there is toggle button for mirrord. Make sure it is switched on as shown below:
+
 ![mirrord switch](../images/mirrord-switch.png)
 
 Now click on `Run and Debug` on left pane and click on play button as show below:
