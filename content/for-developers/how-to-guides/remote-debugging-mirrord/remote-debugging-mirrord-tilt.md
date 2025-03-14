@@ -30,4 +30,3 @@ The next step is to update the mirrord configuration file. This file should be l
 ### Step 3: Start mirrord in VSCode
 
 Now you need to connect your local process to application running in cluster. You can follow [this](https://docs.stakater.com/saap/managed-addons/mirrord/tutorial/mirrod-setup.html#step-5-debugging-with-mirrord) for complete process.
-
