@@ -12,4 +12,4 @@ SAAP provides an optional application monitoring stack based on Prometheus to mo
 
 ## Data Retention
 
-By default only forty five (45) days of data is kept. This can easily be changed. If you want to store data for a longer period, open a [support ticket](https://support.stakater.com/index.html).
+By default only forty-five (45) days of data is kept. This can easily be changed. If you want to store data for a longer period, open a [support ticket](https://support.stakater.com/index.html).
