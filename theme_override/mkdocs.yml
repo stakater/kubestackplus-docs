@@ -170,10 +170,12 @@ nav:
           - for-developers/how-to-guides/promote-your-application/promote-your-application.md
           - for-developers/how-to-guides/build-and-push-your-image/build-and-push-your-image.md
           - for-developers/how-to-guides/deploy-app-with-argocd-and-helm/deploy-app-with-argocd-and-helm.md
+          - for-developers/how-to-guides/deploy-multiple-apps-with-tilt/deploy-multiple-apps-with-tilt.md
           - for-developers/how-to-guides/expose-spring-boot-metrics/expose-spring-boot-metrics.md
           - for-developers/how-to-guides/package-and-push-your-chart/package-and-push-your-chart.md
           - for-developers/how-to-guides/expose-applications-to-internet/expose-applications-to-internet.md
           - for-developers/how-to-guides/remote-debugging/remote-debugging-dotnet.md
+          - for-developers/how-to-guides/remote-debugging-mirrord/remote-debugging-mirrord-tilt.md
           - for-developers/how-to-guides/rewriting-path-annotation/path-rewriting.md
   - For CISOs & DPOs:
       - for-cisos-dpos/overview.md
@@ -267,6 +269,9 @@ nav:
       - Redis:
           - Tutorials:
               - managed-addons/redis/tutorial/connect-to-redis-cli/connect-to-redis-cli.md
+      - MirrorD:
+          - Tutorials:
+              - managed-addons/mirrord/tutorial/mirrod-setup.md
       - SonarQube:
           - managed-addons/sonarqube/overview.md
       - Tekton:
