@@ -28,7 +28,7 @@ Configure appropriate values for your Kubernetes resources while keeping the fol
 ### Configuration Management
 
 - Review the application's configuration requirements and determine how they will be managed in the Kubernetes environment.
-- Decide whether to use environment variables, Configmaps, or a configuration management tool (e.g., Helm).
+- Decide whether to use environment variables, ConfigMaps, or a configuration management tool (e.g., Helm).
 
 ### Externalise all configuration
 

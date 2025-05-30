@@ -80,9 +80,9 @@ To gain a deeper understanding of the user journeys with SAAP, refer to the deta
 
     Implement alerts for your application. Configure notifications and triggers to proactively detect and respond to issues.
 
-- [Configuring your Application with Secrets and Configmaps](./tutorials/inner-loop/add-configmap/add-configmaps.md)
+- [Configuring your Application with Secrets and ConfigMaps](./tutorials/inner-loop/add-configmap/add-configmaps.md)
 
-    Master the utilization of Configmaps for externalizing configuration from your application. Centralize your configuration management for increased flexibility.
+    Master the utilization of ConfigMaps for externalizing configuration from your application. Centralize your configuration management for increased flexibility.
 
 - [Add Grafana Dashboard to your Application](./tutorials/inner-loop/add-grafana-dashboard/add-grafana-dashboard.md)
 

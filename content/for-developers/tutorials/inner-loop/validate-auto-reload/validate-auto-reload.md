@@ -1,8 +1,8 @@
 # Validate Auto Reload of your Application
 
-Managing application deployments and keeping configurations up-to-date can be challenging. Changes to secrets or configmaps for instance, often require manual intervention to update the application and trigger a redeployment. This can lead to operational inefficiencies and potential downtime.
+Managing application deployments and keeping configurations up-to-date can be challenging. Changes to secrets or ConfigMaps for instance, often require manual intervention to update the application and trigger a redeployment. This can lead to operational inefficiencies and potential downtime.
 
-To address this challenge, Stakater has Reloader—a powerful tool that automates the process of reloading deployments when related resources, such as secrets or configmaps, change. In this tutorial, we will explore how to set up Reloader in your SAAP and configure it to automatically trigger the reload of a deployment whenever a secret changes.
+To address this challenge, Stakater has Reloader—a powerful tool that automates the process of reloading deployments when related resources, such as secrets or ConfigMaps, change. In this tutorial, we will explore how to set up Reloader in your SAAP and configure it to automatically trigger the reload of a deployment whenever a secret changes.
 
 ## Objectives
 
