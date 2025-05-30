@@ -4,7 +4,7 @@ Reloader uses a set of annotations to determine which resources need to be watch
 
 ## Auto Detect Resources
 
-Most commonly used annotation is `reloader.stakater.com/auto: "true"`. This will discover all the secrets and configmaps which are used either via environment variable or from volume mount in the deploymentconfigs/deployments/daemonsets/statefulset/rollouts, and it will perform rolling upgrade on related pods when the watched resources are updated.
+Most commonly used annotation is `reloader.stakater.com/auto: "true"`. This will discover all the secrets and ConfigMaps which are used either via environment variable or from volume mount in the deploymentconfigs/deployments/daemonsets/statefulset/rollouts, and it will perform rolling upgrade on related pods when the watched resources are updated.
 
 ```yaml
 kind: Deployment
@@ -43,14 +43,13 @@ data:
   key: value
 ```
 
-provided the secret/configmap is being used in an environment variable, or a
-volume mount.
+provided the Secret/ConfigMap is being used in an environment variable, or a volume mount.
 
 ## Reload on Specific Resources
 
-To perform rolling upgrade when change happens only on specific configmaps or secrets, the annotation `configmap.reloader.stakater.com/reload: "<secret1-name>/<configmap1-name>, <secret2-name>/<configmap2-name>"` can be used, which works on comma-separated names of configmaps or secrets, if multiple.
+To perform rolling upgrade when change happens only on specific ConfigMaps or Secrets, the annotation `configmap.reloader.stakater.com/reload: "<secret1-name>/<configmap1-name>, <secret2-name>/<configmap2-name>"` can be used, which works on comma-separated names of ConfigMaps or Secrets, if multiple.
 
-If a `Deployment` called `foo` has a `Configmap` called `foo-configmap` and a secret called `foo-secret`. Then add this annotation to the metadata of your `Deployment`
+If a `Deployment` called `foo` has a `ConfigMap` called `foo-configmap` and a Secret called `foo-secret`. Then add this annotation to the metadata of your `Deployment`:
 
 ```yaml
 kind: Deployment

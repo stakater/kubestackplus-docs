@@ -203,13 +203,13 @@ It should be immediately obvious why we don't want to expose credentials, but th
 
 **How?**
 
-While application configuration can be baked into container images, it's best to make your components configurable at runtime to support deployment in multiple contexts and allow more flexible administration. To manage runtime configuration parameters, Kubernetes offers two objects called Configmaps and Secrets.
+While application configuration can be baked into container images, it's best to make your components configurable at runtime to support deployment in multiple contexts and allow more flexible administration. To manage runtime configuration parameters, Kubernetes offers two objects called ConfigMaps and Secrets.
 
-Configmaps are a mechanism used to store data that can be exposed to pods and other objects at runtime. Data stored within Configmaps can be presented as environment variables or mounted as files in the pod. By designing your applications to read from these locations, you can inject the configuration at runtime using Configmaps and modify the behavior of your components without having to rebuild the container image.
+ConfigMaps are a mechanism used to store data that can be exposed to pods and other objects at runtime. Data stored within ConfigMaps can be presented as environment variables or mounted as files in the pod. By designing your applications to read from these locations, you can inject the configuration at runtime using ConfigMaps and modify the behavior of your components without having to rebuild the container image.
 
-Secrets are a similar Kubernetes object type used to securely store sensitive data and selectively allow pods and other components access as needed. Secrets are a convenient way of passing sensitive material to applications without storing them as plain text in easily accessible locations in your normal configuration. Functionally, they work in much the same way as Configmaps, so applications can consume data from Configmaps and Secrets using the same mechanisms.
+Secrets are a similar Kubernetes object type used to securely store sensitive data and selectively allow pods and other components access as needed. Secrets are a convenient way of passing sensitive material to applications without storing them as plain text in easily accessible locations in your normal configuration. Functionally, they work in much the same way as ConfigMaps, so applications can consume data from ConfigMaps and Secrets using the same mechanisms.
 
-Configmaps and Secrets help you avoid putting configuration directly in Kubernetes object definitions. You can map the configuration key instead of the value, allowing you to update configuration on the fly by modifying the Configmap or Secret. This gives you the opportunity to alter the active runtime behavior of pods and other Kubernetes objects without modifying the Kubernetes definitions of the resources.
+ConfigMaps and Secrets help you avoid putting configuration directly in Kubernetes object definitions. You can map the configuration key instead of the value, allowing you to update configuration on the fly by modifying the ConfigMap or Secret. This gives you the opportunity to alter the active runtime behavior of pods and other Kubernetes objects without modifying the Kubernetes definitions of the resources.
 
 Stakater App Agility Platform includes fully managed Vault for secrets management.
 
@@ -307,7 +307,7 @@ This kind of flexibility, resilience, and loose coupling with backing services i
 
 **How?**
 
-Externalize all configurations (URLs, username, passwords, etc.) as Kubernetes Configmaps or secrets for the backing services.
+Externalize all configurations (URLs, username, passwords, etc.) as Kubernetes ConfigMaps or secrets for the backing services.
 
 - Use object storage where files are needed (not local storage)
 - Use external databases (e.g. Postgres, MySQL, Redis, etc) to persist state

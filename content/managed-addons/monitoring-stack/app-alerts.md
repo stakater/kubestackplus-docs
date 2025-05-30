@@ -11,7 +11,7 @@ There are 2 types of monitoring:
 
 ## Enabling monitoring for user-defined projects
 
-Cluster administrators can enable monitoring for user-defined projects by setting the `enableUserWorkload: true` field in the cluster monitoring Configmap object.
+Cluster administrators can enable monitoring for user-defined projects by setting the `enableUserWorkload: true` field in the cluster monitoring ConfigMap object:
 
 ```yaml
 apiVersion: v1

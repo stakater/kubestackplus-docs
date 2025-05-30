@@ -74,7 +74,7 @@ In each cluster folder there are folders containing resource for particular clus
 
 They are logical grouping of resources belong to an operator, tenant or service into folders. Each folder includes resources that are cluster scoped or don't belong to application tenant e.g. `tenant-operator` folder contains custom resources of `Multi Tenant Operator`. They are the following:
 
-- `quotas`: Amount of resource (configmaps, CPU, memory, i.e.) for each tenant that can consume
+- `quotas`: Amount of resource (ConfigMaps, CPU, memory, i.e.) for each tenant that can consume
 - `tenants`: Contains file for each team. It contain information of members that are part of tenant
 
 ### ArgoCD Applications

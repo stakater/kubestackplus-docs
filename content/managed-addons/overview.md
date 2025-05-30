@@ -31,7 +31,7 @@ Here is the list of fully managed addons available on SAAP (Stakater App Agility
 | Developer dashboard - Launchpad to discover applications | [Stakater Forecastle](./forecastle/overview.md) | OSS |
 | Multi-tenancy | [Stakater Multi Tenant Operator](./mto/overview.md) | Enterprise licence |
 | Feature environments, Preview Environments, Environments-as-a-Service | [Stakater Tronador](https://docs.stakater.com/tronador/#) | Enterprise license |
-| Replicate secrets & configmaps | [Stakater Multi Tenant Operator](./mto/overview.md) | Enterprise license |
+| Replicate Secrets & ConfigMaps | [Stakater Multi Tenant Operator](./mto/overview.md) | Enterprise license |
 | GitOps application manager | Stakater Fabrikate | Enterprise license |
 | Management and issuance of TLS certificates | [cert-manager](./cert-manager/overview.md) | OSS |
 | Automated base image management | [Renovate](./renovate/overview.md) | OSS |

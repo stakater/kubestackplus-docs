@@ -1,16 +1,16 @@
-# Configuring your Application with Secrets and Configmaps
+# Configuring your Application with Secrets and ConfigMaps
 
 This comprehensive tutorial will walk you through the process of effectively utilizing `secrets` and `configmaps` within your application deployment. By the end of this tutorial, you will be equipped with the knowledge and skills to securely store sensitive information, set `environment variables` using `secrets`, and manage application configuration data using `configmaps`. Let's get started on enhancing the security and configuration aspects of your applications in SAAP!
 
 ## Objective
 
-- Define secrets and Configmaps in the `values.yaml` file for your application.
+- Define secrets and ConfigMaps in the `values.yaml` file for your application.
 - Set environment variables using secrets defined in the `values.yaml` file.
-- Configure volumes and mounts to access secrets and configmaps as files within your application.
+- Configure volumes and mounts to access secrets and ConfigMaps as files within your application.
 
 ## Key Results
 
-- Validate the functionality of secrets and configmaps in the deployed applications, ensuring sensitive information is accessed securely.
+- Validate the functionality of secrets and ConfigMaps in the deployed applications, ensuring sensitive information is accessed securely.
 
 ## Tutorial
 
@@ -40,11 +40,11 @@ This comprehensive tutorial will walk you through the process of effectively uti
     Look at the different colors that indicates indentation.
 
     !!! note
-        The indentation for `env` in `deploy/values.yaml` is **application.deployment.env**. You can also refer configmap in env, to see more [click](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-with-data-from-multiple-configmaps).
+        The indentation for `env` in `deploy/values.yaml` is **application.deployment.env**. You can also refer ConfigMap in env, to see more [click](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#define-container-environment-variables-with-data-from-multiple-configmaps).
 
-### Utilize `envFrom` to Access Configmaps
+### Utilize `envFrom` to Access ConfigMaps
 
-1. To utilize environment variables from a resource, such as Configmap, we can mention the `envFrom` field and specify the configmap name. Add this YAML to `deploy/values.yaml`. `envFrom` allows you to fetch all the environment variables define in this configmap.
+1. To utilize environment variables from a resource, such as ConfigMap, we can mention the `envFrom` field and specify the ConfigMap name. Add this YAML to `deploy/values.yaml`. `envFrom` allows you to fetch all the environment variables define in this ConfigMap.
 
     ```yaml
     # Example of using envFrom to load environment variables from a Configmap
@@ -58,20 +58,20 @@ This comprehensive tutorial will walk you through the process of effectively uti
             nameSuffix: config
     ```
 
-    >Note: **review-config** is referring the configmap defined in step #3.
+    >Note: **review-config** is referring the ConfigMap defined in step #3.
 
     It should look like this:
 
-    ![configmap](images/envfrom-config.png)
+    ![ConfigMap](images/envfrom-config.png)
 
     Look at the different colors that indicates indentation.
 
     !!! note
         The indentation for `envFrom` in `deploy/values.yaml` is `application.deployment.envFrom`. You can also reference secret in `envFrom`, to see more [click](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/#configure-all-key-value-pairs-in-a-secret-as-container-environment-variables).
 
-### Define Configmap Data in `values.yaml`
+### Define ConfigMap Data in `values.yaml`
 
-1. To extract the environment variables from a configmap via `envFrom` we must create a configmap. Add this to your `deploy/values.yaml`.
+1. To extract the environment variables from a ConfigMap via `envFrom` we must create a ConfigMap. Add this to your `deploy/values.yaml`.
 
     ```yaml
     ## Configmap defines the configuration for the Configmap that will be used in your application deployment.
@@ -89,7 +89,7 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
     It should look like this:
 
-    ![configmap definition](images/configmap.png)
+    ![ConfigMap definition](images/configmap.png)
 
     Look at the different colors that indicates indentation.
 
@@ -98,13 +98,13 @@ This comprehensive tutorial will walk you through the process of effectively uti
 
 1. Save the file and run `tilt up` at the root of your directory. Hit the space bar and the browser with `TILT` logs will be shown. If everything is green then the changes will be deployed on the cluster.
 
-1. login to SAAP, there should be a Configmap created in your project/namespace.
+1. Login to SAAP, there should be a ConfigMap created in your project/namespace:
 
-    ![Configmap show](images/configmap-show.png)
+    ![ConfigMap show](images/configmap-show.png)
 
-    Let's see the data in this Configmap.
+    Let's see the data in this ConfigMap:
 
-    ![Configmap data](images/configmap-data.png)
+    ![ConfigMap data](images/configmap-data.png)
 
     The environment variables that we have set for the **review-config** in `values.yaml` file are here.
 
@@ -143,20 +143,20 @@ You can also mount secrets as files in your application containers, enabling dir
 
 ### Using Secrets in Configuration Files
 
-If your application requires a configuration file with sensitive information, you can use a Configmap to store the file and mount it as a volume. The Configmap can be populated with the contents of the secret. To use secrets in configuration files:
+If your application requires a configuration file with sensitive information, you can use a ConfigMap to store the file and mount it as a volume. The ConfigMap can be populated with the contents of the secret. To use secrets in configuration files:
 
-1. Create a Configmap that includes the secret's data:
+1. Create a ConfigMap that includes the secret's data:
 
     `oc create configmap your-configmap --from-file=config.yml=secret_file.yml`
 
-1. Mount the Configmap as a volume in your deployment within your `deploy/values.yaml`.
+1. Mount the ConfigMap as a volume in your deployment within your `deploy/values.yaml`.
 
     ```yaml
     ## Define volumes
         volumes:
       # Define the volume named "config-volume"
           - name: config-volume
-      # Populate the volume with data from a Configmap named "your-configmap"
+      # Populate the volume with data from a ConfigMap named "your-configmap"
             configMap:
               name: your-configmap
     ## Define volumeMounts
@@ -169,11 +169,11 @@ If your application requires a configuration file with sensitive information, yo
 
     It should look like this:
 
-    ![configmap volumes and volume mounts](images/volume-config.png)
+    ![ConfigMap volumes and volume mounts](images/volume-config.png)
 
     Look at the different colors that indicates indentation.
 
     !!! note
         The indentation should be: **application.deployment.volumes** and **application.deployment.volumeMounts**.
 
-    In the above example, the `your-configmap` Configmap is mounted as a volume named `config-volume` at the path `/etc/config` within the container.
+    In the above example, the `your-configmap` ConfigMap is mounted as a volume named `config-volume` at the path `/etc/config` within the container.

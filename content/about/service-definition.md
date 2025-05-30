@@ -304,7 +304,7 @@ SAAP includes [Tilt](https://tilt.dev/) to streamline the developer experience. 
 
 ### Reloader
 
-SAAP includes [Stakater Reloader](https://github.com/stakater/Reloader), which automatically restarts applications when configmaps or secrets change. This integration streamlines updates, enhances reliability, and minimizes downtime for developers.
+SAAP includes [Stakater Reloader](https://github.com/stakater/Reloader), which automatically restarts applications when ConfigMaps or Secrets change. This integration streamlines updates, enhances reliability, and minimizes downtime for developers.
 
 ### Forecastle
 

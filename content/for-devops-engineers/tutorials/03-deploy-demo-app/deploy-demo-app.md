@@ -142,7 +142,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
       version: 1.0.0
     ```
 
-1. The `values.yaml` contains all the application specific **Kubernetes resources** (deployments, configmaps, namespaces, secrets, services, route, `podautoscalers`, RBAC) for the particular environment. Configure Helm values as per application needs.
+1. The `values.yaml` contains all the application specific **Kubernetes resources** (deployments, ConfigMaps, namespaces, secrets, services, route, `podautoscalers`, RBAC) for the particular environment. Configure Helm values as per application needs.
 
     Here is a minimal values file defined for an application with deployment,route,service.
 
