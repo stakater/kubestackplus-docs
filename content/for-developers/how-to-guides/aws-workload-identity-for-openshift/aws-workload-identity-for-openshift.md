@@ -1,6 +1,6 @@
-# Configure AWS Workload Identity for Openshift Clusters
+# Configure AWS Workload Identity for OpenShift Clusters
 
-This guide provides step-by-step instructions for setting up AWS Workload Identity for Openshift clusters.
+This guide provides step-by-step instructions for setting up AWS Workload Identity for OpenShift clusters.
 
 ## Objectives
 
@@ -31,7 +31,8 @@ Fetch the JSON Web Key Set (JWKS) for your OpenShift cluster:
 ```bash
 kubectl get --raw /openid/v1/jwks > jwks.json
 ```
-**Output:** jwks.json containing the public keys used to verify tokens.
+
+**Output:** `jwks.json` containing the public keys used to verify tokens.
 
 ### Step 2: Prepare OIDC Configuration Files
 
@@ -42,12 +43,13 @@ kubectl get --raw /openid/v1/jwks > jwks.json
   ```bash
   kubectl get --raw /.well-known/openid-configuration
   ```
+
   and save as openid-configuration.
   You would notice that `issuer` and `jwks_uri` has `kubernetes.default.svc` set. In later stage, we will update this.
 
 - `jwks.json`
 
-  Ensure the file from step 1 above is named jwks.json.
+  Ensure the file from step 1 above is named `jwks.json`.
 
 ### Step 3: Host Files in S3 (or Other Object Storage)
 
@@ -55,7 +57,7 @@ kubectl get --raw /openid/v1/jwks > jwks.json
 
 - Disable `Block all public access` so that `.well-known` folder can be accessed globally.
 
-- At this point, you would have public url for this bucket. Update openid-configuration file and replace `kubernetes.default.svc` with bucket url.
+- At this point, you would have public URL for this bucket. Update openid-configuration file and replace `kubernetes.default.svc` with bucket URL.
 
 - Upload both JSON files under a folder named `.well-known/`:
 
@@ -91,7 +93,7 @@ kubectl get --raw /openid/v1/jwks > jwks.json
 
 - Provider type: `OpenID Connect`
 
-- Provider URL: Paste in the bucket url that was created in step 3.
+- Provider URL: Paste in the bucket URL that was created in step 3.
 
 - Audience: `sts.amazonaws.com`
 
@@ -148,7 +150,8 @@ Create a service account token to confirm the issuer:
 TOKEN=$(oc serviceaccounts get-token default -n default)
 echo $TOKEN | jwt decode --json | jq .iss
 ```
-You should see your S3 bucket URL as the iss claim.
+
+You should see your S3 bucket URL as the `iss` claim.
 
 ### Step 8: Deploy the Pod Identity Webhook
 
@@ -164,6 +167,8 @@ You should see your S3 bucket URL as the iss claim.
   --namespace <crossplane namespace> \
   --version 2.5.2 \
   -f webhook-values.yaml
+  ```
+
 <details> <summary><strong>Minimal <code>webhook-values.yaml</code> Example</strong></summary>
 
 ```yaml
@@ -192,6 +197,7 @@ Annotate any service account used by Crossplane AWS providers:
 ```bash
 oc annotate sa <space separated list of service accounts> -n <crossplane namespace> eks.amazonaws.com/role-arn=<ARN of the role that we have specified as permission in step 5>
 ```
+
 ### Step 10: Confirm Token Injection
 
 Describe a provider pod and look for the projected volume:
