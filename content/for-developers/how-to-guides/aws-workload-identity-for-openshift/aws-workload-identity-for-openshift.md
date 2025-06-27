@@ -57,7 +57,23 @@ kubectl get --raw /openid/v1/jwks > jwks.json
 
 - Disable `Block all public access` so that `.well-known` folder can be accessed globally.
 
-- At this point, you would have public URL for this bucket. Update openid-configuration file and replace `kubernetes.default.svc` with bucket URL.
+- At this point, you would have public URL for this bucket. Update `openid-configuration` file and replace `kubernetes.default.svc` with bucket URL. After this `openid-configuration` should look something like this:
+
+  ```json
+  {
+   "issuer":"https://<s3 bucket URL>",
+   "jwks_uri":"https://<s3 bucket URL>/.well-known/jwks.json",
+   "response_types_supported":[
+      "id_token"
+   ],
+   "subject_types_supported":[
+      "public"
+   ],
+   "id_token_signing_alg_values_supported":[
+      "RS256"
+   ]
+  }
+  ```
 
 - Upload both JSON files under a folder named `.well-known/`:
 
@@ -93,13 +109,13 @@ kubectl get --raw /openid/v1/jwks > jwks.json
 
 - Provider type: `OpenID Connect`
 
-- Provider URL: Paste in the bucket URL that was created in step 3.
+- Provider URL: Paste in the bucket URL that was created in step 3. Example: `https://<s3 bucket URL>`
 
 - Audience: `sts.amazonaws.com`
 
 ### Step 5: Define an IAM Role for Your Workloads
 
-- **Permissions:** Attach an IAM policy (or existing managed policy) granting the actions your Crossplane controllers need.
+- **Permissions:** Create an IAM role and attach an IAM policy (or existing managed policy) granting the actions your Crossplane controllers need.
 
 - **Trust relationship:** Restrict assume-role to your OpenShift service accounts:
 
@@ -207,6 +223,9 @@ oc describe pod <provider-pod-name> -n <crossplane namespace>
 ```
 
 You should see a volume at: `/var/run/secrets/eks.amazonaws.com/serviceaccount`
+
+!!! note
+    If you are unable to see this volume attached to Provider pods, try restarting these pods. At this point you can also check if the service account this is annotated is indeed used by these pods.
 
 ### Step 11: Create Crossplane ProviderConfig
 
