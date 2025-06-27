@@ -61,7 +61,7 @@ kubectl get --raw /openid/v1/jwks > jwks.json
 
 - Upload both JSON files under a folder named `.well-known/`:
 
-  ```
+  ```bash
   .well-known/
   ├── jwks.json
   └── openid-configuration
