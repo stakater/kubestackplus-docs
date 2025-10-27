@@ -1,36 +1,40 @@
-# Overview
+# **Overview**
 
-Stakater's App Agility Platform (SAAP) is a group of practices and tools that lets developers take control of and configure the entire cloud development loop. SAAP helps ship and scale containerized software faster and stay online 24x7 across Hybrid Cloud.
+## **What is KubeStack+**
 
-Stakater believes that Kubernetes is becoming the new foundation for compute and that over time, most applications will run on it in some form.
+**KubeStack+** is a next-generation Kubernetes Application Platform that brings together everything your teams need to deliver, operate, and govern modern applications — faster and safer.
 
-Organizations have adopted containers and Kubernetes to automate their applications operations and make their business applications portable, secure, easy to manage and scalable. While booting a Kubernetes cluster is fairly painless, a production grade Kubernetes environment can be complex, and require significant expertise to operate. Additionally managing an application platform on top of that is considerably challenging. Companies not only require an application stack for running their business processes, they need such an application stack to be configurable yet consistent and auditable, upgradable and DevOps enabled yet upgradable and cost-effective.
+Built by practitioners who have operated large-scale Kubernetes environments for years, KubeStack+ transforms Kubernetes from a complex infrastructure layer into a governed, compliant, and developer-friendly platform.
 
-Companies require a solution with a justifiable return on their investment.
+At its core, it is:
 
-![Stakater App Agility Platform](./about/images/saap.jpg)
+> **Dev Ready. Ops Ready. Compliance Ready.**
 
-Stakater App Agility Platform is a fully managed enterprise Kubernetes platform. With Stakater App Agility Platform, innovators can focus on what matters, stay competitive, and outpace rising customer expectations without worrying about managing the underlying infrastructure.
+## **Why KubeStack+**
 
-With Stakater App Agility Platform, Stakater builds and manages your OpenShift clusters, allowing you to focus on your business. Stakater offers Stakater App Agility Platform for on-premises or your choice of public cloud allowing you to optimize your multi-cloud strategy that best suits your needs. Stakater App Agility Platform enables your teams across your organizations to consume OpenShift as a Service.
+Organizations adopting Kubernetes often face three recurring challenges:
 
-With Stakater App Agility Platform you can deploy a containerized, hybrid environment to meet digital business needs for running your mission critical systems.
+1. Developers spend too much time wiring pipelines and environments instead of shipping value.
+2. Operations teams struggle to maintain consistency, security, and cost control across clusters.
+3. Compliance and governance are treated as an afterthought — reactive, manual, and painful.
 
-## SAAP or bare Kubernetes?
+**KubeStack+** solves these by unifying the Dev, Ops, and Compliance experience into a single, automated platform.
+It provides golden paths for developers, scalable automation for operators, and built-in governance for compliance teams — all working seamlessly together.
 
-SAAP is often referred to as "enterprise Kubernetes," but it can be hard to understand what that really means at first glance. Customers frequently ask, "SAAP or bare Kubernetes?" However, it's important to understand that SAAP already uses Kubernetes. In the overall SAAP architecture, Kubernetes provides both the foundation on which the SAAP platform is built and much of the tooling for running SAAP.
+## **Core Pillars**
 
-Kubernetes is an incredibly important open-source project—one of the key projects of the Cloud Native Computing Foundation and an essential technology in running containers.
+* **Dev Ready** — Accelerate delivery with pre-integrated CI/CD pipelines, golden templates, and self-service developer workspaces.
+* **Ops Ready** — Run production workloads at scale with built-in multi-tenancy, observability, upgrades, and day-2 automation.
+* **Compliance Ready** — Stay audit-ready with policy enforcement, security baselines, and evidence mapped to ISO 27001, NIS2, and DORA.
 
-However, the real question that potential users of SAAP might have is, "Can I just run my applications with Kubernetes alone?" Many organizations start by deploying Kubernetes and find that they can get a container, even an enterprise application, running in just a few days. However, as the Day-2 operations begin, security requirements arise, and more applications are deployed, some organizations find themselves falling into the trap of building their own platform as a service (PaaS) with Kubernetes technology. They add an open-source ingress controller, write a few scripts to connect to their continuous integration/continuous deployment (CI/CD) pipelines, and then try to deploy a more complex application... and that is when the problems start. If deploying Kubernetes were the tip of the iceberg, then the complexity of Day-2 management would be the hidden, vast, ship-sinking bulk of that same iceberg under the water.
+These three pillars form the foundation of the KubeStack+ experience — ensuring every team moves fast **without losing control.**
 
-While it's possible to start solving these challenges and problems, it often takes an operations team of several people, and several weeks and months of effort to build and maintain this "custom PaaS built on Kubernetes." This leads to inefficiency in the organization, complexity in supporting this from a perspective of security and certification, as well as having to develop everything from scratch when onboarding developer teams. If an organization were to list out all the tasks of building and maintaining this custom Kubernetes platform—that is, Kubernetes—with all the extra components needed to run containers successfully, they would be grouped up as follows:
+## **Designed for Regulated and High-Trust Environments**
 
-- **Cluster management:** This includes installing OSes, patching the OS, installing Kubernetes, configuring CNI networking, authentication integration,
-Ingress and Egress setup, persistent storage setup, hardening nodes, security patching, and configuring the underlying cloud/multicloud.
-- **Application services:** These include log aggregation, health checks, performance monitoring, security patching, container registry, and setting up
-the application staging process.
-- **Developer integration:** This includes CI/CD integration, developer tooling/IDE integration, framework integration, middleware compatibility, providing
-application performance dashboards, and RBAC.
+KubeStack+ was built for organizations that demand both agility and assurance.
+Whether you’re a financial institution, telecom, or public-sector agency, the platform embeds governance and data-sovereignty practices from the start — including EU-hosted options and clear shared-responsibility boundaries.
 
-While there are many more actions and technologies that could be added to the list—most of those activities are essential for any organization to seriously use containers—the complexity, time, and effort in just setting all of that up is insignificant to the ongoing maintenance of those individual pieces. Each integration needs to be thoroughly tested, and each component and activity will have a different release cycle, security policy, and patches.
+## **From Code to Compliant in Hours**
+
+With KubeStack+, teams can go from a clean cluster to a fully governed, production-grade application environment in a matter of hours — not weeks.
+That’s the power of being **Dev Ready, Ops Ready, and Compliance Ready** from day one.
