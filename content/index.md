@@ -32,7 +32,7 @@ These three pillars form the foundation of the KubeStack+ experience — ensurin
 ## Designed for Regulated and High-Trust Environments
 
 KubeStack+ was built for organizations that demand both agility and assurance.
-Whether you’re a financial institution, telecom, or public-sector agency, the platform embeds governance and data-sovereignty practices from the start — including EU-hosted options and clear shared-responsibility boundaries.
+Whether you’re a financial institution, telcos, or public-sector agency, the platform embeds governance and data-sovereignty practices from the start — including EU-hosted options and clear shared-responsibility boundaries.
 
 ## From Code to Compliant in Hours
 
