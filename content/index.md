@@ -15,8 +15,8 @@ At its core, it is:
 Organizations adopting Kubernetes often face three recurring challenges:
 
 1. Developers spend too much time wiring pipelines and environments instead of shipping value.
-2. Operations teams struggle to maintain consistency, security, and cost control across clusters.
-3. Compliance and governance are treated as an afterthought — reactive, manual, and painful.
+1. Operations teams struggle to maintain consistency, security, and cost control across clusters.
+1. Compliance and governance are treated as an afterthought — reactive, manual, and painful.
 
 **KubeStack+** solves these by unifying the Dev, Ops, and Compliance experience into a single, automated platform.
 It provides golden paths for developers, scalable automation for operators, and built-in governance for compliance teams — all working seamlessly together.
