@@ -65,7 +65,7 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 |---|---:|---:|
 | [Stakater Forecastle](https://github.com/stakater/Forecastle)  | 50 | 0.20 |
 | [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 | 0.60 |
-| Stakater Kubehealth (SAAP components monitoring) | 150 | 0.40 |
+| Stakater KubeHealth (SAAP components monitoring) | 150 | 0.40 |
 | [Stakater Multi Tenant Operator](https://docs.stakater.com/mto/index.html)  | 600 | 1.20 |
 | [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 | 0.30 |
 | [Stakater Reloader](https://github.com/stakater/Reloader) | 20 | 0.50 |
