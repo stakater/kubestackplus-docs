@@ -322,7 +322,7 @@ SAAP comes integrated with [Stakater MTO (Multi-Tenant Operator)](https://docs.s
 
 SAAP includes an Istio-based service mesh with a single control plane supported out of the box. Multiple control planes can be enabled upon request. For assistance, open a [support ticket](https://support.stakater.com/index.html).
 
-## Internal Development Platform (IDP) - Backstage
+## Internal Development Platform - Backstage
 
 SAAP includes a customized [Backstage](https://github.com/backstage/backstage) instance, providing a unified developer portal for managing applications. It enhances developer productivity and can be further tailored to meet specific needs.
 

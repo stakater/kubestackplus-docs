@@ -1,6 +1,6 @@
 # User Access (SSO)
 
-By default, users logged in (via OAuth external IDPs) do not have any permissions
+By default, users logged in (via OAuth external indentity providers) do not have any permissions
 
 Two types of permissions can be granted to a user:
 
