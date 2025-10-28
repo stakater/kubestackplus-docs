@@ -13,17 +13,17 @@ COPY --chown=1001:root . .
 RUN chmod +x prepare_theme.sh && ./prepare_theme.sh
 RUN mkdocs build
 FROM nginxinc/nginx-unprivileged:1.29-alpine AS deploy
-COPY --from=builder $HOME/application/site/ /usr/share/nginx/html/saap/
+COPY --from=builder $HOME/application/site/ /usr/share/nginx/html/kubestackplus/
 COPY default.conf /etc/nginx/conf.d/
 
 # set non-root user
 USER 1001
 
-LABEL name="Stakater App Agility Platform (SAAP) Documentation" \
+LABEL name="Stakater KubeStack+ Documentation" \
       maintainer="Stakater <hello@stakater.com>" \
       vendor="Stakater" \
       release="1" \
-      summary="Documentation for SAAP"
+      summary="Documentation for Stakater KubeStack+"
 
 EXPOSE 8080:8080/tcp
 
