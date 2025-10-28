@@ -39,22 +39,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
 
-      - name: Run Docker container for the saap-docs app
+      - name: Run Docker container for the kubestackplus-docs app
         run: |
-          docker run -d --name saap-docs -p 8080:8080 ${{ env.IMAGE_PATH }}
+          docker run -d --name kubestackplus-docs -p 8080:8080 ${{ env.IMAGE_PATH }}
 
-      - name: Wait for saap-docs app to be ready
+      - name: Wait for kubestackplus-docs app to be ready
         run: |
           timeout 60 bash -c 'until curl -f http://localhost:8080/ > /dev/null 2>&1; do sleep 2; done'
 
       - name: Run Playwright tests (Dockerized)
         run: |
           cd e2e
-          docker build -t saap-docs-e2e-tests .
-          docker run --rm --network host saap-docs-e2e-tests
+          docker build -t kubestackplus-docs-e2e-tests .
+          docker run --rm --network host kubestackplus-docs-e2e-tests
 
       - name: Cleanup Docker container
         if: always()
         run: |
-          docker stop saap-docs || true
-          docker rm saap-docs || true
+          docker stop kubestackplus-docs || true
+          docker rm kubestackplus-docs || true

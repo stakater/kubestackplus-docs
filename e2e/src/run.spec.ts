@@ -23,17 +23,17 @@ async function openSearchIfVisible(page) {
 }
 
 test('Verify index file exists', async ({ page }) => {
-  await page.goto('/saap/index.html');
-  await expect(page).toHaveURL(/\/saap\/index\.html$/);
+  await page.goto('/kubestackplus/index.html');
+  await expect(page).toHaveURL(/\/kubestackplus\/index\.html$/);
 });
 
 test('Verify custom 404 file exists', async ({ page }) => {
-  await page.goto('/saap/404.html');
-  await expect(page).toHaveURL(/\/saap\/404\.html$/);
+  await page.goto('/kubestackplus/404.html');
+  await expect(page).toHaveURL(/\/kubestackplus\/404\.html$/);
 });
 
 test('Search for incorrectly rendered fenced code blocks', async ({ page }) => {
-  await page.goto('/saap/');
+  await page.goto('/kubestackplus/');
   await page.waitForLoadState('domcontentloaded');
   await acceptConsentIfPresent(page);
   await openSearchIfVisible(page);
@@ -48,7 +48,7 @@ test('Search for incorrectly rendered fenced code blocks', async ({ page }) => {
 });
 
 test('Search for incorrectly rendered admonitions', async ({ page }) => {
-  await page.goto('/saap/');
+  await page.goto('/kubestackplus/');
   await page.waitForLoadState('domcontentloaded');
   await acceptConsentIfPresent(page);
   await openSearchIfVisible(page);
