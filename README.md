@@ -1,6 +1,6 @@
-# Stakater App Agility Platform (SAAP) Documentation
+# Stakater KubeStack+ Documentation
 
-SAAP docs are built using [MkDocs](https://github.com/mkdocs/mkdocs) which is based on Python.
+KubeStack+ docs are built using [MkDocs](https://github.com/mkdocs/mkdocs) which is based on Python.
 
 ## GitHub Actions
 
@@ -34,7 +34,7 @@ Run test container:
 docker run -p 8080:8080 test
 ```
 
-Then access the docs on [`localhost:8080/saap`](localhost:8080/saap).
+Then access the docs on [`localhost:8080/kubestackplus`](localhost:8080/kubestackplus).
 
 ### Run commands locally
 

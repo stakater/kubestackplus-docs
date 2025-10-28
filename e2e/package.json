@@ -1,5 +1,5 @@
 {
-  "name": "saap-docs-playwright-tests",
+  "name": "kubestackplus-docs-playwright-tests",
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
