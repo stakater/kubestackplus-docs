@@ -292,4 +292,4 @@ Visit the OpenShift console to verify the application deployment.
 
 Visit the application URL using routes to check if application is working as expected.
 
-![review-web-ui](../images/review-web-ui.png)
+![review-web-UI](../images/review-web-ui.png)

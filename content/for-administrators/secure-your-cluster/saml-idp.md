@@ -1,6 +1,6 @@
 # Configuring a SAML identity provider
 
-SAML v2.0 based IDPs can also be integrated with SAAP.
+SAML v2.0 based solutions can also be integrated with SAAP.
 
 Configurations for SAML are specific to tools and organizations.
 

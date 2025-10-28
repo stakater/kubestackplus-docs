@@ -1,7 +1,7 @@
 # Cert Manager Operator
 
 SAAP uses [Cert-Manager](https://cert-manager.io/) to provide Automatic rotation of Certificates for application workloads.
-It will ensure certificates are valid and up to date, and attempt to renew certificates at a configured time before expiry. It can issue certificates from a variety of supported sources, including `Let's Encrypt`, `Hashicorp Vault`, and `Venafi` as well as `private PKI`.
+It will ensure certificates are valid and up to date, and attempt to renew certificates at a configured time before expiry. It can issue certificates from a variety of supported sources, including `Let's Encrypt`, `HashiCorp Vault`, and `Venafi` as well as `private PKI`.
 
 ## Example Certificate Generation using Let's Encrypt
 
