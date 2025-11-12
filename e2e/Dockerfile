@@ -1,5 +1,5 @@
 # Stage 1: Install Playwright browsers and dependencies
-FROM node:22-bookworm AS playwright-setup
+FROM node:24-bookworm AS playwright-setup
 
 # Install only Chromium and system dependencies
 RUN npx playwright install --with-deps chromium
