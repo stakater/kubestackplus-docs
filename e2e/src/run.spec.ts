@@ -11,10 +11,17 @@ const selectors = {
 
 async function acceptConsentIfPresent(page) {
   const accept = page.locator(`${selectors.consentControlsDiv} button:has-text("${selectors.acceptButtonText}")`);
-  if (await accept.isVisible()) {
-    await accept.click();
-    await page.locator(selectors.consentDialog).waitFor({ state: 'hidden' });
+  // isVisible() does not wait. The consent banner is rendered by script after
+  // domcontentloaded, so an immediate check can miss it, skip the accept, and
+  // leave .md-consent__overlay to intercept the next click 30s later. Wait a
+  // bounded amount for it instead, and tolerate it genuinely not being there.
+  try {
+    await accept.waitFor({ state: 'visible', timeout: 5000 });
+  } catch {
+    return;
   }
+  await accept.click();
+  await page.locator(selectors.consentDialog).waitFor({ state: 'hidden' });
 }
 
 async function openSearchIfVisible(page) {
