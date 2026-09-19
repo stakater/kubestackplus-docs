@@ -1,4 +1,4 @@
-FROM node:22-bookworm
+FROM node:24-bookworm
 
 # Set the working directory inside the container
 WORKDIR /e2e
