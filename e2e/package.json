@@ -7,7 +7,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",
-    "@types/node": "^22.0.0"
+    "@types/node": "^24.0.0"
   },
   "scripts": {
     "local": "playwright test --headed",
