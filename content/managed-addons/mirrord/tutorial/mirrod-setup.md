@@ -70,7 +70,7 @@ Edit your `<project-path>/.mirrord/mirrord.json` file with the following configu
 - **`agent.resources`**: Define both resource requests and limits to ensure the mirrord agent runs efficiently.
 - **`agent.service_account`**: Provide the service account that the mirrord agent will use. Confirm this value with your cluster administrator if necessary.
 
-For a complete configuration reference, see the [mirrord configuration documentation](https://mirrord.dev/docs/reference/configuration/#root-complete).
+For a complete configuration reference, see the [mirrord configuration documentation](https://metalbear.com/mirrord/docs/config/options).
 
 ## Step 4: Configure VSCode Debugger
 
